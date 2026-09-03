@@ -42,11 +42,12 @@ class DatasetContractAuditTest(unittest.TestCase):
             write_rows(dev, [row("full", "dev", "GOLD", [0, len("non amo la pioggia")])])
             result = audit([("generated-train", train), ("gold-dev", dev)])
         self.assertTrue(result["decisionRequired"])
-        self.assertEqual("NEGATION_SCOPE_CONVENTION_CONFLICT",
-                         result["contractConflicts"][0]["kind"])
+        self.assertIn("NEGATION_SCOPE_CONVENTION_CONFLICT",
+                      {item["kind"] for item in result["contractConflicts"]})
         self.assertFalse(result["scope"]["frozenTestRead"])
         self.assertEqual(0, result["semanticSpanContainment"]["failureCount"])
         self.assertTrue(has_critical_findings(result))
+        self.assertEqual(1, result["exactInputAnnotationConflicts"]["count"])
 
     def test_rejects_frozen_test_rows(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -63,6 +64,19 @@ class DatasetContractAuditTest(unittest.TestCase):
             second = audit([("dev", path)])
         self.assertEqual(first, second)
         self.assertFalse(has_critical_findings(first))
+
+    def test_context_distinguishes_otherwise_identical_inputs(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            first_path, second_path = root / "first.jsonl", root / "second.jsonl"
+            first = row("first", "train", "A", [0, 3])
+            second = row("second", "dev", "B", [0, len("non amo la pioggia")])
+            first["context"] = {"speaker": "PLAYER"}
+            second["context"] = {"speaker": "NPC"}
+            write_rows(first_path, [first])
+            write_rows(second_path, [second])
+            result = audit([("first", first_path), ("second", second_path)])
+        self.assertEqual(0, result["exactInputAnnotationConflicts"]["count"])
 
 
 if __name__ == "__main__":

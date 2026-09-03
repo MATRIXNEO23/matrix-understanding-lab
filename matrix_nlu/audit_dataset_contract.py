@@ -77,12 +77,20 @@ def audit(named_datasets: list[tuple[str, pathlib.Path]]) -> dict:
     temporal = collections.Counter()
     semantic_span_failures = []
     signature_shapes: dict[tuple[str, str], set[str]] = collections.defaultdict(set)
+    exact_inputs: dict[tuple[str, str, str], list[dict]] = collections.defaultdict(list)
 
     for dataset_name, path in named_datasets:
         rows, manifest = read_dataset(dataset_name, path)
         manifests.append(manifest)
         for row in rows:
             provenance = row.get("provenance", {}).get("kind", "UNKNOWN")
+            exact_inputs[(row["language"], row["text"].casefold(),
+                          json.dumps(row.get("context", {}), sort_keys=True))].append({
+                "dataset": dataset_name,
+                "id": row["id"],
+                "claims": [{"labels": claim["labels"], "spans": claim["spans"]}
+                           for claim in row["claims"]],
+            })
             for index, claim in enumerate(row["claims"]):
                 spans = claim["spans"]
                 source = spans["source"]
@@ -115,7 +123,31 @@ def audit(named_datasets: list[tuple[str, pathlib.Path]]) -> dict:
                           row["language"], labels["temporalRelation"],
                           "PRESENT" if spans.get("temporal") else "ABSENT")] += 1
 
+    exact_conflicts = []
+    for (language, text, context), occurrences in sorted(exact_inputs.items()):
+        if len({item["dataset"] for item in occurrences}) < 2:
+            continue
+        signatures = {json.dumps(item["claims"], sort_keys=True)
+                      for item in occurrences}
+        if len(signatures) > 1:
+            exact_conflicts.append({
+                "language": language,
+                "text": text,
+                "context": json.loads(context),
+                "occurrences": occurrences,
+            })
+
     conflicts = []
+    if exact_conflicts:
+        conflicts.append({
+            "kind": "EXACT_INPUT_ANNOTATION_CONFLICT",
+            "count": len(exact_conflicts),
+            "byLanguage": {language: sum(item["language"] == language
+                                         for item in exact_conflicts)
+                           for language in LANGUAGES},
+            "impact": "the same model input/context has more than one gold target",
+            "resolution": "canonical annotation versioning required before retraining",
+        })
     for signature, shapes in sorted(signature_shapes.items()):
         non_absent = shapes - {"ABSENT"}
         if "FULL_SOURCE" in non_absent and len(non_absent) > 1:
@@ -140,6 +172,13 @@ def audit(named_datasets: list[tuple[str, pathlib.Path]]) -> dict:
             "failureCount": len(semantic_span_failures),
             "failures": semantic_span_failures[:100],
         },
+        "exactInputAnnotationConflicts": {
+            "count": len(exact_conflicts),
+            "byLanguage": {language: sum(item["language"] == language
+                                         for item in exact_conflicts)
+                           for language in LANGUAGES},
+            "examples": exact_conflicts[:100],
+        },
         "negativeClaimScope": {
             "dimensions": ["dataset", "split", "provenance", "language",
                            "predicate", "shape"],
@@ -158,7 +197,8 @@ def audit(named_datasets: list[tuple[str, pathlib.Path]]) -> dict:
 
 def has_critical_findings(result: dict) -> bool:
     return bool(result["decisionRequired"] or
-                result["semanticSpanContainment"]["failureCount"])
+                result["semanticSpanContainment"]["failureCount"] or
+                result["exactInputAnnotationConflicts"]["count"])
 
 
 def parse_dataset(value: str) -> tuple[str, pathlib.Path]:

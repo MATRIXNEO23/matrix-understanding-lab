@@ -78,6 +78,1527 @@
     "failureCount": 0,
     "failures": []
   },
+  "exactInputAnnotationConflicts": {
+    "count": 7,
+    "byLanguage": {
+      "it": 2,
+      "en": 3,
+      "es": 2
+    },
+    "examples": [
+      {
+        "language": "en",
+        "text": "i do not like rain",
+        "context": {
+          "knownEntities": {},
+          "observer": "luna",
+          "recentEntityRefs": [],
+          "speaker": "PLAYER"
+        },
+        "occurrences": [
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00049",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    5,
+                    8
+                  ],
+                  "object": [
+                    14,
+                    18
+                  ],
+                  "source": [
+                    0,
+                    18
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00229",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    5,
+                    8
+                  ],
+                  "object": [
+                    14,
+                    18
+                  ],
+                  "source": [
+                    0,
+                    18
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00409",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    5,
+                    8
+                  ],
+                  "object": [
+                    14,
+                    18
+                  ],
+                  "source": [
+                    0,
+                    18
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00589",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    5,
+                    8
+                  ],
+                  "object": [
+                    14,
+                    18
+                  ],
+                  "source": [
+                    0,
+                    18
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "p05-dev",
+            "id": "p05-P05-002-en",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    18
+                  ],
+                  "object": [
+                    14,
+                    18
+                  ],
+                  "source": [
+                    0,
+                    18
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "en",
+        "text": "my name is albert",
+        "context": {
+          "knownEntities": {},
+          "observer": "luna",
+          "recentEntityRefs": [],
+          "speaker": "PLAYER"
+        },
+        "occurrences": [
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00000",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00180",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00360",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00540",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "p05-train",
+            "id": "p05-S01-en",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": [
+                    11,
+                    17
+                  ],
+                  "temporal": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "en",
+        "text": "my name is clara",
+        "context": {
+          "knownEntities": {},
+          "observer": "luna",
+          "recentEntityRefs": [],
+          "speaker": "PLAYER"
+        },
+        "occurrences": [
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00045",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00225",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00405",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-en-00585",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "p05-train",
+            "id": "p05-P05-013-en",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        11,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    11,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": [
+                    11,
+                    16
+                  ],
+                  "temporal": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "es",
+        "text": "me llamo alberto",
+        "context": {
+          "knownEntities": {},
+          "observer": "luna",
+          "recentEntityRefs": [],
+          "speaker": "PLAYER"
+        },
+        "occurrences": [
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-es-00000",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        9,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    9,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-es-00180",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        9,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    9,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-es-00360",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        9,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    9,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-es-00540",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        9,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    9,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "p05-train",
+            "id": "p05-S01-es",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        9,
+                        16
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    9,
+                    16
+                  ],
+                  "source": [
+                    0,
+                    16
+                  ],
+                  "subject": [
+                    9,
+                    16
+                  ],
+                  "temporal": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "es",
+        "text": "no me gusta la lluvia",
+        "context": {
+          "knownEntities": {},
+          "observer": "luna",
+          "recentEntityRefs": [],
+          "speaker": "PLAYER"
+        },
+        "occurrences": [
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-es-00049",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    2
+                  ],
+                  "object": [
+                    12,
+                    21
+                  ],
+                  "source": [
+                    0,
+                    21
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-es-00229",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    2
+                  ],
+                  "object": [
+                    12,
+                    21
+                  ],
+                  "source": [
+                    0,
+                    21
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-es-00409",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    2
+                  ],
+                  "object": [
+                    12,
+                    21
+                  ],
+                  "source": [
+                    0,
+                    21
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-es-00589",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    2
+                  ],
+                  "object": [
+                    12,
+                    21
+                  ],
+                  "source": [
+                    0,
+                    21
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "p05-dev",
+            "id": "p05-P05-002-es",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    21
+                  ],
+                  "object": [
+                    12,
+                    21
+                  ],
+                  "source": [
+                    0,
+                    21
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "it",
+        "text": "mi chiamo alberto",
+        "context": {
+          "knownEntities": {},
+          "observer": "luna",
+          "recentEntityRefs": [],
+          "speaker": "PLAYER"
+        },
+        "occurrences": [
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-it-00000",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        10,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    10,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-it-00180",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        10,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    10,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-it-00360",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        10,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    10,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-it-00540",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        10,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    10,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "p05-train",
+            "id": "p05-S01-it",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "POSITIVE",
+                  "predicate": "identity.name",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [
+                    {
+                      "referent": "SPEAKER",
+                      "span": [
+                        10,
+                        17
+                      ],
+                      "type": "PERSON"
+                    }
+                  ],
+                  "negation": null,
+                  "object": [
+                    10,
+                    17
+                  ],
+                  "source": [
+                    0,
+                    17
+                  ],
+                  "subject": [
+                    10,
+                    17
+                  ],
+                  "temporal": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "it",
+        "text": "non amo i locali affollati",
+        "context": {
+          "knownEntities": {},
+          "observer": "luna",
+          "recentEntityRefs": [],
+          "speaker": "PLAYER"
+        },
+        "occurrences": [
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-it-00004",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    3
+                  ],
+                  "object": [
+                    8,
+                    26
+                  ],
+                  "source": [
+                    0,
+                    26
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-it-00184",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    3
+                  ],
+                  "object": [
+                    8,
+                    26
+                  ],
+                  "source": [
+                    0,
+                    26
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-it-00364",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    3
+                  ],
+                  "object": [
+                    8,
+                    26
+                  ],
+                  "source": [
+                    0,
+                    26
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "matrix-train",
+            "id": "mx-train-it-00544",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    3
+                  ],
+                  "object": [
+                    8,
+                    26
+                  ],
+                  "source": [
+                    0,
+                    26
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          },
+          {
+            "dataset": "p05-train",
+            "id": "p05-S05-it",
+            "claims": [
+              {
+                "labels": {
+                  "claimKind": "EXPLICIT",
+                  "dialogueAct": "ASSERT",
+                  "ownerReferent": "SUBJECT",
+                  "perspectiveReferent": "SPEAKER",
+                  "polarity": "NEGATIVE",
+                  "predicate": "preference.like",
+                  "subjectReferent": "SPEAKER",
+                  "targetReferent": "NONE",
+                  "temporalRelation": "ATEMPORAL",
+                  "worldTruth": false
+                },
+                "spans": {
+                  "entities": [],
+                  "negation": [
+                    0,
+                    26
+                  ],
+                  "object": [
+                    8,
+                    26
+                  ],
+                  "source": [
+                    0,
+                    26
+                  ],
+                  "subject": null,
+                  "temporal": null
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "negativeClaimScope": {
     "dimensions": [
       "dataset",
@@ -918,6 +2439,17 @@
     "note": "absence can be legitimate for implicit tense; this section is evidence, not an automatic defect"
   },
   "contractConflicts": [
+    {
+      "kind": "EXACT_INPUT_ANNOTATION_CONFLICT",
+      "count": 7,
+      "byLanguage": {
+        "it": 2,
+        "en": 3,
+        "es": 2
+      },
+      "impact": "the same model input/context has more than one gold target",
+      "resolution": "canonical annotation versioning required before retraining"
+    },
     {
       "kind": "NEGATION_SCOPE_CONVENTION_CONFLICT",
       "predicate": "preference.like",
