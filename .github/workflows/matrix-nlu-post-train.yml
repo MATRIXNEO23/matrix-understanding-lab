@@ -108,10 +108,12 @@ jobs:
           --output-dir build/matrix-nlu/post-train/onnx
           --repetitions 30
       - name: Record resource and source-run evidence
+        if: always()
         shell: bash
         run: |
           set -euo pipefail
-          printf 'SOURCE_TRAINING_RUN=%s\n' "$SOURCE_TRAINING_RUN" | tee build/matrix-nlu/post-train/source-run.txt
+          mkdir -p build/matrix-nlu/post-train
+          printf 'SOURCE_TRAINING_RUN=%s\n' "${SOURCE_TRAINING_RUN:-UNRESOLVED}" | tee build/matrix-nlu/post-train/source-run.txt
           df -h .
           free -h
           find build/matrix-nlu/post-train -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > build/matrix-nlu/post-train/SHA256SUMS
