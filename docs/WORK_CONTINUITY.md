@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T01:15:00Z  
+Last updated: 2026-09-04T01:25:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,12 +10,15 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `093b49626d2581ad7d7be27b4fc6f800a423f429`.
+  `846748547f892b483effb85b8cf71cb62f669f6e`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
-  `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
-  (`feat: add Matrix-NLU provenance candidate probe`)
+  `c5640655ff1febee043335406a85fb338b7a8b42`
+  (`ci: block retraining on inconsistent annotation contracts`).
+- Last audit/handoff commit:
+  `846748547f892b483effb85b8cf71cb62f669f6e`
+  (`docs: record blocking annotation contract decision`).
 - Production Matrix repository/runtime: frozen reference only; no production
   files have been modified.
 - Frozen production semantic reference:
@@ -143,8 +146,9 @@ strategy change, before long/risky work, and before ending any session.
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
   training and artifact step is green. It must not be rerun.
-- Current gate: dev-only causal repair after the strict end-to-end TypedClaim
-  gate correctly rejected the immutable teacher artifact. Post-gate run
+- Current gate: `DECISION_REQUIRED` on the versioned annotation contract before
+  any further C1 retraining. The strict end-to-end TypedClaim gate correctly
+  rejected the immutable teacher artifact. Post-gate run
   `33802563626` completed `failure` at dev threshold selection and did not
   consume frozen data or start ONNX export.
 - Preserved post-gate artifact id `9911772359`, archive digest
@@ -250,6 +254,28 @@ strategy change, before long/risky work, and before ending any session.
   cue token while P0.5 labels the complete negated clause, and at least one
   temporal expression is semantically predicted but absent from its gold span.
   No regex/decoder workaround is justified from this evidence.
+- Train/dev contract audit commit
+  `0f4dc7afe9daf09a6a0d53b577738a69a4f810d8` introduced a diagnostic-only,
+  split-enforcing audit; commit `00101513a4ec1df8b825226451ba93d197fab94c`
+  proved seven exact text+context inputs with incompatible gold targets (IT 2,
+  EN 3, ES 2). They include `non amo i locali affollati`, `I do not like rain`
+  and `No me gusta la lluvia`, plus four name declarations whose implicit
+  speaker subject is alternately null or the name/object span. A deterministic
+  model cannot satisfy both targets. Two broader negation-scope convention
+  conflicts are also present; semantic-span containment failures are zero.
+  Machine-readable evidence SHA-256 is
+  `8a1fbb2bb6a07952540104f32327d4f729003683cc5cc637a6e355b387f062fb`.
+- Pipeline safety commit `c5640655ff1febee043335406a85fb338b7a8b42`
+  runs that audit after deterministic dataset generation and before MASSIVE or
+  training, preserves the report, and stops on conflicts. The one-click CI now
+  uploads bounded report, deployable bundle and isolated resume artifacts
+  instead of a single >1 GiB archive. It does not touch the training trigger.
+- Formal blocker and bounded options are documented in
+  `docs/DECISION_REQUIRED_MATRIX_NLU_ANNOTATION_CONTRACT.md` at
+  `846748547f892b483effb85b8cf71cb62f669f6e`. Recommended resolution is a
+  versioned v2 correction retaining the current heads: `negation` means semantic
+  scope, implicit first-person subject span is null, explicit temporal-span
+  policy is made consistent, and every v1 file/hash/result remains immutable.
 - Split-isolation regression commit
   `4d67aaf921bfa9cfa0e88cc274ba118f384ecd8d`: train surfaces must be disjoint
   from both dev and frozen generated surfaces, every dev label must have train
@@ -325,6 +351,16 @@ strategy change, before long/risky work, and before ending any session.
   not silently become Matrix predicates.
 
 ## Tests and CI state
+
+- Current local software/property/regression/integration suite: 60/60 green.
+  All `auto_*.py`, `run_pipeline.py` and `matrix_nlu/*.py` byte-compile; all five
+  workflow YAML files parse; student-4 one-click dry-run is green. The contract
+  gate intentionally exits `2` after preserving its report because the current
+  v1 data contains critical conflicts.
+- Candidate Probe runs `33815343446`, `33815504206` and `33815613927` are
+  green for the audit/pipeline commits. P0 runs `33815343409` and `33815504380`
+  are green. P0 runs for `00101513...` and `84674854...` were still in progress
+  when this continuity update was prepared and must be checked before handoff.
 
 - Green local checks at current implementation (`732725fd...`):
   `python -m unittest discover -s matrix_nlu -p 'test_*.py' -v` (42/42),
@@ -514,6 +550,15 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Open errors, failed paths and blockers
 
+- `DECISION_REQUIRED / BLOCKING C1 RETRAIN_AND_FROZEN_GATE`: dataset v1 contains
+  seven exact input/context collisions with different span targets and mixed
+  negation-scope conventions. Repair changes canonical annotation semantics and
+  frozen hashes; it cannot be applied as an ordinary local data tweak. Do not
+  retrain or consume the one-time frozen test until the supervisor chooses the
+  versioned policy in
+  `docs/DECISION_REQUIRED_MATRIX_NLU_ANNOTATION_CONTRACT.md`. Do not lower the
+  exact gates, add regex, or encode benchmark provenance into runtime output.
+
 - `DECISION_REQUIRED / NON-BLOCKING FOR ACTIVE BASELINE`: the maximum benchmark
   now requires third-party reports and nested belief attribution. The current
   learned contract has one `subject` span plus categorical
@@ -630,23 +675,34 @@ strategy change, before long/risky work, and before ending any session.
   `ea1655004d4fea31d8d911ab45d3c27e6f21dff3`.
 - Failed-gate evidence preservation fix:
   `c32e4127861d1929af622017fe2189a6c6801fb3`.
+- Student report/model extraction evidence:
+  `e5f9ea68cf4aa3c646dffe0023317731dedb62ee`, with continuity checkpoints
+  `093b49626d2581ad7d7be27b4fc6f800a423f429` and
+  `60e21e6cfe9cccd70f355a3fd6c040beb39f3853`.
+- Train/dev annotation audit and machine-readable evidence:
+  `0f4dc7afe9daf09a6a0d53b577738a69a4f810d8`,
+  `00101513a4ec1df8b825226451ba93d197fab94c`.
+- Pre-training conflict gate and bounded CI artifacts:
+  `c5640655ff1febee043335406a85fb338b7a8b42`.
+- Formal blocking decision record:
+  `846748547f892b483effb85b8cf71cb62f669f6e`.
 - This continuity update is pending consolidation; it does not alter or restart
   training.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity update without touching a training trigger path.
-2. Implement and run a dataset-contract consistency audit over train/dev only,
-   quantifying incompatible negation/temporal span semantics by source and
-   language. Preserve its machine-readable report and add regression tests.
-3. Do not retrain unchanged. Use that audit to determine whether a compatible
-   objective/data correction exists without modifying frozen labels; otherwise
-   record a bounded quality `DECISION_REQUIRED` because changing the typed span
-   contract or frozen gold requires canonical versioning.
-4. Split future one-click uploads into report/model/resume artifacts at source,
-   preserving failure evidence without another oversized archive, then run the
-   full regression/property/YAML/CI gates.
-5. Carry the nested-attribution contract issue above to supervisor counter-review;
-   continue all independent single-level C1 quality/export work without inventing
-   a binding heuristic.
+1. Commit this continuity update without touching a training trigger path, then
+   wait for the final P0 CI run and record its actual conclusion.
+2. Supervisor chooses Option A or B in
+   `docs/DECISION_REQUIRED_MATRIX_NLU_ANNOTATION_CONTRACT.md`. Option A is the
+   bounded recommendation: authorize `matrix.nlu.dataset.v2`, semantic negation
+   scope, null span for implicit first-person subjects, and a consistent explicit
+   temporal-span policy while preserving v1 immutably.
+3. After authorization only: implement the versioned dataset migration, run the
+   contract audit to zero conflicts, freeze new hashes, run all software gates,
+   then launch a fresh named model variant. Do not resume student-4 as though its
+   supervision were unchanged and do not inspect frozen quality before the new
+   dev threshold passes.
+4. Carry the independent nested-attribution contract issue to the same supervisor
+   counter-review; do not invent a binding heuristic or start B4.
