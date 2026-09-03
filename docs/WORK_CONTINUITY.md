@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:14:00Z  
+Last updated: 2026-09-03T18:17:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified after ONNX-export implementation:
-  `2e965e6802cfaa37504f6c9586032c05396a320a`.
+- HEAD verified after post-training gate automation:
+  `ea1655004d4fea31d8d911ab45d3c27e6f21dff3`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -285,6 +285,14 @@ strategy change, before long/risky work, and before ending any session.
   median/p95/max latency. The corrected p95 uses nearest-rank. Full local suite
   34/34 and byte-compilation are green. No ONNX export has yet executed, so
   export/parity/size/latency gates remain unverified.
+- Post-training automation checkpoint
+  `ea1655004d4fea31d8d911ab45d3c27e6f21dff3`: when the active training run
+  completes successfully, `.github/workflows/matrix-nlu-post-train.yml`
+  downloads its immutable evidence, reproduces datasets and 34-test software
+  gate, produces Matrix/P0.5 dev predictions, selects threshold from dev only,
+  and runs frozen Matrix/P0.5 plus FP32/INT8 export only after that dev gate.
+  Exact source-run and file checksums are uploaded. Workflow YAML parses green
+  locally. It does not trigger or duplicate teacher training.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -393,13 +401,15 @@ strategy change, before long/risky work, and before ending any session.
   `781373ab899e5854401ceba0f1c7e1b31efa1fbd`.
 - Audited ONNX FP32/INT8 export implementation:
   `2e965e6802cfaa37504f6c9586032c05396a320a`.
+- Automated dev -> threshold -> frozen -> ONNX gate:
+  `ea1655004d4fea31d8d911ab45d3c27e6f21dff3`.
 - This continuity update is pending consolidation; it must not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `2e965e6...` without touching
+1. Commit this continuity-only update on top of `ea16550...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
