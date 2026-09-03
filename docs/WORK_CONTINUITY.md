@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:59:08Z  
+Last updated: 2026-09-03T20:30:48Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `07119f939a54b9fc99361dd439dda9811b13a245`.
+  `ffdbb224059ad27b7b544aa988e4cc2665a4159d`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -140,11 +140,16 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Current gate and exact activity
 
-- Current gate: first trained multi-task teacher (`Gate 02`, long run in
-  progress). Encoder and external-data provenance are green.
-- Exact activity: GitHub Actions run `33786677296` (`Matrix-NLU Training`) is
-  executing commit `37ef11c9...` with the frozen configuration below. Do not
-  start another teacher run while it is active.
+- First trained multi-task teacher (`Gate 02`) completed successfully in
+  GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
+  training and artifact step is green. It must not be rerun.
+- Current gate: strict dev-only calibration and end-to-end TypedClaim evidence
+  for that immutable teacher artifact. Post-gate run `33802563626` is active
+  on trigger commit `ffdbb224...` and consumes source run `33786677296`.
+- The automatic `workflow_run` edge did not fire after the source workflow was
+  renamed for one-click operation. Fix `16754f79e26caa003679ffb70b512f6226c13627`
+  added a bounded explicit trigger; `ffdbb224059ad27b7b544aa988e4cc2665a4159d`
+  records the immutable source run and started the post-gate without training.
 - In parallel, commit `9027ff3...` added the end-to-end learned decoder and
   deterministic invariant validator without touching a training-trigger path.
 - Automation checkpoint `732725fd94241e8523cb6692f1a05cfd4b8a1ee7`
@@ -373,12 +378,25 @@ strategy change, before long/risky work, and before ending any session.
   dev-selected checkpoint.
 - Training implementation commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
-- Active training run: `33786677296`, status `in_progress` when this continuity
-  checkpoint was written at `2026-09-03T18:38Z`; step 10, `Train six-layer
-  teacher and evaluate frozen sets once`, remains active. Companion normal P0 and provenance workflows are
-  `33786677289` and `33786677349`.
-- Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
-  RAM/PSS/CPU/latency gates: not run, therefore not green.
+- Teacher training run `33786677296`: PASS. Model state SHA-256
+  `7a68f41545fd531176e1a3bbe2b06920e043ed554fc85437c9be08d16670973a`;
+  72,775,155 parameters; 291,150,286-byte serialized state;
+  best dev head-average `0.9511465670`. Epoch selection scores:
+  MASSIVE `0.6702257722`; Matrix `0.9405758642`, `0.9459914824`,
+  `0.9496920553`, `0.9511465670`.
+- Teacher evidence artifact id `9911479813`, archive digest
+  `sha256:08c0c3ccc6dfe2a7cd492b998c5556edceb190acc8eda84ed42ac5bb3dab7901`,
+  270,145,913 bytes. Resume artifact id `9911500930`, archive digest
+  `sha256:733895971eeb98bf9d333d890663c2fa6f956d6ed8fba61aa2ba2375037bdc22`,
+  855,149,758 bytes. Both are retained for 30 days by the source workflow.
+- Head-level frozen evidence was emitted once by the original trainer:
+  Matrix macro-head `0.9259638152`, P0.5 `0.9502517095`, MASSIVE after
+  Matrix fine-tuning `0.1296912960`. These are diagnostic results, not
+  end-to-end PASS and not tuning inputs. Dev already exposes systematic
+  predicate/temporal/polarity/dialogue-act gaps; the post-gate will provide
+  exact TypedClaim errors without tuning on frozen.
+- End-to-end frozen quality, ONNX parity/INT8 and desktop latency remain pending
+  run `33802563626`. Android physical PSS/latency remains a later gate.
 
 ## Open errors, failed paths and blockers
 
@@ -419,9 +437,9 @@ strategy change, before long/risky work, and before ending any session.
 - Do not disable or bypass frozen test partitions; do not use any test result to
   train or choose a variant.
 - Do not add linguistic regex/rules to the invariant validator.
-- The teacher step is executing with Torch in run `33786677296`; no epoch/result
-  is available yet. A dependency/model API error is a normal software fix; do
-  not reinterpret it as a quality result or alter the frozen sets.
+- The teacher step in run `33786677296` is complete; do not rerun it. Its dev
+  score is below the near-perfect target, so it is teacher/baseline evidence
+  rather than a production candidate.
 - `MatrixNluRuntime` currently reconstructs the encoder through the pinned Hub
   identifier before loading its state dict. This is acceptable only for the lab
   evaluator and is an open offline-export defect: the ONNX/runtime bundle must
@@ -474,6 +492,9 @@ strategy change, before long/risky work, and before ending any session.
   `b7572c4c947fb771e6a87d1844ba0ec84f0ba60b`.
 - Immutable seed/bundle/timeout bounds:
   `07119f939a54b9fc99361dd439dda9811b13a245`.
+- Explicit immutable post-gate recovery:
+  `16754f79e26caa003679ffb70b512f6226c13627`,
+  `ffdbb224059ad27b7b544aa988e4cc2665a4159d`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -502,17 +523,15 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `07119f93...` without touching
-   any training trigger path.
-2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
-   checkpoint and apply only
-   the causal software/dependency fix.
-3. If it completes, download evidence and resume-checkpoint artifacts, record
-   exact checksums/component metrics, and run
-   `python run_pipeline.py --skip-train --bundle <downloaded-bundle>
-   --candidate-role teacher`. Apply dev-led error analysis; never tune on frozen
-   evidence.
-4. If the teacher establishes a viable quality ceiling, run the isolated
+1. Commit this continuity update on top of `ffdbb224...` without touching a
+   training trigger path.
+2. Inspect post-gate run `33802563626`. Preserve its dev predictions,
+   threshold curve, failure summary and logs even if the strict dev gate fails.
+3. Reproduce every repair candidate on train/dev only; classify the causal
+   family, patch learned data/objective/decoder as justified, then run the full
+   regression/property suite. Never use frozen results for tuning.
+4. Use the completed teacher dev evidence as the quality ceiling/baseline, then
+   run the isolated
    four-layer candidate with `python run_pipeline.py --student-layers 4` (or
    resume its variant-specific checkpoint), then require the complete
    production quality/size/package gate.
