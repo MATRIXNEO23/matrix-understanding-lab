@@ -16,6 +16,7 @@ from matrix_nlu.pipeline_support import Step, atomic_json, atomic_promote, file_
 ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "build" / "matrix-nlu"
 DATA = BUILD / "data"
+DATA_V2 = BUILD / "data-v2"
 DEFAULT_BUNDLE = BUILD / "training"
 STATUS = BUILD / "automation" / "auto-test-status.json"
 LAST_GOOD_PACKAGE = BUILD / "last-good-package"
@@ -46,6 +47,13 @@ def verify_training_inputs(bundle: pathlib.Path) -> dict:
             mismatches.append({"path": recorded_path, "expected": expected, "actual": actual})
     if mismatches:
         raise RuntimeError("training input provenance mismatch: " + json.dumps(mismatches))
+    dataset_version = result.get("config", {}).get("datasetVersion", "matrix.nlu.dataset.v1")
+    if dataset_version == "matrix.nlu.dataset.v2":
+        frozen_paths = [path for path in result.get("inputHashes", {})
+                        if pathlib.Path(path).stem.endswith("-test")]
+        if (result.get("frozenDataRead") is not False or frozen_paths or
+                result.get("trainingSplitsRead") != ["train", "dev"]):
+            raise RuntimeError("student-4-v2 training provenance includes frozen access")
     return {
         "trainingResultSha256": sha256(result_path),
         "modelStateSha256": actual_model,
@@ -54,6 +62,8 @@ def verify_training_inputs(bundle: pathlib.Path) -> dict:
         "parameters": result.get("parameters"),
         "model": result.get("config", {}).get("model"),
         "seed": result.get("config", {}).get("seed"),
+        "datasetVersion": dataset_version,
+        "frozenDataRead": result.get("frozenDataRead"),
     }
 
 
@@ -164,16 +174,27 @@ def main() -> int:
     parser.add_argument("--skip-data-build", action="store_true")
     parser.add_argument("--onnx-repetitions", type=int, default=30)
     parser.add_argument("--candidate-role", choices=("teacher", "production"), default="production")
+    parser.add_argument("--data-dir", type=pathlib.Path,
+                        help="dataset directory; inferred from training-result when omitted")
     args = parser.parse_args()
     bundle = args.bundle.resolve()
+    training_result = json.loads((bundle / "training-result.json").read_text())
+    dataset_version = training_result.get("config", {}).get("datasetVersion", "matrix.nlu.dataset.v1")
+    is_v2 = dataset_version == "matrix.nlu.dataset.v2"
+    data = (args.data_dir or (DATA_V2 if is_v2 else DATA)).resolve()
+    def dataset_path(name: str, split: str) -> pathlib.Path:
+        return data / f"{name}{'-v2' if is_v2 else ''}-{split}.jsonl"
     output = (args.output_dir or BUILD / f"verification-{bundle.name}").resolve()
     last_good_destination = (BUILD / "last-good-teacher-evidence"
-                             if args.candidate_role == "teacher" else LAST_GOOD_PACKAGE)
+                             if args.candidate_role == "teacher" else
+                             BUILD / "last-good-package-student-4-v2" if is_v2 else
+                             LAST_GOOD_PACKAGE)
     logs = output / "logs"
     started = time.time()
     timings = {}
     state = {"schemaVersion": "matrix.nlu.auto-test-status.v1", "status": "RUNNING",
              "startedAtEpochSeconds": started, "bundle": str(bundle),
+             "datasetVersion": dataset_version,
              "frozenDataUsedForTuning": False, "currentStage": "initialization"}
     atomic_json(STATUS, state)
 
@@ -188,8 +209,15 @@ def main() -> int:
                 sys.executable, "-m", "unittest", "discover", "-s", "matrix_nlu",
                 "-p", "test_*.py", "-v"]))
         if not args.skip_data_build:
-            stage(Step("prepare-and-verify-datasets", [sys.executable, "matrix_nlu/build_dataset.py"]))
-            training_result = json.loads((bundle / "training-result.json").read_text())
+            if is_v2:
+                stage(Step("prepare-v2-datasets", [sys.executable,
+                    "matrix_nlu/build_dataset_v2.py", "--output-dir", str(data)]))
+                stage(Step("audit-v2-datasets-before-model-evaluation", [sys.executable,
+                    "matrix_nlu/audit_dataset_v2.py", "--data-dir", str(data), "--output",
+                    str(output / "dataset-v2-audit.json"), "--fail-on-error"]))
+            else:
+                stage(Step("prepare-and-verify-datasets", [sys.executable,
+                    "matrix_nlu/build_dataset.py", "--output-dir", str(data)]))
             config = training_result["config"]
             stage(Step("reproduce-and-verify-massive-data", [sys.executable,
                 "matrix_nlu/prepare_massive.py", "--train-per-language",
@@ -199,14 +227,15 @@ def main() -> int:
         provenance = verify_training_inputs(bundle)
 
         for name in ("matrix-dev", "p05-dev"):
+            source, split = name.split("-", 1)
             stage(Step(f"predict-{name}", [sys.executable, "matrix_nlu/evaluate_e2e.py",
-                "--bundle", str(bundle), "--dataset", str(DATA / f"{name}.jsonl"),
+                "--bundle", str(bundle), "--dataset", str(dataset_path(source, split)),
                 "--split", "dev", "--threshold", "0", "--output-dir", str(output / name)]))
         stage(Step("select-threshold-from-development-only", [sys.executable,
             "matrix_nlu/select_threshold.py",
-            "--dataset", str(DATA / "matrix-dev.jsonl"), "--predictions",
+            "--dataset", str(dataset_path("matrix", "dev")), "--predictions",
             str(output / "matrix-dev" / "e2e-dev-predictions.jsonl"),
-            "--dataset", str(DATA / "p05-dev.jsonl"), "--predictions",
+            "--dataset", str(dataset_path("p05", "dev")), "--predictions",
             str(output / "p05-dev" / "e2e-dev-predictions.jsonl"),
             "--output", str(output / "threshold-selection.json")]))
         selection = json.loads((output / "threshold-selection.json").read_text())
@@ -215,15 +244,17 @@ def main() -> int:
         threshold = float(selection["selectedThreshold"])
 
         frozen = output / "frozen-combined.jsonl"
-        combined_dataset([DATA / "matrix-test.jsonl", DATA / "p05-test.jsonl"], frozen)
+        combined_dataset([dataset_path("matrix", "test"), dataset_path("p05", "test")], frozen)
         separation_evidence = {
             "schemaVersion": "matrix.nlu.split-separation.v1",
             "thresholdSelectionInputs": [
-                {"split": "dev", "path": str(DATA / name), "sha256": sha256(DATA / name)}
-                for name in ("matrix-dev.jsonl", "p05-dev.jsonl")],
+                {"split": "dev", "path": str(dataset_path(name, "dev")),
+                 "sha256": sha256(dataset_path(name, "dev"))}
+                for name in ("matrix", "p05")],
             "frozenInputs": [
-                {"split": "test", "path": str(DATA / name), "sha256": sha256(DATA / name)}
-                for name in ("matrix-test.jsonl", "p05-test.jsonl")],
+                {"split": "test", "path": str(dataset_path(name, "test")),
+                 "sha256": sha256(dataset_path(name, "test"))}
+                for name in ("matrix", "p05")],
             "combinedFrozenSha256": sha256(frozen),
             "frozenDataUsedForTuning": False,
             "enforcement": "select_threshold.require_development rejects every non-dev row",

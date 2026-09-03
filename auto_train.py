@@ -15,13 +15,14 @@ from matrix_nlu.pipeline_support import Step, atomic_json, run_step as run_pipel
 ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "build" / "matrix-nlu"
 DATA_DIR = BUILD / "data"
+DATA_V2_DIR = BUILD / "data-v2"
 MASSIVE_DIR = BUILD / "massive"
 DEFAULT_TRAINING_DIR = BUILD / "training"
 AUTOMATION_DIR = BUILD / "automation"
 DEFAULT_LAST_GOOD_DIR = BUILD / "last-good-training"
 
 
-def validate_training_artifact(training_dir: pathlib.Path) -> dict:
+def validate_training_artifact(training_dir: pathlib.Path, require_frozen: bool = True) -> dict:
     result_path = training_dir / "training-result.json"
     model_path = training_dir / "model-state.pt"
     labels_path = training_dir / "labels.json"
@@ -43,9 +44,15 @@ def validate_training_artifact(training_dir: pathlib.Path) -> dict:
     frozen = result.get("frozen")
     if not isinstance(frozen, dict):
         raise RuntimeError("training-result.json is missing frozen evaluation results")
-    for key in ("matrixTest", "p05Test", "massiveTest"):
-        if key not in frozen:
-            raise RuntimeError(f"training result is missing frozen evaluation '{key}'")
+    if require_frozen:
+        for key in ("matrixTest", "p05Test", "massiveTest"):
+            if key not in frozen:
+                raise RuntimeError(f"training result is missing frozen evaluation '{key}'")
+    elif frozen.get("status") != "DEFERRED_UNTIL_DEV_THRESHOLD_GATE":
+        raise RuntimeError("v2 training must defer frozen evaluation until the dev gate")
+    if not require_frozen and (result.get("frozenDataRead") is not False or
+                               result.get("trainingSplitsRead") != ["train", "dev"]):
+        raise RuntimeError("v2 training provenance does not prove train/dev-only access")
 
     return {
         "trainingResult": str(result_path.relative_to(ROOT)),
@@ -88,13 +95,27 @@ def promote_last_good(training_dir: pathlib.Path, destination: pathlib.Path, met
 
 def build_steps(args: argparse.Namespace, training_dir: pathlib.Path) -> list[Step]:
     python = sys.executable
+    is_v2 = getattr(args, "dataset_version", "v1") == "v2"
+    data_dir = DATA_V2_DIR if is_v2 else DATA_DIR
+    config = "matrix_nlu/train_config_v2.json" if is_v2 else "matrix_nlu/train_config.json"
     steps = [
         Step(
             "Software regression tests",
             [python, "-m", "unittest", "discover", "-s", "matrix_nlu", "-p", "test_*.py", "-v"],
         ),
-        Step("Build Matrix datasets", [python, "matrix_nlu/build_dataset.py"]),
-        Step(
+        Step("Build Matrix datasets", [python, "matrix_nlu/build_dataset_v2.py"] if is_v2
+             else [python, "matrix_nlu/build_dataset.py"]),
+    ]
+    if is_v2:
+        steps.append(Step(
+            "Audit complete v2 dataset before training",
+            [python, "matrix_nlu/audit_dataset_v2.py", "--data-dir",
+             str(data_dir.relative_to(ROOT)), "--output",
+             str((AUTOMATION_DIR / "dataset-v2-audit.json").relative_to(ROOT)),
+             "--fail-on-error"],
+        ))
+    else:
+        steps.append(Step(
             "Audit train-dev annotation contracts",
             [
                 python,
@@ -106,7 +127,8 @@ def build_steps(args: argparse.Namespace, training_dir: pathlib.Path) -> list[St
                 "--output", str((AUTOMATION_DIR / "dataset-contract-audit.json").relative_to(ROOT)),
                 "--fail-on-conflict",
             ],
-        ),
+        ))
+    steps.extend([
         Step(
             "Prepare verified MASSIVE auxiliary data",
             [
@@ -128,18 +150,20 @@ def build_steps(args: argparse.Namespace, training_dir: pathlib.Path) -> list[St
                 python,
                 "matrix_nlu/train.py",
                 "--config",
-                "matrix_nlu/train_config.json",
+                config,
                 "--data-dir",
-                str(DATA_DIR.relative_to(ROOT)),
+                str(data_dir.relative_to(ROOT)),
                 "--massive-dir",
                 str(MASSIVE_DIR.relative_to(ROOT)),
                 "--output-dir",
                 str(training_dir.relative_to(ROOT)),
             ],
         ),
-    ]
+    ])
     if args.student_layers is not None:
         steps[-1].command.extend(["--student-layers", str(args.student_layers)])
+    if is_v2:
+        steps[-1].command.append("--defer-frozen")
     return steps
 
 
@@ -150,24 +174,36 @@ def main() -> int:
     parser.add_argument("--massive-dev-per-language", type=int, default=600)
     parser.add_argument("--massive-test-per-language", type=int, default=1000)
     parser.add_argument("--student-layers", type=int)
+    parser.add_argument("--dataset-version", choices=("v1", "v2"), default="v1")
+    parser.add_argument("--variant", help="explicit isolated variant name")
     parser.add_argument("--output-dir", type=pathlib.Path,
                         help="variant-specific output; default is training or training-student-N")
     args = parser.parse_args()
 
-    configured_seed = json.loads((ROOT / "matrix_nlu/train_config.json").read_text())["seed"]
+    config_path = ROOT / "matrix_nlu" / ("train_config_v2.json" if args.dataset_version == "v2"
+                                         else "train_config.json")
+    configured_seed = json.loads(config_path.read_text())["seed"]
     if args.seed != configured_seed:
         parser.error(f"--seed {args.seed} differs from immutable train_config seed {configured_seed}")
 
+    variant = (args.variant or ("teacher-6-layer" if args.student_layers is None
+                                else f"student-{args.student_layers}-layer"))
+    if args.dataset_version == "v2" and variant != "student-4-v2":
+        parser.error("dataset v2 is authorized only for the fresh student-4-v2 variant")
+    if args.dataset_version == "v2" and args.student_layers != 4:
+        parser.error("student-4-v2 requires --student-layers 4")
     training_dir = (args.output_dir or
+                    (BUILD / "training-student-4-v2" if args.dataset_version == "v2" else
                     (BUILD / f"training-student-{args.student_layers}"
-                     if args.student_layers is not None else DEFAULT_TRAINING_DIR)).resolve()
+                     if args.student_layers is not None else DEFAULT_TRAINING_DIR))).resolve()
     try:
         training_dir.relative_to(ROOT)
     except ValueError:
         parser.error("--output-dir must be inside the repository for auditable manifests")
-    last_good_dir = (BUILD / f"last-good-training-student-{args.student_layers}"
+    last_good_dir = (BUILD / "last-good-training-student-4-v2"
+                     if args.dataset_version == "v2" else
+                     BUILD / f"last-good-training-student-{args.student_layers}"
                      if args.student_layers is not None else DEFAULT_LAST_GOOD_DIR)
-    variant = "teacher-6-layer" if args.student_layers is None else f"student-{args.student_layers}-layer"
     status_file = AUTOMATION_DIR / f"auto-train-{variant}-status.json"
     log_dir = AUTOMATION_DIR / "logs" / variant
 
@@ -181,6 +217,7 @@ def main() -> int:
         "command": sys.argv,
         "trainingDir": str(training_dir.relative_to(ROOT)),
         "variant": variant,
+        "datasetVersion": args.dataset_version,
     }
 
     atomic_json(
@@ -197,7 +234,7 @@ def main() -> int:
             print(f"[AUTO-TRAIN] step {index}/{len(steps)}")
             timings[step.name] = run_pipeline_step(step, ROOT, log_dir)
 
-        metadata = validate_training_artifact(training_dir)
+        metadata = validate_training_artifact(training_dir, require_frozen=args.dataset_version != "v2")
         promote_last_good(training_dir, last_good_dir, metadata)
         elapsed = time.monotonic() - started_mono
         final = {

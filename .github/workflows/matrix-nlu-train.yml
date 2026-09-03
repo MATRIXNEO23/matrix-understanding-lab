@@ -3,11 +3,6 @@ name: Matrix-NLU One-Click Pipeline
 on:
   workflow_dispatch:
     inputs:
-      student_layers:
-        description: Student encoder layers; leave empty for teacher evidence
-        required: false
-        default: '4'
-        type: string
       resume_run_id:
         description: Optional prior one-click run containing a resumable latest.pt
         required: false
@@ -15,7 +10,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'pipeline/student-4.trigger'
+      - 'pipeline/student-4-v2.trigger'
 
 permissions:
   contents: read
@@ -50,19 +45,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [[ "${{ github.event_name }}" == "push" ]]; then
-            LAYERS=4
-          else
-            LAYERS="${{ inputs.student_layers }}"
-          fi
-          if [[ -n "$LAYERS" ]]; then
-            [[ "$LAYERS" =~ ^[0-9]+$ ]]
-            echo "MATRIX_NLU_STUDENT_LAYERS=$LAYERS" >> "$GITHUB_ENV"
-            echo "MATRIX_NLU_TRAINING_DIR=build/matrix-nlu/training-student-$LAYERS" >> "$GITHUB_ENV"
-          else
-            echo "MATRIX_NLU_STUDENT_LAYERS=" >> "$GITHUB_ENV"
-            echo "MATRIX_NLU_TRAINING_DIR=build/matrix-nlu/training" >> "$GITHUB_ENV"
-          fi
+          LAYERS=4
+          echo "MATRIX_NLU_STUDENT_LAYERS=$LAYERS" >> "$GITHUB_ENV"
+          echo "MATRIX_NLU_TRAINING_DIR=build/matrix-nlu/training-student-$LAYERS-v2" >> "$GITHUB_ENV"
       - name: Restore an explicitly selected resumable checkpoint
         if: github.event_name == 'workflow_dispatch' && inputs.resume_run_id != ''
         shell: bash
@@ -81,7 +66,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          COMMAND=(python run_pipeline.py)
+          COMMAND=(python run_pipeline.py --dataset-version v2)
           if [[ -n "$MATRIX_NLU_STUDENT_LAYERS" ]]; then
             COMMAND+=(--student-layers "$MATRIX_NLU_STUDENT_LAYERS")
           fi
@@ -107,7 +92,8 @@ jobs:
           path: |
             build/matrix-nlu/automation/
             build/matrix-nlu/verification-*/
-            build/matrix-nlu/data/*manifest.json
+            build/matrix-nlu/data-v2/*manifest.json
+            build/matrix-nlu/data-v2/v1-to-v2-corrections.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/training-result.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/training-progress.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/labels.json
@@ -136,4 +122,3 @@ jobs:
           path: |
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/checkpoints/latest.pt
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-source.txt
-

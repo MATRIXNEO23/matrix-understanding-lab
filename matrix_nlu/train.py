@@ -208,12 +208,20 @@ def main():
     parser.add_argument("--massive-dir", type=pathlib.Path, default=pathlib.Path("build/matrix-nlu/massive"))
     parser.add_argument("--output-dir", type=pathlib.Path, default=pathlib.Path("build/matrix-nlu/training"))
     parser.add_argument("--student-layers", type=int)
+    parser.add_argument("--defer-frozen", action="store_true",
+                        help="do not read/evaluate frozen partitions during training")
     args = parser.parse_args()
     import torch
     from transformers import AutoTokenizer
 
     config_bytes = args.config.read_bytes()
     config = json.loads(config_bytes)
+    is_v2 = config.get("datasetVersion") == "matrix.nlu.dataset.v2"
+    if is_v2 and not args.defer_frozen:
+        parser.error("dataset v2 training requires --defer-frozen")
+    configured_layers = config.get("studentLayers")
+    if configured_layers is not None and args.student_layers != configured_layers:
+        parser.error(f"training config requires --student-layers {configured_layers}")
     seed_everything(config["seed"])
     torch.set_num_threads(4)
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -232,24 +240,32 @@ def main():
 
     massive_train_rows = read_jsonl([args.massive_dir / "massive-train.jsonl"])
     massive_dev_rows = read_jsonl([args.massive_dir / "massive-dev.jsonl"])
-    massive_test_rows = read_jsonl([args.massive_dir / "massive-test.jsonl"])
+    massive_test_rows = ([] if args.defer_frozen else
+                         read_jsonl([args.massive_dir / "massive-test.jsonl"]))
     intent_ids = {value: index for index, value in enumerate(labels["intents"])}
     massive_train = massive_examples(massive_train_rows, tokenizer, max_length, intent_ids, labels["slotTypes"])
     massive_dev = massive_examples(massive_dev_rows, tokenizer, max_length, intent_ids, labels["slotTypes"])
-    massive_test = massive_examples(massive_test_rows, tokenizer, max_length, intent_ids, labels["slotTypes"])
+    massive_test = ([] if args.defer_frozen else
+                    massive_examples(massive_test_rows, tokenizer, max_length,
+                                     intent_ids, labels["slotTypes"]))
 
-    matrix_train_rows = read_jsonl([args.data_dir / "matrix-train.jsonl"])
-    p05_train_rows = read_jsonl([args.data_dir / "p05-train.jsonl"])
+    def dataset_path(dataset: str, split: str) -> pathlib.Path:
+        return args.data_dir / f"{dataset}{'-v2' if is_v2 else ''}-{split}.jsonl"
+
+    matrix_train_rows = read_jsonl([dataset_path("matrix", "train")])
+    p05_train_rows = read_jsonl([dataset_path("p05", "train")])
     matrix_train_rows += p05_train_rows * config["matrix"]["p05TrainRepeat"]
-    matrix_dev_rows = read_jsonl([args.data_dir / "matrix-dev.jsonl"])
-    p05_dev_rows = read_jsonl([args.data_dir / "p05-dev.jsonl"])
-    matrix_test_rows = read_jsonl([args.data_dir / "matrix-test.jsonl"])
-    p05_test_rows = read_jsonl([args.data_dir / "p05-test.jsonl"])
+    matrix_dev_rows = read_jsonl([dataset_path("matrix", "dev")])
+    p05_dev_rows = read_jsonl([dataset_path("p05", "dev")])
+    matrix_test_rows = ([] if args.defer_frozen else
+                        read_jsonl([dataset_path("matrix", "test")]))
+    p05_test_rows = ([] if args.defer_frozen else
+                     read_jsonl([dataset_path("p05", "test")]))
     matrix_train = matrix_examples(matrix_train_rows, tokenizer, max_length)
     matrix_dev = matrix_examples(matrix_dev_rows, tokenizer, max_length)
     p05_dev = matrix_examples(p05_dev_rows, tokenizer, max_length)
-    matrix_test = matrix_examples(matrix_test_rows, tokenizer, max_length)
-    p05_test = matrix_examples(p05_test_rows, tokenizer, max_length)
+    matrix_test = [] if args.defer_frozen else matrix_examples(matrix_test_rows, tokenizer, max_length)
+    p05_test = [] if args.defer_frozen else matrix_examples(p05_test_rows, tokenizer, max_length)
 
     resume = None
     checkpoint_path = args.output_dir / "checkpoints" / "latest.pt"
@@ -280,11 +296,11 @@ def main():
     history.extend(matrix_history)
 
     # Frozen tests are touched only after the dev-selected model is loaded.
-    frozen = {
+    frozen = ({"status": "DEFERRED_UNTIL_DEV_THRESHOLD_GATE"} if args.defer_frozen else {
         "matrixTest": evaluate(network, loader(matrix_test, batch_size * 2, False, config["seed"]), device),
         "p05Test": evaluate(network, loader(p05_test, batch_size * 2, False, config["seed"]), device),
         "massiveTest": evaluate(network, loader(massive_test, batch_size * 2, False, config["seed"]), device),
-    }
+    })
     torch.save(network.state_dict(), args.output_dir / "model-state.pt")
     tokenizer.save_pretrained(args.output_dir / "tokenizer")
     (args.output_dir / "labels.json").write_text(json.dumps({"sequence": SEQUENCE_LABELS,
@@ -293,10 +309,22 @@ def main():
               "configSha256": hashlib.sha256(config_bytes).hexdigest(),
               "config": config, "studentLayers": args.student_layers,
               "parameters": parameter_summary(network), "bestDevScore": best,
-              "history": history, "frozen": frozen}
-    result["inputHashes"] = {str(path): sha256(path) for path in
-                             list(sorted(args.data_dir.glob("*.jsonl"))) +
-                             list(sorted(args.massive_dir.glob("massive-*.jsonl")))}
+              "history": history, "frozen": frozen,
+              "frozenDataRead": not args.defer_frozen,
+              "trainingSplitsRead": ["train", "dev"] if args.defer_frozen else ["train", "dev", "test"],
+              "datasetVersion": config.get("datasetVersion", "matrix.nlu.dataset.v1")}
+    allowed_splits = ("train", "dev") if args.defer_frozen else ("train", "dev", "test")
+    input_paths = [dataset_path(dataset, split)
+                   for dataset in ("matrix", "p05") for split in allowed_splits]
+    input_paths += [args.massive_dir / f"massive-{split}.jsonl" for split in allowed_splits]
+    input_paths += [args.massive_dir / "massive-manifest.json",
+                    args.massive_dir / "massive-labels.json", args.config]
+    if is_v2:
+        input_paths += [args.data_dir / "matrix-v2-manifest.json",
+                        args.data_dir / "p05-v2-manifest.json",
+                        args.data_dir / "v1-to-v2-corrections.json"]
+    result["inputHashes"] = {str(path): sha256(path) for path in input_paths}
+    result["frozenEvaluationDeferred"] = args.defer_frozen
     result["modelStateSha256"] = sha256(args.output_dir / "model-state.pt")
     (args.output_dir / "training-result.json").write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"bestDevScore": best, "parameters": result["parameters"],

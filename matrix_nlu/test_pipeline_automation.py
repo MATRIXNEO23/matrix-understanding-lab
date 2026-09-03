@@ -25,6 +25,7 @@ class PipelineAutomationTest(unittest.TestCase):
             "massive_test_per_language": 3,
             "seed": 810923,
             "student_layers": 4,
+            "dataset_version": "v1",
         })()
         names = [step.name for step in auto_train.build_steps(
             args, auto_train.ROOT / "build/matrix-nlu/training-student-4")]
@@ -43,6 +44,24 @@ class PipelineAutomationTest(unittest.TestCase):
         self.assertIn("matrix-nlu-bundle-${{ github.run_id }}", workflow)
         self.assertIn("matrix-nlu-resume-${{ github.run_id }}", workflow)
         self.assertNotIn("name: matrix-nlu-one-click-${{ github.run_id }}", workflow)
+
+    def test_v2_pipeline_audits_before_training_and_defers_frozen(self):
+        args = type("Args", (), {
+            "massive_train_per_language": 3, "massive_dev_per_language": 3,
+            "massive_test_per_language": 3, "seed": 810923,
+            "student_layers": 4, "dataset_version": "v2",
+        })()
+        steps = auto_train.build_steps(
+            args, auto_train.ROOT / "build/matrix-nlu/training-student-4-v2")
+        self.assertEqual("Audit complete v2 dataset before training", steps[2].name)
+        self.assertLess([step.name for step in steps].index(
+            "Audit complete v2 dataset before training"),
+            [step.name for step in steps].index("Train/resume Matrix-NLU"))
+        self.assertIn("--defer-frozen", steps[-1].command)
+        self.assertTrue(any(value.endswith("train_config_v2.json")
+                            for value in steps[-1].command))
+        self.assertFalse(any(value.endswith("-test.jsonl")
+                             for value in steps[-1].command))
 
     def test_frozen_gate_is_zero_tolerance_and_per_language(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -97,11 +116,13 @@ class PipelineAutomationTest(unittest.TestCase):
 
     def test_one_click_order_and_existing_bundle_mode(self):
         train_args = type("Args", (), {"skip_train": False, "bundle": None,
-            "student_layers": None, "seed": 810923, "onnx_repetitions": 2})()
+            "student_layers": None, "seed": 810923, "onnx_repetitions": 2,
+            "dataset_version": "v1"})()
         self.assertEqual(["prepare-verify-train-or-resume", "validate-frozen-adversarial-package"],
                          [step.name for step in run_pipeline.commands(train_args)])
         bundle_args = type("Args", (), {"skip_train": True, "bundle": pathlib.Path("candidate"),
-            "student_layers": None, "seed": 810923, "onnx_repetitions": 2})()
+            "student_layers": None, "seed": 810923, "onnx_repetitions": 2,
+            "dataset_version": "v1"})()
         steps = run_pipeline.commands(bundle_args)
         self.assertEqual(1, len(steps))
         self.assertIn("candidate", steps[0].command)

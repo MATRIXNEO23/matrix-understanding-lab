@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T01:42:00+02:00  
+Last updated: 2026-09-04T01:50:00+02:00  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `47866314cb646212904ade0ef9a62d7caa15fcc1`.
+  `d2d455a33e5f725e0189010d081d0973aeb0b9a6`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -160,12 +160,22 @@ strategy change, before long/risky work, and before ending any session.
   provenance/checksum errors, and zero exact-surface or >=0.97 normalized
   semantic near-paraphrase leakage across train/dev/frozen. Frozen predictions
   and frozen quality were not read.
-- Software suite after the checkpoint: 66/66 green. Exact contract and hashes
+- Software suite after the checkpoint: 67/67 green. Exact contract and hashes
   are documented in `docs/MATRIX_NLU_DATASET_V2.md`.
-- Current activity: consolidate this dataset/audit checkpoint on remote `main`,
-  then wire a fresh isolated and resumable `student-4-v2` pipeline. Training has
-  not started. Production/runtime, Memory, B4, Emotion, Reflection, Agency and
-  NPC-NPC remain untouched.
+- Dataset-v2 checkpoint commit:
+  `d2d455a33e5f725e0189010d081d0973aeb0b9a6`
+  (`feat: freeze audited matrix nlu dataset v2`).
+- The fresh `student-4-v2` orchestration is locally complete: config, training,
+  status, checkpoint, last-good training/package and verification directories
+  are variant-isolated. The trainer rejects v2 without `--defer-frozen`, reads
+  and hashes only train/dev plus manifests/config, and records
+  `frozenDataRead=false`; `auto_test.py` infers v2 from the bundle and cannot
+  open frozen/adversarial data until dev-only threshold selection passes.
+  The 1-click v2 dry-run, Python byte compilation, all five workflow YAML files
+  and 67/67 tests are green. Training has not started.
+- Current activity: commit the orchestration checkpoint, wait for CI, then add
+  the one-time `pipeline/student-4-v2.trigger`. Production/runtime, Memory, B4,
+  Emotion, Reflection, Agency and NPC-NPC remain untouched.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
@@ -719,12 +729,12 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit and verify the completed dataset-v2/audit checkpoint on remote `main`.
-2. Wire the isolated `student-4-v2` orchestration so training reads only v2
-   train/dev, defers frozen model evaluation until the dev threshold passes,
-   and preserves bounded report/model/resume artifacts.
-3. Re-run software/data/CI gates, then launch fresh resumable `student-4-v2`;
-   select threshold on dev only, then run frozen/adversarial, ONNX/INT8/parity
-   and packaging in canonical order without lowering gates.
+1. Commit the isolated `student-4-v2` orchestration checkpoint and verify its
+   normal CI without creating the training trigger.
+2. After CI is green, commit `pipeline/student-4-v2.trigger` and monitor the
+   fresh resumable run without relaunching completed stages.
+3. Select threshold on dev only, then run frozen/adversarial, ONNX/INT8/parity
+   and package only if each preceding gate passes; preserve all failure evidence
+   without lowering gates.
 4. Carry the independent nested-attribution contract issue to supervisor
    counter-review; do not invent a binding heuristic or start B4.
