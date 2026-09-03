@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:40:46Z  
+Last updated: 2026-09-03T18:45:37Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `a6818f971dc55ba2c5faf7f2eb3bb8d8e7d081f1`.
+  `4c237fef443e1bd07c6ba34d31fc63012657e8a4`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -164,6 +164,14 @@ strategy change, before long/risky work, and before ending any session.
   `auto_test.py` entry point used locally. The workflow still consumes the
   immutable artifact from run `33786677296`, fails on critical dev/frozen/ONNX
   gates, and uploads status, logs and partial evidence with `if: always()`.
+- Resumability checkpoint `4c237fef443e1bd07c6ba34d31fc63012657e8a4`
+  makes the training automation variant-safe and observable: teacher and
+  student use different output/checkpoint/status/log paths; `train.py` writes
+  atomic batch/epoch progress; the configured dev-only early-stopping patience
+  is now effective; and the CI definition is a single 1-click pipeline with an
+  optional explicit checkpoint source. Expensive execution is manual or bound
+  to the one-time `pipeline/student-4.trigger`, preventing training from being
+  relaunched by ordinary source edits. No trigger file exists yet.
 - Current candidate configuration:
   - primary probe: `Geotrend/distilbert-base-en-es-it-cased`;
   - quality/size counterexample: `microsoft/Multilingual-MiniLM-L12-H384`;
@@ -436,6 +444,8 @@ strategy change, before long/risky work, and before ending any session.
   resume outputs: `732725fd94241e8523cb6692f1a05cfd4b8a1ee7`.
 - CI adoption of the strict post-training entry point:
   `a6818f971dc55ba2c5faf7f2eb3bb8d8e7d081f1`.
+- Variant-safe resume/progress and one-click CI definition:
+  `4c237fef443e1bd07c6ba34d31fc63012657e8a4`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -464,7 +474,7 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `a6818f97...` without touching
+1. Commit this continuity-only update on top of `4c237fef...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
