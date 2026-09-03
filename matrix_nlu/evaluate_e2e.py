@@ -169,6 +169,10 @@ def main():
     with (args.output_dir / f"e2e-{args.split}-errors.jsonl").open("w", encoding="utf-8") as handle:
         for error in errors:
             handle.write(json.dumps(error, ensure_ascii=False) + "\n")
+    with (args.output_dir / f"e2e-{args.split}-predictions.jsonl").open("w", encoding="utf-8") as handle:
+        for row, prediction in zip(rows, predictions):
+            handle.write(json.dumps({"id": row["id"], "language": row["language"],
+                                     "prediction": prediction}, ensure_ascii=False) + "\n")
     print(json.dumps(result, indent=2))
 
 

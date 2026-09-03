@@ -142,19 +142,20 @@ class MatrixNluRuntime:
         encoded = self.tokenizer(text, max_length=64, padding="max_length", truncation=True,
                                  return_offsets_mapping=True, return_tensors="pt")
         offsets = encoded.pop("offset_mapping")[0].tolist()
+        attention = encoded["attention_mask"][0].tolist()
         with self.torch.no_grad():
             output = self.model(encoded["input_ids"], encoded["attention_mask"])
-        return offsets, output
+        return offsets, attention, output
 
     def interpret(self, text: str, context: dict, source_id: str) -> dict:
-        offsets, first = self._run(text)
+        offsets, attention, first = self._run(text)
         boundary_probs = first["tokens"]["boundary"].softmax(-1)[0]
         boundary_tags = boundary_probs.argmax(-1).tolist()
         claim_spans = groups_from_tags(offsets, boundary_tags)
         raw_claims = []
         for source_start, source_end in claim_spans:
             claim_text = text[source_start:source_end]
-            local_offsets, output = self._run(claim_text)
+            local_offsets, _, output = self._run(claim_text)
             labels = {}
             confidences = []
             for head, values in SEQUENCE_LABELS.items():
@@ -177,7 +178,11 @@ class MatrixNluRuntime:
                           "entities": entities},
                 "confidence": math.prod(max(value, 1e-9) for value in confidences) ** (1 / len(confidences))})
         claims = [validate_claim(raw, text, context, source_id, self.threshold) for raw in raw_claims]
+        real_token_confidence = [float(boundary_probs[index].max())
+                                 for index, (start, end) in enumerate(offsets)
+                                 if attention[index] and end > start]
         return {"input": text, "observationSourceId": source_id,
                 "claimBoundarySpans": claim_spans,
-                "boundaryConfidence": float(boundary_probs.max(-1).values.mean()),
-                "claims": claims, "worldTruthUpdates": 0}
+                "boundaryConfidence": (sum(real_token_confidence) /
+                                       max(1, len(real_token_confidence))),
+                "rawClaims": raw_claims, "claims": claims, "worldTruthUpdates": 0}
