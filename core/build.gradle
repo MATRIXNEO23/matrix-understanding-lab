@@ -10,6 +10,10 @@ java {
 
 dependencies {
     api 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+    api 'org.apache.opennlp:opennlp-tools:2.5.11'
+    runtimeOnly 'org.apache.opennlp:opennlp-models-pos-it:1.3.0'
+    runtimeOnly 'org.apache.opennlp:opennlp-models-pos-en:1.3.0'
+    runtimeOnly 'org.apache.opennlp:opennlp-models-pos-es:1.3.0'
     testImplementation platform('org.junit:junit-bom:5.11.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
@@ -23,4 +27,3 @@ sourceSets {
 tasks.withType(Test).configureEach {
     useJUnitPlatform()
 }
-

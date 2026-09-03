@@ -10,6 +10,7 @@ java {
 
 dependencies {
     implementation project(':core')
+    implementation 'com.ibm.icu:icu4j:78.1'
 }
 
 application {
@@ -19,4 +20,3 @@ application {
 tasks.named('run') {
     workingDir = rootProject.projectDir
 }
-

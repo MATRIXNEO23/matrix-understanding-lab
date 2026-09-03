@@ -23,10 +23,9 @@ jobs:
           gradle-version: '8.11.1'
       - name: Unit tests
         run: gradle --no-daemon :core:test
-      - name: Baseline benchmark
+      - name: Unified A/B benchmark
         run: gradle --no-daemon :cli:run
       - uses: actions/upload-artifact@v4
         with:
-          name: p0-baseline-results
+          name: p0-results
           path: build/results/
-
