@@ -23,8 +23,10 @@ real phone is returned.
 
 ## Reproducible build
 
-The lab pins AGP `8.9.2`, Gradle `8.11.1`, JDK 17 and compile SDK 35. This is the
-compatibility set published for AGP 8.9. Build locally with:
+The lab pins AGP `8.9.2`, Gradle `8.11.1`, JDK 17, compile SDK 35 and min SDK 26.
+API 26 is required because OpenNLP 2.5.11 contains `MethodHandle.invoke` usage;
+D8 rejects it below Android O even though platform ICU itself starts at API 24.
+AGP/Gradle/JDK/SDK is the compatibility set published for AGP 8.9. Build locally with:
 
 ```text
 gradle --no-daemon :core:test :cli:run :android-probe:assembleDebug

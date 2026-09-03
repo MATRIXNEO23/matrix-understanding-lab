@@ -8,7 +8,9 @@ android {
 
     defaultConfig {
         applicationId 'com.matrix.p0.probe'
-        minSdk 24
+        // OpenNLP 2.5.11 uses MethodHandle.invoke in its Snowball classes;
+        // D8 requires Android O/API 26 even though platform ICU begins at 24.
+        minSdk 26
         targetSdk 35
         versionCode 1
         versionName '0.1.0-p0'

@@ -88,6 +88,12 @@ bytes, init time, warm latency and PSS are measured by later gates. No numerical
 footprint is asserted before the build. The supervisor's initial PSS target is
 40 MB delta; exceeding it requires a material quality gain and a decision.
 
+The Android build gate established a minimum API constraint: OpenNLP 2.5.11
+contains `MethodHandle.invoke` usage in Snowball classes, which D8 supports from
+API 26. The lab probe therefore targets min SDK 26 (compatible with the Moto G56)
+rather than implying that ICU's API-24 availability is sufficient for the whole
+composition.
+
 ## Known limits before implementation
 
 1. POS/morphology helps disambiguate proper name vs adjective and find verbs,
