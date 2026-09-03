@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:46:00Z  
+Last updated: 2026-09-03T18:58:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,7 +9,9 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD at the training launch:
+- HEAD verified after invariant-decoder consolidation:
+  `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
+- Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
@@ -24,6 +26,12 @@ strategy change, before long/risky work, and before ending any session.
 - Canonical specification:
   `docs/FINAL_MATRIX_UNDERSTANDING_ARCHITECTURE.md` at
   `cf6395b0fefc254febe3c804751ca4b048f974d1`.
+- Hardware/runtime-budget supplement added concurrently and preserved:
+  `docs/FINAL_MATRIX_ECOSYSTEM_MOTO_G56.md` at
+  `21e1de86fc0ecf8ce86d59b71ab89e2bccc827ea`. It does not supersede the
+  trained Understanding architecture; for this gate it adds the 25–45 MB
+  Matrix-NLU target, 60 MB warning ceiling, offline/ONNX/INT8 and zero-cost
+  training constraints.
 - The specification was reread in full after the controlled P0.5 stop.
 - Current objective: build and objectively gate the trained IT/EN/ES
   Matrix-NLU in this lab only:
@@ -103,8 +111,8 @@ strategy change, before long/risky work, and before ending any session.
 - Exact activity: GitHub Actions run `33786677296` (`Matrix-NLU Training`) is
   executing commit `37ef11c9...` with the frozen configuration below. Do not
   start another teacher run while it is active.
-  declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
-  evidence for all three candidates. No model training has started.
+- In parallel, commit `9027ff3...` added the end-to-end learned decoder and
+  deterministic invariant validator without touching a training-trigger path.
 - Current candidate configuration:
   - primary probe: `Geotrend/distilbert-base-en-es-it-cased`;
   - quality/size counterexample: `microsoft/Multilingual-MiniLM-L12-H384`;
@@ -204,6 +212,11 @@ strategy change, before long/risky work, and before ending any session.
 - Current training software local checks: 19/19 unit tests green and every
   Python source byte-compiles. Torch/Transformers execution is intentionally a
   CI gate because those pinned packages are not present in the Work container.
+- Decoder/invariant checkpoint `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`:
+  full local suite 23/23 green and all `matrix_nlu/*.py` byte-compile. Covered:
+  learned claim-boundary grouping, context-only known-entity binding, rejection
+  of an unbound third party, low-confidence abstention with provenance, no
+  World Truth mutation. This commit did not retrigger the active teacher run.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -247,9 +260,17 @@ strategy change, before long/risky work, and before ending any session.
 - Do not disable or bypass frozen test partitions; do not use any test result to
   train or choose a variant.
 - Do not add linguistic regex/rules to the invariant validator.
-- Training code has not executed with Torch yet. A dependency/model API error is
-  a normal software fix; do not reinterpret it as a quality result or alter the
-  frozen sets.
+- The teacher step is executing with Torch in run `33786677296`; no epoch/result
+  is available yet. A dependency/model API error is a normal software fix; do
+  not reinterpret it as a quality result or alter the frozen sets.
+- `MatrixNluRuntime` currently reconstructs the encoder through the pinned Hub
+  identifier before loading its state dict. This is acceptable only for the lab
+  evaluator and is an open offline-export defect: the ONNX/runtime bundle must
+  carry all model/tokenizer/config assets and must prove zero network access.
+- The first implementation stores `earlyStoppingPatience=2` in configuration
+  but does not yet consume it in the epoch loop. Do not claim early stopping was
+  applied to the active run; evaluate the completed history before deciding
+  whether a causal training fix is needed.
 
 ## Consolidation state
 
@@ -268,16 +289,21 @@ strategy change, before long/risky work, and before ending any session.
   `de7cea4376d9a2bb7886e6ad6c6c10878541012f`.
 - Consolidated training implementation:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
-- This continuity-only checkpoint is pending consolidation; it must not alter or
-  restart the active training run.
+- Hardware blueprint commit, concurrently added and preserved:
+  `21e1de86fc0ecf8ce86d59b71ab89e2bccc827ea`.
+- Consolidated learned decoder/invariant validator:
+  `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
+- This continuity update is pending consolidation; it must not alter or restart
+  the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `37ef11c9...` without touching
+1. Commit this continuity-only update on top of `9027ff3...` without touching
    any training trigger path.
-2. Inspect run `33786677296` steps/logs. If it fails before an epoch, apply only
+2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
+   checkpoint and apply only
    the causal software/dependency fix.
 3. If it completes, download evidence and resume-checkpoint artifacts, record
-   exact checksums/component metrics and perform dev-led error analysis before
-   any student or ONNX work.
+   exact checksums/component metrics, run the end-to-end Typed Claim evaluator,
+   and perform dev-led error analysis before any student or ONNX work.
