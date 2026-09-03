@@ -29,7 +29,7 @@ android {
         resources {
             // Each OpenNLP tools/model JAR ships this Maven dependency index.
             // It is not a runtime resource and four identical paths cannot merge.
-            excludes += 'META-INF/DEPENDENCIES'
+            excludes += ['META-INF/DEPENDENCIES', 'model.properties']
         }
     }
 }
