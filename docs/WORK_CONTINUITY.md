@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T21:16:00Z  
+Last updated: 2026-09-03T20:50:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `36cd3ce1704fe16a2582fc5896eccb96fc189695`.
+  `f74679738af501e9ca823d3c4745e7a399ef0fce`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -180,6 +180,24 @@ strategy change, before long/risky work, and before ending any session.
   linguistic regex was added. Per-language ownership corruption is now counted
   with the same zero-tolerance semantics as the aggregate. Full local suite is
   48/48 green and all automation/Matrix-NLU Python byte-compiles.
+- Train-only causal data correction
+  `f74679738af501e9ca823d3c4745e7a399ef0fce`: each generated semantic family
+  now has five independently authored train paraphrases per language and the
+  train multi-claim generator rotates four coordination/discourse-marker forms
+  per language. Added 108 balanced IT/EN/ES train-only observations for the
+  existing `RECENT_ENTITY` contract, which previously had zero train examples
+  despite nine P0.5 dev claims. P0.5 train repeat changed from 3 to 8 to address
+  dev-observed rare-label underrepresentation (`CORRECT`, `REQUEST`,
+  `presence.reported`, hypotheses and local negation scope). This is learned
+  supervision only; no runtime regex or surface rule was added.
+- New Matrix train: 2,991 records / 3,831 claims, SHA-256
+  `803a565e9bb7e88de269b1002603ea86a4bbb832c06183d537525596c4575b6d`,
+  balanced at 997 observations per language. The pre-existing Matrix dev hash
+  remains exactly `aa19e414...` and frozen test remains exactly `8f1b267f...`;
+  P0.5 train/dev/test hashes remain `8426018b...` / `b48753dc...` /
+  `5ef8f8bf...`. A regression now fails if either generated dev or frozen test
+  changes. Full local suite: 50/50 green; byte-compilation, one-click dry-run
+  and all workflow YAML parsing are green.
 - The automatic `workflow_run` edge did not fire after the source workflow was
   renamed for one-click operation. Fix `16754f79e26caa003679ffb70b512f6226c13627`
   added a bounded explicit trigger; `ffdbb224059ad27b7b544aa988e4cc2665a4159d`
@@ -557,19 +575,17 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity update on top of `6ff5c395...` without touching a
-   training trigger path.
-2. Re-evaluate immutable teacher predictions with the corrected decoder on dev
-   only, then aggregate remaining learned errors by head/family/language and
-   inspect train/dev supervision balance for the causal repair.
-3. Reproduce every repair candidate on train/dev only; classify the causal
+1. Commit this continuity update on top of `f746797...`.
+2. Create the one-time `pipeline/student-4.trigger` marker and allow the strict
+   one-click workflow to prepare/verify data, train the isolated four-layer
+   candidate, run the dev gate and only then frozen/ONNX/package gates.
+3. Preserve its resumable checkpoint/artifacts and inspect failures causally;
+   reproduce every repair candidate on train/dev only and classify the causal
    family, patch learned data/objective/decoder as justified, then run the full
    regression/property suite. Never use frozen results for tuning.
-4. Do not launch the four-layer candidate unchanged: the current six-layer
-   teacher is far below the dev gate, so a smaller model with the same unresolved
-   defects would waste compute. After dev-causal corrections are regression
-   green, run the isolated four-layer candidate through `run_pipeline.py` and
-   require the complete production quality/size/package gate.
+4. The four-layer candidate must use code/data at `f746797...` or its exact
+   continuity descendant; never resume from the incompatible six-layer teacher
+   checkpoint or from a pre-augmentation student checkpoint.
 5. Carry the nested-attribution contract issue above to supervisor counter-review;
    continue all independent single-level C1 quality/export work without inventing
    a binding heuristic.
