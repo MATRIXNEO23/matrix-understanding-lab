@@ -41,6 +41,18 @@ The locally verified manifest is:
 
 CI must reproduce these hashes before training is authorized.
 
+The P0.5 adapter preserves the original partitions as separate files:
+
+| Split | Records | Claims | SHA-256 |
+|---|---:|---:|---|
+| train | 87 | 105 | `8426018bd4ec9d06c5bc9cfc0d668c2f8b4208add14a0a413694153f5f4ab95b` |
+| dev | 84 | 108 | `b48753dc07adee70538e890473a2df08524260fdaec31d9946f2e5c57183582b` |
+| frozen test | 93 | 111 | `5ef8f8bf6ed761df8f91dbd0dcc415d4b62c783759d6d10a229b4fba4c6ee505` |
+
+The regression `non amo i locali affollati` is learned-head evidence with
+`preference.like` and negative polarity; it is not implemented as a runtime
+rule.
+
 ## Provenance and license
 
 - All generated text and annotations in this layer are project-authored.
@@ -49,7 +61,9 @@ CI must reproduce these hashes before training is authorized.
 - MASSIVE remains a separate CC BY 4.0 auxiliary layer with its own immutable
   source digest and official partitions.
 - P0/P0.5 real regressions remain separate frozen evidence and are not silently
-  duplicated into training.
+  duplicated across partitions. The adapter emits P0.5 train/dev/test separately;
+  training may consume only P0.5 train, selection only P0.5 dev, and final
+  evaluation only P0.5 test.
 
 ## Adult-domain safety boundary
 

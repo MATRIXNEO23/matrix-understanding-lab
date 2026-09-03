@@ -57,6 +57,23 @@ class MatrixDatasetTest(unittest.TestCase):
                 {k: v["sha256"] for k, v in two["files"].items()},
             )
 
+    def test_p05_adapter_preserves_frozen_partitions(self):
+        source = pathlib.Path(__file__).resolve().parents[1] / "gold" / "p05-gold-v1.json"
+        rows = build_dataset.load_p05(source)
+        build_dataset.validate(rows, require_generated_coverage=False)
+        counts = {split: sum(x["split"] == split for x in rows)
+                  for split in ("train", "dev", "test")}
+        self.assertEqual({"train": 87, "dev": 84, "test": 93}, counts)
+        self.assertEqual(0, sum(c["labels"]["worldTruth"] for row in rows for c in row["claims"]))
+
+    def test_p05_moto_regression_is_training_evidence_not_rule(self):
+        source = pathlib.Path(__file__).resolve().parents[1] / "gold" / "p05-gold-v1.json"
+        rows = build_dataset.load_p05(source)
+        matching = [row for row in rows if row["text"].casefold() == "non amo i locali affollati"]
+        self.assertEqual(1, len(matching))
+        self.assertEqual("preference.like", matching[0]["claims"][0]["labels"]["predicate"])
+        self.assertEqual("NEGATIVE", matching[0]["claims"][0]["labels"]["polarity"])
+
 
 if __name__ == "__main__":
     unittest.main()

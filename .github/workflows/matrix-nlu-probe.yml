@@ -48,7 +48,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: MASSIVE probe unit tests
-        run: python -m unittest matrix_nlu/test_probe_massive.py -v
+        run: python -m unittest discover -s matrix_nlu -p 'test_probe_massive.py' -v
       - name: Download and inventory MASSIVE 1.0
         run: python matrix_nlu/probe_massive.py
       - uses: actions/upload-artifact@v4

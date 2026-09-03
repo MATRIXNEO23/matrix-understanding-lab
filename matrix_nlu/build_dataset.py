@@ -266,7 +266,101 @@ def build_records() -> list[dict]:
     return output
 
 
-def validate(records: list[dict]) -> None:
+def find_span(text: str, value: str | None) -> list[int] | None:
+    if not value:
+        return None
+    start = text.casefold().find(value.casefold())
+    if start < 0:
+        raise ValueError(f"cannot locate {value!r} in {text!r}")
+    return [start, start + len(value)]
+
+
+def optional_span(text: str, value: str | None) -> list[int] | None:
+    if not value:
+        return None
+    start = text.casefold().find(value.casefold())
+    return None if start < 0 else [start, start + len(value)]
+
+
+def referent(value: str | None, context: dict, *, owner_subject: str | None = None) -> str:
+    if value is None:
+        return "NONE"
+    if owner_subject is not None and value == owner_subject:
+        return "SUBJECT"
+    if value in {"SELF", context["speaker"]}:
+        return "SPEAKER" if value != "SELF" else "SELF"
+    if value == context["observer"]:
+        return "OBSERVER"
+    if value in context["knownEntities"].values():
+        return "KNOWN_ENTITY"
+    if value in context["recentEntityRefs"]:
+        return "RECENT_ENTITY"
+    return "UNKNOWN"
+
+
+def load_p05(path: pathlib.Path) -> list[dict]:
+    """Adapt frozen P0.5 gold without changing or copying its test into train."""
+    root = json.loads(path.read_text(encoding="utf-8"))
+    if root["schemaVersion"] != "p0.gold.v1":
+        raise ValueError("unsupported P0.5 schema")
+    output = []
+    for scenario in root["scenarios"]:
+        for language in LANGUAGES:
+            text = scenario["variants"][language]
+            context = scenario["context"]
+            claims = []
+            for index, source_claim in enumerate(scenario["claims"]):
+                local = source_claim["localized"][language]
+                source_text = local["sourceText"]
+                source = find_span(text, source_text)
+                entities = []
+                for entity in local.get("entities", []):
+                    link = entity["link"]
+                    entity_ref = "LOCATION" if entity["type"] == "LOCATION" else referent(link, context)
+                    entities.append({"span": find_span(text, entity["mention"]),
+                                     "type": entity["type"], "referent": entity_ref})
+                subject = source_claim["subject"]
+                labels = {
+                    "dialogueAct": source_claim["dialogueAct"],
+                    "predicate": source_claim["predicate"],
+                    "subjectReferent": referent(subject, context),
+                    "targetReferent": referent(source_claim.get("target"), context),
+                    "ownerReferent": referent(source_claim["owner"], context, owner_subject=subject),
+                    "perspectiveReferent": referent(source_claim["perspective"], context),
+                    "polarity": source_claim["polarity"],
+                    "temporalRelation": source_claim["temporalRelation"],
+                    "claimKind": source_claim["claimKind"], "worldTruth": False,
+                }
+                object_value = local.get("object")
+                subject_mention = next((e["mention"] for e in local.get("entities", [])
+                                        if e["type"] == "PERSON" and e["link"] == subject), None)
+                object_span = optional_span(text, object_value)
+                if object_span is None and entities:
+                    # Gold objects may contain a normalized article that is
+                    # contracted in the surface form (e.g. "il bar" vs "al
+                    # bar"). Entity spans remain exact supervision.
+                    object_span = entities[-1]["span"]
+                claims.append({
+                    "labels": labels,
+                    "spans": {"source": source, "object": object_span,
+                              "subject": find_span(text, subject_mention),
+                              "negation": find_span(text, local.get("negationScope")),
+                              "temporal": optional_span(text, local.get("temporalExpression")),
+                              "entities": entities},
+                    "sourceId": f"p05-gold:{scenario['id']}:{language}:{index}",
+                    "family": "+".join(scenario["families"]),
+                })
+            output.append({
+                "schemaVersion": SCHEMA, "id": f"p05-{scenario['id']}-{language}",
+                "split": scenario["split"], "language": language, "text": text,
+                "context": context, "claims": claims, "adultOnly": False,
+                "provenance": {"kind": "P05_FROZEN_GOLD", "sourceScenario": scenario["id"],
+                               "license": "PROJECT_AUTHORED"},
+            })
+    return output
+
+
+def validate(records: list[dict], require_generated_coverage: bool = True) -> None:
     ids = set()
     split_templates = defaultdict(set)
     split_lexemes = defaultdict(set)
@@ -290,20 +384,21 @@ def validate(records: list[dict]) -> None:
         if row["adultOnly"]:
             lower = row["text"].lower()
             assert not any(term in lower for term in ("minor", "minore", "menor", "child", "bambin", "niñ"))
-    for split in SPLITS:
-        assert {"name", "age", "residence", "like", "dislike", "work", "future_goal",
-                "hypothesis", "question", "adult_consent"} <= split_templates[split]
+    if require_generated_coverage:
+        for split in SPLITS:
+            assert {"name", "age", "residence", "like", "dislike", "work", "future_goal",
+                    "hypothesis", "question", "adult_consent"} <= split_templates[split]
 
 
 def digest(path: pathlib.Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def write(records: list[dict], output_dir: pathlib.Path) -> dict:
+def write(records: list[dict], output_dir: pathlib.Path, prefix: str = "matrix") -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     files = {}
     for split in SPLITS:
-        path = output_dir / f"matrix-{split}.jsonl"
+        path = output_dir / f"{prefix}-{split}.jsonl"
         rows = sorted((r for r in records if r["split"] == split), key=lambda x: x["id"])
         path.write_text("".join(json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n" for r in rows), encoding="utf-8")
         files[split] = {"path": str(path), "records": len(rows), "sha256": digest(path),
@@ -311,11 +406,11 @@ def write(records: list[dict], output_dir: pathlib.Path) -> dict:
                         "claims": sum(len(r["claims"]) for r in rows)}
     manifest = {
         "schemaVersion": "matrix.nlu.dataset-manifest.v1", "seed": SEED,
-        "generator": "matrix_nlu/build_dataset.py", "files": files,
+        "generator": "matrix_nlu/build_dataset.py", "prefix": prefix, "files": files,
         "separation": "template families and lexicon values are split-specific; frozen test is evaluation-only",
         "worldTruthExpected": 0,
     }
-    manifest_path = output_dir / "manifest.json"
+    manifest_path = output_dir / f"{prefix}-manifest.json"
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return manifest
 
@@ -323,10 +418,15 @@ def write(records: list[dict], output_dir: pathlib.Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", type=pathlib.Path, default=pathlib.Path("build/matrix-nlu/data"))
+    parser.add_argument("--p05-gold", type=pathlib.Path, default=pathlib.Path("gold/p05-gold-v1.json"))
     args = parser.parse_args()
     rows = build_records()
     validate(rows)
-    print(json.dumps(write(rows, args.output_dir), indent=2))
+    matrix_manifest = write(rows, args.output_dir)
+    p05 = load_p05(args.p05_gold)
+    validate(p05, require_generated_coverage=False)
+    p05_manifest = write(p05, args.output_dir, "p05")
+    print(json.dumps({"matrix": matrix_manifest, "p05": p05_manifest}, indent=2))
 
 
 if __name__ == "__main__":

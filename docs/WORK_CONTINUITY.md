@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T17:55:00Z  
+Last updated: 2026-09-03T18:05:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified before the pending model-pin/MASSIVE probe commit:
-  `c6875b9e492cd0827ada0bc27c9471dcd4454a21`.
+- HEAD verified before the pending P0.5-adapter/MASSIVE test-path fix:
+  `d8ef350ad723156cd6b8fd64509a64ae7575107c`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
   (`feat: add Matrix-NLU provenance candidate probe`)
@@ -100,10 +100,9 @@ strategy change, before long/risky work, and before ending any session.
 
 - Current gate: external data provenance (`Gate 01`, encoder portion passed;
   MASSIVE archive hash pinning in progress).
-- Exact activity: pin all three resolved encoder revisions/weight sizes, preserve
-  the successful candidate-probe artifact in Git, and run the first MASSIVE 1.0
-  archive inventory to obtain the immutable archive hash/license/counts. No
-  training has started.
+- Exact activity: consolidate the P0.5-to-learned-head adapter and repair only
+  the MASSIVE test import invocation, then rerun the first MASSIVE 1.0 archive
+  inventory. No training has started.
   declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
   evidence for all three candidates. No model training has started.
 - Current candidate configuration:
@@ -170,6 +169,18 @@ strategy change, before long/risky work, and before ending any session.
 - XtremeDistil h256 revision `8d58f0e6...`: 51,044,621-byte weights,
   estimated INT8 12,761,155 bytes, but declared language is English; size
   reference only.
+- Encoder/model pinning commit:
+  `d8ef350ad723156cd6b8fd64509a64ae7575107c`; it also preserves
+  `artifacts/matrix-nlu/probes/candidate-probe-c6875b9.json`.
+- Matrix-NLU workflow run `33785421435` on `d8ef350...`: encoder-probe job
+  green, MASSIVE job red before download. Cause: unit test invoked as
+  `python -m unittest matrix_nlu/test_probe_massive.py` while its direct module
+  import expects `matrix_nlu` on `sys.path`. Fix is the same discovery mode
+  already used by the green combined test job. This is not a data/provenance
+  result.
+- P0.5 adapter locally verified within 13/13 combined tests. It emits train
+  87 records/105 claims SHA `8426018b...`, dev 84/108 SHA `b48753dc...`, frozen
+  test 93/111 SHA `5ef8f8bf...`; the frozen test is never merged into training.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
 
@@ -188,6 +199,9 @@ strategy change, before long/risky work, and before ending any session.
   installed for XLM-R-family tokenizers. The pending commit contains that fix.
 - Probe failure `33784416207`: do not retry unchanged; after SentencePiece,
   XLMRobertaConverter explicitly required protobuf. The pending commit pins it.
+- MASSIVE job in run `33785421435`: do not retry unchanged; use unittest
+  discovery with `-s matrix_nlu`, otherwise the test module import fails before
+  the archive is downloaded.
 - `Geotrend/distilbert-base-en-fr-es-pt-it-cased` was initially considered but
   superseded by the exact-language `en-es-it` checkpoint. Do not train the
   5-language checkpoint unless the exact checkpoint fails a documented gate.
@@ -208,16 +222,18 @@ strategy change, before long/risky work, and before ending any session.
   `matrix_nlu/probe_candidates.py`, `matrix_nlu/requirements-probe.txt`,
   `matrix_nlu/test_probe_candidates.py`.
 - Consolidated dataset commit: `c6875b9e492cd0827ada0bc27c9471dcd4454a21`.
-- Pending consolidation: pinned `matrix_nlu/candidates.json`, MASSIVE source/
-  probe/tests, model result docs, preserved candidate-probe JSON artifact,
-  workflow extension and this continuity update.
+- Consolidated model pin/MASSIVE probe commit:
+  `d8ef350ad723156cd6b8fd64509a64ae7575107c`.
+- Pending consolidation: P0.5 adapter/tests/card, MASSIVE workflow test-path
+  repair and this continuity update.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit the pinned candidates, MASSIVE provenance probe, preserved model-probe
-   artifact and this continuity update on top of `c6875b9e...`.
-2. Wait for both probe jobs; download `matrix-nlu-massive-provenance`.
+1. Commit P0.5 adapter/tests/card plus MASSIVE test-path fix and continuity on
+   top of `d8ef350...`.
+2. Wait for the MASSIVE provenance job; download
+   `matrix-nlu-massive-provenance`.
 3. Record and pin the MASSIVE archive SHA-256, then rerun provenance; only the
    second matching-hash run can turn external-data provenance green.
 4. Convert P0.5 train/dev into learned-head supervision while keeping its test
