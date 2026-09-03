@@ -19,7 +19,7 @@ jobs:
   dev-calibration-frozen-export:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 360
     env:
       HF_HOME: ${{ github.workspace }}/.cache/huggingface
       HF_HUB_DISABLE_TELEMETRY: '1'

@@ -141,6 +141,10 @@ def main() -> int:
                         help="variant-specific output; default is training or training-student-N")
     args = parser.parse_args()
 
+    configured_seed = json.loads((ROOT / "matrix_nlu/train_config.json").read_text())["seed"]
+    if args.seed != configured_seed:
+        parser.error(f"--seed {args.seed} differs from immutable train_config seed {configured_seed}")
+
     training_dir = (args.output_dir or
                     (BUILD / f"training-student-{args.student_layers}"
                      if args.student_layers is not None else DEFAULT_TRAINING_DIR)).resolve()

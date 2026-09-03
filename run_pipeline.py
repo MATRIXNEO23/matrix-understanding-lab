@@ -57,7 +57,8 @@ def main() -> int:
                                      for step in planned]}, indent=2))
         return 0
     started = time.time()
-    training_dir = (BUILD / f"training-student-{args.student_layers}"
+    training_dir = (args.bundle.resolve() if args.skip_train and args.bundle is not None else
+                    BUILD / f"training-student-{args.student_layers}"
                     if args.student_layers is not None else BUILD / "training")
     package_dir = (BUILD / "last-good-package"
                    if args.student_layers is not None or args.candidate_role == "production"
