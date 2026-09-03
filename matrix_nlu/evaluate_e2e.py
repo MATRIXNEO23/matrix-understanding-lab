@@ -104,6 +104,10 @@ def score_rows(rows, predictions):
                 bucket["fieldCorrect"] += int(match)
                 aggregate["fieldTotal"] += 1
                 bucket["fieldTotal"] += 1
+                aggregate[f"field.{field}.correct"] += int(match)
+                bucket[f"field.{field}.correct"] += int(match)
+                aggregate[f"field.{field}.total"] += 1
+                bucket[f"field.{field}.total"] += 1
                 if not match:
                     all_exact = False
                     row_errors.append({"claim": index, "kind": "FIELD", "field": field,
@@ -113,6 +117,8 @@ def score_rows(rows, predictions):
                 for suffix, value in zip(("Tp", "Fp", "Fn"), counts):
                     aggregate[f"span{suffix}"] += value
                     bucket[f"span{suffix}"] += value
+                    aggregate[f"span.{field}.{suffix}"] += value
+                    bucket[f"span.{field}.{suffix}"] += value
                 if expected.get(field) != observed.get(field):
                     all_exact = False
                     row_errors.append({"claim": index, "kind": "SPAN", "field": field,
@@ -149,6 +155,9 @@ def score_rows(rows, predictions):
                  observed.get("owner") != expected.get("owner") or
                  observed.get("perspective") != expected.get("perspective")))
             aggregate["worldTruthUpdates"] += int(observed.get("worldTruth", False))
+        exact_set = count_exact and not row_errors
+        aggregate["exactClaimSet"] += int(exact_set)
+        bucket["exactClaimSet"] += int(exact_set)
         if row_errors:
             errors.append({"id": row["id"], "language": row["language"],
                            "text": row["text"], "errors": row_errors,
@@ -157,11 +166,12 @@ def score_rows(rows, predictions):
     def summarize(counts):
         observations = counts["observations"]
         paired = counts["pairedClaims"]
-        return {
+        result = {
             "observations": observations,
             "goldClaims": counts["goldClaims"],
             "predictedClaims": counts["predictedClaims"],
             "claimCountExact": counts["claimCountExact"] / max(1, observations),
+            "exactClaimSet": counts["exactClaimSet"] / max(1, observations),
             "claimExact": counts["claimExact"] / max(1, counts["goldClaims"]),
             "fieldExact": counts["fieldCorrect"] / max(1, counts["fieldTotal"]),
             "spanF1": f1((counts["spanTp"], counts["spanFp"], counts["spanFn"])),
@@ -173,14 +183,29 @@ def score_rows(rows, predictions):
             "ownershipCorruption": counts["ownershipCorruption"],
             "worldTruthUpdates": counts["worldTruthUpdates"],
         }
+        result["fieldAccuracy"] = {
+            field: counts[f"field.{field}.correct"] / max(1, counts[f"field.{field}.total"])
+            for field in FIELDS
+        }
+        result["spanF1ByField"] = {
+            field: f1((counts[f"span.{field}.Tp"], counts[f"span.{field}.Fp"],
+                       counts[f"span.{field}.Fn"])) for field in SPAN_FIELDS
+        }
+        result["predicateAccuracy"] = result["fieldAccuracy"]["predicate"]
+        result["negationF1"] = result["spanF1ByField"]["negationSpan"]
+        result["temporalAccuracy"] = result["fieldAccuracy"]["temporalRelation"]
+        return result
     overall = summarize(aggregate)
     overall["calibration"] = calibration_summary(calibration)
     by_language = {}
     for key, value in sorted(languages.items()):
         by_language[key] = summarize(value)
         by_language[key]["calibration"] = calibration_summary(language_calibration[key])
+    worst_field = min((value["fieldExact"] for value in by_language.values()), default=0.0)
+    worst_claim_set = min((value["exactClaimSet"] for value in by_language.values()), default=0.0)
     return {"overall": overall,
             "byLanguage": by_language,
+            "worstLanguage": {"fieldExact": worst_field, "exactClaimSet": worst_claim_set},
             "errorCount": len(errors)}, errors
 
 

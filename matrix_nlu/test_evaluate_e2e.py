@@ -32,7 +32,10 @@ class EndToEndScoringTest(unittest.TestCase):
         result, errors = score_rows([row()], [prediction()])
         self.assertEqual(1.0, result["overall"]["claimCountExact"])
         self.assertEqual(1.0, result["overall"]["claimExact"])
+        self.assertEqual(1.0, result["overall"]["exactClaimSet"])
         self.assertEqual(1.0, result["overall"]["fieldExact"])
+        self.assertEqual(1.0, result["overall"]["predicateAccuracy"])
+        self.assertEqual(1.0, result["overall"]["temporalAccuracy"])
         self.assertEqual(0, result["overall"]["ownershipCorruption"])
         self.assertEqual(0, result["overall"]["worldTruthUpdates"])
         self.assertAlmostEqual(0.9, result["overall"]["calibration"]["meanConfidence"])
@@ -52,6 +55,7 @@ class EndToEndScoringTest(unittest.TestCase):
         observed["claims"].append(dict(observed["claims"][0]))
         result, errors = score_rows([row()], [observed])
         self.assertEqual(0.0, result["overall"]["claimCountExact"])
+        self.assertEqual(0.0, result["overall"]["exactClaimSet"])
         self.assertEqual(1.0, result["overall"]["fieldExact"])
         self.assertTrue(any(item["kind"] == "CLAIM_COUNT" for item in errors[0]["errors"]))
 

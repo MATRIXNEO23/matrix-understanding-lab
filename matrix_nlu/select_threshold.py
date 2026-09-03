@@ -29,7 +29,8 @@ def apply_threshold(rows, evidence, threshold):
     return predictions
 
 
-def choose_threshold(rows, evidence, minimum_accuracy, minimum_claim_count=0.99):
+def choose_threshold(rows, evidence, minimum_accuracy, minimum_claim_count=0.99,
+                     minimum_claim_set=0.98, minimum_coverage=0.98):
     confidences = sorted({float(raw["confidence"]) for item in evidence
                           for raw in item["prediction"]["rawClaims"]})
     candidates = sorted({0.0, 1.0, *(min(1.0, value + 1e-9) for value in confidences)})
@@ -41,6 +42,8 @@ def choose_threshold(rows, evidence, minimum_accuracy, minimum_claim_count=0.99)
     eligible = [point for point in curve
                 if point["validSelectiveAccuracy"] >= minimum_accuracy and
                 point["claimCountExact"] >= minimum_claim_count and
+                point["exactClaimSet"] >= minimum_claim_set and
+                point["validCoverage"] >= minimum_coverage and
                 point["ownershipCorruption"] == 0 and point["worldTruthUpdates"] == 0]
     # Zero-coverage points are not evidence of useful calibration.
     eligible = [point for point in eligible if point["validCoverage"] > 0]
@@ -50,6 +53,8 @@ def choose_threshold(rows, evidence, minimum_accuracy, minimum_claim_count=0.99)
     return {"schemaVersion": "matrix.nlu.threshold-selection.v1",
             "policy": {"selectionSplit": "dev", "minimumSelectiveAccuracy": minimum_accuracy,
                        "minimumClaimCountExact": minimum_claim_count,
+                       "minimumExactClaimSet": minimum_claim_set,
+                       "minimumValidCoverage": minimum_coverage,
                        "ownershipCorruptionMaximum": 0, "worldTruthUpdatesMaximum": 0,
                        "optimization": "maximum valid coverage"},
             "status": "PASS" if selected else "FAILED_GATE",
@@ -63,6 +68,8 @@ def main():
     parser.add_argument("--predictions", action="append", type=pathlib.Path, required=True)
     parser.add_argument("--minimum-selective-accuracy", type=float, default=0.99)
     parser.add_argument("--minimum-claim-count-exact", type=float, default=0.99)
+    parser.add_argument("--minimum-exact-claim-set", type=float, default=0.98)
+    parser.add_argument("--minimum-valid-coverage", type=float, default=0.98)
     parser.add_argument("--output", type=pathlib.Path, required=True)
     args = parser.parse_args()
     if len(args.dataset) != len(args.predictions):
@@ -75,7 +82,8 @@ def main():
         rows.extend(current_rows)
         evidence.extend(read_predictions(predictions))
     result = choose_threshold(rows, evidence, args.minimum_selective_accuracy,
-                              args.minimum_claim_count_exact)
+                              args.minimum_claim_count_exact, args.minimum_exact_claim_set,
+                              args.minimum_valid_coverage)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
