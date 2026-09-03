@@ -69,6 +69,16 @@ class PipelineAutomationTest(unittest.TestCase):
         self.assertIn("--dataset-version v2 --student-layers 4", v2)
         self.assertIn("matrix-nlu-student-4-v2-resume-${{ github.run_id }}", v2)
 
+    def test_v2_hardened_post_gate_reuses_bundle_without_retraining(self):
+        root = pathlib.Path(__file__).resolve().parents[1]
+        workflow = (root / ".github/workflows/matrix-nlu-student-4-v2-post.yml").read_text(
+            encoding="utf-8")
+        self.assertIn("pipeline/student-4-v2-post.trigger", workflow)
+        self.assertIn("matrix-nlu-bundle-$SOURCE_RUN", workflow)
+        self.assertIn("python auto_test.py", workflow)
+        self.assertNotIn("python auto_train.py", workflow)
+        self.assertIn("--candidate-role counter-review", workflow)
+
     def test_v2_pipeline_audits_before_training_and_defers_frozen(self):
         args = type("Args", (), {
             "massive_train_per_language": 3, "massive_dev_per_language": 3,

@@ -207,6 +207,13 @@ strategy change, before long/risky work, and before ending any session.
   train/dev, Matrix 4 epochs, batch 16, accumulation 2, LR 3e-5, patience 2.
   No v1 checkpoint may be restored into this variant. Production/runtime,
   Memory, B4, Emotion, Reflection, Agency and NPC-NPC remain untouched.
+- Hardened bundle revalidation is implemented in the new, separate
+  `.github/workflows/matrix-nlu-student-4-v2-post.yml`: it downloads the
+  immutable model bundle from run `33818777290`, asserts v2/four-layer/
+  train-dev-only provenance, reruns the v2 audit and software suite, performs
+  dev-only threshold selection, and only then permits frozen/error-analysis/
+  ONNX/INT8/parity/package gates. It never invokes training and packages only
+  a counter-review candidate. Local suite is 72/72 green; workflow YAML parses.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
