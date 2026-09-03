@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:04:00Z  
+Last updated: 2026-09-03T18:06:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified after dev-only threshold-gate consolidation:
-  `2c85ca19b5d1daefd11b44a939a2186893902883`.
+- HEAD verified after claim-count-safe threshold gate:
+  `2f6a603cce44b5d062731f1f99891df8fe640a19`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -248,6 +248,11 @@ strategy change, before long/risky work, and before ending any session.
   selective exact accuracy >= 0.99 and zero ownership/World Truth corruption,
   and cannot PASS through zero coverage. Full local suite 29/29 and
   byte-compilation are green. No frozen-test evidence has been consumed.
+- Causal threshold-gate correction
+  `2f6a603cce44b5d062731f1f99891df8fe640a19`: selection also requires claim
+  count exact >= 0.99, preventing extra/missing claims from being hidden by a
+  high paired-claim selective score. Neighboring regression added; full local
+  suite 30/30 and byte-compilation are green.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -334,13 +339,15 @@ strategy change, before long/risky work, and before ending any session.
   calibration metrics: `ffc2de565c1d04968b932ab6f1eb5a05b4236c57`.
 - Consolidated dev-only threshold selection gate:
   `2c85ca19b5d1daefd11b44a939a2186893902883`.
+- Claim-count false-PASS correction:
+  `2f6a603cce44b5d062731f1f99891df8fe640a19`.
 - This continuity update is pending consolidation; it must not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `2c85ca1...` without touching
+1. Commit this continuity-only update on top of `2f6a603...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
