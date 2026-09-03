@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T19:07:00Z  
+Last updated: 2026-09-03T19:15:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified after end-to-end evaluator consolidation:
-  `39fa4127fcc99a770f52ff86a84e11f44b60bd4f`.
+- HEAD verified after raw inference-evidence consolidation:
+  `44db7995ce28236d79e4552d17934b1164cdb6ac`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -32,6 +32,12 @@ strategy change, before long/risky work, and before ending any session.
   trained Understanding architecture; for this gate it adds the 25–45 MB
   Matrix-NLU target, 60 MB warning ceiling, offline/ONNX/INT8 and zero-cost
   training constraints.
+- Maximum-depth validation strategy appended to that supplement at
+  `968953a9b6dade4d039577f989f31292d959d1f8`; it requires a large genuinely
+  unseen adversarial IT/EN/ES benchmark, Italian-primary reporting, confidence
+  calibration, repeated seeds/dispersion where stochasticity matters and
+  permanent regression evidence. This was a concurrent documentation-only
+  commit and is preserved in the current lineage.
 - The specification was reread in full after the controlled P0.5 stop.
 - Current objective: build and objectively gate the trained IT/EN/ES
   Matrix-NLU in this lab only:
@@ -224,6 +230,11 @@ strategy change, before long/risky work, and before ending any session.
   corruption and World Truth updates, with complete JSONL error evidence. Its
   CLI requires an explicit `dev` or `test` split so dev-led selection remains
   separate from the one-time frozen-test run.
+- Raw-evidence checkpoint `44db7995ce28236d79e4552d17934b1164cdb6ac`:
+  every benchmark prediction now retains learned raw labels/spans/confidence,
+  post-validator Typed Claims and boundary confidence computed only over real
+  non-special tokens. The evaluator writes a prediction JSONL beside metrics
+  and error JSONL. Local suite remains 26/26 green and byte-compilation green.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -298,17 +309,21 @@ strategy change, before long/risky work, and before ending any session.
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Hardware blueprint commit, concurrently added and preserved:
   `21e1de86fc0ecf8ce86d59b71ab89e2bccc827ea`.
+- Maximum-depth validation supplement, concurrently added and preserved:
+  `968953a9b6dade4d039577f989f31292d959d1f8`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
   `39fa4127fcc99a770f52ff86a84e11f44b60bd4f`.
+- Consolidated raw prediction evidence and corrected boundary-confidence
+  accounting: `44db7995ce28236d79e4552d17934b1164cdb6ac`.
 - This continuity update is pending consolidation; it must not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `39fa412...` without touching
+1. Commit this continuity-only update on top of `44db799...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
