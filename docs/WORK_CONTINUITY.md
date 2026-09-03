@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:00:00Z  
+Last updated: 2026-09-03T18:02:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified after raw inference-evidence consolidation:
-  `44db7995ce28236d79e4552d17934b1164cdb6ac`.
+- HEAD verified after auditable-abstention consolidation:
+  `ffc2de565c1d04968b932ab6f1eb5a05b4236c57`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -235,6 +235,13 @@ strategy change, before long/risky work, and before ending any session.
   post-validator Typed Claims and boundary confidence computed only over real
   non-special tokens. The evaluator writes a prediction JSONL beside metrics
   and error JSONL. Local suite remains 26/26 green and byte-compilation green.
+- Auditable-abstention checkpoint
+  `ffc2de565c1d04968b932ab6f1eb5a05b4236c57`: low-confidence but
+  context-valid output is now explicitly `ABSTAINED_LOW_CONFIDENCE`, never a
+  semantically `VALID` claim; it still retains raw evidence and provenance and
+  remains non-admissible. Per-head sequence/token confidences are recorded.
+  The evaluator now reports ten-bin ECE, Brier score and mean confidence overall
+  and per language. Full local suite 26/26 and byte-compilation remain green.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -317,13 +324,15 @@ strategy change, before long/risky work, and before ending any session.
   `39fa4127fcc99a770f52ff86a84e11f44b60bd4f`.
 - Consolidated raw prediction evidence and corrected boundary-confidence
   accounting: `44db7995ce28236d79e4552d17934b1164cdb6ac`.
+- Consolidated explicit abstention state, per-head confidence diagnostics and
+  calibration metrics: `ffc2de565c1d04968b932ab6f1eb5a05b4236c57`.
 - This continuity update is pending consolidation; it must not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `44db799...` without touching
+1. Commit this continuity-only update on top of `ffc2de5...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
