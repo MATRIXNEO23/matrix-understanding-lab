@@ -262,4 +262,270 @@ One final probe should measure:
 11. Run full autonomous simulations in CI.
 12. Perform one final Moto hardware gate.
 
+## 17. Maximum-depth validation strategy
+Validation is a first-class subsystem of Matrix, not a final checklist. Every deterministic, learned and generative component must have its own oracle strategy, regressions and cross-module tests. A component is not considered complete because a happy-path benchmark passes.
+
+### 17.1 Deterministic contract tests
+For every deterministic module and every substantial deterministic change, automatically require:
+- unit tests for the complete public contract;
+- boundary and pathological inputs;
+- null/empty/duplicate/out-of-order data;
+- invariant and property tests;
+- regression tests for every previous bug;
+- integration tests with every directly connected module;
+- serialization/deserialization round trips;
+- deterministic replay from the same seed/state;
+- idempotency tests where applicable;
+- state-machine transition coverage;
+- migration/backward-compatibility tests for persisted state.
+
+CI must block on any deterministic regression.
+
+### 17.2 Automatic deterministic repair
+Deterministic corrections are automatic by default.
+
+When a deterministic regression, invariant failure or integration divergence is detected, Work must run an autonomous repair loop:
+
+`failure -> minimal reproducer -> root-cause classification -> candidate patch generation -> unit/property/regression/integration suite -> differential comparison -> accept/reject -> repeat`
+
+Rules:
+- never patch by test ID or exact test string;
+- prefer general invariant/contract fixes over local branches;
+- generate at least one neighboring regression/property case for every accepted fix;
+- reject any patch that improves the target failure but causes a previous deterministic regression;
+- preserve deterministic replay and serialization compatibility unless the migration is intentional and tested;
+- record rejected patch attempts so they are not repeated;
+- continue autonomously through ordinary repair cycles without asking the user;
+- if several candidate fixes are valid, select the one with lower complexity, lower runtime cost and wider contract correctness;
+- use differential testing against the previous verified commit and, where available, against a trusted reference implementation;
+- run mutation/property/fuzz tests after structural fixes to detect overfitting to known cases.
+
+A deterministic module is not considered repaired until the complete deterministic and integration suite is green.
+
+### 17.3 Matrix-NLU maximum benchmark
+The final NLU benchmark must be large, frozen, genuinely unseen and adversarial, with separate IT/EN/ES reporting and Italian primary weighting.
+
+Required families include:
+- identity vs attribute ambiguity;
+- subject/object/reference resolution;
+- pronouns and pro-drop;
+- multi-entity and multi-claim utterances;
+- negation, double negation and scoped negation;
+- corrections and self-corrections;
+- hypotheses and uncertainty;
+- request/command/question/goal/preference distinctions;
+- temporal expressions, tense and relative time;
+- location/time lexical collisions;
+- typos, missing accents, punctuation noise and ASR-like errors;
+- slang, colloquial abbreviations and incomplete sentences;
+- code-switch IT/EN/ES;
+- long user messages and claim-density stress;
+- third-party reports and nested belief attribution;
+- romantic, sensual, erotic and sexually explicit adult-domain language;
+- consent, refusal, hesitation, change of mind and escalation/de-escalation among adults;
+- paraphrase families that share meaning but not surface form;
+- minimal pairs differing in exactly one semantic feature.
+
+Metrics must include field exact, exact claim set, entity/span F1, predicate/intent accuracy, negation F1, temporal accuracy, ownership/authority violations, invented World Truth, calibration/abstention quality and worst-language performance.
+
+No tuning may use the final frozen test set.
+
+### 17.4 Learned-component robustness
+Memory admission, retrieval reranking, appraisal tuning and action ranking require:
+- frozen train/dev/test separation;
+- repeated seeds where training stochasticity matters;
+- confidence intervals or dispersion across runs;
+- class imbalance testing;
+- hard-negative mining;
+- distribution-shift cases;
+- ablation tests for major feature groups;
+- calibration tests;
+- fallback/abstention tests;
+- artifact reproducibility from locked inputs/versions;
+- quantized vs non-quantized quality comparison.
+
+A learned component cannot replace a simpler baseline unless it shows a material improvement without critical regressions.
+
+### 17.5 Memory correctness tests
+Memory must be tested as a temporal knowledge system, not only as CRUD.
+
+Required scenarios:
+- first admission;
+- duplicate observation;
+- same fact reported by multiple actors;
+- conflicting reports;
+- correction/retraction;
+- changing truth over time;
+- stale vs current fact;
+- belief differing from World Truth;
+- third-party knowledge boundaries;
+- secrets and limited visibility;
+- relationship-specific memory;
+- emotionally salient event retention;
+- irrelevant-memory suppression;
+- memory expiry/decay when defined;
+- consolidation without information loss;
+- save/restore and database migration;
+- thousands of memories per NPC;
+- corruption/recovery behavior where practical.
+
+Authority tests must prove that OBSERVATION/REPORT/BELIEF/INFERENCE never silently become WORLD_TRUTH.
+
+### 17.6 Retrieval evaluation
+Build a gold query-memory benchmark with relevant, partially relevant, distractor and dangerous memories.
+
+Measure at least:
+- Recall@K;
+- Precision@K;
+- MRR/NDCG or equivalent ranking metric;
+- actor correctness;
+- temporal correctness;
+- unresolved-goal recall;
+- suppression of invalidated/stale memories;
+- latency under increasing database size;
+- retrieved-token budget efficiency.
+
+Adversarial tests must contain highly lexically similar but semantically wrong memories.
+
+### 17.7 Emotion and relationship trajectory tests
+Do not test only one-step deltas. Simulate trajectories over hours/days/weeks of game time.
+
+Verify:
+- bounded values;
+- decay and recovery;
+- repeated positive/negative events;
+- contradictory events;
+- personality-dependent appraisal differences;
+- relationship asymmetry;
+- jealousy/trust/attraction-like dimensions when enabled;
+- no runaway accumulation;
+- no unexplained state changes;
+- deterministic replay for deterministic appraisal paths;
+- learned-ranker stability on unseen trajectories.
+
+Use counterfactual tests: changing only one event or one personality trait should produce explainable differences.
+
+### 17.8 Reflection tests
+Reflection must be attacked for hallucination and memory corruption.
+
+Required checks:
+- trigger fires only when intended;
+- no trigger storms;
+- same evidence does not create endless duplicate reflections;
+- insight provenance points to supporting memories;
+- unsupported inference is rejected or marked uncertain;
+- contradictions cause belief revision rather than duplicate truths;
+- reflection cannot mutate World Truth directly;
+- token/context budgets are respected;
+- reflection failure leaves canonical state valid;
+- replay with mocked GGUF outputs covers malformed, empty, contradictory and overconfident responses.
+
+### 17.9 Agency/BDI-lite tests
+For goals, intentions and actions test:
+- feasible vs impossible actions;
+- goal conflicts;
+- priority inversion;
+- plan failure/recovery;
+- changing beliefs invalidating an intention;
+- personality/emotion effects on action ranking;
+- no impossible state transitions;
+- no action loops;
+- deterministic action validation independent of GGUF wording.
+
+### 17.10 Autonomous multi-NPC simulation
+CI must run accelerated simulations without the player.
+
+Required scales:
+- 3–5 NPC functional scenarios;
+- medium population stress scenarios;
+- long simulated time horizons;
+- repeated seeded runs for reproducibility.
+
+Measure:
+- coherent encounters and schedules;
+- memory propagation boundaries;
+- relationship evolution;
+- goal creation/completion/failure;
+- reflection frequency;
+- event-queue growth;
+- duplicate-event rate;
+- deadlocks/livelocks;
+- impossible co-location or time states;
+- GGUF-call budget;
+- storage growth;
+- catch-up correctness after simulated app closure.
+
+Inject failures: missing events, reordered events, duplicate events, partial save, delayed processing and malformed GGUF outputs.
+
+### 17.11 End-to-end scenario tests
+Create canonical stories that traverse the whole engine:
+
+`input -> NLU -> claim -> memory -> emotion -> goal -> reflection -> action -> NPC interaction -> GGUF -> write-back -> later retrieval`.
+
+Each scenario defines expected invariants and important checkpoints rather than brittle exact prose.
+
+Include:
+- first meeting to long-term relationship;
+- secrets and third-party rumors;
+- conflict/correction/reconciliation;
+- goal promises and broken promises;
+- time/location changes;
+- autonomous NPC interaction while player is elsewhere;
+- adult relationship/consent state changes for adult characters;
+- save/restart/catch-up mid-scenario.
+
+### 17.12 Fuzzing, property and mutation testing
+Apply property-based/fuzz testing to parsers, serializers, memory transitions, event queues and deterministic validators.
+
+Use mutation testing on high-risk deterministic modules to verify tests actually detect broken logic.
+
+Fuzz model-facing structured outputs so malformed JSON/claims/GGUF responses can never corrupt canonical state.
+
+### 17.13 Performance and soak testing
+Before Moto, run JVM/emulator stress where possible:
+- increasing memory DB sizes;
+- large event queues;
+- many dormant NPCs;
+- repeated retrieval;
+- repeated NLU inference;
+- reflection bursts;
+- save/load loops;
+- catch-up over large elapsed times;
+- multi-hour accelerated engine simulation.
+
+Track latency distributions, heap growth, file/database growth, GC pressure and leaks.
+
+No unbounded memory or queue growth is acceptable.
+
+### 17.14 Final Moto torture gate
+The late hardware gate is not a single happy-path interaction. The final probe must include:
+- cold/warm start repetitions;
+- long dialogue session;
+- repeated NLU/retrieval cycles;
+- several reflections;
+- high-detail NPC encounters;
+- autonomous catch-up;
+- GGUF generation loops;
+- screen/background/resume lifecycle transitions where allowed;
+- thermal observation;
+- PSS/CPU/latency distributions, not only one sample;
+- final database/state integrity check.
+
+All functional failures found on Moto must first receive an automated reproducer when possible before another phone iteration.
+
+### 17.15 Release gate
+Release candidate requires all of the following:
+- deterministic suites green;
+- learned-component frozen benchmarks green;
+- zero critical ownership/World Truth corruption;
+- memory/retrieval/emotion/reflection/agency integration green;
+- long autonomous simulation green;
+- fuzz/property/mutation gates green for high-risk modules;
+- CI reproducible artifacts/checksums/provenance;
+- Android packaging green;
+- final Moto torture gate inside hardware budgets;
+- no unresolved critical/high severity regression.
+
+Failures become permanent regression tests. Work must continue autonomously through ordinary failures until gates are green or a genuine architecture-level blocker is demonstrated.
+
 This is the final hardware-optimized ecosystem direction for the Moto G56.
