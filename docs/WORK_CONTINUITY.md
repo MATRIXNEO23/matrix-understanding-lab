@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T17:24:00Z  
+Last updated: 2026-09-03T17:29:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,7 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD expected after continuity commit: `PENDING_THIS_COMMIT`
+- HEAD verified before the pending repair commit:
+  `d2a388b340ce5430395526880266182d06324a07`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
   (`feat: add Matrix-NLU provenance candidate probe`)
@@ -98,8 +99,9 @@ strategy change, before long/risky work, and before ending any session.
 ## Current gate and exact activity
 
 - Current gate: encoder/data provenance selection (`Gate 01`, in progress).
-- Exact activity: GitHub Actions workflow `Matrix-NLU Candidate Probe` should
-  run on commit `6bf5492...` and resolve immutable Hugging Face revisions,
+- Exact activity: repair the six probe files atomically on top of `d2a388b...`,
+  then let GitHub Actions workflow `Matrix-NLU Candidate Probe` resolve
+  immutable Hugging Face revisions,
   declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
   evidence for all three candidates. No model training has started.
 - Current candidate configuration:
@@ -123,7 +125,11 @@ strategy change, before long/risky work, and before ending any session.
   `python3 -m unittest discover -s matrix_nlu -p 'test_*.py' -v` (3 tests),
   `python3 -m py_compile matrix_nlu/probe_candidates.py`.
 - CI for `5b9bb591...`: no associated workflow run; do not report PASS.
-- CI for `6bf5492...`: pending/not yet observed at the time of this update.
+- CI probe run `33784078023` on `d2a388b...`: red before job creation because
+  the six newly uploaded files contained literal serialization placeholders
+  (`$f0` ... `$f5`) rather than their local contents. This is a repository
+  transfer defect, not a model/probe result. The normal P0 workflow run
+  `33784079607` is in progress on the same HEAD.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
 
@@ -134,6 +140,10 @@ strategy change, before long/risky work, and before ending any session.
   unverified until the probe artifact is retrieved.
 - Shell access to Hugging Face timed out in the Work container. Do not repeat
   it; use GitHub Actions network access and preserve the resulting artifact.
+- Failed repository-transfer method: constructing a `jq` object by interpolating
+  shell variables through a JSON string produced literal `$fN` values. Do not
+  repeat it. The repair reads each file as base64, decodes it in the tool
+  process and verifies the remote blobs after commit.
 - `Geotrend/distilbert-base-en-fr-es-pt-it-cased` was initially considered but
   superseded by the exact-language `en-es-it` checkpoint. Do not train the
   5-language checkpoint unless the exact checkpoint fails a documented gate.
@@ -147,7 +157,7 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Consolidation state
 
-- Files consolidated in `6bf5492...`:
+- Intended files in `6bf5492...` (remote contents require the pending repair):
   `.github/workflows/matrix-nlu-probe.yml`,
   `docs/MATRIX_NLU_MODEL_DATA_PLAN.md`, `matrix_nlu/candidates.json`,
   `matrix_nlu/probe_candidates.py`, `matrix_nlu/requirements-probe.txt`,
@@ -158,9 +168,10 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity file alone on top of `6bf5492...` and fast-forward
-   `main`.
-2. Query workflow runs for `6bf5492...`; wait for `Matrix-NLU Candidate Probe`
+1. Replace all six literal-placeholder probe blobs plus this continuity update
+   in one repair commit on top of `d2a388b...`; fast-forward `main` and verify
+   the remote file contents.
+2. Query workflow runs for the repair commit; wait for `Matrix-NLU Candidate Probe`
    to finish without restarting prior gates.
 3. Download `matrix-nlu-candidate-probe`, record its artifact id/digest and the
    exact selected/rejected model revisions in this file.

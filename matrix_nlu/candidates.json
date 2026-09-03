@@ -1,1 +1,27 @@
-$f2
+{
+  "schemaVersion": "matrix.nlu.candidates.v1",
+  "targetLanguages": ["it", "en", "es"],
+  "candidates": [
+    {
+      "id": "geotrend-distilmbert-it-en-es",
+      "repository": "Geotrend/distilbert-base-en-es-it-cased",
+      "role": "PRIMARY_PROBE",
+      "expectedLicense": "apache-2.0",
+      "rationale": "Pretrained multilingual encoder restricted to the exact production languages; preserves DistilmBERT representations while removing unrelated vocabulary."
+    },
+    {
+      "id": "microsoft-multilingual-minilm",
+      "repository": "microsoft/Multilingual-MiniLM-L12-H384",
+      "role": "QUALITY_REFERENCE",
+      "expectedLicense": "mit",
+      "rationale": "Mature multilingual distilled encoder, but its XLM-R vocabulary may exceed the mobile size gate."
+    },
+    {
+      "id": "microsoft-xtremedistil-h256",
+      "repository": "microsoft/xtremedistil-l6-h256-uncased",
+      "role": "SIZE_REFERENCE",
+      "expectedLicense": "mit",
+      "rationale": "Very compact pretrained encoder; must not be selected unless the probe disproves the model-card English-only risk for IT/ES."
+    }
+  ]
+}
