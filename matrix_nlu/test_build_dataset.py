@@ -56,6 +56,38 @@ class MatrixDatasetTest(unittest.TestCase):
         self.assertEqual("8f1b267fb9f1b76d0f304cd26d88dfcef82fd6434f5ea182985a164960effba2",
                          manifest["files"]["test"]["sha256"])
 
+    def test_train_surfaces_are_disjoint_from_dev_and_frozen(self):
+        surfaces = {
+            split: {row["text"].casefold() for row in self.rows if row["split"] == split}
+            for split in ("train", "dev", "test")
+        }
+        self.assertFalse(surfaces["train"] & surfaces["dev"])
+        self.assertFalse(surfaces["train"] & surfaces["test"])
+
+    def test_every_dev_label_has_train_supervision(self):
+        observed = {split: {} for split in ("train", "dev")}
+        for split in observed:
+            for row in self.rows:
+                if row["split"] != split:
+                    continue
+                for claim in row["claims"]:
+                    for head, value in claim["labels"].items():
+                        observed[split].setdefault(head, set()).add(value)
+        for head, values in observed["dev"].items():
+            self.assertFalse(values - observed["train"].get(head, set()),
+                             (head, values - observed["train"].get(head, set())))
+
+    def test_all_semantic_spans_are_inside_their_claim_source(self):
+        for row in self.rows:
+            for claim in row["claims"]:
+                source_start, source_end = claim["spans"]["source"]
+                spans = [claim["spans"][name]
+                         for name in ("object", "subject", "negation", "temporal")]
+                spans += [entity["span"] for entity in claim["spans"]["entities"]]
+                for span in (value for value in spans if value is not None):
+                    self.assertTrue(source_start <= span[0] < span[1] <= source_end,
+                                    (row["id"], source_start, source_end, span))
+
     def test_zero_world_truth_and_critical_coverage(self):
         labels = [c["labels"] for row in self.rows for c in row["claims"]]
         self.assertFalse(any(x["worldTruth"] for x in labels))
