@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T01:08:00Z  
+Last updated: 2026-09-04T01:15:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `c6b511076ac8a1474ffaa97012ec3ebb1ad00c35`.
+  `093b49626d2581ad7d7be27b4fc6f800a423f429`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -232,8 +232,14 @@ strategy change, before long/risky work, and before ending any session.
   digest
   `sha256:27c35bb23231e279da7bc27c574e841d4f857fffb557cf0fcba2428609f5e61c`.
   The report archive has been downloaded, checksum-verified and extracted
-  locally. The original large artifact remains the resumable checkpoint source
-  for Actions.
+  locally. The model bundle was resumed from its existing 168 MiB partial
+  transfer (not restarted), archive-checksum verified, extracted, and all eight
+  internal `SHA256SUMS` entries pass. The serialized model state is 234,435,022
+  bytes and exactly matches SHA-256 `5cdec7d...`. Its 58,599,411 parameters imply
+  234,397,644 theoretical FP32 parameter bytes (223.54 MiB) and a 58,599,411-byte
+  INT8 lower bound (55.88 MiB), inside the canonical 45–60 MiB review band but
+  not yet an actual exported ONNX/INT8 measurement. The original large artifact
+  remains the resumable checkpoint source for Actions.
 - Student DEV error analysis is complete and used no frozen output for repair
   choices. Matrix has 272 error rows: object span 172, polarity 84, temporal
   relation 48, predicate 40, entity 40, source span 36, temporal span 30,
@@ -631,19 +637,16 @@ strategy change, before long/risky work, and before ending any session.
 ## NEXT ACTION
 
 1. Commit this continuity update without touching a training trigger path.
-2. Resume the existing partial download of artifact `9916049420`; verify archive
-   digest `27c35bb...`, extract it, and verify its internal `SHA256SUMS` plus model
-   state hash `5cdec7d...`. Do not restart the 168 MiB already transferred.
-3. Implement and run a dataset-contract consistency audit over train/dev only,
+2. Implement and run a dataset-contract consistency audit over train/dev only,
    quantifying incompatible negation/temporal span semantics by source and
    language. Preserve its machine-readable report and add regression tests.
-4. Do not retrain unchanged. Use that audit to determine whether a compatible
+3. Do not retrain unchanged. Use that audit to determine whether a compatible
    objective/data correction exists without modifying frozen labels; otherwise
    record a bounded quality `DECISION_REQUIRED` because changing the typed span
    contract or frozen gold requires canonical versioning.
-5. Split future one-click uploads into report/model/resume artifacts at source,
+4. Split future one-click uploads into report/model/resume artifacts at source,
    preserving failure evidence without another oversized archive, then run the
    full regression/property/YAML/CI gates.
-6. Carry the nested-attribution contract issue above to supervisor counter-review;
+5. Carry the nested-attribution contract issue above to supervisor counter-review;
    continue all independent single-level C1 quality/export work without inventing
    a binding heuristic.
