@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.local/schemas/p0-understanding-gold-v1.json",
+  "title": "Matrix P0 parallel Understanding gold set",
+  "type": "object",
+  "required": ["schemaVersion", "frozenAt", "languages", "scenarios"],
+  "properties": {
+    "schemaVersion": {"const": "p0.gold.v1"},
+    "frozenAt": {"type": "string", "format": "date-time"},
+    "languages": {"const": ["it", "en", "es"]},
+    "scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "split", "families", "context", "claims", "variants"],
+        "properties": {
+          "id": {"type": "string"},
+          "split": {"enum": ["train", "dev", "test"]},
+          "families": {"type": "array", "items": {"type": "string"}},
+          "context": {
+            "type": "object",
+            "required": ["speaker", "observer", "knownEntities", "recentEntityRefs"]
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["speaker", "subject", "owner", "perspective", "dialogueAct", "predicate", "polarity", "temporalRelation", "claimKind", "localized"]
+            }
+          },
+          "variants": {
+            "type": "object",
+            "required": ["it", "en", "es"]
+          }
+        }
+      }
+    }
+  }
+}
+
