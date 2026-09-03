@@ -35,6 +35,13 @@ class ThresholdSelectionTest(unittest.TestCase):
         self.assertEqual("FAILED_GATE", result["status"])
         self.assertIsNone(result["selectedThreshold"])
 
+    def test_extra_claim_cannot_pass_selective_accuracy_gate(self):
+        extra = evidence(.9)
+        extra[0]["prediction"]["rawClaims"].append(
+            dict(extra[0]["prediction"]["rawClaims"][0]))
+        result = choose_threshold([row()], extra, .99)
+        self.assertEqual("FAILED_GATE", result["status"])
+
 
 if __name__ == "__main__":
     unittest.main()
