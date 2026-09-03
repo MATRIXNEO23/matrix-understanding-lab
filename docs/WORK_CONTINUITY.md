@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:53:02Z  
+Last updated: 2026-09-03T18:59:08Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `b7572c4c947fb771e6a87d1844ba0ec84f0ba60b`.
+  `07119f939a54b9fc99361dd439dda9811b13a245`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -187,6 +187,11 @@ strategy change, before long/risky work, and before ending any session.
   correct teacher-versus-production promoted destination, and checks the
   correct variant-specific checkpoint on interruption/failure. The 46-test
   suite and byte compilation remain green.
+- Execution-bounds fix `07119f939a54b9fc99361dd439dda9811b13a245`
+  rejects seed/config drift, resolves checkpoint preservation against an
+  explicitly supplied bundle, and gives the model-dependent post-training
+  evaluator the same six-hour bound as the one-click job. Unit/byte/YAML checks
+  remain green; no training trigger was touched.
 - Current candidate configuration:
   - primary probe: `Geotrend/distilbert-base-en-es-it-cased`;
   - quality/size counterexample: `microsoft/Multilingual-MiniLM-L12-H384`;
@@ -467,6 +472,8 @@ strategy change, before long/risky work, and before ending any session.
   `be3538a68e401727c2f56d77aedfda24c8b2e118`.
 - Variant-specific terminal state/report correction:
   `b7572c4c947fb771e6a87d1844ba0ec84f0ba60b`.
+- Immutable seed/bundle/timeout bounds:
+  `07119f939a54b9fc99361dd439dda9811b13a245`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -495,7 +502,7 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `b7572c4c...` without touching
+1. Commit this continuity-only update on top of `07119f93...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
