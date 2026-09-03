@@ -95,7 +95,8 @@ def validate_claim(raw: dict, text: str, context: dict, source_id: str,
     valid = subject is not None and owner is not None and perspective is not None
     if confidence < threshold:
         diagnostics.append(f"confidence {confidence:.6f} below threshold {threshold:.6f}")
-    admitted = valid and confidence >= threshold
+    confident = confidence >= threshold
+    admitted = valid and confident
     act = raw["labels"]["dialogueAct"]
     kind = raw["labels"]["claimKind"]
     memory = "BELIEF_CANDIDATE" if admitted and kind == "HYPOTHESIS" else (
@@ -103,7 +104,8 @@ def validate_claim(raw: dict, text: str, context: dict, source_id: str,
     if not valid:
         memory = "REJECT"
     return {
-        "status": "VALID" if valid else "REJECTED_INVARIANT",
+        "status": ("REJECTED_INVARIANT" if not valid else
+                   "VALID" if confident else "ABSTAINED_LOW_CONFIDENCE"),
         "speaker": context["speaker"], "subject": subject, "target": target,
         "owner": owner, "perspective": perspective,
         "dialogueAct": act,
@@ -157,14 +159,20 @@ class MatrixNluRuntime:
             claim_text = text[source_start:source_end]
             local_offsets, _, output = self._run(claim_text)
             labels = {}
-            confidences = []
+            sequence_confidence = {}
             for head, values in SEQUENCE_LABELS.items():
                 probabilities = output["sequence"][head].softmax(-1)[0]
                 index = int(probabilities.argmax())
                 labels[head] = values[index]
-                confidences.append(float(probabilities[index]))
-            token_tags = {head: logits.argmax(-1)[0].tolist()
-                          for head, logits in output["tokens"].items()}
+                sequence_confidence[head] = float(probabilities[index])
+            token_tags = {}
+            token_confidence = {}
+            for head, logits in output["tokens"].items():
+                probabilities = logits.softmax(-1)[0]
+                token_tags[head] = probabilities.argmax(-1).tolist()
+                real = [float(probabilities[index].max())
+                        for index, (start, end) in enumerate(local_offsets) if end > start]
+                token_confidence[head] = sum(real) / max(1, len(real))
             def globalize(span):
                 return None if span is None else [span[0] + source_start, span[1] + source_start]
             entities = [{**entity, "span": globalize(entity["span"])}
@@ -176,7 +184,11 @@ class MatrixNluRuntime:
                           "negation": globalize(scalar_span(local_offsets, token_tags["negation"])),
                           "temporal": globalize(scalar_span(local_offsets, token_tags["temporal"])),
                           "entities": entities},
-                "confidence": math.prod(max(value, 1e-9) for value in confidences) ** (1 / len(confidences))})
+                "confidenceByHead": {"sequence": sequence_confidence,
+                                     "tokens": token_confidence},
+                "confidence": math.prod(max(value, 1e-9)
+                                        for value in sequence_confidence.values()) **
+                              (1 / len(sequence_confidence))})
         claims = [validate_claim(raw, text, context, source_id, self.threshold) for raw in raw_claims]
         real_token_confidence = [float(boundary_probs[index].max())
                                  for index, (start, end) in enumerate(offsets)

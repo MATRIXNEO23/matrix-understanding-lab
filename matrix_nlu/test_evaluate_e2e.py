@@ -35,6 +35,8 @@ class EndToEndScoringTest(unittest.TestCase):
         self.assertEqual(1.0, result["overall"]["fieldExact"])
         self.assertEqual(0, result["overall"]["ownershipCorruption"])
         self.assertEqual(0, result["overall"]["worldTruthUpdates"])
+        self.assertAlmostEqual(0.9, result["overall"]["calibration"]["meanConfidence"])
+        self.assertAlmostEqual(0.01, result["overall"]["calibration"]["brier"])
         self.assertEqual([], errors)
 
     def test_wrong_owner_is_a_critical_error(self):

@@ -43,6 +43,30 @@ def f1(counts):
     return 0.0 if 2 * tp + fp + fn == 0 else 2 * tp / (2 * tp + fp + fn)
 
 
+def calibration_summary(items, bin_count=10):
+    if not items:
+        return {"count": 0, "meanConfidence": 0.0, "brier": 0.0,
+                "expectedCalibrationError": 0.0, "bins": []}
+    bins = []
+    ece = 0.0
+    for index in range(bin_count):
+        lower, upper = index / bin_count, (index + 1) / bin_count
+        selected = [(confidence, correct) for confidence, correct in items
+                    if lower <= confidence <= upper and
+                    (index == bin_count - 1 or confidence < upper)]
+        if not selected:
+            continue
+        confidence = sum(item[0] for item in selected) / len(selected)
+        accuracy = sum(item[1] for item in selected) / len(selected)
+        ece += len(selected) / len(items) * abs(confidence - accuracy)
+        bins.append({"lower": lower, "upper": upper, "count": len(selected),
+                     "meanConfidence": confidence, "accuracy": accuracy})
+    return {"count": len(items),
+            "meanConfidence": sum(item[0] for item in items) / len(items),
+            "brier": sum((item[0] - item[1]) ** 2 for item in items) / len(items),
+            "expectedCalibrationError": ece, "bins": bins}
+
+
 def expected_claim(claim, row):
     raw = {"labels": claim["labels"], "spans": claim["spans"], "confidence": 1.0}
     return validate_claim(raw, row["text"], row["context"], claim["sourceId"], 0.0)
@@ -51,6 +75,8 @@ def expected_claim(claim, row):
 def score_rows(rows, predictions):
     aggregate = defaultdict(int)
     languages = defaultdict(lambda: defaultdict(int))
+    calibration = []
+    language_calibration = defaultdict(list)
     errors = []
     for row, predicted in zip(rows, predictions):
         gold = [expected_claim(claim, row) for claim in row["claims"]]
@@ -103,6 +129,9 @@ def score_rows(rows, predictions):
                                    "actual": observed.get("entities", [])})
             aggregate["claimExact"] += int(all_exact)
             bucket["claimExact"] += int(all_exact)
+            confidence = max(0.0, min(1.0, float(observed.get("confidence", 0.0))))
+            calibration.append((confidence, int(all_exact)))
+            language_calibration[row["language"]].append((confidence, int(all_exact)))
             aggregate["pairedClaims"] += 1
             bucket["pairedClaims"] += 1
             aggregate["rejected"] += int(observed.get("status") != "VALID")
@@ -137,8 +166,14 @@ def score_rows(rows, predictions):
             "ownershipCorruption": counts["ownershipCorruption"],
             "worldTruthUpdates": counts["worldTruthUpdates"],
         }
-    return {"overall": summarize(aggregate),
-            "byLanguage": {key: summarize(value) for key, value in sorted(languages.items())},
+    overall = summarize(aggregate)
+    overall["calibration"] = calibration_summary(calibration)
+    by_language = {}
+    for key, value in sorted(languages.items()):
+        by_language[key] = summarize(value)
+        by_language[key]["calibration"] = calibration_summary(language_calibration[key])
+    return {"overall": overall,
+            "byLanguage": by_language,
             "errorCount": len(errors)}, errors
 
 

@@ -46,6 +46,7 @@ class InferenceInvariantTest(unittest.TestCase):
                "spans": {"source": [0, 12], "subject": None, "object": [8, 12],
                          "negation": [0, 3], "temporal": None, "entities": []}, "confidence": 0.4}
         claim = inference.validate_claim(raw, "non amo caos", context, "obs:3", 0.7)
+        self.assertEqual("ABSTAINED_LOW_CONFIDENCE", claim["status"])
         self.assertEqual("speech.unresolved", claim["predicate"])
         self.assertEqual(["obs:3"], claim["sourceIds"])
         self.assertEqual("NO_ADMISSION", claim["memoryAdmission"])
