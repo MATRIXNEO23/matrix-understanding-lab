@@ -128,7 +128,7 @@ public final class CandidateBEngine implements UnderstandingEngine {
         String first=n.split(" ")[0];if(raw.trim().endsWith("?")||questions.contains(first))return DialogueAct.QUESTION;
         for(String x:correctionMarkers(l))if(n.startsWith(x))return DialogueAct.CORRECT;
         for(String x:hypothesisMarkers(l))if(n.startsWith(x))return DialogueAct.HYPOTHESIS;
-        if(!tags.isEmpty()&&tags.get(0).equals("VERB")&&!firstPersonStart(l,n))return DialogueAct.REQUEST;
+        if(!tags.isEmpty()&&tags.get(0).equals("VERB")&&!firstPersonStart(l,n)&&!looksLikePredicate(l,raw))return DialogueAct.REQUEST;
         return DialogueAct.ASSERT;
     }
 
