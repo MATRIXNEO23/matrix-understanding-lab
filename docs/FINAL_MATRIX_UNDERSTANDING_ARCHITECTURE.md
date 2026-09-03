@@ -1,7 +1,7 @@
 # FINAL — MATRIX UNDERSTANDING ARCHITECTURE
 
 Date: 2026-09-03
-Status: CANONICAL DIRECTION FOR NEXT IMPLEMENTATION
+Status: CANONICAL / IMPLEMENTATION AUTHORIZED IN LAB
 
 ## Goal
 Build the most accurate practical offline Android Understanding component for Matrix, with IT/EN/ES support, automatic training, structured Matrix output, low runtime footprint, and minimal dependence on manual rule patching.
@@ -39,34 +39,36 @@ Deterministic linguistic patching is not the target solution. Regex/rule additio
 ## Model strategy
 Do not train a language model from random initialization.
 
-Use a compact multilingual pretrained encoder suitable for distillation/fine-tuning, then train Matrix-specific multi-task heads. The implementation should be selected for mobile exportability and quantization, with ONNX Runtime Mobile as the primary deployment substrate unless a demonstrably better mobile runtime emerges before integration.
+Use a compact multilingual pretrained encoder suitable for distillation/fine-tuning, then train Matrix-specific multi-task heads. Select the concrete encoder by evidence for mobile exportability, multilingual quality, trainability, license/provenance and footprint; do not preserve a named base model if another compatible compact encoder gives materially higher probability of reaching the goal.
 
-Preferred deployment form:
-- ONNX;
-- INT8 quantized if quality loss remains within the quality gate;
+Primary deployment target:
+- ONNX Runtime Mobile or a demonstrably superior compatible mobile runtime;
+- INT8 quantization when the measured quality loss is acceptable;
 - offline Android;
 - no network runtime dependency.
 
-OpenNLP Candidate B remains a strong benchmark/reference/fallback during development, but is not the final target architecture if the trained compact NLU reaches the required quality.
+OpenNLP Candidate B remains a benchmark/reference/fallback during development, not the final target if the trained compact NLU reaches near-perfect generalization.
 
 ## Training strategy — automatic by default
 Training must be fully automatable by Work/CI:
 
-`source data -> provenance/license validation -> normalization -> Matrix labeling/mapping -> train/dev/frozen test -> training -> validation -> error mining -> hard-example generation -> retraining -> quantization -> ONNX export -> benchmark -> artifact/checksum/provenance`
+`source data -> provenance/license validation -> normalization -> Matrix labeling/mapping -> train/dev/frozen test -> training -> validation -> error mining -> hard-example generation -> retraining -> compression/quantization -> mobile export -> benchmark -> artifact/checksum/provenance`
 
-Work must iterate autonomously until the quality gate is reached or a technically documented blocker proves the selected architecture cannot meet the target within the Android budget.
+Work must iterate autonomously until the acceptance gate is reached or a technically documented blocker proves the selected family cannot meet the target within the Android budget. Ordinary failed experiments, hyperparameter changes, data balancing, retraining, compression trials and causal fixes are not reasons to return to the user.
 
 The user must not be required to annotate datasets manually, choose hyperparameters, run training commands, or perform repeated exploratory phone tests.
 
 ## Data strategy
 Use a layered dataset:
 
-1. permissively licensed multilingual NLU data for general intent/slot robustness;
+1. lawfully usable multilingual NLU data for general intent/slot robustness;
 2. Matrix-specific generated and curated data matching the frozen claim contract;
 3. adversarial paraphrases and noisy conversational inputs;
 4. real Matrix failures promoted into regression families, without tuning directly on the final frozen test set.
 
-MASSIVE is an approved research/training candidate because it supplies broad multilingual intent/slot data, but its ontology is not Matrix's ontology. It must be adapted, not treated as the final label space.
+MASSIVE is an approved candidate for broad multilingual intent/slot signal, but its ontology is not Matrix's ontology. It must be adapted rather than treated as the final label space.
+
+All training inputs, generated data and derived artifacts require provenance records and license review appropriate to intended distribution.
 
 ## Adult-domain coverage
 For exclusively adult characters and adult interactions, the training corpus must include natural language covering:
@@ -82,45 +84,47 @@ For exclusively adult characters and adult interactions, the training corpus mus
 - narrative/action descriptions;
 - ambiguity, negation and temporal references within adult contexts.
 
-The goal is linguistic competence and correct structured interpretation, not automatic activation of an erotic register. Context/state determines when such content is appropriate; the NLU must simply understand it accurately.
+The objective is linguistic competence and correct structured interpretation, not automatic activation of an erotic register. Context/state determines appropriateness; Understanding must accurately interpret the language.
 
-No data involving minors or sexual content involving minors is permitted.
+No sexual content involving minors is permitted.
 
-## Quality target
-The project goal is near-perfect practical Understanding, not 'good enough'.
+## Acceptance criterion — near-perfect, not decimal chasing
+The goal is **near-perfect practical generalization**, not an artificial requirement to display exactly 99.00% or higher.
 
-The architecture is accepted only after a large frozen unseen benchmark shows:
-- overall field exact >= 0.99 target;
-- worst-language performance close to overall performance;
-- ownership violations = 0;
+The final verdict must use a large, frozen, genuinely unseen and adversarial benchmark. A result slightly below 99% can be accepted when all of the following are true:
+- performance is approximately in the high-98%/99% region on a genuinely difficult unseen benchmark;
+- residual errors are rare, heterogeneous and non-systematic rather than evidence of a missing linguistic capability;
+- worst-language performance remains close to overall performance;
+- ownership/authority corruption = 0;
 - invented World Truth = 0;
-- no critical collapse on negation, requests, corrections, goals, temporal interpretation, third-party references or multi-claim input;
-- strong robustness on colloquial, incomplete, typo-heavy and code-switched inputs.
+- no critical systematic failure on negation, requests, corrections, goals, consent/refusal interpretation, temporal interpretation, third-party references or multi-claim input;
+- robustness remains strong on colloquial, incomplete, typo-heavy, code-switched and adult-domain inputs;
+- confidence/abstention behavior prevents uncertain outputs from silently corrupting Matrix state.
 
-A smaller P0-style benchmark may be used during development but cannot be the final proof of generalization.
+A nominal score above 99% is NOT sufficient if achieved through benchmark contamination, easy cases, test-specific patches or hidden systematic failure.
 
-## Success-probability principle
-Choose the path with the highest probability of producing the required finished component, not merely the smallest implementation effort.
+Development benchmarks may be smaller, but they cannot be the final proof of generalization.
+
+## Selection principle
+Choose the path with the highest probability of producing the required finished component, not the smallest implementation effort and not a favorite library/model.
 
 Training is preferred when:
 - sufficient lawful data exists or can be generated/curated automatically;
-- the capability is fundamentally linguistic/statistical rather than an invariant;
+- the capability is fundamentally linguistic/statistical rather than invariant;
 - training can be reproduced and iterated automatically;
 - the resulting runtime fits the Android budget.
 
-Manual deterministic linguistic logic is preferred only when the problem is truly rule-like/invariant or when it measurably improves reliability without becoming an accumulating patch system.
+If the selected encoder/training recipe stalls below near-perfect generalization, Work must perform root-cause analysis and may change encoder, objective, data mixture, distillation/compression strategy or mobile runtime within this architecture family without requesting micro-decisions. It must not revert to accumulating manual linguistic patches merely to lift the benchmark.
 
 ## Hardware budget
-The GGUF remains the dominant memory consumer. The Understanding model should remain small enough for the target Moto G56.
+The GGUF remains the dominant memory consumer. Understanding must remain small enough for the target Moto G56.
 
-Design targets:
-- prioritize quality first among candidates that fit mobile constraints;
+Engineering targets before physical measurement:
+- quality first among candidates that plausibly fit mobile constraints;
 - aim for tens of MB incremental PSS, not hundreds;
-- investigate/optimize if incremental PSS exceeds ~80 MB;
-- preliminary NO-GO if incremental PSS exceeds ~100 MB without exceptional measurable quality benefit;
-- inference should be bursty per utterance, not continuous CPU load.
-
-These are engineering budgets until physical measurement is performed.
+- investigate/optimize if incremental PSS is expected to exceed ~80 MB;
+- preliminary NO-GO if incremental PSS is expected to exceed ~100 MB without exceptional measurable quality benefit;
+- inference must be bursty per utterance rather than continuous CPU load.
 
 ## Phone-testing policy
 No repeated Moto testing during ordinary linguistic development.
@@ -141,9 +145,11 @@ Do not spend the main implementation effort on:
 - training a large general-purpose LLM solely for Understanding.
 
 ## Current evidence
-P0 remains important evidence: Candidate B (`ICU + OpenNLP + Matrix mapper`) achieved approximately 0.9924 overall field exact, 1.0 claim-count exact, 1.0 negation F1, zero ownership violations and zero invented World Truth on the 66-case laboratory benchmark. This proves that the Matrix claim contract is tractable and provides a strong baseline/oracle, but the benchmark is too small to establish near-perfect generalization.
+P0 remains evidence that the Matrix claim contract is tractable: Candidate B achieved approximately 0.9924 overall field exact, 1.0 claim-count exact, 1.0 negation F1, zero ownership violations and zero invented World Truth on the 66-case laboratory benchmark. It remains a strong oracle/fallback, but that benchmark is too small to establish near-perfect generalization.
 
-## Final implementation objective
-Create a compact multilingual Matrix-NLU model, trained automatically and exported for Android, that replaces linguistic guesswork with learned generalization while preserving strict deterministic Matrix invariants.
+## Final construction objective
+Construct, train, compress and export a compact multilingual Matrix-NLU model that replaces linguistic guesswork with learned generalization while preserving strict Matrix invariants.
 
-Once it passes the large frozen quality gate and Android budget, integrate it into the canonical Matrix Core pipeline using strangler migration, with P0 Candidate B retained only as benchmark/fallback until the new model has proven superiority.
+The implementation loop is authorized in this laboratory. Work should proceed autonomously through data acquisition/provenance, Matrix dataset construction, model selection within the compact multilingual family, multi-task training, adversarial evaluation, error mining, retraining, compression/quantization, ONNX/mobile packaging and CI automation until the near-perfect acceptance criterion is satisfied or a real architecture-level blocker is documented.
+
+Only after the software/provenance/quality gates are green should a final Moto hardware probe be requested. Production integration remains a separate strangler-migration checkpoint after the trained model proves superiority.
