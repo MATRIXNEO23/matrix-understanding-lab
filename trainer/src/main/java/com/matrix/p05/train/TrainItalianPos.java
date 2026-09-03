@@ -7,7 +7,6 @@ import opennlp.tools.postag.POSSample;
 import opennlp.tools.postag.POSTaggerFactory;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.util.ObjectStream;
-import opennlp.tools.util.Parameters;
 import opennlp.tools.util.TrainingParameters;
 import opennlp.tools.util.model.ModelType;
 
@@ -140,9 +139,9 @@ public final class TrainItalianPos {
 
     static POSModel train(List<POSSample> samples, VariantSpec spec) throws IOException {
         TrainingParameters params = new TrainingParameters();
-        params.put(Parameters.ALGORITHM_PARAM, spec.type().name());
-        params.put(Parameters.ITERATIONS_PARAM, spec.iterations());
-        params.put(Parameters.CUTOFF_PARAM, spec.cutoff());
+        params.put(TrainingParameters.ALGORITHM_PARAM, spec.type().name());
+        params.put(TrainingParameters.ITERATIONS_PARAM, spec.iterations());
+        params.put(TrainingParameters.CUTOFF_PARAM, spec.cutoff());
         return POSTaggerME.train("ita", new ListObjectStream<>(samples), params, new POSTaggerFactory());
     }
 
