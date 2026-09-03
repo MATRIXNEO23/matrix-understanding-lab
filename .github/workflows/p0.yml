@@ -27,6 +27,21 @@ jobs:
         run: gradle --no-daemon :cli:run
       - name: Build Android footprint probe
         run: gradle --no-daemon :android-probe:assembleDebug
+      - name: Verify offline Android artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          APK=android-probe/build/outputs/apk/debug/android-probe-debug.apk
+          test -s "$APK"
+          PERMISSIONS=$("$ANDROID_SDK_ROOT/build-tools/35.0.0/aapt" dump permissions "$APK")
+          echo "$PERMISSIONS"
+          if grep -q 'android.permission.INTERNET' <<<"$PERMISSIONS"; then
+            echo 'Unexpected INTERNET permission in offline probe' >&2
+            exit 1
+          fi
+          stat -c 'APK_BYTES=%s' "$APK"
+          sha256sum "$APK"
+          unzip -l "$APK" | awk '/opennlp-.*-pos-.*\.bin$/ { total += $1 } END { print "MODEL_BYTES_UNCOMPRESSED=" total }'
       - uses: actions/upload-artifact@v4
         with:
           name: p0-results

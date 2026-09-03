@@ -21,6 +21,27 @@ Studio profiler capture may refine it. APK/model bytes come from the CI-built
 artifact, not from runtime PSS. No Moto value is claimed until the JSON from a
 real phone is returned.
 
+## Verified build evidence
+
+CI run `33745451037` at commit
+`de377a7549d2eb58971f362c6e750b4f12a8647a` completed unit tests, the unified
+A/B runner and `:android-probe:assembleDebug` successfully.
+
+| Build item | Measured value |
+|---|---:|
+| APK | 5,636,633 bytes |
+| APK SHA-256 | `5f117c38c2d263d9848ee11054404e318c608d386618a63cc368047fa8bff506` |
+| Three POS model files, uncompressed total | 4,068,644 bytes |
+| English model | 1,164,974 bytes |
+| Spanish model | 1,754,275 bytes |
+| Italian model | 1,149,395 bytes |
+| GitHub artifact archive | 5,628,343 bytes |
+| Artifact id/digest | `9889461911` / `sha256:089490176715e3c507c5c2d95f70e524995c5b60c517d3359bb5ab63c813a050` |
+
+These are package/file sizes, not memory usage. A subsequent CI gate inspects
+the built manifest with `aapt` and fails if `android.permission.INTERNET` is
+present.
+
 ## Reproducible build
 
 The lab pins AGP `8.9.2`, Gradle `8.11.1`, JDK 17, compile SDK 35 and min SDK 26.

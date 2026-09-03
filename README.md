@@ -24,3 +24,27 @@ Il laboratorio non sostituisce Matrix Engine. Deve misurare quale front-end sodd
 - baseline Matrix principale congelata: `ae82d5cf843d52b3d60caadd161e4a5516fc5d0d`.
 
 Leggere `docs/P0_UNDERSTANDING_BENCHMARK_SPEC.md` prima di implementare.
+
+## P0 status
+
+P0 è completo come benchmark isolato. La raccomandazione production è `KEEP`:
+Candidate B vince il confronto qualità congelato, ma non è idoneo alla
+produzione per la provenance del modello italiano e per le misure Moto G56
+ancora pendenti; Candidate C non è pronto. Nessuna integrazione production è
+autorizzata.
+
+Evidenze principali:
+
+- `docs/P0_QUALITY_RESULTS.md` — unified A/B metrics;
+- `docs/P0_ERROR_ANALYSIS.md` — residual errors by required family;
+- `docs/P0_DEVILS_ADVOCATE.md` — attack on the leading candidate;
+- `docs/MOBILE_PROBE.md` — offline Android/Moto G56 procedure;
+- `docs/P0_VERDICT.md` — final A/B/C and partial-candidate tables.
+
+La CI esegue unit test, benchmark unificato e build del probe Android debug con:
+
+```text
+gradle --no-daemon :core:test
+gradle --no-daemon :cli:run
+gradle --no-daemon :android-probe:assembleDebug
+```
