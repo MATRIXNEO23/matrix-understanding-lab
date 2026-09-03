@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T02:10:00Z  
+Last updated: 2026-09-04T01:42:00+02:00  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `ce8c4acdc247fe789372e17c25361c6c1f4cd3bb`.
+  `47866314cb646212904ade0ef9a62d7caa15fcc1`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -142,6 +142,30 @@ strategy change, before long/risky work, and before ending any session.
 - Local dependency-free probe tests: 3/3 green; Python byte compilation green.
 
 ## Current gate and exact activity
+
+- Dataset-v2 pre-training checkpoint completed locally under the supervisor's
+  approved Option A. The original v1 builder/data/checkpoints/artifacts/results
+  were not changed. All six v1 dataset hashes were reconstructed and matched
+  before v2 generation.
+- Frozen `matrix.nlu.dataset.v2` hashes:
+  Matrix train/dev/test `e6190bf4...` / `704e809f...` / `458f79ec...`;
+  P0.5 train/dev/test `413f60ca...` / `7533f561...` / `a729045a...`.
+  Reproducible v1-to-v2 mapping SHA-256 is `ca0ec3dd...`.
+- Mapping evidence: 1,322 claim corrections, 426 structural anti-leakage drops,
+  and 24 balanced train-only IT/EN/ES additions. The additions close previously
+  absent train coverage for `attribute.is` and `PAST`; no held-out surface was
+  copied.
+- Pre-training audit is `PASS`: zero incompatible gold inputs, zero invalid or
+  out-of-source spans, zero schema/label/convention/ownership/authority/
+  provenance/checksum errors, and zero exact-surface or >=0.97 normalized
+  semantic near-paraphrase leakage across train/dev/frozen. Frozen predictions
+  and frozen quality were not read.
+- Software suite after the checkpoint: 66/66 green. Exact contract and hashes
+  are documented in `docs/MATRIX_NLU_DATASET_V2.md`.
+- Current activity: consolidate this dataset/audit checkpoint on remote `main`,
+  then wire a fresh isolated and resumable `student-4-v2` pipeline. Training has
+  not started. Production/runtime, Memory, B4, Emotion, Reflection, Agency and
+  NPC-NPC remain untouched.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
@@ -695,13 +719,11 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Implement `matrix.nlu.dataset.v2` as separately named train/dev/test files,
-   preserve every v1 byte/hash/result, and emit a reproducible v1-to-v2 correction
-   map covering negation scope, implicit first-person subject and explicit
-   temporal spans.
-2. Run zero-conflict/schema/span/authority/provenance and semantic anti-leakage
-   audits before training; correct v2 data until all are green.
-3. Launch a fresh resumable `student-4-v2` variant only after the audits pass;
+1. Commit and verify the completed dataset-v2/audit checkpoint on remote `main`.
+2. Wire the isolated `student-4-v2` orchestration so training reads only v2
+   train/dev, defers frozen model evaluation until the dev threshold passes,
+   and preserves bounded report/model/resume artifacts.
+3. Re-run software/data/CI gates, then launch fresh resumable `student-4-v2`;
    select threshold on dev only, then run frozen/adversarial, ONNX/INT8/parity
    and packaging in canonical order without lowering gates.
 4. Carry the independent nested-attribution contract issue to supervisor
