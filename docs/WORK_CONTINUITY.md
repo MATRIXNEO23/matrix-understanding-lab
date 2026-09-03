@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T20:30:48Z  
+Last updated: 2026-09-03T21:06:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `ffdbb224059ad27b7b544aa988e4cc2665a4159d`.
+  `36cd3ce1704fe16a2582fc5896eccb96fc189695`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -143,9 +143,35 @@ strategy change, before long/risky work, and before ending any session.
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
   training and artifact step is green. It must not be rerun.
-- Current gate: strict dev-only calibration and end-to-end TypedClaim evidence
-  for that immutable teacher artifact. Post-gate run `33802563626` is active
-  on trigger commit `ffdbb224...` and consumes source run `33786677296`.
+- Current gate: dev-only causal repair after the strict end-to-end TypedClaim
+  gate correctly rejected the immutable teacher artifact. Post-gate run
+  `33802563626` completed `failure` at dev threshold selection and did not
+  consume frozen data or start ONNX export.
+- Preserved post-gate artifact id `9911772359`, archive digest
+  `sha256:2340e9b07f3d7e72bffb23b33f56e64e1af3dcf17a19a944bf80d241dad44e13`,
+  246,077 bytes. It contains exact Matrix/P0.5 dev metrics, raw predictions,
+  error JSONL, the 253-point threshold curve, logs and failure summary.
+- Matrix dev at threshold 0.5: claim-count exact `0.920635`, exact claim set
+  `0.105820`, field exact `0.900549`, span F1 `0.893356`, entity F1
+  `0.931615`, valid coverage `0.938272`, selective exact accuracy `0.131579`,
+  World Truth updates `0`; overall ownership corruption `50`.
+- P0.5 dev at threshold 0.5: claim-count exact `1.0`, exact claim set
+  `0.130952`, field exact `0.929012`, span F1 `0.948318`, entity F1
+  `0.957111`, valid coverage `0.916667`, selective exact accuracy `0.323232`,
+  ownership corruption `0`, World Truth updates `0`.
+- No threshold passes: best combined dev selective exact accuracy is
+  `0.533333` at threshold `0.992749...` and best exact claim set is
+  `0.108333` at threshold `0.0`; this is a model/decoder quality failure, not
+  a calibration-only failure.
+- First causal classification from dev evidence only: (1) every correctly
+  detected entity is reported without the gold `referent`, so exact entity
+  equality is structurally impossible in the present decoder; (2) per-language
+  ownership corruption is falsely reported as zero because the evaluator only
+  increments the aggregate bucket; (3) actual learned residuals remain in
+  predicate, polarity/negation scope, temporal relation, object span and
+  pronominal/known-entity subject binding. The first two are deterministic
+  implementation defects; the latter families require learned-data/objective
+  analysis. No linguistic regex repair is authorized.
 - The automatic `workflow_run` edge did not fire after the source workflow was
   renamed for one-click operation. Fix `16754f79e26caa003679ffb70b512f6226c13627`
   added a bounded explicit trigger; `ffdbb224059ad27b7b544aa988e4cc2665a4159d`
@@ -395,8 +421,9 @@ strategy change, before long/risky work, and before ending any session.
   end-to-end PASS and not tuning inputs. Dev already exposes systematic
   predicate/temporal/polarity/dialogue-act gaps; the post-gate will provide
   exact TypedClaim errors without tuning on frozen.
-- End-to-end frozen quality, ONNX parity/INT8 and desktop latency remain pending
-  run `33802563626`. Android physical PSS/latency remains a later gate.
+- End-to-end frozen quality, ONNX parity/INT8 and desktop latency remain
+  deliberately unexecuted because run `33802563626` failed the dev gate.
+  Android physical PSS/latency remains a later gate.
 
 ## Open errors, failed paths and blockers
 
@@ -444,10 +471,9 @@ strategy change, before long/risky work, and before ending any session.
   identifier before loading its state dict. This is acceptable only for the lab
   evaluator and is an open offline-export defect: the ONNX/runtime bundle must
   carry all model/tokenizer/config assets and must prove zero network access.
-- The first implementation stores `earlyStoppingPatience=2` in configuration
-  but does not yet consume it in the epoch loop. Do not claim early stopping was
-  applied to the active run; evaluate the completed history before deciding
-  whether a causal training fix is needed.
+- Early stopping is implemented for subsequent runs by `4c237fef...`; it was
+  not present in immutable teacher run `33786677296`, so do not retroactively
+  claim it was applied there.
 
 ## Consolidation state
 
@@ -523,18 +549,19 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity update on top of `ffdbb224...` without touching a
+1. Commit this continuity update on top of `36cd3ce...` without touching a
    training trigger path.
-2. Inspect post-gate run `33802563626`. Preserve its dev predictions,
-   threshold curve, failure summary and logs even if the strict dev gate fails.
+2. Patch and unit-test the two deterministic dev-evidence defects: auditable
+   entity referent binding in the existing validator contract and correct
+   per-language ownership-corruption accounting.
 3. Reproduce every repair candidate on train/dev only; classify the causal
    family, patch learned data/objective/decoder as justified, then run the full
    regression/property suite. Never use frozen results for tuning.
-4. Use the completed teacher dev evidence as the quality ceiling/baseline, then
-   run the isolated
-   four-layer candidate with `python run_pipeline.py --student-layers 4` (or
-   resume its variant-specific checkpoint), then require the complete
-   production quality/size/package gate.
+4. Do not launch the four-layer candidate unchanged: the current six-layer
+   teacher is far below the dev gate, so a smaller model with the same unresolved
+   defects would waste compute. After dev-causal corrections are regression
+   green, run the isolated four-layer candidate through `run_pipeline.py` and
+   require the complete production quality/size/package gate.
 5. Carry the nested-attribution contract issue above to supervisor counter-review;
    continue all independent single-level C1 quality/export work without inventing
    a binding heuristic.
