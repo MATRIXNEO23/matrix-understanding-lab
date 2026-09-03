@@ -1,0 +1,106 @@
+{
+  "schemaVersion" : "p05.training.v1",
+  "generatedAt" : "2026-09-03T16:54:46.786913997Z",
+  "pipeline" : "pinned-download -> git-blob-verify -> conllu-normalize -> OpenNLP-train -> dev-select -> frozen-test",
+  "tool" : {
+    "java" : "17.0.20.1",
+    "opennlp" : "2.5.11"
+  },
+  "dataset" : {
+    "attribution" : "Teresa Paccosi; Alessio Palmero Aprosio; Sara Tonelli",
+    "license" : "CC BY 4.0",
+    "upstreamCommit" : "e210079df0aea331ec1dcaa90648d815ce94c3ce",
+    "name" : "UD Italian MarkIT"
+  },
+  "sources" : [ {
+    "role" : "train",
+    "url" : "https://raw.githubusercontent.com/UniversalDependencies/UD_Italian-MarkIT/e210079df0aea331ec1dcaa90648d815ce94c3ce/it_markit-ud-train.conllu",
+    "bytes" : 1266080,
+    "gitBlobSha1" : "b616889012c62e56e991d14ea3653d798d29b74c",
+    "sha256" : "4f6fc3423acb00d49e1e167bd21b11ebbc23e22275fd6f5eeb4d75cfbbccc5c6",
+    "trainingInput" : true
+  }, {
+    "role" : "dev",
+    "url" : "https://raw.githubusercontent.com/UniversalDependencies/UD_Italian-MarkIT/e210079df0aea331ec1dcaa90648d815ce94c3ce/it_markit-ud-dev.conllu",
+    "bytes" : 665430,
+    "gitBlobSha1" : "f138df1ee75d0e0b35de5856c4b3f6cebca6bbff",
+    "sha256" : "633b6186f47ecfebfcff4ff9c7e19a0cbffd1f655f14fc1e9265b12bda597f97",
+    "trainingInput" : false
+  }, {
+    "role" : "test",
+    "url" : "https://raw.githubusercontent.com/UniversalDependencies/UD_Italian-MarkIT/e210079df0aea331ec1dcaa90648d815ce94c3ce/it_markit-ud-test.conllu",
+    "bytes" : 658412,
+    "gitBlobSha1" : "fe41f81cf242a022ed814c3684ecc37f5951cddf",
+    "sha256" : "9048ed0064e3989e2c37377755a28c25c7e462b1ad916e5808dc0a7ce95fc3fc",
+    "trainingInput" : false
+  }, {
+    "role" : "license",
+    "url" : "https://raw.githubusercontent.com/UniversalDependencies/UD_Italian-MarkIT/e210079df0aea331ec1dcaa90648d815ce94c3ce/LICENSE.txt",
+    "bytes" : 188,
+    "gitBlobSha1" : "a7b465577bca288b1eb6f7eed92d83558e038d68",
+    "sha256" : "5cbfe2d4d12938f9961bf5a0028390f4b6b60749b075e228a5740848afcb4a9b",
+    "trainingInput" : false
+  }, {
+    "role" : "card",
+    "url" : "https://raw.githubusercontent.com/UniversalDependencies/UD_Italian-MarkIT/e210079df0aea331ec1dcaa90648d815ce94c3ce/README.md",
+    "bytes" : 1968,
+    "gitBlobSha1" : "87bbd5801727c1de536b1eb57c0e81ac992c5fe3",
+    "sha256" : "2b4d5d533bd3222cf71379af7483920907dc03c80c776f13f1e950648674325a",
+    "trainingInput" : false
+  } ],
+  "splits" : [ {
+    "normalizedSha256" : "8444d8ebd297e2ac6556fe6118221c3ebb6cd4dbc684afaf9da4a02cc0f22b6e",
+    "sentences" : 611,
+    "split" : "train",
+    "tokens" : 19893
+  }, {
+    "normalizedSha256" : "876d35ed27333af51f29c854a848722bf8a464389d0e12fc2beb648df411f87e",
+    "sentences" : 341,
+    "split" : "dev",
+    "tokens" : 10399
+  }, {
+    "normalizedSha256" : "9b52e7a3e97ef14d239a24813a9dcf65cb71b305370aad91a7c118d7ef650012",
+    "sentences" : 340,
+    "split" : "test",
+    "tokens" : 10196
+  } ],
+  "trainingOrder" : "upstream order; no shuffle",
+  "seed" : 20260903,
+  "experiments" : [ {
+    "id" : "perceptron-i100-c1",
+    "bytes" : 126860,
+    "cutoff" : 1,
+    "devTokenAccuracy" : 0.9262429079719203,
+    "algorithm" : "PERCEPTRON",
+    "selected" : true,
+    "iterations" : 100,
+    "sha256" : "14dca59954129b1f4554def4e16d1b626160f0289ab568f5a1efdd2d1bba91c7"
+  }, {
+    "id" : "maxent-i200-c1",
+    "bytes" : 417199,
+    "cutoff" : 1,
+    "devTokenAccuracy" : 0.9204731224156169,
+    "algorithm" : "MAXENT",
+    "selected" : false,
+    "iterations" : 200,
+    "sha256" : "40f5ad3d39a334711dd13750b1d8f3be9e8004a4e0676ba11af65a50bd7d595c"
+  }, {
+    "id" : "maxent-i100-c1",
+    "bytes" : 416913,
+    "cutoff" : 1,
+    "devTokenAccuracy" : 0.9202807962304068,
+    "algorithm" : "MAXENT",
+    "selected" : false,
+    "iterations" : 100,
+    "sha256" : "d9dae43d0c3cc0eb0e6671063ea4b59122f4f8a506de1a5e343dd60e812a9fdc"
+  } ],
+  "selectionRule" : "highest dev token accuracy; then smaller bytes; then lexical id",
+  "selected" : {
+    "resource" : "opennlp-it-ud-markit-pos-p05.bin",
+    "id" : "perceptron-i100-c1",
+    "sha256" : "14dca59954129b1f4554def4e16d1b626160f0289ab568f5a1efdd2d1bba91c7",
+    "bytes" : 126860,
+    "testTokenAccuracy" : 0.9208513142408787,
+    "devTokenAccuracy" : 0.9262429079719203
+  }
+}
