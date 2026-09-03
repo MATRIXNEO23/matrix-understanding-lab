@@ -21,11 +21,10 @@ ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "build" / "matrix-nlu"
 DATA_DIR = BUILD / "data"
 MASSIVE_DIR = BUILD / "massive"
-TRAINING_DIR = BUILD / "training"
+DEFAULT_TRAINING_DIR = BUILD / "training"
 AUTOMATION_DIR = BUILD / "automation"
 STATUS_FILE = AUTOMATION_DIR / "auto-train-status.json"
-LAST_GOOD_DIR = BUILD / "last-good-training"
-LAST_GOOD_MANIFEST = AUTOMATION_DIR / "last-good-training.json"
+DEFAULT_LAST_GOOD_DIR = BUILD / "last-good-training"
 
 
 @dataclass(frozen=True)
@@ -86,11 +85,11 @@ def run_step(step: Step) -> float:
     return elapsed
 
 
-def validate_training_artifact() -> dict:
-    result_path = TRAINING_DIR / "training-result.json"
-    model_path = TRAINING_DIR / "model-state.pt"
-    labels_path = TRAINING_DIR / "labels.json"
-    tokenizer_dir = TRAINING_DIR / "tokenizer"
+def validate_training_artifact(training_dir: pathlib.Path) -> dict:
+    result_path = training_dir / "training-result.json"
+    model_path = training_dir / "model-state.pt"
+    labels_path = training_dir / "labels.json"
+    tokenizer_dir = training_dir / "tokenizer"
     required = (result_path, model_path, labels_path, tokenizer_dir)
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
     if missing:
@@ -122,27 +121,27 @@ def validate_training_artifact() -> dict:
     }
 
 
-def promote_last_good(metadata: dict) -> None:
-    staging = BUILD / ".last-good-staging"
+def promote_last_good(training_dir: pathlib.Path, destination: pathlib.Path, metadata: dict) -> None:
+    staging = BUILD / f".{destination.name}-staging"
     if staging.exists():
         shutil.rmtree(staging)
     staging.mkdir(parents=True, exist_ok=True)
 
     for name in ("training-result.json", "model-state.pt", "labels.json"):
-        shutil.copy2(TRAINING_DIR / name, staging / name)
-    shutil.copytree(TRAINING_DIR / "tokenizer", staging / "tokenizer")
+        shutil.copy2(training_dir / name, staging / name)
+    shutil.copytree(training_dir / "tokenizer", staging / "tokenizer")
 
-    old = BUILD / ".last-good-old"
+    old = BUILD / f".{destination.name}-old"
     if old.exists():
         shutil.rmtree(old)
-    if LAST_GOOD_DIR.exists():
-        LAST_GOOD_DIR.replace(old)
-    staging.replace(LAST_GOOD_DIR)
+    if destination.exists():
+        destination.replace(old)
+    staging.replace(destination)
     if old.exists():
         shutil.rmtree(old)
 
     atomic_json(
-        LAST_GOOD_MANIFEST,
+        AUTOMATION_DIR / f"{destination.name}.json",
         {
             "schemaVersion": "matrix.nlu.last-good.v1",
             "promotedAtEpochSeconds": time.time(),
@@ -151,7 +150,7 @@ def promote_last_good(metadata: dict) -> None:
     )
 
 
-def build_steps(args: argparse.Namespace) -> list[Step]:
+def build_steps(args: argparse.Namespace, training_dir: pathlib.Path) -> list[Step]:
     python = sys.executable
     steps = [
         Step(
@@ -186,7 +185,7 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
                 "--massive-dir",
                 str(MASSIVE_DIR.relative_to(ROOT)),
                 "--output-dir",
-                str(TRAINING_DIR.relative_to(ROOT)),
+                str(training_dir.relative_to(ROOT)),
             ],
         ),
     ]
@@ -202,7 +201,19 @@ def main() -> int:
     parser.add_argument("--massive-dev-per-language", type=int, default=600)
     parser.add_argument("--massive-test-per-language", type=int, default=1000)
     parser.add_argument("--student-layers", type=int)
+    parser.add_argument("--output-dir", type=pathlib.Path,
+                        help="variant-specific output; default is training or training-student-N")
     args = parser.parse_args()
+
+    training_dir = (args.output_dir or
+                    (BUILD / f"training-student-{args.student_layers}"
+                     if args.student_layers is not None else DEFAULT_TRAINING_DIR)).resolve()
+    try:
+        training_dir.relative_to(ROOT)
+    except ValueError:
+        parser.error("--output-dir must be inside the repository for auditable manifests")
+    last_good_dir = (BUILD / f"last-good-training-student-{args.student_layers}"
+                     if args.student_layers is not None else DEFAULT_LAST_GOOD_DIR)
 
     AUTOMATION_DIR.mkdir(parents=True, exist_ok=True)
     started_wall = time.time()
@@ -216,18 +227,20 @@ def main() -> int:
             "status": "RUNNING",
             "startedAtEpochSeconds": started_wall,
             "command": sys.argv,
+            "trainingDir": str(training_dir.relative_to(ROOT)),
+            "variant": "teacher-6-layer" if args.student_layers is None else f"student-{args.student_layers}-layer",
         },
     )
 
     try:
-        steps = build_steps(args)
+        steps = build_steps(args, training_dir)
         with tqdm(total=len(steps), desc="Matrix-NLU pipeline", unit="step", dynamic_ncols=True) as overall:
             for step in steps:
                 timings[step.name] = run_step(step)
                 overall.update(1)
 
-        metadata = validate_training_artifact()
-        promote_last_good(metadata)
+        metadata = validate_training_artifact(training_dir)
+        promote_last_good(training_dir, last_good_dir, metadata)
         elapsed = time.monotonic() - started_mono
         final = {
             "schemaVersion": "matrix.nlu.auto-train-status.v1",
@@ -251,8 +264,8 @@ def main() -> int:
             "seconds": time.monotonic() - started_mono,
             "timings": timings,
             "error": "KeyboardInterrupt",
-            "lastGoodPreserved": LAST_GOOD_DIR.exists(),
-            "resumeCheckpointPreserved": (TRAINING_DIR / "checkpoints" / "latest.pt").exists(),
+            "lastGoodPreserved": last_good_dir.exists(),
+            "resumeCheckpointPreserved": (training_dir / "checkpoints" / "latest.pt").exists(),
         }
         atomic_json(STATUS_FILE, failure)
         print("\n[AUTO-TRAIN] INTERRUPTED: resumable checkpoint and last-good artifacts preserved.")
@@ -267,8 +280,8 @@ def main() -> int:
             "timings": timings,
             "errorType": type(exc).__name__,
             "error": str(exc),
-            "lastGoodPreserved": LAST_GOOD_DIR.exists(),
-            "resumeCheckpointPreserved": (TRAINING_DIR / "checkpoints" / "latest.pt").exists(),
+            "lastGoodPreserved": last_good_dir.exists(),
+            "resumeCheckpointPreserved": (training_dir / "checkpoints" / "latest.pt").exists(),
         }
         atomic_json(STATUS_FILE, failure)
         print(f"\n[AUTO-TRAIN] FAILED: {type(exc).__name__}: {exc}", file=sys.stderr)

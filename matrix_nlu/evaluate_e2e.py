@@ -12,7 +12,7 @@ import json
 import pathlib
 from collections import defaultdict
 
-from inference import MatrixNluRuntime, validate_claim
+from inference import MatrixNluRuntime, OnnxMatrixNluRuntime, validate_claim
 
 
 FIELDS = ("dialogueAct", "predicate", "subject", "target", "owner", "perspective",
@@ -221,15 +221,21 @@ def main():
     parser.add_argument("--split", choices=("dev", "test"), required=True)
     parser.add_argument("--threshold", type=float, required=True)
     parser.add_argument("--output-dir", type=pathlib.Path, required=True)
+    parser.add_argument("--runtime", choices=("native", "onnx"), default="native")
+    parser.add_argument("--onnx-model", type=pathlib.Path)
     args = parser.parse_args()
     rows = read_rows(args.dataset)
     if any(row["split"] != args.split for row in rows):
         raise SystemExit(f"dataset contains rows outside declared split {args.split}")
-    runtime = MatrixNluRuntime(args.bundle, args.threshold)
+    if args.runtime == "onnx" and args.onnx_model is None:
+        parser.error("--onnx-model is required with --runtime onnx")
+    runtime = (OnnxMatrixNluRuntime(args.bundle, args.onnx_model, args.threshold)
+               if args.runtime == "onnx" else MatrixNluRuntime(args.bundle, args.threshold))
     predictions = [runtime.interpret(row["text"], row["context"],
                                      f"benchmark:{row['id']}") for row in rows]
     metrics, errors = score_rows(rows, predictions)
     result = {"schemaVersion": "matrix.nlu.e2e-result.v1", "split": args.split,
+              "runtime": args.runtime,
               "threshold": args.threshold, "dataset": str(args.dataset), **metrics}
     args.output_dir.mkdir(parents=True, exist_ok=True)
     (args.output_dir / f"e2e-{args.split}.json").write_text(json.dumps(result, indent=2) + "\n")

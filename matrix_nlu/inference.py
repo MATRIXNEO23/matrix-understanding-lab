@@ -6,7 +6,7 @@ import json
 import math
 import pathlib
 
-from labels import SEQUENCE_LABELS
+from labels import SEQUENCE_LABELS, TOKEN_LABELS
 from model import build_model
 
 
@@ -199,3 +199,44 @@ class MatrixNluRuntime:
                 "boundaryConfidence": (sum(real_token_confidence) /
                                        max(1, len(real_token_confidence))),
                 "rawClaims": raw_claims, "claims": claims, "worldTruthUpdates": 0}
+
+
+class OnnxMatrixNluRuntime(MatrixNluRuntime):
+    """Offline ONNX implementation sharing exactly the audited claim decoder."""
+
+    def __init__(self, bundle: pathlib.Path, model_path: pathlib.Path,
+                 confidence_threshold: float = 0.5):
+        import onnxruntime as ort
+        import torch
+        from transformers import AutoTokenizer
+        result = json.loads((bundle / "training-result.json").read_text())
+        self.torch = torch
+        self.bundle = bundle
+        self.max_length = int(result["config"]["maxLength"])
+        self.tokenizer = AutoTokenizer.from_pretrained(bundle / "tokenizer", use_fast=True,
+                                                       local_files_only=True)
+        self.session = ort.InferenceSession(str(model_path), providers=["CPUExecutionProvider"])
+        self.output_names = tuple([f"token.{name}" for name in TOKEN_LABELS] +
+                                  [f"sequence.{name}" for name in SEQUENCE_LABELS] +
+                                  ["massive.intent", "massive.slot"])
+        self.threshold = confidence_threshold
+
+    def _run(self, text):
+        import numpy as np
+        encoded = self.tokenizer(text, max_length=self.max_length, padding="max_length",
+                                 truncation=True, return_offsets_mapping=True,
+                                 return_tensors="np")
+        offsets = encoded.pop("offset_mapping")[0].tolist()
+        attention = encoded["attention_mask"][0].tolist()
+        observed = self.session.run(list(self.output_names), {
+            "input_ids": encoded["input_ids"].astype(np.int64),
+            "attention_mask": encoded["attention_mask"].astype(np.int64),
+        })
+        values = iter(observed)
+        output = {
+            "tokens": {name: self.torch.from_numpy(next(values)) for name in TOKEN_LABELS},
+            "sequence": {name: self.torch.from_numpy(next(values)) for name in SEQUENCE_LABELS},
+            "massive_intent": self.torch.from_numpy(next(values)),
+            "massive_slot": self.torch.from_numpy(next(values)),
+        }
+        return offsets, attention, output
