@@ -2,7 +2,7 @@
 
 Date of research: 2026-09-03  
 Status: **CANDIDATE_C_NOT_READY**  
-Production status: **REJECT (P0); no integration authorized**
+Production status: **NO COMPLETE CANDIDATE (P0); no integration authorized**
 
 ## Decision in one sentence
 
@@ -33,11 +33,11 @@ documented uncertainty behavior.
 
 | Option | Evidence | Matrix gap | Decision |
 |---|---|---|---|
-| ONNX Runtime Mobile | Android Java package, CPU default, XNNPACK and NNAPI available; model and runtime must fit device memory | Execution substrate only; it provides no NLU semantics | `REUSE_LATER`, not a candidate by itself |
-| `paraphrase-multilingual-MiniLM-L12-v2` | Apache-2.0 card; IT/EN/ES among 50 languages; 384-dimensional sentence embeddings; arm64 INT8 ONNX is 118 MB | Embeddings for similarity/search, not claim segmentation, spans, negation, ownership, temporal validity, or Matrix predicates | `REJECT_FOR_C` |
-| `distilbert-base-multilingual-cased` | Apache-2.0; 104 languages; 134M parameters, 6 layers, 768 hidden; intended for downstream fine-tuning | Masked-LM encoder, not a trained Matrix joint model; not compact for the stated mobile budget without an unproven training/export/quantization project | `REJECT_FOR_P0` |
-| MASSIVE + XLM-R/mT5 joint intent/slot code | >1M utterances, 52 languages, 60 intents and 55 slots; official code trains XLM-R Base or mT5 | Voice-assistant intent/slot ontology does not contain Matrix owner/perspective, provenance, World Truth safety, negation scope, temporal validity or open predicates; base encoders are not the compact deployable model requested | `ADAPT_REQUIRES_NEW_PROJECT` |
-| Train a new compact joint model on P0 gold | Exact target schema available | Only 21 train + 18 dev language variants; test is locked and cannot be used for tuning. This cannot support a credible trilingual learned candidate | `NOT_READY` |
+| ONNX Runtime Mobile | Android Java package, CPU default, XNNPACK and NNAPI available; model and runtime must fit device memory | Execution substrate only; it provides no NLU semantics | `PARTIAL_REUSE`, not a candidate by itself |
+| `paraphrase-multilingual-MiniLM-L12-v2` | Apache-2.0 card; IT/EN/ES among 50 languages; 384-dimensional sentence embeddings; arm64 INT8 ONNX is 118 MB | Embeddings for similarity/search, not claim segmentation, spans, negation, ownership, temporal validity, or Matrix predicates | `PARTIAL_REUSE` for retrieval/entity-link similarity; `REFERENCE_ONLY` for C |
+| `distilbert-base-multilingual-cased` | Apache-2.0; 104 languages; 134M parameters, 6 layers, 768 hidden; intended for downstream fine-tuning | Masked-LM encoder, not a trained Matrix joint model; not compact for the stated mobile budget without an unproven training/export/quantization project | `ADAPT`, requiring a new training/compression project |
+| MASSIVE + XLM-R/mT5 joint intent/slot code | >1M utterances, 52 languages, 60 intents and 55 slots; official code trains XLM-R Base or mT5 | Voice-assistant intent/slot ontology does not contain Matrix owner/perspective, provenance, World Truth safety, negation scope, temporal validity or open predicates; base encoders are not the compact deployable model requested | `REFERENCE_ONLY` for taxonomy/evaluation; `ADAPT` for methodology in a new project |
+| Train a new compact joint model on P0 gold | Exact target schema available | Only 21 train + 18 dev language variants; test is locked and cannot be used for tuning. This cannot support a credible trilingual learned candidate | `ADAPT`, but `NOT_READY` until substantially more independently annotated data exists |
 
 ## Runtime, Android and offline feasibility
 
@@ -80,7 +80,10 @@ valid model was selected or packaged.
 | MASSIVE | Amazon/Alexa repository and paper; localized from SLURP; repository points to LICENSE/NOTICE/THIRD-PARTY records | Potentially useful source corpus, not a substitute for Matrix annotations; all third-party terms must travel with any derived training pipeline |
 | Frozen P0 gold | Locally authored Matrix-specific benchmark, locked split | Benchmark evidence only; too small to establish a learned model |
 
-No external model or dataset has been copied into this repository.
+No external model or dataset has been copied into this repository. None of the
+rows is discarded merely for size, language coverage, runtime language or lack
+of Android packaging: their partial/reference value is retained, while the
+absence of a full reproducible C remains a hard implementation stop for Gate 07.
 
 ## Reproducibility boundary
 
@@ -129,5 +132,6 @@ A future Gate 06 may be reopened only with all of the following pinned:
 - Candidate C: **CANDIDATE_C_NOT_READY**.
 - Gate 07: **SKIPPED_BY_SPEC**; no fake implementation, no model import, no test
   tuning, no cloud dependency.
-- Production: **NO CHANGE / NO AUTHORIZATION**.
-
+- Production: **NO CHANGE / NO AUTHORIZATION**. This is not a blanket rejection
+  of ONNX or the researched encoders; it is a rejection of pretending that a
+  substrate or pretrained encoder already satisfies the Matrix contract.

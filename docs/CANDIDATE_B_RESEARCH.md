@@ -17,6 +17,21 @@ semantic mapper.
   boundary function needed by this experiment. This keeps the comparison
   discriminating and avoids six redundant model artifacts.
 
+### Anti-discard classification (retroactive)
+
+The labels below supersede the earlier shorthand `REUSE/BUILD`. A missing
+language, a non-Android implementation, size, or a non-adoptable published
+model license is not by itself a reason to discard the underlying component or
+principle.
+
+| Asset | Classification | Value retained for Matrix | P0 use |
+|---|---|---|---|
+| Candidate B composition (platform ICU + OpenNLP POS + Matrix mapper) | `FULL_CANDIDATE` | Complete IT/EN/ES experimental path | Implemented and scored, lab only |
+| Android platform ICU / ICU4J parity adapter | `PARTIAL_REUSE` | Unicode word boundaries without a packaged tokenizer model | Used by B |
+| Apache OpenNLP tools | `PARTIAL_REUSE` | Maintained JVM POS runtime and trainable MaxEnt pipeline | Used by B |
+| Published OpenNLP IT/EN/ES POS artifacts | `PARTIAL_REUSE` | Reproducible trilingual lab signal | Used by B; production license stop |
+| Matrix semantic mapper | `ADAPT` | Typed owner/perspective/provenance and predicate mapping | Authored for the lab; not production-authorized |
+
 ## Versions and provenance
 
 | Component | Pinned version/source | Provenance | License/status |
@@ -85,3 +100,41 @@ footprint is asserted before the build. The supervisor's initial PSS target is
    argument position outrank casing.
 5. Commercial adoption is blocked by model-data provenance even if quality wins.
 
+## Mandatory lateral research
+
+This pass looked for mature single-language and subtask components that could
+replace or improve part of B. None was added after the frozen benchmark started:
+doing so would change the measured candidate and invite test-set tuning. They
+remain explicit reserves for a future, separately authorized experiment.
+
+| Candidate | Evidence and footprint signal | Classification | What it could improve | Why not used in B |
+|---|---|---|---|---|
+| spaCy small IT/EN/ES pipelines 3.8.0 | Tokenization, morphology, POS, dependency parsing and NER; wheels are 13,030,943 B IT, 12,806,118 B EN and 12,884,212 B ES. spaCy itself is MIT and actively maintained (3.8.16 inspected). Italian model is 12 MB and `CC BY-NC-SA 3.0` | `REFERENCE_ONLY` for the published trio; `REIMPLEMENT_FROM_PRINCIPLES` for feature ablations | Dependency-backed clause boundaries, proper-name/entity evidence and imperative detection | Python/non-Android deployment, three runtimes/models, domain mismatch, and Italian non-commercial model. Italian option retained as reserve, not discarded |
+| Stanza 1.14.0 | Apache-2.0 Python/PyTorch pipeline; 70+ language packages with UD tokenization, morphology, POS, lemma and dependency; offline model install supported | `REFERENCE_ONLY`; selected lightweight processors may be `ADAPT` after model/data audit | Strong morphology/dependency oracle for error attribution across IT/EN/ES | No direct Android path, model/package footprint not measured, per-treebank licenses still apply |
+| Tint 0.2 | Italian Java pipeline over Stanford CoreNLP with POS, dependencies and entity linking; GPL-3.0; latest binary release 2018, archive 156,404,585 B | `REFERENCE_ONLY` and `REIMPLEMENT_FROM_PRINCIPLES` | Italian-specific pro-drop, dependency and entity-linking behavior | GPL/large/old package is unsuitable as a production dependency. Kept as an Italian reserve/reference |
+| UDPipe 2.1.0 | MPL-2.0 C++ library for tokenization, tagging, lemmatization and dependency parsing; trainable and potentially NDK-capable | `PARTIAL_REUSE` runtime or `ADAPT` with compatible retraining | Compact dependency signal and consistent UD features | Published model page states non-commercial/default treebank terms; NDK integration and actual footprint unmeasured |
+| Duckling 0.2.0.0 / current main | BSD rule engine; dedicated IT, EN and ES rule/corpus trees exist for `Time` and `Numeral` | `REIMPLEMENT_FROM_PRINCIPLES` | Temporal and numeric normalization with positive/negative corpora and composable rules | Haskell runtime is not a reasonable Android dependency; direct code copying is unnecessary. Principles can inform an independent bounded Matrix parser |
+| UD Italian MarkIT | 1,300 marked-construction sentences; dependencies manually corrected; `CC BY 4.0` | `ADAPT` | Commercially compatible Italian dependency training/evaluation slice | Small, grammar-example domain; insufficient alone |
+| UD Italian TWITTIRO | Italian ironic tweets/social text; `CC BY-SA 4.0` | `ADAPT` / `REFERENCE_ONLY` | Chat-like punctuation, mentions and non-canonical syntax | Share-alike/product review required; irony-heavy and not Matrix annotated |
+| UD Italian PoSTWITA and ParTUT | Italian social/parallel syntax resources, both non-commercial | `REFERENCE_ONLY` | Italian robustness/error analysis | `CC BY-NC-SA 4.0` blocks normal commercial model adoption |
+
+No listed asset is `REJECT`: each retains measurable algorithmic, dataset or
+oracle value. This does **not** make each asset production-eligible. The
+production decision still requires a composed IT/EN/ES result to beat the same
+gold set and pass actual Android cost and provenance gates.
+
+Additional primary sources:
+
+- https://github.com/explosion/spacy-models/releases/tag/it_core_news_sm-3.8.0
+- https://github.com/explosion/spacy-models/releases/tag/en_core_web_sm-3.8.0
+- https://github.com/explosion/spacy-models/releases/tag/es_core_news_sm-3.8.0
+- https://github.com/stanfordnlp/stanza/releases/tag/v1.14.0
+- https://stanfordnlp.github.io/stanza/download_models.html
+- https://github.com/dhfbk/tint/releases/tag/0.2
+- https://github.com/ufal/udpipe/releases/tag/v2.1.0
+- https://ufal.mff.cuni.cz/udpipe/2/models
+- https://github.com/facebook/duckling
+- https://github.com/UniversalDependencies/UD_Italian-MarkIT
+- https://github.com/UniversalDependencies/UD_Italian-TWITTIRO
+- https://github.com/UniversalDependencies/UD_Italian-PoSTWITA
+- https://github.com/UniversalDependencies/UD_Italian-ParTUT
