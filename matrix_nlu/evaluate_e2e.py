@@ -129,6 +129,11 @@ def score_rows(rows, predictions):
                                    "actual": observed.get("entities", [])})
             aggregate["claimExact"] += int(all_exact)
             bucket["claimExact"] += int(all_exact)
+            is_valid = observed.get("status") == "VALID"
+            aggregate["validClaims"] += int(is_valid)
+            bucket["validClaims"] += int(is_valid)
+            aggregate["validExact"] += int(is_valid and all_exact)
+            bucket["validExact"] += int(is_valid and all_exact)
             confidence = max(0.0, min(1.0, float(observed.get("confidence", 0.0))))
             calibration.append((confidence, int(all_exact)))
             language_calibration[row["language"]].append((confidence, int(all_exact)))
@@ -163,6 +168,8 @@ def score_rows(rows, predictions):
             "entityF1": f1((counts["entityTp"], counts["entityFp"], counts["entityFn"])),
             "rejectedRate": counts["rejected"] / max(1, paired),
             "abstentionRate": counts["abstained"] / max(1, paired),
+            "validCoverage": counts["validClaims"] / max(1, counts["goldClaims"]),
+            "validSelectiveAccuracy": counts["validExact"] / max(1, counts["validClaims"]),
             "ownershipCorruption": counts["ownershipCorruption"],
             "worldTruthUpdates": counts["worldTruthUpdates"],
         }
