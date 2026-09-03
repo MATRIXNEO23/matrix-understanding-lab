@@ -18,6 +18,44 @@ from inference import MatrixNluRuntime, OnnxMatrixNluRuntime, validate_claim
 FIELDS = ("dialogueAct", "predicate", "subject", "target", "owner", "perspective",
           "polarity", "temporalRelation", "claimKind")
 SPAN_FIELDS = ("sourceSpans", "objectSpan", "negationSpan", "temporalSpan")
+CRITICAL_FAMILIES = ("negation", "request", "goal", "correction", "temporality",
+                     "referents", "thirdParty", "multiClaim")
+
+
+def critical_families(row):
+    claims = row["claims"]
+    labels = [claim["labels"] for claim in claims]
+    spans = [claim["spans"] for claim in claims]
+    families = set()
+    if any(item.get("polarity") == "NEGATIVE" or span.get("negation") is not None
+           for item, span in zip(labels, spans)):
+        families.add("negation")
+    if any(item.get("dialogueAct") == "REQUEST" for item in labels):
+        families.add("request")
+    if any(str(item.get("predicate", "")).startswith("goal.") for item in labels):
+        families.add("goal")
+    if any(item.get("dialogueAct") in {"CORRECT", "CORRECTION"} for item in labels):
+        families.add("correction")
+    if any(item.get("temporalRelation") != "ATEMPORAL" or span.get("temporal") is not None
+           for item, span in zip(labels, spans)):
+        families.add("temporality")
+    complex_referents = {"KNOWN_ENTITY", "UNKNOWN", "THIRD_PARTY", "OTHER", "OBSERVER"}
+    if any(span.get("entities") or
+           item.get("subjectReferent") != "SPEAKER" or
+           item.get("targetReferent") != "NONE" or
+           item.get("ownerReferent") not in {"SUBJECT", "SPEAKER", "NONE"} or
+           item.get("perspectiveReferent") != "SPEAKER"
+           for item, span in zip(labels, spans)):
+        families.add("referents")
+    if any(complex_referents.intersection({str(item.get(key)) for key in
+           ("subjectReferent", "targetReferent", "ownerReferent", "perspectiveReferent")}) or
+           any(entity.get("type") == "PERSON" and entity.get("referent") != "SPEAKER"
+               for entity in span.get("entities", []))
+           for item, span in zip(labels, spans)):
+        families.add("thirdParty")
+    if len(claims) > 1:
+        families.add("multiClaim")
+    return families
 
 
 def character_items(span):
@@ -77,6 +115,8 @@ def score_rows(rows, predictions):
     languages = defaultdict(lambda: defaultdict(int))
     calibration = []
     language_calibration = defaultdict(list)
+    critical = defaultdict(lambda: defaultdict(int))
+    critical_languages = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
     errors = []
     for row, predicted in zip(rows, predictions):
         gold = [expected_claim(claim, row) for claim in row["claims"]]
@@ -160,6 +200,11 @@ def score_rows(rows, predictions):
         exact_set = count_exact and not row_errors
         aggregate["exactClaimSet"] += int(exact_set)
         bucket["exactClaimSet"] += int(exact_set)
+        for family in critical_families(row):
+            critical[family]["observations"] += 1
+            critical[family]["exactClaimSet"] += int(exact_set)
+            critical_languages[family][row["language"]]["observations"] += 1
+            critical_languages[family][row["language"]]["exactClaimSet"] += int(exact_set)
         if row_errors:
             errors.append({"id": row["id"], "language": row["language"],
                            "text": row["text"], "errors": row_errors,
@@ -205,9 +250,31 @@ def score_rows(rows, predictions):
         by_language[key]["calibration"] = calibration_summary(language_calibration[key])
     worst_field = min((value["fieldExact"] for value in by_language.values()), default=0.0)
     worst_claim_set = min((value["exactClaimSet"] for value in by_language.values()), default=0.0)
+    by_critical_family = {}
+    for family in CRITICAL_FAMILIES:
+        counts = critical[family]
+        observations = counts["observations"]
+        by_critical_family[family] = {
+            "observations": observations,
+            "failedObservations": observations - counts["exactClaimSet"],
+            "exactClaimSet": counts["exactClaimSet"] / max(1, observations),
+            "byLanguage": {
+                language: {
+                    "observations": critical_languages[family][language]["observations"],
+                    "failedObservations": (
+                        critical_languages[family][language]["observations"] -
+                        critical_languages[family][language]["exactClaimSet"]),
+                    "exactClaimSet": (
+                        critical_languages[family][language]["exactClaimSet"] /
+                        max(1, critical_languages[family][language]["observations"])),
+                }
+                for language in ("it", "en", "es")
+            },
+        }
     return {"overall": overall,
             "byLanguage": by_language,
             "worstLanguage": {"fieldExact": worst_field, "exactClaimSet": worst_claim_set},
+            "byCriticalFamily": by_critical_family,
             "errorCount": len(errors)}, errors
 
 

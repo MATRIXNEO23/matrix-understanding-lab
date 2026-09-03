@@ -40,7 +40,19 @@ class EndToEndScoringTest(unittest.TestCase):
         self.assertEqual(0, result["overall"]["worldTruthUpdates"])
         self.assertAlmostEqual(0.9, result["overall"]["calibration"]["meanConfidence"])
         self.assertAlmostEqual(0.01, result["overall"]["calibration"]["brier"])
+        self.assertEqual(0, result["byCriticalFamily"]["multiClaim"]["observations"])
         self.assertEqual([], errors)
+
+    def test_critical_family_breakdown_marks_negation_and_multi_claim(self):
+        first = row()
+        first["claims"][0]["labels"]["polarity"] = "NEGATIVE"
+        first["claims"][0]["spans"]["negation"] = [0, 10]
+        first["claims"].append(dict(first["claims"][0]))
+        observed = prediction()
+        observed["claims"].append(dict(observed["claims"][0]))
+        result, _ = score_rows([first], [observed])
+        self.assertEqual(1, result["byCriticalFamily"]["negation"]["observations"])
+        self.assertEqual(1, result["byCriticalFamily"]["multiClaim"]["observations"])
 
     def test_wrong_owner_is_a_critical_error(self):
         observed = prediction()

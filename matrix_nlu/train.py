@@ -103,7 +103,7 @@ def stage_complete(resume: dict | None, stage: str, epochs: int,
 
 def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: int,
                 config: dict, output_dir: pathlib.Path, resume: dict | None = None,
-                prior_history: list | None = None):
+                prior_history: list | None = None, checkpoint_identity: dict | None = None):
     import torch
     optimizer = torch.optim.AdamW(model.parameters(), lr=config["matrix"]["learningRate"],
                                   weight_decay=config["matrix"]["weightDecay"])
@@ -177,7 +177,8 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
                       "optimizer": optimizer.state_dict(), "scheduler": scheduler.state_dict(),
                       "bestScore": best_score, "bestModel": best_state, "history": history,
                       "priorHistory": prior_history,
-                      "epochsWithoutImprovement": epochs_without_improvement}
+                      "epochsWithoutImprovement": epochs_without_improvement,
+                      "identity": checkpoint_identity}
         torch.save(checkpoint, output_dir / "checkpoints" / "latest.pt")
         atomic_json(output_dir / "training-progress.json", {
             "schemaVersion": "matrix.nlu.training-progress.v1", "status": "EPOCH_COMPLETE",
@@ -269,8 +270,19 @@ def main():
 
     resume = None
     checkpoint_path = args.output_dir / "checkpoints" / "latest.pt"
+    checkpoint_identity = {
+        "datasetVersion": config.get("datasetVersion", "matrix.nlu.dataset.v1"),
+        "configSha256": hashlib.sha256(config_bytes).hexdigest(),
+        "variant": model_spec.get("variant"),
+        "studentLayers": args.student_layers,
+    }
     if config.get("resume") == "auto" and checkpoint_path.exists():
         resume = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+        if is_v2 and resume.get("identity") != checkpoint_identity:
+            raise RuntimeError(
+                "refusing checkpoint outside student-4-v2 identity: "
+                f"expected={checkpoint_identity} actual={resume.get('identity')}"
+            )
     history = []
     prior_history = []
     if resume and resume.get("stage") == "matrix":
@@ -283,7 +295,8 @@ def main():
         aux_history, _ = train_stage(
             network, loader(massive_train, batch_size, True, config["seed"]),
             {"massiveDev": loader(massive_dev, batch_size * 2, False, config["seed"])},
-            device, "massive-aux", config["massive"]["epochs"], config, args.output_dir, resume)
+            device, "massive-aux", config["massive"]["epochs"], config, args.output_dir, resume,
+            checkpoint_identity=checkpoint_identity)
         prior_history = aux_history
     matrix_history, best = train_stage(
         network, loader(matrix_train, batch_size, True, config["seed"] + 1),
@@ -291,7 +304,7 @@ def main():
          "p05Dev": loader(p05_dev, batch_size * 2, False, config["seed"])},
         device, "matrix", config["matrix"]["epochs"], config, args.output_dir,
         resume if resume and resume.get("stage") == "matrix" else None,
-        prior_history=prior_history)
+        prior_history=prior_history, checkpoint_identity=checkpoint_identity)
     history.extend(prior_history)
     history.extend(matrix_history)
 

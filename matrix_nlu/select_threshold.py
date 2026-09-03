@@ -37,20 +37,28 @@ def apply_threshold(rows, evidence, threshold):
 
 
 def choose_threshold(rows, evidence, minimum_accuracy, minimum_claim_count=0.99,
-                     minimum_claim_set=0.98, minimum_coverage=0.98):
+                     minimum_claim_set=0.98, minimum_coverage=0.98,
+                     minimum_critical_claim_set=0.98):
     confidences = sorted({float(raw["confidence"]) for item in evidence
                           for raw in item["prediction"]["rawClaims"]})
     candidates = sorted({0.0, 1.0, *(min(1.0, value + 1e-9) for value in confidences)})
     curve = []
     for threshold in candidates:
         metrics, _ = score_rows(rows, apply_threshold(rows, evidence, threshold))
-        point = {"threshold": threshold, **metrics["overall"]}
+        point = {"threshold": threshold, **metrics["overall"],
+                 "criticalFamilies": metrics["byCriticalFamily"]}
         curve.append(point)
     eligible = [point for point in curve
                 if point["validSelectiveAccuracy"] >= minimum_accuracy and
                 point["claimCountExact"] >= minimum_claim_count and
                 point["exactClaimSet"] >= minimum_claim_set and
                 point["validCoverage"] >= minimum_coverage and
+                all(family["observations"] == 0 or
+                    (family["exactClaimSet"] >= minimum_critical_claim_set and
+                     all(language["observations"] == 0 or
+                         language["exactClaimSet"] >= minimum_critical_claim_set
+                         for language in family["byLanguage"].values()))
+                    for family in point["criticalFamilies"].values()) and
                 point["ownershipCorruption"] == 0 and point["worldTruthUpdates"] == 0]
     # Zero-coverage points are not evidence of useful calibration.
     eligible = [point for point in eligible if point["validCoverage"] > 0]
@@ -62,6 +70,7 @@ def choose_threshold(rows, evidence, minimum_accuracy, minimum_claim_count=0.99,
                        "minimumClaimCountExact": minimum_claim_count,
                        "minimumExactClaimSet": minimum_claim_set,
                        "minimumValidCoverage": minimum_coverage,
+                       "minimumCriticalFamilyExactClaimSet": minimum_critical_claim_set,
                        "ownershipCorruptionMaximum": 0, "worldTruthUpdatesMaximum": 0,
                        "optimization": "maximum valid coverage"},
             "status": "PASS" if selected else "FAILED_GATE",

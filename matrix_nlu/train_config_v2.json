@@ -6,6 +6,7 @@
     "revision": "36de33ec579e47f6c4e10d982d0b93871267c3e6",
     "variant": "student-4-v2"
   },
+  "studentLayers": 4,
   "seed": 810923,
   "maxLength": 64,
   "massive": {

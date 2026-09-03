@@ -1,28 +1,23 @@
-name: Matrix-NLU One-Click Pipeline
+name: Matrix-NLU Student-4 V2 Checkpoint
 
 on:
   workflow_dispatch:
     inputs:
-      student_layers:
-        description: Student encoder layers; leave empty for teacher evidence
-        required: false
-        default: '4'
-        type: string
       resume_run_id:
-        description: Optional prior one-click run containing a resumable latest.pt
+        description: Optional prior Student-4-v2 run containing its resumable latest.pt
         required: false
         type: string
   push:
     branches: [main]
     paths:
-      - 'pipeline/student-4.trigger'
+      - 'pipeline/student-4-v2.trigger'
 
 permissions:
   contents: read
   actions: read
 
 jobs:
-  train-test-package:
+  train-dev-frozen-export-package:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -31,6 +26,7 @@ jobs:
       TOKENIZERS_PARALLELISM: 'false'
       OMP_NUM_THREADS: '4'
       MKL_NUM_THREADS: '4'
+      MATRIX_NLU_TRAINING_DIR: build/matrix-nlu/training-student-4-v2
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
     steps:
@@ -43,33 +39,18 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: .cache/huggingface
-          key: matrix-nlu-geotrend-36de33ec-v1
-      - name: Install pinned train/test/export dependencies
+          key: matrix-nlu-geotrend-36de33ec-v2
+      - name: Install pinned train test and export dependencies
         run: python -m pip install --requirement matrix_nlu/requirements-train.txt
-      - name: Resolve isolated variant output
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [[ "${{ github.event_name }}" == "push" ]]; then
-            LAYERS=4
-          else
-            LAYERS="${{ inputs.student_layers }}"
-          fi
-          if [[ -n "$LAYERS" ]]; then
-            [[ "$LAYERS" =~ ^[0-9]+$ ]]
-            echo "MATRIX_NLU_STUDENT_LAYERS=$LAYERS" >> "$GITHUB_ENV"
-            echo "MATRIX_NLU_TRAINING_DIR=build/matrix-nlu/training-student-$LAYERS" >> "$GITHUB_ENV"
-          else
-            echo "MATRIX_NLU_STUDENT_LAYERS=" >> "$GITHUB_ENV"
-            echo "MATRIX_NLU_TRAINING_DIR=build/matrix-nlu/training" >> "$GITHUB_ENV"
-          fi
-      - name: Restore an explicitly selected resumable checkpoint
+      - name: Restore an explicitly selected Student-4-v2 checkpoint
         if: github.event_name == 'workflow_dispatch' && inputs.resume_run_id != ''
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p resume-download "$MATRIX_NLU_TRAINING_DIR/checkpoints"
-          gh run download "${{ inputs.resume_run_id }}" --dir resume-download
+          gh run download "${{ inputs.resume_run_id }}" \
+            --name "matrix-nlu-student-4-v2-resume-${{ inputs.resume_run_id }}" \
+            --dir resume-download
           CHECKPOINT=$(find resume-download -type f -name latest.pt -print -quit)
           test -n "$CHECKPOINT"
           cp "$CHECKPOINT" "$MATRIX_NLU_TRAINING_DIR/checkpoints/latest.pt"
@@ -77,15 +58,8 @@ jobs:
             > "$MATRIX_NLU_TRAINING_DIR/resume-source.txt"
           sha256sum "$MATRIX_NLU_TRAINING_DIR/checkpoints/latest.pt" \
             | awk '{print $1}' >> "$MATRIX_NLU_TRAINING_DIR/resume-source.txt"
-      - name: Run strict prepare train-resume validate frozen export package pipeline
-        shell: bash
-        run: |
-          set -euo pipefail
-          COMMAND=(python run_pipeline.py)
-          if [[ -n "$MATRIX_NLU_STUDENT_LAYERS" ]]; then
-            COMMAND+=(--student-layers "$MATRIX_NLU_STUDENT_LAYERS")
-          fi
-          "${COMMAND[@]}"
+      - name: Run audited Student-4-v2 checkpoint pipeline
+        run: python run_pipeline.py --dataset-version v2 --student-layers 4
       - name: Record preserved evidence
         if: always()
         shell: bash
@@ -96,27 +70,28 @@ jobs:
             | sort -z | xargs -0 -r sha256sum > build/matrix-nlu/automation/SHA256SUMS
           df -h . | tee build/matrix-nlu/automation/disk.txt
           free -h | tee build/matrix-nlu/automation/memory.txt
-      - name: Upload bounded report evidence
+      - name: Upload bounded Student-4-v2 report evidence
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: matrix-nlu-report-${{ github.run_id }}
+          name: matrix-nlu-student-4-v2-report-${{ github.run_id }}
           retention-days: 30
           compression-level: 6
           if-no-files-found: warn
           path: |
             build/matrix-nlu/automation/
-            build/matrix-nlu/verification-*/
-            build/matrix-nlu/data/*manifest.json
+            build/matrix-nlu/verification-training-student-4-v2/
+            build/matrix-nlu/data-v2/*manifest.json
+            build/matrix-nlu/data-v2/v1-to-v2-corrections.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/training-result.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/training-progress.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/labels.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-source.txt
-      - name: Upload deployable model bundle
+      - name: Upload isolated Student-4-v2 model bundle
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: matrix-nlu-bundle-${{ github.run_id }}
+          name: matrix-nlu-student-4-v2-bundle-${{ github.run_id }}
           retention-days: 30
           compression-level: 1
           if-no-files-found: warn
@@ -125,11 +100,11 @@ jobs:
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/labels.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/model-state.pt
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/tokenizer/
-      - name: Upload isolated resumable checkpoint
+      - name: Upload isolated Student-4-v2 resumable checkpoint
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: matrix-nlu-resume-${{ github.run_id }}
+          name: matrix-nlu-student-4-v2-resume-${{ github.run_id }}
           retention-days: 30
           compression-level: 1
           if-no-files-found: warn

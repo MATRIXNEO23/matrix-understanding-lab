@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T02:02:00+02:00  
+Last updated: 2026-09-04T02:18:00+02:00  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `d2d455a33e5f725e0189010d081d0973aeb0b9a6`.
+  `42e065cf80b7dcc5d0903733ed79b26fdded1122`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -160,7 +160,7 @@ strategy change, before long/risky work, and before ending any session.
   provenance/checksum errors, and zero exact-surface or >=0.97 normalized
   semantic near-paraphrase leakage across train/dev/frozen. Frozen predictions
   and frozen quality were not read.
-- Software suite after the checkpoint: 67/67 green. Exact contract and hashes
+- Software suite after the checkpoint: 71/71 green. Exact contract and hashes
   are documented in `docs/MATRIX_NLU_DATASET_V2.md`.
 - Dataset-v2 checkpoint commit:
   `d2d455a33e5f725e0189010d081d0973aeb0b9a6`
@@ -171,16 +171,25 @@ strategy change, before long/risky work, and before ending any session.
   and hashes only train/dev plus manifests/config, and records
   `frozenDataRead=false`; `auto_test.py` infers v2 from the bundle and cannot
   open frozen/adversarial data until dev-only threshold selection passes.
-  The 1-click v2 dry-run, Python byte compilation, all five workflow YAML files
-  and 67/67 tests are green. Training has not started.
+  The 1-click v2 dry-run, Python byte compilation, all Matrix workflow YAML
+  files and 71/71 tests are green. Training has not started.
 - Orchestration checkpoint commit:
   `42e065cf80b7dcc5d0903733ed79b26fdded1122`
   (`ci: isolate student-4-v2 train and evaluation gates`). The connector did
-  not expose push-run status through combined commit statuses; the one-click
-  training workflow repeats the complete software and dataset gates before it
-  can train.
-- Current activity: commit the one-time `pipeline/student-4-v2.trigger` and
-  monitor the fresh resumable run. Exact configuration: dataset v2, four-layer
+  not expose push-run status through combined commit statuses; the pipeline
+  still repeats the complete software and dataset gates before it can train.
+- Pre-trigger hardening pending consolidation on top of `42e065c`: the original
+  v1 one-click workflow has been restored byte-for-byte in behavior and a new
+  `.github/workflows/matrix-nlu-student-4-v2.yml` isolates v2 triggers and
+  artifacts. Checkpoints now carry and enforce dataset/config/variant/layer
+  identity; the evaluation package is explicitly `counter-review`, never
+  production. Dev threshold selection and frozen gates now report and enforce
+  critical-family exactness for negation, request, goal, correction,
+  temporality, referents, third parties and multi-claim inputs. Frozen coverage
+  contains every family in every target language.
+- Current activity: consolidate this hardening, verify its ordinary CI, then
+  commit the one-time `pipeline/student-4-v2.trigger` and monitor the fresh
+  resumable run. Exact configuration: dataset v2, four-layer
   Geotrend student, seed 810923, MASSIVE auxiliary 3000/600 per language for
   train/dev, Matrix 4 epochs, batch 16, accumulation 2, LR 3e-5, patience 2.
   No v1 checkpoint may be restored into this variant. Production/runtime,

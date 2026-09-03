@@ -28,6 +28,9 @@ MINIMUMS = {
     "validSelectiveAccuracy": 0.99,
     "validCoverage": 0.98,
 }
+CRITICAL_FAMILIES = ("negation", "request", "goal", "correction", "temporality",
+                     "referents", "thirdParty", "multiClaim")
+MINIMUM_CRITICAL_EXACT_CLAIM_SET = 0.98
 
 
 def verify_training_inputs(bundle: pathlib.Path) -> dict:
@@ -97,7 +100,30 @@ def check_frozen_gate(result_path: pathlib.Path) -> dict:
         if metrics.get("worldTruthUpdates") != 0:
             failures.append({"bucket": bucket, "metric": "worldTruthUpdates",
                              "actual": metrics.get("worldTruthUpdates"), "maximum": 0})
+    critical = result.get("byCriticalFamily", {})
+    for family in CRITICAL_FAMILIES:
+        metrics = critical.get(family)
+        if not metrics or metrics.get("observations", 0) == 0:
+            failures.append({"bucket": f"critical:{family}", "metric": "coverage",
+                             "actual": 0, "minimum": 1})
+        elif float(metrics.get("exactClaimSet", 0.0)) < MINIMUM_CRITICAL_EXACT_CLAIM_SET:
+            failures.append({"bucket": f"critical:{family}", "metric": "exactClaimSet",
+                             "actual": metrics.get("exactClaimSet"),
+                             "minimum": MINIMUM_CRITICAL_EXACT_CLAIM_SET})
+        if metrics:
+            for language in ("it", "en", "es"):
+                language_metrics = metrics.get("byLanguage", {}).get(language)
+                if not language_metrics or language_metrics.get("observations", 0) == 0:
+                    failures.append({"bucket": f"critical:{family}:language:{language}",
+                                     "metric": "coverage", "actual": 0, "minimum": 1})
+                elif float(language_metrics.get("exactClaimSet", 0.0)) < \
+                        MINIMUM_CRITICAL_EXACT_CLAIM_SET:
+                    failures.append({"bucket": f"critical:{family}:language:{language}",
+                                     "metric": "exactClaimSet",
+                                     "actual": language_metrics.get("exactClaimSet"),
+                                     "minimum": MINIMUM_CRITICAL_EXACT_CLAIM_SET})
     return {"status": "PASS" if not failures else "FAILED_GATE", "minimums": MINIMUMS,
+            "criticalMinimumExactClaimSet": MINIMUM_CRITICAL_EXACT_CLAIM_SET,
             "failures": failures, "metrics": result}
 
 
@@ -173,7 +199,8 @@ def main() -> int:
     parser.add_argument("--skip-software-tests", action="store_true")
     parser.add_argument("--skip-data-build", action="store_true")
     parser.add_argument("--onnx-repetitions", type=int, default=30)
-    parser.add_argument("--candidate-role", choices=("teacher", "production"), default="production")
+    parser.add_argument("--candidate-role", choices=("teacher", "counter-review", "production"),
+                        default="production")
     parser.add_argument("--data-dir", type=pathlib.Path,
                         help="dataset directory; inferred from training-result when omitted")
     args = parser.parse_args()

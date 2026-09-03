@@ -17,6 +17,19 @@ def passing_metrics():
     }
 
 
+def passing_result(languages=("it", "en", "es")):
+    return {"overall": passing_metrics(),
+            "byLanguage": {language: passing_metrics() for language in languages},
+            "byCriticalFamily": {family: {"observations": 3, "failedObservations": 0,
+                                           "exactClaimSet": 1.0,
+                                           "byLanguage": {language: {
+                                               "observations": 1,
+                                               "failedObservations": 0,
+                                               "exactClaimSet": 1.0}
+                                               for language in ("it", "en", "es")}}
+                                 for family in auto_test.CRITICAL_FAMILIES}}
+
+
 class PipelineAutomationTest(unittest.TestCase):
     def test_training_runs_contract_audit_before_external_data_and_training(self):
         args = type("Args", (), {
@@ -45,6 +58,17 @@ class PipelineAutomationTest(unittest.TestCase):
         self.assertIn("matrix-nlu-resume-${{ github.run_id }}", workflow)
         self.assertNotIn("name: matrix-nlu-one-click-${{ github.run_id }}", workflow)
 
+    def test_v2_ci_is_isolated_from_v1_workflow_and_artifacts(self):
+        root = pathlib.Path(__file__).resolve().parents[1]
+        v1 = (root / ".github/workflows/matrix-nlu-train.yml").read_text(encoding="utf-8")
+        v2 = (root / ".github/workflows/matrix-nlu-student-4-v2.yml").read_text(
+            encoding="utf-8")
+        self.assertIn("pipeline/student-4.trigger", v1)
+        self.assertNotIn("student-4-v2", v1)
+        self.assertIn("pipeline/student-4-v2.trigger", v2)
+        self.assertIn("--dataset-version v2 --student-layers 4", v2)
+        self.assertIn("matrix-nlu-student-4-v2-resume-${{ github.run_id }}", v2)
+
     def test_v2_pipeline_audits_before_training_and_defers_frozen(self):
         args = type("Args", (), {
             "massive_train_per_language": 3, "massive_dev_per_language": 3,
@@ -63,11 +87,18 @@ class PipelineAutomationTest(unittest.TestCase):
         self.assertFalse(any(value.endswith("-test.jsonl")
                              for value in steps[-1].command))
 
+    def test_v2_pipeline_is_counter_review_not_production(self):
+        args = type("Args", (), {"skip_train": False, "bundle": None,
+            "student_layers": 4, "seed": 810923, "onnx_repetitions": 2,
+            "dataset_version": "v2", "candidate_role": "production"})()
+        testing = run_pipeline.commands(args)[-1].command
+        role = testing[testing.index("--candidate-role") + 1]
+        self.assertEqual("counter-review", role)
+
     def test_frozen_gate_is_zero_tolerance_and_per_language(self):
         with tempfile.TemporaryDirectory() as temporary:
             path = pathlib.Path(temporary) / "result.json"
-            result = {"overall": passing_metrics(), "byLanguage": {
-                language: passing_metrics() for language in ("it", "en", "es")}}
+            result = passing_result()
             path.write_text(json.dumps(result), encoding="utf-8")
             self.assertEqual("PASS", auto_test.check_frozen_gate(path)["status"])
             result["byLanguage"]["es"]["ownershipCorruption"] = 1
@@ -79,11 +110,21 @@ class PipelineAutomationTest(unittest.TestCase):
     def test_frozen_gate_requires_all_target_languages(self):
         with tempfile.TemporaryDirectory() as temporary:
             path = pathlib.Path(temporary) / "result.json"
-            path.write_text(json.dumps({"overall": passing_metrics(), "byLanguage": {
-                "it": passing_metrics(), "en": passing_metrics()}}), encoding="utf-8")
+            path.write_text(json.dumps(passing_result(("it", "en"))), encoding="utf-8")
             result = auto_test.check_frozen_gate(path)
             self.assertEqual("FAILED_GATE", result["status"])
             self.assertIn("es", result["failures"][0]["missing"])
+
+    def test_frozen_gate_rejects_systematic_critical_family_error(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = pathlib.Path(temporary) / "result.json"
+            result = passing_result()
+            result["byCriticalFamily"]["negation"]["exactClaimSet"] = 0.90
+            path.write_text(json.dumps(result), encoding="utf-8")
+            gate = auto_test.check_frozen_gate(path)
+            self.assertEqual("FAILED_GATE", gate["status"])
+            self.assertTrue(any(item["bucket"] == "critical:negation"
+                                for item in gate["failures"]))
 
     def test_export_gate_rejects_any_head_argmax_delta(self):
         with tempfile.TemporaryDirectory() as temporary:

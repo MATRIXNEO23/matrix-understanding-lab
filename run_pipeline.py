@@ -30,10 +30,12 @@ def commands(args: argparse.Namespace) -> list[Step]:
         if is_v2:
             training.extend(["--dataset-version", "v2", "--variant", "student-4-v2"])
         steps.append(Step("prepare-verify-train-or-resume", training))
+    candidate_role = ("counter-review" if is_v2 else
+                      "production" if args.student_layers is not None or
+                      getattr(args, "candidate_role", "teacher") == "production" else "teacher")
     testing = [sys.executable, "auto_test.py", "--bundle", str(bundle),
                "--onnx-repetitions", str(args.onnx_repetitions), "--candidate-role",
-               "production" if args.student_layers is not None or getattr(args, "candidate_role", "teacher") == "production"
-               else "teacher"]
+               candidate_role]
     if is_v2:
         testing.extend(["--data-dir", str(BUILD / "data-v2")])
     if not args.skip_train:
