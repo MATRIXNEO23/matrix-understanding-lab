@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = 'matrix-understanding-lab'
-include ':core', ':cli', ':android-probe'
+include ':core', ':cli', ':android-probe', ':trainer'

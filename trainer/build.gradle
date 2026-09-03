@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+    implementation 'org.apache.opennlp:opennlp-tools:2.5.11'
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+application {
+    mainClass = 'com.matrix.p05.train.TrainItalianPos'
+}
+
+tasks.register('trainItalianClean', JavaExec) {
+    group = 'verification'
+    description = 'Fetches pinned MarkIT data, trains variants, selects on dev, and evaluates test.'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = application.mainClass
+    args rootProject.layout.buildDirectory.dir('p05').get().asFile.absolutePath
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
