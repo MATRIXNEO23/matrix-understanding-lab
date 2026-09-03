@@ -47,6 +47,7 @@ class EndToEndScoringTest(unittest.TestCase):
         observed["claims"][0]["owner"] = "luna"
         result, errors = score_rows([row()], [observed])
         self.assertEqual(1, result["overall"]["ownershipCorruption"])
+        self.assertEqual(1, result["byLanguage"]["it"]["ownershipCorruption"])
         self.assertLess(result["overall"]["fieldExact"], 1.0)
         self.assertEqual("owner", errors[0]["errors"][0]["field"])
 

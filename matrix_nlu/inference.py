@@ -76,6 +76,43 @@ def bind(referent: str, context: dict, subject: str | None,
     return None
 
 
+def _overlaps(left: list[int] | None, right: list[int] | None) -> bool:
+    return bool(left and right and left[0] < right[1] and right[0] < left[1])
+
+
+def resolve_entity_referents(raw: dict, text: str, context: dict) -> list[dict]:
+    """Attach categorical referents using already-learned roles and context.
+
+    Entity type/span are learned outputs.  Referential identity is derived only
+    when an entity overlaps a learned semantic role or exactly matches supplied
+    context; otherwise it remains explicitly UNKNOWN.  This does not guess a
+    person from capitalization or surface-language rules.
+    """
+    labels = raw["labels"]
+    spans = raw["spans"]
+    output = []
+    for entity in spans.get("entities", []):
+        resolved = dict(entity)
+        if "referent" in resolved:
+            output.append(resolved)
+            continue
+        entity_span = entity.get("span")
+        if entity.get("type") == "LOCATION":
+            referent = "LOCATION"
+        elif _overlaps(entity_span, spans.get("subject")):
+            referent = labels["subjectReferent"]
+        elif (labels.get("predicate") == "identity.name" and
+              _overlaps(entity_span, spans.get("object"))):
+            referent = labels["subjectReferent"]
+        else:
+            mention = text[slice(*entity_span)] if entity_span else None
+            referent = "KNOWN_ENTITY" if find_known(
+                mention, context.get("knownEntities", {})) else "UNKNOWN"
+        resolved["referent"] = referent
+        output.append(resolved)
+    return output
+
+
 def validate_claim(raw: dict, text: str, context: dict, source_id: str,
                    threshold: float) -> dict:
     source = raw["spans"]["source"]
@@ -115,7 +152,7 @@ def validate_claim(raw: dict, text: str, context: dict, source_id: str,
         "negationSpan": raw["spans"].get("negation"),
         "temporalRelation": raw["labels"]["temporalRelation"],
         "temporalSpan": raw["spans"].get("temporal"),
-        "entities": raw["spans"].get("entities", []),
+        "entities": resolve_entity_referents(raw, text, context),
         "claimKind": kind, "confidence": confidence,
         "sourceSpans": [source], "sourceIds": [source_id],
         "worldTruth": False, "memoryAdmission": memory,

@@ -37,6 +37,51 @@ class InferenceInvariantTest(unittest.TestCase):
         self.assertEqual("REJECT", claim["memoryAdmission"])
         self.assertFalse(claim["worldTruth"])
 
+    def test_entity_referents_use_roles_and_context_without_surface_guessing(self):
+        context = {"speaker": "PLAYER", "observer": "luna",
+                   "knownEntities": {"Marco": "npc:marco"},
+                   "recentEntityRefs": ["npc:recent"]}
+        raw = {"labels": {"subjectReferent": "SPEAKER", "ownerReferent": "SUBJECT",
+                "perspectiveReferent": "SPEAKER", "targetReferent": "NONE",
+                "dialogueAct": "ASSERT", "predicate": "identity.name",
+                "polarity": "POSITIVE", "temporalRelation": "ATEMPORAL",
+                "claimKind": "EXPLICIT"},
+               "spans": {"source": [0, 31], "subject": None, "object": [11, 17],
+                         "negation": None, "temporal": None,
+                         "entities": [{"span": [11, 17], "type": "PERSON"},
+                                      {"span": [25, 31], "type": "LOCATION"}]},
+               "confidence": 0.95}
+        claim = inference.validate_claim(raw, "mi chiamo Andrea e vivo a Madrid",
+                                         context, "obs:entities", 0.7)
+        self.assertEqual([
+            {"span": [11, 17], "type": "PERSON", "referent": "SPEAKER"},
+            {"span": [25, 31], "type": "LOCATION", "referent": "LOCATION"},
+        ], claim["entities"])
+
+        raw["labels"]["predicate"] = "work.role"
+        raw["spans"]["source"] = [0, 24]
+        raw["spans"]["object"] = [18, 24]
+        raw["spans"]["entities"] = [{"span": [0, 5], "type": "PERSON"}]
+        known = inference.validate_claim(raw, "Marco lavora come medico", context,
+                                         "obs:known", 0.7)
+        self.assertEqual("KNOWN_ENTITY", known["entities"][0]["referent"])
+
+    def test_unbound_person_entity_is_explicitly_unknown(self):
+        context = {"speaker": "PLAYER", "observer": "luna",
+                   "knownEntities": {}, "recentEntityRefs": []}
+        raw = {"labels": {"subjectReferent": "SPEAKER", "ownerReferent": "SUBJECT",
+                "perspectiveReferent": "SPEAKER", "targetReferent": "NONE",
+                "dialogueAct": "ASSERT", "predicate": "attribute.is",
+                "polarity": "POSITIVE", "temporalRelation": "CURRENT",
+                "claimKind": "EXPLICIT"},
+               "spans": {"source": [0, 15], "subject": None, "object": [10, 15],
+                         "negation": None, "temporal": None,
+                         "entities": [{"span": [0, 5], "type": "PERSON"}]},
+               "confidence": 0.95}
+        claim = inference.validate_claim(raw, "Paolo sembra calmo", context,
+                                         "obs:unknown", 0.7)
+        self.assertEqual("UNKNOWN", claim["entities"][0]["referent"])
+
     def test_low_confidence_abstains_without_losing_provenance(self):
         context = {"speaker": "PLAYER", "observer": "luna",
                    "knownEntities": {}, "recentEntityRefs": []}

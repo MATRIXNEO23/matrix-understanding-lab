@@ -149,11 +149,13 @@ def score_rows(rows, predictions):
             bucket["rejected"] += int(observed.get("status") != "VALID")
             aggregate["abstained"] += int(observed.get("predicate") == "speech.unresolved")
             bucket["abstained"] += int(observed.get("predicate") == "speech.unresolved")
-            aggregate["ownershipCorruption"] += int(
+            ownership_corruption = int(
                 observed.get("status") == "VALID" and
                 (observed.get("subject") != expected.get("subject") or
                  observed.get("owner") != expected.get("owner") or
                  observed.get("perspective") != expected.get("perspective")))
+            aggregate["ownershipCorruption"] += ownership_corruption
+            bucket["ownershipCorruption"] += ownership_corruption
             aggregate["worldTruthUpdates"] += int(observed.get("worldTruth", False))
         exact_set = count_exact and not row_errors
         aggregate["exactClaimSet"] += int(exact_set)
