@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T01:25:00Z  
+Last updated: 2026-09-04T01:35:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `846748547f892b483effb85b8cf71cb62f669f6e`.
+  `325737008772d2276dae3cd04066d21faebe0010`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -358,9 +358,10 @@ strategy change, before long/risky work, and before ending any session.
   gate intentionally exits `2` after preserving its report because the current
   v1 data contains critical conflicts.
 - Candidate Probe runs `33815343446`, `33815504206` and `33815613927` are
-  green for the audit/pipeline commits. P0 runs `33815343409` and `33815504380`
-  are green. P0 runs for `00101513...` and `84674854...` were still in progress
-  when this continuity update was prepared and must be checked before handoff.
+  green for the audit/pipeline commits. P0 runs `33815343409`, `33815504380`,
+  `33815613991`, `33815709498` and final handoff run `33815787611` are green.
+  Run `33815787611` completed every unit, clean Italian trainer, unified A/B,
+  expanded P0.5 baseline, Android footprint/offline and artifact-upload step.
 
 - Green local checks at current implementation (`732725fd...`):
   `python -m unittest discover -s matrix_nlu -p 'test_*.py' -v` (42/42),
@@ -692,17 +693,15 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity update without touching a training trigger path, then
-   wait for the final P0 CI run and record its actual conclusion.
-2. Supervisor chooses Option A or B in
+1. Supervisor chooses Option A or B in
    `docs/DECISION_REQUIRED_MATRIX_NLU_ANNOTATION_CONTRACT.md`. Option A is the
    bounded recommendation: authorize `matrix.nlu.dataset.v2`, semantic negation
    scope, null span for implicit first-person subjects, and a consistent explicit
    temporal-span policy while preserving v1 immutably.
-3. After authorization only: implement the versioned dataset migration, run the
+2. After authorization only: implement the versioned dataset migration, run the
    contract audit to zero conflicts, freeze new hashes, run all software gates,
    then launch a fresh named model variant. Do not resume student-4 as though its
    supervision were unchanged and do not inspect frozen quality before the new
    dev threshold passes.
-4. Carry the independent nested-attribution contract issue to the same supervisor
+3. Carry the independent nested-attribution contract issue to the same supervisor
    counter-review; do not invent a binding heuristic or start B4.
