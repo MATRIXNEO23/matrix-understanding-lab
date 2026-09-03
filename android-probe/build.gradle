@@ -1,0 +1,29 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.matrix.p0.probe'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.matrix.p0.probe'
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName '0.1.0-p0'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.assets.srcDir rootProject.file('gold')
+    }
+}
+
+dependencies {
+    implementation project(':core')
+}

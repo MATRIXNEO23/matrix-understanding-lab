@@ -25,7 +25,13 @@ jobs:
         run: gradle --no-daemon :core:test
       - name: Unified A/B benchmark
         run: gradle --no-daemon :cli:run
+      - name: Build Android footprint probe
+        run: gradle --no-daemon :android-probe:assembleDebug
       - uses: actions/upload-artifact@v4
         with:
           name: p0-results
           path: build/results/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p0-android-probe
+          path: android-probe/build/outputs/apk/debug/android-probe-debug.apk
