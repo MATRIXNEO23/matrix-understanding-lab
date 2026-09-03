@@ -92,8 +92,18 @@ def evaluate(model, loader, device) -> dict:
             "accuracy": dict(sorted(accuracies.items())), "supervisedCounts": dict(sorted(totals.items()))}
 
 
+def stage_complete(resume: dict | None, stage: str, epochs: int,
+                   patience: int | None = None) -> bool:
+    if not resume or resume.get("stage") != stage:
+        return False
+    if int(resume.get("nextEpoch", 0)) >= epochs:
+        return True
+    return patience is not None and int(resume.get("epochsWithoutImprovement", 0)) >= patience
+
+
 def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: int,
-                config: dict, output_dir: pathlib.Path, resume: dict | None = None):
+                config: dict, output_dir: pathlib.Path, resume: dict | None = None,
+                prior_history: list | None = None):
     import torch
     optimizer = torch.optim.AdamW(model.parameters(), lr=config["matrix"]["learningRate"],
                                   weight_decay=config["matrix"]["weightDecay"])
@@ -108,6 +118,7 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
     best_score = -1.0
     best_state = None
     history = []
+    prior_history = list(prior_history or [])
     epochs_without_improvement = 0
     if resume and resume.get("stage") == stage:
         model.load_state_dict(resume["model"])
@@ -117,7 +128,14 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
         best_score = resume["bestScore"]
         best_state = resume.get("bestModel")
         history = resume.get("history", [])
+        prior_history = resume.get("priorHistory", prior_history)
         epochs_without_improvement = resume.get("epochsWithoutImprovement", 0)
+        if stage_complete(resume, stage, epochs,
+                          config["matrix"].get("earlyStoppingPatience")):
+            model.load_state_dict(best_state)
+            print(json.dumps({"stage": stage, "event": "RESUME_STAGE_ALREADY_COMPLETE",
+                              "nextEpoch": start_epoch, "bestScore": best_score}))
+            return history, best_score
     for epoch in range(start_epoch, epochs):
         model.train()
         optimizer.zero_grad(set_to_none=True)
@@ -158,6 +176,7 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
         checkpoint = {"stage": stage, "nextEpoch": epoch + 1, "model": model.state_dict(),
                       "optimizer": optimizer.state_dict(), "scheduler": scheduler.state_dict(),
                       "bestScore": best_score, "bestModel": best_state, "history": history,
+                      "priorHistory": prior_history,
                       "epochsWithoutImprovement": epochs_without_improvement}
         torch.save(checkpoint, output_dir / "checkpoints" / "latest.pt")
         atomic_json(output_dir / "training-progress.json", {
@@ -237,17 +256,27 @@ def main():
     if config.get("resume") == "auto" and checkpoint_path.exists():
         resume = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
     history = []
-    aux_history, _ = train_stage(
-        network, loader(massive_train, batch_size, True, config["seed"]),
-        {"massiveDev": loader(massive_dev, batch_size * 2, False, config["seed"])},
-        device, "massive-aux", config["massive"]["epochs"], config, args.output_dir, resume)
-    history.extend(aux_history)
+    prior_history = []
+    if resume and resume.get("stage") == "matrix":
+        # A matrix-stage checkpoint already contains the completed auxiliary stage.
+        # Replaying it wastes hours and cannot improve the resumed state because the
+        # matrix checkpoint is loaded immediately afterwards.
+        print(json.dumps({"stage": "massive-aux", "event": "SKIP_COMPLETED_BEFORE_MATRIX_RESUME"}))
+        prior_history = resume.get("priorHistory", [])
+    else:
+        aux_history, _ = train_stage(
+            network, loader(massive_train, batch_size, True, config["seed"]),
+            {"massiveDev": loader(massive_dev, batch_size * 2, False, config["seed"])},
+            device, "massive-aux", config["massive"]["epochs"], config, args.output_dir, resume)
+        prior_history = aux_history
     matrix_history, best = train_stage(
         network, loader(matrix_train, batch_size, True, config["seed"] + 1),
         {"matrixDev": loader(matrix_dev, batch_size * 2, False, config["seed"]),
          "p05Dev": loader(p05_dev, batch_size * 2, False, config["seed"])},
         device, "matrix", config["matrix"]["epochs"], config, args.output_dir,
-        resume if resume and resume.get("stage") == "matrix" else None)
+        resume if resume and resume.get("stage") == "matrix" else None,
+        prior_history=prior_history)
+    history.extend(prior_history)
     history.extend(matrix_history)
 
     # Frozen tests are touched only after the dev-selected model is loaded.
