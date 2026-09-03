@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `42e065cf80b7dcc5d0903733ed79b26fdded1122`.
+  `238eba30fbee5c633a059043a13d80bde17dd263`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -178,7 +178,7 @@ strategy change, before long/risky work, and before ending any session.
   (`ci: isolate student-4-v2 train and evaluation gates`). The connector did
   not expose push-run status through combined commit statuses; the pipeline
   still repeats the complete software and dataset gates before it can train.
-- Pre-trigger hardening pending consolidation on top of `42e065c`: the original
+- Pre-trigger hardening consolidated on top of `42e065c`: the original
   v1 one-click workflow has been restored byte-for-byte in behavior and a new
   `.github/workflows/matrix-nlu-student-4-v2.yml` isolates v2 triggers and
   artifacts. Checkpoints now carry and enforce dataset/config/variant/layer
@@ -187,9 +187,22 @@ strategy change, before long/risky work, and before ending any session.
   critical-family exactness for negation, request, goal, correction,
   temporality, referents, third parties and multi-claim inputs. Frozen coverage
   contains every family in every target language.
-- Current activity: consolidate this hardening, verify its ordinary CI, then
-  commit the one-time `pipeline/student-4-v2.trigger` and monitor the fresh
-  resumable run. Exact configuration: dataset v2, four-layer
+- Hardening checkpoint commit:
+  `238eba30fbee5c633a059043a13d80bde17dd263`
+  (`ci: harden isolated student-4-v2 gates`). Its ordinary P0/probe CI is in
+  progress; it does not launch a second training run.
+- A concurrent writer committed the one-time trigger early at
+  `f5920ca602d053e050a562a13ee744b06b7a366e`, launching run `33818777290`
+  on the preceding `42e065c` pipeline. That run is fresh, v2-only,
+  train/dev-only before calibration, and currently in its strict pipeline
+  step. Because it predates checkpoint identity and critical-family reporting,
+  it will be treated as training evidence only unless all evidence can be
+  revalidated through the hardened post-training path; no second run is being
+  launched while it is active.
+- Current activity: monitor run `33818777290`, preserve its isolated artifacts,
+  verify hardening CI, and revalidate any completed bundle through the hardened
+  dev/frozen/export path without retraining if possible. Exact configuration:
+  dataset v2, four-layer
   Geotrend student, seed 810923, MASSIVE auxiliary 3000/600 per language for
   train/dev, Matrix 4 epochs, batch 16, accumulation 2, LR 3e-5, patience 2.
   No v1 checkpoint may be restored into this variant. Production/runtime,
