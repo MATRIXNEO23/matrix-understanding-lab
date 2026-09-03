@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:10:00Z  
+Last updated: 2026-09-03T18:13:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -288,7 +288,17 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Open errors, failed paths and blockers
 
-- No architectural `DECISION_REQUIRED` is open.
+- `DECISION_REQUIRED / NON-BLOCKING FOR ACTIVE BASELINE`: the maximum benchmark
+  now requires third-party reports and nested belief attribution. The current
+  learned contract has one `subject` span plus categorical
+  subject/owner/perspective referents. `bind(KNOWN_ENTITY)` can therefore bind
+  owner/perspective only through the subject mention. It cannot safely represent
+  and bind two distinct named roles in input such as a known reporter plus a
+  different known claim subject. Choosing the first PERSON entity would be an
+  unsafe heuristic; adding role-specific spans, an entity-index pointer head or
+  explicitly limiting nesting is an architecture/contract choice for the
+  supervisor. The active teacher is still a valid first baseline and must
+  continue; it simply cannot close this newly explicit maximum-benchmark family.
 - The Hugging Face primary model revision and metadata are verified and pinned;
   no open encoder-provenance issue remains.
 - Shell access to Hugging Face timed out in the Work container. Do not repeat
@@ -380,3 +390,6 @@ strategy change, before long/risky work, and before ending any session.
 3. If it completes, download evidence and resume-checkpoint artifacts, record
    exact checksums/component metrics, run the end-to-end Typed Claim evaluator,
    and perform dev-led error analysis before any student or ONNX work.
+4. Carry the nested-attribution contract issue above to supervisor counter-review;
+   continue all independent single-level C1 quality/export work without inventing
+   a binding heuristic.
