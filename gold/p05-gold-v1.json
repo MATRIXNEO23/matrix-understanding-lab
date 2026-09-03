@@ -1,0 +1,6335 @@
+{
+  "schemaVersion": "p0.gold.v1",
+  "frozenAt": "2026-09-03T17:00:00Z",
+  "languages": [
+    "it",
+    "en",
+    "es"
+  ],
+  "rules": {
+    "parallelSemantics": true,
+    "testSplitMayTune": false,
+    "criticalOwnershipTolerance": 0,
+    "inventedWorldTruthTolerance": 0,
+    "expandedBeforeMapperFixes": true,
+    "newScenarioCount": 66
+  },
+  "scenarios": [
+    {
+      "id": "S01",
+      "split": "train",
+      "families": [
+        "identity_name",
+        "first_person"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.name",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Alberto",
+              "sourceText": "Mi chiamo Alberto",
+              "entities": [
+                {
+                  "mention": "Alberto",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "en": {
+              "object": "Albert",
+              "sourceText": "My name is Albert",
+              "entities": [
+                {
+                  "mention": "Albert",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "es": {
+              "object": "Alberto",
+              "sourceText": "Me llamo Alberto",
+              "entities": [
+                {
+                  "mention": "Alberto",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi chiamo Alberto",
+        "en": "My name is Albert",
+        "es": "Me llamo Alberto"
+      }
+    },
+    {
+      "id": "S02",
+      "split": "train",
+      "families": [
+        "identity_name",
+        "proper_name_vs_adjective"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.name",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Alberto",
+              "sourceText": "Sono Alberto",
+              "entities": [
+                {
+                  "mention": "Alberto",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "en": {
+              "object": "Albert",
+              "sourceText": "I am Albert",
+              "entities": [
+                {
+                  "mention": "Albert",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "es": {
+              "object": "Alberto",
+              "sourceText": "Soy Alberto",
+              "entities": [
+                {
+                  "mention": "Alberto",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sono Alberto",
+        "en": "I am Albert",
+        "es": "Soy Alberto"
+      }
+    },
+    {
+      "id": "S03",
+      "split": "train",
+      "families": [
+        "age"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "44",
+              "sourceText": "Ho 44 anni",
+              "temporalExpression": null,
+              "entities": []
+            },
+            "en": {
+              "object": "44",
+              "sourceText": "I am 44 years old",
+              "temporalExpression": null,
+              "entities": []
+            },
+            "es": {
+              "object": "44",
+              "sourceText": "Tengo 44 años",
+              "temporalExpression": null,
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho 44 anni",
+        "en": "I am 44 years old",
+        "es": "Tengo 44 años"
+      }
+    },
+    {
+      "id": "S04",
+      "split": "train",
+      "families": [
+        "preference"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il jazz",
+              "sourceText": "Mi piace il jazz",
+              "entities": []
+            },
+            "en": {
+              "object": "jazz",
+              "sourceText": "I like jazz",
+              "entities": []
+            },
+            "es": {
+              "object": "el jazz",
+              "sourceText": "Me gusta el jazz",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi piace il jazz",
+        "en": "I like jazz",
+        "es": "Me gusta el jazz"
+      }
+    },
+    {
+      "id": "S05",
+      "split": "train",
+      "families": [
+        "aversion",
+        "negation_local"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "NEGATIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "i locali affollati",
+              "sourceText": "non amo i locali affollati",
+              "negationScope": "non amo i locali affollati",
+              "entities": []
+            },
+            "en": {
+              "object": "crowded clubs",
+              "sourceText": "I do not like crowded clubs",
+              "negationScope": "not like crowded clubs",
+              "entities": []
+            },
+            "es": {
+              "object": "los locales abarrotados",
+              "sourceText": "no me gustan los locales abarrotados",
+              "negationScope": "no me gustan los locales abarrotados",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "non amo i locali affollati",
+        "en": "I do not like crowded clubs",
+        "es": "no me gustan los locales abarrotados"
+      }
+    },
+    {
+      "id": "S06",
+      "split": "train",
+      "families": [
+        "work_role"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "cuoco",
+              "sourceText": "Lavoro come cuoco",
+              "entities": []
+            },
+            "en": {
+              "object": "a chef",
+              "sourceText": "I work as a chef",
+              "entities": []
+            },
+            "es": {
+              "object": "cocinero",
+              "sourceText": "Trabajo como cocinero",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Lavoro come cuoco",
+        "en": "I work as a chef",
+        "es": "Trabajo como cocinero"
+      }
+    },
+    {
+      "id": "S07",
+      "split": "train",
+      "families": [
+        "residence",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "San Vendemiano",
+              "sourceText": "Vivo a San Vendemiano",
+              "entities": [
+                {
+                  "mention": "San Vendemiano",
+                  "type": "LOCATION",
+                  "link": "LOCATION:san_vendemiano"
+                }
+              ]
+            },
+            "en": {
+              "object": "New York",
+              "sourceText": "I live in New York",
+              "entities": [
+                {
+                  "mention": "New York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            },
+            "es": {
+              "object": "Buenos Aires",
+              "sourceText": "Vivo en Buenos Aires",
+              "entities": [
+                {
+                  "mention": "Buenos Aires",
+                  "type": "LOCATION",
+                  "link": "LOCATION:buenos_aires"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Vivo a San Vendemiano",
+        "en": "I live in New York",
+        "es": "Vivo en Buenos Aires"
+      }
+    },
+    {
+      "id": "S08",
+      "split": "dev",
+      "families": [
+        "presence",
+        "world_truth_guard"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "presence.reported",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il bar Aurora",
+              "sourceText": "Sono al bar Aurora",
+              "entities": [
+                {
+                  "mention": "bar Aurora",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bar_aurora"
+                }
+              ]
+            },
+            "en": {
+              "object": "the Aurora bar",
+              "sourceText": "I am at the Aurora bar",
+              "entities": [
+                {
+                  "mention": "Aurora bar",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bar_aurora"
+                }
+              ]
+            },
+            "es": {
+              "object": "el bar Aurora",
+              "sourceText": "Estoy en el bar Aurora",
+              "entities": [
+                {
+                  "mention": "bar Aurora",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bar_aurora"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sono al bar Aurora",
+        "en": "I am at the Aurora bar",
+        "es": "Estoy en el bar Aurora"
+      }
+    },
+    {
+      "id": "S09",
+      "split": "dev",
+      "families": [
+        "possession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "possession.has",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "una moto rossa",
+              "sourceText": "Ho una moto rossa",
+              "entities": []
+            },
+            "en": {
+              "object": "a red motorcycle",
+              "sourceText": "I own a red motorcycle",
+              "entities": []
+            },
+            "es": {
+              "object": "una moto roja",
+              "sourceText": "Tengo una moto roja",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho una moto rossa",
+        "en": "I own a red motorcycle",
+        "es": "Tengo una moto roja"
+      }
+    },
+    {
+      "id": "S10",
+      "split": "dev",
+      "families": [
+        "third_person",
+        "npc",
+        "location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "OTHER:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "OTHER:marco",
+          "target": null,
+          "owner": "OTHER:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "San Vendemiano",
+              "sourceText": "Marco vive a San Vendemiano",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                },
+                {
+                  "mention": "San Vendemiano",
+                  "type": "LOCATION",
+                  "link": "LOCATION:san_vendemiano"
+                }
+              ]
+            },
+            "en": {
+              "object": "New York",
+              "sourceText": "Marco lives in New York",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                },
+                {
+                  "mention": "New York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            },
+            "es": {
+              "object": "Buenos Aires",
+              "sourceText": "Marco vive en Buenos Aires",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                },
+                {
+                  "mention": "Buenos Aires",
+                  "type": "LOCATION",
+                  "link": "LOCATION:buenos_aires"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Marco vive a San Vendemiano",
+        "en": "Marco lives in New York",
+        "es": "Marco vive en Buenos Aires"
+      }
+    },
+    {
+      "id": "S11",
+      "split": "dev",
+      "families": [
+        "pronoun",
+        "recent_reference"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": [
+          "OTHER:giulia"
+        ]
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "OTHER:giulia",
+          "target": null,
+          "owner": "OTHER:giulia",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "medica",
+              "sourceText": "Lei lavora come medica",
+              "entities": [
+                {
+                  "mention": "Lei",
+                  "type": "PERSON",
+                  "link": "OTHER:giulia"
+                }
+              ]
+            },
+            "en": {
+              "object": "a doctor",
+              "sourceText": "She works as a doctor",
+              "entities": [
+                {
+                  "mention": "She",
+                  "type": "PERSON",
+                  "link": "OTHER:giulia"
+                }
+              ]
+            },
+            "es": {
+              "object": "médica",
+              "sourceText": "Ella trabaja como médica",
+              "entities": [
+                {
+                  "mention": "Ella",
+                  "type": "PERSON",
+                  "link": "OTHER:giulia"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Lei lavora come medica",
+        "en": "She works as a doctor",
+        "es": "Ella trabaja como médica"
+      }
+    },
+    {
+      "id": "S12",
+      "split": "dev",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "44",
+              "sourceText": "Ho 44 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "44",
+              "sourceText": "I am 44 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "44",
+              "sourceText": "Tengo 44 años",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "San Vendemiano",
+              "sourceText": "vivo a San Vendemiano",
+              "entities": [
+                {
+                  "mention": "San Vendemiano",
+                  "type": "LOCATION",
+                  "link": "LOCATION:san_vendemiano"
+                }
+              ]
+            },
+            "en": {
+              "object": "New York",
+              "sourceText": "I live in New York",
+              "entities": [
+                {
+                  "mention": "New York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            },
+            "es": {
+              "object": "Buenos Aires",
+              "sourceText": "vivo en Buenos Aires",
+              "entities": [
+                {
+                  "mention": "Buenos Aires",
+                  "type": "LOCATION",
+                  "link": "LOCATION:buenos_aires"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho 44 anni e vivo a San Vendemiano",
+        "en": "I am 44 years old and I live in New York",
+        "es": "Tengo 44 años y vivo en Buenos Aires"
+      }
+    },
+    {
+      "id": "S13",
+      "split": "dev",
+      "families": [
+        "multi_claim",
+        "negation_local"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il jazz",
+              "sourceText": "Amo il jazz",
+              "entities": []
+            },
+            "en": {
+              "object": "jazz",
+              "sourceText": "I like jazz",
+              "entities": []
+            },
+            "es": {
+              "object": "el jazz",
+              "sourceText": "Me gusta el jazz",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "NEGATIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Roma",
+              "sourceText": "non vivo a Roma",
+              "negationScope": "non vivo a Roma",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:roma"
+                }
+              ]
+            },
+            "en": {
+              "object": "Rome",
+              "sourceText": "I do not live in Rome",
+              "negationScope": "not live in Rome",
+              "entities": [
+                {
+                  "mention": "Rome",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ]
+            },
+            "es": {
+              "object": "Roma",
+              "sourceText": "no vivo en Roma",
+              "negationScope": "no vivo en Roma",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:roma"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Amo il jazz e non vivo a Roma",
+        "en": "I like jazz and I do not live in Rome",
+        "es": "Me gusta el jazz y no vivo en Roma"
+      }
+    },
+    {
+      "id": "S14",
+      "split": "test",
+      "families": [
+        "correction",
+        "supersession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "CORRECT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Milano",
+              "sourceText": "In realtà vivo a Milano",
+              "entities": [
+                {
+                  "mention": "Milano",
+                  "type": "LOCATION",
+                  "link": "LOCATION:milano"
+                }
+              ]
+            },
+            "en": {
+              "object": "Milan",
+              "sourceText": "Actually, I live in Milan",
+              "entities": [
+                {
+                  "mention": "Milan",
+                  "type": "LOCATION",
+                  "link": "LOCATION:milan"
+                }
+              ]
+            },
+            "es": {
+              "object": "Milán",
+              "sourceText": "En realidad vivo en Milán",
+              "entities": [
+                {
+                  "mention": "Milán",
+                  "type": "LOCATION",
+                  "link": "LOCATION:milan"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "In realtà vivo a Milano",
+        "en": "Actually, I live in Milan",
+        "es": "En realidad vivo en Milán"
+      }
+    },
+    {
+      "id": "S15",
+      "split": "test",
+      "families": [
+        "temporal_past",
+        "residence"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "PAST",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Torino",
+              "sourceText": "Prima vivevo a Torino",
+              "temporalExpression": "Prima",
+              "entities": [
+                {
+                  "mention": "Torino",
+                  "type": "LOCATION",
+                  "link": "LOCATION:torino"
+                }
+              ]
+            },
+            "en": {
+              "object": "Turin",
+              "sourceText": "I used to live in Turin",
+              "temporalExpression": "used to",
+              "entities": [
+                {
+                  "mention": "Turin",
+                  "type": "LOCATION",
+                  "link": "LOCATION:turin"
+                }
+              ]
+            },
+            "es": {
+              "object": "Turín",
+              "sourceText": "Antes vivía en Turín",
+              "temporalExpression": "Antes",
+              "entities": [
+                {
+                  "mention": "Turín",
+                  "type": "LOCATION",
+                  "link": "LOCATION:turin"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Prima vivevo a Torino",
+        "en": "I used to live in Turin",
+        "es": "Antes vivía en Turín"
+      }
+    },
+    {
+      "id": "S16",
+      "split": "test",
+      "families": [
+        "temporal_future",
+        "goal"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "goal.object",
+          "polarity": "POSITIVE",
+          "temporalRelation": "FUTURE",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "trasferirmi a Venezia",
+              "sourceText": "Domani vorrei trasferirmi a Venezia",
+              "temporalExpression": "Domani",
+              "entities": [
+                {
+                  "mention": "Venezia",
+                  "type": "LOCATION",
+                  "link": "LOCATION:venezia"
+                }
+              ]
+            },
+            "en": {
+              "object": "to move to Venice",
+              "sourceText": "Tomorrow I would like to move to Venice",
+              "temporalExpression": "Tomorrow",
+              "entities": [
+                {
+                  "mention": "Venice",
+                  "type": "LOCATION",
+                  "link": "LOCATION:venice"
+                }
+              ]
+            },
+            "es": {
+              "object": "mudarme a Venecia",
+              "sourceText": "Mañana me gustaría mudarme a Venecia",
+              "temporalExpression": "Mañana",
+              "entities": [
+                {
+                  "mention": "Venecia",
+                  "type": "LOCATION",
+                  "link": "LOCATION:venice"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Domani vorrei trasferirmi a Venezia",
+        "en": "Tomorrow I would like to move to Venice",
+        "es": "Mañana me gustaría mudarme a Venecia"
+      }
+    },
+    {
+      "id": "S17",
+      "split": "test",
+      "families": [
+        "question",
+        "third_person"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "OTHER:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "OTHER:marco",
+          "target": null,
+          "owner": "OTHER:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "QUESTION",
+          "predicate": "residence.place",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "",
+              "sourceText": "Dove vive Marco?",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                }
+              ]
+            },
+            "en": {
+              "object": "",
+              "sourceText": "Where does Marco live?",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                }
+              ]
+            },
+            "es": {
+              "object": "",
+              "sourceText": "¿Dónde vive Marco?",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Dove vive Marco?",
+        "en": "Where does Marco live?",
+        "es": "¿Dónde vive Marco?"
+      }
+    },
+    {
+      "id": "S18",
+      "split": "test",
+      "families": [
+        "request"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": "SELF",
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "REQUEST",
+          "predicate": "speech.unresolved",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Apri la porta",
+              "sourceText": "Apri la porta",
+              "entities": []
+            },
+            "en": {
+              "object": "Open the door",
+              "sourceText": "Open the door",
+              "entities": []
+            },
+            "es": {
+              "object": "Abre la puerta",
+              "sourceText": "Abre la puerta",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Apri la porta",
+        "en": "Open the door",
+        "es": "Abre la puerta"
+      }
+    },
+    {
+      "id": "S19",
+      "split": "test",
+      "families": [
+        "hypothesis",
+        "third_person",
+        "belief_holder"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "OTHER:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "OTHER:marco",
+          "target": null,
+          "owner": "OTHER:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "HYPOTHESIS",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "HYPOTHESIS",
+          "localized": {
+            "it": {
+              "object": "Roma",
+              "sourceText": "Forse Marco vive a Roma",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                },
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:roma"
+                }
+              ]
+            },
+            "en": {
+              "object": "Rome",
+              "sourceText": "Maybe Marco lives in Rome",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                },
+                {
+                  "mention": "Rome",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ]
+            },
+            "es": {
+              "object": "Roma",
+              "sourceText": "Quizá Marco vive en Roma",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "OTHER:marco"
+                },
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:roma"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Forse Marco vive a Roma",
+        "en": "Maybe Marco lives in Rome",
+        "es": "Quizá Marco vive en Roma"
+      }
+    },
+    {
+      "id": "S20",
+      "split": "test",
+      "families": [
+        "proper_name_vs_adjective",
+        "ambiguity"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "attribute.is",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "bello",
+              "sourceText": "Sono bello",
+              "entities": []
+            },
+            "en": {
+              "object": "handsome",
+              "sourceText": "I am handsome",
+              "entities": []
+            },
+            "es": {
+              "object": "guapo",
+              "sourceText": "Soy guapo",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sono bello",
+        "en": "I am handsome",
+        "es": "Soy guapo"
+      }
+    },
+    {
+      "id": "S21",
+      "split": "test",
+      "families": [
+        "code_switch",
+        "preference"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "la musica live",
+              "sourceText": "Mi piace la musica live",
+              "entities": []
+            },
+            "en": {
+              "object": "la música live",
+              "sourceText": "I like la música live",
+              "entities": []
+            },
+            "es": {
+              "object": "la musica live",
+              "sourceText": "Me gusta la musica live",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi piace la musica live",
+        "en": "I like la música live",
+        "es": "Me gusta la musica live"
+      }
+    },
+    {
+      "id": "S22",
+      "split": "test",
+      "families": [
+        "colloquial",
+        "imperfect_punctuation",
+        "short_form"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "31",
+              "sourceText": "io 31 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "31",
+              "sourceText": "me 31 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "31",
+              "sourceText": "yo 31 años",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "io 31 anni...",
+        "en": "me 31 years old...",
+        "es": "yo 31 años..."
+      }
+    },
+    {
+      "id": "P05-001",
+      "split": "train",
+      "families": [
+        "preference",
+        "lexical_variation"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il tè verde",
+              "sourceText": "Amo il tè verde",
+              "entities": []
+            },
+            "en": {
+              "object": "green tea",
+              "sourceText": "I love green tea",
+              "entities": []
+            },
+            "es": {
+              "object": "el té verde",
+              "sourceText": "Amo el té verde",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Amo il tè verde",
+        "en": "I love green tea",
+        "es": "Amo el té verde"
+      }
+    },
+    {
+      "id": "P05-002",
+      "split": "dev",
+      "families": [
+        "preference",
+        "negation_local"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "NEGATIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "la pioggia",
+              "sourceText": "Non mi piace la pioggia",
+              "entities": [],
+              "negationScope": "Non mi piace la pioggia"
+            },
+            "en": {
+              "object": "rain",
+              "sourceText": "I do not like rain",
+              "entities": [],
+              "negationScope": "I do not like rain"
+            },
+            "es": {
+              "object": "la lluvia",
+              "sourceText": "No me gusta la lluvia",
+              "entities": [],
+              "negationScope": "No me gusta la lluvia"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Non mi piace la pioggia",
+        "en": "I do not like rain",
+        "es": "No me gusta la lluvia"
+      }
+    },
+    {
+      "id": "P05-003",
+      "split": "test",
+      "families": [
+        "preference",
+        "lexical_variation"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "i rumori forti",
+              "sourceText": "Odio i rumori forti",
+              "entities": []
+            },
+            "en": {
+              "object": "loud noises",
+              "sourceText": "I hate loud noises",
+              "entities": []
+            },
+            "es": {
+              "object": "los ruidos fuertes",
+              "sourceText": "Odio los ruidos fuertes",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Odio i rumori forti",
+        "en": "I hate loud noises",
+        "es": "Odio los ruidos fuertes"
+      }
+    },
+    {
+      "id": "P05-004",
+      "split": "train",
+      "families": [
+        "preference",
+        "lexical_variation"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "molto il cinema",
+              "sourceText": "Mi piace molto il cinema",
+              "entities": []
+            },
+            "en": {
+              "object": "cinema a lot",
+              "sourceText": "I like cinema a lot",
+              "entities": []
+            },
+            "es": {
+              "object": "mucho el cine",
+              "sourceText": "Me gusta mucho el cine",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi piace molto il cinema",
+        "en": "I like cinema a lot",
+        "es": "Me gusta mucho el cine"
+      }
+    },
+    {
+      "id": "P05-005",
+      "split": "dev",
+      "families": [
+        "preference",
+        "negation_local"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "NEGATIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "le code lunghe",
+              "sourceText": "Non sopporto le code lunghe",
+              "entities": [],
+              "negationScope": "Non sopporto le code lunghe"
+            },
+            "en": {
+              "object": "long queues",
+              "sourceText": "I don't like long queues",
+              "entities": [],
+              "negationScope": "I don't like long queues"
+            },
+            "es": {
+              "object": "las colas largas",
+              "sourceText": "No me gustan las colas largas",
+              "entities": [],
+              "negationScope": "No me gustan las colas largas"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Non sopporto le code lunghe",
+        "en": "I don't like long queues",
+        "es": "No me gustan las colas largas"
+      }
+    },
+    {
+      "id": "P05-006",
+      "split": "test",
+      "families": [
+        "preference",
+        "lexical_variation"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "la musica live",
+              "sourceText": "Mi piace la musica live",
+              "entities": []
+            },
+            "en": {
+              "object": "musica live",
+              "sourceText": "I like musica live",
+              "entities": []
+            },
+            "es": {
+              "object": "la musica live",
+              "sourceText": "Me gusta la musica live",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi piace la musica live",
+        "en": "I like musica live",
+        "es": "Me gusta la musica live"
+      }
+    },
+    {
+      "id": "P05-007",
+      "split": "train",
+      "families": [
+        "location",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Bologna",
+              "sourceText": "Abito a Bologna",
+              "entities": [
+                {
+                  "mention": "Bologna",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bologna"
+                }
+              ]
+            },
+            "en": {
+              "object": "Bologna",
+              "sourceText": "I live in Bologna",
+              "entities": [
+                {
+                  "mention": "Bologna",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bologna"
+                }
+              ]
+            },
+            "es": {
+              "object": "Bolonia",
+              "sourceText": "Vivo en Bolonia",
+              "entities": [
+                {
+                  "mention": "Bolonia",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bologna"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Abito a Bologna",
+        "en": "I live in Bologna",
+        "es": "Vivo en Bolonia"
+      }
+    },
+    {
+      "id": "P05-008",
+      "split": "dev",
+      "families": [
+        "location",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "New York",
+              "sourceText": "Vivo a New York",
+              "entities": [
+                {
+                  "mention": "New York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            },
+            "en": {
+              "object": "New York",
+              "sourceText": "I live in New York",
+              "entities": [
+                {
+                  "mention": "New York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            },
+            "es": {
+              "object": "Nueva York",
+              "sourceText": "Vivo en Nueva York",
+              "entities": [
+                {
+                  "mention": "Nueva York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Vivo a New York",
+        "en": "I live in New York",
+        "es": "Vivo en Nueva York"
+      }
+    },
+    {
+      "id": "P05-009",
+      "split": "test",
+      "families": [
+        "location",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "presence.reported",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "stazione centrale",
+              "sourceText": "Sono alla stazione centrale",
+              "entities": [
+                {
+                  "mention": "stazione centrale",
+                  "type": "LOCATION",
+                  "link": "LOCATION:central_station"
+                }
+              ]
+            },
+            "en": {
+              "object": "central station",
+              "sourceText": "I am at the central station",
+              "entities": [
+                {
+                  "mention": "central station",
+                  "type": "LOCATION",
+                  "link": "LOCATION:central_station"
+                }
+              ]
+            },
+            "es": {
+              "object": "estación central",
+              "sourceText": "Estoy en la estación central",
+              "entities": [
+                {
+                  "mention": "estación central",
+                  "type": "LOCATION",
+                  "link": "LOCATION:central_station"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sono alla stazione centrale",
+        "en": "I am at the central station",
+        "es": "Estoy en la estación central"
+      }
+    },
+    {
+      "id": "P05-010",
+      "split": "train",
+      "families": [
+        "location",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "presence.reported",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Café Central",
+              "sourceText": "Sono al Café Central",
+              "entities": [
+                {
+                  "mention": "Café Central",
+                  "type": "LOCATION",
+                  "link": "LOCATION:cafe_central"
+                }
+              ]
+            },
+            "en": {
+              "object": "Café Central",
+              "sourceText": "I am at Café Central",
+              "entities": [
+                {
+                  "mention": "Café Central",
+                  "type": "LOCATION",
+                  "link": "LOCATION:cafe_central"
+                }
+              ]
+            },
+            "es": {
+              "object": "Café Central",
+              "sourceText": "Estoy en Café Central",
+              "entities": [
+                {
+                  "mention": "Café Central",
+                  "type": "LOCATION",
+                  "link": "LOCATION:cafe_central"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sono al Café Central",
+        "en": "I am at Café Central",
+        "es": "Estoy en Café Central"
+      }
+    },
+    {
+      "id": "P05-011",
+      "split": "dev",
+      "families": [
+        "third_person",
+        "person_location_collision"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "npc:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:marco",
+          "target": null,
+          "owner": "npc:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Porto",
+              "sourceText": "Marco vive a Porto",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Porto",
+                  "type": "LOCATION",
+                  "link": "LOCATION:porto"
+                }
+              ]
+            },
+            "en": {
+              "object": "Porto",
+              "sourceText": "Marco lives in Porto",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Porto",
+                  "type": "LOCATION",
+                  "link": "LOCATION:porto"
+                }
+              ]
+            },
+            "es": {
+              "object": "Oporto",
+              "sourceText": "Marco vive en Oporto",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Oporto",
+                  "type": "LOCATION",
+                  "link": "LOCATION:porto"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Marco vive a Porto",
+        "en": "Marco lives in Porto",
+        "es": "Marco vive en Oporto"
+      }
+    },
+    {
+      "id": "P05-012",
+      "split": "test",
+      "families": [
+        "third_person",
+        "person_location_collision"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Roma": "npc:roma"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:roma",
+          "target": null,
+          "owner": "npc:roma",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Madrid",
+              "sourceText": "Roma vive a Madrid",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "PERSON",
+                  "link": "npc:roma"
+                },
+                {
+                  "mention": "Madrid",
+                  "type": "LOCATION",
+                  "link": "LOCATION:madrid"
+                }
+              ]
+            },
+            "en": {
+              "object": "Madrid",
+              "sourceText": "Roma lives in Madrid",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "PERSON",
+                  "link": "npc:roma"
+                },
+                {
+                  "mention": "Madrid",
+                  "type": "LOCATION",
+                  "link": "LOCATION:madrid"
+                }
+              ]
+            },
+            "es": {
+              "object": "Madrid",
+              "sourceText": "Roma vive en Madrid",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "PERSON",
+                  "link": "npc:roma"
+                },
+                {
+                  "mention": "Madrid",
+                  "type": "LOCATION",
+                  "link": "LOCATION:madrid"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Roma vive a Madrid",
+        "en": "Roma lives in Madrid",
+        "es": "Roma vive en Madrid"
+      }
+    },
+    {
+      "id": "P05-013",
+      "split": "train",
+      "families": [
+        "ownership",
+        "perspective",
+        "provenance"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.name",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Chiara",
+              "sourceText": "Io mi chiamo Chiara",
+              "entities": [
+                {
+                  "mention": "Chiara",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "en": {
+              "object": "Clara",
+              "sourceText": "My name is Clara",
+              "entities": [
+                {
+                  "mention": "Clara",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "es": {
+              "object": "Clara",
+              "sourceText": "Yo me llamo Clara",
+              "entities": [
+                {
+                  "mention": "Clara",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Io mi chiamo Chiara",
+        "en": "My name is Clara",
+        "es": "Yo me llamo Clara"
+      }
+    },
+    {
+      "id": "P05-014",
+      "split": "dev",
+      "families": [
+        "ownership",
+        "perspective",
+        "provenance"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.name",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Davide",
+              "sourceText": "Sono Davide",
+              "entities": [
+                {
+                  "mention": "Davide",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "en": {
+              "object": "David",
+              "sourceText": "I am David",
+              "entities": [
+                {
+                  "mention": "David",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "es": {
+              "object": "David",
+              "sourceText": "Soy David",
+              "entities": [
+                {
+                  "mention": "David",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sono Davide",
+        "en": "I am David",
+        "es": "Soy David"
+      }
+    },
+    {
+      "id": "P05-015",
+      "split": "test",
+      "families": [
+        "ownership",
+        "perspective",
+        "provenance"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "52",
+              "sourceText": "Ho 52 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "52",
+              "sourceText": "I am 52 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "52",
+              "sourceText": "Tengo 52 años",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho 52 anni",
+        "en": "I am 52 years old",
+        "es": "Tengo 52 años"
+      }
+    },
+    {
+      "id": "P05-016",
+      "split": "train",
+      "families": [
+        "ownership",
+        "perspective",
+        "provenance"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "npc:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:marco",
+          "target": null,
+          "owner": "npc:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "infermiere",
+              "sourceText": "Marco lavora come infermiere",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                }
+              ]
+            },
+            "en": {
+              "object": "a nurse",
+              "sourceText": "Marco works as a nurse",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                }
+              ]
+            },
+            "es": {
+              "object": "enfermero",
+              "sourceText": "Marco trabaja como enfermero",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Marco lavora come infermiere",
+        "en": "Marco works as a nurse",
+        "es": "Marco trabaja como enfermero"
+      }
+    },
+    {
+      "id": "P05-017",
+      "split": "dev",
+      "families": [
+        "ownership",
+        "perspective",
+        "provenance"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": [
+          "npc:sofia"
+        ]
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:sofia",
+          "target": null,
+          "owner": "npc:sofia",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "architetta",
+              "sourceText": "Lei lavora come architetta",
+              "entities": [
+                {
+                  "mention": "Lei",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            },
+            "en": {
+              "object": "an architect",
+              "sourceText": "She works as an architect",
+              "entities": [
+                {
+                  "mention": "She",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            },
+            "es": {
+              "object": "arquitecta",
+              "sourceText": "Ella trabaja como arquitecta",
+              "entities": [
+                {
+                  "mention": "Ella",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Lei lavora come architetta",
+        "en": "She works as an architect",
+        "es": "Ella trabaja como arquitecta"
+      }
+    },
+    {
+      "id": "P05-018",
+      "split": "test",
+      "families": [
+        "ownership",
+        "perspective",
+        "provenance"
+      ],
+      "context": {
+        "speaker": "luna",
+        "observer": "npc:nia",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "luna",
+          "subject": "luna",
+          "target": null,
+          "owner": "luna",
+          "perspective": "luna",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.name",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Luna",
+              "sourceText": "Mi chiamo Luna",
+              "entities": [
+                {
+                  "mention": "Luna",
+                  "type": "PERSON",
+                  "link": "luna"
+                }
+              ]
+            },
+            "en": {
+              "object": "Luna",
+              "sourceText": "My name is Luna",
+              "entities": [
+                {
+                  "mention": "Luna",
+                  "type": "PERSON",
+                  "link": "luna"
+                }
+              ]
+            },
+            "es": {
+              "object": "Luna",
+              "sourceText": "Me llamo Luna",
+              "entities": [
+                {
+                  "mention": "Luna",
+                  "type": "PERSON",
+                  "link": "luna"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi chiamo Luna",
+        "en": "My name is Luna",
+        "es": "Me llamo Luna"
+      }
+    },
+    {
+      "id": "P05-019",
+      "split": "train",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "30",
+              "sourceText": "Ho 30 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "30",
+              "sourceText": "I am 30 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "30",
+              "sourceText": "Tengo 30 años",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Roma",
+              "sourceText": "vivo a Roma",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ]
+            },
+            "en": {
+              "object": "Rome",
+              "sourceText": "I live in Rome",
+              "entities": [
+                {
+                  "mention": "Rome",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ]
+            },
+            "es": {
+              "object": "Roma",
+              "sourceText": "vivo en Roma",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho 30 anni e vivo a Roma",
+        "en": "I am 30 years old and I live in Rome",
+        "es": "Tengo 30 años y vivo en Roma"
+      }
+    },
+    {
+      "id": "P05-020",
+      "split": "dev",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il mare",
+              "sourceText": "Amo il mare",
+              "entities": []
+            },
+            "en": {
+              "object": "the sea",
+              "sourceText": "I love the sea",
+              "entities": []
+            },
+            "es": {
+              "object": "el mar",
+              "sourceText": "Amo el mar",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "NEGATIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Genova",
+              "sourceText": "non vivo a Genova",
+              "entities": [
+                {
+                  "mention": "Genova",
+                  "type": "LOCATION",
+                  "link": "LOCATION:genoa"
+                }
+              ],
+              "negationScope": "non vivo a Genova"
+            },
+            "en": {
+              "object": "Genoa",
+              "sourceText": "I do not live in Genoa",
+              "entities": [
+                {
+                  "mention": "Genoa",
+                  "type": "LOCATION",
+                  "link": "LOCATION:genoa"
+                }
+              ],
+              "negationScope": "I do not live in Genoa"
+            },
+            "es": {
+              "object": "Génova",
+              "sourceText": "no vivo en Génova",
+              "entities": [
+                {
+                  "mention": "Génova",
+                  "type": "LOCATION",
+                  "link": "LOCATION:genoa"
+                }
+              ],
+              "negationScope": "no vivo en Génova"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Amo il mare e non vivo a Genova",
+        "en": "I love the sea and I do not live in Genoa",
+        "es": "Amo el mar y no vivo en Génova"
+      }
+    },
+    {
+      "id": "P05-021",
+      "split": "test",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "guida",
+              "sourceText": "Lavoro come guida",
+              "entities": []
+            },
+            "en": {
+              "object": "a guide",
+              "sourceText": "I work as a guide",
+              "entities": []
+            },
+            "es": {
+              "object": "guía",
+              "sourceText": "Trabajo como guía",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Firenze",
+              "sourceText": "vivo a Firenze",
+              "entities": [
+                {
+                  "mention": "Firenze",
+                  "type": "LOCATION",
+                  "link": "LOCATION:florence"
+                }
+              ]
+            },
+            "en": {
+              "object": "Florence",
+              "sourceText": "I live in Florence",
+              "entities": [
+                {
+                  "mention": "Florence",
+                  "type": "LOCATION",
+                  "link": "LOCATION:florence"
+                }
+              ]
+            },
+            "es": {
+              "object": "Florencia",
+              "sourceText": "vivo en Florencia",
+              "entities": [
+                {
+                  "mention": "Florencia",
+                  "type": "LOCATION",
+                  "link": "LOCATION:florence"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Lavoro come guida e vivo a Firenze",
+        "en": "I work as a guide and I live in Florence",
+        "es": "Trabajo como guía y vivo en Florencia"
+      }
+    },
+    {
+      "id": "P05-022",
+      "split": "train",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "possession.has",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "una bici",
+              "sourceText": "Ho una bici",
+              "entities": []
+            },
+            "en": {
+              "object": "a bike",
+              "sourceText": "I own a bike",
+              "entities": []
+            },
+            "es": {
+              "object": "una bici",
+              "sourceText": "Tengo una bici",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "le colline",
+              "sourceText": "amo le colline",
+              "entities": []
+            },
+            "en": {
+              "object": "hills",
+              "sourceText": "I love hills",
+              "entities": []
+            },
+            "es": {
+              "object": "las colinas",
+              "sourceText": "amo las colinas",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho una bici e amo le colline",
+        "en": "I own a bike and I love hills",
+        "es": "Tengo una bici y amo las colinas"
+      }
+    },
+    {
+      "id": "P05-023",
+      "split": "dev",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.name",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Paolo",
+              "sourceText": "Mi chiamo Paolo",
+              "entities": [
+                {
+                  "mention": "Paolo",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "en": {
+              "object": "Paul",
+              "sourceText": "My name is Paul",
+              "entities": [
+                {
+                  "mention": "Paul",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "es": {
+              "object": "Pablo",
+              "sourceText": "Me llamo Pablo",
+              "entities": [
+                {
+                  "mention": "Pablo",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "docente",
+              "sourceText": "lavoro come docente",
+              "entities": []
+            },
+            "en": {
+              "object": "a teacher",
+              "sourceText": "I work as a teacher",
+              "entities": []
+            },
+            "es": {
+              "object": "profesor",
+              "sourceText": "trabajo como profesor",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi chiamo Paolo e lavoro come docente",
+        "en": "My name is Paul and I work as a teacher",
+        "es": "Me llamo Pablo y trabajo como profesor"
+      }
+    },
+    {
+      "id": "P05-024",
+      "split": "test",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "41",
+              "sourceText": "Ho 41 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "41",
+              "sourceText": "I am 41 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "41",
+              "sourceText": "Tengo 41 años",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "NEGATIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il traffico",
+              "sourceText": "non amo il traffico",
+              "entities": [],
+              "negationScope": "non amo il traffico"
+            },
+            "en": {
+              "object": "traffic",
+              "sourceText": "I do not like traffic",
+              "entities": [],
+              "negationScope": "I do not like traffic"
+            },
+            "es": {
+              "object": "el tráfico",
+              "sourceText": "no me gusta el tráfico",
+              "entities": [],
+              "negationScope": "no me gusta el tráfico"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho 41 anni e non amo il traffico",
+        "en": "I am 41 years old and I do not like traffic",
+        "es": "Tengo 41 años y no me gusta el tráfico"
+      }
+    },
+    {
+      "id": "P05-025",
+      "split": "train",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "36",
+              "sourceText": "Ho 36 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "36",
+              "sourceText": "I am 36 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "36",
+              "sourceText": "Tengo 36 años",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Torino",
+              "sourceText": "vivo a Torino",
+              "entities": [
+                {
+                  "mention": "Torino",
+                  "type": "LOCATION",
+                  "link": "LOCATION:turin"
+                }
+              ]
+            },
+            "en": {
+              "object": "Turin",
+              "sourceText": "I live in Turin",
+              "entities": [
+                {
+                  "mention": "Turin",
+                  "type": "LOCATION",
+                  "link": "LOCATION:turin"
+                }
+              ]
+            },
+            "es": {
+              "object": "Turín",
+              "sourceText": "vivo en Turín",
+              "entities": [
+                {
+                  "mention": "Turín",
+                  "type": "LOCATION",
+                  "link": "LOCATION:turin"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il jazz",
+              "sourceText": "amo il jazz",
+              "entities": []
+            },
+            "en": {
+              "object": "jazz",
+              "sourceText": "I love jazz",
+              "entities": []
+            },
+            "es": {
+              "object": "el jazz",
+              "sourceText": "amo el jazz",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho 36 anni e vivo a Torino e amo il jazz",
+        "en": "I am 36 years old and I live in Turin and I love jazz",
+        "es": "Tengo 36 años y vivo en Turín y amo el jazz"
+      }
+    },
+    {
+      "id": "P05-026",
+      "split": "dev",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.name",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Sara",
+              "sourceText": "Mi chiamo Sara",
+              "entities": [
+                {
+                  "mention": "Sara",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "en": {
+              "object": "Sarah",
+              "sourceText": "My name is Sarah",
+              "entities": [
+                {
+                  "mention": "Sarah",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "es": {
+              "object": "Sara",
+              "sourceText": "Me llamo Sara",
+              "entities": [
+                {
+                  "mention": "Sara",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "cuoca",
+              "sourceText": "lavoro come cuoca",
+              "entities": []
+            },
+            "en": {
+              "object": "a cook",
+              "sourceText": "I work as a cook",
+              "entities": []
+            },
+            "es": {
+              "object": "cocinera",
+              "sourceText": "trabajo como cocinera",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Padova",
+              "sourceText": "vivo a Padova",
+              "entities": [
+                {
+                  "mention": "Padova",
+                  "type": "LOCATION",
+                  "link": "LOCATION:padua"
+                }
+              ]
+            },
+            "en": {
+              "object": "Padua",
+              "sourceText": "I live in Padua",
+              "entities": [
+                {
+                  "mention": "Padua",
+                  "type": "LOCATION",
+                  "link": "LOCATION:padua"
+                }
+              ]
+            },
+            "es": {
+              "object": "Padua",
+              "sourceText": "vivo en Padua",
+              "entities": [
+                {
+                  "mention": "Padua",
+                  "type": "LOCATION",
+                  "link": "LOCATION:padua"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi chiamo Sara e lavoro come cuoca e vivo a Padova",
+        "en": "My name is Sarah and I work as a cook and I live in Padua",
+        "es": "Me llamo Sara y trabajo como cocinera y vivo en Padua"
+      }
+    },
+    {
+      "id": "P05-027",
+      "split": "test",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "NEGATIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il freddo",
+              "sourceText": "Non amo il freddo",
+              "entities": [],
+              "negationScope": "Non amo il freddo"
+            },
+            "en": {
+              "object": "cold weather",
+              "sourceText": "I do not like cold weather",
+              "entities": [],
+              "negationScope": "I do not like cold weather"
+            },
+            "es": {
+              "object": "el frío",
+              "sourceText": "No me gusta el frío",
+              "entities": [],
+              "negationScope": "No me gusta el frío"
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "possession.has",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "un cane",
+              "sourceText": "ho un cane",
+              "entities": []
+            },
+            "en": {
+              "object": "a dog",
+              "sourceText": "I own a dog",
+              "entities": []
+            },
+            "es": {
+              "object": "un perro",
+              "sourceText": "tengo un perro",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Bari",
+              "sourceText": "vivo a Bari",
+              "entities": [
+                {
+                  "mention": "Bari",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bari"
+                }
+              ]
+            },
+            "en": {
+              "object": "Bari",
+              "sourceText": "I live in Bari",
+              "entities": [
+                {
+                  "mention": "Bari",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bari"
+                }
+              ]
+            },
+            "es": {
+              "object": "Bari",
+              "sourceText": "vivo en Bari",
+              "entities": [
+                {
+                  "mention": "Bari",
+                  "type": "LOCATION",
+                  "link": "LOCATION:bari"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Non amo il freddo e ho un cane e vivo a Bari",
+        "en": "I do not like cold weather and I own a dog and I live in Bari",
+        "es": "No me gusta el frío y tengo un perro y vivo en Bari"
+      }
+    },
+    {
+      "id": "P05-028",
+      "split": "train",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "artista",
+              "sourceText": "Lavoro come artista",
+              "entities": []
+            },
+            "en": {
+              "object": "an artist",
+              "sourceText": "I work as an artist",
+              "entities": []
+            },
+            "es": {
+              "object": "artista",
+              "sourceText": "Trabajo como artista",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il blu",
+              "sourceText": "amo il blu",
+              "entities": []
+            },
+            "en": {
+              "object": "blue",
+              "sourceText": "I love blue",
+              "entities": []
+            },
+            "es": {
+              "object": "el azul",
+              "sourceText": "amo el azul",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "NEGATIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Pisa",
+              "sourceText": "non vivo a Pisa",
+              "entities": [
+                {
+                  "mention": "Pisa",
+                  "type": "LOCATION",
+                  "link": "LOCATION:pisa"
+                }
+              ],
+              "negationScope": "non vivo a Pisa"
+            },
+            "en": {
+              "object": "Pisa",
+              "sourceText": "I do not live in Pisa",
+              "entities": [
+                {
+                  "mention": "Pisa",
+                  "type": "LOCATION",
+                  "link": "LOCATION:pisa"
+                }
+              ],
+              "negationScope": "I do not live in Pisa"
+            },
+            "es": {
+              "object": "Pisa",
+              "sourceText": "no vivo en Pisa",
+              "entities": [
+                {
+                  "mention": "Pisa",
+                  "type": "LOCATION",
+                  "link": "LOCATION:pisa"
+                }
+              ],
+              "negationScope": "no vivo en Pisa"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Lavoro come artista e amo il blu e non vivo a Pisa",
+        "en": "I work as an artist and I love blue and I do not live in Pisa",
+        "es": "Trabajo como artista y amo el azul y no vivo en Pisa"
+      }
+    },
+    {
+      "id": "P05-029",
+      "split": "dev",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "28",
+              "sourceText": "Ho 28 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "28",
+              "sourceText": "I am 28 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "28",
+              "sourceText": "Tengo 28 años",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "tecnico",
+              "sourceText": "lavoro come tecnico",
+              "entities": []
+            },
+            "en": {
+              "object": "a technician",
+              "sourceText": "I work as a technician",
+              "entities": []
+            },
+            "es": {
+              "object": "técnico",
+              "sourceText": "trabajo como técnico",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "possession.has",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "una moto",
+              "sourceText": "ho una moto",
+              "entities": []
+            },
+            "en": {
+              "object": "a motorcycle",
+              "sourceText": "I own a motorcycle",
+              "entities": []
+            },
+            "es": {
+              "object": "una moto",
+              "sourceText": "tengo una moto",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho 28 anni e lavoro come tecnico e ho una moto",
+        "en": "I am 28 years old and I work as a technician and I own a motorcycle",
+        "es": "Tengo 28 años y trabajo como técnico y tengo una moto"
+      }
+    },
+    {
+      "id": "P05-030",
+      "split": "test",
+      "families": [
+        "multi_claim",
+        "coordination",
+        "mixed_types"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il teatro",
+              "sourceText": "Mi piace il teatro",
+              "entities": []
+            },
+            "en": {
+              "object": "theatre",
+              "sourceText": "I like theatre",
+              "entities": []
+            },
+            "es": {
+              "object": "el teatro",
+              "sourceText": "Me gusta el teatro",
+              "entities": []
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Parma",
+              "sourceText": "abito a Parma",
+              "entities": [
+                {
+                  "mention": "Parma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:parma"
+                }
+              ]
+            },
+            "en": {
+              "object": "Parma",
+              "sourceText": "I live in Parma",
+              "entities": [
+                {
+                  "mention": "Parma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:parma"
+                }
+              ]
+            },
+            "es": {
+              "object": "Parma",
+              "sourceText": "vivo en Parma",
+              "entities": [
+                {
+                  "mention": "Parma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:parma"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "47",
+              "sourceText": "ho 47 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "47",
+              "sourceText": "I am 47 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "47",
+              "sourceText": "tengo 47 años",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mi piace il teatro e abito a Parma e ho 47 anni",
+        "en": "I like theatre and I live in Parma and I am 47 years old",
+        "es": "Me gusta el teatro y vivo en Parma y tengo 47 años"
+      }
+    },
+    {
+      "id": "P05-031",
+      "split": "train",
+      "families": [
+        "correction",
+        "supersession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "CORRECT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Napoli",
+              "sourceText": "In realtà vivo a Napoli",
+              "entities": [
+                {
+                  "mention": "Napoli",
+                  "type": "LOCATION",
+                  "link": "LOCATION:naples"
+                }
+              ]
+            },
+            "en": {
+              "object": "Naples",
+              "sourceText": "Actually, I live in Naples",
+              "entities": [
+                {
+                  "mention": "Naples",
+                  "type": "LOCATION",
+                  "link": "LOCATION:naples"
+                }
+              ]
+            },
+            "es": {
+              "object": "Nápoles",
+              "sourceText": "En realidad vivo en Nápoles",
+              "entities": [
+                {
+                  "mention": "Nápoles",
+                  "type": "LOCATION",
+                  "link": "LOCATION:naples"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "In realtà vivo a Napoli",
+        "en": "Actually, I live in Naples",
+        "es": "En realidad vivo en Nápoles"
+      }
+    },
+    {
+      "id": "P05-032",
+      "split": "dev",
+      "families": [
+        "correction",
+        "supersession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "CORRECT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Lecce",
+              "sourceText": "Anzi, vivo a Lecce",
+              "entities": [
+                {
+                  "mention": "Lecce",
+                  "type": "LOCATION",
+                  "link": "LOCATION:lecce"
+                }
+              ]
+            },
+            "en": {
+              "object": "Lecce",
+              "sourceText": "In fact, I live in Lecce",
+              "entities": [
+                {
+                  "mention": "Lecce",
+                  "type": "LOCATION",
+                  "link": "LOCATION:lecce"
+                }
+              ]
+            },
+            "es": {
+              "object": "Lecce",
+              "sourceText": "De hecho vivo en Lecce",
+              "entities": [
+                {
+                  "mention": "Lecce",
+                  "type": "LOCATION",
+                  "link": "LOCATION:lecce"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Anzi, vivo a Lecce",
+        "en": "In fact, I live in Lecce",
+        "es": "De hecho vivo en Lecce"
+      }
+    },
+    {
+      "id": "P05-033",
+      "split": "test",
+      "families": [
+        "correction",
+        "supersession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "CORRECT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "sarta",
+              "sourceText": "In realtà lavoro come sarta",
+              "entities": []
+            },
+            "en": {
+              "object": "a tailor",
+              "sourceText": "Actually, I work as a tailor",
+              "entities": []
+            },
+            "es": {
+              "object": "sastre",
+              "sourceText": "En realidad trabajo como sastre",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "In realtà lavoro come sarta",
+        "en": "Actually, I work as a tailor",
+        "es": "En realidad trabajo como sastre"
+      }
+    },
+    {
+      "id": "P05-034",
+      "split": "train",
+      "families": [
+        "correction",
+        "supersession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "CORRECT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "45",
+              "sourceText": "Anzi, ho 45 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "45",
+              "sourceText": "In fact, I am 45 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "45",
+              "sourceText": "De hecho tengo 45 años",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Anzi, ho 45 anni",
+        "en": "In fact, I am 45 years old",
+        "es": "De hecho tengo 45 años"
+      }
+    },
+    {
+      "id": "P05-035",
+      "split": "dev",
+      "families": [
+        "correction",
+        "supersession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "CORRECT",
+          "predicate": "preference.like",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "il verde",
+              "sourceText": "In realtà amo il verde",
+              "entities": []
+            },
+            "en": {
+              "object": "green",
+              "sourceText": "Actually, I love green",
+              "entities": []
+            },
+            "es": {
+              "object": "el verde",
+              "sourceText": "En realidad amo el verde",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "In realtà amo il verde",
+        "en": "Actually, I love green",
+        "es": "En realidad amo el verde"
+      }
+    },
+    {
+      "id": "P05-036",
+      "split": "test",
+      "families": [
+        "correction",
+        "supersession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "CORRECT",
+          "predicate": "identity.name",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Elena",
+              "sourceText": "Anzi, mi chiamo Elena",
+              "entities": [
+                {
+                  "mention": "Elena",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "en": {
+              "object": "Helen",
+              "sourceText": "In fact, my name is Helen",
+              "entities": [
+                {
+                  "mention": "Helen",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            },
+            "es": {
+              "object": "Elena",
+              "sourceText": "De hecho me llamo Elena",
+              "entities": [
+                {
+                  "mention": "Elena",
+                  "type": "PERSON",
+                  "link": "PLAYER"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Anzi, mi chiamo Elena",
+        "en": "In fact, my name is Helen",
+        "es": "De hecho me llamo Elena"
+      }
+    },
+    {
+      "id": "P05-037",
+      "split": "train",
+      "families": [
+        "temporality",
+        "location_cooccurrence",
+        "modal_goal"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "goal.object",
+          "polarity": "POSITIVE",
+          "temporalRelation": "FUTURE",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "trasferirmi a Verona",
+              "sourceText": "Domani vorrei trasferirmi a Verona",
+              "entities": [
+                {
+                  "mention": "Verona",
+                  "type": "LOCATION",
+                  "link": "LOCATION:verona"
+                }
+              ],
+              "temporalExpression": "Domani"
+            },
+            "en": {
+              "object": "to move to Verona",
+              "sourceText": "Tomorrow I would like to move to Verona",
+              "entities": [
+                {
+                  "mention": "Verona",
+                  "type": "LOCATION",
+                  "link": "LOCATION:verona"
+                }
+              ],
+              "temporalExpression": "Tomorrow"
+            },
+            "es": {
+              "object": "mudarme a Verona",
+              "sourceText": "Mañana me gustaría mudarme a Verona",
+              "entities": [
+                {
+                  "mention": "Verona",
+                  "type": "LOCATION",
+                  "link": "LOCATION:verona"
+                }
+              ],
+              "temporalExpression": "Mañana"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Domani vorrei trasferirmi a Verona",
+        "en": "Tomorrow I would like to move to Verona",
+        "es": "Mañana me gustaría mudarme a Verona"
+      }
+    },
+    {
+      "id": "P05-038",
+      "split": "dev",
+      "families": [
+        "temporality",
+        "location_cooccurrence",
+        "modal_goal"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "goal.object",
+          "polarity": "POSITIVE",
+          "temporalRelation": "FUTURE",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "visitare Barcellona",
+              "sourceText": "Domani vorrei visitare Barcellona",
+              "entities": [
+                {
+                  "mention": "Barcellona",
+                  "type": "LOCATION",
+                  "link": "LOCATION:barcelona"
+                }
+              ],
+              "temporalExpression": "Domani"
+            },
+            "en": {
+              "object": "to visit Barcelona",
+              "sourceText": "Tomorrow I would like to visit Barcelona",
+              "entities": [
+                {
+                  "mention": "Barcelona",
+                  "type": "LOCATION",
+                  "link": "LOCATION:barcelona"
+                }
+              ],
+              "temporalExpression": "Tomorrow"
+            },
+            "es": {
+              "object": "visitar Barcelona",
+              "sourceText": "Mañana me gustaría visitar Barcelona",
+              "entities": [
+                {
+                  "mention": "Barcelona",
+                  "type": "LOCATION",
+                  "link": "LOCATION:barcelona"
+                }
+              ],
+              "temporalExpression": "Mañana"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Domani vorrei visitare Barcellona",
+        "en": "Tomorrow I would like to visit Barcelona",
+        "es": "Mañana me gustaría visitar Barcelona"
+      }
+    },
+    {
+      "id": "P05-039",
+      "split": "test",
+      "families": [
+        "temporality",
+        "location_cooccurrence",
+        "time_relation"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "PAST",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Como",
+              "sourceText": "Prima vivevo a Como",
+              "entities": [
+                {
+                  "mention": "Como",
+                  "type": "LOCATION",
+                  "link": "LOCATION:como"
+                }
+              ],
+              "temporalExpression": "Prima"
+            },
+            "en": {
+              "object": "Como",
+              "sourceText": "I used to live in Como",
+              "entities": [
+                {
+                  "mention": "Como",
+                  "type": "LOCATION",
+                  "link": "LOCATION:como"
+                }
+              ],
+              "temporalExpression": "Previously"
+            },
+            "es": {
+              "object": "Como",
+              "sourceText": "Antes vivía en Como",
+              "entities": [
+                {
+                  "mention": "Como",
+                  "type": "LOCATION",
+                  "link": "LOCATION:como"
+                }
+              ],
+              "temporalExpression": "Antes"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Prima vivevo a Como",
+        "en": "I used to live in Como",
+        "es": "Antes vivía en Como"
+      }
+    },
+    {
+      "id": "P05-040",
+      "split": "train",
+      "families": [
+        "temporality",
+        "location_cooccurrence",
+        "time_relation"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "PAST",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "La Spezia",
+              "sourceText": "Prima abitavo a La Spezia",
+              "entities": [
+                {
+                  "mention": "La Spezia",
+                  "type": "LOCATION",
+                  "link": "LOCATION:la_spezia"
+                }
+              ],
+              "temporalExpression": "Prima"
+            },
+            "en": {
+              "object": "La Spezia",
+              "sourceText": "Previously I lived in La Spezia",
+              "entities": [
+                {
+                  "mention": "La Spezia",
+                  "type": "LOCATION",
+                  "link": "LOCATION:la_spezia"
+                }
+              ],
+              "temporalExpression": "Previously"
+            },
+            "es": {
+              "object": "La Spezia",
+              "sourceText": "Antes vivía en La Spezia",
+              "entities": [
+                {
+                  "mention": "La Spezia",
+                  "type": "LOCATION",
+                  "link": "LOCATION:la_spezia"
+                }
+              ],
+              "temporalExpression": "Antes"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Prima abitavo a La Spezia",
+        "en": "Previously I lived in La Spezia",
+        "es": "Antes vivía en La Spezia"
+      }
+    },
+    {
+      "id": "P05-041",
+      "split": "dev",
+      "families": [
+        "temporality",
+        "location_cooccurrence",
+        "time_relation"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "presence.reported",
+          "polarity": "POSITIVE",
+          "temporalRelation": "FUTURE",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Roma",
+              "sourceText": "Domani sono a Roma",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ],
+              "temporalExpression": "Domani"
+            },
+            "en": {
+              "object": "Rome",
+              "sourceText": "Tomorrow I am in Rome",
+              "entities": [
+                {
+                  "mention": "Rome",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ],
+              "temporalExpression": "Tomorrow"
+            },
+            "es": {
+              "object": "Roma",
+              "sourceText": "Mañana estoy en Roma",
+              "entities": [
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ],
+              "temporalExpression": "Mañana"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Domani sono a Roma",
+        "en": "Tomorrow I am in Rome",
+        "es": "Mañana estoy en Roma"
+      }
+    },
+    {
+      "id": "P05-042",
+      "split": "test",
+      "families": [
+        "temporality",
+        "location_cooccurrence",
+        "time_relation"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "presence.reported",
+          "polarity": "POSITIVE",
+          "temporalRelation": "PAST",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Milano",
+              "sourceText": "Prima ero a Milano",
+              "entities": [
+                {
+                  "mention": "Milano",
+                  "type": "LOCATION",
+                  "link": "LOCATION:milan"
+                }
+              ],
+              "temporalExpression": "Prima"
+            },
+            "en": {
+              "object": "Milan",
+              "sourceText": "Previously I was in Milan",
+              "entities": [
+                {
+                  "mention": "Milan",
+                  "type": "LOCATION",
+                  "link": "LOCATION:milan"
+                }
+              ],
+              "temporalExpression": "Previously"
+            },
+            "es": {
+              "object": "Milán",
+              "sourceText": "Antes estaba en Milán",
+              "entities": [
+                {
+                  "mention": "Milán",
+                  "type": "LOCATION",
+                  "link": "LOCATION:milan"
+                }
+              ],
+              "temporalExpression": "Antes"
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Prima ero a Milano",
+        "en": "Previously I was in Milan",
+        "es": "Antes estaba en Milán"
+      }
+    },
+    {
+      "id": "P05-043",
+      "split": "train",
+      "families": [
+        "imperative",
+        "dialogue_act",
+        "independent_paraphrase"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": "SELF",
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "REQUEST",
+          "predicate": "speech.unresolved",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Chiudi la finestra",
+              "sourceText": "Chiudi la finestra",
+              "entities": []
+            },
+            "en": {
+              "object": "Close the window",
+              "sourceText": "Close the window",
+              "entities": []
+            },
+            "es": {
+              "object": "Cierra la ventana",
+              "sourceText": "Cierra la ventana",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Chiudi la finestra",
+        "en": "Close the window",
+        "es": "Cierra la ventana"
+      }
+    },
+    {
+      "id": "P05-044",
+      "split": "dev",
+      "families": [
+        "imperative",
+        "dialogue_act",
+        "independent_paraphrase"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": "SELF",
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "REQUEST",
+          "predicate": "speech.unresolved",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Porta qui il libro",
+              "sourceText": "Porta qui il libro",
+              "entities": []
+            },
+            "en": {
+              "object": "Bring the book here",
+              "sourceText": "Bring the book here",
+              "entities": []
+            },
+            "es": {
+              "object": "Trae aquí el libro",
+              "sourceText": "Trae aquí el libro",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Porta qui il libro",
+        "en": "Bring the book here",
+        "es": "Trae aquí el libro"
+      }
+    },
+    {
+      "id": "P05-045",
+      "split": "test",
+      "families": [
+        "imperative",
+        "dialogue_act",
+        "independent_paraphrase"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": "SELF",
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "REQUEST",
+          "predicate": "speech.unresolved",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Aspetta un momento",
+              "sourceText": "Aspetta un momento",
+              "entities": []
+            },
+            "en": {
+              "object": "Wait a moment",
+              "sourceText": "Wait a moment",
+              "entities": []
+            },
+            "es": {
+              "object": "Espera un momento",
+              "sourceText": "Espera un momento",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Aspetta un momento",
+        "en": "Wait a moment",
+        "es": "Espera un momento"
+      }
+    },
+    {
+      "id": "P05-046",
+      "split": "train",
+      "families": [
+        "imperative",
+        "dialogue_act",
+        "independent_paraphrase"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": "SELF",
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "REQUEST",
+          "predicate": "speech.unresolved",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Spegni la luce",
+              "sourceText": "Spegni la luce",
+              "entities": []
+            },
+            "en": {
+              "object": "Turn off the light",
+              "sourceText": "Turn off the light",
+              "entities": []
+            },
+            "es": {
+              "object": "Apaga la luz",
+              "sourceText": "Apaga la luz",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Spegni la luce",
+        "en": "Turn off the light",
+        "es": "Apaga la luz"
+      }
+    },
+    {
+      "id": "P05-047",
+      "split": "dev",
+      "families": [
+        "imperative",
+        "dialogue_act",
+        "independent_paraphrase"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": "SELF",
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "REQUEST",
+          "predicate": "speech.unresolved",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Mostrami la mappa",
+              "sourceText": "Mostrami la mappa",
+              "entities": []
+            },
+            "en": {
+              "object": "Show me the map",
+              "sourceText": "Show me the map",
+              "entities": []
+            },
+            "es": {
+              "object": "Muéstrame el mapa",
+              "sourceText": "Muéstrame el mapa",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Mostrami la mappa",
+        "en": "Show me the map",
+        "es": "Muéstrame el mapa"
+      }
+    },
+    {
+      "id": "P05-048",
+      "split": "test",
+      "families": [
+        "imperative",
+        "dialogue_act",
+        "independent_paraphrase"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": "SELF",
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "REQUEST",
+          "predicate": "speech.unresolved",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Ricorda questo nome",
+              "sourceText": "Ricorda questo nome",
+              "entities": []
+            },
+            "en": {
+              "object": "Remember this name",
+              "sourceText": "Remember this name",
+              "entities": []
+            },
+            "es": {
+              "object": "Recuerda este nombre",
+              "sourceText": "Recuerda este nombre",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ricorda questo nome",
+        "en": "Remember this name",
+        "es": "Recuerda este nombre"
+      }
+    },
+    {
+      "id": "P05-049",
+      "split": "train",
+      "families": [
+        "question",
+        "ownership",
+        "world_truth_guard"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "npc:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:marco",
+          "target": null,
+          "owner": "npc:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "QUESTION",
+          "predicate": "residence.place",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "",
+              "sourceText": "Dove vive Marco?",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                }
+              ]
+            },
+            "en": {
+              "object": "",
+              "sourceText": "Where does Marco live?",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                }
+              ]
+            },
+            "es": {
+              "object": "",
+              "sourceText": "¿Dónde vive Marco?",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Dove vive Marco?",
+        "en": "Where does Marco live?",
+        "es": "¿Dónde vive Marco?"
+      }
+    },
+    {
+      "id": "P05-050",
+      "split": "dev",
+      "families": [
+        "question",
+        "ownership",
+        "world_truth_guard"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Sofia": "npc:sofia"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:sofia",
+          "target": null,
+          "owner": "npc:sofia",
+          "perspective": "PLAYER",
+          "dialogueAct": "QUESTION",
+          "predicate": "residence.place",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "",
+              "sourceText": "Dove vive Sofia?",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            },
+            "en": {
+              "object": "",
+              "sourceText": "Where does Sofia live?",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            },
+            "es": {
+              "object": "",
+              "sourceText": "¿Dónde vive Sofia?",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Dove vive Sofia?",
+        "en": "Where does Sofia live?",
+        "es": "¿Dónde vive Sofia?"
+      }
+    },
+    {
+      "id": "P05-051",
+      "split": "test",
+      "families": [
+        "hypothesis",
+        "ownership",
+        "world_truth_guard"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "npc:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:marco",
+          "target": null,
+          "owner": "npc:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "HYPOTHESIS",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "HYPOTHESIS",
+          "localized": {
+            "it": {
+              "object": "Siena",
+              "sourceText": "Forse Marco vive a Siena",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Siena",
+                  "type": "LOCATION",
+                  "link": "LOCATION:siena"
+                }
+              ]
+            },
+            "en": {
+              "object": "Siena",
+              "sourceText": "Maybe Marco lives in Siena",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Siena",
+                  "type": "LOCATION",
+                  "link": "LOCATION:siena"
+                }
+              ]
+            },
+            "es": {
+              "object": "Siena",
+              "sourceText": "Quizá Marco vive en Siena",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Siena",
+                  "type": "LOCATION",
+                  "link": "LOCATION:siena"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Forse Marco vive a Siena",
+        "en": "Maybe Marco lives in Siena",
+        "es": "Quizá Marco vive en Siena"
+      }
+    },
+    {
+      "id": "P05-052",
+      "split": "train",
+      "families": [
+        "hypothesis",
+        "ownership",
+        "world_truth_guard"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "npc:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:marco",
+          "target": null,
+          "owner": "npc:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "HYPOTHESIS",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "HYPOTHESIS",
+          "localized": {
+            "it": {
+              "object": "Lucca",
+              "sourceText": "Credo che Marco viva a Lucca",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Lucca",
+                  "type": "LOCATION",
+                  "link": "LOCATION:lucca"
+                }
+              ]
+            },
+            "en": {
+              "object": "Lucca",
+              "sourceText": "I think Marco lives in Lucca",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Lucca",
+                  "type": "LOCATION",
+                  "link": "LOCATION:lucca"
+                }
+              ]
+            },
+            "es": {
+              "object": "Lucca",
+              "sourceText": "Tal vez Marco vive en Lucca",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Lucca",
+                  "type": "LOCATION",
+                  "link": "LOCATION:lucca"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Credo che Marco viva a Lucca",
+        "en": "I think Marco lives in Lucca",
+        "es": "Tal vez Marco vive en Lucca"
+      }
+    },
+    {
+      "id": "P05-053",
+      "split": "dev",
+      "families": [
+        "hypothesis",
+        "ownership",
+        "world_truth_guard"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": [
+          "npc:sofia"
+        ]
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:sofia",
+          "target": null,
+          "owner": "npc:sofia",
+          "perspective": "PLAYER",
+          "dialogueAct": "HYPOTHESIS",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "HYPOTHESIS",
+          "localized": {
+            "it": {
+              "object": "Trento",
+              "sourceText": "Forse lei vive a Trento",
+              "entities": [
+                {
+                  "mention": "lei",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Trento",
+                  "type": "LOCATION",
+                  "link": "LOCATION:trento"
+                }
+              ]
+            },
+            "en": {
+              "object": "Trento",
+              "sourceText": "Perhaps she lives in Trento",
+              "entities": [
+                {
+                  "mention": "she",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Trento",
+                  "type": "LOCATION",
+                  "link": "LOCATION:trento"
+                }
+              ]
+            },
+            "es": {
+              "object": "Trento",
+              "sourceText": "Quizás ella vive en Trento",
+              "entities": [
+                {
+                  "mention": "ella",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Trento",
+                  "type": "LOCATION",
+                  "link": "LOCATION:trento"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Forse lei vive a Trento",
+        "en": "Perhaps she lives in Trento",
+        "es": "Quizás ella vive en Trento"
+      }
+    },
+    {
+      "id": "P05-054",
+      "split": "test",
+      "families": [
+        "question",
+        "ownership",
+        "world_truth_guard"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": [
+          "npc:sofia"
+        ]
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:sofia",
+          "target": null,
+          "owner": "npc:sofia",
+          "perspective": "PLAYER",
+          "dialogueAct": "QUESTION",
+          "predicate": "residence.place",
+          "polarity": "UNKNOWN",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "",
+              "sourceText": "Dove vive lei?",
+              "entities": [
+                {
+                  "mention": "lei",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            },
+            "en": {
+              "object": "",
+              "sourceText": "Where does she live?",
+              "entities": [
+                {
+                  "mention": "she",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            },
+            "es": {
+              "object": "",
+              "sourceText": "¿Dónde vive ella?",
+              "entities": [
+                {
+                  "mention": "ella",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Dove vive lei?",
+        "en": "Where does she live?",
+        "es": "¿Dónde vive ella?"
+      }
+    },
+    {
+      "id": "P05-055",
+      "split": "train",
+      "families": [
+        "possession"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "possession.has",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "uno zaino nero",
+              "sourceText": "Ho uno zaino nero",
+              "entities": []
+            },
+            "en": {
+              "object": "a black backpack",
+              "sourceText": "I own a black backpack",
+              "entities": []
+            },
+            "es": {
+              "object": "una mochila negra",
+              "sourceText": "Tengo una mochila negra",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho uno zaino nero",
+        "en": "I own a black backpack",
+        "es": "Tengo una mochila negra"
+      }
+    },
+    {
+      "id": "P05-056",
+      "split": "dev",
+      "families": [
+        "possession",
+        "number"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "possession.has",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "due gatti",
+              "sourceText": "Ho due gatti",
+              "entities": []
+            },
+            "en": {
+              "object": "two cats",
+              "sourceText": "I have two cats",
+              "entities": []
+            },
+            "es": {
+              "object": "dos gatos",
+              "sourceText": "Tengo dos gatos",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Ho due gatti",
+        "en": "I have two cats",
+        "es": "Tengo dos gatos"
+      }
+    },
+    {
+      "id": "P05-057",
+      "split": "test",
+      "families": [
+        "explicit_unknown",
+        "colloquial"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "speech.unresolved",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "boh forse così",
+              "sourceText": "boh forse così",
+              "entities": []
+            },
+            "en": {
+              "object": "uh maybe so",
+              "sourceText": "uh maybe so",
+              "entities": []
+            },
+            "es": {
+              "object": "pues quizá así",
+              "sourceText": "pues quizá así",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "boh forse così",
+        "en": "uh maybe so",
+        "es": "pues quizá así"
+      }
+    },
+    {
+      "id": "P05-058",
+      "split": "train",
+      "families": [
+        "explicit_unknown",
+        "malformed"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "speech.unresolved",
+          "polarity": "POSITIVE",
+          "temporalRelation": "ATEMPORAL",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "???",
+              "sourceText": "???",
+              "entities": []
+            },
+            "en": {
+              "object": "???",
+              "sourceText": "???",
+              "entities": []
+            },
+            "es": {
+              "object": "???",
+              "sourceText": "???",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "???",
+        "en": "???",
+        "es": "???"
+      }
+    },
+    {
+      "id": "P05-059",
+      "split": "dev",
+      "families": [
+        "colloquial",
+        "imperfect_grammar"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "identity.age",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "29",
+              "sourceText": "io 29 anni",
+              "entities": []
+            },
+            "en": {
+              "object": "29",
+              "sourceText": "me 29 years old",
+              "entities": []
+            },
+            "es": {
+              "object": "29",
+              "sourceText": "yo 29 años",
+              "entities": []
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "io 29 anni",
+        "en": "me 29 years old",
+        "es": "yo 29 años"
+      }
+    },
+    {
+      "id": "P05-060",
+      "split": "test",
+      "families": [
+        "lowercase_entity",
+        "location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {},
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "PLAYER",
+          "target": null,
+          "owner": "PLAYER",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "berlin",
+              "sourceText": "vivo a berlin",
+              "entities": [
+                {
+                  "mention": "berlin",
+                  "type": "LOCATION",
+                  "link": "LOCATION:berlin"
+                }
+              ]
+            },
+            "en": {
+              "object": "berlin",
+              "sourceText": "i live in berlin",
+              "entities": [
+                {
+                  "mention": "berlin",
+                  "type": "LOCATION",
+                  "link": "LOCATION:berlin"
+                }
+              ]
+            },
+            "es": {
+              "object": "berlín",
+              "sourceText": "vivo en berlín",
+              "entities": [
+                {
+                  "mention": "berlín",
+                  "type": "LOCATION",
+                  "link": "LOCATION:berlin"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "vivo a berlin",
+        "en": "i live in berlin",
+        "es": "vivo en berlín"
+      }
+    },
+    {
+      "id": "P05-061",
+      "split": "train",
+      "families": [
+        "named_entities",
+        "person_location_collision",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "npc:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:marco",
+          "target": null,
+          "owner": "npc:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "guida a Roma",
+              "sourceText": "Marco lavora come guida a Roma",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ]
+            },
+            "en": {
+              "object": "a guide in Rome",
+              "sourceText": "Marco works as a guide in Rome",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Rome",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ]
+            },
+            "es": {
+              "object": "guía en Roma",
+              "sourceText": "Marco trabaja como guía en Roma",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Roma",
+                  "type": "LOCATION",
+                  "link": "LOCATION:rome"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Marco lavora come guida a Roma",
+        "en": "Marco works as a guide in Rome",
+        "es": "Marco trabaja como guía en Roma"
+      }
+    },
+    {
+      "id": "P05-062",
+      "split": "dev",
+      "families": [
+        "named_entities",
+        "person_location_collision",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "npc:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:marco",
+          "target": null,
+          "owner": "npc:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "cuoco a New York",
+              "sourceText": "Marco lavora come cuoco a New York",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "New York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            },
+            "en": {
+              "object": "a cook in New York",
+              "sourceText": "Marco works as a cook in New York",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "New York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            },
+            "es": {
+              "object": "cocinero en Nueva York",
+              "sourceText": "Marco trabaja como cocinero en Nueva York",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Nueva York",
+                  "type": "LOCATION",
+                  "link": "LOCATION:new_york"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Marco lavora come cuoco a New York",
+        "en": "Marco works as a cook in New York",
+        "es": "Marco trabaja como cocinero en Nueva York"
+      }
+    },
+    {
+      "id": "P05-063",
+      "split": "test",
+      "families": [
+        "named_entities",
+        "person_location_collision",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Sofia": "npc:sofia"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:sofia",
+          "target": null,
+          "owner": "npc:sofia",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "medica a Sanremo",
+              "sourceText": "Sofia lavora come medica a Sanremo",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Sanremo",
+                  "type": "LOCATION",
+                  "link": "LOCATION:sanremo"
+                }
+              ]
+            },
+            "en": {
+              "object": "a doctor in Sanremo",
+              "sourceText": "Sofia works as a doctor in Sanremo",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Sanremo",
+                  "type": "LOCATION",
+                  "link": "LOCATION:sanremo"
+                }
+              ]
+            },
+            "es": {
+              "object": "médica en Sanremo",
+              "sourceText": "Sofia trabaja como médica en Sanremo",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Sanremo",
+                  "type": "LOCATION",
+                  "link": "LOCATION:sanremo"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sofia lavora come medica a Sanremo",
+        "en": "Sofia works as a doctor in Sanremo",
+        "es": "Sofia trabaja como médica en Sanremo"
+      }
+    },
+    {
+      "id": "P05-064",
+      "split": "train",
+      "families": [
+        "named_entities",
+        "person_location_collision",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Sofia": "npc:sofia"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:sofia",
+          "target": null,
+          "owner": "npc:sofia",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "Città del Messico",
+              "sourceText": "Sofia vive a Città del Messico",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Città del Messico",
+                  "type": "LOCATION",
+                  "link": "LOCATION:mexico_city"
+                }
+              ]
+            },
+            "en": {
+              "object": "Mexico City",
+              "sourceText": "Sofia lives in Mexico City",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Mexico City",
+                  "type": "LOCATION",
+                  "link": "LOCATION:mexico_city"
+                }
+              ]
+            },
+            "es": {
+              "object": "Ciudad de México",
+              "sourceText": "Sofia vive en Ciudad de México",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Ciudad de México",
+                  "type": "LOCATION",
+                  "link": "LOCATION:mexico_city"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sofia vive a Città del Messico",
+        "en": "Sofia lives in Mexico City",
+        "es": "Sofia vive en Ciudad de México"
+      }
+    },
+    {
+      "id": "P05-065",
+      "split": "dev",
+      "families": [
+        "named_entities",
+        "person_location_collision",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Marco": "npc:marco"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:marco",
+          "target": null,
+          "owner": "npc:marco",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "residence.place",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "San Pietro",
+              "sourceText": "Marco vive a San Pietro",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "San Pietro",
+                  "type": "LOCATION",
+                  "link": "LOCATION:san_pietro"
+                }
+              ]
+            },
+            "en": {
+              "object": "Saint Peter",
+              "sourceText": "Marco lives in Saint Peter",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "Saint Peter",
+                  "type": "LOCATION",
+                  "link": "LOCATION:san_pietro"
+                }
+              ]
+            },
+            "es": {
+              "object": "San Pedro",
+              "sourceText": "Marco vive en San Pedro",
+              "entities": [
+                {
+                  "mention": "Marco",
+                  "type": "PERSON",
+                  "link": "npc:marco"
+                },
+                {
+                  "mention": "San Pedro",
+                  "type": "LOCATION",
+                  "link": "LOCATION:san_pietro"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Marco vive a San Pietro",
+        "en": "Marco lives in Saint Peter",
+        "es": "Marco vive en San Pedro"
+      }
+    },
+    {
+      "id": "P05-066",
+      "split": "test",
+      "families": [
+        "named_entities",
+        "person_location_collision",
+        "composite_location"
+      ],
+      "context": {
+        "speaker": "PLAYER",
+        "observer": "luna",
+        "knownEntities": {
+          "Sofia": "npc:sofia"
+        },
+        "recentEntityRefs": []
+      },
+      "claims": [
+        {
+          "speaker": "PLAYER",
+          "subject": "npc:sofia",
+          "target": null,
+          "owner": "npc:sofia",
+          "perspective": "PLAYER",
+          "dialogueAct": "ASSERT",
+          "predicate": "work.role",
+          "polarity": "POSITIVE",
+          "temporalRelation": "CURRENT",
+          "claimKind": "EXPLICIT",
+          "localized": {
+            "it": {
+              "object": "guida a Buenos Aires",
+              "sourceText": "Sofia lavora come guida a Buenos Aires",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Buenos Aires",
+                  "type": "LOCATION",
+                  "link": "LOCATION:buenos_aires"
+                }
+              ]
+            },
+            "en": {
+              "object": "a guide in Buenos Aires",
+              "sourceText": "Sofia works as a guide in Buenos Aires",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Buenos Aires",
+                  "type": "LOCATION",
+                  "link": "LOCATION:buenos_aires"
+                }
+              ]
+            },
+            "es": {
+              "object": "guía en Buenos Aires",
+              "sourceText": "Sofia trabaja como guía en Buenos Aires",
+              "entities": [
+                {
+                  "mention": "Sofia",
+                  "type": "PERSON",
+                  "link": "npc:sofia"
+                },
+                {
+                  "mention": "Buenos Aires",
+                  "type": "LOCATION",
+                  "link": "LOCATION:buenos_aires"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "variants": {
+        "it": "Sofia lavora come guida a Buenos Aires",
+        "en": "Sofia works as a guide in Buenos Aires",
+        "es": "Sofia trabaja como guía en Buenos Aires"
+      }
+    }
+  ],
+  "benchmarkId": "P0.5-expanded-v1",
+  "parentGoldSha256": "85ae9320bea512cda2a3748bc49acc610a7b9d9dd17eee5222a2616faea6a99a"
+}
