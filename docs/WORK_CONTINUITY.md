@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T22:48:00Z  
+Last updated: 2026-09-04T01:08:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `e5f9ea68cf4aa3c646dffe0023317731dedb62ee`.
+  `c6b511076ac8a1474ffaa97012ec3ebb1ad00c35`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -224,8 +224,26 @@ strategy change, before long/risky work, and before ending any session.
   logs, but exceeds the 512 MiB connector download ceiling. Operational fix
   `e5f9ea68cf4aa3c646dffe0023317731dedb62ee` launches evidence-extraction run
   `33814528873` to split the immutable source artifact into a small report and
-  a sub-512-MiB model bundle without retraining. The original large artifact
-  remains the resumable checkpoint source for Actions.
+  a sub-512-MiB model bundle without retraining. That extraction run completed
+  successfully without training. Report artifact id `9916044936` is 257,577
+  bytes with archive digest
+  `sha256:9b51700e14b9ca2044eba8ba23820609132b3f63b3ada174ce413b2aa4ff9e75`;
+  model-bundle artifact id `9916049420` is 217,601,947 bytes with archive
+  digest
+  `sha256:27c35bb23231e279da7bc27c574e841d4f857fffb557cf0fcba2428609f5e61c`.
+  The report archive has been downloaded, checksum-verified and extracted
+  locally. The original large artifact remains the resumable checkpoint source
+  for Actions.
+- Student DEV error analysis is complete and used no frozen output for repair
+  choices. Matrix has 272 error rows: object span 172, polarity 84, temporal
+  relation 48, predicate 40, entity 40, source span 36, temporal span 30,
+  target 30 and claim kind 30; Italian is the worst language with 134 rows.
+  P0.5 has 54 error rows: predicate 22, dialogue act 15, object 15, negation
+  scope 12, entity 12, subject/owner 10 each. The dominant residuals expose a
+  supervision-contract inconsistency: generated Matrix negatives label only a
+  cue token while P0.5 labels the complete negated clause, and at least one
+  temporal expression is semantically predicted but absent from its gold span.
+  No regex/decoder workaround is justified from this evidence.
 - Split-isolation regression commit
   `4d67aaf921bfa9cfa0e88cc274ba118f384ecd8d`: train surfaces must be disjoint
   from both dev and frozen generated surfaces, every dev label must have train
@@ -233,6 +251,7 @@ strategy change, before long/risky work, and before ending any session.
   Full local suite is 53/53 green. This test-only descendant does not alter or
   restart the active run; P0 CI for launch commit `6d8d463...` is green as run
   `33804575007`.
+- P0 CI for continuity HEAD `c6b511076...` is green as run `33814617275`.
 - The automatic `workflow_run` edge did not fire after the source workflow was
   renamed for one-click operation. Fix `16754f79e26caa003679ffb70b512f6226c13627`
   added a bounded explicit trigger; `ffdbb224059ad27b7b544aa988e4cc2665a4159d`
@@ -606,24 +625,25 @@ strategy change, before long/risky work, and before ending any session.
 - Failed-gate evidence preservation fix:
   `c32e4127861d1929af622017fe2189a6c6801fb3`.
 - This continuity update is pending consolidation; it does not alter or restart
-  the active training run.
+  training.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity update on top of evidence-extraction commit
-   `e5f9ea68...` without touching a training trigger path.
-2. Complete evidence-extraction run `33814528873`; download and checksum the
-   report/bundle artifacts, then aggregate its DEV JSONL errors by
-   language/family/head. Do not use the frozen head metrics for repair choices.
-3. Preserve the resumable checkpoint/artifacts and inspect failures causally;
-   reproduce every repair candidate on train/dev only and classify the causal
-   family, patch learned data/objective/decoder as justified, then run the full
-   regression/property suite. Never use frozen results for tuning.
-4. Do not retrain unchanged. Determine whether the next bounded repair is
-   decoder/scoring, train objective/class balance, or an exhausted-quality
-   `DECISION_REQUIRED`. Resume only from run `33804574916` when the change is
-   compatible with its weights; otherwise start an explicitly new variant.
-5. Carry the nested-attribution contract issue above to supervisor counter-review;
+1. Commit this continuity update without touching a training trigger path.
+2. Resume the existing partial download of artifact `9916049420`; verify archive
+   digest `27c35bb...`, extract it, and verify its internal `SHA256SUMS` plus model
+   state hash `5cdec7d...`. Do not restart the 168 MiB already transferred.
+3. Implement and run a dataset-contract consistency audit over train/dev only,
+   quantifying incompatible negation/temporal span semantics by source and
+   language. Preserve its machine-readable report and add regression tests.
+4. Do not retrain unchanged. Use that audit to determine whether a compatible
+   objective/data correction exists without modifying frozen labels; otherwise
+   record a bounded quality `DECISION_REQUIRED` because changing the typed span
+   contract or frozen gold requires canonical versioning.
+5. Split future one-click uploads into report/model/resume artifacts at source,
+   preserving failure evidence without another oversized archive, then run the
+   full regression/property/YAML/CI gates.
+6. Carry the nested-attribution contract issue above to supervisor counter-review;
    continue all independent single-level C1 quality/export work without inventing
    a binding heuristic.
