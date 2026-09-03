@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:34:00Z  
+Last updated: 2026-09-03T18:46:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified before the pending training-implementation commit:
-  `de7cea4376d9a2bb7886e6ad6c6c10878541012f`.
+- HEAD at the training launch:
+  `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
   (`feat: add Matrix-NLU provenance candidate probe`)
@@ -98,12 +98,11 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Current gate and exact activity
 
-- Current gate: trained multi-task software (`Gate 02`, implementation ready for
-  first long run). Encoder and external-data provenance are green.
-- Exact activity: commit the shared two-pass model, hash-verified MASSIVE
-  preparation, deterministic token alignment, resumable training configuration,
-  workflow and this pre-training continuity snapshot. The first long training
-  has not started.
+- Current gate: first trained multi-task teacher (`Gate 02`, long run in
+  progress). Encoder and external-data provenance are green.
+- Exact activity: GitHub Actions run `33786677296` (`Matrix-NLU Training`) is
+  executing commit `37ef11c9...` with the frozen configuration below. Do not
+  start another teacher run while it is active.
   declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
   evidence for all three candidates. No model training has started.
 - Current candidate configuration:
@@ -211,6 +210,11 @@ strategy change, before long/risky work, and before ending any session.
   AdamW LR 3e-5, weight decay .01, warmup .1; P0.5 train repeat 3; CPU 4
   threads; checkpoint every epoch; resume auto; frozen tests once after
   dev-selected checkpoint.
+- Training implementation commit:
+  `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
+- Active training run: `33786677296`, status `in_progress` when this continuity
+  checkpoint was written. Companion normal P0 and provenance workflows are
+  `33786677289` and `33786677349`.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
 
@@ -262,19 +266,18 @@ strategy change, before long/risky work, and before ending any session.
   `ac723626bd36dbfdc03aa651d9728fc16292455b`.
 - Consolidated MASSIVE hash/provenance commit:
   `de7cea4376d9a2bb7886e6ad6c6c10878541012f`.
-- Pending training consolidation: `.github/workflows/matrix-nlu-train.yml`,
-  `matrix_nlu/{labels,model,training_data,prepare_massive,train}.py`, tests,
-  pinned requirements/config, training plan, pinned MASSIVE manifest artifact
-  and this continuity update.
+- Consolidated training implementation:
+  `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
+- This continuity-only checkpoint is pending consolidation; it must not alter or
+  restart the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit training implementation/config/workflow, the pinned MASSIVE manifest
-   artifact and this pre-training continuity snapshot on top of `de7cea4...`.
-2. Confirm the `Matrix-NLU Training` workflow starts with the exact configuration
-   above. Record run id immediately in this file at the next checkpoint.
-3. If it fails before an epoch, apply only the causal software/dependency fix.
-   If it completes, download evidence and resume-checkpoint artifacts, record
-   checksums/component metrics and perform dev-led error analysis before any
-   student or ONNX work.
+1. Commit this continuity-only update on top of `37ef11c9...` without touching
+   any training trigger path.
+2. Inspect run `33786677296` steps/logs. If it fails before an epoch, apply only
+   the causal software/dependency fix.
+3. If it completes, download evidence and resume-checkpoint artifacts, record
+   exact checksums/component metrics and perform dev-led error analysis before
+   any student or ONNX work.
