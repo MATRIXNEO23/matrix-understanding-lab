@@ -30,6 +30,32 @@ class MatrixDatasetTest(unittest.TestCase):
         widths = {len(x["claims"]) for x in self.rows}
         self.assertTrue({1, 2, 3} <= widths)
 
+    def test_train_has_diverse_surfaces_and_recent_reference_supervision(self):
+        train = [row for row in self.rows if row["split"] == "train"]
+        families = {}
+        for row in train:
+            if len(row["claims"]) != 1:
+                continue
+            family = row["claims"][0]["family"]
+            families.setdefault((row["language"], family), set()).add(row["text"])
+        for language in ("it", "en", "es"):
+            for family in ("name", "age", "residence", "like", "dislike", "work",
+                           "future_goal", "hypothesis", "question"):
+                self.assertGreaterEqual(len(families[(language, family)]), 5,
+                                        (language, family))
+        recent = [claim for row in train for claim in row["claims"]
+                  if claim["labels"]["subjectReferent"] == "RECENT_ENTITY"]
+        self.assertGreaterEqual(len(recent), 100)
+        self.assertTrue(all(claim["spans"]["subject"] for claim in recent))
+
+    def test_dev_and_frozen_generated_sets_remain_byte_stable(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = build_dataset.write(self.rows, pathlib.Path(directory))
+        self.assertEqual("aa19e414a5d5dd1bc3ec9c1e257b8224b568a2a7460a92f31875ce3741003177",
+                         manifest["files"]["dev"]["sha256"])
+        self.assertEqual("8f1b267fb9f1b76d0f304cd26d88dfcef82fd6434f5ea182985a164960effba2",
+                         manifest["files"]["test"]["sha256"])
+
     def test_zero_world_truth_and_critical_coverage(self):
         labels = [c["labels"] for row in self.rows for c in row["claims"]]
         self.assertFalse(any(x["worldTruth"] for x in labels))

@@ -82,6 +82,106 @@ TEMPLATES = {
 }
 
 
+# Project-authored TRAIN-only paraphrases.  Dev and frozen-test surfaces remain
+# byte-stable and are never copied into this bank.  These are supervision data,
+# not runtime language rules.
+TRAIN_PARAPHRASES = {
+    "name": {
+        "it": ("mi chiamo {object}", "per gli amici sono {object}",
+               "puoi chiamarmi {object}", "mi presento come {object}",
+               "il nome che uso è {object}"),
+        "en": ("my name is {object}", "friends know me as {object}",
+               "you can call me {object}", "I introduce myself as {object}",
+               "the name I use is {object}"),
+        "es": ("me llamo {object}", "mis amigos me conocen como {object}",
+               "puedes llamarme {object}", "me presento como {object}",
+               "el nombre que uso es {object}"),
+    },
+    "age": {
+        "it": ("ho {object} anni", "i miei anni sono {object}",
+               "compio {object} anni", "sono una persona di {object} anni",
+               "la mia età anagrafica ammonta a {object}"),
+        "en": ("I am {object} years old", "I have lived for {object} years",
+               "I turn {object}", "I am a {object}-year-old person",
+               "my current age amounts to {object}"),
+        "es": ("tengo {object} años", "mis años son {object}",
+               "cumplo {object} años", "soy una persona de {object} años",
+               "mi edad actual asciende a {object}"),
+    },
+    "residence": {
+        "it": ("vivo a {object}", "risiedo nei pressi di {object}",
+               "la mia residenza si trova a {object}", "casa mia è a {object}",
+               "sono residente a {object}"),
+        "en": ("I live in {object}", "I reside near {object}",
+               "my residence is located in {object}", "my house is in {object}",
+               "I am resident in {object}"),
+        "es": ("vivo en {object}", "resido cerca de {object}",
+               "mi residencia está en {object}", "mi casa está en {object}",
+               "soy residente en {object}"),
+    },
+    "like": {
+        "it": ("amo {object}", "adoro {object}", "apprezzo molto {object}",
+               "{object} mi piace", "ho una preferenza per {object}"),
+        "en": ("I love {object}", "I adore {object}", "I greatly appreciate {object}",
+               "{object} appeals to me", "I have a preference for {object}"),
+        "es": ("amo {object}", "adoro {object}", "aprecio mucho {object}",
+               "{object} me gusta", "tengo preferencia por {object}"),
+    },
+    "dislike": {
+        "it": ("non amo {object}", "odio {object}", "non sopporto {object}",
+               "{object} non mi piace", "evito volentieri {object}"),
+        "en": ("I do not like {object}", "I hate {object}", "I cannot stand {object}",
+               "{object} does not appeal to me", "I prefer to avoid {object}"),
+        "es": ("no me gusta {object}", "odio {object}", "no soporto {object}",
+               "{object} no me agrada", "prefiero evitar {object}"),
+    },
+    "work": {
+        "it": ("{subject} lavora come {object}", "{subject} di mestiere fa {object}",
+               "{subject} è impiegato come {object}", "il lavoro di {subject} è {object}",
+               "{subject} svolge il ruolo di {object}"),
+        "en": ("{subject} works as {object}", "{subject} earns a living as {object}",
+               "{subject} is employed as {object}", "{subject}'s occupation is {object}",
+               "{subject} performs the role of {object}"),
+        "es": ("{subject} trabaja como {object}", "{subject} se gana la vida como {object}",
+               "{subject} está empleado como {object}", "el trabajo de {subject} es {object}",
+               "{subject} desempeña el papel de {object}"),
+    },
+    "future_goal": {
+        "it": ("domani vorrei visitare {object}", "in futuro desidero raggiungere {object}",
+               "ho intenzione di recarmi a {object}", "prevedo di visitare {object}",
+               "il mio obiettivo è andare a {object}"),
+        "en": ("tomorrow I would like to visit {object}", "in future I want to reach {object}",
+               "I intend to travel to {object}", "I expect to visit {object}",
+               "my goal is to go to {object}"),
+        "es": ("mañana me gustaría visitar {object}", "en el futuro deseo llegar a {object}",
+               "tengo intención de ir a {object}", "preveo visitar {object}",
+               "mi objetivo es ir a {object}"),
+    },
+    "hypothesis": {
+        "it": ("forse {subject} vive a {object}", "probabilmente {subject} risiede a {object}",
+               "immagino che {subject} viva a {object}", "{subject} potrebbe abitare a {object}",
+               "è possibile che {subject} abbia casa a {object}"),
+        "en": ("maybe {subject} lives in {object}", "probably {subject} resides in {object}",
+               "I imagine {subject} lives in {object}", "{subject} might dwell in {object}",
+               "it is possible that {subject} has a home in {object}"),
+        "es": ("quizá {subject} vive en {object}", "probablemente {subject} reside en {object}",
+               "imagino que {subject} vive en {object}", "{subject} podría vivir en {object}",
+               "es posible que {subject} tenga casa en {object}"),
+    },
+    "question": {
+        "it": ("dove vive {subject}?", "qual è la residenza di {subject}?",
+               "sai dove abita {subject}?", "in che luogo risiede {subject}?",
+               "dove ha casa {subject}?"),
+        "en": ("where does {subject} live?", "what is {subject}'s residence?",
+               "do you know where {subject} lives?", "in what place does {subject} reside?",
+               "where is {subject}'s home?"),
+        "es": ("¿dónde vive {subject}?", "¿cuál es la residencia de {subject}?",
+               "¿sabes dónde vive {subject}?", "¿en qué lugar reside {subject}?",
+               "¿dónde tiene casa {subject}?"),
+    },
+}
+
+
 @dataclasses.dataclass(frozen=True)
 class RenderedClaim:
     text: str
@@ -99,8 +199,11 @@ def span_of(text: str, value: str | None) -> list[int] | None:
 
 
 def make_claim(split: str, language: str, family: str, *, object_value: str = "",
-               subject_value: str = "", context_subject: str = "SPEAKER") -> RenderedClaim:
-    template = TEMPLATES[split][family][language]
+               subject_value: str = "", context_subject: str = "SPEAKER",
+               variant: int = 0) -> RenderedClaim:
+    template = (TRAIN_PARAPHRASES[family][language][
+        variant % len(TRAIN_PARAPHRASES[family][language])]
+        if split == "train" else TEMPLATES[split][family][language])
     text = template.format(object=object_value, subject=subject_value)
     predicate = {
         "name": "identity.name", "age": "identity.age",
@@ -219,6 +322,58 @@ def record(record_id: str, split: str, language: str, claims: list[RenderedClaim
     }
 
 
+def recent_reference_records() -> list[dict]:
+    """TRAIN-only pronoun evidence for the existing RECENT_ENTITY contract."""
+    specs = {
+        "it": (("lei svolge il lavoro di {role}", "work.role", "CURRENT", "EXPLICIT"),
+               ("forse lei ha casa a {place}", "residence.place", "CURRENT", "HYPOTHESIS"),
+               ("lei si trova ora a {place}", "presence.reported", "CURRENT", "EXPLICIT")),
+        "en": (("she has an occupation as {role}", "work.role", "CURRENT", "EXPLICIT"),
+               ("maybe she has a home in {place}", "residence.place", "CURRENT", "HYPOTHESIS"),
+               ("she is currently present in {place}", "presence.reported", "CURRENT", "EXPLICIT")),
+        "es": (("ella ejerce el oficio de {role}", "work.role", "CURRENT", "EXPLICIT"),
+               ("quizá ella tiene su casa en {place}", "residence.place", "CURRENT", "HYPOTHESIS"),
+               ("ella se encuentra ahora en {place}", "presence.reported", "CURRENT", "EXPLICIT")),
+    }
+    pronoun = {"it": "lei", "en": "she", "es": "ella"}
+    output = []
+    for language, patterns in specs.items():
+        lex = LEXICONS["train"]
+        for index in range(36):
+            template, predicate, temporal, kind = patterns[index % len(patterns)]
+            role = lex["role"][language][index % len(lex["role"][language])]
+            place = lex["place"][language][index % len(lex["place"][language])]
+            text = template.format(role=role, place=place)
+            mention = pronoun[language]
+            object_value = role if predicate == "work.role" else place
+            entities = [{"span": span_of(text, mention), "type": "PERSON",
+                         "referent": "RECENT_ENTITY"}]
+            if predicate != "work.role":
+                entities.append({"span": span_of(text, place), "type": "LOCATION",
+                                 "referent": "LOCATION"})
+            claim = {"labels": {
+                "dialogueAct": "HYPOTHESIS" if kind == "HYPOTHESIS" else "ASSERT",
+                "predicate": predicate, "subjectReferent": "RECENT_ENTITY",
+                "targetReferent": "NONE", "ownerReferent": "SUBJECT",
+                "perspectiveReferent": "SPEAKER", "polarity": "POSITIVE",
+                "temporalRelation": temporal, "claimKind": kind, "worldTruth": False,
+            }, "spans": {"source": [0, len(text)], "object": span_of(text, object_value),
+                           "subject": span_of(text, mention), "negation": None,
+                           "temporal": None, "entities": entities},
+                     "sourceId": f"matrix-authored:recent-{language}-{index:03d}:0",
+                     "family": f"recent_{predicate}"}
+            output.append({"schemaVersion": SCHEMA,
+                "id": f"mx-train-{language}-recent-{index:03d}", "split": "train",
+                "language": language, "text": text,
+                "context": {"speaker": "PLAYER", "observer": "luna",
+                            "knownEntities": {}, "recentEntityRefs": ["npc:recent"]},
+                "claims": [claim], "adultOnly": False,
+                "provenance": {"kind": "MATRIX_AUTHORED_TRAIN_AUGMENTATION",
+                               "generatorSeed": SEED, "templateSplit": "train",
+                               "license": "PROJECT_AUTHORED"}})
+    return output
+
+
 def build_records() -> list[dict]:
     rng = random.Random(SEED)
     counts = {"train": 700, "dev": 180, "test": 360}
@@ -238,7 +393,8 @@ def build_records() -> list[dict]:
                 subject = name if family in {"work", "hypothesis", "question"} else ""
                 referent = "KNOWN_ENTITY" if subject else "SPEAKER"
                 claim = make_claim(split, language, family, object_value=obj,
-                                   subject_value=subject, context_subject=referent)
+                                   subject_value=subject, context_subject=referent,
+                                   variant=index // 9)
                 known = (subject, f"npc:{index % len(lex['name'][language])}") if subject else None
                 rid = f"mx-{split}-{language}-{index:05d}"
                 singles.append((claim, known, rid))
@@ -246,7 +402,9 @@ def build_records() -> list[dict]:
 
             # Multi-claim observations use separately generated facts and a
             # split-specific joiner. No full multi-claim surface appears across splits.
-            joiners = {"train": {"it": " e ", "en": " and ", "es": " y "},
+            joiners = {"train": {"it": (" e ", "; in più ", ". Inoltre ", "; poi "),
+                                  "en": (" and ", "; moreover ", ". Additionally ", "; then "),
+                                  "es": (" y ", "; también ", ". Asimismo ", "; luego ")},
                        "dev": {"it": "; inoltre ", "en": "; also ", "es": "; además "},
                        "test": {"it": ", però ", "en": ", while ", "es": ", aunque "}}
             multi_count = counts[split] // 3
@@ -255,13 +413,17 @@ def build_records() -> list[dict]:
                 width = 3 if index % 5 == 0 else 2
                 chosen = [candidates[(index * 11 + j * 37) % len(candidates)][0] for j in range(width)]
                 rid = f"mx-{split}-{language}-multi-{index:04d}"
-                output.append(record(rid, split, language, chosen, joiners[split][language]))
+                joiner = joiners[split][language]
+                if isinstance(joiner, tuple):
+                    joiner = joiner[index % len(joiner)]
+                output.append(record(rid, split, language, chosen, joiner))
 
             for index in range(max(12, counts[split] // 25)):
                 claim = adult_claim(language, index % 2 == 0, split)
                 rid = f"mx-{split}-{language}-adult-{index:04d}"
                 output.append(record(rid, split, language, [claim], ""))
 
+    output.extend(recent_reference_records())
     rng.shuffle(output)
     return output
 

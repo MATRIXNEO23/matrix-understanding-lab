@@ -20,7 +20,7 @@
     "learningRate": 0.00003,
     "weightDecay": 0.01,
     "warmupRatio": 0.1,
-    "p05TrainRepeat": 3,
+    "p05TrainRepeat": 8,
     "earlyStoppingPatience": 2
   },
   "checkpointEveryEpoch": true,
