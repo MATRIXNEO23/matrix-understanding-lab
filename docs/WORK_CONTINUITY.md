@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T01:35:00Z  
+Last updated: 2026-09-04T02:10:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `325737008772d2276dae3cd04066d21faebe0010`.
+  `ce8c4acdc247fe789372e17c25361c6c1f4cd3bb`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -146,8 +146,11 @@ strategy change, before long/risky work, and before ending any session.
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
   training and artifact step is green. It must not be rerun.
-- Current gate: `DECISION_REQUIRED` on the versioned annotation contract before
-  any further C1 retraining. The strict end-to-end TypedClaim gate correctly
+- Current gate: authorized `matrix.nlu.dataset.v2` migration and pre-training
+  audit closure. Supervisor approved Option A: semantic negation scope, null
+  span for implicit first-person subject, explicit temporal expressions always
+  spanned, v1 immutability and a fresh isolated `student-4-v2` variant. The
+  strict end-to-end TypedClaim gate correctly
   rejected the immutable teacher artifact. Post-gate run
   `33802563626` completed `failure` at dev threshold selection and did not
   consume frozen data or start ONNX export.
@@ -551,14 +554,13 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Open errors, failed paths and blockers
 
-- `DECISION_REQUIRED / BLOCKING C1 RETRAIN_AND_FROZEN_GATE`: dataset v1 contains
+- `RESOLVED_BY_SUPERVISOR / MIGRATION_IN_PROGRESS`: dataset v1 contains
   seven exact input/context collisions with different span targets and mixed
-  negation-scope conventions. Repair changes canonical annotation semantics and
-  frozen hashes; it cannot be applied as an ordinary local data tweak. Do not
-  retrain or consume the one-time frozen test until the supervisor chooses the
-  versioned policy in
-  `docs/DECISION_REQUIRED_MATRIX_NLU_ANNOTATION_CONTRACT.md`. Do not lower the
-  exact gates, add regex, or encode benchmark provenance into runtime output.
+  negation-scope conventions. The supervisor authorized Option A and explicit
+  dataset v2. Preserve all v1 assets/hashes/results, migrate through versioned
+  outputs and mapping evidence, and do not launch `student-4-v2` until every v2
+  audit is green. Do not lower exact gates, add regex, or encode benchmark
+  provenance into runtime output.
 
 - `DECISION_REQUIRED / NON-BLOCKING FOR ACTIVE BASELINE`: the maximum benchmark
   now requires third-party reports and nested belief attribution. The current
@@ -693,15 +695,14 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Supervisor chooses Option A or B in
-   `docs/DECISION_REQUIRED_MATRIX_NLU_ANNOTATION_CONTRACT.md`. Option A is the
-   bounded recommendation: authorize `matrix.nlu.dataset.v2`, semantic negation
-   scope, null span for implicit first-person subjects, and a consistent explicit
-   temporal-span policy while preserving v1 immutably.
-2. After authorization only: implement the versioned dataset migration, run the
-   contract audit to zero conflicts, freeze new hashes, run all software gates,
-   then launch a fresh named model variant. Do not resume student-4 as though its
-   supervision were unchanged and do not inspect frozen quality before the new
-   dev threshold passes.
-3. Carry the independent nested-attribution contract issue to the same supervisor
+1. Implement `matrix.nlu.dataset.v2` as separately named train/dev/test files,
+   preserve every v1 byte/hash/result, and emit a reproducible v1-to-v2 correction
+   map covering negation scope, implicit first-person subject and explicit
+   temporal spans.
+2. Run zero-conflict/schema/span/authority/provenance and semantic anti-leakage
+   audits before training; correct v2 data until all are green.
+3. Launch a fresh resumable `student-4-v2` variant only after the audits pass;
+   select threshold on dev only, then run frozen/adversarial, ONNX/INT8/parity
+   and packaging in canonical order without lowering gates.
+4. Carry the independent nested-attribution contract issue to supervisor
    counter-review; do not invent a binding heuristic or start B4.
