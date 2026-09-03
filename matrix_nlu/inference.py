@@ -132,6 +132,7 @@ class MatrixNluRuntime:
         result = json.loads((bundle / "training-result.json").read_text())
         labels = json.loads((bundle / "labels.json").read_text())
         spec = result["config"]["model"]
+        self.max_length = int(result["config"]["maxLength"])
         self.tokenizer = AutoTokenizer.from_pretrained(bundle / "tokenizer", use_fast=True)
         self.model = build_model(spec["repository"], spec["revision"],
                                  len(labels["massiveIntents"]), len(labels["massiveSlots"]),
@@ -141,7 +142,7 @@ class MatrixNluRuntime:
         self.threshold = confidence_threshold
 
     def _run(self, text):
-        encoded = self.tokenizer(text, max_length=64, padding="max_length", truncation=True,
+        encoded = self.tokenizer(text, max_length=self.max_length, padding="max_length", truncation=True,
                                  return_offsets_mapping=True, return_tensors="pt")
         offsets = encoded.pop("offset_mapping")[0].tolist()
         attention = encoded["attention_mask"][0].tolist()
