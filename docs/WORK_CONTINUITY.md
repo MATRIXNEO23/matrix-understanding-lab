@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:58:00Z  
+Last updated: 2026-09-03T19:07:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified after invariant-decoder consolidation:
-  `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
+- HEAD verified after end-to-end evaluator consolidation:
+  `39fa4127fcc99a770f52ff86a84e11f44b60bd4f`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -217,6 +217,13 @@ strategy change, before long/risky work, and before ending any session.
   learned claim-boundary grouping, context-only known-entity binding, rejection
   of an unbound third party, low-confidence abstention with provenance, no
   World Truth mutation. This commit did not retrigger the active teacher run.
+- End-to-end benchmark checkpoint
+  `39fa4127fcc99a770f52ff86a84e11f44b60bd4f`: full local suite 26/26 green;
+  `matrix_nlu/evaluate_e2e.py` reports exact claim count, typed fields, character
+  span/entity F1, per-language quality, abstention/rejection, ownership
+  corruption and World Truth updates, with complete JSONL error evidence. Its
+  CLI requires an explicit `dev` or `test` split so dev-led selection remains
+  separate from the one-time frozen-test run.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -293,13 +300,15 @@ strategy change, before long/risky work, and before ending any session.
   `21e1de86fc0ecf8ce86d59b71ab89e2bccc827ea`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
+- Consolidated end-to-end Typed Claim evaluator:
+  `39fa4127fcc99a770f52ff86a84e11f44b60bd4f`.
 - This continuity update is pending consolidation; it must not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `9027ff3...` without touching
+1. Commit this continuity-only update on top of `39fa412...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
