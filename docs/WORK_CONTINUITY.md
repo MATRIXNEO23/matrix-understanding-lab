@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:05:00Z  
+Last updated: 2026-09-03T18:17:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified before the pending P0.5-adapter/MASSIVE test-path fix:
-  `d8ef350ad723156cd6b8fd64509a64ae7575107c`.
+- HEAD verified before the pending MASSIVE hash-pin commit:
+  `ac723626bd36dbfdc03aa651d9728fc16292455b`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
   (`feat: add Matrix-NLU provenance candidate probe`)
@@ -100,9 +100,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Current gate: external data provenance (`Gate 01`, encoder portion passed;
   MASSIVE archive hash pinning in progress).
-- Exact activity: consolidate the P0.5-to-learned-head adapter and repair only
-  the MASSIVE test import invocation, then rerun the first MASSIVE 1.0 archive
-  inventory. No training has started.
+- Exact activity: preserve the first MASSIVE inventory/license, pin its archive
+  hash and rerun the same inventory. No training has started.
   declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
   evidence for all three candidates. No model training has started.
 - Current candidate configuration:
@@ -181,6 +180,19 @@ strategy change, before long/risky work, and before ending any session.
 - P0.5 adapter locally verified within 13/13 combined tests. It emits train
   87 records/105 claims SHA `8426018b...`, dev 84/108 SHA `b48753dc...`, frozen
   test 93/111 SHA `5ef8f8bf...`; the frozen test is never merged into training.
+- P0.5 adapter/MASSIVE invocation fix commit:
+  `ac723626bd36dbfdc03aa651d9728fc16292455b`.
+- Matrix-NLU probe run `33785721399` on `ac723626...`: all jobs green.
+  MASSIVE 1.0 source archive is 39,500,415 bytes, SHA-256
+  `7df623fd2d300a4d235d6ee5bd396c9a28258d3a0ccb29abdb054506eba153f8`;
+  archive license SHA-256
+  `c2e6ea015269147de02117ebdd91f30ef09831251f5345fa8365273b1db1d435`.
+  Each of IT/EN/ES has 11,514 train, 2,033 dev and 2,974 test rows; 60
+  intents, 18 scenarios and 55 observed slot types. Artifact id `9905327516`,
+  artifact SHA-256
+  `0cabeed0e47c548c9f7f11bf4fe65de297514221cbf6c9fa1870e334188ff30d`.
+  This was the intentional unpinned observation run; a matching pinned rerun is
+  still required.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
 
@@ -224,17 +236,17 @@ strategy change, before long/risky work, and before ending any session.
 - Consolidated dataset commit: `c6875b9e492cd0827ada0bc27c9471dcd4454a21`.
 - Consolidated model pin/MASSIVE probe commit:
   `d8ef350ad723156cd6b8fd64509a64ae7575107c`.
-- Pending consolidation: P0.5 adapter/tests/card, MASSIVE workflow test-path
-  repair and this continuity update.
+- Consolidated P0.5 adapter/MASSIVE test-path commit:
+  `ac723626bd36dbfdc03aa651d9728fc16292455b`.
+- Pending consolidation: pinned MASSIVE source, first manifest/license artifact,
+  provenance document and this continuity update.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit P0.5 adapter/tests/card plus MASSIVE test-path fix and continuity on
-   top of `d8ef350...`.
-2. Wait for the MASSIVE provenance job; download
-   `matrix-nlu-massive-provenance`.
-3. Record and pin the MASSIVE archive SHA-256, then rerun provenance; only the
-   second matching-hash run can turn external-data provenance green.
-4. Convert P0.5 train/dev into learned-head supervision while keeping its test
-   partition frozen; then implement the shared two-pass multi-task model.
+1. Commit the MASSIVE hash pin, first inventory/license artifact, provenance doc
+   and continuity on top of `ac723626...`.
+2. Wait for the pinned MASSIVE rerun and verify `hashPinned=true` plus
+   `hashMatches=true`; preserve that manifest.
+3. Mark data provenance green and implement the shared two-pass multi-task model
+   and resumable training configuration before starting the long training run.

@@ -2,9 +2,9 @@
   "schemaVersion": "matrix.nlu.external-source.v1",
   "id": "amazon-massive-1.0",
   "url": "https://amazon-massive-nlu-dataset.s3.amazonaws.com/amazon-massive-dataset-1.0.tar.gz",
-  "expectedSha256": null,
+  "expectedSha256": "7df623fd2d300a4d235d6ee5bd396c9a28258d3a0ccb29abdb054506eba153f8",
   "licenseExpected": "CC-BY-4.0",
   "locales": ["it-IT", "en-US", "es-ES"],
   "use": "AUXILIARY_REQUEST_INTENT_SLOT_ONLY",
-  "note": "First provenance run records the archive hash; a second run with the pinned hash is required before training."
+  "note": "Hash observed in CI run 33785721399 and must match before any training use."
 }
