@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:18:00Z  
+Last updated: 2026-09-03T18:27:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,8 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `f350db0b02deba2032bb08725eb386a7effd9373` (post-training gate automation
-  plus its continuity checkpoint).
+  `c32e4127861d1929af622017fe2189a6c6801fb3`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -57,6 +56,12 @@ strategy change, before long/risky work, and before ending any session.
   ordinary training/data/calibration faults are autonomous C1 work, not user
   decisions. The active training plus `matrix-nlu-post-train.yml` implement the
   current two-stage form; a single orchestration entry point remains pending.
+- A one-command training orchestrator was added concurrently at `auto_train.py`,
+  commit `3f9cfa1b8e60db875cdbd8fc405f94e0f81f6b36`. It runs software tests,
+  dataset/MASSIVE preparation and resumable training, validates checksums and
+  preserves/promotes a last-good bundle atomically. It has not been executed and
+  must not be invoked while run `33786677296` is active. Its eventual integration
+  with post-training quality/export gates remains to be verified.
 - The specification was reread in full after the controlled P0.5 stop.
 - Current objective: build and objectively gate the trained IT/EN/ES
   Matrix-NLU in this lab only:
@@ -301,6 +306,11 @@ strategy change, before long/risky work, and before ending any session.
   and runs frozen Matrix/P0.5 plus FP32/INT8 export only after that dev gate.
   Exact source-run and file checksums are uploaded. Workflow YAML parses green
   locally. It does not trigger or duplicate teacher training.
+- Failure-evidence correction
+  `c32e4127861d1929af622017fe2189a6c6801fb3`: the post-training workflow now
+  records source-run/resource/checksum evidence under `if: always()`, including
+  when the dev threshold gate fails, instead of losing the causal handoff.
+  YAML parse and the 34-test local suite are green.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -393,6 +403,8 @@ strategy change, before long/risky work, and before ending any session.
   `4ef989f2a0fc0a0f246ef4e03f186b600cdb8e9a`.
 - Automated training/testing policy, concurrently added and preserved:
   `6e6a0c473ef929035d188005776e5a83355887ca`.
+- One-command auto-training implementation, concurrently added and preserved:
+  `3f9cfa1b8e60db875cdbd8fc405f94e0f81f6b36` (not executed).
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -413,13 +425,15 @@ strategy change, before long/risky work, and before ending any session.
   `2e965e6802cfaa37504f6c9586032c05396a320a`.
 - Automated dev -> threshold -> frozen -> ONNX gate:
   `ea1655004d4fea31d8d911ab45d3c27e6f21dff3`.
+- Failed-gate evidence preservation fix:
+  `c32e4127861d1929af622017fe2189a6c6801fb3`.
 - This continuity update is pending consolidation; it must not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `ea16550...` without touching
+1. Commit this continuity-only update on top of `c32e412...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
