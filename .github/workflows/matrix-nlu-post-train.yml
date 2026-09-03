@@ -57,56 +57,13 @@ jobs:
           sha256sum "$BUNDLE"/training-result.json "$BUNDLE"/model-state.pt "$BUNDLE"/labels.json
       - name: Install pinned evaluation and export dependencies
         run: python -m pip install --requirement matrix_nlu/requirements-train.txt
-      - name: Software and invariant tests
-        run: python -m unittest discover -s matrix_nlu -p 'test_*.py' -v
-      - name: Reproduce typed datasets
-        run: python matrix_nlu/build_dataset.py
-      - name: Produce development predictions only
-        shell: bash
-        run: |
-          set -euo pipefail
-          python matrix_nlu/evaluate_e2e.py \
-            --bundle "$TRAINING_BUNDLE" \
-            --dataset build/matrix-nlu/data/matrix-dev.jsonl \
-            --split dev --threshold 0 \
-            --output-dir build/matrix-nlu/post-train/matrix-dev
-          python matrix_nlu/evaluate_e2e.py \
-            --bundle "$TRAINING_BUNDLE" \
-            --dataset build/matrix-nlu/data/p05-dev.jsonl \
-            --split dev --threshold 0 \
-            --output-dir build/matrix-nlu/post-train/p05-dev
-      - name: Select threshold from development evidence
-        shell: bash
-        run: |
-          set -euo pipefail
-          python matrix_nlu/select_threshold.py \
-            --dataset build/matrix-nlu/data/matrix-dev.jsonl \
-            --predictions build/matrix-nlu/post-train/matrix-dev/e2e-dev-predictions.jsonl \
-            --dataset build/matrix-nlu/data/p05-dev.jsonl \
-            --predictions build/matrix-nlu/post-train/p05-dev/e2e-dev-predictions.jsonl \
-            --output build/matrix-nlu/post-train/threshold-selection.json
-          THRESHOLD=$(python -c "import json; print(json.load(open('build/matrix-nlu/post-train/threshold-selection.json'))['selectedThreshold'])")
-          echo "MATRIX_NLU_THRESHOLD=$THRESHOLD" >> "$GITHUB_ENV"
-      - name: Evaluate frozen partitions once after dev gate
-        shell: bash
-        run: |
-          set -euo pipefail
-          python matrix_nlu/evaluate_e2e.py \
-            --bundle "$TRAINING_BUNDLE" \
-            --dataset build/matrix-nlu/data/matrix-test.jsonl \
-            --split test --threshold "$MATRIX_NLU_THRESHOLD" \
-            --output-dir build/matrix-nlu/post-train/matrix-test
-          python matrix_nlu/evaluate_e2e.py \
-            --bundle "$TRAINING_BUNDLE" \
-            --dataset build/matrix-nlu/data/p05-test.jsonl \
-            --split test --threshold "$MATRIX_NLU_THRESHOLD" \
-            --output-dir build/matrix-nlu/post-train/p05-test
-      - name: Export and measure FP32 and INT8 ONNX
+      - name: Run strict dev, frozen, ONNX and package gates
         run: >-
-          python matrix_nlu/export_onnx.py
+          python auto_test.py
           --bundle "$TRAINING_BUNDLE"
-          --output-dir build/matrix-nlu/post-train/onnx
-          --repetitions 30
+          --output-dir build/matrix-nlu/post-train
+          --candidate-role teacher
+          --onnx-repetitions 30
       - name: Record resource and source-run evidence
         if: always()
         shell: bash
@@ -117,6 +74,7 @@ jobs:
           df -h .
           free -h
           find build/matrix-nlu/post-train -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > build/matrix-nlu/post-train/SHA256SUMS
+          cp -f build/matrix-nlu/automation/auto-test-status.json build/matrix-nlu/post-train/auto-test-status.json 2>/dev/null || true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
