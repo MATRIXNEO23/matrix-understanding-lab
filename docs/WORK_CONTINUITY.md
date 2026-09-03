@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T01:50:00+02:00  
+Last updated: 2026-09-04T02:02:00+02:00  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -173,9 +173,18 @@ strategy change, before long/risky work, and before ending any session.
   open frozen/adversarial data until dev-only threshold selection passes.
   The 1-click v2 dry-run, Python byte compilation, all five workflow YAML files
   and 67/67 tests are green. Training has not started.
-- Current activity: commit the orchestration checkpoint, wait for CI, then add
-  the one-time `pipeline/student-4-v2.trigger`. Production/runtime, Memory, B4,
-  Emotion, Reflection, Agency and NPC-NPC remain untouched.
+- Orchestration checkpoint commit:
+  `42e065cf80b7dcc5d0903733ed79b26fdded1122`
+  (`ci: isolate student-4-v2 train and evaluation gates`). The connector did
+  not expose push-run status through combined commit statuses; the one-click
+  training workflow repeats the complete software and dataset gates before it
+  can train.
+- Current activity: commit the one-time `pipeline/student-4-v2.trigger` and
+  monitor the fresh resumable run. Exact configuration: dataset v2, four-layer
+  Geotrend student, seed 810923, MASSIVE auxiliary 3000/600 per language for
+  train/dev, Matrix 4 epochs, batch 16, accumulation 2, LR 3e-5, patience 2.
+  No v1 checkpoint may be restored into this variant. Production/runtime,
+  Memory, B4, Emotion, Reflection, Agency and NPC-NPC remain untouched.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
@@ -729,10 +738,10 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit the isolated `student-4-v2` orchestration checkpoint and verify its
-   normal CI without creating the training trigger.
-2. After CI is green, commit `pipeline/student-4-v2.trigger` and monitor the
-   fresh resumable run without relaunching completed stages.
+1. Commit `pipeline/student-4-v2.trigger` and identify/monitor the resulting
+   one-click run without relaunching completed stages.
+2. If interrupted, restore only that run's isolated `latest.pt` through the
+   explicit `resume_run_id`; never reuse student-4 v1 state.
 3. Select threshold on dev only, then run frozen/adversarial, ONNX/INT8/parity
    and package only if each preceding gate passes; preserve all failure evidence
    without lowering gates.

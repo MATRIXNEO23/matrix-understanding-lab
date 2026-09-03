@@ -1,0 +1,9 @@
+schema=matrix.nlu.student-4-v2-trigger.v1
+base_commit=42e065cf80b7dcc5d0903733ed79b26fdded1122
+dataset_version=matrix.nlu.dataset.v2
+matrix_train_sha256=e6190bf4fe0c5d326242920be6b3e0fbcb6f6fc593f4d7a017ffd08f74bb0eff
+p05_train_sha256=413f60ca17879ed9de440add7903b6e2abaebdfbbed6055b32c6e0b105cadfcd
+config=matrix_nlu/train_config_v2.json
+variant=student-4-v2
+student_layers=4
+seed=810923
