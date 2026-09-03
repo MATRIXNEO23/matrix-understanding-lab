@@ -74,7 +74,8 @@ def probe(candidate: dict, api) -> dict:
     from transformers import AutoConfig, AutoTokenizer
 
     repo = candidate["repository"]
-    info = api.model_info(repo, files_metadata=True)
+    requested_revision = candidate.get("revision")
+    info = api.model_info(repo, revision=requested_revision, files_metadata=True)
     revision = info.sha
     config = AutoConfig.from_pretrained(repo, revision=revision, trust_remote_code=False)
     tokenizer = AutoTokenizer.from_pretrained(repo, revision=revision, use_fast=True,
@@ -99,6 +100,7 @@ def probe(candidate: dict, api) -> dict:
         "attentionHeads": heads,
         "vocabSize": vocab,
         "hubWeightBytes": weights,
+        "weightBytesMatchExpectation": weights == candidate.get("expectedWeightBytes", weights),
         "estimatedDynamicInt8WeightBytes": weights // 4 if weights else None,
         "languagesDeclared": card.get("language"),
         "tokenization": tokenize_probe(tokenizer),
@@ -125,6 +127,8 @@ def decide(rows: list[dict]) -> dict:
         }
     if not primary["licenseMatchesExpectation"]:
         reasons.append("declared license does not match the reviewed expectation")
+    if not primary.get("weightBytesMatchExpectation", True):
+        reasons.append("weight bytes do not match the pinned expectation")
     for language in ("it", "en", "es"):
         unknowns = sum(x["unknownCount"] for x in primary["tokenization"][language])
         if unknowns:

@@ -38,3 +38,21 @@ jobs:
         with:
           name: matrix-nlu-candidate-probe
           path: build/matrix-nlu/
+
+  massive-provenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: MASSIVE probe unit tests
+        run: python -m unittest matrix_nlu/test_probe_massive.py -v
+      - name: Download and inventory MASSIVE 1.0
+        run: python matrix_nlu/probe_massive.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matrix-nlu-massive-provenance
+          path: build/matrix-nlu/massive-provenance/

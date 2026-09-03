@@ -5,6 +5,8 @@
     {
       "id": "geotrend-distilmbert-it-en-es",
       "repository": "Geotrend/distilbert-base-en-es-it-cased",
+      "revision": "36de33ec579e47f6c4e10d982d0b93871267c3e6",
+      "expectedWeightBytes": 292888832,
       "role": "PRIMARY_PROBE",
       "expectedLicense": "apache-2.0",
       "rationale": "Pretrained multilingual encoder restricted to the exact production languages; preserves DistilmBERT representations while removing unrelated vocabulary."
@@ -12,6 +14,8 @@
     {
       "id": "microsoft-multilingual-minilm",
       "repository": "microsoft/Multilingual-MiniLM-L12-H384",
+      "revision": "6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf",
+      "expectedWeightBytes": 470657952,
       "role": "QUALITY_REFERENCE",
       "expectedLicense": "mit",
       "rationale": "Mature multilingual distilled encoder, but its XLM-R vocabulary may exceed the mobile size gate."
@@ -19,6 +23,8 @@
     {
       "id": "microsoft-xtremedistil-h256",
       "repository": "microsoft/xtremedistil-l6-h256-uncased",
+      "revision": "8d58f0e6e83c1ab87f88d8c556ec537a111e2ee0",
+      "expectedWeightBytes": 51044621,
       "role": "SIZE_REFERENCE",
       "expectedLicense": "mit",
       "rationale": "Very compact pretrained encoder; must not be selected unless the probe disproves the model-card English-only risk for IT/ES."

@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T17:43:00Z  
+Last updated: 2026-09-03T17:55:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified before the pending dataset/probe fix:
-  `0acef2f46b8827fa15bb033bddae9be10f9f9d1d`.
+- HEAD verified before the pending model-pin/MASSIVE probe commit:
+  `c6875b9e492cd0827ada0bc27c9471dcd4454a21`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
   (`feat: add Matrix-NLU provenance candidate probe`)
@@ -98,11 +98,12 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Current gate and exact activity
 
-- Current gate: encoder/data provenance selection (`Gate 01`, in progress).
-- Exact activity: add the missing pinned protobuf tokenizer dependency,
-  consolidate the deterministic Matrix dataset builder/card, and rerun GitHub
-  Actions workflow `Matrix-NLU Candidate Probe` to resolve immutable Hugging
-  Face revisions and reproduce dataset hashes.
+- Current gate: external data provenance (`Gate 01`, encoder portion passed;
+  MASSIVE archive hash pinning in progress).
+- Exact activity: pin all three resolved encoder revisions/weight sizes, preserve
+  the successful candidate-probe artifact in Git, and run the first MASSIVE 1.0
+  archive inventory to obtain the immutable archive hash/license/counts. No
+  training has started.
   declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
   evidence for all three candidates. No model training has started.
 - Current candidate configuration:
@@ -153,6 +154,22 @@ strategy change, before long/risky work, and before ending any session.
   Frozen test: 1,482 / 1,914, SHA-256
   `8f1b267fb9f1b76d0f304cd26d88dfcef82fd6434f5ea182985a164960effba2`.
   All are balanced IT/EN/ES; World Truth expectations are zero.
+- Candidate/model probe CI `33784868028` on `c6875b9e...`: green. Artifact
+  id `9905024154`, archive SHA-256
+  `7714de59bc05f227eebbdde351fa739c61df82f0ae7e0a3c1b6a904f0198d7d0`;
+  probe JSON SHA-256
+  `565c6ae9fc946a10daa77c08c3b2205f4f94a0756c7409758c4b1307a414e382`.
+  CI reproduced all three dataset JSONL hashes exactly.
+- Selected lab-training encoder:
+  `Geotrend/distilbert-base-en-es-it-cased` revision
+  `36de33ec579e47f6c4e10d982d0b93871267c3e6`, Apache-2.0, 6x768,
+  vocabulary 38,628, weights 292,888,832 bytes, estimated dynamic INT8
+  73,222,208 bytes, zero unknown probe tokens in IT/EN/ES.
+- Multilingual MiniLM revision `6e8c1ec6...`: 470,657,952-byte weights,
+  estimated INT8 117,664,488 bytes; quality reference, not mobile candidate.
+- XtremeDistil h256 revision `8d58f0e6...`: 51,044,621-byte weights,
+  estimated INT8 12,761,155 bytes, but declared language is English; size
+  reference only.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
 
@@ -176,8 +193,9 @@ strategy change, before long/risky work, and before ending any session.
   5-language checkpoint unless the exact checkpoint fails a documented gate.
 - XtremeDistil h256 is tagged English and reports English GLUE/SQuAD evidence;
   compact size alone cannot qualify it as the multilingual production encoder.
-- Multilingual MiniLM has a large XLM-R embedding table; it is a reference until
-  measured size disproves the mobile concern.
+- Multilingual MiniLM has a large XLM-R embedding table and measured estimated
+  INT8 weights of about 117.7 MB, above the preliminary 100 MB no-go band. Do
+  not train it as the mobile candidate absent exceptional new evidence.
 - Do not disable or bypass frozen test partitions; do not use any test result to
   train or choose a variant.
 - Do not add linguistic regex/rules to the invariant validator.
@@ -189,20 +207,18 @@ strategy change, before long/risky work, and before ending any session.
   `docs/MATRIX_NLU_MODEL_DATA_PLAN.md`, `matrix_nlu/candidates.json`,
   `matrix_nlu/probe_candidates.py`, `matrix_nlu/requirements-probe.txt`,
   `matrix_nlu/test_probe_candidates.py`.
-- Pending consolidation files: `matrix_nlu/build_dataset.py`,
-  `matrix_nlu/test_build_dataset.py`, `docs/MATRIX_NLU_DATASET_CARD.md`, plus
-  causal probe/workflow/dependency changes and this continuity update.
+- Consolidated dataset commit: `c6875b9e492cd0827ada0bc27c9471dcd4454a21`.
+- Pending consolidation: pinned `matrix_nlu/candidates.json`, MASSIVE source/
+  probe/tests, model result docs, preserved candidate-probe JSON artifact,
+  workflow extension and this continuity update.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit the dataset builder/card plus pinned protobuf and resilient-probe
-   changes on top of `0acef2f...`; fast-forward `main`.
-2. Query workflow runs for that commit; wait for
-   `Matrix-NLU Candidate Probe`
-   to finish without restarting prior gates.
-3. Download `matrix-nlu-candidate-probe`, record its artifact id/digest and the
-   exact selected/rejected model revisions in this file.
-4. If the primary probe is green, pin its immutable revision and begin the
-   deterministic layered dataset builder; otherwise apply the documented model
-   fallback sequence without returning to OpenNLP production work.
+1. Commit the pinned candidates, MASSIVE provenance probe, preserved model-probe
+   artifact and this continuity update on top of `c6875b9e...`.
+2. Wait for both probe jobs; download `matrix-nlu-massive-provenance`.
+3. Record and pin the MASSIVE archive SHA-256, then rerun provenance; only the
+   second matching-hash run can turn external-data provenance green.
+4. Convert P0.5 train/dev into learned-head supervision while keeping its test
+   partition frozen; then implement the shared two-pass multi-task model.

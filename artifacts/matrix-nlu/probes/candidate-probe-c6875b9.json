@@ -1,0 +1,667 @@
+{
+  "schemaVersion": "matrix.nlu.candidate-probe.v1",
+  "generatedUnixSeconds": 1788456604,
+  "candidateSpecSha256": "d169d72bc50b2b928690cf294c538100024a96c578c25337f2d3f02a0a87a96c",
+  "targetLanguages": [
+    "it",
+    "en",
+    "es"
+  ],
+  "candidates": [
+    {
+      "id": "geotrend-distilmbert-it-en-es",
+      "repository": "Geotrend/distilbert-base-en-es-it-cased",
+      "role": "PRIMARY_PROBE",
+      "expectedLicense": "apache-2.0",
+      "rationale": "Pretrained multilingual encoder restricted to the exact production languages; preserves DistilmBERT representations while removing unrelated vocabulary.",
+      "resolvedRevision": "36de33ec579e47f6c4e10d982d0b93871267c3e6",
+      "licenseDeclared": "apache-2.0",
+      "licenseMatchesExpectation": true,
+      "library": "distilbert",
+      "architecture": [
+        "DistilBertForMaskedLM"
+      ],
+      "hiddenSize": 768,
+      "layers": 6,
+      "attentionHeads": 12,
+      "vocabSize": 38628,
+      "hubWeightBytes": 292888832,
+      "estimatedDynamicInt8WeightBytes": 73222208,
+      "languagesDeclared": "multilingual",
+      "tokenization": {
+        "it": [
+          {
+            "text": "Non amo i locali affollati",
+            "tokens": [
+              "Non",
+              "amo",
+              "i",
+              "locali",
+              "af",
+              "##fo",
+              "##llat",
+              "##i"
+            ],
+            "tokenCount": 8,
+            "unknownCount": 0,
+            "charactersPerToken": 3.25
+          },
+          {
+            "text": "Ho 44 anni e vivo a San Vendemiano",
+            "tokens": [
+              "Ho",
+              "44",
+              "anni",
+              "e",
+              "vivo",
+              "a",
+              "San",
+              "Ve",
+              "##nde",
+              "##mian",
+              "##o"
+            ],
+            "tokenCount": 11,
+            "unknownCount": 0,
+            "charactersPerToken": 3.0909
+          },
+          {
+            "text": "Forse Luna non sarà a New York domani",
+            "tokens": [
+              "For",
+              "##se",
+              "Luna",
+              "non",
+              "sarà",
+              "a",
+              "New",
+              "York",
+              "doma",
+              "##ni"
+            ],
+            "tokenCount": 10,
+            "unknownCount": 0,
+            "charactersPerToken": 3.7
+          }
+        ],
+        "en": [
+          {
+            "text": "I do not like crowded venues",
+            "tokens": [
+              "I",
+              "do",
+              "not",
+              "like",
+              "crowd",
+              "##ed",
+              "venues"
+            ],
+            "tokenCount": 7,
+            "unknownCount": 0,
+            "charactersPerToken": 4.0
+          },
+          {
+            "text": "I am 44 years old and I live in San Vendemiano",
+            "tokens": [
+              "I",
+              "am",
+              "44",
+              "years",
+              "old",
+              "and",
+              "I",
+              "live",
+              "in",
+              "San",
+              "Ve",
+              "##nde",
+              "##mian",
+              "##o"
+            ],
+            "tokenCount": 14,
+            "unknownCount": 0,
+            "charactersPerToken": 3.2857
+          },
+          {
+            "text": "Maybe Luna will not be in New York tomorrow",
+            "tokens": [
+              "Maybe",
+              "Luna",
+              "will",
+              "not",
+              "be",
+              "in",
+              "New",
+              "York",
+              "tom",
+              "##or",
+              "##row"
+            ],
+            "tokenCount": 11,
+            "unknownCount": 0,
+            "charactersPerToken": 3.9091
+          }
+        ],
+        "es": [
+          {
+            "text": "No me gustan los locales llenos",
+            "tokens": [
+              "No",
+              "me",
+              "gu",
+              "##stan",
+              "los",
+              "locales",
+              "lle",
+              "##nos"
+            ],
+            "tokenCount": 8,
+            "unknownCount": 0,
+            "charactersPerToken": 3.875
+          },
+          {
+            "text": "Tengo 44 años y vivo en San Vendemiano",
+            "tokens": [
+              "Ten",
+              "##go",
+              "44",
+              "años",
+              "y",
+              "vivo",
+              "en",
+              "San",
+              "Ve",
+              "##nde",
+              "##mian",
+              "##o"
+            ],
+            "tokenCount": 12,
+            "unknownCount": 0,
+            "charactersPerToken": 3.1667
+          },
+          {
+            "text": "Quizá Luna no estará en Nueva York mañana",
+            "tokens": [
+              "Qui",
+              "##zá",
+              "Luna",
+              "no",
+              "estar",
+              "##á",
+              "en",
+              "Nueva",
+              "York",
+              "mañana"
+            ],
+            "tokenCount": 10,
+            "unknownCount": 0,
+            "charactersPerToken": 4.1
+          }
+        ]
+      },
+      "files": [
+        {
+          "name": "config.json",
+          "bytes": 557
+        },
+        {
+          "name": "model.safetensors",
+          "bytes": 292888832
+        },
+        {
+          "name": "pytorch_model.bin",
+          "bytes": 292917114
+        },
+        {
+          "name": "tokenizer_config.json",
+          "bytes": 49
+        },
+        {
+          "name": "vocab.txt",
+          "bytes": 272257
+        }
+      ]
+    },
+    {
+      "id": "microsoft-multilingual-minilm",
+      "repository": "microsoft/Multilingual-MiniLM-L12-H384",
+      "role": "QUALITY_REFERENCE",
+      "expectedLicense": "mit",
+      "rationale": "Mature multilingual distilled encoder, but its XLM-R vocabulary may exceed the mobile size gate.",
+      "resolvedRevision": "6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf",
+      "licenseDeclared": "mit",
+      "licenseMatchesExpectation": true,
+      "library": "bert",
+      "architecture": [],
+      "hiddenSize": 384,
+      "layers": 12,
+      "attentionHeads": 12,
+      "vocabSize": 250037,
+      "hubWeightBytes": 470657952,
+      "estimatedDynamicInt8WeightBytes": 117664488,
+      "languagesDeclared": [
+        "multilingual",
+        "en",
+        "ar",
+        "bg",
+        "de",
+        "el",
+        "es",
+        "fr",
+        "hi",
+        "ru",
+        "sw",
+        "th",
+        "tr",
+        "ur",
+        "vi",
+        "zh"
+      ],
+      "tokenization": {
+        "it": [
+          {
+            "text": "Non amo i locali affollati",
+            "tokens": [
+              "▁Non",
+              "▁amo",
+              "▁i",
+              "▁locali",
+              "▁aff",
+              "olla",
+              "ti"
+            ],
+            "tokenCount": 7,
+            "unknownCount": 0,
+            "charactersPerToken": 3.7143
+          },
+          {
+            "text": "Ho 44 anni e vivo a San Vendemiano",
+            "tokens": [
+              "▁Ho",
+              "▁44",
+              "▁anni",
+              "▁e",
+              "▁vivo",
+              "▁a",
+              "▁San",
+              "▁Vend",
+              "emia",
+              "no"
+            ],
+            "tokenCount": 10,
+            "unknownCount": 0,
+            "charactersPerToken": 3.4
+          },
+          {
+            "text": "Forse Luna non sarà a New York domani",
+            "tokens": [
+              "▁Forse",
+              "▁Luna",
+              "▁non",
+              "▁sarà",
+              "▁a",
+              "▁New",
+              "▁York",
+              "▁domani"
+            ],
+            "tokenCount": 8,
+            "unknownCount": 0,
+            "charactersPerToken": 4.625
+          }
+        ],
+        "en": [
+          {
+            "text": "I do not like crowded venues",
+            "tokens": [
+              "▁I",
+              "▁do",
+              "▁not",
+              "▁like",
+              "▁crowd",
+              "ed",
+              "▁venue",
+              "s"
+            ],
+            "tokenCount": 8,
+            "unknownCount": 0,
+            "charactersPerToken": 3.5
+          },
+          {
+            "text": "I am 44 years old and I live in San Vendemiano",
+            "tokens": [
+              "▁I",
+              "▁am",
+              "▁44",
+              "▁years",
+              "▁old",
+              "▁and",
+              "▁I",
+              "▁live",
+              "▁in",
+              "▁San",
+              "▁Vend",
+              "emia",
+              "no"
+            ],
+            "tokenCount": 13,
+            "unknownCount": 0,
+            "charactersPerToken": 3.5385
+          },
+          {
+            "text": "Maybe Luna will not be in New York tomorrow",
+            "tokens": [
+              "▁Maybe",
+              "▁Luna",
+              "▁will",
+              "▁not",
+              "▁be",
+              "▁in",
+              "▁New",
+              "▁York",
+              "▁tomorrow"
+            ],
+            "tokenCount": 9,
+            "unknownCount": 0,
+            "charactersPerToken": 4.7778
+          }
+        ],
+        "es": [
+          {
+            "text": "No me gustan los locales llenos",
+            "tokens": [
+              "▁No",
+              "▁me",
+              "▁gusta",
+              "n",
+              "▁los",
+              "▁locales",
+              "▁lleno",
+              "s"
+            ],
+            "tokenCount": 8,
+            "unknownCount": 0,
+            "charactersPerToken": 3.875
+          },
+          {
+            "text": "Tengo 44 años y vivo en San Vendemiano",
+            "tokens": [
+              "▁Tengo",
+              "▁44",
+              "▁años",
+              "▁y",
+              "▁vivo",
+              "▁en",
+              "▁San",
+              "▁Vend",
+              "emia",
+              "no"
+            ],
+            "tokenCount": 10,
+            "unknownCount": 0,
+            "charactersPerToken": 3.8
+          },
+          {
+            "text": "Quizá Luna no estará en Nueva York mañana",
+            "tokens": [
+              "▁Quiz",
+              "á",
+              "▁Luna",
+              "▁no",
+              "▁estará",
+              "▁en",
+              "▁Nueva",
+              "▁York",
+              "▁mañana"
+            ],
+            "tokenCount": 9,
+            "unknownCount": 0,
+            "charactersPerToken": 4.5556
+          }
+        ]
+      },
+      "files": [
+        {
+          "name": "config.json",
+          "bytes": 430
+        },
+        {
+          "name": "log.txt",
+          "bytes": 8085
+        },
+        {
+          "name": "pytorch_model.bin",
+          "bytes": 470657952
+        },
+        {
+          "name": "sentencepiece.bpe.model",
+          "bytes": 5069051
+        },
+        {
+          "name": "special_tokens_map.json",
+          "bytes": 150
+        },
+        {
+          "name": "tokenizer_config.json",
+          "bytes": 2
+        }
+      ]
+    },
+    {
+      "id": "microsoft-xtremedistil-h256",
+      "repository": "microsoft/xtremedistil-l6-h256-uncased",
+      "role": "SIZE_REFERENCE",
+      "expectedLicense": "mit",
+      "rationale": "Very compact pretrained encoder; must not be selected unless the probe disproves the model-card English-only risk for IT/ES.",
+      "resolvedRevision": "8d58f0e6e83c1ab87f88d8c556ec537a111e2ee0",
+      "licenseDeclared": "mit",
+      "licenseMatchesExpectation": true,
+      "library": "bert",
+      "architecture": [
+        "BertModel"
+      ],
+      "hiddenSize": 256,
+      "layers": 6,
+      "attentionHeads": 8,
+      "vocabSize": 30522,
+      "hubWeightBytes": 51044621,
+      "estimatedDynamicInt8WeightBytes": 12761155,
+      "languagesDeclared": "en",
+      "tokenization": {
+        "it": [
+          {
+            "text": "Non amo i locali affollati",
+            "tokens": [
+              "non",
+              "am",
+              "##o",
+              "i",
+              "local",
+              "##i",
+              "af",
+              "##fo",
+              "##lla",
+              "##ti"
+            ],
+            "tokenCount": 10,
+            "unknownCount": 0,
+            "charactersPerToken": 2.6
+          },
+          {
+            "text": "Ho 44 anni e vivo a San Vendemiano",
+            "tokens": [
+              "ho",
+              "44",
+              "ann",
+              "##i",
+              "e",
+              "vivo",
+              "a",
+              "san",
+              "ve",
+              "##nde",
+              "##mian",
+              "##o"
+            ],
+            "tokenCount": 12,
+            "unknownCount": 0,
+            "charactersPerToken": 2.8333
+          },
+          {
+            "text": "Forse Luna non sarà a New York domani",
+            "tokens": [
+              "for",
+              "##se",
+              "luna",
+              "non",
+              "sara",
+              "a",
+              "new",
+              "york",
+              "dom",
+              "##ani"
+            ],
+            "tokenCount": 10,
+            "unknownCount": 0,
+            "charactersPerToken": 3.7
+          }
+        ],
+        "en": [
+          {
+            "text": "I do not like crowded venues",
+            "tokens": [
+              "i",
+              "do",
+              "not",
+              "like",
+              "crowded",
+              "venues"
+            ],
+            "tokenCount": 6,
+            "unknownCount": 0,
+            "charactersPerToken": 4.6667
+          },
+          {
+            "text": "I am 44 years old and I live in San Vendemiano",
+            "tokens": [
+              "i",
+              "am",
+              "44",
+              "years",
+              "old",
+              "and",
+              "i",
+              "live",
+              "in",
+              "san",
+              "ve",
+              "##nde",
+              "##mian",
+              "##o"
+            ],
+            "tokenCount": 14,
+            "unknownCount": 0,
+            "charactersPerToken": 3.2857
+          },
+          {
+            "text": "Maybe Luna will not be in New York tomorrow",
+            "tokens": [
+              "maybe",
+              "luna",
+              "will",
+              "not",
+              "be",
+              "in",
+              "new",
+              "york",
+              "tomorrow"
+            ],
+            "tokenCount": 9,
+            "unknownCount": 0,
+            "charactersPerToken": 4.7778
+          }
+        ],
+        "es": [
+          {
+            "text": "No me gustan los locales llenos",
+            "tokens": [
+              "no",
+              "me",
+              "gust",
+              "##an",
+              "los",
+              "local",
+              "##es",
+              "ll",
+              "##eno",
+              "##s"
+            ],
+            "tokenCount": 10,
+            "unknownCount": 0,
+            "charactersPerToken": 3.1
+          },
+          {
+            "text": "Tengo 44 años y vivo en San Vendemiano",
+            "tokens": [
+              "ten",
+              "##go",
+              "44",
+              "an",
+              "##os",
+              "y",
+              "vivo",
+              "en",
+              "san",
+              "ve",
+              "##nde",
+              "##mian",
+              "##o"
+            ],
+            "tokenCount": 13,
+            "unknownCount": 0,
+            "charactersPerToken": 2.9231
+          },
+          {
+            "text": "Quizá Luna no estará en Nueva York mañana",
+            "tokens": [
+              "quiz",
+              "##a",
+              "luna",
+              "no",
+              "est",
+              "##ara",
+              "en",
+              "nueva",
+              "york",
+              "mana",
+              "##na"
+            ],
+            "tokenCount": 11,
+            "unknownCount": 0,
+            "charactersPerToken": 3.7273
+          }
+        ]
+      },
+      "files": [
+        {
+          "name": "config.json",
+          "bytes": 525
+        },
+        {
+          "name": "pytorch_model.bin",
+          "bytes": 51044621
+        },
+        {
+          "name": "vocab.txt",
+          "bytes": 231508
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "selectedForTraining": "Geotrend/distilbert-base-en-es-it-cased",
+    "selectedRevision": "36de33ec579e47f6c4e10d982d0b93871267c3e6",
+    "blockingReasons": [],
+    "referenceProbeErrors": [],
+    "note": "Selection authorizes lab training only; Android PSS and quality remain measured gates."
+  }
+}
