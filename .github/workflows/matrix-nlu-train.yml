@@ -96,11 +96,44 @@ jobs:
             | sort -z | xargs -0 -r sha256sum > build/matrix-nlu/automation/SHA256SUMS
           df -h . | tee build/matrix-nlu/automation/disk.txt
           free -h | tee build/matrix-nlu/automation/memory.txt
-      - uses: actions/upload-artifact@v4
+      - name: Upload bounded report evidence
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: matrix-nlu-one-click-${{ github.run_id }}
+          name: matrix-nlu-report-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 6
+          if-no-files-found: warn
+          path: |
+            build/matrix-nlu/automation/
+            build/matrix-nlu/verification-*/
+            build/matrix-nlu/data/*manifest.json
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/training-result.json
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/training-progress.json
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/labels.json
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-source.txt
+      - name: Upload deployable model bundle
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matrix-nlu-bundle-${{ github.run_id }}
           retention-days: 30
           compression-level: 1
-          path: build/matrix-nlu/
+          if-no-files-found: warn
+          path: |
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/training-result.json
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/labels.json
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/model-state.pt
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/tokenizer/
+      - name: Upload isolated resumable checkpoint
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matrix-nlu-resume-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 1
+          if-no-files-found: warn
+          path: |
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/checkpoints/latest.pt
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-source.txt
 

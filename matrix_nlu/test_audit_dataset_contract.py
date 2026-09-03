@@ -3,7 +3,7 @@ import pathlib
 import tempfile
 import unittest
 
-from audit_dataset_contract import audit, negation_shape
+from audit_dataset_contract import audit, has_critical_findings, negation_shape
 
 
 def row(row_id, split, source_kind, negation, *, language="it"):
@@ -46,6 +46,7 @@ class DatasetContractAuditTest(unittest.TestCase):
                          result["contractConflicts"][0]["kind"])
         self.assertFalse(result["scope"]["frozenTestRead"])
         self.assertEqual(0, result["semanticSpanContainment"]["failureCount"])
+        self.assertTrue(has_critical_findings(result))
 
     def test_rejects_frozen_test_rows(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -61,6 +62,7 @@ class DatasetContractAuditTest(unittest.TestCase):
             first = audit([("dev", path)])
             second = audit([("dev", path)])
         self.assertEqual(first, second)
+        self.assertFalse(has_critical_findings(first))
 
 
 if __name__ == "__main__":

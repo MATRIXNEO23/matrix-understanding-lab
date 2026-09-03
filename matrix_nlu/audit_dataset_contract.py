@@ -156,6 +156,11 @@ def audit(named_datasets: list[tuple[str, pathlib.Path]]) -> dict:
     }
 
 
+def has_critical_findings(result: dict) -> bool:
+    return bool(result["decisionRequired"] or
+                result["semanticSpanContainment"]["failureCount"])
+
+
 def parse_dataset(value: str) -> tuple[str, pathlib.Path]:
     if "=" not in value:
         raise argparse.ArgumentTypeError("expected NAME=PATH")
@@ -165,18 +170,21 @@ def parse_dataset(value: str) -> tuple[str, pathlib.Path]:
     return name, pathlib.Path(raw_path)
 
 
-def main() -> None:
+def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", action="append", type=parse_dataset,
                         required=True, help="repeatable NAME=PATH; train/dev only")
     parser.add_argument("--output", type=pathlib.Path, required=True)
+    parser.add_argument("--fail-on-conflict", action="store_true",
+                        help="return nonzero after preserving a report with critical findings")
     args = parser.parse_args()
     result = audit(args.dataset)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n",
                            encoding="utf-8")
     print(json.dumps(result, indent=2, ensure_ascii=False))
+    return 2 if args.fail_on_conflict and has_critical_findings(result) else 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

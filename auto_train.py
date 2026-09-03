@@ -95,6 +95,19 @@ def build_steps(args: argparse.Namespace, training_dir: pathlib.Path) -> list[St
         ),
         Step("Build Matrix datasets", [python, "matrix_nlu/build_dataset.py"]),
         Step(
+            "Audit train-dev annotation contracts",
+            [
+                python,
+                "matrix_nlu/audit_dataset_contract.py",
+                "--dataset", f"matrix-train={DATA_DIR.relative_to(ROOT) / 'matrix-train.jsonl'}",
+                "--dataset", f"matrix-dev={DATA_DIR.relative_to(ROOT) / 'matrix-dev.jsonl'}",
+                "--dataset", f"p05-train={DATA_DIR.relative_to(ROOT) / 'p05-train.jsonl'}",
+                "--dataset", f"p05-dev={DATA_DIR.relative_to(ROOT) / 'p05-dev.jsonl'}",
+                "--output", str((AUTOMATION_DIR / "dataset-contract-audit.json").relative_to(ROOT)),
+                "--fail-on-conflict",
+            ],
+        ),
+        Step(
             "Prepare verified MASSIVE auxiliary data",
             [
                 python,

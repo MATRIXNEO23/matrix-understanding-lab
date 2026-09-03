@@ -4,6 +4,7 @@ import tempfile
 import unittest
 
 import auto_test
+import auto_train
 import run_pipeline
 from pipeline_support import atomic_json, atomic_promote, file_manifest, sha256
 
@@ -17,6 +18,32 @@ def passing_metrics():
 
 
 class PipelineAutomationTest(unittest.TestCase):
+    def test_training_runs_contract_audit_before_external_data_and_training(self):
+        args = type("Args", (), {
+            "massive_train_per_language": 3,
+            "massive_dev_per_language": 3,
+            "massive_test_per_language": 3,
+            "seed": 810923,
+            "student_layers": 4,
+        })()
+        names = [step.name for step in auto_train.build_steps(
+            args, auto_train.ROOT / "build/matrix-nlu/training-student-4")]
+        self.assertEqual([
+            "Software regression tests",
+            "Build Matrix datasets",
+            "Audit train-dev annotation contracts",
+            "Prepare verified MASSIVE auxiliary data",
+            "Train/resume Matrix-NLU",
+        ], names)
+
+    def test_one_click_ci_uses_separate_report_bundle_and_resume_artifacts(self):
+        workflow = (pathlib.Path(__file__).resolve().parents[1] / ".github" /
+                    "workflows" / "matrix-nlu-train.yml").read_text(encoding="utf-8")
+        self.assertIn("matrix-nlu-report-${{ github.run_id }}", workflow)
+        self.assertIn("matrix-nlu-bundle-${{ github.run_id }}", workflow)
+        self.assertIn("matrix-nlu-resume-${{ github.run_id }}", workflow)
+        self.assertNotIn("name: matrix-nlu-one-click-${{ github.run_id }}", workflow)
+
     def test_frozen_gate_is_zero_tolerance_and_per_language(self):
         with tempfile.TemporaryDirectory() as temporary:
             path = pathlib.Path(temporary) / "result.json"
