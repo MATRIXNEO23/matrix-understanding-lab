@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T20:51:00Z  
+Last updated: 2026-09-03T21:15:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `6d8d463f76a3ff7de292b947a5854d308d8a9c3c`.
+  `4d67aaf921bfa9cfa0e88cc274ba118f384ecd8d`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -203,6 +203,13 @@ strategy change, before long/risky work, and before ending any session.
   `33804574916` is active on the exact augmented dataset/code lineage. Variant
   is `student-4`; its output and checkpoint paths are isolated from teacher
   evidence. Concurrent normal P0 CI run `33804575007` is also active.
+- Split-isolation regression commit
+  `4d67aaf921bfa9cfa0e88cc274ba118f384ecd8d`: train surfaces must be disjoint
+  from both dev and frozen generated surfaces, every dev label must have train
+  supervision, and every semantic span must be contained in its claim source.
+  Full local suite is 53/53 green. This test-only descendant does not alter or
+  restart the active run; P0 CI for launch commit `6d8d463...` is green as run
+  `33804575007`.
 - The automatic `workflow_run` edge did not fire after the source workflow was
   renamed for one-click operation. Fix `16754f79e26caa003679ffb70b512f6226c13627`
   added a bounded explicit trigger; `ffdbb224059ad27b7b544aa988e4cc2665a4159d`
@@ -580,7 +587,7 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity update on top of launch commit `6d8d463...` without
+1. Commit this continuity update on top of `4d67aaf...` without
    touching any trigger path.
 2. Monitor one-click run `33804574916`; allow it to prepare/verify data, train
    the isolated four-layer candidate, run the dev gate and only then
