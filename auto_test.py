@@ -133,6 +133,7 @@ def package(bundle: pathlib.Path, output: pathlib.Path, threshold: float,
     shutil.copytree(bundle / "tokenizer", staging / "tokenizer")
     shutil.copytree(output / "onnx", staging / "onnx")
     shutil.copy2(output / "threshold-selection.json", staging / "threshold-selection.json")
+    shutil.copy2(output / "split-separation.json", staging / "split-separation.json")
     report = {
         "schemaVersion": "matrix.nlu.verified-package.v1",
         "status": "PASS",
@@ -213,6 +214,19 @@ def main() -> int:
 
         frozen = output / "frozen-combined.jsonl"
         combined_dataset([DATA / "matrix-test.jsonl", DATA / "p05-test.jsonl"], frozen)
+        separation_evidence = {
+            "schemaVersion": "matrix.nlu.split-separation.v1",
+            "thresholdSelectionInputs": [
+                {"split": "dev", "path": str(DATA / name), "sha256": sha256(DATA / name)}
+                for name in ("matrix-dev.jsonl", "p05-dev.jsonl")],
+            "frozenInputs": [
+                {"split": "test", "path": str(DATA / name), "sha256": sha256(DATA / name)}
+                for name in ("matrix-test.jsonl", "p05-test.jsonl")],
+            "combinedFrozenSha256": sha256(frozen),
+            "frozenDataUsedForTuning": False,
+            "enforcement": "select_threshold.require_development rejects every non-dev row",
+        }
+        atomic_json(output / "split-separation.json", separation_evidence)
         stage(Step("evaluate-frozen-and-adversarial-once", [sys.executable,
             "matrix_nlu/evaluate_e2e.py", "--bundle", str(bundle), "--dataset", str(frozen),
             "--split", "test", "--threshold", str(threshold), "--output-dir", str(output / "frozen")]))

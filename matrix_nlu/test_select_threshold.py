@@ -1,7 +1,7 @@
 import unittest
 
 from test_evaluate_e2e import prediction, row
-from select_threshold import apply_threshold, choose_threshold
+from select_threshold import apply_threshold, choose_threshold, require_development
 
 
 def evidence(confidence=.9):
@@ -41,6 +41,12 @@ class ThresholdSelectionTest(unittest.TestCase):
             dict(extra[0]["prediction"]["rawClaims"][0]))
         result = choose_threshold([row()], extra, .99)
         self.assertEqual("FAILED_GATE", result["status"])
+
+    def test_frozen_row_is_rejected_as_threshold_input(self):
+        frozen = row()
+        frozen["split"] = "test"
+        with self.assertRaisesRegex(ValueError, "development partitions only"):
+            require_development([frozen])
 
 
 if __name__ == "__main__":

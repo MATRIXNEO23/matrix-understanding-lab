@@ -16,6 +16,13 @@ def read_predictions(path):
         return [json.loads(line) for line in handle if line.strip()]
 
 
+def require_development(rows):
+    invalid = [row.get("id") for row in rows if row.get("split") != "dev"]
+    if invalid:
+        raise ValueError("threshold selection accepts development partitions only: " +
+                         ", ".join(str(value) for value in invalid[:5]))
+
+
 def apply_threshold(rows, evidence, threshold):
     if [row["id"] for row in rows] != [item["id"] for item in evidence]:
         raise ValueError("dataset and prediction IDs/order differ")
@@ -77,8 +84,10 @@ def main():
     rows, evidence = [], []
     for dataset, predictions in zip(args.dataset, args.predictions):
         current_rows = read_rows(dataset)
-        if any(row["split"] != "dev" for row in current_rows):
-            raise SystemExit("threshold selection accepts development partitions only")
+        try:
+            require_development(current_rows)
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
         rows.extend(current_rows)
         evidence.extend(read_predictions(predictions))
     result = choose_threshold(rows, evidence, args.minimum_selective_accuracy,
