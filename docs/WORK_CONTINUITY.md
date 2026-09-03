@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:13:00Z  
+Last updated: 2026-09-03T18:14:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified after maximum-quality metric gate:
-  `781373ab899e5854401ceba0f1c7e1b31efa1fbd`.
+- HEAD verified after ONNX-export implementation:
+  `2e965e6802cfaa37504f6c9586032c05396a320a`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -44,6 +44,11 @@ strategy change, before long/risky work, and before ending any session.
   confirms the trained Matrix-NLU direction, OpenNLP canary, bounded autonomy,
   zero-cost/resumable training, no frozen-test tuning, and explicitly says the
   current training should continue absent a concrete Gate-0 violation.
+- Python memory architecture blueprint added concurrently and preserved at
+  `docs/ARCHITETTURA_MODELLO_AI_MEMORIA_PYTHON.md`, commit
+  `4ef989f2a0fc0a0f246ef4e03f186b600cdb8e9a`. Its own status says design only
+  and no application code authorized; therefore it does not authorize starting
+  Memory or another component and does not alter the active C1 training.
 - The specification was reread in full after the controlled P0.5 stop.
 - Current objective: build and objectively gate the trained IT/EN/ES
   Matrix-NLU in this lab only:
@@ -272,6 +277,14 @@ strategy change, before long/risky work, and before ending any session.
   additionally requires exact claim set >= 0.98 and valid coverage >= 0.98;
   selective accuracy or abstention cannot conceal a near-empty system. Full
   local suite remains 32/32 and byte-compilation green.
+- ONNX-export software checkpoint
+  `2e965e6802cfaa37504f6c9586032c05396a320a`: fixed-shape export uses the
+  bundle's declared max length, stable named outputs for every learned head,
+  opset 17 FP32 plus per-channel dynamic INT8, source/artifact SHA-256 and byte
+  counts, native-vs-ORT argmax/logit parity on IT/EN/ES probes, and measured
+  median/p95/max latency. The corrected p95 uses nearest-rank. Full local suite
+  34/34 and byte-compilation are green. No ONNX export has yet executed, so
+  export/parity/size/latency gates remain unverified.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -360,6 +373,8 @@ strategy change, before long/risky work, and before ending any session.
   `968953a9b6dade4d039577f989f31292d959d1f8`.
 - Senior supervisor execution plan, concurrently added and preserved:
   `16d53e55bdc419717ddda717e7fc00aae5690192`.
+- Python memory blueprint (design only), concurrently added and preserved:
+  `4ef989f2a0fc0a0f246ef4e03f186b600cdb8e9a`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -376,13 +391,15 @@ strategy change, before long/risky work, and before ending any session.
   `b161d5dd1553207de7465b7bc1eb37606a002f1b`.
 - Maximum-quality metrics and nontrivial coverage/claim-set gate:
   `781373ab899e5854401ceba0f1c7e1b31efa1fbd`.
+- Audited ONNX FP32/INT8 export implementation:
+  `2e965e6802cfaa37504f6c9586032c05396a320a`.
 - This continuity update is pending consolidation; it must not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `781373a...` without touching
+1. Commit this continuity-only update on top of `2e965e6...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
