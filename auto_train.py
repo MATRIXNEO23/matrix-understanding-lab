@@ -4,18 +4,13 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
-import os
 import pathlib
 import shutil
-import subprocess
 import sys
-import tempfile
 import time
-from dataclasses import dataclass
 
-from tqdm import tqdm
+from matrix_nlu.pipeline_support import Step, atomic_json, run_step as run_pipeline_step, sha256
 
 ROOT = pathlib.Path(__file__).resolve().parent
 BUILD = ROOT / "build" / "matrix-nlu"
@@ -23,66 +18,7 @@ DATA_DIR = BUILD / "data"
 MASSIVE_DIR = BUILD / "massive"
 DEFAULT_TRAINING_DIR = BUILD / "training"
 AUTOMATION_DIR = BUILD / "automation"
-STATUS_FILE = AUTOMATION_DIR / "auto-train-status.json"
 DEFAULT_LAST_GOOD_DIR = BUILD / "last-good-training"
-
-
-@dataclass(frozen=True)
-class Step:
-    name: str
-    command: list[str]
-
-
-def atomic_json(path: pathlib.Path, payload: dict) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
-    try:
-        with os.fdopen(fd, "w", encoding="utf-8") as handle:
-            json.dump(payload, handle, indent=2, ensure_ascii=False)
-            handle.write("\n")
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.replace(tmp_name, path)
-    except Exception:
-        try:
-            os.unlink(tmp_name)
-        except FileNotFoundError:
-            pass
-        raise
-
-
-def sha256(path: pathlib.Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
-def run_step(step: Step) -> float:
-    started = time.monotonic()
-    print(f"\n[AUTO-TRAIN] {step.name}")
-    print("$ " + " ".join(step.command))
-    process = subprocess.Popen(
-        step.command,
-        cwd=ROOT,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        bufsize=1,
-    )
-    assert process.stdout is not None
-    with tqdm(desc=step.name, unit="line", dynamic_ncols=True) as progress:
-        for line in process.stdout:
-            print(line, end="")
-            progress.update(1)
-    return_code = process.wait()
-    elapsed = time.monotonic() - started
-    if return_code != 0:
-        raise RuntimeError(f"step '{step.name}' failed with exit code {return_code}")
-    return elapsed
 
 
 def validate_training_artifact(training_dir: pathlib.Path) -> dict:
@@ -214,6 +150,9 @@ def main() -> int:
         parser.error("--output-dir must be inside the repository for auditable manifests")
     last_good_dir = (BUILD / f"last-good-training-student-{args.student_layers}"
                      if args.student_layers is not None else DEFAULT_LAST_GOOD_DIR)
+    variant = "teacher-6-layer" if args.student_layers is None else f"student-{args.student_layers}-layer"
+    status_file = AUTOMATION_DIR / f"auto-train-{variant}-status.json"
+    log_dir = AUTOMATION_DIR / "logs" / variant
 
     AUTOMATION_DIR.mkdir(parents=True, exist_ok=True)
     started_wall = time.time()
@@ -221,23 +160,22 @@ def main() -> int:
     timings: dict[str, float] = {}
 
     atomic_json(
-        STATUS_FILE,
+        status_file,
         {
             "schemaVersion": "matrix.nlu.auto-train-status.v1",
             "status": "RUNNING",
             "startedAtEpochSeconds": started_wall,
             "command": sys.argv,
             "trainingDir": str(training_dir.relative_to(ROOT)),
-            "variant": "teacher-6-layer" if args.student_layers is None else f"student-{args.student_layers}-layer",
+            "variant": variant,
         },
     )
 
     try:
         steps = build_steps(args, training_dir)
-        with tqdm(total=len(steps), desc="Matrix-NLU pipeline", unit="step", dynamic_ncols=True) as overall:
-            for step in steps:
-                timings[step.name] = run_step(step)
-                overall.update(1)
+        for index, step in enumerate(steps, 1):
+            print(f"[AUTO-TRAIN] step {index}/{len(steps)}")
+            timings[step.name] = run_pipeline_step(step, ROOT, log_dir)
 
         metadata = validate_training_artifact(training_dir)
         promote_last_good(training_dir, last_good_dir, metadata)
@@ -251,7 +189,7 @@ def main() -> int:
             "timings": timings,
             **metadata,
         }
-        atomic_json(STATUS_FILE, final)
+        atomic_json(status_file, final)
         print("\n[AUTO-TRAIN] SUCCESS")
         print(json.dumps(final, indent=2, ensure_ascii=False))
         return 0
@@ -267,7 +205,7 @@ def main() -> int:
             "lastGoodPreserved": last_good_dir.exists(),
             "resumeCheckpointPreserved": (training_dir / "checkpoints" / "latest.pt").exists(),
         }
-        atomic_json(STATUS_FILE, failure)
+        atomic_json(status_file, failure)
         print("\n[AUTO-TRAIN] INTERRUPTED: resumable checkpoint and last-good artifacts preserved.")
         return 130
     except Exception as exc:
@@ -283,7 +221,7 @@ def main() -> int:
             "lastGoodPreserved": last_good_dir.exists(),
             "resumeCheckpointPreserved": (training_dir / "checkpoints" / "latest.pt").exists(),
         }
-        atomic_json(STATUS_FILE, failure)
+        atomic_json(status_file, failure)
         print(f"\n[AUTO-TRAIN] FAILED: {type(exc).__name__}: {exc}", file=sys.stderr)
         print("Previous last-good artifacts were not overwritten.", file=sys.stderr)
         return 1

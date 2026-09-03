@@ -1,34 +1,38 @@
-name: Matrix-NLU Training
+name: Matrix-NLU One-Click Pipeline
 
 on:
+  workflow_dispatch:
+    inputs:
+      student_layers:
+        description: Student encoder layers; leave empty for teacher evidence
+        required: false
+        default: '4'
+        type: string
+      resume_run_id:
+        description: Optional prior one-click run containing a resumable latest.pt
+        required: false
+        type: string
   push:
     branches: [main]
     paths:
-      - 'matrix_nlu/labels.py'
-      - 'matrix_nlu/model.py'
-      - 'matrix_nlu/training_data.py'
-      - 'matrix_nlu/prepare_massive.py'
-      - 'matrix_nlu/train.py'
-      - 'matrix_nlu/train_config.json'
-      - 'matrix_nlu/requirements-train.txt'
-      - 'matrix_nlu/test_training_data.py'
-      - 'matrix_nlu/test_prepare_massive.py'
-      - '.github/workflows/matrix-nlu-train.yml'
-  workflow_dispatch:
+      - 'pipeline/student-4.trigger'
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
-  train-teacher:
+  train-test-package:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 360
     env:
       HF_HOME: ${{ github.workspace }}/.cache/huggingface
       HF_HUB_DISABLE_TELEMETRY: '1'
       TOKENIZERS_PARALLELISM: 'false'
       OMP_NUM_THREADS: '4'
       MKL_NUM_THREADS: '4'
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -40,48 +44,63 @@ jobs:
         with:
           path: .cache/huggingface
           key: matrix-nlu-geotrend-36de33ec-v1
-      - name: Install pinned training dependencies
+      - name: Install pinned train/test/export dependencies
         run: python -m pip install --requirement matrix_nlu/requirements-train.txt
-      - name: Software and dataset tests
-        run: python -m unittest discover -s matrix_nlu -p 'test_*.py' -v
-      - name: Build Matrix and P0.5 typed datasets
-        run: python matrix_nlu/build_dataset.py
-      - name: Prepare hash-verified MASSIVE auxiliary data
-        run: >-
-          python matrix_nlu/prepare_massive.py
-          --train-per-language 3000
-          --dev-per-language 600
-          --test-per-language 1000
-          --seed 810923
-      - name: Record pre-training resources
+      - name: Resolve isolated variant output
+        shell: bash
         run: |
-          df -h .
-          free -h
-          python - <<'PY'
-          import torch
-          print('torch', torch.__version__)
-          print('threads', torch.get_num_threads())
-          PY
-      - name: Train six-layer teacher and evaluate frozen sets once
-        run: >-
-          python matrix_nlu/train.py
-          --config matrix_nlu/train_config.json
-          --data-dir build/matrix-nlu/data
-          --massive-dir build/matrix-nlu/massive
-          --output-dir build/matrix-nlu/training
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            LAYERS=4
+          else
+            LAYERS="${{ inputs.student_layers }}"
+          fi
+          if [[ -n "$LAYERS" ]]; then
+            [[ "$LAYERS" =~ ^[0-9]+$ ]]
+            echo "MATRIX_NLU_STUDENT_LAYERS=$LAYERS" >> "$GITHUB_ENV"
+            echo "MATRIX_NLU_TRAINING_DIR=build/matrix-nlu/training-student-$LAYERS" >> "$GITHUB_ENV"
+          else
+            echo "MATRIX_NLU_STUDENT_LAYERS=" >> "$GITHUB_ENV"
+            echo "MATRIX_NLU_TRAINING_DIR=build/matrix-nlu/training" >> "$GITHUB_ENV"
+          fi
+      - name: Restore an explicitly selected resumable checkpoint
+        if: github.event_name == 'workflow_dispatch' && inputs.resume_run_id != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p resume-download "$MATRIX_NLU_TRAINING_DIR/checkpoints"
+          gh run download "${{ inputs.resume_run_id }}" --dir resume-download
+          CHECKPOINT=$(find resume-download -type f -name latest.pt -print -quit)
+          test -n "$CHECKPOINT"
+          cp "$CHECKPOINT" "$MATRIX_NLU_TRAINING_DIR/checkpoints/latest.pt"
+          printf 'resumeRunId=%s\ncheckpointSha256=' "${{ inputs.resume_run_id }}" \
+            > "$MATRIX_NLU_TRAINING_DIR/resume-source.txt"
+          sha256sum "$MATRIX_NLU_TRAINING_DIR/checkpoints/latest.pt" \
+            | awk '{print $1}' >> "$MATRIX_NLU_TRAINING_DIR/resume-source.txt"
+      - name: Run strict prepare train-resume validate frozen export package pipeline
+        shell: bash
+        run: |
+          set -euo pipefail
+          COMMAND=(python run_pipeline.py)
+          if [[ -n "$MATRIX_NLU_STUDENT_LAYERS" ]]; then
+            COMMAND+=(--student-layers "$MATRIX_NLU_STUDENT_LAYERS")
+          fi
+          "${COMMAND[@]}"
+      - name: Record preserved evidence
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/matrix-nlu/automation
+          find build/matrix-nlu -type f ! -name SHA256SUMS -print0 \
+            | sort -z | xargs -0 -r sha256sum > build/matrix-nlu/automation/SHA256SUMS
+          df -h . | tee build/matrix-nlu/automation/disk.txt
+          free -h | tee build/matrix-nlu/automation/memory.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: matrix-nlu-teacher-evidence
-          path: |
-            build/matrix-nlu/training/
-            !build/matrix-nlu/training/checkpoints/
-            build/matrix-nlu/data/*manifest.json
-            build/matrix-nlu/massive/manifest.json
-            build/matrix-nlu/massive/MASSIVE-LICENSE.txt
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: matrix-nlu-teacher-resume-checkpoint
+          name: matrix-nlu-one-click-${{ github.run_id }}
+          retention-days: 30
           compression-level: 1
-          path: build/matrix-nlu/training/checkpoints/
+          path: build/matrix-nlu/
+

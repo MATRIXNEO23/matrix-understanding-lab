@@ -16,6 +16,7 @@ from labels import SEQUENCE_LABELS, TOKEN_LABELS
 from model import build_model, parameter_summary
 from training_data import (IGNORE, ExampleDataset, massive_examples, massive_slot_vocab,
                            matrix_examples, read_jsonl)
+from pipeline_support import atomic_json
 
 
 def seed_everything(seed: int):
@@ -107,6 +108,7 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
     best_score = -1.0
     best_state = None
     history = []
+    epochs_without_improvement = 0
     if resume and resume.get("stage") == stage:
         model.load_state_dict(resume["model"])
         optimizer.load_state_dict(resume["optimizer"])
@@ -115,6 +117,7 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
         best_score = resume["bestScore"]
         best_state = resume.get("bestModel")
         history = resume.get("history", [])
+        epochs_without_improvement = resume.get("epochsWithoutImprovement", 0)
     for epoch in range(start_epoch, epochs):
         model.train()
         optimizer.zero_grad(set_to_none=True)
@@ -130,6 +133,15 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
                 optimizer.step()
                 scheduler.step()
                 optimizer.zero_grad(set_to_none=True)
+            if (batch_index + 1) % 50 == 0 or batch_index + 1 == len(train_loader):
+                atomic_json(output_dir / "training-progress.json", {
+                    "schemaVersion": "matrix.nlu.training-progress.v1", "status": "RUNNING",
+                    "stage": stage, "epoch": epoch + 1, "epochs": epochs,
+                    "batch": batch_index + 1, "batches": len(train_loader),
+                    "fraction": (batch_index + 1) / max(1, len(train_loader)),
+                    "runningLoss": running / (batch_index + 1),
+                    "elapsedSeconds": time.monotonic() - started,
+                })
         dev = {name: evaluate(model, loader, device) for name, loader in dev_loaders.items()}
         score = sum(value["macroHeadAccuracy"] for value in dev.values()) / len(dev)
         entry = {"stage": stage, "epoch": epoch + 1,
@@ -140,10 +152,25 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
         if score > best_score:
             best_score = score
             best_state = {key: value.detach().cpu().clone() for key, value in model.state_dict().items()}
+            epochs_without_improvement = 0
+        else:
+            epochs_without_improvement += 1
         checkpoint = {"stage": stage, "nextEpoch": epoch + 1, "model": model.state_dict(),
                       "optimizer": optimizer.state_dict(), "scheduler": scheduler.state_dict(),
-                      "bestScore": best_score, "bestModel": best_state, "history": history}
+                      "bestScore": best_score, "bestModel": best_state, "history": history,
+                      "epochsWithoutImprovement": epochs_without_improvement}
         torch.save(checkpoint, output_dir / "checkpoints" / "latest.pt")
+        atomic_json(output_dir / "training-progress.json", {
+            "schemaVersion": "matrix.nlu.training-progress.v1", "status": "EPOCH_COMPLETE",
+            "stage": stage, "epoch": epoch + 1, "epochs": epochs,
+            "bestScore": best_score, "epochsWithoutImprovement": epochs_without_improvement,
+            "checkpoint": str(output_dir / "checkpoints" / "latest.pt"),
+        })
+        patience = config["matrix"].get("earlyStoppingPatience")
+        if patience is not None and epochs_without_improvement >= int(patience):
+            print(json.dumps({"stage": stage, "event": "EARLY_STOP",
+                              "patience": int(patience), "epoch": epoch + 1}))
+            break
     model.load_state_dict(best_state)
     return history, best_score
 
