@@ -1,0 +1,22 @@
+plugins {
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation project(':core')
+}
+
+application {
+    mainClass = 'com.matrix.p0.cli.Main'
+}
+
+tasks.named('run') {
+    workingDir = rootProject.projectDir
+}
+

@@ -1,0 +1,9 @@
+plugins {
+    id 'base'
+}
+
+allprojects {
+    group = 'com.matrix.p0'
+    version = '0.1.0'
+}
+
