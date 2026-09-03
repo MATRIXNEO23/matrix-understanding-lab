@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:27:00Z  
+Last updated: 2026-09-03T18:38:35Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `c32e4127861d1929af622017fe2189a6c6801fb3`.
+  `732725fd94241e8523cb6692f1a05cfd4b8a1ee7`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -45,23 +45,27 @@ strategy change, before long/risky work, and before ending any session.
   zero-cost/resumable training, no frozen-test tuning, and explicitly says the
   current training should continue absent a concrete Gate-0 violation.
 - Python memory architecture blueprint added concurrently and preserved at
-  `docs/ARCHITETTURA_MODELLO_AI_MEMORIA_PYTHON.md`, commit
+  root `ARCHITETTURA.md`, commit
   `4ef989f2a0fc0a0f246ef4e03f186b600cdb8e9a`. Its own status says design only
   and no application code authorized; therefore it does not authorize starting
   Memory or another component and does not alter the active C1 training.
 - Canonical automated train/test policy added concurrently and preserved at
-  `docs/AUTOMATED_TRAIN_TEST_PIPELINE.md`, commit
+  `docs/AUTOMATED_TRAIN_TEST_PIPELINE_POLICY.md`, commit
   `6e6a0c473ef929035d188005776e5a83355887ca`. It requires one-command,
   resumable, provenance-locked, failure-preserving automation and confirms that
   ordinary training/data/calibration faults are autonomous C1 work, not user
   decisions. The active training plus `matrix-nlu-post-train.yml` implement the
-  current two-stage form; a single orchestration entry point remains pending.
+  previous two-stage form. Commit `732725fd...` now adds a strict single
+  orchestration entry point; its control-flow/unit gates are green, while its
+  model-dependent execution waits for the already-running teacher artifact.
 - A one-command training orchestrator was added concurrently at `auto_train.py`,
   commit `3f9cfa1b8e60db875cdbd8fc405f94e0f81f6b36`. It runs software tests,
   dataset/MASSIVE preparation and resumable training, validates checksums and
   preserves/promotes a last-good bundle atomically. It has not been executed and
   must not be invoked while run `33786677296` is active. Its eventual integration
-  with post-training quality/export gates remains to be verified.
+  with post-training quality/export gates is now implemented at `732725fd...`.
+  Teacher and student outputs/checkpoints are isolated so a four-layer run
+  cannot consume an incompatible six-layer checkpoint.
 - The specification was reread in full after the controlled P0.5 stop.
 - Current objective: build and objectively gate the trained IT/EN/ES
   Matrix-NLU in this lab only:
@@ -143,6 +147,18 @@ strategy change, before long/risky work, and before ending any session.
   start another teacher run while it is active.
 - In parallel, commit `9027ff3...` added the end-to-end learned decoder and
   deterministic invariant validator without touching a training-trigger path.
+- Automation checkpoint `732725fd94241e8523cb6692f1a05cfd4b8a1ee7`
+  added/hardened `auto_train.py`, created `auto_test.py` and
+  `run_pipeline.py`, and added failure-safe shared support. The one-click order
+  is prepare/verify -> train/resume -> dev validation/threshold -> frozen
+  Matrix+P0.5 -> FP32/INT8 ONNX frozen evaluation -> package/report. Critical
+  failures preserve logs, checkpoints, candidate evidence and the prior
+  last-good package. Teacher evidence and production package promotion are
+  deliberately distinct.
+- The same checkpoint added per-language/worst-language frozen gates, strict
+  zero ownership/World Truth gates, residual taxonomy, exact dev-only threshold
+  provenance, offline ONNX runtime evaluation over the complete frozen set,
+  INT8 quality-delta checks and theoretical FP32/INT8 size evidence.
 - Current candidate configuration:
   - primary probe: `Geotrend/distilbert-base-en-es-it-cased`;
   - quality/size counterexample: `microsoft/Multilingual-MiniLM-L12-H384`;
@@ -160,9 +176,14 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Tests and CI state
 
-- Green local checks at current implementation:
-  `python3 -m unittest discover -s matrix_nlu -p 'test_*.py' -v` (3 tests),
-  `python3 -m py_compile matrix_nlu/probe_candidates.py`.
+- Green local checks at current implementation (`732725fd...`):
+  `python -m unittest discover -s matrix_nlu -p 'test_*.py' -v` (42/42),
+  full `python -m py_compile auto_train.py auto_test.py run_pipeline.py
+  matrix_nlu/*.py`, and `python run_pipeline.py --dry-run --student-layers 4`.
+  The suite covers unit, dataset/property, regression, integration, authority,
+  ownership, World Truth, claim count, abstention, gate failure and atomic
+  promotion control flow. This is software evidence only; model quality remains
+  pending the active run.
 - CI for `5b9bb591...`: no associated workflow run; do not report PASS.
 - CI probe run `33784078023` on `d2a388b...`: red before job creation because
   the six newly uploaded files contained literal serialization placeholders
@@ -320,7 +341,8 @@ strategy change, before long/risky work, and before ending any session.
 - Training implementation commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Active training run: `33786677296`, status `in_progress` when this continuity
-  checkpoint was written. Companion normal P0 and provenance workflows are
+  checkpoint was written at `2026-09-03T18:38Z`; step 10, `Train six-layer
+  teacher and evaluate frozen sets once`, remains active. Companion normal P0 and provenance workflows are
   `33786677289` and `33786677349`.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
@@ -405,6 +427,8 @@ strategy change, before long/risky work, and before ending any session.
   `6e6a0c473ef929035d188005776e5a83355887ca`.
 - One-command auto-training implementation, concurrently added and preserved:
   `3f9cfa1b8e60db875cdbd8fc405f94e0f81f6b36` (not executed).
+- Strict one-click verification/package pipeline and isolated teacher/student
+  resume outputs: `732725fd94241e8523cb6692f1a05cfd4b8a1ee7`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -427,20 +451,26 @@ strategy change, before long/risky work, and before ending any session.
   `ea1655004d4fea31d8d911ab45d3c27e6f21dff3`.
 - Failed-gate evidence preservation fix:
   `c32e4127861d1929af622017fe2189a6c6801fb3`.
-- This continuity update is pending consolidation; it must not alter or restart
+- This continuity update is pending consolidation; it does not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `c32e412...` without touching
+1. Commit this continuity-only update on top of `732725fd...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
    the causal software/dependency fix.
 3. If it completes, download evidence and resume-checkpoint artifacts, record
-   exact checksums/component metrics, run the end-to-end Typed Claim evaluator,
-   and perform dev-led error analysis before any student or ONNX work.
-4. Carry the nested-attribution contract issue above to supervisor counter-review;
+   exact checksums/component metrics, and run
+   `python run_pipeline.py --skip-train --bundle <downloaded-bundle>
+   --candidate-role teacher`. Apply dev-led error analysis; never tune on frozen
+   evidence.
+4. If the teacher establishes a viable quality ceiling, run the isolated
+   four-layer candidate with `python run_pipeline.py --student-layers 4` (or
+   resume its variant-specific checkpoint), then require the complete
+   production quality/size/package gate.
+5. Carry the nested-attribution contract issue above to supervisor counter-review;
    continue all independent single-level C1 quality/export work without inventing
    a binding heuristic.
