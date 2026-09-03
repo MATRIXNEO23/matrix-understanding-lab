@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:38:35Z  
+Last updated: 2026-09-03T18:40:46Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `732725fd94241e8523cb6692f1a05cfd4b8a1ee7`.
+  `a6818f971dc55ba2c5faf7f2eb3bb8d8e7d081f1`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -159,6 +159,11 @@ strategy change, before long/risky work, and before ending any session.
   zero ownership/World Truth gates, residual taxonomy, exact dev-only threshold
   provenance, offline ONNX runtime evaluation over the complete frozen set,
   INT8 quality-delta checks and theoretical FP32/INT8 size evidence.
+- CI checkpoint `a6818f971dc55ba2c5faf7f2eb3bb8d8e7d081f1`
+  replaced the duplicated post-training shell sequence with the same strict
+  `auto_test.py` entry point used locally. The workflow still consumes the
+  immutable artifact from run `33786677296`, fails on critical dev/frozen/ONNX
+  gates, and uploads status, logs and partial evidence with `if: always()`.
 - Current candidate configuration:
   - primary probe: `Geotrend/distilbert-base-en-es-it-cased`;
   - quality/size counterexample: `microsoft/Multilingual-MiniLM-L12-H384`;
@@ -429,6 +434,8 @@ strategy change, before long/risky work, and before ending any session.
   `3f9cfa1b8e60db875cdbd8fc405f94e0f81f6b36` (not executed).
 - Strict one-click verification/package pipeline and isolated teacher/student
   resume outputs: `732725fd94241e8523cb6692f1a05cfd4b8a1ee7`.
+- CI adoption of the strict post-training entry point:
+  `a6818f971dc55ba2c5faf7f2eb3bb8d8e7d081f1`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -457,7 +464,7 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `732725fd...` without touching
+1. Commit this continuity-only update on top of `a6818f97...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
