@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:07:00Z  
+Last updated: 2026-09-03T18:10:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified after authority-invariant property tests:
-  `b161d5dd1553207de7465b7bc1eb37606a002f1b`.
+- HEAD verified after maximum-quality metric gate:
+  `781373ab899e5854401ceba0f1c7e1b31efa1fbd`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -38,6 +38,12 @@ strategy change, before long/risky work, and before ending any session.
   calibration, repeated seeds/dispersion where stochasticity matters and
   permanent regression evidence. This was a concurrent documentation-only
   commit and is preserved in the current lineage.
+- Canonical supervision method added concurrently and preserved at
+  `docs/SENIOR_SUPERVISOR_EXECUTION_PLAN.md`, commit
+  `16d53e55bdc419717ddda717e7fc00aae5690192`. For current component C1 it
+  confirms the trained Matrix-NLU direction, OpenNLP canary, bounded autonomy,
+  zero-cost/resumable training, no frozen-test tuning, and explicitly says the
+  current training should continue absent a concrete Gate-0 violation.
 - The specification was reread in full after the controlled P0.5 stop.
 - Current objective: build and objectively gate the trained IT/EN/ES
   Matrix-NLU in this lab only:
@@ -259,6 +265,13 @@ strategy change, before long/risky work, and before ending any session.
   remain non-valid, non-admissible and unable to promote World Truth; malformed
   source-span boundary classes are rejected. Full local suite 32/32 and
   byte-compilation are green.
+- Maximum-quality metric checkpoint
+  `781373ab899e5854401ceba0f1c7e1b31efa1fbd`: end-to-end output now includes
+  exact claim set, per-field accuracy, per-span F1, explicit predicate,
+  negation and temporal metrics, and worst-language scores. Dev threshold PASS
+  additionally requires exact claim set >= 0.98 and valid coverage >= 0.98;
+  selective accuracy or abstention cannot conceal a near-empty system. Full
+  local suite remains 32/32 and byte-compilation green.
 - First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
   seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
   one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
@@ -335,6 +348,8 @@ strategy change, before long/risky work, and before ending any session.
   `21e1de86fc0ecf8ce86d59b71ab89e2bccc827ea`.
 - Maximum-depth validation supplement, concurrently added and preserved:
   `968953a9b6dade4d039577f989f31292d959d1f8`.
+- Senior supervisor execution plan, concurrently added and preserved:
+  `16d53e55bdc419717ddda717e7fc00aae5690192`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -349,13 +364,15 @@ strategy change, before long/risky work, and before ending any session.
   `2f6a603cce44b5d062731f1f99891df8fe640a19`.
 - Deterministic authority/source-span property regressions:
   `b161d5dd1553207de7465b7bc1eb37606a002f1b`.
+- Maximum-quality metrics and nontrivial coverage/claim-set gate:
+  `781373ab899e5854401ceba0f1c7e1b31efa1fbd`.
 - This continuity update is pending consolidation; it must not alter or restart
   the active training run.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `b161d5d...` without touching
+1. Commit this continuity-only update on top of `781373a...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
