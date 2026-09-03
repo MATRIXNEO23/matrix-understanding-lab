@@ -10,6 +10,10 @@ on:
         description: Successful Matrix-NLU Training run id
         required: true
         type: string
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/teacher-post.trigger'
 
 permissions:
   contents: read
@@ -17,7 +21,7 @@ permissions:
 
 jobs:
   dev-calibration-frozen-export:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -45,6 +49,8 @@ jobs:
           set -euo pipefail
           if [[ "${{ github.event_name }}" == "workflow_run" ]]; then
             SOURCE_RUN="${{ github.event.workflow_run.id }}"
+          elif [[ "${{ github.event_name }}" == "push" ]]; then
+            SOURCE_RUN=$(tr -d '[:space:]' < pipeline/teacher-post.trigger)
           else
             SOURCE_RUN="${{ inputs.training_run_id }}"
           fi
