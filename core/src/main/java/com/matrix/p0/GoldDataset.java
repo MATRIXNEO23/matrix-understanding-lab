@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.matrix.p0.Domain.*;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,7 +18,13 @@ public final class GoldDataset {
     private GoldDataset() {}
 
     public static List<GoldCase> load(Path path) throws IOException {
-        JsonNode root = new ObjectMapper().readTree(path.toFile());
+        try (InputStream input = Files.newInputStream(path)) {
+            return load(input);
+        }
+    }
+
+    public static List<GoldCase> load(InputStream input) throws IOException {
+        JsonNode root = new ObjectMapper().readTree(input);
         if (!"p0.gold.v1".equals(root.path("schemaVersion").asText())) {
             throw new IllegalArgumentException("unsupported gold schema");
         }
@@ -87,4 +95,3 @@ public final class GoldDataset {
         return source.toLowerCase(java.util.Locale.ROOT).indexOf(part.toLowerCase(java.util.Locale.ROOT));
     }
 }
-

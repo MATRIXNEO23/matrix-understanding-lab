@@ -3,7 +3,6 @@ package com.matrix.p0;
 import com.matrix.p0.Domain.GoldCase;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,6 +25,12 @@ class GoldSetIntegrityTest {
         assertTrue(cases.stream().flatMap(c->c.expected().stream()).allMatch(c->!c.sourceIds().isEmpty()&&!c.sourceSpans().isEmpty()));
     }
 
-    private static List<GoldCase> load(){try{return GoldDataset.load(Path.of("src/test/resources/p0-gold-v1.json"));}catch(Exception e){throw new RuntimeException(e);}}
+    private static List<GoldCase> load(){
+        try (var input = GoldSetIntegrityTest.class.getResourceAsStream("/p0-gold-v1.json")) {
+            assertNotNull(input, "gold set must be packaged as a test resource");
+            return GoldDataset.load(input);
+        } catch(Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
-
