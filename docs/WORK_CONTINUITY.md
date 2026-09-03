@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:17:00Z  
+Last updated: 2026-09-03T18:18:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,9 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified after post-training gate automation:
-  `ea1655004d4fea31d8d911ab45d3c27e6f21dff3`.
+- HEAD verified before this continuity update:
+  `f350db0b02deba2032bb08725eb386a7effd9373` (post-training gate automation
+  plus its continuity checkpoint).
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -49,6 +50,13 @@ strategy change, before long/risky work, and before ending any session.
   `4ef989f2a0fc0a0f246ef4e03f186b600cdb8e9a`. Its own status says design only
   and no application code authorized; therefore it does not authorize starting
   Memory or another component and does not alter the active C1 training.
+- Canonical automated train/test policy added concurrently and preserved at
+  `docs/AUTOMATED_TRAIN_TEST_PIPELINE.md`, commit
+  `6e6a0c473ef929035d188005776e5a83355887ca`. It requires one-command,
+  resumable, provenance-locked, failure-preserving automation and confirms that
+  ordinary training/data/calibration faults are autonomous C1 work, not user
+  decisions. The active training plus `matrix-nlu-post-train.yml` implement the
+  current two-stage form; a single orchestration entry point remains pending.
 - The specification was reread in full after the controlled P0.5 stop.
 - Current objective: build and objectively gate the trained IT/EN/ES
   Matrix-NLU in this lab only:
@@ -383,6 +391,8 @@ strategy change, before long/risky work, and before ending any session.
   `16d53e55bdc419717ddda717e7fc00aae5690192`.
 - Python memory blueprint (design only), concurrently added and preserved:
   `4ef989f2a0fc0a0f246ef4e03f186b600cdb8e9a`.
+- Automated training/testing policy, concurrently added and preserved:
+  `6e6a0c473ef929035d188005776e5a83355887ca`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
