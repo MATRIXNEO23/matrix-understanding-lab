@@ -27,6 +27,8 @@ jobs:
         run: gradle --no-daemon :trainer:test :trainer:trainItalianClean
       - name: Unified A/B benchmark
         run: gradle --no-daemon :cli:run
+      - name: Expanded pre-fix P0.5 baseline
+        run: gradle --no-daemon :cli:p05Baseline
       - name: Build Android footprint probe
         run: gradle --no-daemon :android-probe:assembleDebug
       - name: Verify offline Android artifact
@@ -52,6 +54,10 @@ jobs:
         with:
           name: p05-training
           path: build/p05/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p05-baseline
+          path: build/p05-baseline/
       - uses: actions/upload-artifact@v4
         with:
           name: p0-android-probe

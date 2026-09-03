@@ -20,3 +20,12 @@ application {
 tasks.named('run') {
     workingDir = rootProject.projectDir
 }
+
+tasks.register('p05Baseline', JavaExec) {
+    group = 'verification'
+    description = 'Evaluates frozen A/B implementations on the expanded P0.5 gold before fixes.'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = application.mainClass
+    workingDir = rootProject.projectDir
+    args 'gold/p05-gold-v1.json', 'build/p05-baseline/p05-baseline-results.json'
+}

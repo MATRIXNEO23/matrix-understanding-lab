@@ -21,7 +21,8 @@ public final class Main {
                 result.get("engine"),result.get("status"),result.get("cases"),result.get("claimCountExact"),result.get("fieldExact"),
                 result.get("ownershipViolations"),result.get("inventedWorldTruth"));
         }
-        Map<String,Object> report=new LinkedHashMap<>();report.put("schemaVersion","p0.results.v1");report.put("gold","p0.gold.v1");
+        String goldId=gold.getFileName().toString().startsWith("p05-")?"p05.expanded.v1":"p0.gold.v1";
+        Map<String,Object> report=new LinkedHashMap<>();report.put("schemaVersion","p0.results.v1");report.put("gold",goldId);
         report.put("candidateC",Map.of(
             "status","CANDIDATE_C_NOT_READY",
             "gate07","SKIPPED_BY_SPEC",
@@ -30,15 +31,17 @@ public final class Main {
         report.put("jvm",Map.of("java",System.getProperty("java.version"),"maxHeapBytes",Runtime.getRuntime().maxMemory(),"classpathBytes",classpathBytes(),
             "measurementScope","CI JVM wall-clock microbenchmark; not Android PSS/CPU/thermal"));
         Evaluator.writeJson(out,report);
-        writeMarkdown(out.resolveSibling("p0-results.md"),results,report);
+        String markdownName=out.getFileName().toString().replaceFirst("\\.json$",".md");
+        writeMarkdown(out.resolveSibling(markdownName),results,report,goldId,cases.size());
     }
 
     private static long classpathBytes(){long total=0;for(String entry:System.getProperty("java.class.path","").split(java.io.File.pathSeparator)){try{Path p=Path.of(entry);if(java.nio.file.Files.isRegularFile(p))total+=java.nio.file.Files.size(p);}catch(Exception ignored){}}return total;}
 
     @SuppressWarnings("unchecked")
-    private static void writeMarkdown(Path path,List<Map<String,Object>> results,Map<String,Object> report)throws Exception{
-        StringBuilder s=new StringBuilder("# P0 unified benchmark results\n\n");
-        s.append("Gold: `p0.gold.v1` (same frozen 66 variants for every executable candidate).\n\n");
+    private static void writeMarkdown(Path path,List<Map<String,Object>> results,Map<String,Object> report,String goldId,int cases)throws Exception{
+        StringBuilder s=new StringBuilder("# Unified benchmark results\n\n");
+        s.append("Gold: `").append(goldId).append("` (same frozen ").append(cases)
+            .append(" variants for every executable candidate).\n\n");
         s.append("| Candidate | Status | Field exact | Worst language | Claim-count exact | Span F1 | Negation F1 | Entity F1 | Ownership violations | World Truth | p50 ns | p95 ns |\n");
         s.append("|---|---|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|\n");
         for(Map<String,Object> r:results){
