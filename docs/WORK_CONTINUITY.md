@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:45:37Z  
+Last updated: 2026-09-03T18:48:05Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `4c237fef443e1bd07c6ba34d31fc63012657e8a4`.
+  `a841a67e7586d8ec50b8876d42329636042b4a4e`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -172,6 +172,11 @@ strategy change, before long/risky work, and before ending any session.
   optional explicit checkpoint source. Expensive execution is manual or bound
   to the one-time `pipeline/student-4.trigger`, preventing training from being
   relaunched by ordinary source edits. No trigger file exists yet.
+- Resume correctness fix `a841a67e7586d8ec50b8876d42329636042b4a4e`
+  prevents a completed MASSIVE auxiliary stage from being replayed when a
+  matrix-stage checkpoint is restored, treats early-stopped/completed stage
+  checkpoints as terminal, and carries prior-stage history in new checkpoints.
+  Resume-policy tests bring the local suite to 45/45 green.
 - Current candidate configuration:
   - primary probe: `Geotrend/distilbert-base-en-es-it-cased`;
   - quality/size counterexample: `microsoft/Multilingual-MiniLM-L12-H384`;
@@ -446,6 +451,8 @@ strategy change, before long/risky work, and before ending any session.
   `a6818f971dc55ba2c5faf7f2eb3bb8d8e7d081f1`.
 - Variant-safe resume/progress and one-click CI definition:
   `4c237fef443e1bd07c6ba34d31fc63012657e8a4`.
+- Completed-stage resume idempotence:
+  `a841a67e7586d8ec50b8876d42329636042b4a4e`.
 - Consolidated learned decoder/invariant validator:
   `9027ff3f177a6fcde57e5324e9ad27c7c15de4d4`.
 - Consolidated end-to-end Typed Claim evaluator:
@@ -474,7 +481,7 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity-only update on top of `4c237fef...` without touching
+1. Commit this continuity-only update on top of `a841a67e...` without touching
    any training trigger path.
 2. Inspect run `33786677296` steps/logs. If it fails, preserve any resumable
    checkpoint and apply only
