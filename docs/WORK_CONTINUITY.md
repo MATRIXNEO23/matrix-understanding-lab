@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T21:06:00Z  
+Last updated: 2026-09-03T21:16:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -172,6 +172,14 @@ strategy change, before long/risky work, and before ending any session.
   pronominal/known-entity subject binding. The first two are deterministic
   implementation defects; the latter families require learned-data/objective
   analysis. No linguistic regex repair is authorized.
+- Deterministic decoder/evaluator repair
+  `6ff5c3959407f0304e725fadbb0f3a37376524ec`: predicted entity spans now gain
+  categorical referents only from already-learned semantic-role overlap or an
+  exact supplied-context binding; locations remain `LOCATION` and unresolved
+  people remain explicitly `UNKNOWN`. No capitalization, city/person list or
+  linguistic regex was added. Per-language ownership corruption is now counted
+  with the same zero-tolerance semantics as the aggregate. Full local suite is
+  48/48 green and all automation/Matrix-NLU Python byte-compiles.
 - The automatic `workflow_run` edge did not fire after the source workflow was
   renamed for one-click operation. Fix `16754f79e26caa003679ffb70b512f6226c13627`
   added a bounded explicit trigger; `ffdbb224059ad27b7b544aa988e4cc2665a4159d`
@@ -549,11 +557,11 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity update on top of `36cd3ce...` without touching a
+1. Commit this continuity update on top of `6ff5c395...` without touching a
    training trigger path.
-2. Patch and unit-test the two deterministic dev-evidence defects: auditable
-   entity referent binding in the existing validator contract and correct
-   per-language ownership-corruption accounting.
+2. Re-evaluate immutable teacher predictions with the corrected decoder on dev
+   only, then aggregate remaining learned errors by head/family/language and
+   inspect train/dev supervision balance for the causal repair.
 3. Reproduce every repair candidate on train/dev only; classify the causal
    family, patch learned data/objective/decoder as justified, then run the full
    regression/property suite. Never use frozen results for tuning.
