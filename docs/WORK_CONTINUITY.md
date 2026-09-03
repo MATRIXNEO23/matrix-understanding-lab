@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T17:29:00Z  
+Last updated: 2026-09-03T17:34:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified before the pending repair commit:
-  `d2a388b340ce5430395526880266182d06324a07`.
+- HEAD verified before the pending dependency fix:
+  `19cc3542d6b0d65dd7332f94dd7e6bfed1c36c20`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
   (`feat: add Matrix-NLU provenance candidate probe`)
@@ -99,8 +99,8 @@ strategy change, before long/risky work, and before ending any session.
 ## Current gate and exact activity
 
 - Current gate: encoder/data provenance selection (`Gate 01`, in progress).
-- Exact activity: repair the six probe files atomically on top of `d2a388b...`,
-  then let GitHub Actions workflow `Matrix-NLU Candidate Probe` resolve
+- Exact activity: add the missing pinned SentencePiece tokenizer dependency and
+  rerun GitHub Actions workflow `Matrix-NLU Candidate Probe` to resolve
   immutable Hugging Face revisions,
   declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
   evidence for all three candidates. No model training has started.
@@ -130,6 +130,13 @@ strategy change, before long/risky work, and before ending any session.
   (`$f0` ... `$f5`) rather than their local contents. This is a repository
   transfer defect, not a model/probe result. The normal P0 workflow run
   `33784079607` is in progress on the same HEAD.
+- Repair commit `19cc3542d6b0d65dd7332f94dd7e6bfed1c36c20` restored and
+  remotely verified all six probe source files.
+- CI probe run `33784241590` on `19cc3542...`: red at the candidate-tokenizer
+  step after dependency install and 3/3 unit tests passed. The exact cause is
+  missing `sentencepiece`, required to instantiate the MiniLM/XLM-R slow
+  tokenizer for fast-tokenizer conversion. This is a dependency defect, not a
+  candidate quality/provenance result. Fix: pin `sentencepiece==0.2.0`.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
 
@@ -144,6 +151,8 @@ strategy change, before long/risky work, and before ending any session.
   shell variables through a JSON string produced literal `$fN` values. Do not
   repeat it. The repair reads each file as base64, decodes it in the tool
   process and verifies the remote blobs after commit.
+- Probe failure `33784241590`: do not retry unchanged; SentencePiece must be
+  installed for XLM-R-family tokenizers. The pending commit contains that fix.
 - `Geotrend/distilbert-base-en-fr-es-pt-it-cased` was initially considered but
   superseded by the exact-language `en-es-it` checkpoint. Do not train the
   5-language checkpoint unless the exact checkpoint fails a documented gate.
@@ -168,10 +177,10 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Replace all six literal-placeholder probe blobs plus this continuity update
-   in one repair commit on top of `d2a388b...`; fast-forward `main` and verify
-   the remote file contents.
-2. Query workflow runs for the repair commit; wait for `Matrix-NLU Candidate Probe`
+1. Commit the pinned SentencePiece dependency and this continuity update on top
+   of `19cc3542...`; fast-forward `main`.
+2. Query workflow runs for the dependency-fix commit; wait for
+   `Matrix-NLU Candidate Probe`
    to finish without restarting prior gates.
 3. Download `matrix-nlu-candidate-probe`, record its artifact id/digest and the
    exact selected/rejected model revisions in this file.
