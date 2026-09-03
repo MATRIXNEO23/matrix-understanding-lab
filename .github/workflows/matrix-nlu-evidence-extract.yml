@@ -1,0 +1,66 @@
+name: Matrix-NLU Evidence Extract
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/student-4-evidence.trigger'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read immutable source run
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE_RUN=$(sed -n 's/^source_run=//p' pipeline/student-4-evidence.trigger)
+          test -n "$SOURCE_RUN"
+          echo "SOURCE_RUN=$SOURCE_RUN" >> "$GITHUB_ENV"
+      - name: Download preserved one-click evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p recovered
+          gh run download "$SOURCE_RUN" \
+            --name "matrix-nlu-one-click-$SOURCE_RUN" --dir recovered
+      - name: Split report and deployable bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p split/report split/bundle/training-student-4
+          cp -a recovered/automation split/report/
+          cp -a recovered/verification-training-student-4 split/report/
+          cp recovered/training-student-4/training-result.json split/report/
+          cp recovered/training-student-4/labels.json split/report/
+          cp recovered/training-student-4/training-progress.json split/report/
+          cp recovered/training-student-4/training-result.json split/bundle/training-student-4/
+          cp recovered/training-student-4/labels.json split/bundle/training-student-4/
+          cp recovered/training-student-4/model-state.pt split/bundle/training-student-4/
+          cp -a recovered/training-student-4/tokenizer split/bundle/training-student-4/
+          printf 'sourceRun=%s\nsourceArtifact=matrix-nlu-one-click-%s\n' \
+            "$SOURCE_RUN" "$SOURCE_RUN" | tee split/report/source.txt split/bundle/source.txt
+          find split/report -type f -print0 | sort -z | xargs -0 sha256sum > split/report/SHA256SUMS
+          find split/bundle -type f -print0 | sort -z | xargs -0 sha256sum > split/bundle/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: matrix-nlu-report-${{ env.SOURCE_RUN }}
+          retention-days: 30
+          compression-level: 6
+          path: split/report/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: matrix-nlu-bundle-${{ env.SOURCE_RUN }}
+          retention-days: 30
+          compression-level: 1
+          path: split/bundle/
+
