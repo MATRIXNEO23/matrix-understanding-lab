@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T18:17:00Z  
+Last updated: 2026-09-03T18:34:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified before the pending MASSIVE hash-pin commit:
-  `ac723626bd36dbfdc03aa651d9728fc16292455b`.
+- HEAD verified before the pending training-implementation commit:
+  `de7cea4376d9a2bb7886e6ad6c6c10878541012f`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
   (`feat: add Matrix-NLU provenance candidate probe`)
@@ -98,10 +98,12 @@ strategy change, before long/risky work, and before ending any session.
 
 ## Current gate and exact activity
 
-- Current gate: external data provenance (`Gate 01`, encoder portion passed;
-  MASSIVE archive hash pinning in progress).
-- Exact activity: preserve the first MASSIVE inventory/license, pin its archive
-  hash and rerun the same inventory. No training has started.
+- Current gate: trained multi-task software (`Gate 02`, implementation ready for
+  first long run). Encoder and external-data provenance are green.
+- Exact activity: commit the shared two-pass model, hash-verified MASSIVE
+  preparation, deterministic token alignment, resumable training configuration,
+  workflow and this pre-training continuity snapshot. The first long training
+  has not started.
   declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
   evidence for all three candidates. No model training has started.
 - Current candidate configuration:
@@ -193,24 +195,40 @@ strategy change, before long/risky work, and before ending any session.
   `0cabeed0e47c548c9f7f11bf4fe65de297514221cbf6c9fa1870e334188ff30d`.
   This was the intentional unpinned observation run; a matching pinned rerun is
   still required.
+- Pinned provenance CI `33785912634` on `de7cea4...`: all jobs green;
+  `hashPinned=true`, `hashMatches=true`. MASSIVE artifact id `9905400586`,
+  artifact SHA-256
+  `d977b5cc52602a1e26db2079a9ec29918f5eea9ad750b411513c16cceb893c10`,
+  manifest SHA-256
+  `38ad629ae5469466f72eeee8f00675172a34dad03bc98589462c352727d2b4b1`.
+  External-data provenance is `PASS`.
+- Current training software local checks: 19/19 unit tests green and every
+  Python source byte-compiles. Torch/Transformers execution is intentionally a
+  CI gate because those pinned packages are not present in the Work container.
+- First training configuration: teacher Geotrend 6x768 revision `36de33ec...`;
+  seed 810923; max length 64; MASSIVE 3,000/600/1,000 rows per language,
+  one auxiliary epoch; Matrix four epochs; batch 16; gradient accumulation 2;
+  AdamW LR 3e-5, weight decay .01, warmup .1; P0.5 train repeat 3; CPU 4
+  threads; checkpoint every epoch; resume auto; frozen tests once after
+  dev-selected checkpoint.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
 
 ## Open errors, failed paths and blockers
 
 - No architectural `DECISION_REQUIRED` is open.
-- The Hugging Face primary model revision and exact declared metadata remain
-  unverified until the probe artifact is retrieved.
+- The Hugging Face primary model revision and metadata are verified and pinned;
+  no open encoder-provenance issue remains.
 - Shell access to Hugging Face timed out in the Work container. Do not repeat
   it; use GitHub Actions network access and preserve the resulting artifact.
 - Failed repository-transfer method: constructing a `jq` object by interpolating
   shell variables through a JSON string produced literal `$fN` values. Do not
   repeat it. The repair reads each file as base64, decodes it in the tool
   process and verifies the remote blobs after commit.
-- Probe failure `33784241590`: do not retry unchanged; SentencePiece must be
-  installed for XLM-R-family tokenizers. The pending commit contains that fix.
-- Probe failure `33784416207`: do not retry unchanged; after SentencePiece,
-  XLMRobertaConverter explicitly required protobuf. The pending commit pins it.
+- Probe failure `33784241590`: do not retry unchanged; SentencePiece was added
+  for XLM-R-family tokenizers in `0acef2f...`.
+- Probe failure `33784416207`: do not retry unchanged; protobuf was pinned in
+  `c6875b9e...` after XLMRobertaConverter required it.
 - MASSIVE job in run `33785421435`: do not retry unchanged; use unittest
   discovery with `-s matrix_nlu`, otherwise the test module import fails before
   the archive is downloaded.
@@ -225,10 +243,14 @@ strategy change, before long/risky work, and before ending any session.
 - Do not disable or bypass frozen test partitions; do not use any test result to
   train or choose a variant.
 - Do not add linguistic regex/rules to the invariant validator.
+- Training code has not executed with Torch yet. A dependency/model API error is
+  a normal software fix; do not reinterpret it as a quality result or alter the
+  frozen sets.
 
 ## Consolidation state
 
-- Intended files in `6bf5492...` (remote contents require the pending repair):
+- Probe files were initially malformed in `6bf5492...` and were restored in
+  `19cc3542...`:
   `.github/workflows/matrix-nlu-probe.yml`,
   `docs/MATRIX_NLU_MODEL_DATA_PLAN.md`, `matrix_nlu/candidates.json`,
   `matrix_nlu/probe_candidates.py`, `matrix_nlu/requirements-probe.txt`,
@@ -238,15 +260,21 @@ strategy change, before long/risky work, and before ending any session.
   `d8ef350ad723156cd6b8fd64509a64ae7575107c`.
 - Consolidated P0.5 adapter/MASSIVE test-path commit:
   `ac723626bd36dbfdc03aa651d9728fc16292455b`.
-- Pending consolidation: pinned MASSIVE source, first manifest/license artifact,
-  provenance document and this continuity update.
+- Consolidated MASSIVE hash/provenance commit:
+  `de7cea4376d9a2bb7886e6ad6c6c10878541012f`.
+- Pending training consolidation: `.github/workflows/matrix-nlu-train.yml`,
+  `matrix_nlu/{labels,model,training_data,prepare_massive,train}.py`, tests,
+  pinned requirements/config, training plan, pinned MASSIVE manifest artifact
+  and this continuity update.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit the MASSIVE hash pin, first inventory/license artifact, provenance doc
-   and continuity on top of `ac723626...`.
-2. Wait for the pinned MASSIVE rerun and verify `hashPinned=true` plus
-   `hashMatches=true`; preserve that manifest.
-3. Mark data provenance green and implement the shared two-pass multi-task model
-   and resumable training configuration before starting the long training run.
+1. Commit training implementation/config/workflow, the pinned MASSIVE manifest
+   artifact and this pre-training continuity snapshot on top of `de7cea4...`.
+2. Confirm the `Matrix-NLU Training` workflow starts with the exact configuration
+   above. Record run id immediately in this file at the next checkpoint.
+3. If it fails before an epoch, apply only the causal software/dependency fix.
+   If it completes, download evidence and resume-checkpoint artifacts, record
+   checksums/component metrics and perform dev-led error analysis before any
+   student or ONNX work.

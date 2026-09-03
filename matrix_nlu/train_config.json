@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "matrix.nlu.training.v1",
+  "model": {
+    "repository": "Geotrend/distilbert-base-en-es-it-cased",
+    "revision": "36de33ec579e47f6c4e10d982d0b93871267c3e6",
+    "variant": "teacher-6-layer"
+  },
+  "seed": 810923,
+  "maxLength": 64,
+  "massive": {
+    "epochs": 1,
+    "trainPerLanguage": 3000,
+    "devPerLanguage": 600,
+    "testPerLanguage": 1000
+  },
+  "matrix": {
+    "epochs": 4,
+    "batchSize": 16,
+    "gradientAccumulation": 2,
+    "learningRate": 0.00003,
+    "weightDecay": 0.01,
+    "warmupRatio": 0.1,
+    "p05TrainRepeat": 3,
+    "earlyStoppingPatience": 2
+  },
+  "checkpointEveryEpoch": true,
+  "resume": "auto",
+  "testPolicy": "frozen test runs once after dev-selected checkpoint"
+}

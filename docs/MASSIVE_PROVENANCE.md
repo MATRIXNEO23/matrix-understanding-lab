@@ -1,6 +1,6 @@
 # MASSIVE 1.0 provenance — Matrix-NLU auxiliary layer
 
-Status: `HASH OBSERVED / PINNED RE-RUN PENDING`  
+Status: `VERIFIED — PINNED HASH MATCHED IN CI`  
 Use: auxiliary request-intent and slot-span supervision only.  
 Matrix ontology: unchanged; MASSIVE intent names are not Matrix predicates.
 
@@ -22,8 +22,13 @@ Matrix ontology: unchanged; MASSIVE intent names are not Matrix predicates.
 
 The first run intentionally had no expected archive hash. Its manifest and
 license are preserved under `artifacts/matrix-nlu/massive/`. The hash is now
-pinned in `matrix_nlu/massive_source.json`; only a second matching CI inventory
-turns this gate green.
+pinned in `matrix_nlu/massive_source.json`. The second run, CI `33785912634`,
+reported `hashPinned=true` and `hashMatches=true`; artifact id `9905400586`,
+artifact SHA-256
+`d977b5cc52602a1e26db2079a9ec29918f5eea9ad750b411513c16cceb893c10`,
+manifest SHA-256
+`38ad629ae5469466f72eeee8f00675172a34dad03bc98589462c352727d2b4b1`.
+The external-data provenance gate is green.
 
 ## Locale inventory
 
