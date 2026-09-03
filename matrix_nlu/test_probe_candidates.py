@@ -42,6 +42,15 @@ class CandidateProbeTest(unittest.TestCase):
         }
         self.assertIsNone(PROBE.decide([primary])["selectedForTraining"])
 
+    def test_primary_probe_error_is_preserved_as_blocker(self):
+        primary = {
+            "id": "p", "role": "PRIMARY_PROBE", "repository": "x",
+            "errorType": "ValueError", "error": "broken tokenizer",
+        }
+        decision = PROBE.decide([primary])
+        self.assertIsNone(decision["selectedForTraining"])
+        self.assertIn("broken tokenizer", decision["blockingReasons"][0])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -115,6 +115,14 @@ def decide(rows: list[dict]) -> dict:
     by_role = {row["role"]: row for row in rows}
     primary = by_role["PRIMARY_PROBE"]
     reasons = []
+    if "error" in primary:
+        reasons.append(f"primary probe failed: {primary['errorType']}: {primary['error']}")
+        return {
+            "selectedForTraining": None, "selectedRevision": None,
+            "blockingReasons": reasons,
+            "referenceProbeErrors": [row["id"] for row in rows if "error" in row and row is not primary],
+            "note": "Selection authorizes lab training only; Android PSS and quality remain measured gates.",
+        }
     if not primary["licenseMatchesExpectation"]:
         reasons.append("declared license does not match the reviewed expectation")
     for language in ("it", "en", "es"):
@@ -128,6 +136,7 @@ def decide(rows: list[dict]) -> dict:
         "selectedForTraining": None if reasons else primary["repository"],
         "selectedRevision": None if reasons else primary["resolvedRevision"],
         "blockingReasons": reasons,
+        "referenceProbeErrors": [row["id"] for row in rows if "error" in row and row is not primary],
         "note": "Selection authorizes lab training only; Android PSS and quality remain measured gates.",
     }
 
@@ -142,7 +151,12 @@ def main() -> None:
     from huggingface_hub import HfApi
 
     api = HfApi()
-    rows = [probe(candidate, api) for candidate in source["candidates"]]
+    rows = []
+    for candidate in source["candidates"]:
+        try:
+            rows.append(probe(candidate, api))
+        except Exception as error:  # preserve every completed probe in the artifact
+            rows.append({**candidate, "errorType": type(error).__name__, "error": str(error)})
     payload = {
         "schemaVersion": "matrix.nlu.candidate-probe.v1",
         "generatedUnixSeconds": int(time.time()),
@@ -154,6 +168,8 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps(payload["decision"], indent=2))
+    if any("error" in row for row in rows):
+        raise SystemExit("one or more candidate probes failed; inspect preserved artifact")
 
 
 if __name__ == "__main__":

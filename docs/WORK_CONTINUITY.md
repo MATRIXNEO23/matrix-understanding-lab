@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T17:34:00Z  
+Last updated: 2026-09-03T17:43:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified before the pending dependency fix:
-  `19cc3542d6b0d65dd7332f94dd7e6bfed1c36c20`.
+- HEAD verified before the pending dataset/probe fix:
+  `0acef2f46b8827fa15bb033bddae9be10f9f9d1d`.
 - Last consolidated implementation commit:
   `6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff`
   (`feat: add Matrix-NLU provenance candidate probe`)
@@ -99,9 +99,10 @@ strategy change, before long/risky work, and before ending any session.
 ## Current gate and exact activity
 
 - Current gate: encoder/data provenance selection (`Gate 01`, in progress).
-- Exact activity: add the missing pinned SentencePiece tokenizer dependency and
-  rerun GitHub Actions workflow `Matrix-NLU Candidate Probe` to resolve
-  immutable Hugging Face revisions,
+- Exact activity: add the missing pinned protobuf tokenizer dependency,
+  consolidate the deterministic Matrix dataset builder/card, and rerun GitHub
+  Actions workflow `Matrix-NLU Candidate Probe` to resolve immutable Hugging
+  Face revisions and reproduce dataset hashes.
   declared licenses, config dimensions, weight sizes and IT/EN/ES tokenizer
   evidence for all three candidates. No model training has started.
 - Current candidate configuration:
@@ -137,6 +138,21 @@ strategy change, before long/risky work, and before ending any session.
   missing `sentencepiece`, required to instantiate the MiniLM/XLM-R slow
   tokenizer for fast-tokenizer conversion. This is a dependency defect, not a
   candidate quality/provenance result. Fix: pin `sentencepiece==0.2.0`.
+- Dependency commit `0acef2f46b8827fa15bb033bddae9be10f9f9d1d`:
+  SentencePiece installed; normal P0 CI run `33784416259` green.
+- Probe run `33784416207` on `0acef2f...`: 3/3 probe tests green, then
+  MiniLM/XLM-R tokenizer conversion failed because `protobuf` was missing.
+  Exact causal fix pending: pin `protobuf==5.28.3`. The probe now preserves
+  partial per-candidate results and uploads artifacts even if one reference
+  candidate fails.
+- Matrix dataset builder locally verified: 9/9 combined Python tests green.
+  Train: 2,883 records / 3,723 claims, SHA-256
+  `6f42718a0b25f32e8c3711148c72ac2ab6415bb57ca7161eb9ac6a8a589b8045`.
+  Dev: 756 / 972, SHA-256
+  `aa19e414a5d5dd1bc3ec9c1e257b8224b568a2a7460a92f31875ce3741003177`.
+  Frozen test: 1,482 / 1,914, SHA-256
+  `8f1b267fb9f1b76d0f304cd26d88dfcef82fd6434f5ea182985a164960effba2`.
+  All are balanced IT/EN/ES; World Truth expectations are zero.
 - Matrix-NLU training, frozen quality, ONNX parity, INT8, Android offline,
   RAM/PSS/CPU/latency gates: not run, therefore not green.
 
@@ -153,6 +169,8 @@ strategy change, before long/risky work, and before ending any session.
   process and verifies the remote blobs after commit.
 - Probe failure `33784241590`: do not retry unchanged; SentencePiece must be
   installed for XLM-R-family tokenizers. The pending commit contains that fix.
+- Probe failure `33784416207`: do not retry unchanged; after SentencePiece,
+  XLMRobertaConverter explicitly required protobuf. The pending commit pins it.
 - `Geotrend/distilbert-base-en-fr-es-pt-it-cased` was initially considered but
   superseded by the exact-language `en-es-it` checkpoint. Do not train the
   5-language checkpoint unless the exact checkpoint fails a documented gate.
@@ -171,15 +189,16 @@ strategy change, before long/risky work, and before ending any session.
   `docs/MATRIX_NLU_MODEL_DATA_PLAN.md`, `matrix_nlu/candidates.json`,
   `matrix_nlu/probe_candidates.py`, `matrix_nlu/requirements-probe.txt`,
   `matrix_nlu/test_probe_candidates.py`.
-- File introduced by the current continuity checkpoint:
-  `docs/WORK_CONTINUITY.md`.
+- Pending consolidation files: `matrix_nlu/build_dataset.py`,
+  `matrix_nlu/test_build_dataset.py`, `docs/MATRIX_NLU_DATASET_CARD.md`, plus
+  causal probe/workflow/dependency changes and this continuity update.
 - No runtime/production file is modified.
 
 ## NEXT ACTION
 
-1. Commit the pinned SentencePiece dependency and this continuity update on top
-   of `19cc3542...`; fast-forward `main`.
-2. Query workflow runs for the dependency-fix commit; wait for
+1. Commit the dataset builder/card plus pinned protobuf and resilient-probe
+   changes on top of `0acef2f...`; fast-forward `main`.
+2. Query workflow runs for that commit; wait for
    `Matrix-NLU Candidate Probe`
    to finish without restarting prior gates.
 3. Download `matrix-nlu-candidate-probe`, record its artifact id/digest and the
