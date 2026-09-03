@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T20:50:00Z  
+Last updated: 2026-09-03T20:51:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `f74679738af501e9ca823d3c4745e7a399ef0fce`.
+  `6d8d463f76a3ff7de292b947a5854d308d8a9c3c`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -198,6 +198,11 @@ strategy change, before long/risky work, and before ending any session.
   `5ef8f8bf...`. A regression now fails if either generated dev or frozen test
   changes. Full local suite: 50/50 green; byte-compilation, one-click dry-run
   and all workflow YAML parsing are green.
+- One-time student launch commit
+  `6d8d463f76a3ff7de292b947a5854d308d8a9c3c`; strict one-click run
+  `33804574916` is active on the exact augmented dataset/code lineage. Variant
+  is `student-4`; its output and checkpoint paths are isolated from teacher
+  evidence. Concurrent normal P0 CI run `33804575007` is also active.
 - The automatic `workflow_run` edge did not fire after the source workflow was
   renamed for one-click operation. Fix `16754f79e26caa003679ffb70b512f6226c13627`
   added a bounded explicit trigger; `ffdbb224059ad27b7b544aa988e4cc2665a4159d`
@@ -575,10 +580,11 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity update on top of `f746797...`.
-2. Create the one-time `pipeline/student-4.trigger` marker and allow the strict
-   one-click workflow to prepare/verify data, train the isolated four-layer
-   candidate, run the dev gate and only then frozen/ONNX/package gates.
+1. Commit this continuity update on top of launch commit `6d8d463...` without
+   touching any trigger path.
+2. Monitor one-click run `33804574916`; allow it to prepare/verify data, train
+   the isolated four-layer candidate, run the dev gate and only then
+   frozen/ONNX/package gates. Do not relaunch while it is active.
 3. Preserve its resumable checkpoint/artifacts and inspect failures causally;
    reproduce every repair candidate on train/dev only and classify the causal
    family, patch learned data/objective/decoder as justified, then run the full
