@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-03T21:15:00Z  
+Last updated: 2026-09-03T22:48:00Z  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `4d67aaf921bfa9cfa0e88cc274ba118f384ecd8d`.
+  `e5f9ea68cf4aa3c646dffe0023317731dedb62ee`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -200,9 +200,32 @@ strategy change, before long/risky work, and before ending any session.
   and all workflow YAML parsing are green.
 - One-time student launch commit
   `6d8d463f76a3ff7de292b947a5854d308d8a9c3c`; strict one-click run
-  `33804574916` is active on the exact augmented dataset/code lineage. Variant
-  is `student-4`; its output and checkpoint paths are isolated from teacher
-  evidence. Concurrent normal P0 CI run `33804575007` is also active.
+  `33804574916` completed `failure` only at the strict dev threshold gate on
+  the exact augmented dataset/code lineage. Variant is `student-4`; its output
+  and checkpoint paths are isolated from teacher evidence. Training itself is
+  `SUCCESS`: 6,525.49 s, model state SHA-256
+  `5cdec7d486540253c6f4cdd7cdd0c4b56cc1e04ab7a05e7c769366f6d041b0f8`,
+  58,599,411 total parameters (58,412,544 encoder; 186,867 heads), four
+  encoder layers. Best dev head-average is `0.9638816146` at Matrix epoch 2;
+  epochs 3–4 did not improve the selection score. MASSIVE auxiliary dev
+  head-average is `0.6400880031`.
+- Student DEV end-to-end at threshold 0.0: Matrix claim-count `1.0`, exact-set
+  `0.6402116402`, field exact `0.9700502972`, span F1 `0.9579878556`, entity F1
+  `0.9811095645`, coverage `0.9897119342`, ownership corruption `0`, invented
+  World Truth `0`; worst-language exact-set is Italian `0.4682539683`.
+  P0.5 claim-count `1.0`, exact-set `0.3571428571`, field exact
+  `0.9187242798`, span F1 `0.9386692696`, entity F1 `0.9801324503`, coverage
+  `0.9074074074`, ownership corruption `0`, invented World Truth `0`.
+  No dev threshold passes; frozen end-to-end/ONNX/package were therefore not
+  executed.
+- Preserved one-click artifact id `9915949750`, 1,083,583,721 bytes, archive
+  digest `sha256:dd60f8dd8df6e2bd2bee0f5d53c1fcc15e991241682043fdf143d79953dac5d4`.
+  It contains the resumable checkpoint, model, raw predictions and complete
+  logs, but exceeds the 512 MiB connector download ceiling. Operational fix
+  `e5f9ea68cf4aa3c646dffe0023317731dedb62ee` launches evidence-extraction run
+  `33814528873` to split the immutable source artifact into a small report and
+  a sub-512-MiB model bundle without retraining. The original large artifact
+  remains the resumable checkpoint source for Actions.
 - Split-isolation regression commit
   `4d67aaf921bfa9cfa0e88cc274ba118f384ecd8d`: train surfaces must be disjoint
   from both dev and frozen generated surfaces, every dev label must have train
@@ -460,7 +483,8 @@ strategy change, before long/risky work, and before ending any session.
   predicate/temporal/polarity/dialogue-act gaps; the post-gate will provide
   exact TypedClaim errors without tuning on frozen.
 - End-to-end frozen quality, ONNX parity/INT8 and desktop latency remain
-  deliberately unexecuted because run `33802563626` failed the dev gate.
+  deliberately unexecuted because both teacher run `33802563626` and student
+  run `33804574916` failed the dev gate.
   Android physical PSS/latency remains a later gate.
 
 ## Open errors, failed paths and blockers
@@ -587,18 +611,19 @@ strategy change, before long/risky work, and before ending any session.
 
 ## NEXT ACTION
 
-1. Commit this continuity update on top of `4d67aaf...` without
-   touching any trigger path.
-2. Monitor one-click run `33804574916`; allow it to prepare/verify data, train
-   the isolated four-layer candidate, run the dev gate and only then
-   frozen/ONNX/package gates. Do not relaunch while it is active.
-3. Preserve its resumable checkpoint/artifacts and inspect failures causally;
+1. Commit this continuity update on top of evidence-extraction commit
+   `e5f9ea68...` without touching a training trigger path.
+2. Complete evidence-extraction run `33814528873`; download and checksum the
+   report/bundle artifacts, then aggregate its DEV JSONL errors by
+   language/family/head. Do not use the frozen head metrics for repair choices.
+3. Preserve the resumable checkpoint/artifacts and inspect failures causally;
    reproduce every repair candidate on train/dev only and classify the causal
    family, patch learned data/objective/decoder as justified, then run the full
    regression/property suite. Never use frozen results for tuning.
-4. The four-layer candidate must use code/data at `f746797...` or its exact
-   continuity descendant; never resume from the incompatible six-layer teacher
-   checkpoint or from a pre-augmentation student checkpoint.
+4. Do not retrain unchanged. Determine whether the next bounded repair is
+   decoder/scoring, train objective/class balance, or an exhausted-quality
+   `DECISION_REQUIRED`. Resume only from run `33804574916` when the change is
+   compatible with its weights; otherwise start an explicitly new variant.
 5. Carry the nested-attribution contract issue above to supervisor counter-review;
    continue all independent single-level C1 quality/export work without inventing
    a binding heuristic.
