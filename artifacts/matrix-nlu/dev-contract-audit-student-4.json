@@ -1,0 +1,948 @@
+{
+  "schemaVersion": "matrix.nlu.dataset-contract-audit.v1",
+  "scope": {
+    "allowedSplits": [
+      "dev",
+      "train"
+    ],
+    "frozenTestRead": false,
+    "policy": "diagnostic only; no tuning, rewriting, or runtime rules"
+  },
+  "datasets": [
+    {
+      "name": "matrix-train",
+      "path": "build/matrix-nlu/data/matrix-train.jsonl",
+      "sha256": "803a565e9bb7e88de269b1002603ea86a4bbb832c06183d537525596c4575b6d",
+      "bytes": 3250543,
+      "rows": 2991,
+      "claims": 3831,
+      "splits": {
+        "train": 2991
+      },
+      "languages": {
+        "it": 997,
+        "en": 997,
+        "es": 997
+      }
+    },
+    {
+      "name": "matrix-dev",
+      "path": "build/matrix-nlu/data/matrix-dev.jsonl",
+      "sha256": "aa19e414a5d5dd1bc3ec9c1e257b8224b568a2a7460a92f31875ce3741003177",
+      "bytes": 813883,
+      "rows": 756,
+      "claims": 972,
+      "splits": {
+        "dev": 756
+      },
+      "languages": {
+        "it": 252,
+        "en": 252,
+        "es": 252
+      }
+    },
+    {
+      "name": "p05-train",
+      "path": "build/matrix-nlu/data/p05-train.jsonl",
+      "sha256": "8426018bd4ec9d06c5bc9cfc0d668c2f8b4208add14a0a413694153f5f4ab95b",
+      "bytes": 87940,
+      "rows": 87,
+      "claims": 105,
+      "splits": {
+        "train": 87
+      },
+      "languages": {
+        "it": 29,
+        "en": 29,
+        "es": 29
+      }
+    },
+    {
+      "name": "p05-dev",
+      "path": "build/matrix-nlu/data/p05-dev.jsonl",
+      "sha256": "b48753dc07adee70538e890473a2df08524260fdaec31d9946f2e5c57183582b",
+      "bytes": 89664,
+      "rows": 84,
+      "claims": 108,
+      "splits": {
+        "dev": 84
+      },
+      "languages": {
+        "it": 28,
+        "en": 28,
+        "es": 28
+      }
+    }
+  ],
+  "semanticSpanContainment": {
+    "failureCount": 0,
+    "failures": []
+  },
+  "negativeClaimScope": {
+    "dimensions": [
+      "dataset",
+      "split",
+      "provenance",
+      "language",
+      "predicate",
+      "shape"
+    ],
+    "counts": [
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "en",
+          "consent.refuse",
+          "OTHER_PARTIAL"
+        ],
+        "count": 6
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "en",
+          "preference.like",
+          "ABSENT"
+        ],
+        "count": 42
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "es",
+          "consent.refuse",
+          "OTHER_PARTIAL"
+        ],
+        "count": 6
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "es",
+          "preference.like",
+          "ABSENT"
+        ],
+        "count": 42
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "it",
+          "consent.refuse",
+          "OTHER_PARTIAL"
+        ],
+        "count": 6
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "it",
+          "preference.like",
+          "ABSENT"
+        ],
+        "count": 42
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "en",
+          "consent.refuse",
+          "OTHER_PARTIAL"
+        ],
+        "count": 14
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "en",
+          "preference.like",
+          "ABSENT"
+        ],
+        "count": 66
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "en",
+          "preference.like",
+          "DISJOINT_FROM_OBJECT"
+        ],
+        "count": 98
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "es",
+          "consent.refuse",
+          "OTHER_PARTIAL"
+        ],
+        "count": 14
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "es",
+          "preference.like",
+          "ABSENT"
+        ],
+        "count": 66
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "es",
+          "preference.like",
+          "DISJOINT_FROM_OBJECT"
+        ],
+        "count": 90
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "es",
+          "preference.like",
+          "OTHER_PARTIAL"
+        ],
+        "count": 8
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "it",
+          "consent.refuse",
+          "OTHER_PARTIAL"
+        ],
+        "count": 14
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "it",
+          "preference.like",
+          "ABSENT"
+        ],
+        "count": 66
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "it",
+          "preference.like",
+          "DISJOINT_FROM_OBJECT"
+        ],
+        "count": 98
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "en",
+          "preference.like",
+          "FULL_SOURCE"
+        ],
+        "count": 2
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "en",
+          "residence.place",
+          "FULL_SOURCE"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "en",
+          "residence.place",
+          "OBJECT_SUPERSET"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "es",
+          "preference.like",
+          "FULL_SOURCE"
+        ],
+        "count": 2
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "es",
+          "residence.place",
+          "FULL_SOURCE"
+        ],
+        "count": 2
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "it",
+          "preference.like",
+          "FULL_SOURCE"
+        ],
+        "count": 2
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "it",
+          "residence.place",
+          "FULL_SOURCE"
+        ],
+        "count": 2
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "en",
+          "preference.like",
+          "OBJECT_SUPERSET"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "en",
+          "residence.place",
+          "FULL_SOURCE"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "es",
+          "preference.like",
+          "FULL_SOURCE"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "es",
+          "residence.place",
+          "FULL_SOURCE"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "it",
+          "preference.like",
+          "FULL_SOURCE"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "it",
+          "residence.place",
+          "FULL_SOURCE"
+        ],
+        "count": 1
+      }
+    ]
+  },
+  "temporalEvidence": {
+    "dimensions": [
+      "dataset",
+      "split",
+      "provenance",
+      "language",
+      "temporalRelation",
+      "spanState"
+    ],
+    "counts": [
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "en",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 126
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "en",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 156
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "en",
+          "FUTURE",
+          "ABSENT"
+        ],
+        "count": 42
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "es",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 126
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "es",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 156
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "es",
+          "FUTURE",
+          "ABSENT"
+        ],
+        "count": 42
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "it",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 126
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "it",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 156
+      },
+      {
+        "values": [
+          "matrix-dev",
+          "dev",
+          "MATRIX_GENERATED",
+          "it",
+          "FUTURE",
+          "ABSENT"
+        ],
+        "count": 42
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_AUTHORED_TRAIN_AUGMENTATION",
+          "en",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 36
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_AUTHORED_TRAIN_AUGMENTATION",
+          "es",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 36
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_AUTHORED_TRAIN_AUGMENTATION",
+          "it",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 36
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "en",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 492
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "en",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 585
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "en",
+          "FUTURE",
+          "ABSENT"
+        ],
+        "count": 131
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "en",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 33
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "es",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 492
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "es",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 585
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "es",
+          "FUTURE",
+          "ABSENT"
+        ],
+        "count": 131
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "es",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 33
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "it",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 492
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "it",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 585
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "it",
+          "FUTURE",
+          "ABSENT"
+        ],
+        "count": 131
+      },
+      {
+        "values": [
+          "matrix-train",
+          "train",
+          "MATRIX_GENERATED",
+          "it",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 33
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "en",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 10
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "en",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 24
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "en",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 2
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "es",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 10
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "es",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 24
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "es",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 2
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "it",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 10
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "it",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 24
+      },
+      {
+        "values": [
+          "p05-dev",
+          "dev",
+          "P05_FROZEN_GOLD",
+          "it",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 2
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "en",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 13
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "en",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 20
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "en",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "en",
+          "PAST",
+          "PRESENT"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "es",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 13
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "es",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 20
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "es",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "es",
+          "PAST",
+          "PRESENT"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "it",
+          "ATEMPORAL",
+          "ABSENT"
+        ],
+        "count": 13
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "it",
+          "CURRENT",
+          "ABSENT"
+        ],
+        "count": 20
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "it",
+          "FUTURE",
+          "PRESENT"
+        ],
+        "count": 1
+      },
+      {
+        "values": [
+          "p05-train",
+          "train",
+          "P05_FROZEN_GOLD",
+          "it",
+          "PAST",
+          "PRESENT"
+        ],
+        "count": 1
+      }
+    ],
+    "note": "absence can be legitimate for implicit tense; this section is evidence, not an automatic defect"
+  },
+  "contractConflicts": [
+    {
+      "kind": "NEGATION_SCOPE_CONVENTION_CONFLICT",
+      "predicate": "preference.like",
+      "polarity": "NEGATIVE",
+      "observedShapes": [
+        "ABSENT",
+        "DISJOINT_FROM_OBJECT",
+        "FULL_SOURCE",
+        "OBJECT_SUPERSET",
+        "OTHER_PARTIAL"
+      ],
+      "impact": "one token head is supervised with incompatible span targets",
+      "resolution": "canonical annotation versioning required before rewriting gold"
+    },
+    {
+      "kind": "NEGATION_SCOPE_CONVENTION_CONFLICT",
+      "predicate": "residence.place",
+      "polarity": "NEGATIVE",
+      "observedShapes": [
+        "FULL_SOURCE",
+        "OBJECT_SUPERSET"
+      ],
+      "impact": "one token head is supervised with incompatible span targets",
+      "resolution": "canonical annotation versioning required before rewriting gold"
+    }
+  ],
+  "decisionRequired": true
+}
