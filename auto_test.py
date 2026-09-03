@@ -167,6 +167,8 @@ def main() -> int:
     args = parser.parse_args()
     bundle = args.bundle.resolve()
     output = (args.output_dir or BUILD / f"verification-{bundle.name}").resolve()
+    last_good_destination = (BUILD / "last-good-teacher-evidence"
+                             if args.candidate_role == "teacher" else LAST_GOOD_PACKAGE)
     logs = output / "logs"
     started = time.time()
     timings = {}
@@ -284,10 +286,8 @@ def main() -> int:
             raise RuntimeError("production candidate exceeds 60 MiB investigation threshold")
         export_gate["frozenQuality"] = onnx_gates
         export_gate["int8QualityDelta"] = int8_delta
-        destination = (BUILD / "last-good-teacher-evidence" if args.candidate_role == "teacher"
-                       else LAST_GOOD_PACKAGE)
         promoted = package(bundle, output, threshold, provenance, frozen_gate, export_gate,
-                           destination, args.candidate_role)
+                           last_good_destination, args.candidate_role)
         final = {**state, "status": "SUCCESS", "currentStage": "complete",
                  "finishedAtEpochSeconds": time.time(), "seconds": time.time() - started,
                  "timings": timings, "provenance": provenance, "threshold": threshold,
@@ -299,13 +299,14 @@ def main() -> int:
         return 0
     except KeyboardInterrupt:
         state.update({"status": "INTERRUPTED", "finishedAtEpochSeconds": time.time(),
-                      "currentStage": state.get("currentStage"), "lastGoodPreserved": LAST_GOOD_PACKAGE.exists()})
+                      "currentStage": state.get("currentStage"),
+                      "lastGoodPreserved": last_good_destination.exists()})
         atomic_json(STATUS, state)
         return 130
     except Exception as error:
         state.update({"status": "FAILED", "finishedAtEpochSeconds": time.time(),
                       "errorType": type(error).__name__, "error": str(error),
-                      "timings": timings, "lastGoodPreserved": LAST_GOOD_PACKAGE.exists()})
+                      "timings": timings, "lastGoodPreserved": last_good_destination.exists()})
         atomic_json(STATUS, state)
         atomic_json(output / "failure-summary.json", state)
         print(f"[AUTO-TEST] FAILED: {type(error).__name__}: {error}", file=sys.stderr)

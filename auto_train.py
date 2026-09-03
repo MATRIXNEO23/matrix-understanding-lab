@@ -158,16 +158,19 @@ def main() -> int:
     started_wall = time.time()
     started_mono = time.monotonic()
     timings: dict[str, float] = {}
+    base_state = {
+        "schemaVersion": "matrix.nlu.auto-train-status.v1",
+        "startedAtEpochSeconds": started_wall,
+        "command": sys.argv,
+        "trainingDir": str(training_dir.relative_to(ROOT)),
+        "variant": variant,
+    }
 
     atomic_json(
         status_file,
         {
-            "schemaVersion": "matrix.nlu.auto-train-status.v1",
+            **base_state,
             "status": "RUNNING",
-            "startedAtEpochSeconds": started_wall,
-            "command": sys.argv,
-            "trainingDir": str(training_dir.relative_to(ROOT)),
-            "variant": variant,
         },
     )
 
@@ -181,9 +184,8 @@ def main() -> int:
         promote_last_good(training_dir, last_good_dir, metadata)
         elapsed = time.monotonic() - started_mono
         final = {
-            "schemaVersion": "matrix.nlu.auto-train-status.v1",
+            **base_state,
             "status": "SUCCESS",
-            "startedAtEpochSeconds": started_wall,
             "finishedAtEpochSeconds": time.time(),
             "seconds": elapsed,
             "timings": timings,
@@ -195,9 +197,8 @@ def main() -> int:
         return 0
     except KeyboardInterrupt:
         failure = {
-            "schemaVersion": "matrix.nlu.auto-train-status.v1",
+            **base_state,
             "status": "INTERRUPTED",
-            "startedAtEpochSeconds": started_wall,
             "finishedAtEpochSeconds": time.time(),
             "seconds": time.monotonic() - started_mono,
             "timings": timings,
@@ -210,9 +211,8 @@ def main() -> int:
         return 130
     except Exception as exc:
         failure = {
-            "schemaVersion": "matrix.nlu.auto-train-status.v1",
+            **base_state,
             "status": "FAILED",
-            "startedAtEpochSeconds": started_wall,
             "finishedAtEpochSeconds": time.time(),
             "seconds": time.monotonic() - started_mono,
             "timings": timings,

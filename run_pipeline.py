@@ -57,6 +57,11 @@ def main() -> int:
                                      for step in planned]}, indent=2))
         return 0
     started = time.time()
+    training_dir = (BUILD / f"training-student-{args.student_layers}"
+                    if args.student_layers is not None else BUILD / "training")
+    package_dir = (BUILD / "last-good-package"
+                   if args.student_layers is not None or args.candidate_role == "production"
+                   else BUILD / "last-good-teacher-evidence")
     state = {"schemaVersion": "matrix.nlu.pipeline-status.v1", "status": "RUNNING",
              "startedAtEpochSeconds": started, "currentStage": None,
              "steps": [step.name for step in planned], "timings": {}}
@@ -68,21 +73,21 @@ def main() -> int:
             state["timings"][step.name] = run_step(step, ROOT, BUILD / "automation" / "logs")
         state.update({"status": "SUCCESS", "currentStage": "complete",
                       "finishedAtEpochSeconds": time.time(), "seconds": time.time() - started,
-                      "verifiedPackage": str(BUILD / "last-good-package")})
+                      "verifiedPackage": str(package_dir)})
         atomic_json(STATUS, state)
         print(json.dumps(state, indent=2))
         return 0
     except KeyboardInterrupt:
         state.update({"status": "INTERRUPTED", "finishedAtEpochSeconds": time.time(),
-                      "resumeCheckpointPreserved": (BUILD / "training/checkpoints/latest.pt").exists(),
-                      "lastGoodPackagePreserved": (BUILD / "last-good-package").exists()})
+                      "resumeCheckpointPreserved": (training_dir / "checkpoints/latest.pt").exists(),
+                      "lastGoodPackagePreserved": package_dir.exists()})
         atomic_json(STATUS, state)
         return 130
     except Exception as error:
         state.update({"status": "FAILED", "finishedAtEpochSeconds": time.time(),
                       "errorType": type(error).__name__, "error": str(error),
-                      "resumeCheckpointPreserved": (BUILD / "training/checkpoints/latest.pt").exists(),
-                      "lastGoodPackagePreserved": (BUILD / "last-good-package").exists()})
+                      "resumeCheckpointPreserved": (training_dir / "checkpoints/latest.pt").exists(),
+                      "lastGoodPackagePreserved": package_dir.exists()})
         atomic_json(STATUS, state)
         print(f"[PIPELINE] FAILED: {type(error).__name__}: {error}", file=sys.stderr)
         return 1
