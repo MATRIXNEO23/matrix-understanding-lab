@@ -24,6 +24,32 @@ strategy change, before long/risky work, and before ending any session.
 - Frozen production semantic reference:
   `ae82d5cf843d52b3d60caadd161e4a5516fc5d0d`.
 
+## ACTIVE CONTROLLED RUN — Student-4-v2.1
+
+- Supervisor authorization replaces the prior stop only for one fresh
+  `student-4-v2.1` experiment. Baseline remains `student-4-v2` research-only;
+  no production promotion is authorized.
+- Preparation HEAD: `3be3238a32c840beecd57e1c3109e88571b1696a`, branch `main`.
+  The run uses `matrix.nlu.dataset.v2` with train-only generalization revision
+  from `a556095d84cd2c8f39b54c957e3b15e8bbb93132`; Matrix train hash
+  `5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820`.
+  Matrix dev and P0.5 dev remain unchanged at
+  `704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012`
+  and `7533f56194431bd17b6f8544031d5436ca14ee6e209336da8133e1f05cdf0866`.
+- Configuration SHA-256
+  `1011dae1572c24b7aabb07c21027c2eab93aa285f17de536bc9bfa4a671b2964`:
+  same four-layer architecture, seed, learning settings, loss weighting and
+  dev gates as Student-4-v2. No capacity or gate change; MASSIVE frozen sample
+  count is zero because the controlled run is train/dev-only.
+- Workflow `Matrix-NLU Student-4 V2.1 Controlled Stop` has no dispatch/resume
+  entry and stops after exactly one dev threshold decision. It never invokes
+  the frozen-capable `auto_test.py`, never exports/packages/promotes, and emits
+  explicit `frozenDataRead=false`, `trainingSplitsRead=[train,dev]` evidence.
+- Exact next activity: create one trigger commit, observe the single run,
+  preserve its artifacts, then write `reports/STUDENT_4_V21_STOP_REPORT.md`
+  and update this file. Regardless of dev outcome, do not rerun and do not
+  open frozen without new explicit authorization.
+
 ## CONTROLLED STOP — Student-4-v2
 
 - Stop status: `WORK SAFELY STOPPED`. Branch `main`; repository
