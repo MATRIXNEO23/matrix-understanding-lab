@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "matrix.nlu.training.v2.1",
+  "datasetVersion": "matrix.nlu.dataset.v2",
+  "model": {
+    "repository": "Geotrend/distilbert-base-en-es-it-cased",
+    "revision": "36de33ec579e47f6c4e10d982d0b93871267c3e6",
+    "variant": "student-4-v2.1"
+  },
+  "studentLayers": 4,
+  "seed": 810923,
+  "maxLength": 64,
+  "massive": {
+    "epochs": 1,
+    "trainPerLanguage": 3000,
+    "devPerLanguage": 600,
+    "testPerLanguage": 0
+  },
+  "matrix": {
+    "epochs": 8,
+    "batchSize": 16,
+    "gradientAccumulation": 2,
+    "learningRate": 0.00003,
+    "weightDecay": 0.01,
+    "warmupRatio": 0.1,
+    "p05TrainRepeat": 16,
+    "earlyStoppingPatience": 2
+  },
+  "classWeighting": {
+    "method": "inverse-frequency-sqrt",
+    "groups": ["tokens", "sequence"],
+    "maximum": 8.0
+  },
+  "checkpointEveryEpoch": true,
+  "resume": "auto",
+  "testPolicy": "frozen test is unread; stop after the first development gate decision"
+}
