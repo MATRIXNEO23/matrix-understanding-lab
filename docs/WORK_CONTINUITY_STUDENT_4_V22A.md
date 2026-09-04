@@ -1,6 +1,6 @@
 # Work continuity addendum — Student-4-v2.2A Controlled Repair
 
-Last updated: 2026-09-04T15:42+02:00  
+Last updated: 2026-09-04T16:40+02:00  
 Repository: `MATRIXNEO23/matrix-understanding-lab`  
 Branch: `main`
 Continuity schema: `matrix.nlu.student-4.v22a.continuity.v3`
@@ -357,3 +357,43 @@ NOT_TECHNICALLY_PRODUCTION_VALIDATED
 Do not chase perfection before runtime testing.
 Do not pretend runtime testing equals production approval.
 ```
+
+
+## Local quantization checkpoint 1 — source verified
+
+Timestamp: `2026-09-04T14:40Z`
+
+GitHub-hosted runners remained unavailable before checkout, so the owner authorized continuing in an isolated local runtime without waiting for GitHub Actions.
+
+Authoritative source:
+
+```text
+trainingRunId = 33860928806
+trainingRunHead = 617aeca8a6abac4366eb13347fb88026307dc3b8
+bundleArtifactId = 9938150338
+bundleArtifactName = matrix-nlu-student-4-v22a-bundle-33860928806
+bundleArchiveSha256 = f2dfea052df525af741f8ddd98e279b5443645450d09f949970a6eac18edb987
+modelStateSha256 = 446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c
+```
+
+Verification:
+
+- GitHub artifact digest matched the downloaded archive byte-for-byte;
+- archive integrity passed;
+- archive contains only runtime bundle files: `training-result.json`, `labels.json`, `model-state.pt`, and tokenizer files;
+- no train/dev/test/frozen dataset is present or read;
+- `studentLayers = 4`;
+- `trainingSplitsRead = [train, dev]`;
+- `frozenDataRead = false`;
+- five mixed-export policy regression tests passed locally;
+- no retraining, gate change, production promotion, or dataset modification occurred.
+
+Active labels remain:
+
+```text
+EXPERIMENTAL_TEST_CANDIDATE_NOT_PRODUCTION_APPROVED
+FROZEN_UNREAD
+FAILED_DEV_GATE_CARRY_OVER
+```
+
+Next action: export FP32 ONNX, quantize encoder/backbone dynamically to INT8 while excluding every Matrix semantic head, then verify parity and CPU latency.
