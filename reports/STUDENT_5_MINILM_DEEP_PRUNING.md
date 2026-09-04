@@ -112,7 +112,7 @@ The selected 40k model file is 68.550% smaller than the upstream FP32 weight fil
 
 ## Separate coverage probe
 
-The probe is project-authored and separate from the serialized vocabulary-selection corpus. It has 95 coverage sentences: 29 each for IT/EN/ES plus multilingual controls; 50 are adult/intimacy and 8 are explicit code-switch cases. Semantic comparison expands this to 161 unique sentences and 36 contrast pairs. Canonical dev and Frozen were not used.
+The probe is project-authored and separate from the serialized vocabulary-selection corpus. It has 95 coverage sentences: 29 each for IT/EN/ES plus multilingual controls; 50 are adult/intimacy and 8 are explicit code-switch cases. Semantic comparison expands this to 161 unique sentences and 36 contrast pairs. A fail-closed exact-text comparison reports zero overlap with the selection corpus. Canonical dev and Frozen were not used.
 
 ### Coverage and tokenization by candidate
 
@@ -180,10 +180,10 @@ Mean-pooled last-hidden-state vectors were compared with the pinned upstream mod
 
 | Vocab | Mean representation cosine | Worst cosine | p05 cosine | Mean contrast cosine delta | p95 contrast delta | Max contrast delta | Unchanged-tokenization sentences | Max forward delta |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 40k | 0.995579 | 0.943703 | 0.976073 | 0.007845 | 0.045259 | 0.051024 | 103 | 0.0 |
-| 60k | 0.996500 | 0.943703 | 0.979299 | 0.007845 | 0.045259 | 0.051024 | 111 | 0.0 |
-| 80k | 0.997080 | 0.943703 | 0.979299 | 0.007487 | 0.045259 | 0.051024 | 120 | 0.0 |
-| 100k | 0.997840 | 0.943703 | 0.987107 | 0.006765 | 0.045259 | 0.051024 | 132 | 0.0 |
+| 40k | 0.995580 | 0.943703 | 0.976073 | 0.007855 | 0.045259 | 0.051024 | 103 | 0.0 |
+| 60k | 0.996501 | 0.943703 | 0.979299 | 0.007855 | 0.045259 | 0.051024 | 111 | 0.0 |
+| 80k | 0.997081 | 0.943703 | 0.979299 | 0.007497 | 0.045259 | 0.051024 | 120 | 0.0 |
+| 100k | 0.997841 | 0.943703 | 0.987107 | 0.006775 | 0.045259 | 0.051024 | 132 | 0.0 |
 
 At 40k, all three negation contrast pairs and all consent/refusal/withdrawal contrasts in Italian have zero cosine-delta relative to upstream. The largest 40k contrast delta is 0.051024 on Spanish adult consent withdrawal; the declared gate is based on mean (`<=0.02`) and p95 (`<=0.05`), both of which pass. When tokenization is unchanged after explicit ID remapping, the model forward is numerically identical (`max delta = 0`).
 
@@ -214,10 +214,10 @@ Thresholds were fixed before measurement:
 
 | Vocab | Model SHA-256 | Mapping SHA-256 | SentencePiece SHA-256 | Candidate manifest SHA-256 |
 |---:|---|---|---|---|
-| 40k | `d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2` | `da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9` | `748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78` | `65f2b0e26b8f46ea16e6a9d0328a5bfdb3cfb29fa2f4f40ff046c09af8fb2fc8` |
-| 60k | `5e8278b0772bb7dc2a18139c288931446b1a1c2089254d0e5d13c85e35bf6c48` | `6490295a55dbb7bfbade04ef57386b711b444d855febea0cedf0826458062c91` | `fcd96533998f8ae231348ca29724567d4701e487ddb7c82ee0a9ef8d033766e8` | `9fcd7df21921c397ec66d7865f6a731ef069b79f54f4d6c17f0edcf5c610b230` |
-| 80k | `79711969c70b6f03929dcc2e813c3b77da3b95227e5c820c68a0c2820c692e42` | `2b5128b5c5cc96efabd82a0cd469b22099c399b4d8acaf271bbc3f07492b05db` | `a6e74b54adfcbd08078ebddf503aa5926d15a5b414e85714e15e6642c22c86f0` | `48d4fb7f71acd7d2a42ecf219fb00dee9ff11272ea488933cdea50173fb3835e` |
-| 100k | `051eac9b10ec7404e0eaa527256853318f70ec42ebfc7523945ca2378cd51966` | `0e3d2fb44aaabb623a85d75ee2fa0cbd37a41a08e5985e077122dc946e90738b` | `0080da898b8d288710361931d2f69b64a46e0d25fc606525146d9ba575ca95b9` | `44a06edb14fd550dd6010d18efd09bcff1bea05fab09e6866adf86a86174bbf5` |
+| 40k | `d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2` | `da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9` | `748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78` | `a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d` |
+| 60k | `5e8278b0772bb7dc2a18139c288931446b1a1c2089254d0e5d13c85e35bf6c48` | `6490295a55dbb7bfbade04ef57386b711b444d855febea0cedf0826458062c91` | `fcd96533998f8ae231348ca29724567d4701e487ddb7c82ee0a9ef8d033766e8` | `fe3021e5acf8a861ab2982335b5a6b810185057f33f8f91c5cb39cf661a0bcd4` |
+| 80k | `79711969c70b6f03929dcc2e813c3b77da3b95227e5c820c68a0c2820c692e42` | `2b5128b5c5cc96efabd82a0cd469b22099c399b4d8acaf271bbc3f07492b05db` | `a6e74b54adfcbd08078ebddf503aa5926d15a5b414e85714e15e6642c22c86f0` | `01c64d309516db92332025fb0754cc76fe3e65e64b9030a6c1503685db97eaef` |
+| 100k | `051eac9b10ec7404e0eaa527256853318f70ec42ebfc7523945ca2378cd51966` | `0e3d2fb44aaabb623a85d75ee2fa0cbd37a41a08e5985e077122dc946e90738b` | `0080da898b8d288710361931d2f69b64a46e0d25fc606525146d9ba575ca95b9` | `af4f4f832848936245e19fb9ab53cc2d229d775f34e2d52104218124acf258f4` |
 
 Every file size and SHA-256 recorded in the aggregate manifest was independently recomputed after generation: `ALL_RECORDED_FILE_HASHES_AND_SIZES_PASS`. All four artifacts were independently reloaded and executed after the build.
 

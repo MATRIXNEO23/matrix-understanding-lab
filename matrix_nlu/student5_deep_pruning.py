@@ -195,15 +195,15 @@ def contrast_pairs() -> list[dict]:
         ("question-request-en", "May I come over?", "Come over to my place"),
         ("question-request-es", "¿Puedo ir a tu casa?", "Ven a mi casa"),
         ("correction-it", "Vivo a Roma", "No, non vivo a Roma, vivo a Padova"),
-        ("correction-en", "I live in Rome", "No, I do not live in Rome; I live in Padua"),
+        ("correction-en", "I currently reside in Verona", "No, I do not reside in Verona; I reside in Padua"),
         ("correction-es", "Vivo en Roma", "No, no vivo en Roma; vivo en Padua"),
         ("third-party-it", "Sara vive a Roma", "Marco dice che Sara vive a Roma"),
         ("third-party-en", "Sara lives in Rome", "Mark says that Sara lives in Rome"),
         ("third-party-es", "Sara vive en Roma", "Marco dice que Sara vive en Roma"),
         ("temporal-it-past", "Vivo a Roma", "Vivevo a Roma"),
         ("temporal-it-future", "Vivo a Roma", "Vivrò a Roma"),
-        ("temporal-en-past", "I live in Rome", "I used to live in Rome"),
-        ("temporal-en-future", "I live in Rome", "I will live in Rome"),
+        ("temporal-en-past", "I currently reside in Verona", "I used to reside in Verona"),
+        ("temporal-en-future", "I currently reside in Verona", "I will reside in Verona"),
         ("temporal-es-past", "Vivo en Roma", "Vivía en Roma"),
         ("temporal-es-future", "Vivo en Roma", "Viviré en Roma"),
         ("adult-desire-request-it", "Desidero fare sesso con te", "Ti chiedo di fare sesso con me"),
@@ -301,6 +301,26 @@ def count_selection_ids(corpus_path: pathlib.Path, tokenizer) -> tuple[Counter, 
     return counts, {"records": records, "uniqueObservedTokenIds": len(counts),
                     "countsBySource": dict(sorted(source_counts.items())),
                     "countsByLanguage": dict(sorted(language_counts.items()))}
+
+
+def assert_probe_separation(selection_corpus: pathlib.Path,
+                            probe_texts: list[str]) -> int:
+    selection_texts = set()
+    with selection_corpus.open(encoding="utf-8") as stream:
+        for line_number, line in enumerate(stream, start=1):
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            text = row.get("text")
+            if not isinstance(text, str) or not text.strip():
+                raise RuntimeError(
+                    f"selection corpus row {line_number} has no valid text")
+            selection_texts.add(text.strip())
+    overlap = sorted(selection_texts.intersection(text.strip() for text in probe_texts))
+    if overlap:
+        raise RuntimeError(
+            f"probe/selection exact-text overlap is forbidden: {overlap!r}")
+    return 0
 
 
 def selected_old_ids(target: int, counts: Counter, tokenizer, proto) -> list[int]:
@@ -644,6 +664,7 @@ def main() -> None:
     contrasts = contrast_pairs()
     probe_texts = list(dict.fromkeys([row["text"] for row in probe_rows] +
                                      [pair[key] for pair in contrasts for key in ("left", "right")]))
+    probe_overlap_count = assert_probe_separation(args.selection_corpus, probe_texts)
     original_vectors = pooled_representations(original_model, original_tokenizer, probe_texts)
     original_coverage = tokenization_metrics(original_tokenizer, original_tokenizer, probe_rows)
 
@@ -700,6 +721,7 @@ def main() -> None:
             "records": len(probe_rows),
             "contrastPairs": len(contrasts),
             "selectionCorpusOverlapChecked": True,
+            "selectionCorpusExactTextOverlap": probe_overlap_count,
             "canonicalDevUsed": False,
             "frozenUsed": False,
         },

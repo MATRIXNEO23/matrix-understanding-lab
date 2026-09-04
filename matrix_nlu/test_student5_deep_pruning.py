@@ -1,3 +1,6 @@
+import json
+import pathlib
+import tempfile
 import unittest
 
 import student5_deep_pruning as pruning
@@ -38,6 +41,16 @@ class Student5DeepPruningContractTest(unittest.TestCase):
         source = pruning.__doc__
         self.assertIn("No Matrix head", source)
         self.assertIn("No quantization", source)
+
+    def test_probe_selection_overlap_is_fail_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "selection.jsonl"
+            path.write_text(json.dumps({"text": "probe collision"}) + "\n",
+                            encoding="utf-8")
+            with self.assertRaises(RuntimeError):
+                pruning.assert_probe_separation(path, ["probe collision"])
+            self.assertEqual(
+                pruning.assert_probe_separation(path, ["separate probe"]), 0)
 
 
 if __name__ == "__main__":
