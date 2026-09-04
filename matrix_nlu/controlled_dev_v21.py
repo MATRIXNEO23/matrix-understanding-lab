@@ -13,6 +13,26 @@ import time
 from matrix_nlu.pipeline_support import Step, atomic_json, run_step, sha256
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+REQUIRED_BUNDLE_FILES = ("training-result.json", "model-state.pt", "labels.json")
+
+
+def validate_bundle(bundle: pathlib.Path) -> tuple[dict, str]:
+    missing = [name for name in REQUIRED_BUNDLE_FILES if not (bundle / name).is_file()]
+    if missing:
+        raise SystemExit("incomplete Student-4-v2.1 bundle: " + ", ".join(missing))
+    result = json.loads((bundle / "training-result.json").read_text(encoding="utf-8"))
+    config = result.get("config", {})
+    if config.get("model", {}).get("variant") != "student-4-v2.1":
+        raise SystemExit("refusing non-v2.1 bundle")
+    if config.get("studentLayers") != 4 or result.get("studentLayers") != 4:
+        raise SystemExit("refusing bundle without studentLayers == 4 provenance")
+    if result.get("frozenDataRead") is not False or result.get("trainingSplitsRead") != ["train", "dev"]:
+        raise SystemExit("training provenance does not prove train/dev-only access")
+    expected = result.get("modelStateSha256")
+    actual = sha256(bundle / "model-state.pt")
+    if expected != actual:
+        raise SystemExit(f"model checksum mismatch: expected={expected} actual={actual}")
+    return result, actual
 
 
 def combine(sources: list[pathlib.Path], destination: pathlib.Path) -> None:
@@ -34,16 +54,7 @@ def main() -> int:
     bundle, data, output = (path.resolve() for path in (args.bundle, args.data_dir, args.output_dir))
     output.mkdir(parents=True, exist_ok=True)
     logs = output / "logs"
-    result = json.loads((bundle / "training-result.json").read_text(encoding="utf-8"))
-    config = result.get("config", {})
-    if config.get("model", {}).get("variant") != "student-4-v2.1":
-        raise SystemExit("refusing non-v2.1 bundle")
-    if result.get("frozenDataRead") is not False or result.get("trainingSplitsRead") != ["train", "dev"]:
-        raise SystemExit("training provenance does not prove train/dev-only access")
-    expected = result.get("modelStateSha256")
-    actual = sha256(bundle / "model-state.pt")
-    if expected != actual:
-        raise SystemExit(f"model checksum mismatch: expected={expected} actual={actual}")
+    result, actual = validate_bundle(bundle)
 
     timings = {}
     for name in ("matrix", "p05"):
@@ -85,11 +96,13 @@ def main() -> int:
         "decision": decision,
         "datasetVersion": "matrix.nlu.dataset.v2",
         "variant": "student-4-v2.1",
+        "studentLayers": 4,
         "trainingSplitsRead": ["train", "dev"],
         "frozenDataRead": False,
         "frozenEvaluationExecuted": False,
         "modelStateSha256": actual,
         "trainingResultSha256": sha256(bundle / "training-result.json"),
+        "labelsSha256": sha256(bundle / "labels.json"),
         "thresholdProcessExitCode": completed.returncode,
         "selectionStatus": selection.get("status"),
         "selectedThreshold": selection.get("selectedThreshold"),
