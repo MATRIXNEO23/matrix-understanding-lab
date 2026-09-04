@@ -1,0 +1,97 @@
+name: Matrix-NLU Student-4 V2.1 Post-Run Dev Gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      training_run_id:
+        description: Completed Student-4-v2.1 controlled run id containing a preserved bundle
+        required: true
+        type: string
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/student-4-v21-post.trigger'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  dev-gate-from-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      PYTHONPATH: ${{ github.workspace }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      VERIFY_DIR: build/matrix-nlu/verification-training-student-4-v2.1-post
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: matrix_nlu/requirements-train.txt
+      - name: Resolve preserved Student-4-v2.1 bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            SOURCE_RUN=$(tr -d '[:space:]' < pipeline/student-4-v21-post.trigger)
+          else
+            SOURCE_RUN="${{ inputs.training_run_id }}"
+          fi
+          [[ "$SOURCE_RUN" =~ ^[0-9]+$ ]]
+          echo "SOURCE_TRAINING_RUN=$SOURCE_RUN" >> "$GITHUB_ENV"
+          gh run download "$SOURCE_RUN" --name "matrix-nlu-student-4-v21-bundle-$SOURCE_RUN" --dir downloaded
+          RESULT=$(find downloaded -type f -name training-result.json -print -quit)
+          test -n "$RESULT"
+          BUNDLE=$(dirname "$RESULT")
+          echo "TRAINING_BUNDLE=$BUNDLE" >> "$GITHUB_ENV"
+          sha256sum "$BUNDLE"/training-result.json "$BUNDLE"/model-state.pt "$BUNDLE"/labels.json
+      - name: Install pinned evaluation dependencies
+        run: python -m pip install --requirement matrix_nlu/requirements-train.txt
+      - name: Rebuild immutable v2 dev dataset
+        run: python matrix_nlu/build_dataset_v2.py
+      - name: Audit rebuilt dev dataset before evaluation
+        run: >-
+          python matrix_nlu/audit_dataset_v2.py
+          --data-dir build/matrix-nlu/data-v2
+          --output build/matrix-nlu/automation/dataset-v21-post-audit.json
+          --fail-on-error
+      - name: Evaluate development and controlled stop from preserved bundle
+        run: >-
+          python -m matrix_nlu.controlled_dev_v21
+          --bundle "$TRAINING_BUNDLE"
+          --data-dir build/matrix-nlu/data-v2
+          --output-dir "$VERIFY_DIR"
+      - name: Record post-run evidence
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/matrix-nlu/automation "$VERIFY_DIR"
+          printf 'SOURCE_TRAINING_RUN=%s\n' "${SOURCE_TRAINING_RUN:-UNRESOLVED}" > "$VERIFY_DIR/source-run.txt"
+          printf 'frozenDataRead=false\nfrozenEvaluationExecuted=false\ntrainingSplitsRead=train,dev\n' > "$VERIFY_DIR/FROZEN_GUARD.txt"
+          df -h . > "$VERIFY_DIR/disk.txt"
+          free -h > "$VERIFY_DIR/memory.txt"
+          find build/matrix-nlu -type f ! -name SHA256SUMS -print0 \
+            | sort -z | xargs -0 -r sha256sum > "$VERIFY_DIR/SHA256SUMS"
+      - name: Upload Student-4-v2.1 post-run dev evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matrix-nlu-student-4-v21-post-dev-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 6
+          if-no-files-found: warn
+          path: |
+            ${{ env.VERIFY_DIR }}/
+            build/matrix-nlu/automation/dataset-v21-post-audit.json
+            build/matrix-nlu/data-v2/*manifest.json
+            build/matrix-nlu/data-v2/v1-to-v2-corrections.json
