@@ -1,9 +1,26 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T09:35:00+02:00
+Last updated: 2026-09-04T15:50:00+02:00
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
+
+
+## LATEST — Student-4-v2.2A Controlled Repair
+
+- Authoritative run [`33860928806`](https://github.com/MATRIXNEO23/matrix-understanding-lab/actions/runs/33860928806), job `100984948899`, completed successfully as workflow infrastructure at run HEAD `617aeca8a6abac4366eb13347fb88026307dc3b8`.
+- Model decision: `EXPERIMENTAL_TEST_CANDIDATE / NOT_PRODUCTION_APPROVED`. The unchanged dev selection is `FAILED_GATE`, selected threshold `null`; no gate was lowered.
+- Training: fresh `student-4-v2.2a`, 4 encoder layers, 58,599,411 parameters, train/dev only, `defer-frozen`. Early stop at Matrix epoch 8/10; best score `0.9577545560826969` at epoch 5.
+- Model-state SHA-256: `446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c`; resumable checkpoint SHA-256: `b57737a3e3f6acf9d72da86f918f730f9bb655839c6cf00f8b614d3b706f815b`.
+- Preserved report artifact `9938144318`, digest `e71e153509e8f002fd74782ebb5667bb93b59438e6646c4c11723afe4be64129`; bundle `9938150338`, digest `f2dfea052df525af741f8ddd98e279b5443645450d09f949970a6eac18edb987`; resume `9938165358`, digest `ff66bd687fc55f1b767164b84795ad84aba4937130b7d8b0aead9afff5f018cd`.
+- Report archive digest matches GitHub; all 23 present evidence files represented in `SHA256SUMS` match with no mismatch. Standard dataset audit is `PASS`.
+- Repair auxiliary SHA-256 `8be02976d46ba47d746ff7307d688d93595453221965b3de995d4b1de655799f`: 375 unique train-only rows, exactly IT core 139, ES core 70, EN core 69, adult/intimacy IT 60, cross-lingual 37. Adult subset is project-authored semantic robustness and adds no safety/censorship label.
+- Matrix dev overall: exact-set `0.679894`, claim exact `0.713992`, negation F1 `0.490644`, predicate `0.936214`, ownership corruption `0`. Exact-set IT/ES/EN: `0.619048 / 0.523810 / 0.896825`; negation F1: `0.287037 / 0.129534 / 1.0`; predicate: `0.808642 / 1.0 / 1.0`.
+- P0.5 dev overall: exact-set `0.516667`, claim exact `0.654762`, negation F1 `1.0`, predicate `0.797619`, ownership corruption `2` (both IT). Exact-set IT/ES/EN: `0.45 / 0.50 / 0.60`; predicate: `0.857143 / 0.75 / 0.785714`.
+- Compared with v2.1, P0.5 improves, but Matrix overall regresses and IT predicate/temporal plus ES negation remain critical. Therefore this is preserved for practical experimental review, not production approval.
+- `FROZEN_GUARD.txt`: `frozenDataRead=false`, `frozenEvaluationExecuted=false`, `trainingSplitsRead=train,dev`, `onnxExported=false`, `quantizationExecuted=false`. Frozen was not read; dev was not modified; no ONNX, INT8, packaging, or promotion occurred.
+- Complete report: `reports/STUDENT_4_V22A_CONTROLLED_REPAIR_REPORT.md`, introduced by commit `12ac2cfebdce171392893d5692d17d03e8317886`.
+- Exact next activity: user review of FP32 metrics and an explicit decision on practical/quantization testing. Preserve bundle and checkpoint; do not automatically quantize, open frozen, alter dev/gates, retrain, package, or promote.
 
 ## LATEST — Student-4-v2.1 post-run dev gate
 
