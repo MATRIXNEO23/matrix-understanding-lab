@@ -282,6 +282,13 @@ strategy change, before long/risky work, and before ending any session.
   run id. Local regression/property/integration suite is 74/74 green. Exact
   next action: commit this dev-only remediation, require P0/probe CI green,
   then launch one fresh audited Student-4-v2 run.
+- Dev-only remediation checkpoint
+  `909dd2f1a786bfe2eac61c2d1921b4ebd27679c5` passed both required push
+  guards: P0 run `33826601373` success and candidate-probe run `33826601401`
+  success. No training was launched by that commit. Exact next action is the
+  one-time `student-4-v2-retrain.trigger` commit; it must start with an empty
+  training directory, rerun the dataset audit before training, and keep frozen
+  sealed unless the unchanged dev gates pass.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
