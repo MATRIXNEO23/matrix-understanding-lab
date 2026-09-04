@@ -92,7 +92,7 @@ def encoder_quantizable_nodes(model_path: pathlib.Path) -> list[str]:
     return [
         node.name
         for node in model.graph.node
-        if node.name and node.op_type in LINEAR_OPS and "/encoder/" in _node_text(node)
+        if node.name and node.op_type in LINEAR_OPS and "/encoder/" in node.name
     ]
 
 
@@ -197,11 +197,67 @@ def quantized_ops(model_path: pathlib.Path) -> dict:
     return counts
 
 
+def array_parity(expected, actual) -> list[dict]:
+    """Compare FP32 and mixed ONNX tensors without using the native model."""
+    import numpy as np
+
+    entries = []
+    for name, reference, observed in zip(OUTPUT_NAMES, expected, actual):
+        difference = np.abs(reference - observed)
+        entries.append({
+            "output": name,
+            "maxAbsLogitDelta": float(difference.max()),
+            "argmaxExact": bool(np.array_equal(reference.argmax(-1), observed.argmax(-1))),
+        })
+    return entries
+
+
+def parity_summary(probes: list[dict]) -> dict:
+    entries = [entry for probe in probes for entry in probe["outputs"]]
+    by_output = {}
+    for output in OUTPUT_NAMES:
+        values = [entry for entry in entries if entry["output"] == output]
+        exact = sum(entry["argmaxExact"] for entry in values)
+        by_output[output] = {
+            "comparisons": len(values),
+            "argmaxExactCount": exact,
+            "argmaxExactRate": exact / max(1, len(values)),
+            "maxAbsLogitDelta": max(
+                (entry["maxAbsLogitDelta"] for entry in values), default=0.0
+            ),
+        }
+    exact = sum(entry["argmaxExact"] for entry in entries)
+    protected = [entry for entry in entries if entry["output"] in PROTECTED_OUTPUTS]
+    protected_exact = sum(entry["argmaxExact"] for entry in protected)
+    return {
+        "probeCount": len(probes),
+        "comparisons": len(entries),
+        "argmaxExactCount": exact,
+        "argmaxExactRate": exact / max(1, len(entries)),
+        "allOutputsArgmaxExact": exact == len(entries),
+        "maxAbsLogitDelta": max(
+            (entry["maxAbsLogitDelta"] for entry in entries), default=0.0
+        ),
+        "protectedComparisons": len(protected),
+        "protectedArgmaxExactCount": protected_exact,
+        "protectedArgmaxExactRate": protected_exact / max(1, len(protected)),
+        "byOutput": by_output,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--bundle", type=pathlib.Path, required=True)
     parser.add_argument("--output-dir", type=pathlib.Path, required=True)
     parser.add_argument("--repetitions", type=int, default=30)
+    parser.add_argument("--local-execution-id")
+    parser.add_argument("--source-training-run-id", type=int, default=33860928806)
+    parser.add_argument("--source-training-head",
+                        default="617aeca8a6abac4366eb13347fb88026307dc3b8")
+    parser.add_argument("--source-bundle-artifact-id", type=int, default=9938150338)
+    parser.add_argument("--source-bundle-artifact-digest",
+                        default="f2dfea052df525af741f8ddd98e279b5443645450d09f949970a6eac18edb987")
+    parser.add_argument("--model-state-recovery-run-id", type=int)
     parser.add_argument(
         "--allow-missing-protected-node-marker",
         action="store_true",
@@ -294,6 +350,7 @@ def main():
         "I prefer that you do not touch me",
     )
     parity_results = {"fp32": [], "mixedHeadProtectedInt8": []}
+    direct_parity = []
     for text in probes:
         tokens = runtime.tokenizer(
             text,
@@ -308,10 +365,19 @@ def main():
             "input_ids": tokens["input_ids"].numpy().astype(np.int64),
             "attention_mask": tokens["attention_mask"].numpy().astype(np.int64),
         }
+        observed_by_kind = {}
         for kind, session in sessions.items():
+            observed = session.run(list(OUTPUT_NAMES), ort_inputs)
+            observed_by_kind[kind] = observed
             parity_results[kind].append(
-                {"text": text, "outputs": parity(native, session.run(list(OUTPUT_NAMES), ort_inputs))}
+                {"text": text, "outputs": parity(native, observed)}
             )
+        direct_parity.append({
+            "text": text,
+            "outputs": array_parity(
+                observed_by_kind["fp32"], observed_by_kind["mixedHeadProtectedInt8"]
+            ),
+        })
 
     timing_inputs = {
         "input_ids": encoded["input_ids"].numpy().astype(np.int64),
@@ -322,7 +388,12 @@ def main():
         "schemaVersion": "matrix.nlu.onnx-mixed-head-protected-export.v1",
         "variant": "student-4-v2.2a",
         "productionStatus": EXPERIMENTAL_STATUS,
-        "decisionCarryOver": "STOPPED_FOR_REVIEW_FAILED_DEV_GATE",
+        "productionApproved": False,
+        "acceptanceTier": "R2_CONTROLLED_RUNTIME_CANDIDATE",
+        "frozenStatus": "FROZEN_UNREAD",
+        "decisionCarryOver": "FAILED_DEV_GATE_CARRY_OVER",
+        "sourceDevDecision": "STOPPED_FOR_REVIEW_FAILED_DEV_GATE",
+        "localExecutionId": args.local_execution_id,
         "frozen": {
             "frozenDataRead": False,
             "frozenEvaluationExecuted": False,
@@ -347,9 +418,17 @@ def main():
         "fixedSequenceLength": runtime.max_length,
         "outputs": list(OUTPUT_NAMES),
         "source": {
+            "trainingRunId": args.source_training_run_id,
+            "trainingRunHead": args.source_training_head,
+            "bundleArtifactId": args.source_bundle_artifact_id,
+            "bundleArtifactDigestSha256": args.source_bundle_artifact_digest,
             "trainingResultSha256": sha256(args.bundle / "training-result.json"),
             "modelStateSha256": sha256(args.bundle / "model-state.pt"),
             "labelsSha256": sha256(args.bundle / "labels.json"),
+            "modelStateRecoveryRunId": args.model_state_recovery_run_id,
+            "modelStateRecoveryPolicy": (
+                "BIT_IDENTICAL_SHA256_MIRROR" if args.model_state_recovery_run_id else None
+            ),
         },
         "files": {
             kind: {"path": path.name, "bytes": path.stat().st_size, "sha256": sha256(path)}
@@ -361,6 +440,10 @@ def main():
             "mixedHeadProtectedInt8": quantized_ops(mixed_path),
         },
         "parity": parity_results,
+        "parityFp32VsMixed": {
+            "probes": direct_parity,
+            "summary": parity_summary(direct_parity),
+        },
         "latency": {
             kind: latency(session, timing_inputs, args.repetitions)
             for kind, session in sessions.items()
@@ -373,7 +456,10 @@ def main():
     (args.output_dir / "FROZEN_GUARD.txt").write_text(
         "variant=student-4-v2.2a\n"
         "productionStatus=EXPERIMENTAL_TEST_CANDIDATE_NOT_PRODUCTION_APPROVED\n"
-        "decisionCarryOver=STOPPED_FOR_REVIEW_FAILED_DEV_GATE\n"
+        "productionApproved=false\n"
+        "frozenStatus=FROZEN_UNREAD\n"
+        "decisionCarryOver=FAILED_DEV_GATE_CARRY_OVER\n"
+        "sourceDevDecision=STOPPED_FOR_REVIEW_FAILED_DEV_GATE\n"
         "frozenDataRead=false\n"
         "frozenEvaluationExecuted=false\n"
         "frozenPredictionsRead=false\n"
