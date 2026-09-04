@@ -15,7 +15,7 @@ Frozen status: `FROZEN NOT TOUCHED`
 
   ```text
   Traceback (most recent call last):
-    File ".../matrix_nlu/controlled_dev_v21.py", line 12, in <module>
+    File "/home/runner/work/matrix-understanding-lab/matrix-understanding-lab/matrix_nlu/controlled_dev_v21.py", line 13, in <module>
       from matrix_nlu.pipeline_support import Step, atomic_json, run_step, sha256
   ModuleNotFoundError: No module named 'matrix_nlu'
   Error: Process completed with exit code 1.
