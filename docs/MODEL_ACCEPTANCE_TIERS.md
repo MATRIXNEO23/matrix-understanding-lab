@@ -1,8 +1,8 @@
 # Matrix-NLU Model Acceptance Tiers
 
-Last updated: 2026-09-04T15:40+02:00
+Last updated: 2026-09-04T16:35+02:00
 Repository: `MATRIXNEO23/matrix-understanding-lab`
-Schema: `matrix.nlu.acceptance-tiers.v1`
+Schema: `matrix.nlu.acceptance-tiers.v2`
 
 ## Purpose
 
@@ -24,6 +24,123 @@ This document defines separate acceptance tiers so that:
 Lowering an operational tier does not change the measured model quality.
 It only changes what kind of controlled use is allowed.
 ```
+
+## Canonical Training / Repair Protocol
+
+The following rules are canonical for all future Matrix-NLU training, repair, evaluation and quantization cycles.
+
+### 1. Do not lower gates
+
+```text
+DO NOT LOWER ACCEPTANCE GATES TO MAKE A MODEL PASS.
+```
+
+Do not modify acceptance thresholds, canonical dev requirements or frozen criteria merely to convert a failing result into a passing result.
+
+If a model does not meet the canonical gate, preserve the measured failure and either:
+
+- perform targeted repair;
+- classify it in the appropriate R0/R1/R2 tier;
+- or stop the experiment.
+
+Operational tiering and owner authorization never rewrite measured metrics.
+
+### 2. Fix infrastructure before judging the model
+
+Infrastructure failures must be resolved before interpreting a run as a model-quality result.
+
+Examples include:
+
+- Python import errors;
+- incorrect `PYTHONPATH`;
+- incorrect package/module invocation;
+- missing dependencies;
+- runner failures;
+- artifact download/upload failures;
+- broken evaluation entry points.
+
+Preferred fixes include correcting `PYTHONPATH`, package layout, or launching the evaluator as a Python module when appropriate.
+
+A run that never executes a valid evaluation must be classified as an infrastructure failure, not as a model failure.
+
+### 3. Perform targeted error analysis before retraining
+
+When a gate or fragile semantic family fails, inspect the residual errors before starting another training cycle.
+
+For example, when `predicate`, `negation`, referents, ownership, correction, temporal or another critical head fails on `p05Dev` or Matrix dev:
+
+1. isolate the failing examples;
+2. classify the failure mode;
+3. determine whether the error originates in data, labels, span decoding, loss weighting, model capacity or downstream decoding;
+4. add or rebalance TRAIN-ONLY examples specifically covering those edge cases;
+5. preserve dev and frozen unchanged;
+6. rerun the same canonical evaluation for direct comparison.
+
+Do not use blind dataset growth as a substitute for error analysis.
+
+### 4. Use targeted mixed-precision quantization
+
+When quantization is required, prefer:
+
+```text
+Mixed / Head-Protected INT8
+```
+
+Quantize the encoder/backbone where practical while protecting the Matrix semantic heads that are fragile or directly affect interpretation, authority and memory safety.
+
+Protected heads:
+
+```text
+token.boundary
+token.object
+token.subject
+token.negation
+token.temporal
+token.entity
+sequence.dialogueAct
+sequence.predicate
+sequence.subjectReferent
+sequence.targetReferent
+sequence.ownerReferent
+sequence.perspectiveReferent
+sequence.polarity
+sequence.temporalRelation
+sequence.claimKind
+```
+
+MASSIVE auxiliary heads do not require the same protection unless a future measured regression justifies it.
+
+### 5. Quantization must be compared against FP32
+
+Never accept a quantized artifact solely because export succeeded.
+
+For every quantized candidate:
+
+- retain an FP32 ONNX reference;
+- run parity checks on representative IT/EN/ES probes;
+- compare fragile-head predictions and metrics against FP32;
+- record size, latency and checksums;
+- reject or revise quantization if critical semantic heads materially degrade.
+
+The quantized artifact must not silently trade away negation, predicate, referent, ownership, polarity, temporal or claim classification quality merely to reduce model size.
+
+### 6. Canonical repair loop
+
+```text
+INFRASTRUCTURE VALID
+→ TRAIN
+→ CANONICAL DEV EVALUATION
+→ TARGETED ERROR ANALYSIS
+→ TRAIN-ONLY REPAIR
+→ RE-EVALUATION WITH UNCHANGED GATES
+→ FP32 EXPORT
+→ MIXED / HEAD-PROTECTED QUANTIZATION
+→ FP32 VS QUANTIZED PARITY
+→ ACCEPTANCE TIER DECISION
+→ FROZEN ONLY WHEN AUTHORIZED BY THE APPLICABLE GATE
+```
+
+Frozen data must never be used as repair or debugging material.
 
 ## Tier R0 — Research Baseline
 
@@ -103,7 +220,7 @@ NOT_TECHNICALLY_PRODUCTION_VALIDATED
 FROZEN_UNREAD
 ```
 
-This is the new intermediate standard.
+This is the intermediate standard.
 
 It exists for models that are not production-approved but are useful enough for practical app/lab testing behind guards.
 
@@ -315,4 +432,6 @@ protectedHeads = [...]
 ```text
 Do not chase perfection before practical testing.
 Do not pretend practical testing equals production approval.
+Do not lower canonical gates to hide a model weakness.
+Fix infrastructure first, repair measured errors second, quantize only with FP32 comparison.
 ```
