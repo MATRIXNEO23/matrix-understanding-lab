@@ -1,9 +1,58 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T05:58:00+02:00  
+Last updated: 2026-09-04T09:35:00+02:00
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
+
+## LATEST — Student-4-v2.1 post-run dev gate
+
+- Source training run/commit: `33837897457` /
+  `72f14286e89df88f41aedb169c7307b26b57eedf`. Training was not repeated.
+- Import fix commit: `3dd2be2cc45d4cde1b439fb261c8c167ab1eb4bb`;
+  post-run workflow commit:
+  `31ba96d40d6f662bbb253ce2c60146d8cf6f026e`.
+- Final provenance-hardening/run HEAD:
+  `813126cbff80bfb6bc82636c87e8ac16b1a917a8`, branch `main`.
+  It requires the three bundle files and verifies variant
+  `student-4-v2.1`, `studentLayers == 4`,
+  `trainingSplitsRead == ["train", "dev"]`, `frozenDataRead == false`,
+  and model checksum.
+- Final dev-only run: `33848931720`, job `100947061031`, SUCCESS as
+  infrastructure execution. Evaluation artifact
+  `matrix-nlu-student-4-v21-post-dev-33848931720`, ID `9927657001`,
+  archive SHA-256
+  `2314694e5b45f6a95ba409808394013d3a43f92f6d798765fc5cdb01ff3fcb41`.
+- Controlled model decision: `STOPPED_FOR_REVIEW`. Threshold selection is
+  `FAILED_GATE` across 188 dev-only candidates; selected threshold is
+  `null`. Gates were not lowered.
+- Threshold-zero combined result: claim-count exact `1.0`, exact claim set
+  `0.6997549019607843`, valid coverage `0.9952651515151515`, selective
+  accuracy `0.7259752616555661`, ownership corruption `2`, World Truth
+  updates `0`.
+- Matrix dev: exact set `0.7195767195767195`, claim exact
+  `0.7325102880658436`, field exact `0.994055784179241`, span F1
+  `0.9534940610475388`, entity F1 `0.9851455733808675`, negation F1
+  `0.5091693635382956`.
+- P0.5 dev: exact set `0.45`, claim exact `0.6071428571428571`, field
+  exact `0.9113756613756614`, span F1 `0.9772014222965907`, entity F1
+  `0.9457013574660633`, predicate `0.75`, temporal relation
+  `0.8928571428571429`, with two IT ownership corruptions.
+- Residual error counts: span decoding `269`, semantic classification `99`,
+  entity resolution `40`, authority/referent decoding `20`; 245 failed
+  observations. Weak critical families remain negation, request, correction,
+  goal, temporality, referents, third-party/report and multi-claim, especially
+  IT/ES.
+- Complete metrics, per-language/head/family tables, checksums and baseline
+  comparison: `reports/STUDENT_4_V21_POST_DEV_REPORT.md`.
+- Targeted quantization policy:
+  `docs/decisions/2026-09-04_STUDENT_4_V21_TARGETED_QUANTIZATION.md`.
+  It is recorded but NOT executed. Because dev failed, do not export ONNX,
+  quantize, read frozen, retrain blindly, alter thresholds/datasets, integrate
+  Android, package or promote.
+- Exact next activity: supervisor review of the dev evidence and a separate
+  authorization for any targeted fine-tune/retraining decision. Frozen remains
+  closed.
 
 ## Repository state
 
