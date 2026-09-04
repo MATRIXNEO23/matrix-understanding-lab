@@ -1,6 +1,6 @@
 # Work continuity addendum — Student-4-v2.2A Controlled Repair
 
-Last updated: 2026-09-04T16:44+02:00  
+Last updated: 2026-09-04T16:49+02:00  
 Repository: `MATRIXNEO23/matrix-understanding-lab`  
 Branch: `main`
 Continuity schema: `matrix.nlu.student-4.v22a.continuity.v3`
@@ -419,3 +419,24 @@ The checksum matches the run record, so the local download is intact; the file p
 Recovery action within the existing authorization: inspect the resumable checkpoint artifact from the same authoritative run `33860928806` and recover the exact trained state if a valid loadable checkpoint is present. This is not retraining and does not access datasets.
 
 Constraints remain unchanged: `FROZEN_UNREAD`, `FAILED_DEV_GATE_CARRY_OVER`, and `EXPERIMENTAL_TEST_CANDIDATE_NOT_PRODUCTION_APPROVED`.
+
+
+## Local quantization checkpoint 3 — exact state recovered
+
+Timestamp: `2026-09-04T14:49Z`
+
+The resumable artifact exceeds the connector's 512 MiB transfer ceiling, so it was not partially downloaded or altered. A safe recovery mirror was found in the immediately preceding deterministic v2.2A run `33860905849`.
+
+The recovered `model-state.pt` is cryptographically identical to the model state declared by authoritative run `33860928806`:
+
+```text
+expected modelStateSha256 = 446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c
+recovery mirror sha256     = 446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c
+PyTorch loadable           = true
+state entries              = 102
+parameter values           = 58599411
+```
+
+The local recovery bundle combines the authoritative run's `training-result.json`, `labels.json`, and tokenizer with that exact-checksum model state. This does not substitute another trained model: the recovered bytes match the authoritative model checksum exactly.
+
+No retraining, dataset access, threshold change, frozen access, or production promotion occurred. Next action: execute FP32 ONNX export and mixed/head-protected dynamic INT8 quantization.
