@@ -1,0 +1,118 @@
+name: Matrix-NLU Student-4 V2.2A Experimental Mixed Quantization
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/matrix-nlu-student-4-v22a-mixed-quantization.yml'
+      - 'matrix_nlu/export_mixed_head_protected_onnx.py'
+      - 'matrix_nlu/test_export_onnx.py'
+  workflow_dispatch:
+    inputs:
+      training_run_id:
+        description: 'Source v2.2A training run id containing matrix-nlu-student-4-v22a-bundle-*'
+        required: true
+        default: '33860928806'
+      repetitions:
+        description: 'ONNX Runtime latency repetitions'
+        required: true
+        default: '30'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  export-mixed-head-protected:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/matrix_nlu
+      TRAINING_RUN_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.training_run_id || '33860928806' }}
+      REPETITIONS: ${{ github.event_name == 'workflow_dispatch' && inputs.repetitions || '30' }}
+      BUNDLE_DIR: build/matrix-nlu/training-student-4-v2.2a
+      OUTPUT_DIR: build/matrix-nlu/onnx-student-4-v2.2a-mixed-head-protected
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: matrix_nlu/requirements-train.txt
+
+      - uses: actions/cache@v4
+        with:
+          path: .cache/huggingface
+          key: matrix-nlu-geotrend-36de33ec-v22a
+
+      - name: Install pinned dependencies
+        run: python -m pip install --requirement matrix_nlu/requirements-train.txt
+
+      - name: Run export policy regression tests
+        run: python -m unittest matrix_nlu.test_export_onnx -v
+
+      - name: Download preserved v2.2A bundle artifact
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$BUNDLE_DIR"
+          gh run download "$TRAINING_RUN_ID" \
+            --repo "$GITHUB_REPOSITORY" \
+            --name "matrix-nlu-student-4-v22a-bundle-$TRAINING_RUN_ID" \
+            --dir "$BUNDLE_DIR"
+          test -f "$BUNDLE_DIR/training-result.json"
+          test -f "$BUNDLE_DIR/labels.json"
+          test -f "$BUNDLE_DIR/model-state.pt"
+          test -d "$BUNDLE_DIR/tokenizer"
+
+      - name: Frozen guard before experimental export
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$OUTPUT_DIR"
+          printf '%s\n' \
+            'variant=student-4-v2.2a' \
+            'productionStatus=EXPERIMENTAL_TEST_CANDIDATE_NOT_PRODUCTION_APPROVED' \
+            'decisionCarryOver=STOPPED_FOR_REVIEW_FAILED_DEV_GATE' \
+            'sourceTrainingRunId='"$TRAINING_RUN_ID" \
+            'frozenDataRead=false' \
+            'frozenEvaluationExecuted=false' \
+            'frozenPredictionsRead=false' \
+            'devGateLowered=false' \
+            'productionPromotion=false' \
+            > "$OUTPUT_DIR/FROZEN_GUARD_PRE_EXPORT.txt"
+
+      - name: Export FP32 and mixed/head-protected INT8 ONNX
+        run: >-
+          python matrix_nlu/export_mixed_head_protected_onnx.py
+          --bundle "$BUNDLE_DIR"
+          --output-dir "$OUTPUT_DIR"
+          --repetitions "$REPETITIONS"
+
+      - name: Record checksums
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          find build/matrix-nlu -type f ! -name SHA256SUMS -print0 \
+            | sort -z | xargs -0 -r sha256sum > "$OUTPUT_DIR/SHA256SUMS"
+          df -h . > "$OUTPUT_DIR/disk.txt"
+          free -h > "$OUTPUT_DIR/memory.txt"
+
+      - name: Upload mixed/head-protected experimental artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matrix-nlu-student-4-v22a-mixed-head-protected-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 1
+          if-no-files-found: error
+          path: ${{ env.OUTPUT_DIR }}/
