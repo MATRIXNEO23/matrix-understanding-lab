@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `00d126fbfffce978de97eb5af227250916a2d724`.
+  `e02948093595eaf6f2e9a9b39b4937cdf843a028`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -232,6 +232,13 @@ strategy change, before long/risky work, and before ending any session.
   checkpoint SHA-256; permit adoption only for this pre-identity v2 checkpoint;
   then resume from epoch 4 without replaying training. Local suite is 73/73
   green, dry-run carries explicit `--resume-evidence`, and all YAML parses.
+- Recovery checkpoint `e02948093595eaf6f2e9a9b39b4937cdf843a028`
+  (`fix: resume completed student-4-v2 checkpoint safely`) passed CI: P0 run
+  `33825683892` success and candidate-probe run `33825683886` success. Exact
+  next action is to commit `pipeline/student-4-v2-resume.trigger` containing
+  source run `33818777290`; the isolated workflow will verify and adopt its
+  epoch-4 checkpoint, serialize the missing training result, then execute dev
+  calibration and only conditionally frozen/export/package gates.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
