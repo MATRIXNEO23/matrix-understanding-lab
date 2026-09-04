@@ -29,16 +29,20 @@ drop mapping is emitted as `v1-to-v2-corrections.json`.
 
 | Dataset | Train | Dev | Frozen test |
 |---|---|---|---|
-| Matrix | `e6190bf4fe0c5d326242920be6b3e0fbcb6f6fc593f4d7a017ffd08f74bb0eff` | `704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012` | `458f79ecaa9ec547c53a55ba68c45531e88e0ae5a0d6ee405222632d85919228` |
+| Matrix | `5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820` | `704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012` | `458f79ecaa9ec547c53a55ba68c45531e88e0ae5a0d6ee405222632d85919228` |
 | P0.5 | `413f60ca17879ed9de440add7903b6e2abaebdfbbed6055b32c6e0b105cadfcd` | `7533f56194431bd17b6f8544031d5436ca14ee6e209336da8133e1f05cdf0866` | `a729045ac17356321f2b8c6624554c8bf8ad22fd794e2c0718876734de0aabc2` |
 
 Reproducible v1-to-v2 mapping SHA-256:
-`ca0ec3dd9f4283a849d166fdca02193ca75cbea8b88bcbda5890378786c223bb`.
+`c53ffb13f5b0ebdc15892a9b18890f3caa3c16347600c679c2ecfeab321fcbbc`.
 
 The mapping records 1,322 claim corrections, 426 anti-leakage partition drops,
-and 24 balanced IT/EN/ES train-only additions. The additions close label
-coverage for `attribute.is` and explicit `PAST` temporal supervision without
-copying held-out surfaces.
+and 129 balanced IT/EN/ES train-only additions. The additions close label
+coverage and add distinct-surface supervision for dev-observed semantic
+families (negative scope, explicit temporality, consent, request/correction
+and third-party referents) without copying held-out rows. Matrix train is now
+2,775 observations / 3,615 claims, exactly 925 observations per language;
+Matrix dev/frozen and every P0.5 split remain byte-identical to the original
+v2 checkpoint.
 
 ## Pre-training gate
 

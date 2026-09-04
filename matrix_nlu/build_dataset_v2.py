@@ -15,6 +15,7 @@ import unicodedata
 from collections import Counter, defaultdict
 
 import build_dataset as v1
+from v2_train_generalization import build_generalization_rows
 
 SCHEMA = "matrix.nlu.dataset.v2"
 MANIFEST_SCHEMA = "matrix.nlu.dataset-manifest.v2"
@@ -33,7 +34,7 @@ V1_HASHES = {
 }
 V2_HASHES = {
     "matrix": {
-        "train": "e6190bf4fe0c5d326242920be6b3e0fbcb6f6fc593f4d7a017ffd08f74bb0eff",
+        "train": "5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820",
         "dev": "704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012",
         "test": "458f79ecaa9ec547c53a55ba68c45531e88e0ae5a0d6ee405222632d85919228",
     },
@@ -356,6 +357,10 @@ def build(p05_gold: pathlib.Path) -> tuple[dict[str, list[dict]], dict]:
     matrix_v2, matrix_corrections = _migrate(matrix_v1, "matrix")
     p05_v2, p05_corrections = _migrate(p05_v1, "p05")
     additions, added_rows = v2_train_augmentations()
+    generalization_rows, generalization_additions = build_generalization_rows(
+        SCHEMA, v1.SCHEMA, v1.SEED)
+    additions.extend(generalization_rows)
+    added_rows.extend(generalization_additions)
     matrix_v2.extend(additions)
     kept, drops = _remove_conflicts_and_leakage(
         [("matrix", row) for row in matrix_v2] + [("p05", row) for row in p05_v2])

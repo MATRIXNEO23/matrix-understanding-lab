@@ -72,7 +72,7 @@ class DatasetV2Test(unittest.TestCase):
     def test_migration_records_corrections_and_partition_drops(self):
         self.assertGreater(self.mapping["counts"]["claimCorrections"], 0)
         self.assertGreater(self.mapping["counts"]["partitionDrops"], 0)
-        self.assertEqual(24, self.mapping["counts"]["trainAdditions"])
+        self.assertEqual(129, self.mapping["counts"]["trainAdditions"])
         reasons = {item["reason"] for item in self.mapping["partitionDrops"]}
         self.assertEqual({"DEV_TOO_CLOSE_TO_FROZEN_TEST",
                           "TRAIN_TOO_CLOSE_TO_HELD_OUT"}, reasons)

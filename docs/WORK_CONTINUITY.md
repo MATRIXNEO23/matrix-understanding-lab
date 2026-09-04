@@ -289,6 +289,52 @@ strategy change, before long/risky work, and before ending any session.
   one-time `student-4-v2-retrain.trigger` commit; it must start with an empty
   training directory, rerun the dataset audit before training, and keep frozen
   sealed unless the unchanged dev gates pass.
+- Fresh rebalanced run `33826815562`, launched by
+  `f04b069d8c989d7894d6028367987c2baf79bbfb`, completed training and failed
+  only at unchanged dev threshold selection. It stopped after Matrix epoch 6
+  through patience 2; best head-average was `0.9590511996891526` at epoch 4.
+  Frozen/adversarial remained unread (`frozenDataRead=false`, train/dev only),
+  and ONNX/INT8/parity/package did not start. Model state SHA-256:
+  `a4897d74970c6f16db4025d6df2b54e34dd34fbe8976b526976d9fd04e75b20f`.
+- Run `33826815562` threshold-zero dev: Matrix claim-count exact `0.997354`,
+  exact-set `0.560847`, claim exact `0.619342`, field exact `0.970736`, span F1
+  `0.927804`, entity F1 `0.982728`, coverage `1.0`, ownership corruption `0`,
+  invented World Truth `0`; worst language is Italian exact-set `0.349206`
+  (EN `0.785714`, ES `0.547619`). P0.5 exact-set improved to `0.483333`,
+  claim exact `0.630952`, field exact `0.916667`, span F1 `0.968394`, entity
+  F1 `0.972851`, ownership corruption `2`, World Truth `0`; worst language is
+  Spanish exact-set `0.35` (IT `0.5`, EN `0.6`). Best combined exact-set is
+  `0.555147` at threshold `0.86332758` with ownership corruption `2`; the best
+  zero-ownership point reaches only exact-set `0.471814` and coverage
+  `0.640152`. Therefore no dev threshold passes.
+- Preserved run `33826815562` artifacts: report id `9922954442`, 353,528 bytes,
+  digest `sha256:f28f3d8e0ac33dd7fb84b22f382fc4e7024469f544502456fdd1ea4bae2892e9`;
+  bundle id `9922957297`, 217,601,926 bytes, digest
+  `sha256:28af0eb9300f70f9f6f1f8846aadacb87f57a5ad300f6d87570386185714a6ef`;
+  resume id `9922965503`, 646,873,821 bytes, digest
+  `sha256:6bb7f268a8c9a2931261dddd2f9566aef16eb3fe71a8684a798c2eb33a4cc02f`.
+- Dev-only residual analysis classifies 363 failed observations: semantic
+  classification 267, span decoding 383 error instances, authority/referent
+  52, entity resolution 40 and claim segmentation 3. Matrix still misses all
+  126 held-out negative-preference polarities and their semantic-scope spans;
+  temporal spans and consent/target transfer also remain systematic. This
+  proves weighting/extra epochs alone are insufficient and justifies new
+  train-only lexical diversity; no frozen prediction informed this decision.
+- Current pre-training dataset correction adds 105 project-authored,
+  split-distinct examples (35 per IT/EN/ES) for negative semantic scope,
+  explicit future spans, consent/OBSERVER, REQUEST/CORRECT and bound
+  third-party referents. Matrix v2 train becomes 2,775 observations / 3,615
+  claims, balanced 925/language, SHA-256
+  `5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820`.
+  Matrix dev/test hashes remain `704e809f...` / `458f79ec...`; all P0.5 hashes
+  remain unchanged. Mapping SHA-256 is
+  `c53ffb13f5b0ebdc15892a9b18890f3caa3c16347600c679c2ecfeab321fcbbc`,
+  with 1,322 corrections, 426 leakage drops and 129 train additions. Clean
+  audit is PASS: zero contradictions, invalid spans, convention failures,
+  authority failures, exact leakage or >=0.97 semantic-template leakage;
+  frozen predictions read=false. Focused dataset tests are 6/6 green. Exact
+  next action: commit the augmentation, run the full repository CI, then start
+  a fresh v2 run only after every pre-training audit is green.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
