@@ -440,3 +440,99 @@ parameter values           = 58599411
 The local recovery bundle combines the authoritative run's `training-result.json`, `labels.json`, and tokenizer with that exact-checksum model state. This does not substitute another trained model: the recovered bytes match the authoritative model checksum exactly.
 
 No retraining, dataset access, threshold change, frozen access, or production promotion occurred. Next action: execute FP32 ONNX export and mixed/head-protected dynamic INT8 quantization.
+
+
+## Local quantization checkpoint 4 — verified artifact assembled
+
+Timestamp: `2026-09-04T17:05Z`
+
+The mixed/head-protected export completed locally from the exact model state of authoritative training run `33860928806`. The technical fix was limited to selecting quantizable nodes by encoder node name, preventing non-encoder nodes that merely consume encoder values from entering the INT8 selection set.
+
+Implementation and regression-test commits:
+
+```text
+exportImplementationCommit = d77354ffb51fb9fa0cee8cca6dc5448ad09b2c68
+verificationTestCommit      = 0098d4e8fa953665d38006d22d74ab479d94b4c9
+unitTests                    = 6/6 PASS
+```
+
+Artifact identity:
+
+```text
+localExecutionId = local-20260904T1440Z
+artifactName = matrix-nlu-student-4-v22a-mixed-head-protected-local-20260904T1440Z.zip
+artifactBytes = 356134801
+artifactSha256 = 4998ce2f44dd8553d75f86b8d7975529f6a5f779de9107eef393648022d6ccb5
+archiveIntegrity = PASS
+payloadChecksums = 13/13 PASS
+```
+
+ONNX files:
+
+| Model | Bytes | SHA-256 |
+|---|---:|---|
+| FP32 reference | 234454909 | `11c4f9e10c85badd1afa425cfe5f431035ec3ab61b41425f26479e58c71eb0d3` |
+| Mixed / Head-Protected INT8 | 149711344 | `738a4d052790367509d55487b649b71aaa029d839135693bb5be46f74d55ef70` |
+
+The mixed model is 36.144931% smaller. The local 30-repetition CPU benchmark measured median latency of 7.900361 ms for FP32 and 4.428863 ms for mixed INT8 (1.783835x median speedup); p95 was 22.984074 ms and 19.327552 ms respectively.
+
+Structural verification:
+
+- both ONNX graphs pass `onnx.checker` and initialize with ONNX Runtime CPU;
+- 32 encoder linear nodes were selected, producing 24 `MatMulInteger` nodes;
+- every quantized linear operator is under `/model/encoder/`;
+- 24 protected exclusion names cover native head nodes and ONNX Runtime Gemm-to-MatMul rewrites;
+- 15/15 Matrix heads resolve to FP32 compute operators and FLOAT initializers;
+- protected-head violations: zero;
+- `token.negation` is `/model/negation/MatMul` with a FLOAT initializer and is not quantized;
+- MASSIVE auxiliary heads remain outside the mandatory protection surface.
+
+Protected token heads:
+
+```text
+token.boundary
+token.object
+token.subject
+token.negation
+token.temporal
+token.entity
+```
+
+Protected sequence/semantic heads:
+
+```text
+sequence.dialogueAct
+sequence.predicate
+sequence.subjectReferent
+sequence.targetReferent
+sequence.ownerReferent
+sequence.perspectiveReferent
+sequence.polarity
+sequence.temporalRelation
+sequence.claimKind
+```
+
+Parity evidence:
+
+- direct FP32-vs-mixed logit argmax: 77/102 output/probe comparisons;
+- protected-head argmax: 73/90 comparisons;
+- decoded semantic result: 5/6 probes exact;
+- decoded negation spans: 6/6 exact;
+- the only decoded semantic difference was `sequence.dialogueAct` on the Spanish probe; its head remains FP32 and the difference is an indirect effect of the INT8 encoder representation.
+
+This parity result is evidence for controlled runtime testing, not a production gate pass. The artifact includes the FP32 reference, mixed INT8 model, manifest, per-head validation report, decoded parity evidence, `SHA256SUMS`, `FROZEN_GUARD.txt`, labels, tokenizer and non-weight runtime configuration.
+
+Final carry-over state:
+
+```text
+productionStatus = EXPERIMENTAL_TEST_CANDIDATE_NOT_PRODUCTION_APPROVED
+productionApproved = false
+frozenStatus = FROZEN_UNREAD
+decisionCarryOver = FAILED_DEV_GATE_CARRY_OVER
+sourceDevDecision = STOPPED_FOR_REVIEW_FAILED_DEV_GATE
+frozenDataRead = false
+frozenEvaluationExecuted = false
+frozenPredictionsRead = false
+retrainingExecuted = false
+productionPromotionExecuted = false
+```
