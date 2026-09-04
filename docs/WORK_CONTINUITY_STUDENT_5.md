@@ -140,7 +140,7 @@ Preliminary gate results:
 | 80k | 209,460,584 | 145,294,848 | PASS |
 | 100k | 240,180,584 | 176,014,848 | FAIL size gate |
 
-The smallest passing candidate is 40k. It has zero UNK on the separate IT/EN/ES/adult probe, mean token inflation 1.046/1.045/1.075 for IT/EN/ES, adult inflation 1.042, mean representation cosine 0.995579, worst cosine 0.943703, mean contrast delta 0.007845, p95 contrast delta 0.045259, and exact-forward delta 0 for unchanged tokenizations.
+The smallest passing candidate is 40k. It has zero UNK on the separate IT/EN/ES/adult probe, mean token inflation 1.046/1.045/1.075 for IT/EN/ES, adult inflation 1.042, mean representation cosine 0.995580, worst cosine 0.943703, mean contrast delta 0.007855, p95 contrast delta 0.045259, and exact-forward delta 0 for unchanged tokenizations.
 
 Current activity: independently verify every recorded checksum, prepare complete comparison reports, and package the selected Phase-A artifact. No Phase-B work is authorized.
 
@@ -159,8 +159,8 @@ selectedFp32ModelBytes = 148020400
 selectedArtifactDirectoryBytes = 150116913
 estimatedRuntimeInt8Bytes = 83854848
 estimatedReductionVsStudent4Mixed = 43.988982%
-archiveBytes = 88360722
-archiveSha256 = 02a910cf666634409103fa62d44f25e1aff2bf250e0c2512c5555cd4f84bc12a
+archiveBytes = 88361246
+archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
 status = NOT_PRODUCTION_APPROVED
 frozen = FROZEN_UNREAD
 ```
@@ -169,18 +169,19 @@ Selection evidence:
 
 - UNK IT/EN/ES/adult-intimacy: 0 for every slice.
 - Aggregate token inflation: IT 1.037634, EN 1.037037, ES 1.066852, adult/intimacy 1.039074, code-switch 1.059406, names/locations 1.060606.
-- Mean representation cosine: 0.995579; worst: 0.943703.
-- Mean/p95 semantic-contrast cosine delta: 0.007845/0.045259.
+- Mean representation cosine: 0.995580; worst: 0.943703.
+- Mean/p95 semantic-contrast cosine delta: 0.007855/0.045259.
 - Exact-forward maximum delta on 103 unchanged-tokenization sentences: 0.
+- Exact selection/probe text overlap: 0, enforced fail-closed.
 - All recorded file sizes and SHA-256 values independently pass.
 - All four Hugging Face artifacts reload, preserve 12 layers, align tokenizer and embeddings, and execute a real forward.
-- Unit tests: 6/6 PASS.
+- Unit tests: 7/7 PASS.
 - 60k and 80k also pass. 100k fails only the unchanged material-size gate.
 - The 60k quality difference is small and does not justify 30,720,000 additional estimated runtime bytes over 40k.
 
 The selected archive contains the model, real reduced tokenizer, bidirectional token-ID remap, aggregate and candidate manifests, corpus provenance, Frozen guard, reports, source, and `SHA256SUMS`. ZIP integrity and every internal checksum pass.
 
-Repository implementation/report commit: `25546528917d42d70129f059ff56da672678c7d4`.
+Repository implementation/report commits: `25546528917d42d70129f059ff56da672678c7d4`, corrected by `a1d407d63d4dcb84033d8ac525cce0e2475c27e1`.
 
 Canonical report: `reports/STUDENT_5_MINILM_DEEP_PRUNING.md`. Compatibility report: `reports/STUDENT_5_MINILM_PRUNING_FEASIBILITY.md`.
 
