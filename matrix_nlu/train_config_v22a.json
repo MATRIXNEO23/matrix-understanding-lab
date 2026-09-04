@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "matrix.nlu.training.v2.2a",
+  "datasetVersion": "matrix.nlu.dataset.v2",
+  "model": {
+    "repository": "Geotrend/distilbert-base-en-es-it-cased",
+    "revision": "36de33ec579e47f6c4e10d982d0b93871267c3e6",
+    "variant": "student-4-v2.2a"
+  },
+  "studentLayers": 4,
+  "seed": 810924,
+  "maxLength": 64,
+  "massive": {
+    "epochs": 1,
+    "trainPerLanguage": 3000,
+    "devPerLanguage": 600,
+    "testPerLanguage": 0
+  },
+  "matrix": {
+    "epochs": 10,
+    "batchSize": 16,
+    "gradientAccumulation": 2,
+    "learningRate": 2.5e-05,
+    "weightDecay": 0.01,
+    "warmupRatio": 0.12,
+    "p05TrainRepeat": 20,
+    "earlyStoppingPatience": 3
+  },
+  "classWeighting": {
+    "method": "inverse-frequency-sqrt",
+    "groups": [
+      "tokens",
+      "sequence"
+    ],
+    "maximum": 10.0
+  },
+  "headLossWeights": {
+    "tokens": {
+      "boundary": 1.4,
+      "object": 1.35,
+      "subject": 1.2,
+      "negation": 4.0,
+      "temporal": 1.25,
+      "entity": 1.15
+    },
+    "sequence": {
+      "dialogueAct": 1.7,
+      "predicate": 3.4,
+      "subjectReferent": 1.45,
+      "targetReferent": 1.45,
+      "ownerReferent": 1.9,
+      "perspectiveReferent": 1.25,
+      "polarity": 2.3,
+      "temporalRelation": 1.45,
+      "claimKind": 1.0
+    },
+    "massive": {
+      "intent": 0.85,
+      "slot": 0.85
+    }
+  },
+  "repairPolicy": {
+    "name": "Student-4-v2.2A Controlled Repair",
+    "baseline": "student-4-v2.1 STOPPED_FOR_REVIEW",
+    "targetFailures": [
+      "Matrix IT negation F1 0.2470",
+      "Matrix ES negation F1 0.1582",
+      "P0.5 predicate IT/EN 0.7857 and ES 0.6786",
+      "exact-set and claim-exact cascade",
+      "two Italian ownership corruptions",
+      "span decoding residuals"
+    ],
+    "frozenPolicy": "defer; frozen is unread",
+    "quantizationPolicy": "blocked until unchanged dev gate passes"
+  },
+  "checkpointEveryEpoch": true,
+  "resume": "auto",
+  "testPolicy": "frozen test is unread; stop after the first development gate decision"
+}
