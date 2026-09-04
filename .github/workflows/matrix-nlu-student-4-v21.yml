@@ -19,6 +19,7 @@ jobs:
       TOKENIZERS_PARALLELISM: 'false'
       OMP_NUM_THREADS: '4'
       MKL_NUM_THREADS: '4'
+      PYTHONPATH: ${{ github.workspace }}
       TRAINING_DIR: build/matrix-nlu/training-student-4-v2.1
       VERIFY_DIR: build/matrix-nlu/verification-training-student-4-v2.1
     steps:
@@ -62,7 +63,7 @@ jobs:
           --defer-frozen
       - name: Evaluate development and stop
         run: >-
-          python matrix_nlu/controlled_dev_v21.py
+          python -m matrix_nlu.controlled_dev_v21
           --bundle "$TRAINING_DIR"
           --data-dir build/matrix-nlu/data-v2
           --output-dir "$VERIFY_DIR"
