@@ -41,6 +41,8 @@ PROTECTED_OUTPUTS = tuple(
     + [f"sequence.{name}" for name in PROTECTED_SEQUENCE_HEADS]
 )
 EXPERIMENTAL_STATUS = "EXPERIMENTAL_TEST_CANDIDATE_NOT_PRODUCTION_APPROVED"
+LINEAR_OPS = frozenset({"MatMul", "Gemm"})
+QUANTIZED_LINEAR_OPS = frozenset({"MatMulInteger", "QLinearMatMul", "QGemm"})
 
 
 def _blob(items) -> str:
@@ -51,20 +53,58 @@ def _node_text(node) -> str:
     return _blob([node.name, node.op_type, *node.input, *node.output])
 
 
-def protected_nodes(model_path: pathlib.Path, markers=PROTECTED_HEAD_MARKERS) -> dict:
-    """Return nodes to exclude from quantization, grouped by protected marker."""
+def protected_nodes(model_path: pathlib.Path, outputs=PROTECTED_OUTPUTS) -> dict:
+    """Return each protected output's linear producer.
+
+    PyTorch may export a head as ``Add(MatMul(...), bias)`` and ONNX Runtime
+    rewrites ``Gemm`` to ``MatMul`` before dynamic quantization.  Following the
+    output edge is therefore safer than relying on initializer-name markers.
+    """
     import onnx
 
     model = onnx.load(str(model_path))
-    grouped = {marker: [] for marker in markers}
-    for node in model.graph.node:
-        text = _node_text(node)
-        for marker in markers:
-            if marker in text:
+    producers = {output: node for node in model.graph.node for output in node.output}
+    grouped = {output: [] for output in outputs}
+    terminal_ops = LINEAR_OPS | QUANTIZED_LINEAR_OPS
+    for output in outputs:
+        pending = [output]
+        visited = set()
+        while pending:
+            value = pending.pop()
+            node = producers.get(value)
+            if node is None or id(node) in visited:
+                continue
+            visited.add(id(node))
+            if node.op_type in terminal_ops:
                 name = node.name or next(iter(node.output), "")
                 if name:
-                    grouped[marker].append(name)
+                    grouped[output].append(name)
+                continue
+            pending.extend(node.input)
     return grouped
+
+
+def encoder_quantizable_nodes(model_path: pathlib.Path) -> list[str]:
+    """Select only encoder/backbone linear nodes for INT8 conversion."""
+    import onnx
+
+    model = onnx.load(str(model_path))
+    return [
+        node.name
+        for node in model.graph.node
+        if node.name and node.op_type in LINEAR_OPS and "/encoder/" in _node_text(node)
+    ]
+
+
+def quantizer_exclusion_names(model_path: pathlib.Path, grouped: dict) -> list[str]:
+    """Include Gemm names after ONNX Runtime's internal Gemm-to-MatMul rewrite."""
+    import onnx
+
+    model = onnx.load(str(model_path))
+    op_by_name = {node.name: node.op_type for node in model.graph.node}
+    names = flatten_grouped_nodes(grouped)
+    rewritten = [name + "_MatMul" for name in names if op_by_name.get(name) == "Gemm"]
+    return flatten_grouped_nodes({"original": names, "rewritten": rewritten})
 
 
 def flatten_grouped_nodes(grouped: dict) -> list[str]:
@@ -82,25 +122,69 @@ def missing_markers(grouped: dict) -> list[str]:
     return [marker for marker, names in grouped.items() if not names]
 
 
-def verify_protected_initializers_remain_float(model_path: pathlib.Path,
-                                               markers=PROTECTED_HEAD_MARKERS) -> dict:
+def protected_weight_names(model_path: pathlib.Path, grouped: dict) -> dict:
+    """Resolve protected head weights from their FP32 compute nodes."""
+    import onnx
+
+    model = onnx.load(str(model_path))
+    initializers = {initializer.name for initializer in model.graph.initializer}
+    nodes = {node.name: node for node in model.graph.node}
+    return {
+        output: [
+            value
+            for name in names
+            for value in nodes[name].input
+            if value in initializers
+        ]
+        for output, names in grouped.items()
+    }
+
+
+def verify_protected_initializers_remain_float(fp32_path: pathlib.Path,
+                                               mixed_path: pathlib.Path,
+                                               fp32_grouped: dict) -> dict:
     import onnx
     from onnx import TensorProto
 
-    model = onnx.load(str(model_path))
+    model = onnx.load(str(mixed_path))
+    initializers = {initializer.name: initializer for initializer in model.graph.initializer}
+    weights = protected_weight_names(fp32_path, fp32_grouped)
     protected = []
     violations = []
-    for initializer in model.graph.initializer:
-        if any(marker in initializer.name for marker in markers):
+    for output, names in weights.items():
+        for name in names:
+            initializer = initializers.get(name)
             entry = {
-                "name": initializer.name,
-                "dataType": int(initializer.data_type),
-                "isFloat": initializer.data_type == TensorProto.FLOAT,
+                "output": output,
+                "name": name,
+                "present": initializer is not None,
+                "dataType": int(initializer.data_type) if initializer is not None else None,
+                "isFloat": bool(initializer is not None and
+                                initializer.data_type == TensorProto.FLOAT),
             }
             protected.append(entry)
-            if initializer.data_type != TensorProto.FLOAT:
+            if not entry["isFloat"]:
                 violations.append(entry)
-    return {"protectedInitializers": protected, "violations": violations}
+
+    mixed_grouped = protected_nodes(mixed_path)
+    mixed_nodes = {node.name: node for node in model.graph.node}
+    compute = []
+    missing_outputs = []
+    for output, names in mixed_grouped.items():
+        if not names:
+            missing_outputs.append(output)
+        for name in names:
+            node = mixed_nodes[name]
+            entry = {"output": output, "name": name, "opType": node.op_type}
+            compute.append(entry)
+            if node.op_type in QUANTIZED_LINEAR_OPS:
+                violations.append(entry)
+    return {
+        "protectedInitializers": protected,
+        "protectedComputeNodes": compute,
+        "missingProtectedOutputs": missing_outputs,
+        "violations": violations,
+    }
 
 
 def quantized_ops(model_path: pathlib.Path) -> dict:
@@ -168,9 +252,12 @@ def main():
         raise RuntimeError(
             "ONNX export did not expose protected head markers: " + ", ".join(missing)
         )
-    excluded = flatten_grouped_nodes(grouped)
+    excluded = quantizer_exclusion_names(fp32_path, grouped)
     if not excluded:
         raise RuntimeError("No protected ONNX nodes detected; refusing unsafe mixed quantization")
+    encoder_nodes = encoder_quantizable_nodes(fp32_path)
+    if not encoder_nodes:
+        raise RuntimeError("No encoder/backbone ONNX nodes detected; refusing empty quantization")
 
     quantize_dynamic(
         fp32_path,
@@ -179,14 +266,17 @@ def main():
         per_channel=True,
         reduce_range=False,
         weight_type=QuantType.QInt8,
+        nodes_to_quantize=encoder_nodes,
         nodes_to_exclude=excluded,
     )
 
-    initializer_check = verify_protected_initializers_remain_float(mixed_path)
-    if initializer_check["violations"]:
+    initializer_check = verify_protected_initializers_remain_float(
+        fp32_path, mixed_path, grouped
+    )
+    if initializer_check["missingProtectedOutputs"] or initializer_check["violations"]:
         raise RuntimeError(
-            "Protected head initializer was quantized: "
-            + json.dumps(initializer_check["violations"], indent=2)
+            "Protected head verification failed: "
+            + json.dumps(initializer_check, indent=2)
         )
 
     sessions = {
@@ -248,6 +338,8 @@ def main():
             "protectedOutputs": list(PROTECTED_OUTPUTS),
             "excludedOnnxNodes": excluded,
             "excludedNodeCount": len(excluded),
+            "encoderNodesSelectedForQuantization": encoder_nodes,
+            "encoderNodeCount": len(encoder_nodes),
             "missingProtectedMarkers": missing,
             "massiveAuxiliaryHeadsProtected": False,
         },

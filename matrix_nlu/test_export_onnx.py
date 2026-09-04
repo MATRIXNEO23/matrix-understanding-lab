@@ -1,3 +1,5 @@
+import pathlib
+import tempfile
 import unittest
 
 import export_onnx
@@ -48,6 +50,45 @@ class OnnxExportContractTest(unittest.TestCase):
             "sequence_heads.polarity": ["nodeB", "nodeC"],
         }
         self.assertEqual(["nodeA", "nodeB", "nodeC"], mixed_export.flatten_grouped_nodes(grouped))
+
+    def test_protected_nodes_follow_outputs_and_cover_gemm_rewrite(self):
+        import onnx
+        from onnx import TensorProto, helper
+
+        nodes = [
+            helper.make_node("MatMul", ["input", "token_weight"], ["token_linear"],
+                             name="/model/boundary/MatMul"),
+            helper.make_node("Add", ["token_linear", "token_bias"], ["token.boundary"],
+                             name="/model/boundary/Add"),
+            helper.make_node("Gemm", ["input", "sequence_weight", "sequence_bias"],
+                             ["sequence.predicate"], name="/model/predicate/Gemm"),
+            helper.make_node("MatMul", ["input", "encoder_weight"], ["encoded"],
+                             name="/model/encoder/layer.0/MatMul"),
+        ]
+        graph = helper.make_graph(
+            nodes,
+            "head-protection-test",
+            [helper.make_tensor_value_info("input", TensorProto.FLOAT, [1, 2])],
+            [helper.make_tensor_value_info("token.boundary", TensorProto.FLOAT, [1, 2]),
+             helper.make_tensor_value_info("sequence.predicate", TensorProto.FLOAT, [1, 2])],
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "model.onnx"
+            onnx.save(helper.make_model(graph), path)
+            grouped = mixed_export.protected_nodes(
+                path, outputs=("token.boundary", "sequence.predicate")
+            )
+            self.assertEqual(["/model/boundary/MatMul"], grouped["token.boundary"])
+            self.assertEqual(["/model/predicate/Gemm"], grouped["sequence.predicate"])
+            self.assertEqual(
+                ["/model/boundary/MatMul", "/model/predicate/Gemm",
+                 "/model/predicate/Gemm_MatMul"],
+                mixed_export.quantizer_exclusion_names(path, grouped),
+            )
+            self.assertEqual(
+                ["/model/encoder/layer.0/MatMul"],
+                mixed_export.encoder_quantizable_nodes(path),
+            )
 
 
 if __name__ == "__main__":
