@@ -109,3 +109,37 @@ nonTrainJsonDecoded = false
 The Matrix v2 reconstruction used only v1 TRAIN, v2 TRAIN-only migrations/additions, and the canonical TRAIN drop IDs from audit control metadata. Canonical dev/frozen texts were not opened, tokenized, analyzed, or used for vocabulary selection.
 
 Current activity: build actual 40k/60k/80k/100k SentencePiece tokenizers and matching BERT embedding tables, then execute save/reload and all-ID alignment checks.
+
+
+## Checkpoint 3 — four real pruning candidates built
+
+Timestamp: `2026-09-04T19:34Z`
+
+A protobuf compatibility error (`ModelProto.pieces_size`) was corrected to `len(ModelProto.pieces)`; this was an infrastructure-only fix before candidate construction. No data, gate, or selection policy changed.
+
+```text
+targetsBuilt = [40000, 60000, 80000, 100000]
+allHuggingFaceSaveReloadChecks = PASS
+allSpecialTokenChecks = PASS
+allTokenizerEmbeddingAlignmentChecks = PASS
+allNonEmbeddingWeightsBitExact = true
+allObservedSelectionPiecesRetained = true
+allUnkRatesIT_EN_ES_Adult = 0
+semanticProbeSentences = 161
+semanticContrastPairs = 36
+canonicalDevUsed = false
+frozenDataRead = false
+```
+
+Preliminary gate results:
+
+| Vocab | FP32 model bytes | Est. runtime INT8 bytes | Gate |
+|---:|---:|---:|---|
+| 40k | 148,020,400 | 83,854,848 | PASS |
+| 60k | 178,740,552 | 114,574,848 | PASS |
+| 80k | 209,460,584 | 145,294,848 | PASS |
+| 100k | 240,180,584 | 176,014,848 | FAIL size gate |
+
+The smallest passing candidate is 40k. It has zero UNK on the separate IT/EN/ES/adult probe, mean token inflation 1.046/1.045/1.075 for IT/EN/ES, adult inflation 1.042, mean representation cosine 0.995579, worst cosine 0.943703, mean contrast delta 0.007845, p95 contrast delta 0.045259, and exact-forward delta 0 for unchanged tokenizations.
+
+Current activity: independently verify every recorded checksum, prepare complete comparison reports, and package the selected Phase-A artifact. No Phase-B work is authorized.
