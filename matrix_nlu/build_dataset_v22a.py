@@ -167,10 +167,10 @@ def build_repair_rows() -> tuple[list[dict], list[dict]]:
         dialogue_act="ASSERT", predicate="attribute.is", subject_referent="SPEAKER",
         target_referent="OBSERVER", polarity="NEGATIVE", object_text="arrabbiato",
         people=("Luna",), family="v22a_it_negation_attribute")
-    add(language="it", row_id="mx-v22a-it-neg-03", text="Marco non lavora a Milano",
+    add(language="it", row_id="mx-v22a-it-neg-03", text="Marco non lavora come medico",
         dialogue_act="ASSERT", predicate="work.role", subject_referent="KNOWN_ENTITY",
-        polarity="NEGATIVE", subject_text="Marco", object_text="Milano",
-        people=("Marco",), locations=("Milano",), family="v22a_it_negation_known_subject")
+        polarity="NEGATIVE", subject_text="Marco", object_text="medico",
+        people=("Marco",), family="v22a_it_negation_known_subject")
     add(language="it", row_id="mx-v22a-it-neg-04", text="Giulia non vuole uscire con Marco",
         dialogue_act="ASSERT", predicate="goal.object", subject_referent="KNOWN_ENTITY",
         target_referent="KNOWN_ENTITY", polarity="NEGATIVE", subject_text="Giulia",
@@ -211,10 +211,10 @@ def build_repair_rows() -> tuple[list[dict], list[dict]]:
         dialogue_act="ASSERT", predicate="residence.place", subject_referent="SPEAKER",
         polarity="NEGATIVE", object_text="Rome", locations=("Rome",),
         family="v22a_en_negation_residence")
-    add(language="en", row_id="mx-v22a-en-neg-02", text="Marco does not work in Milan",
+    add(language="en", row_id="mx-v22a-en-neg-02", text="Marco does not work as a doctor",
         dialogue_act="ASSERT", predicate="work.role", subject_referent="KNOWN_ENTITY",
-        polarity="NEGATIVE", subject_text="Marco", object_text="Milan",
-        people=("Marco",), locations=("Milan",), family="v22a_en_negation_known_subject")
+        polarity="NEGATIVE", subject_text="Marco", object_text="a doctor",
+        people=("Marco",), family="v22a_en_negation_known_subject")
     add(language="en", row_id="mx-v22a-en-neg-03", text="This is not mine, it is Luca's",
         dialogue_act="CORRECT", predicate="possession.has", subject_referent="KNOWN_ENTITY",
         owner_referent="KNOWN_ENTITY", perspective_referent="SPEAKER",
@@ -260,10 +260,10 @@ def build_repair_rows() -> tuple[list[dict], list[dict]]:
         dialogue_act="ASSERT", predicate="attribute.is", subject_referent="SPEAKER",
         target_referent="OBSERVER", polarity="NEGATIVE", object_text="enfadado",
         people=("Luna",), family="v22a_es_negation_attribute")
-    add(language="es", row_id="mx-v22a-es-neg-03", text="Marco no trabaja en Madrid",
+    add(language="es", row_id="mx-v22a-es-neg-03", text="Marco no trabaja como médico",
         dialogue_act="ASSERT", predicate="work.role", subject_referent="KNOWN_ENTITY",
-        polarity="NEGATIVE", subject_text="Marco", object_text="Madrid",
-        people=("Marco",), locations=("Madrid",), family="v22a_es_negation_known_subject")
+        polarity="NEGATIVE", subject_text="Marco", object_text="médico",
+        people=("Marco",), family="v22a_es_negation_known_subject")
     add(language="es", row_id="mx-v22a-es-neg-04", text="Giulia no quiere salir con Marco",
         dialogue_act="ASSERT", predicate="goal.object", subject_referent="KNOWN_ENTITY",
         target_referent="KNOWN_ENTITY", polarity="NEGATIVE", subject_text="Giulia",
