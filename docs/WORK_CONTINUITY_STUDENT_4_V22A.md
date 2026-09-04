@@ -536,3 +536,19 @@ frozenPredictionsRead = false
 retrainingExecuted = false
 productionPromotionExecuted = false
 ```
+
+
+## Local quantization checkpoint 5 — durable artifact handoff
+
+Timestamp: `2026-09-04T17:12Z`
+
+The verified ZIP was persisted without changing its bytes. Resume identifiers:
+
+```text
+artifactFileId = file_00000000c5f08230a3c38ae78b8801d2
+artifactLibraryFileId = libfile_f6171d59f4e481918e6a82698e6441c5
+artifactSha256 = 4998ce2f44dd8553d75f86b8d7975529f6a5f779de9107eef393648022d6ccb5
+artifactBytes = 356134801
+```
+
+The archive passed `unzip -t`; its internal `SHA256SUMS` verified every one of the 13 payload files. The handoff does not change the model decision or authorize frozen evaluation or production promotion.
