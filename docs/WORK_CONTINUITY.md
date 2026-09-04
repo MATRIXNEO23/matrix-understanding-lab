@@ -1,6 +1,6 @@
 # Matrix Understanding Lab — work continuity
 
-Last updated: 2026-09-04T02:18:00+02:00  
+Last updated: 2026-09-04T05:58:00+02:00  
 Continuity schema: `matrix.lab.continuity.v1`  
 Rule: update after every meaningful commit, training/benchmark, model/data or
 strategy change, before long/risky work, and before ending any session.
@@ -9,8 +9,8 @@ strategy change, before long/risky work, and before ending any session.
 
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
-- HEAD verified before this continuity update:
-  `e02948093595eaf6f2e9a9b39b4937cdf843a028`.
+- HEAD entering the controlled-stop documentation update:
+  `a556095d84cd2c8f39b54c957e3b15e8bbb93132`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -23,6 +23,112 @@ strategy change, before long/risky work, and before ending any session.
   files have been modified.
 - Frozen production semantic reference:
   `ae82d5cf843d52b3d60caadd161e4a5516fc5d0d`.
+
+## CONTROLLED STOP — Student-4-v2
+
+- Stop status: `WORK SAFELY STOPPED`. Branch `main`; repository
+  `MATRIXNEO23/matrix-understanding-lab`. This section is documentation only.
+  No new Student-4-v2 run may start without a new explicit supervisor
+  authorization. Do not resume, retrain, alter dataset/model/hyperparameters/
+  gates/pipeline, open frozen, package, promote or begin later modules.
+- Canonical references remain
+  `docs/FINAL_MATRIX_UNDERSTANDING_ARCHITECTURE.md` at
+  `cf6395b0fefc254febe3c804751ca4b048f974d1` and the approved original v2
+  dataset checkpoint `d2d455a33e5f725e0189010d081d0973aeb0b9a6`.
+- Failed workflow: `Matrix-NLU Student-4 V2 Checkpoint`, run `33826815562`,
+  source commit `f04b069d8c989d7894d6028367987c2baf79bbfb`, branch `main`; job
+  `train-dev-frozen-export-package` id `100881136163`; failing workflow step
+  7 `Run audited Student-4-v2 checkpoint pipeline`. The inner stage was
+  `select-threshold-from-development-only`: `select_threshold.py` exited 2;
+  `auto_test.py` reported exactly
+  `RuntimeError: step 'select-threshold-from-development-only' failed with exit code 2`;
+  the enclosing workflow shell step exited 1.
+- Cause classification: `DEV_GATE_FAILURE`, not `TRAINING_FAILURE`.
+  `auto_train.py` completed `SUCCESS` in 7,793.116555 seconds. None of the 189
+  dev-only threshold points met the unchanged combined accuracy, coverage,
+  ownership and critical-family gates.
+- Run dataset/provenance: `matrix.nlu.dataset.v2`; Matrix train/dev/test hashes
+  `e6190bf4fe0c5d326242920be6b3e0fbcb6f6fc593f4d7a017ffd08f74bb0eff` /
+  `704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012` /
+  `458f79ecaa9ec547c53a55ba68c45531e88e0ae5a0d6ee405222632d85919228`;
+  P0.5 train/dev/test `413f60ca17879ed9de440add7903b6e2abaebdfbbed6055b32c6e0b105cadfcd` /
+  `7533f56194431bd17b6f8544031d5436ca14ee6e209336da8133e1f05cdf0866` /
+  `a729045ac17356321f2b8c6624554c8bf8ad22fd794e2c0718876734de0aabc2`;
+  v1-to-v2 mapping
+  `ca0ec3dd9f4283a849d166fdca02193ca75cbea8b88bcbda5890378786c223bb`.
+  Pre-training audit was PASS with zero contradictions, span/schema/
+  convention/authority failures and zero exact or semantic-template leakage.
+- Configuration used: `student-4-v2`, four retained Geotrend encoder layers,
+  seed 810923, max length 64; MASSIVE auxiliary 3,000/600 train/dev examples
+  per language for one epoch; Matrix maximum 8 epochs, batch 16, gradient
+  accumulation 2, LR `3e-5`, weight decay `0.01`, warmup `0.1`, P0.5 repeat
+  16, patience 2, inverse-frequency-square-root token/sequence weights capped
+  at 8. Training stopped normally at Matrix epoch 6 after two non-improving
+  epochs; best model is epoch 4.
+- Latest epoch-6 values: train loss `0.009445434005818132`; Matrix dev loss
+  `0.26068120008265533`, macro-head accuracy `0.968186626758156`; P0.5 dev
+  loss `0.36911421846598386`, macro-head accuracy `0.9487154305239973`.
+  Best epoch-4 score `0.9590511996891526`; epoch-4 train loss
+  `0.015433126276367025`, Matrix dev loss/macro `0.24845617968175146` /
+  `0.9690468189636554`, P0.5 dev loss/macro `0.34759796168655155` /
+  `0.9490555804146498`. A macro F1 is not emitted by the trainer; valid
+  end-to-end span/entity F1 values are recorded below.
+- Latest epoch-6 per-head Matrix dev accuracies: claim kind `1.0`, dialogue act
+  `0.989712`, owner `1.0`, perspective `1.0`, polarity `0.870370`, predicate
+  `0.952675`, subject `1.0`, target `0.962963`, temporal relation `0.969136`,
+  boundary `0.986904`, entity `0.987964`, negation token `0.873621`, object
+  token `0.943497`, subject token `1.0`, temporal token `0.985958`. P0.5:
+  claim kind `1.0`, dialogue act `0.857143`, owner/perspective `1.0`, polarity
+  `0.916667`, predicate `0.821429`, subject/target `0.928571`, temporal
+  relation `0.904762`, boundary `0.997658`, entity `0.987593`, negation token
+  `0.962779`, object token `0.940447`, subject token `1.0`, temporal token
+  `0.985112`.
+- Threshold-zero Matrix dev: claim-count exact `0.997354`, exact-set
+  `0.560847`, claim exact `0.619342`, field exact `0.970736`, span F1
+  `0.927804`, entity F1 `0.982728`, coverage `1.0`, ownership corruption `0`,
+  invented World Truth `0`. By-language exact-set: EN `0.785714`, ES
+  `0.547619`, IT `0.349206` (worst IT); field exact EN `0.975309`, ES
+  `0.963649`, IT `0.973251`.
+- Threshold-zero P0.5 dev: claim-count exact `0.983333`, exact-set `0.483333`,
+  claim exact `0.630952`, field exact `0.916667`, span F1 `0.968394`, entity
+  F1 `0.972851`, ownership corruption `2`, World Truth `0`. Exact-set EN
+  `0.6`, IT `0.5`, ES `0.35` (worst ES); field exact EN `0.936508`, IT
+  `0.924603`, ES `0.888889`.
+- Recoverable checkpoint: `checkpoints/latest.pt`, SHA-256
+  `c003f19ea4f7e2c0b800a1e2758c07357856a24ed98460b67e1816d09c8ef30d`,
+  epoch 6/8, with optimizer, scheduler, history, current model and embedded
+  `bestModel` from epoch 4. Best exported training model `model-state.pt`,
+  SHA-256
+  `a4897d74970c6f16db4025d6df2b54e34dd34fbe8976b526976d9fd04e75b20f`;
+  training-result SHA-256
+  `d0e046642383182a6e55504171abddba8ac6826396a6888f21a321973d1e82ff`.
+- Preserved GitHub artifacts: report id `9922954442`, 353,528 bytes, archive
+  SHA-256 `f28f3d8e0ac33dd7fb84b22f382fc4e7024469f544502456fdd1ea4bae2892e9`;
+  model bundle id `9922957297`, 217,601,926 bytes, archive SHA-256
+  `28af0eb9300f70f9f6f1f8846aadacb87f57a5ad300f6d87570386185714a6ef`;
+  resume artifact id `9922965503`, 646,873,821 bytes, archive SHA-256
+  `6bb7f268a8c9a2931261dddd2f9566aef16eb3fe71a8684a798c2eb33a4cc02f`.
+  Report includes all automation/training/dev logs, raw dev predictions/errors,
+  threshold curve, failure summary, audit/manifests and checksum inventory.
+  Dev-error-analysis SHA-256
+  `ae085cf4cfd2c7428920f0c10469cfcda08e735290bd7aa785d6859e4592e716`;
+  threshold-selection SHA-256
+  `3dcbdac5f437bf551383a3ac1dae4eadfc761307c76cf24e2dee412b8b268e6b`.
+- Frozen verification: training-result has `frozenDataRead=false`,
+  `trainingSplitsRead=[train,dev]`, frozen status
+  `DEFERRED_UNTIL_DEV_THRESHOLD_GATE`; auto-test has
+  `frozenDataUsedForTuning=false` and stopped at dev selection.
+  **FROZEN NOT TOUCHED**.
+- Current HEAD note: commit `a556095d...`, made before this stop order, contains
+  an untrained train-only v2 augmentation and documentation; it was not used by
+  failed run `33826815562`. Its ordinary P0 run `33835437163` and candidate
+  probe `33835437180` are green, but no Student-4-v2 run was launched from it.
+  Preserve it unchanged and do not execute it without new authorization.
+- Exact activity at STOP: artifact/checkpoint verification and continuity-only
+  commit. No experimental correction, rerun, frozen access, packaging,
+  production integration, Memory, B4, Emotion, Reflection, Agency or NPC-NPC
+  work is active. The older `docs/P05_OPENNLP_HANDOFF.md` is a separate,
+  immutable P0.5 baseline handoff and is intentionally unchanged.
 
 ## Canonical specification and objective
 
