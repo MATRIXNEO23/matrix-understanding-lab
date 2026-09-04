@@ -26,6 +26,30 @@ strategy change, before long/risky work, and before ending any session.
 
 ## ACTIVE CONTROLLED RUN — Student-4-v2.1
 
+- **STOPPED:** run `33837897457`, launch commit
+  `72f14286e89df88f41aedb169c7307b26b57eedf`, job
+  `train-and-dev-only` `100914050985`. Training completed through Matrix
+  epoch 7 (best epoch 5, best score `0.9676758069767126`), but step 11
+  `Evaluate development and stop` exited 1 before inference with
+  `ModuleNotFoundError: No module named 'matrix_nlu'`.
+- Cause: `WORKFLOW/INFRASTRUCTURE_FAILURE`, not a model or dev-gate failure.
+  No end-to-end dev metrics or gate decision exist. Per mandatory policy, no
+  correction or rerun was attempted.
+- Recoverable latest checkpoint SHA-256
+  `34cd061c4eec158b9fc89341030adbc122f0355f09923c54eefe0da72acf66e8`;
+  best model-state SHA-256
+  `6228fddb5240edaac58356ccd175f6a97e2bc0fccd6344ebf675f42103317bae`.
+  Report/bundle/resume artifacts: `9926693211`, `9926696572`,
+  `9926705228`.
+- Frozen evidence remains `frozenDataRead=false`,
+  `trainingSplitsRead=[train,dev]`, `frozenEvaluationDeferred=true`.
+  **FROZEN NOT TOUCHED**.
+- Full evidence and baseline comparison:
+  `reports/STUDENT_4_V21_STOP_REPORT.md`.
+- Final state: `STOPPED_FOR_REVIEW`. Exact next activity: wait for supervisor
+  review. No new run, fix, hyperparameter/dataset/model/pipeline change,
+  frozen access, V2.2/V3, export, packaging or promotion is authorized.
+
 - Supervisor authorization replaces the prior stop only for one fresh
   `student-4-v2.1` experiment. Baseline remains `student-4-v2` research-only;
   no production promotion is authorized.
