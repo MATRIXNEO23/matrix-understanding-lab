@@ -1,6 +1,6 @@
 # Work continuity addendum — Student-4-v2.2A Controlled Repair
 
-Last updated: 2026-09-04T16:40+02:00  
+Last updated: 2026-09-04T16:44+02:00  
 Repository: `MATRIXNEO23/matrix-understanding-lab`  
 Branch: `main`
 Continuity schema: `matrix.nlu.student-4.v22a.continuity.v3`
@@ -397,3 +397,25 @@ FAILED_DEV_GATE_CARRY_OVER
 ```
 
 Next action: export FP32 ONNX, quantize encoder/backbone dynamically to INT8 while excluding every Matrix semantic head, then verify parity and CPU latency.
+
+
+## Local quantization checkpoint 2 — bundle checkpoint defect
+
+Timestamp: `2026-09-04T14:44Z`
+
+The pinned local environment and five export-policy tests completed successfully. The immutable encoder revision `36de33ec579e47f6c4e10d982d0b93871267c3e6` downloaded successfully after increasing only the transport timeout.
+
+Loading the preserved bundle then exposed a real artifact defect:
+
+```text
+model-state.pt bytes = 203292672
+model-state.pt sha256 = 446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c
+PyTorch error = PytorchStreamReader failed reading zip archive: failed finding central directory
+ZIP EOCD signature = absent
+```
+
+The checksum matches the run record, so the local download is intact; the file preserved in the bundle itself is incomplete as a PyTorch ZIP container. No ONNX file or quantized output was accepted from this attempt.
+
+Recovery action within the existing authorization: inspect the resumable checkpoint artifact from the same authoritative run `33860928806` and recover the exact trained state if a valid loadable checkpoint is present. This is not retraining and does not access datasets.
+
+Constraints remain unchanged: `FROZEN_UNREAD`, `FAILED_DEV_GATE_CARRY_OVER`, and `EXPERIMENTAL_TEST_CANDIDATE_NOT_PRODUCTION_APPROVED`.
