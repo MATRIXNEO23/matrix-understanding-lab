@@ -1,0 +1,145 @@
+name: Matrix-NLU Student-4 V2.2A Controlled Repair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/student-4-v22a.trigger'
+      - '.github/workflows/matrix-nlu-student-4-v22a.yml'
+      - 'matrix_nlu/build_dataset_v22a.py'
+      - 'matrix_nlu/train_v22a.py'
+      - 'matrix_nlu/train_config_v22a.json'
+      - 'matrix_nlu/controlled_dev_v22a.py'
+
+permissions:
+  contents: read
+
+jobs:
+  train-and-dev-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 420
+    env:
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/matrix_nlu
+      DATA_DIR: build/matrix-nlu/data-v22a
+      TRAINING_DIR: build/matrix-nlu/training-student-4-v2.2a
+      VERIFY_DIR: build/matrix-nlu/verification-training-student-4-v2.2a
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: matrix_nlu/requirements-train.txt
+
+      - uses: actions/cache@v4
+        with:
+          path: .cache/huggingface
+          key: matrix-nlu-geotrend-36de33ec-v22a
+
+      - name: Install pinned dependencies
+        run: python -m pip install --requirement matrix_nlu/requirements-train.txt
+
+      - name: Run software regression tests
+        run: python -m unittest discover -s matrix_nlu -p 'test_*.py' -v
+
+      - name: Build v2.2A train-only repair dataset
+        run: >-
+          python matrix_nlu/build_dataset_v22a.py
+          --output-dir "$DATA_DIR"
+
+      - name: Audit v2.2A dataset before training
+        run: >-
+          python matrix_nlu/audit_dataset_v2.py
+          --data-dir "$DATA_DIR"
+          --output build/matrix-nlu/automation/dataset-v22a-audit.json
+          --fail-on-error
+
+      - name: Prepare train and dev auxiliary supervision
+        run: >-
+          python matrix_nlu/prepare_massive.py
+          --train-per-language 3000
+          --dev-per-language 600
+          --test-per-language 0
+          --seed 810924
+
+      - name: Train fresh Student-4-v2.2A
+        run: >-
+          python matrix_nlu/train_v22a.py
+          --config matrix_nlu/train_config_v22a.json
+          --data-dir "$DATA_DIR"
+          --massive-dir build/matrix-nlu/massive
+          --output-dir "$TRAINING_DIR"
+          --student-layers 4
+          --defer-frozen
+
+      - name: Evaluate development and controlled stop
+        run: >-
+          python -m matrix_nlu.controlled_dev_v22a
+          --bundle "$TRAINING_DIR"
+          --data-dir "$DATA_DIR"
+          --output-dir "$VERIFY_DIR"
+
+      - name: Record checksums and frozen guard
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/matrix-nlu/automation
+          find build/matrix-nlu -type f ! -name SHA256SUMS -print0 \
+            | sort -z | xargs -0 -r sha256sum > build/matrix-nlu/automation/SHA256SUMS
+          printf '%s\n' \
+            'variant=student-4-v2.2a' \
+            'frozenDataRead=false' \
+            'frozenEvaluationExecuted=false' \
+            'trainingSplitsRead=train,dev' \
+            'onnxExported=false' \
+            'quantizationExecuted=false' \
+            > build/matrix-nlu/automation/FROZEN_GUARD.txt
+          df -h . > build/matrix-nlu/automation/disk.txt
+          free -h > build/matrix-nlu/automation/memory.txt
+
+      - name: Upload Student-4-v2.2A controlled repair evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matrix-nlu-student-4-v22a-report-${{ github.run_id }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            build/matrix-nlu/automation/
+            ${{ env.VERIFY_DIR }}/
+            ${{ env.DATA_DIR }}/*manifest.json
+            ${{ env.DATA_DIR }}/v1-to-v2-corrections.json
+            ${{ env.TRAINING_DIR }}/training-result.json
+            ${{ env.TRAINING_DIR }}/training-progress.json
+            ${{ env.TRAINING_DIR }}/labels.json
+
+      - name: Upload Student-4-v2.2A isolated model bundle
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matrix-nlu-student-4-v22a-bundle-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 1
+          if-no-files-found: warn
+          path: |
+            ${{ env.TRAINING_DIR }}/training-result.json
+            ${{ env.TRAINING_DIR }}/labels.json
+            ${{ env.TRAINING_DIR }}/model-state.pt
+            ${{ env.TRAINING_DIR }}/tokenizer/
+
+      - name: Upload Student-4-v2.2A resumable checkpoint for preservation only
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matrix-nlu-student-4-v22a-resume-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 1
+          if-no-files-found: warn
+          path: ${{ env.TRAINING_DIR }}/checkpoints/latest.pt
