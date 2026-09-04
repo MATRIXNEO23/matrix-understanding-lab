@@ -64,6 +64,8 @@ class OnnxExportContractTest(unittest.TestCase):
                              ["sequence.predicate"], name="/model/predicate/Gemm"),
             helper.make_node("MatMul", ["input", "encoder_weight"], ["encoded"],
                              name="/model/encoder/layer.0/MatMul"),
+            helper.make_node("MatMul", ["/model/encoder/output", "head_weight"],
+                             ["unprotected"], name="/model/auxiliary/MatMul"),
         ]
         graph = helper.make_graph(
             nodes,
