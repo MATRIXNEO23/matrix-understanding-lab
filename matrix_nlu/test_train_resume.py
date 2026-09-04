@@ -4,7 +4,8 @@ import pathlib
 import tempfile
 import unittest
 
-from train import stage_complete, validate_resume_evidence
+from labels import SEQUENCE_LABELS, TOKEN_LABELS
+from train import class_weight_values, stage_complete, validate_resume_evidence
 
 
 class TrainResumePolicyTest(unittest.TestCase):
@@ -41,6 +42,23 @@ class TrainResumePolicyTest(unittest.TestCase):
             path.write_text(json.dumps(evidence), encoding="utf-8")
             with self.assertRaisesRegex(RuntimeError, "invalid v2 resume evidence"):
                 validate_resume_evidence(path, checkpoint, identity)
+
+    def test_inverse_sqrt_weights_raise_rare_sequence_and_token_classes(self):
+        examples = []
+        for index in range(10):
+            sequence = {head: 0 for head in SEQUENCE_LABELS}
+            tokens = {head: [0, 0, 0] for head in TOKEN_LABELS}
+            if index == 9:
+                sequence["polarity"] = 1
+                tokens["negation"] = [1, 2, 2]
+            examples.append({"sequence_labels": sequence, "token_labels": tokens})
+        weights = class_weight_values(examples, {
+            "classWeighting": {"method": "inverse-frequency-sqrt",
+                               "groups": ["tokens", "sequence"], "maximum": 8.0}})
+        self.assertGreater(weights["sequence"]["polarity"][1],
+                           weights["sequence"]["polarity"][0])
+        self.assertGreater(weights["tokens"]["negation"][1],
+                           weights["tokens"]["negation"][0])
 
 
 if __name__ == "__main__":

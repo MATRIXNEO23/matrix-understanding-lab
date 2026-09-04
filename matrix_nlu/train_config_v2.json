@@ -16,14 +16,19 @@
     "testPerLanguage": 1000
   },
   "matrix": {
-    "epochs": 4,
+    "epochs": 8,
     "batchSize": 16,
     "gradientAccumulation": 2,
     "learningRate": 0.00003,
     "weightDecay": 0.01,
     "warmupRatio": 0.1,
-    "p05TrainRepeat": 8,
+    "p05TrainRepeat": 16,
     "earlyStoppingPatience": 2
+  },
+  "classWeighting": {
+    "method": "inverse-frequency-sqrt",
+    "groups": ["tokens", "sequence"],
+    "maximum": 8.0
   },
   "checkpointEveryEpoch": true,
   "resume": "auto",

@@ -38,7 +38,44 @@ def move(batch, device):
             for key, item in batch.items()}
 
 
-def loss_for(outputs, batch):
+def class_weight_values(examples: list[dict], config: dict) -> dict:
+    policy = config.get("classWeighting")
+    if not policy:
+        return {"tokens": {}, "sequence": {}}
+    if policy.get("method") != "inverse-frequency-sqrt":
+        raise ValueError(f"unsupported class weighting: {policy.get('method')}")
+    maximum = float(policy.get("maximum", 8.0))
+    groups = set(policy.get("groups", ("tokens", "sequence")))
+    output = {"tokens": {}, "sequence": {}}
+    specifications = (("tokens", "token_labels", TOKEN_LABELS),
+                      ("sequence", "sequence_labels", SEQUENCE_LABELS))
+    for group, example_key, vocabularies in specifications:
+        if group not in groups:
+            continue
+        for head, labels in vocabularies.items():
+            counts = [0] * len(labels)
+            for example in examples:
+                values = example[example_key][head]
+                values = values if isinstance(values, list) else [values]
+                for value in values:
+                    if value != IGNORE:
+                        counts[value] += 1
+            largest = max(counts, default=0)
+            output[group][head] = [
+                min(maximum, math.sqrt(largest / count)) if count else 0.0
+                for count in counts
+            ]
+    return output
+
+
+def tensor_class_weights(values: dict, device):
+    import torch
+    return {group: {head: torch.tensor(weight, dtype=torch.float32, device=device)
+                    for head, weight in heads.items()}
+            for group, heads in values.items()}
+
+
+def loss_for(outputs, batch, class_weights=None):
     import torch
     import torch.nn.functional as functional
     terms = []
@@ -46,11 +83,15 @@ def loss_for(outputs, batch):
         labels = batch["token_labels"][head]
         if torch.any(labels != IGNORE):
             terms.append(functional.cross_entropy(logits.reshape(-1, logits.shape[-1]),
-                                                  labels.reshape(-1), ignore_index=IGNORE))
+                                                  labels.reshape(-1), ignore_index=IGNORE,
+                                                  weight=(class_weights or {}).get(
+                                                      "tokens", {}).get(head)))
     for head, logits in outputs["sequence"].items():
         labels = batch["sequence_labels"][head]
         if torch.any(labels != IGNORE):
-            terms.append(functional.cross_entropy(logits, labels, ignore_index=IGNORE))
+            terms.append(functional.cross_entropy(
+                logits, labels, ignore_index=IGNORE,
+                weight=(class_weights or {}).get("sequence", {}).get(head)))
     if torch.any(batch["aux_intent"] != IGNORE):
         terms.append(functional.cross_entropy(outputs["massive_intent"], batch["aux_intent"],
                                               ignore_index=IGNORE))
@@ -62,7 +103,7 @@ def loss_for(outputs, batch):
     return sum(terms) / len(terms)
 
 
-def evaluate(model, loader, device) -> dict:
+def evaluate(model, loader, device, class_weights=None) -> dict:
     import torch
     totals = defaultdict(int)
     correct = defaultdict(int)
@@ -72,7 +113,7 @@ def evaluate(model, loader, device) -> dict:
         for raw in loader:
             batch = move(raw, device)
             outputs = model(batch["input_ids"], batch["attention_mask"])
-            losses.append(float(loss_for(outputs, batch)))
+            losses.append(float(loss_for(outputs, batch, class_weights)))
             for group, label_group in (("tokens", batch["token_labels"]),
                                        ("sequence", batch["sequence_labels"])):
                 for head, logits in outputs[group].items():
@@ -103,7 +144,8 @@ def stage_complete(resume: dict | None, stage: str, epochs: int,
 
 def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: int,
                 config: dict, output_dir: pathlib.Path, resume: dict | None = None,
-                prior_history: list | None = None, checkpoint_identity: dict | None = None):
+                prior_history: list | None = None, checkpoint_identity: dict | None = None,
+                class_weights=None):
     import torch
     optimizer = torch.optim.AdamW(model.parameters(), lr=config["matrix"]["learningRate"],
                                   weight_decay=config["matrix"]["weightDecay"])
@@ -143,7 +185,8 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
         started = time.monotonic()
         for batch_index, raw in enumerate(train_loader):
             batch = move(raw, device)
-            loss = loss_for(model(batch["input_ids"], batch["attention_mask"]), batch)
+            loss = loss_for(model(batch["input_ids"], batch["attention_mask"]), batch,
+                            class_weights)
             (loss / accumulation).backward()
             running += float(loss.detach())
             if (batch_index + 1) % accumulation == 0 or batch_index + 1 == len(train_loader):
@@ -160,7 +203,8 @@ def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: in
                     "runningLoss": running / (batch_index + 1),
                     "elapsedSeconds": time.monotonic() - started,
                 })
-        dev = {name: evaluate(model, loader, device) for name, loader in dev_loaders.items()}
+        dev = {name: evaluate(model, loader, device, class_weights)
+               for name, loader in dev_loaders.items()}
         score = sum(value["macroHeadAccuracy"] for value in dev.values()) / len(dev)
         entry = {"stage": stage, "epoch": epoch + 1,
                  "trainLoss": running / max(1, len(train_loader)), "dev": dev,
@@ -290,6 +334,8 @@ def main():
     p05_dev = matrix_examples(p05_dev_rows, tokenizer, max_length)
     matrix_test = [] if args.defer_frozen else matrix_examples(matrix_test_rows, tokenizer, max_length)
     p05_test = [] if args.defer_frozen else matrix_examples(p05_test_rows, tokenizer, max_length)
+    class_weight_numbers = class_weight_values(matrix_train, config)
+    class_weights = tensor_class_weights(class_weight_numbers, device)
 
     resume = None
     checkpoint_path = args.output_dir / "checkpoints" / "latest.pt"
@@ -335,7 +381,8 @@ def main():
          "p05Dev": loader(p05_dev, batch_size * 2, False, config["seed"])},
         device, "matrix", config["matrix"]["epochs"], config, args.output_dir,
         resume if resume and resume.get("stage") == "matrix" else None,
-        prior_history=prior_history, checkpoint_identity=checkpoint_identity)
+        prior_history=prior_history, checkpoint_identity=checkpoint_identity,
+        class_weights=class_weights)
     history.extend(prior_history)
     history.extend(matrix_history)
 
@@ -354,6 +401,7 @@ def main():
               "config": config, "studentLayers": args.student_layers,
               "parameters": parameter_summary(network), "bestDevScore": best,
               "history": history, "frozen": frozen,
+              "classWeightValues": class_weight_numbers,
               "frozenDataRead": not args.defer_frozen,
               "trainingSplitsRead": ["train", "dev"] if args.defer_frozen else ["train", "dev", "test"],
               "datasetVersion": config.get("datasetVersion", "matrix.nlu.dataset.v1")}

@@ -264,6 +264,12 @@ def main() -> int:
             stage(Step(f"predict-{name}", [sys.executable, "matrix_nlu/evaluate_e2e.py",
                 "--bundle", str(bundle), "--dataset", str(dataset_path(source, split)),
                 "--split", "dev", "--threshold", "0", "--output-dir", str(output / name)]))
+        dev_errors = output / "dev-combined-errors.jsonl"
+        combined_dataset([output / "matrix-dev" / "e2e-dev-errors.jsonl",
+                          output / "p05-dev" / "e2e-dev-errors.jsonl"], dev_errors)
+        stage(Step("classify-development-residuals", [sys.executable,
+            "matrix_nlu/analyze_errors.py", "--errors", str(dev_errors), "--output",
+            str(output / "dev-error-analysis.json")]))
         stage(Step("select-threshold-from-development-only", [sys.executable,
             "matrix_nlu/select_threshold.py",
             "--dataset", str(dataset_path("matrix", "dev")), "--predictions",

@@ -239,6 +239,49 @@ strategy change, before long/risky work, and before ending any session.
   source run `33818777290`; the isolated workflow will verify and adopt its
   epoch-4 checkpoint, serialize the missing training result, then execute dev
   calibration and only conditionally frozen/export/package gates.
+- Resume trigger commit `353a5163da7bfe4421073f2bd2239eb90188f2d6`
+  launched run `33825895948`. It verified and adopted only the explicitly
+  named v2 checkpoint, serialized the training result, evaluated Matrix/P0.5
+  dev at threshold zero, classified the dev residuals and failed the unchanged
+  development gate. Frozen/adversarial data remained unread; ONNX, INT8,
+  parity and packaging did not start. Model state SHA-256 is
+  `b91793c8ae742b889085c9a531248944351b567365532791bdb549c5104ea523`;
+  parameter count is 58,599,411 (58,412,544 encoder; 186,867 heads).
+- Run `33825895948` dev metrics at threshold zero: Matrix claim-count exact
+  `1.0`, exact claim set `0.574074`, field exact `0.954275`, span F1
+  `0.928985`, entity F1 `0.981110`, valid coverage `1.0`, selective exact
+  `0.631687`, ownership corruption `30`, invented World Truth `0`; Matrix
+  worst-language exact-set/field-exact are `0.507937` / `0.945130`. P0.5
+  claim-count exact is `0.983333`, exact claim set `0.3`, field exact
+  `0.899471`, span F1 `0.956095`, entity F1 `0.951501`, valid coverage
+  `0.940476`, selective exact `0.531646`, ownership corruption `4`, invented
+  World Truth `0`; P0.5 worst-language exact-set/field-exact are `0.25` /
+  `0.892857`. No one of the 189 dev-only threshold points passes.
+- Dev-only residual evidence shows underlearned rare classes rather than a
+  calibratable threshold defect: Matrix includes 126 NEGATIVE-to-POSITIVE
+  polarity errors and 126 missing negation spans, 72 temporal-relation errors,
+  30 subject/owner referent errors and 96 missing temporal spans; P0.5 includes
+  REQUEST-to-ASSERT and CORRECT-to-ASSERT errors plus rare predicate/referent
+  failures. The corresponding train labels are strongly imbalanced (for
+  example Matrix ASSERT 3060 versus HYPOTHESIS 267 and QUESTION 183; only
+  three PAST claims; P0.5 has six REQUEST and three CORRECT claims before
+  repetition).
+- Run `33825895948` artifacts: report id `9920008253`, 321,019 bytes, digest
+  `sha256:e86efb9f8bd78ef805135aafc5fb269ac28dd8ce0f0c69e659d77ba66df9cce3`;
+  bundle id `9920012353`, 217,600,162 bytes, digest
+  `sha256:a52bc3247f45c6f82fa42c077a4835a8df1c1907a2e0b45ab774da2a3102dee1`;
+  resume id `9920022732`, 646,923,260 bytes, digest
+  `sha256:8c4ecf068aa976341c82b22c14d2b8a0cf2cce5b26951a7167a5cf82a06adafe`.
+- Current uncommitted remediation is derived only from that dev evidence:
+  inverse-square-root class-balanced token/sequence loss capped at 8, Matrix
+  maximum epochs 8, P0.5 train repeat 16, and dev residual classification
+  before threshold selection so failed runs retain their error analysis.
+  Dataset v2, architecture, seed, all gates and production/runtime remain
+  unchanged. A distinct `student-4-v2-retrain.trigger` always starts fresh;
+  checkpoint adoption remains possible only via an explicit workflow-dispatch
+  run id. Local regression/property/integration suite is 74/74 green. Exact
+  next action: commit this dev-only remediation, require P0/probe CI green,
+  then launch one fresh audited Student-4-v2 run.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,
