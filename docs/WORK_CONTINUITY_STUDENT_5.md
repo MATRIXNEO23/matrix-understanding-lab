@@ -53,3 +53,59 @@ The official model card confirms that the checkpoint uses `BertModel` with `XLMR
 Current activity: create the pinned local environment, retrieve exact upstream files, audit configuration/tokenizer/special-token mapping, and count model/embedding/Transformer parameters.
 
 Next checkpoint: after deterministic tokenizer/embedding alignment and upstream integrity are verified.
+
+
+## Checkpoint 2 — upstream alignment and TRAIN-only corpus complete
+
+Timestamp: `2026-09-04T17:27Z`
+
+Upstream audit:
+
+```text
+revision = 6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf
+modelType = bert
+tokenizerClass = XLMRobertaTokenizer
+sentencePiecePieces = 250000
+tokenizerVocabSize = 250002
+modelEmbeddingRows = 250037
+reachableTokenizerIds = 0..250001
+unreachableTrailingEmbeddingRows = 35
+totalParameters = 117653760
+wordEmbeddingParameters = 96014208
+allEmbeddingParameters = 96212352
+transformerParameters = 21293568
+poolerParameters = 147840
+upstreamPytorchBytes = 470657952
+upstreamPytorchSha256 = cce170910f4d4f3b45be025508f51ef1ad6a1de69f2d46dce7e4603ad31aaaeb
+sentencePieceSha256 = cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865
+```
+
+The tokenizer-to-embedding mapping is deterministic for every reachable ID: XLM-R special IDs are handled explicitly, ordinary SentencePiece pieces use the tokenizer's offset mapping, and the 35 unreachable trailing model rows are excluded. The upstream config declares `pad_token_id=0` while the tokenizer exposes `<pad>=1`; pruned artifacts will align config padding to ID 1 without modifying Transformer weights.
+
+TRAIN-only vocabulary-selection corpus:
+
+```text
+records = 16819
+sha256 = 2412a5727eb51b993f3172f3dc4a4d08199e16382b90c2e62e5080e3e23b8558
+Matrix v1 TRAIN = 2991
+Matrix v2 TRAIN = 2775
+v2.2A repair TRAIN-only = 375
+MASSIVE TRAIN IT = 3000
+MASSIVE TRAIN EN = 3000
+MASSIVE TRAIN ES = 3000
+authored general coverage = 720
+authored adult/intimacy coverage = 1206
+authored control rows = 4
+```
+
+MASSIVE source archive:
+
+```text
+sha256 = 7df623fd2d300a4d235d6ee5bd396c9a28258d3a0ccb29abdb054506eba153f8
+license = CC-BY-4.0
+nonTrainJsonDecoded = false
+```
+
+The Matrix v2 reconstruction used only v1 TRAIN, v2 TRAIN-only migrations/additions, and the canonical TRAIN drop IDs from audit control metadata. Canonical dev/frozen texts were not opened, tokenized, analyzed, or used for vocabulary selection.
+
+Current activity: build actual 40k/60k/80k/100k SentencePiece tokenizers and matching BERT embedding tables, then execute save/reload and all-ID alignment checks.
