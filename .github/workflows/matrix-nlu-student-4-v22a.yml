@@ -53,7 +53,7 @@ jobs:
           python matrix_nlu/build_dataset_v22a.py
           --output-dir "$DATA_DIR"
 
-      - name: Audit v2.2A dataset before training
+      - name: Audit immutable v2 data before v2.2A training
         run: >-
           python matrix_nlu/audit_dataset_v2.py
           --data-dir "$DATA_DIR"
@@ -116,6 +116,8 @@ jobs:
             ${{ env.VERIFY_DIR }}/
             ${{ env.DATA_DIR }}/*manifest.json
             ${{ env.DATA_DIR }}/v1-to-v2-corrections.json
+            ${{ env.DATA_DIR }}/v22a-repair-train.jsonl
+            ${{ env.DATA_DIR }}/v22a-repair-train-manifest.json
             ${{ env.TRAINING_DIR }}/training-result.json
             ${{ env.TRAINING_DIR }}/training-progress.json
             ${{ env.TRAINING_DIR }}/labels.json
