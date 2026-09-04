@@ -65,9 +65,10 @@ class PipelineAutomationTest(unittest.TestCase):
             encoding="utf-8")
         self.assertIn("pipeline/student-4.trigger", v1)
         self.assertNotIn("student-4-v2", v1)
-        self.assertIn("pipeline/student-4-v2.trigger", v2)
+        self.assertIn("pipeline/student-4-v2-resume.trigger", v2)
         self.assertIn("--dataset-version v2 --student-layers 4", v2)
         self.assertIn("matrix-nlu-student-4-v2-resume-${{ github.run_id }}", v2)
+        self.assertIn("--resume-evidence", v2)
 
     def test_v2_hardened_post_gate_reuses_bundle_without_retraining(self):
         root = pathlib.Path(__file__).resolve().parents[1]

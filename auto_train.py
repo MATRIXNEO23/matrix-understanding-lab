@@ -164,6 +164,9 @@ def build_steps(args: argparse.Namespace, training_dir: pathlib.Path) -> list[St
         steps[-1].command.extend(["--student-layers", str(args.student_layers)])
     if is_v2:
         steps[-1].command.append("--defer-frozen")
+        resume_evidence = getattr(args, "resume_evidence", None)
+        if resume_evidence is not None:
+            steps[-1].command.extend(["--resume-evidence", str(resume_evidence)])
     return steps
 
 
@@ -176,6 +179,8 @@ def main() -> int:
     parser.add_argument("--student-layers", type=int)
     parser.add_argument("--dataset-version", choices=("v1", "v2"), default="v1")
     parser.add_argument("--variant", help="explicit isolated variant name")
+    parser.add_argument("--resume-evidence", type=pathlib.Path,
+                        help="verified provenance for an explicitly restored v2 checkpoint")
     parser.add_argument("--output-dir", type=pathlib.Path,
                         help="variant-specific output; default is training or training-student-N")
     args = parser.parse_args()
@@ -192,6 +197,8 @@ def main() -> int:
         parser.error("dataset v2 is authorized only for the fresh student-4-v2 variant")
     if args.dataset_version == "v2" and args.student_layers != 4:
         parser.error("student-4-v2 requires --student-layers 4")
+    if args.resume_evidence is not None and args.dataset_version != "v2":
+        parser.error("--resume-evidence is valid only for dataset v2")
     training_dir = (args.output_dir or
                     (BUILD / "training-student-4-v2" if args.dataset_version == "v2" else
                     (BUILD / f"training-student-{args.student_layers}"

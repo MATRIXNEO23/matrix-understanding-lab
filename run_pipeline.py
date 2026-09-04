@@ -29,6 +29,8 @@ def commands(args: argparse.Namespace) -> list[Step]:
             training.extend(["--student-layers", str(args.student_layers)])
         if is_v2:
             training.extend(["--dataset-version", "v2", "--variant", "student-4-v2"])
+            if getattr(args, "resume_evidence", None) is not None:
+                training.extend(["--resume-evidence", str(args.resume_evidence)])
         steps.append(Step("prepare-verify-train-or-resume", training))
     candidate_role = ("counter-review" if is_v2 else
                       "production" if args.student_layers is not None or
@@ -56,10 +58,14 @@ def main() -> int:
     parser.add_argument("--onnx-repetitions", type=int, default=30)
     parser.add_argument("--candidate-role", choices=("teacher", "production"), default="teacher",
                         help="teacher preserves evidence; production enforces deployable size")
+    parser.add_argument("--resume-evidence", type=pathlib.Path,
+                        help="verified provenance for an explicitly restored v2 checkpoint")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     if args.dataset_version == "v2" and args.student_layers != 4:
         parser.error("student-4-v2 requires --student-layers 4")
+    if args.resume_evidence is not None and args.dataset_version != "v2":
+        parser.error("--resume-evidence is valid only for dataset v2")
     if args.bundle is not None and not args.skip_train:
         parser.error("--bundle requires --skip-train; training owns its output bundle")
     planned = commands(args)

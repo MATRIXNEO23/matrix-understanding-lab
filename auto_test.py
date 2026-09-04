@@ -57,6 +57,11 @@ def verify_training_inputs(bundle: pathlib.Path) -> dict:
         if (result.get("frozenDataRead") is not False or frozen_paths or
                 result.get("trainingSplitsRead") != ["train", "dev"]):
             raise RuntimeError("student-4-v2 training provenance includes frozen access")
+        resume_evidence = result.get("resumeEvidence")
+        if resume_evidence is not None:
+            evidence_path = bundle / "resume-evidence.json"
+            if not evidence_path.is_file() or sha256(evidence_path) != resume_evidence.get("sha256"):
+                raise RuntimeError("student-4-v2 resume evidence is missing or has changed")
     return {
         "trainingResultSha256": sha256(result_path),
         "modelStateSha256": actual_model,
@@ -67,6 +72,7 @@ def verify_training_inputs(bundle: pathlib.Path) -> dict:
         "seed": result.get("config", {}).get("seed"),
         "datasetVersion": dataset_version,
         "frozenDataRead": result.get("frozenDataRead"),
+        "resumeEvidence": result.get("resumeEvidence"),
     }
 
 

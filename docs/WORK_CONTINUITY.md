@@ -10,7 +10,7 @@ strategy change, before long/risky work, and before ending any session.
 - Repository: `MATRIXNEO23/matrix-understanding-lab`
 - Branch: `main`
 - HEAD verified before this continuity update:
-  `238eba30fbee5c633a059043a13d80bde17dd263`.
+  `00d126fbfffce978de97eb5af227250916a2d724`.
 - Training launch commit:
   `37ef11c99785fb0fd56e99267f33e71d4c9e15e6`.
 - Last consolidated implementation commit:
@@ -214,6 +214,24 @@ strategy change, before long/risky work, and before ending any session.
   dev-only threshold selection, and only then permits frozen/error-analysis/
   ONNX/INT8/parity/package gates. It never invokes training and packages only
   a counter-review candidate. Local suite is 72/72 green; workflow YAML parses.
+- Run `33818777290` completed all MASSIVE and four Matrix epochs, then failed
+  during final provenance serialization because `train.py` requested the
+  nonexistent `massive-manifest.json`; the canonical preparer writes
+  `build/matrix-nlu/massive/manifest.json`. This is an ordinary post-training
+  code fault, not a model or dataset gate failure. Frozen data, dev threshold,
+  error analysis and ONNX were not run. Final checkpoint state is Matrix epoch
+  4/4, best dev head-average `0.9499156251469446`; resume is preserved.
+- Run `33818777290` artifacts: report id `9919724554`, 41,624 bytes, archive
+  digest `sha256:2b0261201fe9ea7e2292ee6f4e40982c1582b413768e15dba6c9f02913c588ab`;
+  model bundle id `9919728536`, 217,595,894 bytes, digest
+  `sha256:06e6f991f2bbeb100ff45a1a905b5a93f79796b7eaf9b9697920521e986115e4`;
+  resume id `9919738635`, 646,922,522 bytes, digest
+  `sha256:0c1ee169905e7abf8a45b36a7f2ead4f27922ff7fbbf75a6a26ab3f3fc755a77`.
+- Recovery pending consolidation: correct the MASSIVE manifest path; validate
+  external resume evidence against source run, v2 audit, variant/layers and
+  checkpoint SHA-256; permit adoption only for this pre-identity v2 checkpoint;
+  then resume from epoch 4 without replaying training. Local suite is 73/73
+  green, dry-run carries explicit `--resume-evidence`, and all YAML parses.
 
 - First trained multi-task teacher (`Gate 02`) completed successfully in
   GitHub Actions run `33786677296` at `2026-09-03T20:26:35Z`; every setup,

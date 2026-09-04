@@ -50,7 +50,10 @@ jobs:
           fi
           [[ "$SOURCE_RUN" =~ ^[0-9]+$ ]]
           echo "SOURCE_TRAINING_RUN=$SOURCE_RUN" >> "$GITHUB_ENV"
-          gh run download "$SOURCE_RUN" --name "matrix-nlu-bundle-$SOURCE_RUN" --dir downloaded
+          if ! gh run download "$SOURCE_RUN" --name "matrix-nlu-student-4-v2-bundle-$SOURCE_RUN" \
+            --dir downloaded; then
+            gh run download "$SOURCE_RUN" --name "matrix-nlu-bundle-$SOURCE_RUN" --dir downloaded
+          fi
           RESULT=$(find downloaded -type f -name training-result.json -print -quit)
           test -n "$RESULT"
           BUNDLE=$(dirname "$RESULT")

@@ -202,6 +202,27 @@ def loader(examples, batch_size, shuffle, seed):
                                        shuffle=shuffle, generator=generator, num_workers=0)
 
 
+def validate_resume_evidence(path: pathlib.Path, checkpoint_path: pathlib.Path,
+                             expected_identity: dict) -> dict:
+    evidence = json.loads(path.read_text(encoding="utf-8"))
+    required = {
+        "datasetVersion": expected_identity["datasetVersion"],
+        "variant": expected_identity["variant"],
+        "studentLayers": expected_identity["studentLayers"],
+    }
+    mismatches = {key: {"expected": value, "actual": evidence.get(key)}
+                  for key, value in required.items() if evidence.get(key) != value}
+    actual_checkpoint_hash = sha256(checkpoint_path)
+    if evidence.get("checkpointSha256") != actual_checkpoint_hash:
+        mismatches["checkpointSha256"] = {
+            "expected": evidence.get("checkpointSha256"), "actual": actual_checkpoint_hash}
+    if not isinstance(evidence.get("sourceRunId"), int):
+        mismatches["sourceRunId"] = {"expected": "integer", "actual": evidence.get("sourceRunId")}
+    if mismatches:
+        raise RuntimeError("invalid v2 resume evidence: " + json.dumps(mismatches, sort_keys=True))
+    return evidence
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=pathlib.Path, default=pathlib.Path("matrix_nlu/train_config.json"))
@@ -211,6 +232,8 @@ def main():
     parser.add_argument("--student-layers", type=int)
     parser.add_argument("--defer-frozen", action="store_true",
                         help="do not read/evaluate frozen partitions during training")
+    parser.add_argument("--resume-evidence", type=pathlib.Path,
+                        help="verified external provenance for a pre-identity v2 checkpoint")
     args = parser.parse_args()
     import torch
     from transformers import AutoTokenizer
@@ -278,11 +301,19 @@ def main():
     }
     if config.get("resume") == "auto" and checkpoint_path.exists():
         resume = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
-        if is_v2 and resume.get("identity") != checkpoint_identity:
-            raise RuntimeError(
-                "refusing checkpoint outside student-4-v2 identity: "
-                f"expected={checkpoint_identity} actual={resume.get('identity')}"
-            )
+        if is_v2 and resume.get("identity") is None:
+            if args.resume_evidence is None:
+                raise RuntimeError("pre-identity v2 checkpoint requires --resume-evidence")
+            adopted_resume_evidence = validate_resume_evidence(
+                args.resume_evidence, checkpoint_path, checkpoint_identity)
+            resume["identity"] = checkpoint_identity
+        elif is_v2 and resume.get("identity") != checkpoint_identity:
+            raise RuntimeError("refusing checkpoint outside student-4-v2 identity: "
+                               f"expected={checkpoint_identity} actual={resume.get('identity')}")
+        else:
+            adopted_resume_evidence = None
+    else:
+        adopted_resume_evidence = None
     history = []
     prior_history = []
     if resume and resume.get("stage") == "matrix":
@@ -330,13 +361,19 @@ def main():
     input_paths = [dataset_path(dataset, split)
                    for dataset in ("matrix", "p05") for split in allowed_splits]
     input_paths += [args.massive_dir / f"massive-{split}.jsonl" for split in allowed_splits]
-    input_paths += [args.massive_dir / "massive-manifest.json",
+    input_paths += [args.massive_dir / "manifest.json",
                     args.massive_dir / "massive-labels.json", args.config]
     if is_v2:
         input_paths += [args.data_dir / "matrix-v2-manifest.json",
                         args.data_dir / "p05-v2-manifest.json",
                         args.data_dir / "v1-to-v2-corrections.json"]
     result["inputHashes"] = {str(path): sha256(path) for path in input_paths}
+    if adopted_resume_evidence is not None:
+        result["resumeEvidence"] = {
+            "path": str(args.resume_evidence),
+            "sha256": sha256(args.resume_evidence),
+            **adopted_resume_evidence,
+        }
     result["frozenEvaluationDeferred"] = args.defer_frozen
     result["modelStateSha256"] = sha256(args.output_dir / "model-state.pt")
     (args.output_dir / "training-result.json").write_text(json.dumps(result, indent=2) + "\n")

@@ -10,7 +10,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'pipeline/student-4-v2.trigger'
+      - 'pipeline/student-4-v2-resume.trigger'
 
 permissions:
   contents: read
@@ -43,23 +43,66 @@ jobs:
       - name: Install pinned train test and export dependencies
         run: python -m pip install --requirement matrix_nlu/requirements-train.txt
       - name: Restore an explicitly selected Student-4-v2 checkpoint
-        if: github.event_name == 'workflow_dispatch' && inputs.resume_run_id != ''
+        if: github.event_name == 'push' || inputs.resume_run_id != ''
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p resume-download "$MATRIX_NLU_TRAINING_DIR/checkpoints"
-          gh run download "${{ inputs.resume_run_id }}" \
-            --name "matrix-nlu-student-4-v2-resume-${{ inputs.resume_run_id }}" \
-            --dir resume-download
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            SOURCE_RUN=$(tr -d '[:space:]' < pipeline/student-4-v2-resume.trigger)
+          else
+            SOURCE_RUN="${{ inputs.resume_run_id }}"
+          fi
+          [[ "$SOURCE_RUN" =~ ^[0-9]+$ ]]
+          mkdir -p resume-download report-download "$MATRIX_NLU_TRAINING_DIR/checkpoints"
+          if ! gh run download "$SOURCE_RUN" \
+            --name "matrix-nlu-student-4-v2-resume-$SOURCE_RUN" --dir resume-download; then
+            gh run download "$SOURCE_RUN" --name "matrix-nlu-resume-$SOURCE_RUN" \
+              --dir resume-download
+          fi
+          if ! gh run download "$SOURCE_RUN" \
+            --name "matrix-nlu-student-4-v2-report-$SOURCE_RUN" --dir report-download; then
+            gh run download "$SOURCE_RUN" --name "matrix-nlu-report-$SOURCE_RUN" \
+              --dir report-download
+          fi
           CHECKPOINT=$(find resume-download -type f -name latest.pt -print -quit)
+          STATUS=$(find report-download -type f -name auto-train-student-4-v2-status.json -print -quit)
+          AUDIT=$(find report-download -type f -name dataset-v2-audit.json -print -quit)
           test -n "$CHECKPOINT"
+          test -n "$STATUS"
+          test -n "$AUDIT"
           cp "$CHECKPOINT" "$MATRIX_NLU_TRAINING_DIR/checkpoints/latest.pt"
-          printf 'resumeRunId=%s\ncheckpointSha256=' "${{ inputs.resume_run_id }}" \
-            > "$MATRIX_NLU_TRAINING_DIR/resume-source.txt"
-          sha256sum "$MATRIX_NLU_TRAINING_DIR/checkpoints/latest.pt" \
-            | awk '{print $1}' >> "$MATRIX_NLU_TRAINING_DIR/resume-source.txt"
+          python - "$SOURCE_RUN" "$CHECKPOINT" "$STATUS" "$AUDIT" \
+            "$MATRIX_NLU_TRAINING_DIR/resume-evidence.json" <<'PY'
+          import hashlib, json, pathlib, sys
+          run_id, checkpoint, status_path, audit_path, output = sys.argv[1:]
+          status = json.load(open(status_path, encoding="utf-8"))
+          audit = json.load(open(audit_path, encoding="utf-8"))
+          assert status["variant"] == "student-4-v2"
+          assert status["datasetVersion"] == "v2"
+          assert status["trainingDir"].endswith("training-student-4-v2")
+          assert status["resumeCheckpointPreserved"] is True
+          assert audit["status"] == "PASS"
+          assert audit["frozenPredictionsRead"] is False
+          digest = hashlib.sha256(pathlib.Path(checkpoint).read_bytes()).hexdigest()
+          evidence = {"schemaVersion": "matrix.nlu.resume-evidence.v1",
+                      "sourceRunId": int(run_id), "checkpointSha256": digest,
+                      "datasetVersion": "matrix.nlu.dataset.v2",
+                      "variant": "student-4-v2", "studentLayers": 4,
+                      "sourceAuditSha256": hashlib.sha256(
+                          pathlib.Path(audit_path).read_bytes()).hexdigest()}
+          pathlib.Path(output).write_text(json.dumps(evidence, indent=2) + "\n")
+          PY
+          cp "$MATRIX_NLU_TRAINING_DIR/resume-evidence.json" \
+            "$MATRIX_NLU_TRAINING_DIR/resume-source.txt"
       - name: Run audited Student-4-v2 checkpoint pipeline
-        run: python run_pipeline.py --dataset-version v2 --student-layers 4
+        shell: bash
+        run: |
+          set -euo pipefail
+          COMMAND=(python run_pipeline.py --dataset-version v2 --student-layers 4)
+          if [[ -f "$MATRIX_NLU_TRAINING_DIR/resume-evidence.json" ]]; then
+            COMMAND+=(--resume-evidence "$MATRIX_NLU_TRAINING_DIR/resume-evidence.json")
+          fi
+          "${COMMAND[@]}"
       - name: Record preserved evidence
         if: always()
         shell: bash
@@ -87,6 +130,7 @@ jobs:
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/training-progress.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/labels.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-source.txt
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-evidence.json
       - name: Upload isolated Student-4-v2 model bundle
         uses: actions/upload-artifact@v4
         if: always()
@@ -100,6 +144,7 @@ jobs:
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/labels.json
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/model-state.pt
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/tokenizer/
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-evidence.json
       - name: Upload isolated Student-4-v2 resumable checkpoint
         uses: actions/upload-artifact@v4
         if: always()
@@ -111,3 +156,4 @@ jobs:
           path: |
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/checkpoints/latest.pt
             ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-source.txt
+            ${{ env.MATRIX_NLU_TRAINING_DIR }}/resume-evidence.json
