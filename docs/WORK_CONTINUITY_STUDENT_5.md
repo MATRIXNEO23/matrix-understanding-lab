@@ -818,3 +818,214 @@ otherRepositoriesModified = false
 ```
 
 Attempt-2 will use a new output directory. Quantization remains the same ONNX Runtime dynamic per-channel QInt8 method and the pristine input remains unchanged.
+
+
+## Checkpoint 13 — TASK 1 Path-A runtime probe PASS
+
+Timestamp: `2026-09-05T06:58Z`
+
+```text
+task = TASK_1_UNTAUGHT_INT8_RUNTIME_PROBE
+result = RUNTIME_PROBE_PASS
+headStart = e64a49af2eec187d0ddf3b786a0e21cff9567ba8
+headFinal = THIS_CHECKPOINT_COMMIT
+logicalName = STUDENT_5_40K_UNTAUGHT_INT8
+status = RUNTIME_PROBE_ONLY
+nluStatus = NOT_MATRIX_NLU
+productionStatus = NOT_PRODUCTION_APPROVED
+TASK_2 = NOT_STARTED
+TASK_3 = NOT_STARTED
+PATH_B = NOT_STARTED
+FROZEN = UNREAD
+```
+
+### Verified pristine input
+
+```text
+pristineReleaseId = 383143636
+pristineAssetId = 545406840
+archiveBytes = 88361246
+archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
+modelBytes = 148020400
+modelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
+mappingSha256 = da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9
+sentencePieceSha256 = 748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78
+manifestSha256 = a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d
+internalSha256Sums = 17/17_PASS
+saveReload = PASS
+realForward = PASS
+pristine40kModified = false
+```
+
+### FP32 ONNX
+
+```text
+opset = ai.onnx:17
+inputs = [input_ids, attention_mask]
+outputs = [last_hidden_state, pooler_output]
+dynamicBatch = true
+dynamicSequence = true
+externalDataRequired = false
+bytes = 148202898
+sha256 = 799d86b9231721c0e7ff656b48cb609611c98ea75c8489e4edebeaf7e9d7de23
+onnxChecker = PASS
+runtimeLoad = PASS
+forward = PASS
+hfVsFp32MeanRepresentationCosine = 0.9999999893
+hfVsFp32MinimumRepresentationCosine = 0.9999998808
+hfVsFp32MaximumAbsoluteDelta = 0.0000028610
+hfVsFp32ContrastMeanDelta = 0.0000000646
+fp32Parity = PASS
+```
+
+### INT8 ONNX
+
+```text
+method = ONNX_RUNTIME_DYNAMIC_PER_CHANNEL_QINT8
+weightBearingEligibleMatMulOrGemm = 73
+matMulIntegerNodes = 73
+quantizationCoverage = 100.0%
+remainingFp32MatMul = 24
+remainingFp32MatMulClass = DYNAMIC_ATTENTION_SCORE_OR_CONTEXT
+embeddingPolicy = FP32_PRESERVED
+normalizationAnd1DPolicy = FP32_PRESERVED
+calibrationDataUsed = false
+bytes = 84457299
+sha256 = f58463a6d1f4daca2e58c8e40f7f6d1cbaa7d107e9534160278bc46552e0304a
+onnxChecker = PASS
+runtimeLoad = PASS
+forward = PASS
+sizeReductionVsFp32 = 43.012384%
+```
+
+### Parity summary
+
+The canonical Phase-A independent probe was reused: 95 coverage rows, 161 unique semantic-comparison sentences, 36 contrast pairs and 50 adult/intimacy sentences. Canonical DEV and Frozen were not used.
+
+| Slice | FP32 vs INT8 mean cosine | Minimum cosine |
+|---|---:|---:|
+| Overall | 0.9985922280 | 0.9974925518 |
+| General | 0.9985940893 | 0.9975170493 |
+| IT | 0.9985519545 | 0.9975170493 |
+| EN | 0.9986616887 | 0.9977059364 |
+| ES | 0.9986688186 | 0.9980143309 |
+| Adult/intimacy | 0.9985905528 | 0.9974925518 |
+| Adult IT | 0.9986285525 | 0.9980231524 |
+| Adult EN | 0.9986575033 | 0.9977059364 |
+| Adult ES | 0.9987037565 | 0.9983276129 |
+| Code-switch | 0.9982087836 | 0.9974925518 |
+
+```text
+fp32VsInt8MeanAbsoluteDelta = 0.0142470635
+fp32VsInt8MaximumAbsoluteDelta = 0.2661950588
+contrastMeanAbsoluteCosineDelta = 0.0025965770
+contrastP95AbsoluteCosineDelta = 0.0056632161
+contrastMaximumAbsoluteCosineDelta = 0.0084947348
+spanishAdultConsentWithdrawalFp32Cosine = 0.8060526848
+spanishAdultConsentWithdrawalInt8Cosine = 0.8042662144
+spanishAdultConsentWithdrawalDelta = 0.0017864704
+adultIntimacyParityStatus = MEASURED_NO_DISPROPORTIONATE_REGRESSION_OBSERVED
+```
+
+No canonical INT8 linguistic gate exists; values are recorded without inventing or lowering one. Adult/intimacy mean cosine is effectively equal to general.
+
+### CPU runtime summary
+
+Environment: Linux 6.18.35 x86_64, AMD EPYC 9V74, 9 visible cores, Python 3.12.13, ONNX Runtime 1.22.1, CPUExecutionProvider, sequential execution, one intra-op and one inter-op thread. Each length used 5 warmups and 30 measured runs in isolated processes.
+
+| Model | Cold load | Warm reload | Seq32 median | Seq32 p95 | Warm-load RSS increase | Peak RSS |
+|---|---:|---:|---:|---:|---:|---:|
+| FP32 | 841.747 ms | 339.759 ms | 16.961 ms | 18.479 ms | 256581632 B | 351080448 B |
+| INT8 | 309.258 ms | 177.313 ms | 6.240 ms | 7.725 ms | 128000000 B | 210198528 B |
+
+Warm INT8 median/p95 at sequence lengths 16/32/64: `3.842/4.400 ms`, `6.240/7.725 ms`, `12.364/13.547 ms`.
+
+### Mobile audit
+
+```text
+MOBILE_COMPATIBILITY_PROVISIONAL = RISK
+standardOperatorsOnly = true
+problematicOperators = none
+externalDataRequired = false
+dynamicBatchAndSequence = true
+MotoTest = NOT_EXECUTED
+```
+
+No static blocker was found. Risk remains until tokenizer integration, reduced-operator build coverage, package memory and latency are tested on the actual mobile target.
+
+### Durable output
+
+```text
+releaseTag = student-5-minilm-40k-untaught-int8-runtime-probe
+releaseId = 383162517
+assetId = 545486429
+asset = student-5-minilm-40k-untaught-int8-runtime-probe.zip
+assetBytes = 142463548
+assetSha256 = 72eea0af4211959bdbc92be36387faf5b85da957830f9be0a6d0dd50ab7cedf6
+artifactDirectoryBytes = 234933515
+zipIntegrity = PASS
+artifactInternalSha256Sums = 18/18_PASS
+```
+
+Release: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-untaught-int8-runtime-probe`
+
+Direct asset: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-untaught-int8-runtime-probe/student-5-minilm-40k-untaught-int8-runtime-probe.zip`
+
+Task evidence:
+
+```text
+startCheckpointCommit = 0b42b151c717e1450866155699cf0bfd1ff964cb
+benchmarkRepairCheckpointCommit = 0a5d08005ecdc8273cef33f125fb56ab184e4fb4
+reproductionSourceCommit = 5f1eb582a98e0488ce73b0ab24682f860cd30a72
+reportCommit = bbd765299ff6cd28b29b66ee0155bc84846d068b
+registryCommit = 04283174acd4f2fea7f6a4db3822e3668d675bb8
+continuityCompletionCommit = THIS_CHECKPOINT_COMMIT
+```
+
+Files changed from the TASK-1 start HEAD through the pre-final checkpoint:
+
+```text
+docs/STUDENT_ARTIFACT_REGISTRY.md
+docs/WORK_CONTINUITY_STUDENT_5.md
+matrix_nlu/student5_untaught_runtime_probe.py
+reports/STUDENT_5_40K_UNTAUGHT_INT8_RUNTIME_PROBE.md
+```
+
+GitHub compare evidence shows no Student-4 file, dataset, canonical DEV path, Frozen path, Matrix training implementation, Assembling file or other repository change.
+
+Final guards:
+
+```text
+pristineInputVerified = true
+pristineInputModified = false
+fp32OnnxExported = true
+fp32OnnxRuntimeLoad = true
+fp32OnnxForward = true
+int8ArtifactCreated = true
+int8RuntimeLoad = true
+int8Forward = true
+quantizedOperatorCensusRecorded = true
+fp32VsSourceParityMeasured = true
+int8VsFp32ParityMeasured = true
+adultIntimacyParityMeasured = true
+runtimeBenchmarkRecorded = true
+artifactChecksumsRecorded = true
+student4V22AChanged = false
+canonicalDevUsed = false
+frozenDataRead = false
+frozenDataTokenized = false
+frozenDataAnalyzed = false
+frozenPredictionsRead = false
+frozenDataUsedForTuning = false
+teachingExecuted = false
+matrixHeadsTrained = false
+pathBStarted = false
+otherRepositoriesModified = false
+productionPromotionExecuted = false
+```
+
+Next action:
+
+```text
+AWAIT OWNER REVIEW BEFORE TASK 2
+```
