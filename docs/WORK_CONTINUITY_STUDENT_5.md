@@ -1332,3 +1332,66 @@ Frozen = UNREAD
 ```
 
 The V2 migration module accepts only caller-supplied rows and reports DIRECT_REUSE / DETERMINISTIC_MIGRATION / NEEDS_REANNOTATION / UNUSABLE; it was not run on any canonical partition. The V3 canonical output contains no authority, World Truth, Memory Admission or persistent state fields.
+
+## Checkpoint 22 — TASK 2.2 structural completion gate
+
+Timestamp: `2026-09-05T09:21:33Z`
+
+```text
+HEAD implementation = 3aa9d135661f15647e9d4b75dde6779025ee5fcd
+task = TASK_2_2_IMPLEMENT_CONTRACT_V3_AND_P0_REPAIR
+verdict = CONTRACT_V3_IMPLEMENTATION_PASS_WITH_NONBLOCKING_RISKS
+contract = MATRIX_NLU_CONTRACT_V3
+contractFingerprintSha256 = 7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0
+headCount = 16
+tokenHeads = 6
+sequenceHeads = 10
+sourceReferent = PASS
+student5BertAdapter = PASS_STRUCTURAL
+referentPointers = PASS
+multiEntityRoleSeparation = PASS
+negationPolarity = PASS
+temporalAnchor = PASS
+multiSpanDecoder = PASS
+confidenceAbstention = PASS
+independentEvaluator = PASS
+bundleFingerprintGuard = PASS
+V3OutputOwnership = PASS
+safeTests = 43/43 PASS
+pythonCompile = PASS
+headParameterDelta = 172088
+estimatedHeadFp32Bytes = 688352
+P0ImplementationRemaining = 0
+P1Remaining = 2 (physical pristine BERT load; physical ONNX export/load)
+P2Remaining = 0
+ONNXStructuralProbe = NOT_EXECUTED_MISSING_LOCAL_TOOLCHAIN
+```
+
+The ONNX graph contract is recorded with opset 17, dynamic batch/sequence/candidate/anchor axes, 17 output tensors for 16 conceptual heads, and no expected custom operators. Torch, Transformers, ONNX and ONNX Runtime are not installed in this environment, so no physical export/load result is claimed.
+
+Final guards at the implementation checkpoint:
+
+```text
+Student-4 changed = false
+canonicalDevUsed = false
+Frozen read = false
+Frozen tokenized = false
+Frozen analyzed = false
+Frozen predictions read = false
+Path A modified = false
+pristine40kModified = false
+Path B started = false
+optimizerCreated = false
+backpropExecuted = false
+Teaching executed = false
+Training executed = false
+Other repositories modified = false
+TASK 2.3 = NOT_STARTED
+TASK 3 = NOT_STARTED
+```
+
+Next action:
+
+```text
+AWAIT OWNER REVIEW BEFORE TASK 2.3
+```
