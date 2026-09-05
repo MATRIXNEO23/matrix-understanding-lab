@@ -1279,3 +1279,29 @@ otherRepositoriesModified = false
 ```
 
 TASK 2.2 will implement the frozen 16-head contract, close IB-01..IB-09 as required, and use only synthetic/data-independent tests. No canonical dataset partition will be opened or rewritten.
+
+## Checkpoint 20 — V3 registry, BERT adapter and pointer architecture
+
+```text
+HEAD before checkpoint = d9cfd0321a99925c9a5fe149ce9683052d6b1e4a
+contractModule = matrix_nlu/contract_v3.py
+candidateModule = matrix_nlu/referent_candidates.py
+modelModule = matrix_nlu/model_v3.py
+onnxContractModule = matrix_nlu/export_onnx_v3.py
+tests = matrix_nlu/test_contract_v3_core.py
+registry = 16 heads (6 token + 10 sequence) PASS
+sourceReferent = INDEPENDENT_POINTER_HEAD
+maxReferentCandidatesDefault = 16
+overflow = FAIL_CLOSED_WITH_LOST_CRITICAL_EVIDENCE
+Student5BertAdapter = encoder.layer + hidden_size supported
+headParametersAtHidden384 = 171704
+estimatedHeadFp32Bytes = 686816
+syntheticCoreTests = 9/9 PASS
+pyCompile = PASS
+optimizerCreated = false
+trainingExecuted = false
+canonicalDevUsed = false
+Frozen = UNREAD
+```
+
+The V3 path is isolated from legacy V2/Student-4 modules. The ONNX export contract is defined, but no export has been attempted at this checkpoint because Torch/Transformers/ONNX are not installed in the execution environment.
