@@ -202,7 +202,7 @@
     },
     "statistics.json": {
       "bytes": 7831,
-      "sha256": "0970c07ac4818cff6f5854f53f8d9de6f8e63b58b80cc5ab5c458d2dde653341"
+      "sha256": "11f5ff43ceea9a1de6e8a4e9149b4c8af0834290cf623f3c13db1c59acf0d5c4"
     }
   },
   "finalDispositionCounts": {
@@ -222,9 +222,9 @@
     "es": 1007,
     "it": 1126
   },
-  "migrationCommit": "ea57fec385b7ec666ea4d03db67b3c233faad740",
+  "migrationCommit": "783fc308320ca72420038d513fd94bbb52ed7c70",
   "migrationToolVersion": "student5.task2.3.train-migration.v1",
-  "outputChecksum": "32052bb8ab9eba85220f4069cf9ca52fac12273307f0ac51f5aa59384c11162e",
+  "outputChecksum": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
   "outputDatasetId": "student5-matrix-nlu-v3-train-v1",
   "outputFiles": [
     {
@@ -564,10 +564,10 @@
       "sha256": "4f748d275e5922b261e0a98aa1a792e913b4a876d6d977d25727a15d9f2d0048"
     },
     {
-      "bytes": 149864,
+      "bytes": 149870,
       "path": "train/part-00056.jsonl",
       "rows": 50,
-      "sha256": "a497192455edc974f3de25f8ff49d4fb1884ec36b2dc9f149caee737e0843891"
+      "sha256": "f453b7ab345ec1fd97d1dd52486db92752ff96eb221e000f96f6395d647ef231"
     },
     {
       "bytes": 150100,

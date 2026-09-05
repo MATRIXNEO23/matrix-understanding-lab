@@ -274,14 +274,14 @@
     "claimsWithMultipleTemporalEvidence": 0
   },
   "negation": {
-    "claimsWithCueSpans": 462,
+    "claimsWithCueSpans": 463,
     "claimsWithMultipleCues": 13,
     "negativeClaims": 695,
     "negativeRows": 695,
     "polarityNegative": 695,
     "polarityPositive": 3106,
     "polarityUnknown": 189,
-    "rowsWithCueSpans": 462,
+    "rowsWithCueSpans": 463,
     "rowsWithMultipleCues": 13
   },
   "referentPointers": {
