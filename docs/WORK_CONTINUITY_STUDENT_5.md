@@ -186,3 +186,300 @@ Repository implementation/report commits: `25546528917d42d70129f059ff56da672678c
 Canonical report: `reports/STUDENT_5_MINILM_DEEP_PRUNING.md`. Compatibility report: `reports/STUDENT_5_MINILM_PRUNING_FEASIBILITY.md`.
 
 Phase A stops here. Matrix teaching, the 15 Matrix heads, fine-tuning, canonical-dev downstream evaluation, quantization, Frozen access, Assembling integration, and production promotion remain unexecuted and require separate authorization.
+
+## Checkpoint 5 — approved completion plan, execution NOT started
+
+Timestamp: `2026-09-05`
+
+Owner-approved direction: complete Matrix-NLU using Student-5 40k as the primary candidate while keeping Student-4-v2.2A as a frozen comparative baseline. Work execution has NOT started from this checkpoint; this section records the plan only.
+
+### Repository and architecture boundary
+
+Writable repository for this workstream:
+
+```text
+MATRIXNEO23/matrix-understanding-lab
+```
+
+Authoritative architecture file to read and respect before implementation:
+
+```text
+ARCHITETTURA.md @ main
+```
+
+Hard boundary:
+- do not modify `assembling`;
+- do not modify `memoria`;
+- do not modify affective, game, historical or any other repository;
+- other repositories may be read only when needed for compatibility context;
+- all NLU code, training, tests, reports, artifacts and continuity updates stay in `matrix-understanding-lab`.
+
+### Student roles
+
+```text
+Student-4-v2.2A
+= preserved comparative baseline / regression reference
+= do not discard
+= do not auto-promote
+
+Student-5 MiniLM 40k Phase-A artifact
+= primary continuation candidate
+= same pristine 40k base feeds two separate experimental paths
+```
+
+The two Student-5 paths must remain independent. Quantizing path A must never mutate or become the training base for path B.
+
+### Path A — immediate untaught quantized runtime probe
+
+Purpose: isolate deployment/runtime risk before spending training effort.
+
+```text
+Student-5 40k pristine Phase-A
+→ no Matrix teaching
+→ ONNX export
+→ encoder INT8 / technically appropriate quantization
+→ desktop/runtime verification
+→ size / load / latency / memory measurements
+→ optional late Android probe only if software/runtime checks justify it
+```
+
+Required status label:
+
+```text
+STUDENT_5_40K_UNTAUGHT_INT8
+RUNTIME_PROBE_ONLY
+NOT_MATRIX_NLU
+NOT_PRODUCTION_APPROVED
+```
+
+Path-A results may justify export/runtime/infrastructure fixes, but its linguistic quality must not be used as evidence for Matrix-NLU capability or to contaminate Path-B training decisions.
+
+### Path B — Matrix teaching and quality path
+
+Start again from the same pristine Student-5 40k Phase-A artifact, never from the quantized Path-A artifact.
+
+Target initial architecture: preserve the existing Matrix 15-head contract unless a contract audit proves a missing indispensable output.
+
+Sequence heads:
+- `sequence.dialogueAct`;
+- `sequence.predicate`;
+- `sequence.subjectReferent`;
+- `sequence.targetReferent`;
+- `sequence.ownerReferent`;
+- `sequence.perspectiveReferent`;
+- `sequence.polarity`;
+- `sequence.temporalRelation`;
+- `sequence.claimKind`.
+
+Token/span heads:
+- `token.boundary`;
+- `token.subject`;
+- `token.object`;
+- `token.entity`;
+- `token.negation`;
+- `token.temporal`.
+
+Confidence/calibration and claim decomposition are mandatory output behavior even if implemented without adding new learned heads.
+
+### Capacity escalation policy
+
+Do not jump immediately to full fine-tuning. Increase trainable capacity only when evidence requires it:
+
+```text
+A. frozen 12-layer backbone + Matrix heads
+↓ if insufficient
+B. stronger/small MLP or adapter capacity
+↓ if insufficient
+C. unfreeze last 1–2 encoder layers
+↓
+D. unfreeze last 3–4 encoder layers if justified
+↓
+E. full fine-tuning only as last resort with regression evidence
+```
+
+Every escalation must compare against the previous Student-5 configuration and Student-4-v2.2A baseline. Preserve capabilities already strong; do not trade one critical family for another silently.
+
+### Priority linguistic families
+
+Training/error-mining priority:
+- negation;
+- temporal interpretation;
+- subject/target/owner/perspective referents;
+- ownership;
+- third-party/report;
+- correction;
+- goal/request;
+- span decoding;
+- multi-claim decomposition/signals;
+- Italian weaknesses;
+- Spanish weaknesses;
+- ambiguity/hypothesis;
+- code-switch IT/EN/ES;
+- colloquial, incomplete and typo/noisy input.
+
+### Mandatory adult/intimacy coverage
+
+Adult/intimacy coverage is a critical NLU family, not optional and not a censorship layer.
+
+All authored sexual training/probe material must involve adults only.
+
+Coverage must include, where linguistically relevant:
+- attraction, desire and arousal;
+- intimate/sexual requests;
+- consent grant;
+- refusal, withdrawal and boundaries;
+- initiation and reciprocal participation;
+- escalation/de-escalation;
+- anatomy/action references and explicit vocabulary;
+- slang and colloquial language in IT/EN/ES;
+- code-switching;
+- roles and consensual power dynamics;
+- sexual-health/protection language when semantically relevant;
+- negation, temporal relation, hypothesis, correction, report and referents inside adult contexts;
+- ambiguity;
+- coercion/pressure/threat distinguished semantically from consensual intimacy.
+
+Hard rule:
+
+```text
+adult/intimacy content alone
+≠ automatic block
+≠ automatic confidence penalty
+≠ automatic semantic degradation
+```
+
+Understanding must interpret the language accurately and emit the ordinary structured Matrix semantics. No sexual content involving minors is permitted.
+
+### Training and error-mining loop
+
+After each meaningful training attempt:
+
+```text
+TRAIN
+→ DEV evaluation
+→ per-language + per-family error taxonomy
+→ causal/root-cause analysis
+→ TRAIN-only hard-example/repair generation
+→ retrain
+→ regression comparison
+```
+
+Do not repair systematic linguistic failures with accumulating regex or hand-authored language-specific parser patches. Deterministic logic remains for schema/invariants, not as a replacement for learned Understanding.
+
+### Quality gates
+
+Do not judge completion from one global metric.
+
+The final candidate must show no critical systematic failure on:
+- negation;
+- temporal interpretation;
+- referents;
+- ownership/perspective;
+- third-party/report;
+- request;
+- correction;
+- goal;
+- multi-claim;
+- adult/intimacy including consent/refusal/boundaries;
+- IT/EN/ES and code-switch robustness.
+
+Hard invariants:
+
+```text
+ownership corruption = 0
+invented World Truth = 0
+```
+
+Target remains near-perfect practical generalization on a genuinely difficult unseen benchmark, not decimal chasing. A nominal >99% is insufficient if a critical family remains systematically broken.
+
+### Confidence and abstention
+
+Confidence is part of the NLU contract, not a cosmetic post-process.
+
+- calibrate per-head/per-output confidence on development evidence;
+- uncertain critical output must fail closed/abstain rather than silently corrupt downstream state;
+- thresholds are chosen on allowed development data only;
+- do not tune thresholds on Frozen.
+
+### Frozen policy
+
+Frozen remains closed during:
+- training;
+- architecture/capacity selection;
+- error mining;
+- hard-example generation;
+- hyperparameter tuning;
+- threshold calibration;
+- quantization recipe selection.
+
+Only after a candidate is locked may the final Frozen evaluation run. Frozen results must not be fed back into training.
+
+### Post-teaching compression path
+
+Once a taught FP32 Student-5 candidate reaches the quality gate:
+
+```text
+Student-5 40k taught FP32
+= quality reference
+        ↓
+encoder INT8 + protected semantic heads FP32 by default
+        ↓ parity tests
+Student-5 40k taught mixed/INT8 candidate
+```
+
+Alternative mixed precision is allowed only when measured evidence shows it preserves critical quality better within the mobile budget.
+
+Required comparisons:
+
+```text
+Student-4-v2.2A FP32/mixed baseline
+vs Student-5 taught FP32
+vs Student-5 taught mixed/INT8
+```
+
+### Mobile/runtime gate
+
+Physical Moto G56 testing remains late-stage.
+
+Before phone testing, CI/desktop/runtime checks must cover:
+- ONNX correctness;
+- tokenizer/model reload;
+- output parity;
+- package integrity/checksums;
+- estimated/runtime memory;
+- cold/warm latency where measurable;
+- unsupported operators/runtime failures.
+
+Path A may be used to discover deployment problems early, but repeated phone testing during linguistic iteration is not required.
+
+### Completion sequence
+
+```text
+S5-A 40k untaught runtime probe
+→ report/checkpoint
+
+S5-B pristine 40k + Matrix teaching
+→ DEV/error mining/controlled TRAIN-only repair
+→ capacity escalation only as justified
+
+S5-C taught FP32 candidate lock
+→ quantization/mixed precision
+→ parity/regression
+
+S5-D final candidate
+→ Frozen once
+→ late Moto hardware gate
+→ production integration remains separate
+```
+
+### STOP / non-promotion rules
+
+- do not lower existing acceptance gates to obtain PASS;
+- do not modify Frozen;
+- do not auto-promote Student-5;
+- do not discard Student-4 baseline prematurely;
+- do not integrate into Assembling from this workstream;
+- do not modify another repository;
+- if a genuine architecture-level blocker is found, preserve artifacts/reports/continuity and stop with evidence instead of hiding the failure.
+
+Next action when execution is explicitly authorized: prepare the Work prompt from this checkpoint, requiring Work to read `ARCHITETTURA.md` first and to operate only inside `MATRIXNEO23/matrix-understanding-lab`.
