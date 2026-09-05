@@ -1526,3 +1526,53 @@ next = COMMIT_TOOL_THEN_EXECUTE_FULL_TRAIN_MIGRATION
 ```
 
 The tool implements controlled cue/temporal evidence reannotation against authored TRAIN surfaces, exact role-pointer reconstruction from explicit spans/context, source materialization, V3 status fields, contract/fingerprint validation, exhaustive target-builder dry run, and machine-readable statistics/provenance. It contains no partition discovery and refuses filenames that are not explicitly TRAIN-only.
+
+## Checkpoint 27 — full TRAIN migration and repair closure
+
+Timestamp: `2026-09-05T11:20:00Z`
+
+```text
+HEAD before checkpoint = 305706386d2b0f52b17a1daa6820b3b13c9fa080
+operation = FULL_TRAIN_MIGRATION_VALIDATED
+sourceRows = 3150
+finalRows = 3150
+finalClaims = 3990
+retentionPercent = 100.0
+DIRECT_REUSE = 0
+DETERMINISTIC_MIGRATION = 0
+NEEDS_REANNOTATION = 3150
+REANNOTATED = 3150
+UNUSABLE = 0
+structuralViolations = 0
+targetBuilderRows = 3150/3150
+targetBuilderExamples = 7140
+targetBuilderErrors = 0
+safeV3Tests = 44/44 PASS
+forbiddenV2RoleSentinels = 0
+invalidPointers = 0
+missingRequiredTemporalAnchors = 0
+duplicateRowIds = 0
+duplicateClaimIds = 0
+duplicateProvenance = 0
+conflictingGoldForIdenticalText = 0
+duplicateTexts = 1561 (recorded nonblocking corpus redundancy)
+```
+
+Controlled reannotation closed the previously detected cross-lingual role conflict with exact row-ID evidence rather than first-mention guessing. Eight explicit Italian `dice che` TRAIN rows now carry independent `sourceReferent` pointers and `REPORT` claim kind; all eight preserve the original speaker perspective, making `source != perspective` explicit. No REPORT/BELIEF evidence was invented where the source text did not prove it. The single explicit adult withdrawal row is recorded as withdrawal without introducing moderation semantics.
+
+Coverage risks carried forward for owner review: no BELIEF or COMMAND claims, report/source-attribution coverage is eight Italian-only claims, V3 BEFORE/AFTER/DURING/RECURRENT/AT_REFERENCE relations remain absent, adult withdrawal contains one Italian claim, and the source corpus contains substantial exact-text redundancy. These are TRAIN coverage limitations, not structural migration failures; TASK 2.3 does not authorize augmentation.
+
+```text
+canonicalDevUsed = false
+Frozen read = false
+Student-4 changed = false
+Path A modified = false
+pristine40kModified = false
+Path B started = false
+optimizerCreated = false
+backpropExecuted = false
+Teaching executed = false
+Training executed = false
+Other repositories modified = false
+next = COMMIT_MIGRATION_REPAIR_AND_REGENERATE_FINAL_ARTIFACT
+```
