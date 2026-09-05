@@ -161,6 +161,60 @@ class TrainV3MigrationTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 migration.load_train_jsonl(path, migration.sha256(path))
 
+    def test_unique_implicit_known_role_is_not_first_mention_guessing(self):
+        row = v2_row()
+        row["claims"][0]["spans"]["subject"] = None
+        row["claims"][0]["spans"]["entities"] = [
+            {"span": [0, 4], "type": "PERSON", "referent": "PERSON"}
+        ]
+        row["claims"][0]["labels"]["targetReferent"] = "NONE"
+        migrated, _ = migration.migrate_row(row, "test-train")
+        self.assertEqual("mention:m0", migrated["claims"][0]["labels"]["subjectReferent"])
+
+        row["claims"][0]["spans"]["entities"].append(
+            {"span": [16, 20], "type": "PERSON", "referent": "PERSON"}
+        )
+        with self.assertRaises(migration.UnusableRow):
+            migration.migrate_row(row, "test-train")
+
+    def test_cross_language_duplicate_role_repair_is_explicit(self):
+        row = v2_row()
+        row["text"] = "No me gusta Marco ahora"
+        row.update({"id": "mx-v22a-cross-001", "language": "es"})
+        row["claims"][0]["labels"].update({
+            "subjectReferent": "SPEAKER", "targetReferent": "NONE",
+            "ownerReferent": "SUBJECT", "polarity": "POSITIVE",
+            "predicate": "preference.like",
+        })
+        row["claims"][0]["spans"].update({
+            "source": [0, len(row["text"])],
+            "subject": None, "object": [12, 17], "negation": [0, len(row["text"])],
+            "temporal": None, "entities": [],
+        })
+        migrated, record = migration.migrate_row(row, "test-train")
+        labels = migrated["claims"][0]["labels"]
+        self.assertEqual("NEGATIVE", labels["polarity"])
+        self.assertEqual("mention:m0", labels["targetReferent"])
+        self.assertIn("CONTROLLED_CROSS_LINGUAL_ROLE_REANNOTATION", record["reasonCodes"])
+
+    def test_explicit_third_party_report_gets_independent_source(self):
+        row = v2_row()
+        row.update({"id": "mx-v22a-it-core-113", "text": "Giulia dice che non vuole venire a casa"})
+        row["claims"][0]["labels"]["targetReferent"] = "NONE"
+        row["claims"][0]["spans"].update({
+            "source": [0, len(row["text"])], "subject": [0, 6],
+            "object": [26, len(row["text"])], "negation": [0, len(row["text"])],
+            "temporal": None,
+            "entities": [{"span": [0, 6], "type": "PERSON", "referent": "PERSON"}],
+        })
+        migrated, record = migration.migrate_row(row, "test-train")
+        labels = migrated["claims"][0]["labels"]
+        self.assertEqual("REPORT", labels["claimKind"])
+        self.assertEqual("mention:m0", labels["sourceReferent"])
+        self.assertEqual("ctx:speaker", labels["perspectiveReferent"])
+        self.assertNotEqual(labels["sourceReferent"], labels["perspectiveReferent"])
+        self.assertIn("EXPLICIT_THIRD_PARTY_REPORT_REANNOTATION", record["reasonCodes"])
+
 
 if __name__ == "__main__":
     unittest.main()
