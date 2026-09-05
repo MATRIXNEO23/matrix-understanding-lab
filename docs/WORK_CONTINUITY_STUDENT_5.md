@@ -687,6 +687,8 @@ Durable preservation:
 
 - Release: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-phase-a-pristine`
 - Release type: `Pre-release`
+- Release ID: `383143636`
+- Asset ID: `545406840`
 - Tag: `student-5-minilm-40k-phase-a-pristine`
 - Tag commit: `20230e52388560c537eb614083ca5a3bda29ecfc`
 - Asset: `student5-minilm-phase-a-pruned-40k.zip`
@@ -700,6 +702,8 @@ Task evidence commits:
 startCheckpointCommit = 20230e52388560c537eb614083ca5a3bda29ecfc
 preservationReportCommit = cc262671b816908ce3621e99ff511d47a0b05c1f
 artifactRegistryCommit = f2e0c2444aadcab8fbfbdc45693f6bf1ece07f6c
+releaseIdentifierReportCommit = 8aeb387842e99be500193fbf1bc1b2ceb0a225d4
+releaseIdentifierRegistryCommit = 01ab127a66a5a4156077ceff1b65a0ad0657a42d
 continuityCompletionCommit = THIS_CHECKPOINT_COMMIT
 ```
 
