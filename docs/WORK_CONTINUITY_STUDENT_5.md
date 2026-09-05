@@ -1177,3 +1177,76 @@ otherRepositoriesModified = false
 ```
 
 TASK 2.1 will resolve the seven contract-drift findings and map the nine implementation bugs without modifying implementation, labels, datasets, model weights, tokenizers or runtime artifacts. Public technical sources may be consulted only to compare compact, deterministic design patterns. No DEV/Frozen dataset partition will be opened.
+
+## Checkpoint 17 — TASK 2.1 architecture decisions frozen
+
+Timestamp: `2026-09-05T08:38:21Z`
+
+```text
+headStart = c2b51fde2157f1e704f53adc46f840e7e6cc3a2f
+headAtDesignFreeze = 9ba920c0cd17374060a682e400c54da284e894f1
+task = TASK_2_1_CONTRACT_REPAIR_DESIGN_AND_FREEZE
+verdict = CONTRACT_V3_FROZEN
+contractVersion = MATRIX_NLU_CONTRACT_V3
+currentHeadCount = 15
+proposedHeadCount = 16
+headCountChangeRequired = true
+tokenHeads = 6
+sequenceHeads = 10
+roleLink = BOUNDED_MENTION_CANDIDATE_POINTERS
+sourceRepresentation = DEDICATED_SOURCE_REFERENT_POINTER
+negation = OVERT_CUE_SPANS_INDEPENDENT_FROM_POLARITY
+temporal = EVIDENCE_SPANS_PLUS_RELATION_AND_ANCHOR
+dialogueAct = CONVERSATIONAL_ACTION
+claimKind = EPISTEMIC_EVIDENTIAL_PRESENTATION
+confidence = FIELD_AWARE_FAIL_CLOSED
+implementationBugsMapped = 9/9
+contractP0Remaining = 0
+implementationP0Remaining = 4
+```
+
+The complete frozen specification is `docs/MATRIX_NLU_CONTRACT_V3.md`; the design analysis is `reports/STUDENT_5_CONTRACT_REPAIR_DESIGN.md`. The additional `sourceReferent` head is required because source and perspective are independent roles. No code or label registry has been implemented in this task.
+
+## Checkpoint 18 — TASK 2.1 completion and guard verification
+
+Timestamp: `2026-09-05T08:38:21Z`
+
+Static validation performed against the documentation checkpoint:
+
+```text
+documentationContractAssertions = PASS
+proposedHeadRegistry = 16 (6 token + 10 sequence) PASS
+allRequiredDecisionsPresent = PASS
+implementationBugMapping = 9/9 PASS
+v2MigrationClass = PARTIAL_BREAKING
+filesChangedFromHeadStart =
+  docs/MATRIX_NLU_CONTRACT_V3.md
+  docs/WORK_CONTINUITY_STUDENT_5.md
+  reports/STUDENT_5_CONTRACT_REPAIR_DESIGN.md
+forbiddenImplementationOrDataFilesChanged = false
+runtimeTestsRerun = false (documentation-only; code tree unchanged)
+```
+
+Final guards:
+
+```text
+Student-4 changed = false
+canonical DEV used = false
+Frozen read = false
+Frozen tokenized = false
+Frozen analyzed = false
+Frozen predictions read = false
+Path A modified = false
+Path B started = false
+Teaching executed = false
+Training executed = false
+Other repositories modified = false
+TASK 2.2 = NOT_STARTED
+TASK 3 = NOT_STARTED
+```
+
+Next action:
+
+```text
+AWAIT OWNER REVIEW BEFORE TASK 2.2
+```
