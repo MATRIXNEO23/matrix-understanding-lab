@@ -118,6 +118,9 @@ def build_v3_examples(
     }]
 
     for claim in claims:
+        labels = claim.get("labels")
+        if not isinstance(labels, Mapping):
+            raise ValueError("V3 dataset claim is missing labels object")
         source_start, source_end = claim["sourceSpan"]
         claim_text = text[source_start:source_end]
         encoded = tokenizer(
@@ -140,18 +143,18 @@ def build_v3_examples(
         }
         fixed = {
             head: FIXED_SEQUENCE_IDS[head][
-                claim["temporalRelation"]["relation"] if head == "temporalRelation" else claim[head]
+                labels["temporalRelation"]["relation"] if head == "temporalRelation" else labels[head]
             ]
             for head in FIXED_SEQUENCE_IDS
         }
         roles = {}
         for head in ROLE_HEADS:
-            value = claim[head]
+            value = labels[head]
             if value not in role_ids:
                 raise ValueError(f"role target is not in deterministic candidate table: {head}={value}")
             roles[head] = role_ids[value]
         anchors = temporal_anchor_values(claim, all_claim_ids)
-        anchor = claim["temporalRelation"].get("anchorRef")
+        anchor = labels["temporalRelation"].get("anchorRef")
         anchor_label = anchors.index(anchor) if anchor is not None else IGNORE
         examples.append({
             "kind": "claim",

@@ -39,12 +39,14 @@ def v3_row():
             "negationCueSpans": [span("not")],
             "temporalEvidence": [{"temporalId": "t0", "span": span("dinner")}],
             "entityMentionIds": ["m0", "m1", "m2"],
-            "dialogueAct": "ASSERT", "predicate": "preference.like",
-            "subjectReferent": "mention:m1", "targetReferent": "mention:m2",
-            "ownerReferent": "mention:m1", "perspectiveReferent": "mention:m0",
-            "sourceReferent": "mention:m0", "polarity": "POSITIVE",
-            "temporalRelation": {"relation": "AFTER", "anchorRef": "temporal:t0"},
-            "claimKind": "REPORT",
+            "labels": {
+                "dialogueAct": "ASSERT", "predicate": "preference.like",
+                "subjectReferent": "mention:m1", "targetReferent": "mention:m2",
+                "ownerReferent": "mention:m1", "perspectiveReferent": "mention:m0",
+                "sourceReferent": "mention:m0", "polarity": "POSITIVE",
+                "temporalRelation": {"relation": "AFTER", "anchorRef": "temporal:t0"},
+                "claimKind": "REPORT",
+            },
         }],
     }
 

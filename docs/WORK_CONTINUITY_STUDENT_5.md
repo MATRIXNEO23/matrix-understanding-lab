@@ -1499,3 +1499,30 @@ trainingExecuted = false
 otherRepositoriesModified = false
 next = IMPLEMENT_CONTROLLED_V3_REANNOTATION
 ```
+
+## Checkpoint 26 — migration/reannotation implementation
+
+Timestamp: `2026-09-05T10:30:00Z`
+
+```text
+HEAD before checkpoint = 8c1e77a5f163eb26eef864ebd895c2c35cb7acc5
+operation = MIGRATION_TOOL_AND_SYNTHETIC_GATES
+migrationTool = matrix_nlu/train_v3_migration.py
+targetBuilderRepair = V3_DATASET_LABEL_OBJECT_ALIGNMENT
+syntheticMigrationTests = 10/10 PASS
+safeV3TestsAtCheckpoint = 41/41 PASS
+sourceDiscovery = FORBIDDEN_EXPLICIT_TRAIN_PATHS_ONLY
+V2SourceOverwrite = false
+canonicalDevUsed = false
+Frozen read = false
+Student-4 changed = false
+Path A modified = false
+pristine40kModified = false
+optimizerCreated = false
+backpropExecuted = false
+trainingExecuted = false
+otherRepositoriesModified = false
+next = COMMIT_TOOL_THEN_EXECUTE_FULL_TRAIN_MIGRATION
+```
+
+The tool implements controlled cue/temporal evidence reannotation against authored TRAIN surfaces, exact role-pointer reconstruction from explicit spans/context, source materialization, V3 status fields, contract/fingerprint validation, exhaustive target-builder dry run, and machine-readable statistics/provenance. It contains no partition discovery and refuses filenames that are not explicitly TRAIN-only.
