@@ -136,6 +136,36 @@ productionStatus = NOT_PRODUCTION_APPROVED
 
 A GitHub Release asset in this repository is the durable primary locator. It is not a retention-limited GitHub Actions artifact. Before use, verify its exact byte count and archive SHA-256 against the canonical identity table above.
 
+### Student-5 Path-A untaught runtime probe
+
+This artifact is a deployment probe derived from, but separate from, the immutable pristine Phase-A backbone.
+
+```text
+logicalName = STUDENT_5_40K_UNTAUGHT_INT8
+status = RUNTIME_PROBE_ONLY
+nluStatus = NOT_MATRIX_NLU
+productionStatus = NOT_PRODUCTION_APPROVED
+verdict = RUNTIME_PROBE_PASS
+pathBStarted = false
+```
+
+- Report: [`reports/STUDENT_5_40K_UNTAUGHT_INT8_RUNTIME_PROBE.md`](https://github.com/MATRIXNEO23/matrix-understanding-lab/blob/main/reports/STUDENT_5_40K_UNTAUGHT_INT8_RUNTIME_PROBE.md)
+- Reproduction source: [`matrix_nlu/student5_untaught_runtime_probe.py`](https://github.com/MATRIXNEO23/matrix-understanding-lab/blob/main/matrix_nlu/student5_untaught_runtime_probe.py)
+- Release: [Student-5 40k Untaught INT8 Runtime Probe](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-untaught-int8-runtime-probe)
+- Release ID: `383162517`
+- Asset ID: `545486429`
+- Asset: [student-5-minilm-40k-untaught-int8-runtime-probe.zip](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-untaught-int8-runtime-probe/student-5-minilm-40k-untaught-int8-runtime-probe.zip)
+- Asset bytes: `142463548`
+- Asset/GitHub digest: `sha256:72eea0af4211959bdbc92be36387faf5b85da957830f9be0a6d0dd50ab7cedf6`
+- FP32 ONNX: `148202898` bytes; SHA-256 `799d86b9231721c0e7ff656b48cb609611c98ea75c8489e4edebeaf7e9d7de23`
+- INT8 ONNX: `84457299` bytes; SHA-256 `f58463a6d1f4daca2e58c8e40f7f6d1cbaa7d107e9534160278bc46552e0304a`
+- Quantization: ONNX Runtime dynamic per-channel QInt8; 73/73 weight-bearing eligible MatMul/Gemm nodes quantized.
+- Pristine input modified: false.
+- Canonical DEV/Frozen used: false/false.
+- Matrix heads/training: absent/not executed.
+
+This Path-A artifact must never be used as the Path-B training base. Path B must restart from the pristine FP32 40k Release above.
+
 ## Switching checklist
 
 Before starting work on either student:
