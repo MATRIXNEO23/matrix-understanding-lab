@@ -25,6 +25,8 @@ The original Phase-A archive was recovered from an existing preserved project ou
 
 - Release: [Student-5 MiniLM 40k Phase-A Pristine](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-phase-a-pristine)
 - Release label: `Pre-release`
+- Release ID: `383143636`
+- Asset ID: `545406840`
 - Tag: `student-5-minilm-40k-phase-a-pristine`
 - Tag commit: `20230e52388560c537eb614083ca5a3bda29ecfc`
 - Asset: [student5-minilm-phase-a-pruned-40k.zip](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-phase-a-pristine/student5-minilm-phase-a-pruned-40k.zip)
