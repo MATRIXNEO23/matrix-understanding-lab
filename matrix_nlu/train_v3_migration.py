@@ -278,7 +278,9 @@ def _temporal_evidence(row: Mapping, claim: Mapping) -> list[dict]:
 
 def _negation_cues(row: Mapping, claim: Mapping) -> list[list[int]]:
     # V2 full-source negation marks authorize reannotation but are never reused as cues.
-    if claim.get("spans", {}).get("negation") is None:
+    # The bounded polarity correction catalog also authorizes cue recovery for
+    # the exact audited row whose V2 polarity/span pair was corrupt.
+    if claim.get("spans", {}).get("negation") is None and row.get("id") not in POLARITY_REANNOTATIONS:
         return []
     language = row["language"]
     scan_language = "it" if language == "code-switch" else language
