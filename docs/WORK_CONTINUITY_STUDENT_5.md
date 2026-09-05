@@ -1250,3 +1250,32 @@ Next action:
 ```text
 AWAIT OWNER REVIEW BEFORE TASK 2.2
 ```
+
+
+## Checkpoint 19 — TASK 2.2 implementation start
+
+Timestamp: `2026-09-05T09:00:00Z`
+
+```text
+branch = main
+HEAD start = db60bf1f8bc1fc227ea314d9354c58db9ada6150
+activeStudent = Student-5-MiniLM-40k
+activeTask = TASK_2_2_IMPLEMENT_CONTRACT_V3_AND_P0_REPAIR
+contract = MATRIX_NLU_CONTRACT_V3
+scope = IMPLEMENTATION_SYNTHETIC_REGRESSION_ONLY
+TASK_2_3 = NOT_STARTED
+TASK_3 = NOT_STARTED
+PATH_B = NOT_STARTED
+PATH_A = COMPLETE_READ_ONLY
+canonicalDevUsed = false
+Frozen = UNREAD
+student4V22AChanged = false
+pristine40kModified = false
+optimizerCreated = false
+backpropExecuted = false
+trainingExecuted = false
+teachingExecuted = false
+otherRepositoriesModified = false
+```
+
+TASK 2.2 will implement the frozen 16-head contract, close IB-01..IB-09 as required, and use only synthetic/data-independent tests. No canonical dataset partition will be opened or rewritten.
