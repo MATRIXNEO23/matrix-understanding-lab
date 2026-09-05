@@ -1,0 +1,397 @@
+{
+  "adultIntimacy": {
+    "code-switch": {
+      "v22a_adult_it_english_term": 11
+    },
+    "en": {
+      "adult_consent": 28,
+      "consent_grant_v2_train_generalization": 4,
+      "consent_refuse_v2_train_generalization": 4
+    },
+    "es": {
+      "adult_consent": 28,
+      "consent_grant_v2_train_generalization": 4,
+      "consent_refuse_v2_train_generalization": 4
+    },
+    "it": {
+      "adult_consent": 28,
+      "consent_grant_v2_train_generalization": 4,
+      "consent_refuse_v2_train_generalization": 4,
+      "v22a_adult_it_consent": 11,
+      "v22a_adult_it_desire": 15,
+      "v22a_adult_it_refusal_boundary": 7,
+      "v22a_adult_it_request": 15,
+      "v22a_adult_it_withdrawal": 1
+    }
+  },
+  "claims": 3990,
+  "duplicates": {
+    "conflictingGoldForIdenticalText": 0,
+    "duplicateClaimIdsWithinRow": 0,
+    "duplicateProvenance": 0,
+    "duplicateRowIds": 0,
+    "duplicateTexts": 1561
+  },
+  "familyCoverage": {
+    "adult consent": {
+      "claims": 65,
+      "languages": {
+        "en": 18,
+        "es": 18,
+        "it": 29
+      },
+      "migration": {
+        "REANNOTATED": 65
+      },
+      "rows": 65
+    },
+    "adult desire": {
+      "claims": 30,
+      "languages": {
+        "it": 30
+      },
+      "migration": {
+        "REANNOTATED": 30
+      },
+      "rows": 30
+    },
+    "adult refusal": {
+      "claims": 62,
+      "languages": {
+        "en": 18,
+        "es": 18,
+        "it": 26
+      },
+      "migration": {
+        "REANNOTATED": 62
+      },
+      "rows": 62
+    },
+    "adult withdrawal": {
+      "claims": 1,
+      "languages": {
+        "it": 1
+      },
+      "migration": {
+        "REANNOTATED": 1
+      },
+      "rows": 1
+    },
+    "belief": {
+      "claims": 0,
+      "languages": {},
+      "migration": {},
+      "rows": 0
+    },
+    "command": {
+      "claims": 0,
+      "languages": {},
+      "migration": {},
+      "rows": 0
+    },
+    "correction": {
+      "claims": 10,
+      "languages": {
+        "en": 3,
+        "es": 3,
+        "it": 4
+      },
+      "migration": {
+        "REANNOTATED": 10
+      },
+      "rows": 10
+    },
+    "goal/desire": {
+      "claims": 627,
+      "languages": {
+        "en": 192,
+        "es": 190,
+        "it": 245
+      },
+      "migration": {
+        "REANNOTATED": 627
+      },
+      "rows": 627
+    },
+    "hypothesis": {
+      "claims": 267,
+      "languages": {
+        "en": 89,
+        "es": 89,
+        "it": 89
+      },
+      "migration": {
+        "REANNOTATED": 267
+      },
+      "rows": 267
+    },
+    "multi-claim": {
+      "claims": 1539,
+      "languages": {
+        "en": 513,
+        "es": 513,
+        "it": 513
+      },
+      "migration": {
+        "REANNOTATED": 1539
+      },
+      "rows": 699
+    },
+    "negation": {
+      "claims": 695,
+      "languages": {
+        "en": 187,
+        "es": 220,
+        "it": 288
+      },
+      "migration": {
+        "REANNOTATED": 695
+      },
+      "rows": 695
+    },
+    "ownership": {
+      "claims": 3990,
+      "languages": {
+        "code-switch": 11,
+        "en": 1286,
+        "es": 1287,
+        "it": 1406
+      },
+      "migration": {
+        "REANNOTATED": 3990
+      },
+      "rows": 3150
+    },
+    "referents": {
+      "claims": 838,
+      "languages": {
+        "en": 260,
+        "es": 275,
+        "it": 303
+      },
+      "migration": {
+        "REANNOTATED": 838
+      },
+      "rows": 838
+    },
+    "request": {
+      "claims": 27,
+      "languages": {
+        "en": 4,
+        "es": 4,
+        "it": 19
+      },
+      "migration": {
+        "REANNOTATED": 27
+      },
+      "rows": 27
+    },
+    "source attribution": {
+      "claims": 8,
+      "languages": {
+        "it": 8
+      },
+      "migration": {
+        "REANNOTATED": 8
+      },
+      "rows": 8
+    },
+    "temporal": {
+      "claims": 2622,
+      "languages": {
+        "code-switch": 11,
+        "en": 830,
+        "es": 831,
+        "it": 950
+      },
+      "migration": {
+        "REANNOTATED": 2622
+      },
+      "rows": 2463
+    },
+    "third-party report": {
+      "claims": 8,
+      "languages": {
+        "it": 8
+      },
+      "migration": {
+        "REANNOTATED": 8
+      },
+      "rows": 8
+    }
+  },
+  "initialClassification": {
+    "DETERMINISTIC_MIGRATION": 0,
+    "DIRECT_REUSE": 0,
+    "NEEDS_REANNOTATION": 3150,
+    "UNUSABLE": 0
+  },
+  "languageMigration": {
+    "code-switch": {
+      "final": 11,
+      "migrated": 11,
+      "original": 0,
+      "reannotated": 11,
+      "unusable": 0
+    },
+    "en": {
+      "final": 1006,
+      "migrated": 1006,
+      "original": 1006,
+      "reannotated": 1006,
+      "unusable": 0
+    },
+    "es": {
+      "final": 1007,
+      "migrated": 1007,
+      "original": 1007,
+      "reannotated": 1007,
+      "unusable": 0
+    },
+    "it": {
+      "final": 1126,
+      "migrated": 1126,
+      "original": 1137,
+      "reannotated": 1126,
+      "unusable": 0
+    }
+  },
+  "languages": {
+    "code-switch": 11,
+    "en": 1006,
+    "es": 1007,
+    "it": 1126
+  },
+  "migration": {
+    "REANNOTATED": 3150,
+    "UNUSABLE": 0
+  },
+  "multiClaimRows": 699,
+  "multiSpan": {
+    "claimsWithMultipleNegationCues": 13,
+    "claimsWithMultipleObjectSpans": 0,
+    "claimsWithMultipleSubjectSpans": 0,
+    "claimsWithMultipleTemporalEvidence": 0
+  },
+  "negation": {
+    "claimsWithCueSpans": 462,
+    "claimsWithMultipleCues": 13,
+    "negativeClaims": 695,
+    "negativeRows": 695,
+    "polarityNegative": 695,
+    "polarityPositive": 3106,
+    "polarityUnknown": 189,
+    "rowsWithCueSpans": 462,
+    "rowsWithMultipleCues": 13
+  },
+  "referentPointers": {
+    "ownerReferent": {
+      "counts": {
+        "AMBIGUOUS": 0,
+        "NONE": 0,
+        "RESOLVED_CANDIDATE": 3990,
+        "UNKNOWN": 0
+      },
+      "percent": {
+        "AMBIGUOUS": 0.0,
+        "NONE": 0.0,
+        "RESOLVED_CANDIDATE": 100.0,
+        "UNKNOWN": 0.0
+      },
+      "total": 3990
+    },
+    "perspectiveReferent": {
+      "counts": {
+        "AMBIGUOUS": 0,
+        "NONE": 0,
+        "RESOLVED_CANDIDATE": 3990,
+        "UNKNOWN": 0
+      },
+      "percent": {
+        "AMBIGUOUS": 0.0,
+        "NONE": 0.0,
+        "RESOLVED_CANDIDATE": 100.0,
+        "UNKNOWN": 0.0
+      },
+      "total": 3990
+    },
+    "sourceReferent": {
+      "counts": {
+        "AMBIGUOUS": 0,
+        "NONE": 0,
+        "RESOLVED_CANDIDATE": 3990,
+        "UNKNOWN": 0
+      },
+      "percent": {
+        "AMBIGUOUS": 0.0,
+        "NONE": 0.0,
+        "RESOLVED_CANDIDATE": 100.0,
+        "UNKNOWN": 0.0
+      },
+      "total": 3990
+    },
+    "subjectReferent": {
+      "counts": {
+        "AMBIGUOUS": 0,
+        "NONE": 0,
+        "RESOLVED_CANDIDATE": 3990,
+        "UNKNOWN": 0
+      },
+      "percent": {
+        "AMBIGUOUS": 0.0,
+        "NONE": 0.0,
+        "RESOLVED_CANDIDATE": 100.0,
+        "UNKNOWN": 0.0
+      },
+      "total": 3990
+    },
+    "targetReferent": {
+      "counts": {
+        "AMBIGUOUS": 0,
+        "NONE": 3726,
+        "RESOLVED_CANDIDATE": 264,
+        "UNKNOWN": 0
+      },
+      "percent": {
+        "AMBIGUOUS": 0.0,
+        "NONE": 93.383459,
+        "RESOLVED_CANDIDATE": 6.616541,
+        "UNKNOWN": 0.0
+      },
+      "total": 3990
+    }
+  },
+  "rows": 3150,
+  "sourcePerspective": {
+    "beliefClaims": 0,
+    "perspectiveUnknown": 0,
+    "reportClaims": 8,
+    "sourceDiffersPerspective": 8,
+    "sourceEqualsPerspective": 3982,
+    "sourceUnknown": 0
+  },
+  "structuralViolations": 0,
+  "targetBuilder": {
+    "errors": [],
+    "examplesBuilt": 7140,
+    "rows": 3150,
+    "rowsBuildable": 3150
+  },
+  "temporalAnchors": {
+    "missingAnchors": 0,
+    "relationsRequiringAnchors": 0,
+    "validAnchors": 0
+  },
+  "temporalRelations": {
+    "AFTER": 0,
+    "ATEMPORAL": 1368,
+    "AT_REFERENCE": 0,
+    "BEFORE": 0,
+    "CURRENT": 2096,
+    "DURING": 0,
+    "FUTURE": 512,
+    "PAST": 14,
+    "RECURRENT": 0,
+    "UNKNOWN": 0
+  }
+}

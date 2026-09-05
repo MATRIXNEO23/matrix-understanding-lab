@@ -1,0 +1,67 @@
+{
+  "eligibleRows": 3150,
+  "forbiddenPartitionsOpened": false,
+  "sources": [
+    {
+      "adultIntimacyRows": 108,
+      "claims": 3615,
+      "classification": "AUTHORIZED_TRAIN_SOURCE",
+      "languages": {
+        "en": 925,
+        "es": 925,
+        "it": 925
+      },
+      "migrationEligibility": "NEEDS_REANNOTATION",
+      "multiClaimRows": 699,
+      "provenanceKinds": {
+        "MATRIX_AUTHORED_TRAIN_AUGMENTATION": 108,
+        "MATRIX_AUTHORED_V2_AUGMENTATION": 120,
+        "MATRIX_GENERATED": 2547
+      },
+      "rows": 2775,
+      "schema": [
+        "matrix.nlu.dataset.v2"
+      ],
+      "sha256": "5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820",
+      "sourceDatasetId": "matrix-v2-train",
+      "sourcePath": "matrix-v2-train.jsonl"
+    },
+    {
+      "adultIntimacyRows": 60,
+      "claims": 375,
+      "classification": "AUTHORIZED_TRAIN_SOURCE",
+      "languages": {
+        "en": 81,
+        "es": 82,
+        "it": 212
+      },
+      "migrationEligibility": "NEEDS_REANNOTATION",
+      "multiClaimRows": 0,
+      "provenanceKinds": {
+        "MATRIX_AUTHORED_V2_AUGMENTATION": 375
+      },
+      "rows": 375,
+      "schema": [
+        "matrix.nlu.dataset.v2"
+      ],
+      "sha256": "8be02976d46ba47d746ff7307d688d93595453221965b3de995d4b1de655799f",
+      "sourceDatasetId": "v22a-repair-train",
+      "sourcePath": "v22a-repair-train.jsonl"
+    },
+    {
+      "claims": 45,
+      "classification": "HISTORICAL_REFERENCE_ONLY",
+      "languages": {
+        "en": 10,
+        "es": 10,
+        "it": 10
+      },
+      "migrationEligibility": "EXCLUDED_PARTITION_NOT_DURABLY_SEPARATED",
+      "reason": "TRAIN bytes cannot be opened independently without accessing forbidden partitions",
+      "rows": 30,
+      "sha256": "413f60ca17879ed9de440add7903b6e2abaebdfbbed6055b32c6e0b105cadfcd",
+      "sourceDatasetId": "p05-v2-train",
+      "sourcePath": "not-opened-composite-gold-source"
+    }
+  ]
+}
