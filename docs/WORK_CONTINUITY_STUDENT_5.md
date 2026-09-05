@@ -1395,3 +1395,44 @@ Next action:
 ```text
 AWAIT OWNER REVIEW BEFORE TASK 2.3
 ```
+
+## Checkpoint 23 — TASK 2.2 remote evidence and STOP
+
+Timestamp: `2026-09-05T09:25:00Z`
+
+```text
+HEAD start = db60bf1f8bc1fc227ea314d9354c58db9ada6150
+implementation HEAD = 3aa9d135661f15647e9d4b75dde6779025ee5fcd
+report checkpoint = 2429373e7a8eac1fcd97c34473cc6cf3b5cc30f8
+branch = main
+remoteCompareStatus = ahead
+remoteCommits = 4
+remoteChangedFiles = 17
+forbiddenDataOrArtifactFilesChanged = false
+verdict = CONTRACT_V3_IMPLEMENTATION_PASS_WITH_NONBLOCKING_RISKS
+P0ImplementationRemaining = 0
+P1Remaining = 2
+P2Remaining = 0
+```
+
+The start-to-report remote comparison contains only V3 implementation/test files, the one-line `CORRECT` legacy evaluator repair, the required report, and this continuity file. The final ref update is continuity-only and does not change implementation or evidence.
+
+```text
+Student-4 changed = false
+canonicalDevUsed = false
+Frozen read = false
+Path A modified = false
+pristine40kModified = false
+Path B started = false
+Teaching executed = false
+Training executed = false
+Other repositories modified = false
+TASK 2.3 = NOT_STARTED
+TASK 3 = NOT_STARTED
+```
+
+STOP:
+
+```text
+AWAIT OWNER REVIEW BEFORE TASK 2.3
+```
