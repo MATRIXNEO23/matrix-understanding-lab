@@ -35,7 +35,7 @@ from training_data_v3 import build_v3_examples
 
 TOOL_VERSION = "student5.task2.3.train-migration.v1"
 OUTPUT_DATASET_ID = "student5-matrix-nlu-v3-train-v1"
-SHARD_ROWS = 25
+SHARD_ROWS = 50
 REQUIRED_CAPABILITIES = (
     "negation", "temporal", "referents", "source attribution",
     "third-party report", "belief", "hypothesis", "command", "request",
