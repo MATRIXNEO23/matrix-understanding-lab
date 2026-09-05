@@ -587,3 +587,51 @@ nextPreservationAction = RECOVER_OR_REGENERATE_STUDENT5_ARCHIVE_AND_PUBLISH_WITH
 ```
 
 No artifact was overwritten and neither student was modified by this documentation checkpoint. Frozen remained unread.
+
+
+## Checkpoint 9 — TASK 0 pristine preservation started
+
+Timestamp: `2026-09-05`
+
+```text
+headStart = 3f317c842646b22ab6de02793bbec91eb2a4bba6
+branch = main
+activeStudent = Student-5-MiniLM-40k
+activeTask = TASK_0_PRISTINE_PRESERVATION
+scope = STUDENT-5_ARTIFACT_PRESERVATION_ONLY
+artifactSearchState = NOT_STARTED
+automaticContinuation = FORBIDDEN
+nextTask = NOT_AUTHORIZED
+```
+
+Expected canonical identity:
+
+```text
+vocabSize = 40000
+fp32ModelBytes = 148020400
+artifactDirectoryBytes = 150116913
+archiveBytes = 88361246
+modelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
+mappingSha256 = da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9
+sentencePieceSha256 = 748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78
+candidateManifestSha256 = a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d
+archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
+upstreamRevision = 6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf
+```
+
+Guards at task start:
+
+```text
+student4V22AChanged = false
+canonicalDevUsed = false
+frozenDataRead = false
+frozenDataTokenized = false
+frozenDataAnalyzed = false
+frozenPredictionsRead = false
+teachingExecuted = false
+matrixHeadsTrained = false
+quantizationExecuted = false
+otherRepositoriesModified = false
+```
+
+All seven mandatory documents were read in the owner-specified order before artifact operations. Recovery order is original workspace/cache/same-repository outputs first; deterministic reproduction is permitted only if the original cannot be recovered and must pass every canonical checksum fail-closed.
