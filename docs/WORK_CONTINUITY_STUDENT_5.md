@@ -515,3 +515,44 @@ productionStatus = NOT_PRODUCTION_APPROVED
 No Matrix exact-set, claim-exact, negation, predicate, ownership, temporal, referent, World Truth, or calibration metric exists yet for Student-5. Those fields are marked “not measured” rather than copied from Student-4 or represented as zero.
 
 No training, quantization, Frozen access, data modification, gate change, Assembling integration, or production promotion occurred during this documentation checkpoint.
+
+
+## Checkpoint 7 — mandatory two-student isolation policy
+
+Timestamp: `2026-09-05`
+
+Owner-mandated preservation rule:
+
+```text
+Student-4-v2.2A = PRESERVED_COMPARATIVE_BASELINE
+Student-5-MiniLM-40k = PRESERVED_PRIMARY_CANDIDATE
+workMode = ONE_STUDENT_AT_A_TIME
+crossStudentMutation = FORBIDDEN
+automaticReplacement = FORBIDDEN
+automaticPromotion = FORBIDDEN
+```
+
+Operational contract:
+
+- both Student-4-v2.2A and Student-5 MiniLM 40k must remain preserved;
+- only one student workstream may be active at a time;
+- training, export, quantization, repair, configuration, checkpoints, reports and artifacts for the active student must not modify or overwrite the other student;
+- artifacts, manifests, checksums and evaluation evidence must remain separately named and traceable;
+- changing the active student requires an explicit continuity checkpoint identifying the source artifact and verifying that the previously active student remains unchanged;
+- Student-4 results may be used only as a comparative baseline while Student-5 is active;
+- Student-5 artifacts must remain untouched when future work explicitly returns to Student-4;
+- neither student may be discarded, silently replaced, or production-promoted as a side effect of work on the other.
+
+Current lock:
+
+```text
+activeStudent = Student-5-MiniLM-40k
+activeOperation = DOCUMENTATION_AND_QUALITY_ANALYSIS
+Student-4-v2.2AChanged = false
+Student-5TrainingExecuted = false
+Student-5QuantizationExecuted = false
+frozenDataRead = false
+productionPromotionExecuted = false
+```
+
+The MiniLM quality dossier remains `reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md`. This checkpoint changes documentation only; it performs no training, export, quantization, data mutation, Frozen access, gate change, or integration.
