@@ -35,6 +35,13 @@ from training_data_v3 import build_v3_examples
 
 TOOL_VERSION = "student5.task2.3.train-migration.v1"
 OUTPUT_DATASET_ID = "student5-matrix-nlu-v3-train-v1"
+SHARD_ROWS = 25
+REQUIRED_CAPABILITIES = (
+    "negation", "temporal", "referents", "source attribution",
+    "third-party report", "belief", "hypothesis", "command", "request",
+    "correction", "goal/desire", "ownership", "multi-claim",
+    "adult consent", "adult refusal", "adult withdrawal", "adult desire",
+)
 EXPECTED_SOURCE_SHA256 = {
     "matrix-v2-train": "5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820",
     "v22a-repair-train": "8be02976d46ba47d746ff7307d688d93595453221965b3de995d4b1de655799f",
@@ -67,6 +74,18 @@ TEMPORAL_EXPRESSIONS = {
 
 POLARITY_REANNOTATIONS = {
     "mx-v22a-cross-001": "NEGATIVE",
+}
+
+EXPLICIT_CROSS_ENTITY_ROWS = {
+    "mx-v22a-cross-000": "PERSON", "mx-v22a-cross-001": "PERSON", "mx-v22a-cross-002": "PERSON",
+    "mx-v22a-cross-003": "LOCATION", "mx-v22a-cross-004": "LOCATION", "mx-v22a-cross-005": "LOCATION",
+}
+EXPLICIT_CROSS_SUBJECT_ROWS = {"mx-v22a-cross-030", "mx-v22a-cross-031", "mx-v22a-cross-032"}
+QUESTION_ROLE_ROWS = {"mx-v22a-cross-018", "mx-v22a-cross-019", "mx-v22a-cross-020"}
+REQUEST_ADDRESSEE_ROWS = {"mx-v22a-cross-033", "mx-v22a-cross-034", "mx-v22a-cross-035"}
+ATTRIBUTED_REPORT_ROWS = {
+    "mx-v22a-it-core-113", "mx-v22a-it-core-115", "mx-v22a-it-core-117", "mx-v22a-it-core-119",
+    "mx-v22a-it-core-121", "mx-v22a-it-core-123", "mx-v22a-it-core-125", "mx-v22a-it-core-127",
 }
 
 
@@ -132,6 +151,19 @@ def _mentions(row: Mapping) -> list[dict]:
         for entity in claim.get("spans", {}).get("entities", []):
             if entity.get("type") in {"PERSON", "LOCATION"}:
                 entries.add((int(entity["span"][0]), int(entity["span"][1]), entity["type"]))
+        # V2 sometimes carried an explicit subject span without duplicating it
+        # in spans.entities.  The span plus the explicit referent-role label is
+        # sufficient authored evidence to restore the PERSON mention.
+        subject = claim.get("spans", {}).get("subject")
+        if subject is not None and claim.get("labels", {}).get("subjectReferent") in {"KNOWN_ENTITY", "RECENT_ENTITY"}:
+            entries.add((int(subject[0]), int(subject[1]), "PERSON"))
+    if row.get("id") in EXPLICIT_CROSS_ENTITY_ROWS:
+        span = row["claims"][0]["spans"]["object"]
+        entries.add((int(span[0]), int(span[1]), EXPLICIT_CROSS_ENTITY_ROWS[row["id"]]))
+    if row.get("id") in EXPLICIT_CROSS_SUBJECT_ROWS:
+        # These three authored equivalents begin with the same explicit PERSON
+        # subject, "Marco"; V2 omitted its subject/entity spans.
+        entries.add((0, 5, "PERSON"))
     return [
         {"mentionId": f"m{index}", "span": [start, end], "entityType": entity_type}
         for index, (start, end, entity_type) in enumerate(sorted(entries))
@@ -200,6 +232,12 @@ def _map_role(
         subject_span = claim.get("spans", {}).get("subject")
         if head == "subjectReferent" and subject_span is not None:
             return _unique(_mention_candidates(mentions, [subject_span]), head)
+        if head == "subjectReferent":
+            source_span = claim.get("spans", {}).get("source")
+            values = _mention_candidates(mentions, [source_span]) if source_span is not None else []
+            # This is a unique explicit V2 role target, not a first-mention
+            # fallback.  Multiple or zero mentions remain fail-closed.
+            return _unique(values, head + ":unique-explicit-role")
         object_span = claim.get("spans", {}).get("object")
         if head == "targetReferent" and object_span is not None:
             values = _mention_candidates(mentions, [object_span])
@@ -276,17 +314,38 @@ def migrate_row(row: Mapping, source_dataset_id: str) -> tuple[dict, dict]:
     if language != row["language"]:
         changed_fields.add("language")
         reason_codes.add("EXPLICIT_CODE_SWITCH_FAMILY")
+    if row["id"] in set(EXPLICIT_CROSS_ENTITY_ROWS) | EXPLICIT_CROSS_SUBJECT_ROWS | QUESTION_ROLE_ROWS | REQUEST_ADDRESSEE_ROWS:
+        reason_codes.add("CONTROLLED_CROSS_LINGUAL_ROLE_REANNOTATION")
+    if row["id"] in ATTRIBUTED_REPORT_ROWS:
+        reason_codes.add("EXPLICIT_THIRD_PARTY_REPORT_REANNOTATION")
+    if row["id"] == "mx-v22a-adult-it-046":
+        changed_fields.add("claims[].family")
+        reason_codes.add("CONTROLLED_ADULT_WITHDRAWAL_FAMILY_REANNOTATION")
 
     claims = []
     for index, old in enumerate(row["claims"]):
         labels_v2 = old["labels"]
-        subject = _map_role(labels_v2.get("subjectReferent"), "subjectReferent", row, old, mentions, None)
-        target = _map_role(labels_v2.get("targetReferent"), "targetReferent", row, old, mentions, subject)
+        if row["id"] in QUESTION_ROLE_ROWS:
+            subject, target = "ctx:observer", "ctx:speaker"
+        elif row["id"] in EXPLICIT_CROSS_SUBJECT_ROWS:
+            subject, target = _unique(_mention_candidates(mentions, [[0, 5]]), "cross-subject"), "NONE"
+        else:
+            subject = _map_role(labels_v2.get("subjectReferent"), "subjectReferent", row, old, mentions, None)
+            if row["id"] in {"mx-v22a-cross-000", "mx-v22a-cross-001", "mx-v22a-cross-002"}:
+                target = _unique(_mention_candidates(mentions, [old["spans"]["object"]]), "cross-target")
+            elif row["id"] in REQUEST_ADDRESSEE_ROWS:
+                target = "ctx:observer"
+            else:
+                target = _map_role(labels_v2.get("targetReferent"), "targetReferent", row, old, mentions, subject)
         owner = _map_role(labels_v2.get("ownerReferent"), "ownerReferent", row, old, mentions, subject)
+        if row["id"] in QUESTION_ROLE_ROWS:
+            owner = "ctx:observer"
         perspective = _map_role(labels_v2.get("perspectiveReferent"), "perspectiveReferent", row, old, mentions, subject)
-        kind = _claim_kind(labels_v2.get("claimKind"))
-        source = "ctx:speaker"
-        if kind == "REPORT":
+        kind = "REPORT" if row["id"] in ATTRIBUTED_REPORT_ROWS else _claim_kind(labels_v2.get("claimKind"))
+        source = subject if row["id"] in ATTRIBUTED_REPORT_ROWS else "ctx:speaker"
+        if kind != _claim_kind(labels_v2.get("claimKind")):
+            changed_fields.add("claims[].labels.claimKind")
+        if kind == "REPORT" and source in {"NONE", "UNKNOWN", "ctx:speaker"}:
             raise UnusableRow("REPORT source cannot be reconstructed from this V2 row")
         cues = _negation_cues({**row, "language": language}, old)
         temporal = _temporal_evidence({**row, "language": language}, old)
@@ -301,6 +360,8 @@ def migrate_row(row: Mapping, source_dataset_id: str) -> tuple[dict, dict]:
             changed_fields.add("claims[].temporalEvidence")
             reason_codes.add("EXPLICIT_TEMPORAL_EVIDENCE_REANNOTATION")
         dialogue_act = _dialogue_act(labels_v2.get("dialogueAct"))
+        if row["id"] in REQUEST_ADDRESSEE_ROWS:
+            dialogue_act = "REQUEST"
         if dialogue_act != labels_v2.get("dialogueAct"):
             changed_fields.add("claims[].labels.dialogueAct")
             reason_codes.add("HYPOTHESIS_ACT_KIND_SEPARATION")
@@ -311,7 +372,8 @@ def migrate_row(row: Mapping, source_dataset_id: str) -> tuple[dict, dict]:
         if relation in ANCHOR_REQUIRED_RELATIONS and anchor_ref is None:
             raise UnusableRow(f"temporal relation requires unrecoverable anchor: {relation}")
         source_span = list(old["spans"]["source"])
-        subject_spans = [] if old["spans"].get("subject") is None else [list(old["spans"]["subject"])]
+        subject_spans = ([list(old["spans"]["subject"])] if old["spans"].get("subject") is not None else
+                         ([[0, 5]] if row["id"] in EXPLICIT_CROSS_SUBJECT_ROWS else []))
         object_spans = [] if old["spans"].get("object") is None else [list(old["spans"]["object"])]
         mention_ids = [
             mention["mentionId"] for mention in mentions
@@ -341,7 +403,7 @@ def migrate_row(row: Mapping, source_dataset_id: str) -> tuple[dict, dict]:
         }
         claims.append({
             "claimId": f"c{index}",
-            "family": old.get("family", "unclassified"),
+            "family": "v22a_adult_it_withdrawal" if row["id"] == "mx-v22a-adult-it-046" else old.get("family", "unclassified"),
             "sourceSpan": source_span,
             "subjectSpans": subject_spans,
             "objectSpans": object_spans,
@@ -391,6 +453,8 @@ def migrate_row(row: Mapping, source_dataset_id: str) -> tuple[dict, dict]:
         "rowId": migrated["id"],
         "sourceRowId": row["id"],
         "sourceDatasetId": source_dataset_id,
+        "sourceLanguage": row["language"],
+        "finalLanguage": language,
         "migrationClass": "NEEDS_REANNOTATION",
         "finalDisposition": "REANNOTATED",
         "changedFields": sorted(changed_fields),
@@ -545,7 +609,11 @@ def statistics(rows: Sequence[Mapping], migration_records: Sequence[Mapping], un
     negation = Counter()
     source = Counter()
     adults = defaultdict(Counter)
+    negation_rows = Counter()
     for row in rows:
+        row_has_negative = False
+        row_has_cues = False
+        row_has_multiple_cues = False
         for claim in row["claims"]:
             labels = claim["labels"]
             for head in ROLE_HEADS:
@@ -553,8 +621,11 @@ def statistics(rows: Sequence[Mapping], migration_records: Sequence[Mapping], un
                 pointer[head]["UNKNOWN" if value == "UNKNOWN" else "NONE" if value == "NONE" else "RESOLVED_CANDIDATE"] += 1
             temporal[labels["temporalRelation"]["relation"]] += 1
             if labels["polarity"] == "NEGATIVE": negation["negativeClaims"] += 1
+            row_has_negative = row_has_negative or labels["polarity"] == "NEGATIVE"
             if claim["negationCueSpans"]: negation["claimsWithCueSpans"] += 1
+            row_has_cues = row_has_cues or bool(claim["negationCueSpans"])
             if len(claim["negationCueSpans"]) > 1: negation["claimsWithMultipleCues"] += 1
+            row_has_multiple_cues = row_has_multiple_cues or len(claim["negationCueSpans"]) > 1
             negation[f"polarity{labels['polarity'].title()}"] += 1
             if claim["negationCueSpans"] and labels["polarity"] == "POSITIVE": negation["positivePolarityWithCue"] += 1
             if labels["claimKind"] == "REPORT": source["reportClaims"] += 1
@@ -567,6 +638,9 @@ def statistics(rows: Sequence[Mapping], migration_records: Sequence[Mapping], un
                 entry = family[capability]; entry["rows"].add(row["id"]); entry["claims"] += 1; entry["languages"][row["language"]] += 1; entry["migration"]["REANNOTATED"] += 1
             if row.get("adultOnly"):
                 adults[row["language"]][claim.get("family", "unclassified")] += 1
+        negation_rows["negativeRows"] += int(row_has_negative)
+        negation_rows["rowsWithCueSpans"] += int(row_has_cues)
+        negation_rows["rowsWithMultipleCues"] += int(row_has_multiple_cues)
     required_anchor_claims = sum(temporal[name] for name in ANCHOR_REQUIRED_RELATIONS)
     valid_anchor_claims = sum(1 for row in rows for claim in row["claims"] if claim["labels"]["temporalRelation"]["relation"] in ANCHOR_REQUIRED_RELATIONS and claim["labels"]["temporalRelation"].get("anchorRef"))
     ids = Counter(row["id"] for row in rows)
@@ -575,11 +649,37 @@ def statistics(rows: Sequence[Mapping], migration_records: Sequence[Mapping], un
     target_by_surface = defaultdict(set)
     for row in rows:
         target_by_surface[(row["language"], row["text"])].add(json.dumps([claim["labels"] for claim in row["claims"]], sort_keys=True))
+    for capability in REQUIRED_CAPABILITIES:
+        family[capability]
+    migration_language = {
+        language_name: {
+            "original": sum(record.get("sourceLanguage") == language_name for record in migration_records) + sum(record.get("sourceLanguage") == language_name for record in unusable),
+            "migrated": sum(record.get("finalLanguage") == language_name for record in migration_records),
+            "reannotated": sum(record.get("finalLanguage") == language_name and record.get("finalDisposition") == "REANNOTATED" for record in migration_records),
+            "unusable": sum(record.get("sourceLanguage") == language_name for record in unusable),
+            "final": language[language_name],
+        }
+        for language_name in ("it", "en", "es", "code-switch")
+    }
+    pointer_summary = {}
+    for head, counts in pointer.items():
+        total = sum(counts.values())
+        normalized = {name: counts[name] for name in ("RESOLVED_CANDIDATE", "NONE", "UNKNOWN", "AMBIGUOUS")}
+        pointer_summary[head] = {
+            "total": total,
+            "counts": normalized,
+            "percent": {name: round(100 * value / total, 6) if total else 0.0 for name, value in normalized.items()},
+        }
+    for key, value in negation_rows.items():
+        negation[key] = value
+    for key in ("reportClaims", "beliefClaims", "sourceEqualsPerspective", "sourceDiffersPerspective", "sourceUnknown", "perspectiveUnknown"):
+        source[key] += 0
     return {
         "rows": len(rows), "claims": sum(len(row["claims"]) for row in rows),
-        "languages": dict(sorted(language.items())),
+        "languages": {name: language[name] for name in ("it", "en", "es", "code-switch")},
+        "languageMigration": migration_language,
         "migration": {"REANNOTATED": len(rows), "UNUSABLE": len(unusable)},
-        "referentPointers": {head: dict(sorted(counts.items())) for head, counts in pointer.items()},
+        "referentPointers": pointer_summary,
         "negation": dict(sorted(negation.items())),
         "temporalRelations": {name: temporal[name] for name in FIXED_SEQUENCE_LABELS["temporalRelation"]},
         "temporalAnchors": {"relationsRequiringAnchors": required_anchor_claims, "validAnchors": valid_anchor_claims, "missingAnchors": required_anchor_claims - valid_anchor_claims},
@@ -600,6 +700,30 @@ def statistics(rows: Sequence[Mapping], migration_records: Sequence[Mapping], un
 
 def write_json(path: pathlib.Path, value) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def _json_line(value: Mapping) -> str:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True) + "\n"
+
+
+def write_jsonl_shards(directory: pathlib.Path, values: Sequence[Mapping]) -> tuple[list[dict], str]:
+    """Write bounded text shards while preserving one canonical logical stream hash."""
+    directory.mkdir(parents=True, exist_ok=True)
+    for stale in directory.glob("part-*.jsonl"):
+        stale.unlink()
+    digest = hashlib.sha256()
+    files = []
+    for offset in range(0, len(values), SHARD_ROWS):
+        shard_values = values[offset:offset + SHARD_ROWS]
+        content = "".join(_json_line(value) for value in shard_values)
+        digest.update(content.encode("utf-8"))
+        path = directory / f"part-{offset // SHARD_ROWS:05d}.jsonl"
+        path.write_text(content, encoding="utf-8")
+        files.append({
+            "path": str(path.name), "rows": len(shard_values),
+            "bytes": path.stat().st_size, "sha256": sha256(path),
+        })
+    return files, digest.hexdigest()
 
 
 def main() -> None:
@@ -646,7 +770,12 @@ def main() -> None:
             converted, record = migrate_row(row, source_id)
             migrated.append(converted); records.append(record)
         except UnusableRow as exc:
-            unusable.append({"sourceDatasetId": source_id, "sourceRowId": row.get("id"), "reason": str(exc)})
+            unusable.append({
+                "sourceDatasetId": source_id, "sourceRowId": row.get("id"),
+                "sourceLanguage": row.get("language"), "finalLanguage": None,
+                "migrationClass": "UNUSABLE", "finalDisposition": "UNUSABLE",
+                "reason": str(exc),
+            })
     migrated.sort(key=lambda row: row["id"])
     violations = [{"rowId": row["id"], "errors": errors} for row in migrated if (errors := validate_v3_row(row))]
     target_gate = target_builder_gate(migrated)
@@ -655,18 +784,13 @@ def main() -> None:
         raise RuntimeError(f"V3 gate failed: violations={len(violations)} targetErrors={len(target_gate['errors'])}")
 
     output = args.output_dir
-    source_dir = output / "source"
-    output.mkdir(parents=True, exist_ok=True); source_dir.mkdir(parents=True, exist_ok=True)
-    # Preserve exact immutable source copies used for this artifact.
-    for source_id, path in sources:
-        destination = source_dir / path.name
-        destination.write_bytes(path.read_bytes())
-    dataset_path = output / "student5-matrix-nlu-v3-train.jsonl"
-    dataset_path.write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in migrated), encoding="utf-8")
+    output.mkdir(parents=True, exist_ok=True)
+    dataset_shards, dataset_checksum = write_jsonl_shards(output / "train", migrated)
     inventory_path = output / "source-train-inventory.json"
     write_json(inventory_path, {"sources": source_inventory, "eligibleRows": len(source_rows), "forbiddenPartitionsOpened": False})
-    provenance_path = output / "migration-provenance.json"
-    write_json(provenance_path, {"toolVersion": TOOL_VERSION, "rows": records, "unusable": unusable})
+    provenance_values = [dict(record, recordType="MIGRATED") for record in records]
+    provenance_values.extend(dict(record, recordType="UNUSABLE") for record in unusable)
+    provenance_shards, provenance_checksum = write_jsonl_shards(output / "provenance", provenance_values)
     stats.update({"structuralViolations": len(violations), "targetBuilder": target_gate, "initialClassification": initial["counts"]})
     stats_path = output / "statistics.json"; write_json(stats_path, stats)
     manifest = {
@@ -675,8 +799,11 @@ def main() -> None:
         "sourceDatasetId": [item[0] for item in sources],
         "sourceChecksums": EXPECTED_SOURCE_SHA256,
         "outputDatasetId": OUTPUT_DATASET_ID,
-        "outputFile": dataset_path.name,
-        "outputChecksum": sha256(dataset_path),
+        "outputFormat": "canonical ordered JSONL shards",
+        "outputFiles": [dict(item, path=f"train/{item['path']}") for item in dataset_shards],
+        "outputChecksum": dataset_checksum,
+        "provenanceFiles": [dict(item, path=f"provenance/{item['path']}") for item in provenance_shards],
+        "provenanceChecksum": provenance_checksum,
         "migrationToolVersion": TOOL_VERSION,
         "migrationCommit": args.migration_commit,
         "rowCounts": {"eligibleSource": len(source_rows), "final": len(migrated), "retentionPercent": round(100 * len(migrated) / len(source_rows), 6)},
@@ -689,14 +816,16 @@ def main() -> None:
         "guards": {"trainOnly": True, "canonicalDevUsed": False, "frozenDataRead": False, "trainingExecuted": False, "notProductionApproved": True},
         "files": {},
     }
-    for path in (inventory_path, provenance_path, stats_path):
+    for path in (inventory_path, stats_path):
         manifest["files"][path.name] = {"sha256": sha256(path), "bytes": path.stat().st_size}
     manifest_path = output / "migration-manifest.json"; write_json(manifest_path, manifest)
-    checksum_paths = [dataset_path, inventory_path, provenance_path, stats_path, manifest_path] + sorted(source_dir.iterdir())
+    checksum_paths = [inventory_path, stats_path, manifest_path]
+    checksum_paths.extend(sorted((output / "train").glob("part-*.jsonl")))
+    checksum_paths.extend(sorted((output / "provenance").glob("part-*.jsonl")))
     sums = output / "SHA256SUMS"
     sums.write_text("".join(f"{sha256(path)}  {path.relative_to(output)}\n" for path in checksum_paths), encoding="utf-8")
     print(json.dumps({
-        "dataset": str(dataset_path), "datasetSha256": sha256(dataset_path),
+        "dataset": str(output / "train"), "datasetSha256": dataset_checksum,
         "manifest": str(manifest_path), "manifestSha256": sha256(manifest_path),
         "rows": len(migrated), "claims": stats["claims"], "unusable": len(unusable),
         "violations": len(violations), "targetBuilder": target_gate,
