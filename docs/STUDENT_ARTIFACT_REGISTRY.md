@@ -166,6 +166,32 @@ pathBStarted = false
 
 This Path-A artifact must never be used as the Path-B training base. Path B must restart from the pristine FP32 40k Release above.
 
+### Student-5 Matrix-NLU V3 canonical TRAIN-only dataset
+
+```text
+artifactId = student5-matrix-nlu-v3-train-v1
+contract = MATRIX_NLU_CONTRACT_V3
+scope = TRAIN_ONLY
+rows = 3150
+claims = 3990
+status = STRUCTURALLY_VALIDATED_WITH_NONBLOCKING_COVERAGE_RISKS
+productionStatus = NOT_PRODUCTION_APPROVED
+canonicalDevUsed = false
+frozenDataRead = false
+trainingExecuted = false
+```
+
+- Durable locator: [`data/student5_v3/`](https://github.com/MATRIXNEO23/matrix-understanding-lab/tree/main/data/student5_v3)
+- Artifact checkpoint: [`117afd627ebe9f584b9328f1f78c63822980a49c`](https://github.com/MATRIXNEO23/matrix-understanding-lab/commit/117afd627ebe9f584b9328f1f78c63822980a49c)
+- Ordered TRAIN dataset SHA-256: `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`
+- Migration manifest SHA-256: `87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98`
+- Source Matrix V2 TRAIN SHA-256: `5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820`
+- Source v2.2A repair TRAIN SHA-256: `8be02976d46ba47d746ff7307d688d93595453221965b3de995d4b1de655799f`
+- Report: [`reports/STUDENT_5_TRAIN_V3_MIGRATION.md`](https://github.com/MATRIXNEO23/matrix-understanding-lab/blob/main/reports/STUDENT_5_TRAIN_V3_MIGRATION.md)
+- Per-file checksums: [`data/student5_v3/SHA256SUMS`](https://github.com/MATRIXNEO23/matrix-understanding-lab/blob/main/data/student5_v3/SHA256SUMS)
+
+This is data-contract evidence only. It is not a trained model, quality approval, or authorization to start Path B.
+
 ## Switching checklist
 
 Before starting work on either student:

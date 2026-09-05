@@ -1529,7 +1529,7 @@ The tool implements controlled cue/temporal evidence reannotation against author
 
 ## Checkpoint 27 — full TRAIN migration and repair closure
 
-Timestamp: `2026-09-05T11:20:00Z`
+Timestamp: `2026-09-05T10:58:00Z`
 
 ```text
 HEAD before checkpoint = 305706386d2b0f52b17a1daa6820b3b13c9fa080
@@ -1575,4 +1575,115 @@ Teaching executed = false
 Training executed = false
 Other repositories modified = false
 next = COMMIT_MIGRATION_REPAIR_AND_REGENERATE_FINAL_ARTIFACT
+```
+
+## Checkpoint 28 — final artifact, checksum and test gates
+
+Timestamp: `2026-09-05T11:08:00Z`
+
+```text
+operation = FINAL_ARTIFACT_VALIDATED_AND_PRESERVED
+migrationImplementation = 5e515ddadf9abe473ee2d99f34b8898df38da957
+artifactCheckpoint = 117afd627ebe9f584b9328f1f78c63822980a49c
+artifactId = student5-matrix-nlu-v3-train-v1
+artifactLocator = data/student5_v3/
+artifactFiles = 130
+artifactFileBytes = 13137799
+datasetShards = 63
+provenanceShards = 63
+sourceRows = 3150
+finalRows = 3150
+finalClaims = 3990
+retentionPercent = 100.0
+datasetLogicalSha256 = 1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e
+migrationManifestSha256 = 87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98
+statisticsSha256 = 11f5ff43ceea9a1de6e8a4e9149b4c8af0834290cf623f3c13db1c59acf0d5c4
+SHA256SUMS = 129/129 PASS
+structuralViolations = 0
+targetBuilderRows = 3150/3150 PASS
+targetBuilderExamples = 7140
+safeRegressionTests = 56/56 PASS
+forbiddenV2RoleSentinels = 0
+invalidPointers = 0
+missingRequiredTemporalAnchors = 0
+```
+
+Coverage summary:
+
+```text
+languages = IT 1126 / EN 1006 / ES 1007 / code-switch 11
+reportClaims = 8 (IT only)
+sourceDiffersPerspective = 8
+negationRows = 695
+negationCueRows = 463
+multipleNegationCueRows = 13
+multiClaimRows = 699
+adultConsentClaims = 65
+adultRefusalClaims = 62
+adultDesireClaims = 30
+adultWithdrawalClaims = 1
+duplicateTextInstances = 1561
+conflictingGoldForIdenticalText = 0
+```
+
+```text
+P0Remaining = 0
+P1-ENV-PHYSICAL-BERT-LOAD = OPEN
+P1-ENV-ONNX-EXPORT-LOAD = OPEN
+P1-DATA-BELIEF-COMMAND-ZERO = OPEN
+P1-DATA-SOURCE-ATTRIBUTION-LANGUAGE = OPEN
+P1-DATA-TEMPORAL-RELATION-COVERAGE = OPEN
+P1-DATA-ADULT-WITHDRAWAL-COVERAGE = OPEN
+P1-DATA-DUPLICATE-SURFACES = OPEN
+P2Remaining = 0
+```
+
+Guards:
+
+```text
+canonicalDevUsed = false
+Frozen read = false
+Student-4 changed = false
+Path A modified = false
+pristine40kModified = false
+Path B started = false
+optimizerCreated = false
+backpropExecuted = false
+Teaching executed = false
+Training executed = false
+Other repositories modified = false
+```
+
+## Checkpoint 29 — TASK 2.3 report and STOP
+
+Timestamp: `2026-09-05T11:10:00Z`
+
+```text
+task = TASK_2_3_TRAIN_ONLY_V2_TO_V3_MIGRATION_REANNOTATION
+verdict = TRAIN_V3_MIGRATION_PASS_WITH_NONBLOCKING_RISKS
+report = reports/STUDENT_5_TRAIN_V3_MIGRATION.md
+artifactRegistry = docs/STUDENT_ARTIFACT_REGISTRY.md
+continuity = docs/WORK_CONTINUITY_STUDENT_5.md
+TASK 2.4 = NOT_STARTED
+TASK 3 = NOT_STARTED
+```
+
+Final guards remain unchanged:
+
+```text
+Student-4 changed = false
+DEV used = false
+Frozen read = false
+Path A modified = false
+Pristine 40k modified = false
+Path B started = false
+Teaching executed = false
+Training executed = false
+Other repos modified = false
+```
+
+STOP:
+
+```text
+AWAIT OWNER REVIEW BEFORE TASK 2.4
 ```
