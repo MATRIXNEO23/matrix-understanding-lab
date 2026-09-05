@@ -1151,3 +1151,29 @@ Next action:
 ```text
 AWAIT OWNER REVIEW OF ARCHITECTURAL_CONTRACT_CHANGE_REQUIRED
 ```
+
+
+## Checkpoint 16 — TASK 2.1 contract repair design start
+
+Timestamp: `2026-09-05T08:29:47Z`
+
+```text
+task = TASK_2_1_CONTRACT_REPAIR_DESIGN_AND_FREEZE
+headStart = c2b51fde2157f1e704f53adc46f840e7e6cc3a2f
+headAtCheckpoint = THIS_CHECKPOINT_COMMIT
+currentHeadCount = 15
+contractCandidate = MATRIX_NLU_CONTRACT_V3
+scope = ARCHITECTURE_CONTRACT_DESIGN_ONLY
+TASK_2_2 = NOT_STARTED
+TASK_3 = NOT_STARTED
+PATH_B = NOT_STARTED
+PATH_A = COMPLETE_READ_ONLY
+FROZEN = UNREAD
+canonicalDevUsed = false
+student4V22AChanged = false
+teachingExecuted = false
+trainingExecuted = false
+otherRepositoriesModified = false
+```
+
+TASK 2.1 will resolve the seven contract-drift findings and map the nine implementation bugs without modifying implementation, labels, datasets, model weights, tokenizers or runtime artifacts. Public technical sources may be consulted only to compare compact, deterministic design patterns. No DEV/Frozen dataset partition will be opened.
