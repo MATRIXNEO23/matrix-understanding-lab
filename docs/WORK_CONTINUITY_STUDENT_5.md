@@ -483,3 +483,35 @@ S5-D final candidate
 - if a genuine architecture-level blocker is found, preserve artifacts/reports/continuity and stop with evidence instead of hiding the failure.
 
 Next action when execution is explicitly authorized: prepare the Work prompt from this checkpoint, requiring Work to read `ARCHITETTURA.md` first and to operate only inside `MATRIXNEO23/matrix-understanding-lab`.
+
+## Checkpoint 6 — MiniLM 40k quality dossier consolidated
+
+Timestamp: `2026-09-05`
+
+A dedicated, analysis-ready quality dossier has been created at:
+
+```text
+reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md
+```
+
+It consolidates Phase-A identity, upstream pin, architecture, TRAIN-only provenance, all candidate size results, IT/EN/ES/adult/code-switch tokenization metrics, representation-preservation metrics, fixed gate thresholds, artifact checksums, residual risks, and the exact boundary between measured pruning quality and unmeasured Matrix-NLU quality.
+
+The earlier Student-4-v2.2A dossier created under the mistaken interpretation of “the new NLU” was removed. Student-4 remains only the preserved comparative baseline; no Student-4 model or evidence artifact was modified.
+
+Current authoritative interpretation:
+
+```text
+component = STUDENT_5_MINILM_40K_PHASE_A
+decision = PRUNING_CANDIDATE_SELECTED
+artifactRole = REPRESENTATION_PRESERVING_BACKBONE
+nluStatus = NOT_MATRIX_NLU
+matrixHeadsTrained = false
+canonicalDevEvaluated = false
+quantizationExecuted = false
+frozenDataRead = false
+productionStatus = NOT_PRODUCTION_APPROVED
+```
+
+No Matrix exact-set, claim-exact, negation, predicate, ownership, temporal, referent, World Truth, or calibration metric exists yet for Student-5. Those fields are marked “not measured” rather than copied from Student-4 or represented as zero.
+
+No training, quantization, Frozen access, data modification, gate change, Assembling integration, or production promotion occurred during this documentation checkpoint.
