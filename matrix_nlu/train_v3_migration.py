@@ -749,6 +749,13 @@ def main() -> None:
             "classification": "AUTHORIZED_TRAIN_SOURCE", "rows": len(rows),
             "claims": sum(len(row["claims"]) for row in rows),
             "languages": dict(sorted(Counter(row["language"] for row in rows).items())),
+            "familyCounts": dict(sorted(Counter(
+                claim.get("family", "unclassified") for row in rows for claim in row["claims"]
+            ).items())),
+            "adultIntimacyFamilyCounts": dict(sorted(Counter(
+                claim.get("family", "unclassified")
+                for row in rows if row.get("adultOnly") for claim in row["claims"]
+            ).items())),
             "adultIntimacyRows": sum(bool(row.get("adultOnly")) for row in rows),
             "multiClaimRows": sum(len(row["claims"]) > 1 for row in rows),
             "schema": sorted(set(row.get("schemaVersion") for row in rows)),
