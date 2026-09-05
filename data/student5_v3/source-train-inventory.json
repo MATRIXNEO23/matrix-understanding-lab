@@ -3,9 +3,38 @@
   "forbiddenPartitionsOpened": false,
   "sources": [
     {
+      "adultIntimacyFamilyCounts": {
+        "adult_consent": 84,
+        "consent_grant_v2_train_generalization": 12,
+        "consent_refuse_v2_train_generalization": 12
+      },
       "adultIntimacyRows": 108,
       "claims": 3615,
       "classification": "AUTHORIZED_TRAIN_SOURCE",
+      "familyCounts": {
+        "adult_consent": 84,
+        "age": 438,
+        "attribute_is_v2_train": 12,
+        "consent_grant_v2_train_generalization": 12,
+        "consent_refuse_v2_train_generalization": 12,
+        "dialogue_correct_v2_train_generalization": 9,
+        "dialogue_request_v2_train_generalization": 9,
+        "dislike": 396,
+        "explicit_future_goal_v2_train_generalization": 18,
+        "future_goal": 492,
+        "hypothesis": 231,
+        "known_third_party_v2_train_generalization": 9,
+        "like": 492,
+        "name": 444,
+        "negative_preference_v2_train_generalization": 36,
+        "past_residence_v2_train": 3,
+        "question": 183,
+        "recent_presence.reported": 36,
+        "recent_residence.place": 36,
+        "recent_work.role": 36,
+        "residence": 441,
+        "work": 186
+      },
       "languages": {
         "en": 925,
         "es": 925,
@@ -27,9 +56,28 @@
       "sourcePath": "matrix-v2-train.jsonl"
     },
     {
+      "adultIntimacyFamilyCounts": {
+        "v22a_adult_it_consent": 11,
+        "v22a_adult_it_desire": 15,
+        "v22a_adult_it_english_term": 11,
+        "v22a_adult_it_refusal_boundary": 8,
+        "v22a_adult_it_request": 15
+      },
       "adultIntimacyRows": 60,
       "claims": 375,
       "classification": "AUTHORIZED_TRAIN_SOURCE",
+      "familyCounts": {
+        "v22a_adult_it_consent": 11,
+        "v22a_adult_it_desire": 15,
+        "v22a_adult_it_english_term": 11,
+        "v22a_adult_it_refusal_boundary": 8,
+        "v22a_adult_it_request": 15,
+        "v22a_cross_lingual_contrast": 36,
+        "v22a_cross_lingual_extra_it": 1,
+        "v22a_en_core": 69,
+        "v22a_es_core": 70,
+        "v22a_it_core": 139
+      },
       "languages": {
         "en": 81,
         "es": 82,

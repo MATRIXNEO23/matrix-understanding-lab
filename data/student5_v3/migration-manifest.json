@@ -197,8 +197,8 @@
   },
   "files": {
     "source-train-inventory.json": {
-      "bytes": 1946,
-      "sha256": "f69dc2d73fa2ca72be185a6be7e1ed7a3382a209b4660c8c9d2ad000c3dc98f5"
+      "bytes": 3619,
+      "sha256": "1a0054ffbd8bdd1923a43932352d86e6d98e79d6221004a3dc9527d4da889deb"
     },
     "statistics.json": {
       "bytes": 7831,
@@ -222,7 +222,7 @@
     "es": 1007,
     "it": 1126
   },
-  "migrationCommit": "783fc308320ca72420038d513fd94bbb52ed7c70",
+  "migrationCommit": "5e515ddadf9abe473ee2d99f34b8898df38da957",
   "migrationToolVersion": "student5.task2.3.train-migration.v1",
   "outputChecksum": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
   "outputDatasetId": "student5-matrix-nlu-v3-train-v1",
