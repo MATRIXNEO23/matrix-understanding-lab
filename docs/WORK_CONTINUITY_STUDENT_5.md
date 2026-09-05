@@ -1029,3 +1029,29 @@ Next action:
 ```text
 AWAIT OWNER REVIEW BEFORE TASK 2
 ```
+
+
+## Checkpoint 14 — TASK 2 contract audit start
+
+Timestamp: `2026-09-05T08:00Z`
+
+```text
+task = TASK_2_15_HEAD_CONTRACT_AUDIT
+activeStudent = Student-5-MiniLM-40k
+headStart = 8a9a375c4bbd5b9d03f6f68f036059a3df414881
+headAtCheckpoint = THIS_CHECKPOINT_COMMIT
+expectedHeadTotal = 15
+expectedTokenHeads = [boundary, object, subject, negation, temporal, entity]
+expectedSequenceHeads = [dialogueAct, predicate, subjectReferent, targetReferent, ownerReferent, perspectiveReferent, polarity, temporalRelation, claimKind]
+pathAStatus = COMPLETE_READ_ONLY
+pathAModified = false
+pathBStarted = false
+canonicalDevUsed = false
+frozenDataRead = false
+student4V22AChanged = false
+teachingExecuted = false
+trainingExecuted = false
+otherRepositoriesModified = false
+```
+
+Scope is contract audit and documentation only. No head, label, dataset, decoder, training, model, tokenizer, pristine artifact, Path-A artifact, Student-4, DEV or Frozen change is authorized. Code and canonical documentation will be inspected; contract defects will be reported, not repaired.
