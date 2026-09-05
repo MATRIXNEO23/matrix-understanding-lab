@@ -556,3 +556,34 @@ productionPromotionExecuted = false
 ```
 
 The MiniLM quality dossier remains `reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md`. This checkpoint changes documentation only; it performs no training, export, quantization, data mutation, Frozen access, gate change, or integration.
+
+
+## Checkpoint 8 — canonical artifact recovery locations recorded
+
+Timestamp: `2026-09-05`
+
+Canonical recovery registry:
+
+```text
+docs/STUDENT_ARTIFACT_REGISTRY.md
+```
+
+The registry now records:
+
+- Student-4 authoritative training run, report, bundle artifact, resumable checkpoint, digests and expiry dates;
+- Student-4 durable mixed/head-protected ZIP and manifest locations in `MATRIXNEO23/assembling` Git LFS;
+- Student-5 reports, deterministic generator, tests, implementation commits, selected model/archive sizes and SHA-256 identities;
+- mandatory one-student-at-a-time isolation and checksum verification rules;
+- the unresolved Student-5 preservation gap: no durable remote binary locator is presently recorded for the 40k archive.
+
+Preservation status:
+
+```text
+Student-4MixedRuntime = DURABLY_LOCATED_IN_ASSEMBLING_GIT_LFS
+Student-4BundleAndResume = ACTIONS_ARTIFACTS_EXPIRING_2026_10_04
+Student-5ReportsAndReproductionSource = DURABLY_LOCATED_IN_REPOSITORY
+Student-5BinaryArchive = REMOTE_LOCATOR_NOT_RECORDED
+nextPreservationAction = RECOVER_OR_REGENERATE_STUDENT5_ARCHIVE_AND_PUBLISH_WITH_SHA256
+```
+
+No artifact was overwritten and neither student was modified by this documentation checkpoint. Frozen remained unread.
