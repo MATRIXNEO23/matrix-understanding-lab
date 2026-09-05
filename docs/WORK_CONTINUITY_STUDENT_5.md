@@ -746,3 +746,45 @@ Next action:
 ```text
 AWAIT OWNER REVIEW BEFORE TASK 1
 ```
+
+
+## Checkpoint 11 — TASK 1 Path-A runtime probe started
+
+Timestamp: `2026-09-05`
+
+```text
+headStart = e64a49af2eec187d0ddf3b786a0e21cff9567ba8
+branch = main
+activeStudent = Student-5-MiniLM-40k
+activeTask = TASK_1_UNTAUGHT_INT8_RUNTIME_PROBE
+scope = STUDENT-5_PATH-A_RUNTIME_PROBE_ONLY
+logicalName = STUDENT_5_40K_UNTAUGHT_INT8
+status = RUNTIME_PROBE_ONLY
+nluStatus = NOT_MATRIX_NLU
+productionStatus = NOT_PRODUCTION_APPROVED
+pristineArchiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
+pristineModelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
+pristine40kModified = false
+Frozen = UNREAD
+PathB = NOT_STARTED
+automaticContinuation = FORBIDDEN
+TASK_2 = NOT_AUTHORIZED
+```
+
+All nine mandatory documents were read completely in the owner-specified order before runtime operations. TASK 0 is accepted from checkpoint `e64a49af2eec187d0ddf3b786a0e21cff9567ba8`. The canonical Release asset will be recovered into a separate local work directory and verified fail-closed before ONNX export.
+
+Start guards:
+
+```text
+student4V22AChanged = false
+canonicalDevUsed = false
+frozenDataRead = false
+frozenDataTokenized = false
+frozenDataAnalyzed = false
+frozenPredictionsRead = false
+frozenDataUsedForTuning = false
+teachingExecuted = false
+matrixHeadsTrained = false
+pathBStarted = false
+otherRepositoriesModified = false
+```
