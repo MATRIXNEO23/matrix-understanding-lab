@@ -788,3 +788,33 @@ matrixHeadsTrained = false
 pathBStarted = false
 otherRepositoriesModified = false
 ```
+
+
+## Checkpoint 12 — Path-A first export completed; benchmark instrumentation repair
+
+Timestamp: `2026-09-05`
+
+Attempt-1 reached verified FP32 export, strict HF-vs-ONNX FP32 parity, dynamic INT8 creation, INT8 runtime validation and full parity measurement. It then stopped before packaging because isolated benchmark instrumentation raised `psutil.NoSuchProcess` while querying the worker PID in the container namespace.
+
+This is a local benchmark/RSS instrumentation defect, not a model, ONNX, parity, dataset, architecture or quantization failure. The minimal repair is to read current/peak RSS from Linux `/proc/self/status` inside the isolated worker. No gate, model, tokenizer, data, operator-selection policy or architecture changes.
+
+Attempt-1 preserved diagnostics without overwriting:
+
+```text
+fp32OnnxBytes = 148202898
+fp32OnnxSha256 = 799d86b9231721c0e7ff656b48cb609611c98ea75c8489e4edebeaf7e9d7de23
+int8OnnxBytes = 84457299
+int8OnnxSha256 = f58463a6d1f4daca2e58c8e40f7f6d1cbaa7d107e9534160278bc46552e0304a
+failureStage = ISOLATED_BENCHMARK_RSS_INSTRUMENTATION
+failureClass = REPAIRABLE_INFRASTRUCTURE_BUG
+pristine40kModified = false
+canonicalDevUsed = false
+frozenDataRead = false
+student4V22AChanged = false
+teachingExecuted = false
+matrixHeadsTrained = false
+pathBStarted = false
+otherRepositoriesModified = false
+```
+
+Attempt-2 will use a new output directory. Quantization remains the same ONNX Runtime dynamic per-channel QInt8 method and the pristine input remains unchanged.
