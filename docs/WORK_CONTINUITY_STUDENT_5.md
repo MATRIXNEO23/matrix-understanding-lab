@@ -1436,3 +1436,66 @@ STOP:
 ```text
 AWAIT OWNER REVIEW BEFORE TASK 2.3
 ```
+
+## Checkpoint 24 — TASK 2.3 start
+
+Timestamp: `2026-09-05T10:00:00Z`
+
+```text
+HEAD start = f2bcf0beb85f1fab4c763ce1e7aaf5ceba1b1e04
+branch = main
+activeTask = TASK_2_3_TRAIN_ONLY_V2_TO_V3_MIGRATION_REANNOTATION
+contract = MATRIX_NLU_CONTRACT_V3
+operation = TRAIN_SOURCE_INVENTORY
+TASK 2.4 = NOT_STARTED
+TASK 3 = NOT_STARTED
+Path B = NOT_STARTED
+P1-ENV-PHYSICAL-BERT-LOAD = OPEN
+P1-ENV-ONNX-EXPORT-LOAD = OPEN
+canonicalDevUsed = false
+Frozen = UNREAD
+student4V22AChanged = false
+PathAModified = false
+pristine40kModified = false
+optimizerCreated = false
+backpropExecuted = false
+trainingExecuted = false
+TeachingExecuted = false
+otherRepositoriesModified = false
+```
+
+No DEV/Frozen dataset file will be opened. Source manifests and filenames may be used to exclude those partitions. Outputs will be written to a new versioned `data/student5_v3/` tree; V2 sources remain immutable.
+
+## Checkpoint 25 — TRAIN inventory and source recovery
+
+Timestamp: `2026-09-05T10:10:00Z`
+
+```text
+operation = TRAIN_INVENTORY_COMPLETE
+matrixV2TrainRows = 2775
+matrixV2TrainClaims = 3615
+matrixV2TrainSha256 = 5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820
+repairV22aTrainRows = 375
+repairV22aTrainClaims = 375
+repairV22aTrainSha256 = 8be02976d46ba47d746ff7307d688d93595453221965b3de995d4b1de655799f
+eligibleTrainRows = 3150
+p05V2TrainRowsRecordedByManifest = 30
+p05V2TrainSha256 = 413f60ca17879ed9de440add7903b6e2abaebdfbbed6055b32c6e0b105cadfcd
+p05V2Classification = HISTORICAL_REFERENCE_ONLY
+p05Reason = TRAIN_BYTES_NOT_DURABLY_SEPARATED_FROM_FORBIDDEN_PARTITIONS
+reportArtifactId = 9938144318
+reportArtifactSha256 = e71e153509e8f002fd74782ebb5667bb93b59438e6646c4c11723afe4be64129
+```
+
+The Matrix V2 TRAIN partition was reconstructed through TRAIN-only generator entry points plus the preserved train-drop metadata and matched its canonical SHA-256 exactly. The v2.2A repair file was extracted by explicit TRAIN-only ZIP member name and matched its recorded SHA-256. Only filenames/checksum metadata were inspected for excluded partitions; no DEV/Frozen row was extracted or opened. The P0.5 source is not used because its 30 TRAIN rows are not available as an independently readable durable member, and accessing the combined source would violate this task's partition boundary.
+
+```text
+canonicalDevUsed = false
+Frozen read = false
+Student-4 changed = false
+Path A modified = false
+pristine40kModified = false
+trainingExecuted = false
+otherRepositoriesModified = false
+next = IMPLEMENT_CONTROLLED_V3_REANNOTATION
+```
