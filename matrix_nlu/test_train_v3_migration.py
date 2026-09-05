@@ -195,6 +195,7 @@ class TrainV3MigrationTest(unittest.TestCase):
         labels = migrated["claims"][0]["labels"]
         self.assertEqual("NEGATIVE", labels["polarity"])
         self.assertEqual("mention:m0", labels["targetReferent"])
+        self.assertEqual([[0, 2]], migrated["claims"][0]["negationCueSpans"])
         self.assertIn("CONTROLLED_CROSS_LINGUAL_ROLE_REANNOTATION", record["reasonCodes"])
 
     def test_explicit_third_party_report_gets_independent_source(self):
