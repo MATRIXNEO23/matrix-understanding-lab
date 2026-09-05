@@ -107,20 +107,32 @@ Frozen: `FROZEN_UNREAD`.
 | Candidate-manifest SHA-256 | `a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d` |
 | Archive SHA-256 | `7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191` |
 
-### Student-5 binary-location assessment
+### Student-5 durable binary locator
 
-The current repository evidence records the selected model and archive identities but does **not** record a GitHub Actions artifact ID, Git LFS path, release attachment, or other durable remote download URL for the 88,361,246-byte archive.
+The canonical original Phase-A archive has been recovered, verified against every recorded identity hash, and published as a durable pre-release asset owned by this repository.
+
+- Preservation report: [`reports/STUDENT_5_40K_PRISTINE_PRESERVATION.md`](https://github.com/MATRIXNEO23/matrix-understanding-lab/blob/main/reports/STUDENT_5_40K_PRISTINE_PRESERVATION.md)
+- Release: [Student-5 MiniLM 40k Phase-A Pristine](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-phase-a-pristine)
+- Release label: `Pre-release`
+- Tag: `student-5-minilm-40k-phase-a-pristine`
+- Tag commit: `20230e52388560c537eb614083ca5a3bda29ecfc`
+- Asset: [student5-minilm-phase-a-pruned-40k.zip](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-phase-a-pristine/student5-minilm-phase-a-pruned-40k.zip)
+- Asset bytes: `88361246`
+- GitHub-recorded digest: `sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191`
+- Source classification: `ORIGINAL_RECOVERED`
 
 ```text
 canonicalReports = PRESENT
 generatorAndTests = PRESENT
-modelIdentityAndChecksums = PRESENT
-remoteBinaryLocator = NOT_RECORDED
-binaryPreservation = NOT_YET_DURABLY_VERIFIED
-requiredAction = RECOVER_OR_REGENERATE_AND_PUBLISH_WITH_CHECKSUM_VERIFICATION
+modelIdentityAndChecksums = VERIFIED
+remoteBinaryLocator = RECORDED
+binaryPreservation = DURABLY_VERIFIED
+artifactStatus = PRISTINE_PHASE_A_BACKBONE
+nluStatus = NOT_MATRIX_NLU
+productionStatus = NOT_PRODUCTION_APPROVED
 ```
 
-Until a remote binary locator is added, do not claim that the Student-5 40k archive is durably downloadable. The artifact remains reproducible from the pinned upstream revision and authorized TRAIN-only inputs, but regeneration must reproduce the recorded checksums before it can replace the original binary.
+A GitHub Release asset in this repository is the durable primary locator. It is not a retention-limited GitHub Actions artifact. Before use, verify its exact byte count and archive SHA-256 against the canonical identity table above.
 
 ## Switching checklist
 
