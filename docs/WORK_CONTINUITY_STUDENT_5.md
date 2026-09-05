@@ -635,3 +635,110 @@ otherRepositoriesModified = false
 ```
 
 All seven mandatory documents were read in the owner-specified order before artifact operations. Recovery order is original workspace/cache/same-repository outputs first; deterministic reproduction is permitted only if the original cannot be recovered and must pass every canonical checksum fail-closed.
+
+
+## Checkpoint 10 — TASK 0 pristine preservation PASS
+
+Timestamp: `2026-09-05T05:23Z`
+
+```text
+task = TASK_0_PRISTINE_PRESERVATION
+result = PASS
+headStart = 3f317c842646b22ab6de02793bbec91eb2a4bba6
+headFinal = THIS_CHECKPOINT_COMMIT
+artifactSource = ORIGINAL_RECOVERED
+artifactRegenerated = false
+artifactModified = false
+status = PRISTINE_PHASE_A_BACKBONE
+nluStatus = NOT_MATRIX_NLU
+productionStatus = NOT_PRODUCTION_APPROVED
+automaticContinuation = FORBIDDEN
+nextTask = NOT_AUTHORIZED
+```
+
+The original 88,361,246-byte Phase-A archive was recovered from an existing preserved project output. Deterministic regeneration was not needed. The recovered binary remained unmodified.
+
+Canonical identity and fail-closed verification:
+
+```text
+vocabSize = 40000
+layers = 12
+hiddenSize = 384
+fp32ModelBytes = 148020400
+artifactDirectoryBytes = 150116913
+archiveBytes = 88361246
+modelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
+mappingSha256 = da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9
+sentencePieceSha256 = 748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78
+candidateManifestSha256 = a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d
+archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
+allCanonicalChecksumsVerified = true
+zipIntegrity = PASS
+internalSha256Sums = 17/17_PASS
+candidateManifestPayloads = 6/6_PASS
+unexpectedPayloadFiles = 0
+missingPayloadFiles = 0
+huggingFaceSaveReload = PASS
+tokenizerEmbeddingAlignment = PASS
+realOfflineForward = PASS
+```
+
+Durable preservation:
+
+- Release: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-phase-a-pristine`
+- Release type: `Pre-release`
+- Tag: `student-5-minilm-40k-phase-a-pristine`
+- Tag commit: `20230e52388560c537eb614083ca5a3bda29ecfc`
+- Asset: `student5-minilm-phase-a-pruned-40k.zip`
+- Asset URL: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-phase-a-pristine/student5-minilm-phase-a-pruned-40k.zip`
+- GitHub-recorded asset digest: `sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191`
+- Binary preservation: `DURABLY_VERIFIED_IN_AUTHORIZED_REPOSITORY`
+
+Task evidence commits:
+
+```text
+startCheckpointCommit = 20230e52388560c537eb614083ca5a3bda29ecfc
+preservationReportCommit = cc262671b816908ce3621e99ff511d47a0b05c1f
+artifactRegistryCommit = f2e0c2444aadcab8fbfbdc45693f6bf1ece07f6c
+continuityCompletionCommit = THIS_CHECKPOINT_COMMIT
+```
+
+Files changed from the start HEAD through the pre-final checkpoint:
+
+```text
+docs/STUDENT_ARTIFACT_REGISTRY.md
+docs/WORK_CONTINUITY_STUDENT_5.md
+reports/STUDENT_5_40K_PRISTINE_PRESERVATION.md
+```
+
+GitHub compare evidence shows no Student-4 file, dataset, training source, workflow, Frozen path, DEV path, or other repository change. The Release publication does not mutate Student-4.
+
+Final guards:
+
+```text
+canonicalStudent5ArtifactRecoveredOrBitExactRegenerated = true
+modelSha256Verified = true
+mappingSha256Verified = true
+sentencePieceSha256Verified = true
+manifestSha256Verified = true
+archiveSha256Verified = true
+durableRemoteLocatorRecorded = true
+durableRemoteLocatorBelongsToMatrixUnderstandingLab = true
+student4V22AChanged = false
+canonicalDevUsed = false
+frozenDataRead = false
+frozenDataTokenized = false
+frozenDataAnalyzed = false
+frozenPredictionsRead = false
+teachingExecuted = false
+matrixHeadsTrained = false
+quantizationExecuted = false
+productionPromotionExecuted = false
+otherRepositoriesModified = false
+```
+
+Next action:
+
+```text
+AWAIT OWNER REVIEW BEFORE TASK 1
+```
