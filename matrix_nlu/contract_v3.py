@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import pathlib
 from typing import Any, Mapping
 
 
@@ -154,6 +155,35 @@ def validate_bundle_contract(
         details = ", ".join(differences + [f"unexpected:{key}" for key in unexpected])
         raise ContractMismatchError(f"V3 bundle contract mismatch: {details}")
     return expected
+
+
+def write_bundle_contract(
+    bundle_directory: str | pathlib.Path,
+    max_referent_candidates: int = DEFAULT_MAX_REFERENT_CANDIDATES,
+) -> pathlib.Path:
+    """Write the exact V3 registry/fingerprint metadata required by a bundle."""
+    directory = pathlib.Path(bundle_directory)
+    directory.mkdir(parents=True, exist_ok=True)
+    path = directory / "matrix-nlu-contract-v3.json"
+    path.write_text(
+        json.dumps(bundle_contract_metadata(max_referent_candidates), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return path
+
+
+def load_and_validate_bundle_contract(
+    bundle_directory: str | pathlib.Path,
+    max_referent_candidates: int | None = None,
+) -> dict:
+    path = pathlib.Path(bundle_directory) / "matrix-nlu-contract-v3.json"
+    if not path.is_file():
+        raise ContractMismatchError("V3 bundle is missing matrix-nlu-contract-v3.json")
+    try:
+        observed = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ContractMismatchError(f"V3 bundle metadata is unreadable: {exc}") from exc
+    return validate_bundle_contract(observed, max_referent_candidates)
 
 
 def assert_registry() -> None:

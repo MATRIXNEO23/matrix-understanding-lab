@@ -1,4 +1,6 @@
 import copy
+import json
+import tempfile
 import unittest
 
 import contract_v3
@@ -61,6 +63,17 @@ class ContractV3CoreTest(unittest.TestCase):
         with self.assertRaises(contract_v3.ContractMismatchError):
             contract_v3.validate_bundle_contract(metadata)
 
+    def test_runtime_bundle_guard_reads_exact_fingerprint_and_fails_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = contract_v3.write_bundle_contract(directory)
+            observed = contract_v3.load_and_validate_bundle_contract(directory)
+            self.assertEqual(contract_v3.CONTRACT_VERSION, observed["contractVersion"])
+            tampered = json.loads(path.read_text(encoding="utf-8"))
+            tampered["sequenceHeads"][0] = "wrong"
+            path.write_text(json.dumps(tampered), encoding="utf-8")
+            with self.assertRaises(contract_v3.ContractMismatchError):
+                contract_v3.load_and_validate_bundle_contract(directory)
+
     def test_student5_bert_adapter_reads_bert_structure(self):
         encoder = _FakeBert()
         self.assertEqual(384, model_v3.encoder_hidden_size(encoder))
@@ -72,8 +85,8 @@ class ContractV3CoreTest(unittest.TestCase):
 
     def test_v3_head_parameter_estimate_is_exact_and_small(self):
         summary = model_v3.head_parameter_estimate(384)
-        self.assertEqual(171704, summary["totalV3Heads"])
-        self.assertEqual(686816, summary["estimatedFp32Bytes"])
+        self.assertEqual(172088, summary["totalV3Heads"])
+        self.assertEqual(688352, summary["estimatedFp32Bytes"])
         self.assertLess(summary["estimatedFp32Bytes"], 1024 * 1024)
 
     def test_mentions_and_candidate_order_are_deterministic(self):
@@ -110,8 +123,9 @@ class ContractV3CoreTest(unittest.TestCase):
 
     def test_onnx_structural_contract_has_all_sixteen_outputs(self):
         spec = export_onnx_v3.structural_export_spec()
-        self.assertEqual(16, len(spec["outputs"]))
+        self.assertEqual(17, len(spec["outputs"]))
         self.assertIn("sequence.sourceReferent", spec["outputs"])
+        self.assertIn("sequence.temporalRelation.anchor", spec["outputs"])
         self.assertEqual([], spec["customOperators"])
 
 

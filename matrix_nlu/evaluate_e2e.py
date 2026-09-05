@@ -34,7 +34,7 @@ def critical_families(row):
         families.add("request")
     if any(str(item.get("predicate", "")).startswith("goal.") for item in labels):
         families.add("goal")
-    if any(item.get("dialogueAct") in {"CORRECT", "CORRECTION"} for item in labels):
+    if any(item.get("dialogueAct") == "CORRECT" for item in labels):
         families.add("correction")
     if any(item.get("temporalRelation") != "ATEMPORAL" or span.get("temporal") is not None
            for item, span in zip(labels, spans)):

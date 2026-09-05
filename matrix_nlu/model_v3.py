@@ -44,13 +44,15 @@ def head_parameter_estimate(hidden_size: int) -> dict:
     shared_pointer_projection = hidden_size * hidden_size
     role_queries = len(ROLE_HEADS) * hidden_size
     pointer_specials = 2 * hidden_size
-    total = token + fixed_sequence + shared_pointer_projection + role_queries + pointer_specials
+    temporal_anchor_query = hidden_size
+    total = token + fixed_sequence + shared_pointer_projection + role_queries + pointer_specials + temporal_anchor_query
     return {
         "tokenHeads": token,
         "fixedSequenceHeads": fixed_sequence,
         "sharedPointerProjection": shared_pointer_projection,
         "roleQueries": role_queries,
         "pointerSpecialEmbeddings": pointer_specials,
+        "temporalAnchorQuery": temporal_anchor_query,
         "totalV3Heads": total,
         "estimatedFp32Bytes": total * 4,
         "estimatedInt8BytesWhereEligible": total,
@@ -98,12 +100,15 @@ def build_model_v3(
             self.role_queries = nn.ParameterDict({
                 name: nn.Parameter(torch.empty(hidden_size)) for name in ROLE_HEADS
             })
+            self.temporal_anchor_query = nn.Parameter(torch.empty(hidden_size))
             self.pointer_special_embeddings = nn.Parameter(torch.empty(2, hidden_size))
             nn.init.normal_(self.pointer_special_embeddings, mean=0.0, std=0.02)
             for query in self.role_queries.values():
                 nn.init.normal_(query, mean=0.0, std=0.02)
+            nn.init.normal_(self.temporal_anchor_query, mean=0.0, std=0.02)
 
-        def forward(self, input_ids, attention_mask, candidate_embeddings, candidate_mask):
+        def forward(self, input_ids, attention_mask, candidate_embeddings, candidate_mask,
+                    temporal_anchor_embeddings, temporal_anchor_mask):
             hidden = self.encoder(
                 input_ids=input_ids,
                 attention_mask=attention_mask,
@@ -124,11 +129,27 @@ def build_model_v3(
                 query = pooled + self.role_queries[name]
                 logits = torch.bmm(all_candidates, query.unsqueeze(-1)).squeeze(-1) * scale
                 pointer_logits[name] = logits.masked_fill(all_mask == 0, -1e4)
+            anchor_candidates = self.candidate_projection(temporal_anchor_embeddings)
+            anchor_query = pooled + self.temporal_anchor_query
+            temporal_anchor_logits = torch.bmm(
+                anchor_candidates, anchor_query.unsqueeze(-1)
+            ).squeeze(-1) * scale
+            temporal_anchor_logits = temporal_anchor_logits.masked_fill(
+                temporal_anchor_mask == 0, -1e4
+            )
+            fixed = {
+                name: head(pooled) for name, head in self.fixed_sequence_heads.items()
+                if name != "temporalRelation"
+            }
             return {
                 "tokens": {name: head(token_hidden) for name, head in self.token_heads.items()},
                 "sequence": {
-                    **{name: head(pooled) for name, head in self.fixed_sequence_heads.items()},
+                    **fixed,
                     **pointer_logits,
+                    "temporalRelation": {
+                        "relation": self.fixed_sequence_heads["temporalRelation"](pooled),
+                        "anchor": temporal_anchor_logits,
+                    },
                 },
             }
 

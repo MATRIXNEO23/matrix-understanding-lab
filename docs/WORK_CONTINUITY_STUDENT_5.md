@@ -1305,3 +1305,30 @@ Frozen = UNREAD
 ```
 
 The V3 path is isolated from legacy V2/Student-4 modules. The ONNX export contract is defined, but no export has been attempted at this checkpoint because Torch/Transformers/ONNX are not installed in the execution environment.
+
+## Checkpoint 21 — V3 decoder, evaluator and target/migration tooling
+
+```text
+HEAD before checkpoint = 38d6ad53e88082ac68037a6571b6653bb7651526
+decoder = matrix_nlu/inference_v3.py
+independentEvaluator = matrix_nlu/evaluate_v3.py
+targetBuilder = matrix_nlu/training_data_v3.py
+migrationClassifier = matrix_nlu/migrate_contract_v3.py
+syntheticInventory = matrix_nlu/synthetic_v3_fixtures.py
+multiSpanPreservation = PASS
+fiveIndependentRolePointers = PASS
+sourcePerspectiveSeparation = PASS
+negationCuePolarityIndependence = PASS
+temporalRelationAnchorValidation = PASS
+fieldAwareConfidenceAbstention = PASS
+goldProductionDecoderIndependence = PASS
+bundleFingerprintRuntimeGuard = PASS
+canonicalCorrectionLabel = CORRECT
+safeTests = 42/42 PASS (30 V3 + 12 legacy data-independent)
+canonicalDatasetFilesOpened = false
+optimizerCreated = false
+trainingExecuted = false
+Frozen = UNREAD
+```
+
+The V2 migration module accepts only caller-supplied rows and reports DIRECT_REUSE / DETERMINISTIC_MIGRATION / NEEDS_REANNOTATION / UNUSABLE; it was not run on any canonical partition. The V3 canonical output contains no authority, World Truth, Memory Admission or persistent state fields.
