@@ -1055,3 +1055,99 @@ otherRepositoriesModified = false
 ```
 
 Scope is contract audit and documentation only. No head, label, dataset, decoder, training, model, tokenizer, pristine artifact, Path-A artifact, Student-4, DEV or Frozen change is authorized. Code and canonical documentation will be inspected; contract defects will be reported, not repaired.
+
+
+## Checkpoint 15 — TASK 2 contract audit complete / architectural stop
+
+Timestamp: `2026-09-05T08:45Z`
+
+```text
+task = TASK_2_15_HEAD_CONTRACT_AUDIT
+result = ARCHITECTURAL_CONTRACT_CHANGE_REQUIRED
+headStart = 8a9a375c4bbd5b9d03f6f68f036059a3df414881
+startCheckpointCommit = 2a41baba94ff5e36763552ca24f43dfb51d906de
+reportCommit = 07cb51eb477e771b11502ed393452ca1737e6905
+headFinal = THIS_CHECKPOINT_COMMIT
+headsFound = 15
+tokenHeads = 6
+sequenceHeads = 9
+labelRegistry = BLOCKED
+datasetTargetOutputDecoder = BLOCKED
+referentOwnership = BLOCKED
+negationPolarity = BLOCKED
+temporal = BLOCKED
+dialogueActClaimKind = BLOCKED
+multiClaim = RISK
+adultIntimacy = RISK
+itEnEs = RISK
+architectureOwnership = RISK
+implementationBugs = 9
+contractDriftFindings = 7
+P0 = 9
+P1 = 6
+P2 = 1
+TASK_3 = NOT_STARTED
+PATH_B = NOT_STARTED
+FROZEN = UNREAD
+```
+
+Canonical report:
+
+```text
+reports/STUDENT_5_15_HEAD_CONTRACT_AUDIT.md
+```
+
+### Architectural stop reasons
+
+1. Dataset v2 couples the full-source negation span one-to-one with NEGATIVE polarity, so token negation is not independent and composed/nested negation is not representable.
+2. HYPOTHESIS is duplicated between dialogueAct and claimKind while generic REPORT, BELIEF and COMMAND states are absent.
+3. KNOWN_ENTITY/RECENT_ENTITY categories cannot link distinct subject, target, owner, perspective and reported-source mentions when several entities appear; the entity training target discards dataset referent annotations.
+4. temporalRelation cannot encode BEFORE/AFTER/DURING with its current label set.
+
+The current Student-5 `BertModel` also requires an implementation-only adapter because `matrix_nlu/model.py` assumes DistilBERT internals. No implementation fix was made inside TASK 2.
+
+### Validation
+
+```text
+safeUnitTests = 12/12_PASS
+exactHeadRegistry = PASS_15_TOTAL_6_TOKEN_9_SEQUENCE
+uniqueLabelsWithinHeads = PASS
+pythonCompile = PASS
+syntheticMultiKnownEntityProbe = P0_REPRODUCED
+canonicalDevDatasetOpened = false
+frozenDatasetOpened = false
+```
+
+Tests that build or read DEV/test partitions were deliberately not executed. The canonical prior v2 audit result remains historical evidence and was not rerun.
+
+Files modified during TASK 2:
+
+```text
+docs/WORK_CONTINUITY_STUDENT_5.md
+reports/STUDENT_5_15_HEAD_CONTRACT_AUDIT.md
+```
+
+No model, tokenizer, label, dataset, DEV, Frozen, Student-4, Path-A artifact, training, decoder, inference implementation or other repository file was modified.
+
+Final guards:
+
+```text
+student4V22AChanged = false
+canonicalDevUsed = false
+frozenDataRead = false
+frozenDataTokenized = false
+frozenDataAnalyzed = false
+frozenPredictionsRead = false
+pathAModified = false
+pathBStarted = false
+teachingExecuted = false
+trainingExecuted = false
+otherRepositoriesModified = false
+productionPromotionExecuted = false
+```
+
+Next action:
+
+```text
+AWAIT OWNER REVIEW OF ARCHITECTURAL_CONTRACT_CHANGE_REQUIRED
+```
