@@ -1,0 +1,1119 @@
+{
+  "schema": "student5.cp39.recovery-audit.v1",
+  "observedAtUtc": "2026-09-07T10:57:30Z",
+  "repository": "MATRIXNEO23/matrix-understanding-lab",
+  "branch": "student5-path-b-v3",
+  "startingHead": "ff6ee962bcc7629ace9bcd69263ddbf497376df8",
+  "startingTree": "614e9154e2c4ba67fa7c3a22dc17514ff31e3e9e",
+  "verdict": "TRAIN_V2_REPAIR = BLOCKED",
+  "local": {
+    "cwd": "/workspace/scratch/0a50431faa34",
+    "initialEntries": 0,
+    "gitStatusExitCode": 128,
+    "gitStatusStderr": "fatal: not a git repository (or any of the parent directories): .git",
+    "missing": [
+      "cp39-delivery",
+      "cp39-candidate-01-retained",
+      "student5-path-b/repo"
+    ],
+    "otherWorkspaceFilenameSearchMatches": 0,
+    "maintenanceNotice": true
+  },
+  "artifact": {
+    "logicalId": "student5-matrix-nlu-v3-train-v2",
+    "expectedPath": "data/student5_v3_train_v2/",
+    "trackedFiles": 0,
+    "localRecoveredFiles": 0,
+    "verifiedRows": null,
+    "verifiedClaims": null,
+    "verifiedBytes": null,
+    "verifiedSha256": null,
+    "provenanceVerified": false,
+    "semanticDecisions": {
+      "D01": "NOT_VERIFIABLE_WITHOUT_CANDIDATE",
+      "D02": "NOT_VERIFIABLE_WITHOUT_CANDIDATE",
+      "D03": "NOT_VERIFIABLE_WITHOUT_CANDIDATE",
+      "D04": "NOT_VERIFIABLE_WITHOUT_CANDIDATE",
+      "D05": "NOT_VERIFIABLE_WITHOUT_CANDIDATE",
+      "D06": "NOT_VERIFIABLE_WITHOUT_CANDIDATE",
+      "D07": "NOT_VERIFIABLE_WITHOUT_CANDIDATE"
+    }
+  },
+  "repositoryEvidence": {
+    "treeEntries": 437,
+    "truncated": false,
+    "cp39Paths": [],
+    "branchRunCount": 0,
+    "releases": [
+      {
+        "assets": [
+          {
+            "digest": "sha256:dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71",
+            "id": 548329150,
+            "name": "student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+            "size": 176837978
+          }
+        ],
+        "draft": false,
+        "id": 383886129,
+        "tag": "student5-path-b-v3-untrained-gate-a-cp35-20260907"
+      },
+      {
+        "assets": [
+          {
+            "digest": "sha256:72eea0af4211959bdbc92be36387faf5b85da957830f9be0a6d0dd50ab7cedf6",
+            "id": 545486429,
+            "name": "student-5-minilm-40k-untaught-int8-runtime-probe.zip",
+            "size": 142463548
+          }
+        ],
+        "draft": false,
+        "id": 383162517,
+        "tag": "student-5-minilm-40k-untaught-int8-runtime-probe"
+      },
+      {
+        "assets": [
+          {
+            "digest": "sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+            "id": 545406840,
+            "name": "student5-minilm-phase-a-pruned-40k.zip",
+            "size": 88361246
+          }
+        ],
+        "draft": false,
+        "id": 383143636,
+        "tag": "student-5-minilm-40k-phase-a-pristine"
+      }
+    ]
+  },
+  "trainV1": {
+    "logicalId": "student5-matrix-nlu-v3-train-v1",
+    "orderedSha256FromUnchangedManifest": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
+    "rawPayloadHashRecomputed": false,
+    "files": 130,
+    "bytesFromGitTree": 13139472,
+    "gitIdentityMatches": 130,
+    "identityBaseline": "reports/evidence/student5-path-b-cp38-repair-spec/input-identities.json",
+    "bridge": [
+      {
+        "actualSha": "5b9b0caffada9e010cd6823828a806c507806387",
+        "bytes": 11795,
+        "expectedSha": "5b9b0caffada9e010cd6823828a806c507806387",
+        "match": true,
+        "path": "data/student5_v3/SHA256SUMS"
+      },
+      {
+        "actualSha": "752d254dd462fbd4bbefa4e8a006f994bd8ed3cf",
+        "bytes": 28248,
+        "expectedSha": "752d254dd462fbd4bbefa4e8a006f994bd8ed3cf",
+        "match": true,
+        "path": "data/student5_v3/migration-manifest.json"
+      },
+      {
+        "actualSha": "ee0440fc783256d783bda726430b432f7b15db29",
+        "bytes": 33399,
+        "expectedSha": "ee0440fc783256d783bda726430b432f7b15db29",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00000.jsonl"
+      },
+      {
+        "actualSha": "b1d9f61d36fc0f8e4948743eee4fdfa3ccfbc364",
+        "bytes": 33126,
+        "expectedSha": "b1d9f61d36fc0f8e4948743eee4fdfa3ccfbc364",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00001.jsonl"
+      },
+      {
+        "actualSha": "88d077cf2076cbd66fcf9c826e40b43260d2ee68",
+        "bytes": 33254,
+        "expectedSha": "88d077cf2076cbd66fcf9c826e40b43260d2ee68",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00002.jsonl"
+      },
+      {
+        "actualSha": "f2aedee062d0473d274fe48c9d51b8eadfd25ac0",
+        "bytes": 33399,
+        "expectedSha": "f2aedee062d0473d274fe48c9d51b8eadfd25ac0",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00003.jsonl"
+      },
+      {
+        "actualSha": "95909b64f7bf6075bed76b2d720750cbdeaf85e7",
+        "bytes": 33191,
+        "expectedSha": "95909b64f7bf6075bed76b2d720750cbdeaf85e7",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00004.jsonl"
+      },
+      {
+        "actualSha": "bed360e0ca220215794c7cb54fb6535c8eb3edbe",
+        "bytes": 33254,
+        "expectedSha": "bed360e0ca220215794c7cb54fb6535c8eb3edbe",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00005.jsonl"
+      },
+      {
+        "actualSha": "cdd9729be6e4309d5d240709185cd363f6e67cd3",
+        "bytes": 33327,
+        "expectedSha": "cdd9729be6e4309d5d240709185cd363f6e67cd3",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00006.jsonl"
+      },
+      {
+        "actualSha": "99cb14c65b310ab43ab14ed2197355282ac561e4",
+        "bytes": 33263,
+        "expectedSha": "99cb14c65b310ab43ab14ed2197355282ac561e4",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00007.jsonl"
+      },
+      {
+        "actualSha": "17d246cfdce0346eec32a6fa7ea8f06a83d81426",
+        "bytes": 33190,
+        "expectedSha": "17d246cfdce0346eec32a6fa7ea8f06a83d81426",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00008.jsonl"
+      },
+      {
+        "actualSha": "adaa7299f13b0590bd021069b4efa77d8c6381b3",
+        "bytes": 33327,
+        "expectedSha": "adaa7299f13b0590bd021069b4efa77d8c6381b3",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00009.jsonl"
+      },
+      {
+        "actualSha": "e7bf648558fd9f43e522e2897b50010e5484b4ca",
+        "bytes": 33262,
+        "expectedSha": "e7bf648558fd9f43e522e2897b50010e5484b4ca",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00010.jsonl"
+      },
+      {
+        "actualSha": "0b44caa0fbcaa054bcb8fda2cd57df541c480980",
+        "bytes": 33565,
+        "expectedSha": "0b44caa0fbcaa054bcb8fda2cd57df541c480980",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00011.jsonl"
+      },
+      {
+        "actualSha": "982eaa2d270c716c03bcbdb44a0e9528052144bf",
+        "bytes": 34604,
+        "expectedSha": "982eaa2d270c716c03bcbdb44a0e9528052144bf",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00012.jsonl"
+      },
+      {
+        "actualSha": "fa4ea724941219afe701800d79f6e2d25a64a903",
+        "bytes": 34700,
+        "expectedSha": "fa4ea724941219afe701800d79f6e2d25a64a903",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00013.jsonl"
+      },
+      {
+        "actualSha": "46cef7168c0c1e61c685de0c927f92c478643be0",
+        "bytes": 34556,
+        "expectedSha": "46cef7168c0c1e61c685de0c927f92c478643be0",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00014.jsonl"
+      },
+      {
+        "actualSha": "017b7842b6207186457aa641a956b73186334585",
+        "bytes": 34692,
+        "expectedSha": "017b7842b6207186457aa641a956b73186334585",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00015.jsonl"
+      },
+      {
+        "actualSha": "b694518f4beca9ffd786f4ad06e8bd4f5026adc5",
+        "bytes": 34484,
+        "expectedSha": "b694518f4beca9ffd786f4ad06e8bd4f5026adc5",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00016.jsonl"
+      },
+      {
+        "actualSha": "d3c2962c4123b4e749663f4ee884a000d0238646",
+        "bytes": 34732,
+        "expectedSha": "d3c2962c4123b4e749663f4ee884a000d0238646",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00017.jsonl"
+      },
+      {
+        "actualSha": "c931caf79f8b3e761b3c8e8a0a282fbd8fae7627",
+        "bytes": 33190,
+        "expectedSha": "c931caf79f8b3e761b3c8e8a0a282fbd8fae7627",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00018.jsonl"
+      },
+      {
+        "actualSha": "3f54c3f0b568759b3414b7242e750df435559a93",
+        "bytes": 33255,
+        "expectedSha": "3f54c3f0b568759b3414b7242e750df435559a93",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00019.jsonl"
+      },
+      {
+        "actualSha": "348ee3b8f4f5d794c123e56c936eb08d9c2e8959",
+        "bytes": 33399,
+        "expectedSha": "348ee3b8f4f5d794c123e56c936eb08d9c2e8959",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00020.jsonl"
+      },
+      {
+        "actualSha": "bb62d6570a878ca5a1391baeba9b494e36d7dc01",
+        "bytes": 33190,
+        "expectedSha": "bb62d6570a878ca5a1391baeba9b494e36d7dc01",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00021.jsonl"
+      },
+      {
+        "actualSha": "0e9c3d8f70803cbb846d37f936837f90d1587bab",
+        "bytes": 33255,
+        "expectedSha": "0e9c3d8f70803cbb846d37f936837f90d1587bab",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00022.jsonl"
+      },
+      {
+        "actualSha": "2304fcc4e8f3d4ce3fcdfc723bfbd67bc12926dd",
+        "bytes": 33399,
+        "expectedSha": "2304fcc4e8f3d4ce3fcdfc723bfbd67bc12926dd",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00023.jsonl"
+      },
+      {
+        "actualSha": "33ebf6fecf5fabe4d758c36c8e7d651d695e58d3",
+        "bytes": 33126,
+        "expectedSha": "33ebf6fecf5fabe4d758c36c8e7d651d695e58d3",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00024.jsonl"
+      },
+      {
+        "actualSha": "284a913ee35eb7a0876195acd508766a44286cf8",
+        "bytes": 33254,
+        "expectedSha": "284a913ee35eb7a0876195acd508766a44286cf8",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00025.jsonl"
+      },
+      {
+        "actualSha": "f9b88f5d79df82e2fdd61863c535c58718440069",
+        "bytes": 33327,
+        "expectedSha": "f9b88f5d79df82e2fdd61863c535c58718440069",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00026.jsonl"
+      },
+      {
+        "actualSha": "83434da1e840f0f2945703f46be74e266d2b71e5",
+        "bytes": 33263,
+        "expectedSha": "83434da1e840f0f2945703f46be74e266d2b71e5",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00027.jsonl"
+      },
+      {
+        "actualSha": "b632a03455cf63ffbaaa499753dffbee52cbfc16",
+        "bytes": 33190,
+        "expectedSha": "b632a03455cf63ffbaaa499753dffbee52cbfc16",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00028.jsonl"
+      },
+      {
+        "actualSha": "f1d843af124b56d27a04ce7308bbf2878c9ccb46",
+        "bytes": 33969,
+        "expectedSha": "f1d843af124b56d27a04ce7308bbf2878c9ccb46",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00029.jsonl"
+      },
+      {
+        "actualSha": "0fef67a14b5fc981d99687491faec5f4d5eb9ba1",
+        "bytes": 34692,
+        "expectedSha": "0fef67a14b5fc981d99687491faec5f4d5eb9ba1",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00030.jsonl"
+      },
+      {
+        "actualSha": "cc3aac325cf9a9dcd2171996a938fd20809ef323",
+        "bytes": 34628,
+        "expectedSha": "cc3aac325cf9a9dcd2171996a938fd20809ef323",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00031.jsonl"
+      },
+      {
+        "actualSha": "94921bb87e06174a9ae2c37dcad02bee5554de4d",
+        "bytes": 34692,
+        "expectedSha": "94921bb87e06174a9ae2c37dcad02bee5554de4d",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00032.jsonl"
+      },
+      {
+        "actualSha": "9c1bb95e9ac8ee092129fc18cc0112b1313cb5fe",
+        "bytes": 34556,
+        "expectedSha": "9c1bb95e9ac8ee092129fc18cc0112b1313cb5fe",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00033.jsonl"
+      },
+      {
+        "actualSha": "adbf51e4be9a7f89a9b3cd1ea2d22878c1814966",
+        "bytes": 34705,
+        "expectedSha": "adbf51e4be9a7f89a9b3cd1ea2d22878c1814966",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00034.jsonl"
+      },
+      {
+        "actualSha": "76143fc1fa32ddfddb2294f285b3cc43a8231843",
+        "bytes": 34091,
+        "expectedSha": "76143fc1fa32ddfddb2294f285b3cc43a8231843",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00035.jsonl"
+      },
+      {
+        "actualSha": "50c5f457f7248ba394a5aa98c499727cf348e35d",
+        "bytes": 33327,
+        "expectedSha": "50c5f457f7248ba394a5aa98c499727cf348e35d",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00036.jsonl"
+      },
+      {
+        "actualSha": "5e8db1bdd82025c89c104ba116f7e01d8caa2a86",
+        "bytes": 33262,
+        "expectedSha": "5e8db1bdd82025c89c104ba116f7e01d8caa2a86",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00037.jsonl"
+      },
+      {
+        "actualSha": "a8998d769a051ceb80655ebac7ce4ed563658604",
+        "bytes": 33255,
+        "expectedSha": "a8998d769a051ceb80655ebac7ce4ed563658604",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00038.jsonl"
+      },
+      {
+        "actualSha": "e2081b916cf0e2b71e5715c460b92dfa9f1a3d86",
+        "bytes": 33262,
+        "expectedSha": "e2081b916cf0e2b71e5715c460b92dfa9f1a3d86",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00039.jsonl"
+      },
+      {
+        "actualSha": "14e3207b8877d82a057384fd7f5f00d0c85a2005",
+        "bytes": 33327,
+        "expectedSha": "14e3207b8877d82a057384fd7f5f00d0c85a2005",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00040.jsonl"
+      },
+      {
+        "actualSha": "79c6778b62e3367cd4d874691477e3981bfc2bb2",
+        "bytes": 33190,
+        "expectedSha": "79c6778b62e3367cd4d874691477e3981bfc2bb2",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00041.jsonl"
+      },
+      {
+        "actualSha": "477ade8ff76a1fb301585e7826b41fc57c6a893f",
+        "bytes": 33255,
+        "expectedSha": "477ade8ff76a1fb301585e7826b41fc57c6a893f",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00042.jsonl"
+      },
+      {
+        "actualSha": "e5c3f6e1e0a92dce86580e8d9f922c85a4f981b8",
+        "bytes": 33399,
+        "expectedSha": "e5c3f6e1e0a92dce86580e8d9f922c85a4f981b8",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00043.jsonl"
+      },
+      {
+        "actualSha": "3bdda39ac8bfa345ab990f8e37733da574af3fe8",
+        "bytes": 33126,
+        "expectedSha": "3bdda39ac8bfa345ab990f8e37733da574af3fe8",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00044.jsonl"
+      },
+      {
+        "actualSha": "1e5c038526e985e8747455c7777bd84efe89c879",
+        "bytes": 33254,
+        "expectedSha": "1e5c038526e985e8747455c7777bd84efe89c879",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00045.jsonl"
+      },
+      {
+        "actualSha": "23b870ab6747937d20c17b824fecbe864b619400",
+        "bytes": 33399,
+        "expectedSha": "23b870ab6747937d20c17b824fecbe864b619400",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00046.jsonl"
+      },
+      {
+        "actualSha": "5e3a36da0ce9752d93f4c19df1dcfd3726c1d13c",
+        "bytes": 34245,
+        "expectedSha": "5e3a36da0ce9752d93f4c19df1dcfd3726c1d13c",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00047.jsonl"
+      },
+      {
+        "actualSha": "91963ce77e567e4310d6252d0f0691cc8a9ffa07",
+        "bytes": 34764,
+        "expectedSha": "91963ce77e567e4310d6252d0f0691cc8a9ffa07",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00048.jsonl"
+      },
+      {
+        "actualSha": "fce343dfde726fbbd5a4d3b772aa4391005fc109",
+        "bytes": 34556,
+        "expectedSha": "fce343dfde726fbbd5a4d3b772aa4391005fc109",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00049.jsonl"
+      },
+      {
+        "actualSha": "9f9c255e392cc3cc92ea0b817e5b2452047714a5",
+        "bytes": 34628,
+        "expectedSha": "9f9c255e392cc3cc92ea0b817e5b2452047714a5",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00050.jsonl"
+      },
+      {
+        "actualSha": "1ea07c691ddcea9f268631f73624c9ccfbae4232",
+        "bytes": 34620,
+        "expectedSha": "1ea07c691ddcea9f268631f73624c9ccfbae4232",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00051.jsonl"
+      },
+      {
+        "actualSha": "a86fd8b876f4c4279591470fe95f0cd65f45b1f3",
+        "bytes": 34862,
+        "expectedSha": "a86fd8b876f4c4279591470fe95f0cd65f45b1f3",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00052.jsonl"
+      },
+      {
+        "actualSha": "5cb4065b2fffb3090a0c34150b0054dd10192132",
+        "bytes": 37094,
+        "expectedSha": "5cb4065b2fffb3090a0c34150b0054dd10192132",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00053.jsonl"
+      },
+      {
+        "actualSha": "96ab970bd12a54948727b108f060c66aeb5d5937",
+        "bytes": 37656,
+        "expectedSha": "96ab970bd12a54948727b108f060c66aeb5d5937",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00054.jsonl"
+      },
+      {
+        "actualSha": "e687ed4657e5454227ee2ec39bb4ddc2dc53e2b9",
+        "bytes": 38654,
+        "expectedSha": "e687ed4657e5454227ee2ec39bb4ddc2dc53e2b9",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00055.jsonl"
+      },
+      {
+        "actualSha": "36b21da172cc0f271cc29f60657108acec494c26",
+        "bytes": 37652,
+        "expectedSha": "36b21da172cc0f271cc29f60657108acec494c26",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00056.jsonl"
+      },
+      {
+        "actualSha": "5e54f7e0f61c19328d598cde034c89c24c4e1a96",
+        "bytes": 35356,
+        "expectedSha": "5e54f7e0f61c19328d598cde034c89c24c4e1a96",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00057.jsonl"
+      },
+      {
+        "actualSha": "244b5244a9eb86873ecf7b6c40df435349e9f107",
+        "bytes": 37860,
+        "expectedSha": "244b5244a9eb86873ecf7b6c40df435349e9f107",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00058.jsonl"
+      },
+      {
+        "actualSha": "7f0572935e20cec4c7a4d74af149650979d4fb8b",
+        "bytes": 35092,
+        "expectedSha": "7f0572935e20cec4c7a4d74af149650979d4fb8b",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00059.jsonl"
+      },
+      {
+        "actualSha": "5af8bd72a1d059c31637340a46412718c02eb731",
+        "bytes": 34788,
+        "expectedSha": "5af8bd72a1d059c31637340a46412718c02eb731",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00060.jsonl"
+      },
+      {
+        "actualSha": "94b411824e9696e620fd9f57cc8e17063f7ed004",
+        "bytes": 33528,
+        "expectedSha": "94b411824e9696e620fd9f57cc8e17063f7ed004",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00061.jsonl"
+      },
+      {
+        "actualSha": "be2f10591145fdfb53cadc05a03cfea071ea56f0",
+        "bytes": 35593,
+        "expectedSha": "be2f10591145fdfb53cadc05a03cfea071ea56f0",
+        "match": true,
+        "path": "data/student5_v3/provenance/part-00062.jsonl"
+      },
+      {
+        "actualSha": "bd464885b0789b2111ebd51536151b2e5811d1a9",
+        "bytes": 3619,
+        "expectedSha": "bd464885b0789b2111ebd51536151b2e5811d1a9",
+        "match": true,
+        "path": "data/student5_v3/source-train-inventory.json"
+      },
+      {
+        "actualSha": "734362a35859a2b623c856449e0bb04cc2551695",
+        "bytes": 7831,
+        "expectedSha": "734362a35859a2b623c856449e0bb04cc2551695",
+        "match": true,
+        "path": "data/student5_v3/statistics.json"
+      },
+      {
+        "actualSha": "59354fa4f5bb15b0bff376db4e067c94a888dc5e",
+        "bytes": 158002,
+        "expectedSha": "59354fa4f5bb15b0bff376db4e067c94a888dc5e",
+        "match": true,
+        "path": "data/student5_v3/train/part-00000.jsonl"
+      },
+      {
+        "actualSha": "b790569aa77d65fec4ad868402d9be3b8d71efed",
+        "bytes": 157165,
+        "expectedSha": "b790569aa77d65fec4ad868402d9be3b8d71efed",
+        "match": true,
+        "path": "data/student5_v3/train/part-00001.jsonl"
+      },
+      {
+        "actualSha": "7fbc4a32c7cc602101dcdf8cda6eb82e69babbbc",
+        "bytes": 157531,
+        "expectedSha": "7fbc4a32c7cc602101dcdf8cda6eb82e69babbbc",
+        "match": true,
+        "path": "data/student5_v3/train/part-00002.jsonl"
+      },
+      {
+        "actualSha": "cbeb3bfb5ae2a5945d1f19f311cdfb0ba67605b5",
+        "bytes": 158020,
+        "expectedSha": "cbeb3bfb5ae2a5945d1f19f311cdfb0ba67605b5",
+        "match": true,
+        "path": "data/student5_v3/train/part-00003.jsonl"
+      },
+      {
+        "actualSha": "3d786b46018ad9b72dbdfbca3ecf2d9ec3b4a88f",
+        "bytes": 158161,
+        "expectedSha": "3d786b46018ad9b72dbdfbca3ecf2d9ec3b4a88f",
+        "match": true,
+        "path": "data/student5_v3/train/part-00004.jsonl"
+      },
+      {
+        "actualSha": "1565d4c8bd88259f9d370758169896a0076c103f",
+        "bytes": 157070,
+        "expectedSha": "1565d4c8bd88259f9d370758169896a0076c103f",
+        "match": true,
+        "path": "data/student5_v3/train/part-00005.jsonl"
+      },
+      {
+        "actualSha": "6bfafad79c04ebd0f2883d8669a2ef004ff1c2c3",
+        "bytes": 157902,
+        "expectedSha": "6bfafad79c04ebd0f2883d8669a2ef004ff1c2c3",
+        "match": true,
+        "path": "data/student5_v3/train/part-00006.jsonl"
+      },
+      {
+        "actualSha": "b812fbb4ef31421a8e51d4404d07216c931bd27e",
+        "bytes": 158755,
+        "expectedSha": "b812fbb4ef31421a8e51d4404d07216c931bd27e",
+        "match": true,
+        "path": "data/student5_v3/train/part-00007.jsonl"
+      },
+      {
+        "actualSha": "88fee3cb87277b54cf23382133ef7fe42b8e6264",
+        "bytes": 157259,
+        "expectedSha": "88fee3cb87277b54cf23382133ef7fe42b8e6264",
+        "match": true,
+        "path": "data/student5_v3/train/part-00008.jsonl"
+      },
+      {
+        "actualSha": "72838077ea9b6c712763d39745f655fda05ce51f",
+        "bytes": 157931,
+        "expectedSha": "72838077ea9b6c712763d39745f655fda05ce51f",
+        "match": true,
+        "path": "data/student5_v3/train/part-00009.jsonl"
+      },
+      {
+        "actualSha": "237fa74663450a329d61964f34b58791089b36d3",
+        "bytes": 157510,
+        "expectedSha": "237fa74663450a329d61964f34b58791089b36d3",
+        "match": true,
+        "path": "data/student5_v3/train/part-00010.jsonl"
+      },
+      {
+        "actualSha": "0093f6b7ba93ea803d570293453d3a99b7db1ab5",
+        "bytes": 155015,
+        "expectedSha": "0093f6b7ba93ea803d570293453d3a99b7db1ab5",
+        "match": true,
+        "path": "data/student5_v3/train/part-00011.jsonl"
+      },
+      {
+        "actualSha": "9f997d764e93d6c8af13758eba6c14c79fdf2c50",
+        "bytes": 201640,
+        "expectedSha": "9f997d764e93d6c8af13758eba6c14c79fdf2c50",
+        "match": true,
+        "path": "data/student5_v3/train/part-00012.jsonl"
+      },
+      {
+        "actualSha": "494f2cf245eda3ed784de21ac00585e07e4d0480",
+        "bytes": 227313,
+        "expectedSha": "494f2cf245eda3ed784de21ac00585e07e4d0480",
+        "match": true,
+        "path": "data/student5_v3/train/part-00013.jsonl"
+      },
+      {
+        "actualSha": "ca412d87b2647a613214fa27a29fa7f588d48a29",
+        "bytes": 227050,
+        "expectedSha": "ca412d87b2647a613214fa27a29fa7f588d48a29",
+        "match": true,
+        "path": "data/student5_v3/train/part-00014.jsonl"
+      },
+      {
+        "actualSha": "1fe38342a1227eb52faa9215bb851c245865aa11",
+        "bytes": 227201,
+        "expectedSha": "1fe38342a1227eb52faa9215bb851c245865aa11",
+        "match": true,
+        "path": "data/student5_v3/train/part-00015.jsonl"
+      },
+      {
+        "actualSha": "c414fa5021797a813124f5ddf3a573dfcbd44f11",
+        "bytes": 226118,
+        "expectedSha": "c414fa5021797a813124f5ddf3a573dfcbd44f11",
+        "match": true,
+        "path": "data/student5_v3/train/part-00016.jsonl"
+      },
+      {
+        "actualSha": "a22b9b80510cb24160e29490ba3cbecde727aa9e",
+        "bytes": 174152,
+        "expectedSha": "a22b9b80510cb24160e29490ba3cbecde727aa9e",
+        "match": true,
+        "path": "data/student5_v3/train/part-00017.jsonl"
+      },
+      {
+        "actualSha": "8cc5aed457c7614e366b4eac8add9fd50eee61eb",
+        "bytes": 157523,
+        "expectedSha": "8cc5aed457c7614e366b4eac8add9fd50eee61eb",
+        "match": true,
+        "path": "data/student5_v3/train/part-00018.jsonl"
+      },
+      {
+        "actualSha": "6bec01957b2edd6caf0173d7682e1079ac117aff",
+        "bytes": 158092,
+        "expectedSha": "6bec01957b2edd6caf0173d7682e1079ac117aff",
+        "match": true,
+        "path": "data/student5_v3/train/part-00019.jsonl"
+      },
+      {
+        "actualSha": "1b66fcf4dee77f068d8998dacdfa5f872eb8a73e",
+        "bytes": 158355,
+        "expectedSha": "1b66fcf4dee77f068d8998dacdfa5f872eb8a73e",
+        "match": true,
+        "path": "data/student5_v3/train/part-00020.jsonl"
+      },
+      {
+        "actualSha": "e6a081d1a71fd2d8f5158097379a09a8c58f1a27",
+        "bytes": 157064,
+        "expectedSha": "e6a081d1a71fd2d8f5158097379a09a8c58f1a27",
+        "match": true,
+        "path": "data/student5_v3/train/part-00021.jsonl"
+      },
+      {
+        "actualSha": "676342277d88471c678f037efe637bb866bfbeb5",
+        "bytes": 158376,
+        "expectedSha": "676342277d88471c678f037efe637bb866bfbeb5",
+        "match": true,
+        "path": "data/student5_v3/train/part-00022.jsonl"
+      },
+      {
+        "actualSha": "2c2e5c5f0f5b8cf7435b8e6397ad1e4a0b7952c4",
+        "bytes": 158083,
+        "expectedSha": "2c2e5c5f0f5b8cf7435b8e6397ad1e4a0b7952c4",
+        "match": true,
+        "path": "data/student5_v3/train/part-00023.jsonl"
+      },
+      {
+        "actualSha": "6804de8fb37c5283939c83561887bae60c7e6eb6",
+        "bytes": 157716,
+        "expectedSha": "6804de8fb37c5283939c83561887bae60c7e6eb6",
+        "match": true,
+        "path": "data/student5_v3/train/part-00024.jsonl"
+      },
+      {
+        "actualSha": "777f12a3b07ecd4a70adf40ac506206fa2a6e9db",
+        "bytes": 157350,
+        "expectedSha": "777f12a3b07ecd4a70adf40ac506206fa2a6e9db",
+        "match": true,
+        "path": "data/student5_v3/train/part-00025.jsonl"
+      },
+      {
+        "actualSha": "4d3fd345929e357b15554c8caa54877ff82e6804",
+        "bytes": 157959,
+        "expectedSha": "4d3fd345929e357b15554c8caa54877ff82e6804",
+        "match": true,
+        "path": "data/student5_v3/train/part-00026.jsonl"
+      },
+      {
+        "actualSha": "a192abf01933ee315f3e6597bedf9bdff5da60e1",
+        "bytes": 158658,
+        "expectedSha": "a192abf01933ee315f3e6597bedf9bdff5da60e1",
+        "match": true,
+        "path": "data/student5_v3/train/part-00027.jsonl"
+      },
+      {
+        "actualSha": "d64f351ab3203f7b64238a4a0cbc529aaa06b2b1",
+        "bytes": 157096,
+        "expectedSha": "d64f351ab3203f7b64238a4a0cbc529aaa06b2b1",
+        "match": true,
+        "path": "data/student5_v3/train/part-00028.jsonl"
+      },
+      {
+        "actualSha": "a65ae32628d172b7b4a9f3ac719c824b4f7e63c0",
+        "bytes": 151572,
+        "expectedSha": "a65ae32628d172b7b4a9f3ac719c824b4f7e63c0",
+        "match": true,
+        "path": "data/student5_v3/train/part-00029.jsonl"
+      },
+      {
+        "actualSha": "dd02b86027bfc11e0bb2fdd64c467f6322957f83",
+        "bytes": 225777,
+        "expectedSha": "dd02b86027bfc11e0bb2fdd64c467f6322957f83",
+        "match": true,
+        "path": "data/student5_v3/train/part-00030.jsonl"
+      },
+      {
+        "actualSha": "ddd2c1a9b8ed65f5f9b6570091bbce0ff45b5dbb",
+        "bytes": 227401,
+        "expectedSha": "ddd2c1a9b8ed65f5f9b6570091bbce0ff45b5dbb",
+        "match": true,
+        "path": "data/student5_v3/train/part-00031.jsonl"
+      },
+      {
+        "actualSha": "b5a0be3414e9c6ce503ca7d0c611c72af8ee3add",
+        "bytes": 226882,
+        "expectedSha": "b5a0be3414e9c6ce503ca7d0c611c72af8ee3add",
+        "match": true,
+        "path": "data/student5_v3/train/part-00032.jsonl"
+      },
+      {
+        "actualSha": "627f19d2697628be9c178a60a4f8d709ea13d2c3",
+        "bytes": 227029,
+        "expectedSha": "627f19d2697628be9c178a60a4f8d709ea13d2c3",
+        "match": true,
+        "path": "data/student5_v3/train/part-00033.jsonl"
+      },
+      {
+        "actualSha": "9ab2c6fd312675639da7877779c94e9b989d10b1",
+        "bytes": 212434,
+        "expectedSha": "9ab2c6fd312675639da7877779c94e9b989d10b1",
+        "match": true,
+        "path": "data/student5_v3/train/part-00034.jsonl"
+      },
+      {
+        "actualSha": "7f3a54f7144b5ef32475b0722993ca28879cee01",
+        "bytes": 167506,
+        "expectedSha": "7f3a54f7144b5ef32475b0722993ca28879cee01",
+        "match": true,
+        "path": "data/student5_v3/train/part-00035.jsonl"
+      },
+      {
+        "actualSha": "fb6703528a1db87dfec8b6bb582c474cbf6e66da",
+        "bytes": 158023,
+        "expectedSha": "fb6703528a1db87dfec8b6bb582c474cbf6e66da",
+        "match": true,
+        "path": "data/student5_v3/train/part-00036.jsonl"
+      },
+      {
+        "actualSha": "88fb87b0171c0d6659a96028f1d1a5b48a8abb82",
+        "bytes": 157160,
+        "expectedSha": "88fb87b0171c0d6659a96028f1d1a5b48a8abb82",
+        "match": true,
+        "path": "data/student5_v3/train/part-00037.jsonl"
+      },
+      {
+        "actualSha": "2e88782ce11187df42e7a68603ba2ec65f2ec437",
+        "bytes": 158314,
+        "expectedSha": "2e88782ce11187df42e7a68603ba2ec65f2ec437",
+        "match": true,
+        "path": "data/student5_v3/train/part-00038.jsonl"
+      },
+      {
+        "actualSha": "3bc6634a6ac25adf35c57c2e4f1de40115d55b72",
+        "bytes": 157688,
+        "expectedSha": "3bc6634a6ac25adf35c57c2e4f1de40115d55b72",
+        "match": true,
+        "path": "data/student5_v3/train/part-00039.jsonl"
+      },
+      {
+        "actualSha": "fd7469769a4c26307af728aeff77ba274073d96a",
+        "bytes": 157924,
+        "expectedSha": "fd7469769a4c26307af728aeff77ba274073d96a",
+        "match": true,
+        "path": "data/student5_v3/train/part-00040.jsonl"
+      },
+      {
+        "actualSha": "34c9409a32bcf336f1b9497b628d94daf29af5e2",
+        "bytes": 157527,
+        "expectedSha": "34c9409a32bcf336f1b9497b628d94daf29af5e2",
+        "match": true,
+        "path": "data/student5_v3/train/part-00041.jsonl"
+      },
+      {
+        "actualSha": "1bd0a03c0e191cfa3550ce98ac0ff3d8ac8dc593",
+        "bytes": 158389,
+        "expectedSha": "1bd0a03c0e191cfa3550ce98ac0ff3d8ac8dc593",
+        "match": true,
+        "path": "data/student5_v3/train/part-00042.jsonl"
+      },
+      {
+        "actualSha": "496539d76082cdf5a4aa6b30fe43f0aa0669c190",
+        "bytes": 158061,
+        "expectedSha": "496539d76082cdf5a4aa6b30fe43f0aa0669c190",
+        "match": true,
+        "path": "data/student5_v3/train/part-00043.jsonl"
+      },
+      {
+        "actualSha": "3ec17d4fd9bd5c37f33b7f1226d8831ea06785b0",
+        "bytes": 157231,
+        "expectedSha": "3ec17d4fd9bd5c37f33b7f1226d8831ea06785b0",
+        "match": true,
+        "path": "data/student5_v3/train/part-00044.jsonl"
+      },
+      {
+        "actualSha": "e9ab7c01a6c9cff37039f20e7f367e8977e38aa4",
+        "bytes": 157629,
+        "expectedSha": "e9ab7c01a6c9cff37039f20e7f367e8977e38aa4",
+        "match": true,
+        "path": "data/student5_v3/train/part-00045.jsonl"
+      },
+      {
+        "actualSha": "6f7c21cc3e2d8efb41126ae0b2af77e0b46cbaca",
+        "bytes": 158065,
+        "expectedSha": "6f7c21cc3e2d8efb41126ae0b2af77e0b46cbaca",
+        "match": true,
+        "path": "data/student5_v3/train/part-00046.jsonl"
+      },
+      {
+        "actualSha": "ec77e090efb02bb92812d4092602a0114aed03b8",
+        "bytes": 171133,
+        "expectedSha": "ec77e090efb02bb92812d4092602a0114aed03b8",
+        "match": true,
+        "path": "data/student5_v3/train/part-00047.jsonl"
+      },
+      {
+        "actualSha": "49261ea70f9c4770ffc19e5bf9f7cbbcb83881dd",
+        "bytes": 227284,
+        "expectedSha": "49261ea70f9c4770ffc19e5bf9f7cbbcb83881dd",
+        "match": true,
+        "path": "data/student5_v3/train/part-00048.jsonl"
+      },
+      {
+        "actualSha": "8f1eb654b3be005fca29732359380369c156b3c7",
+        "bytes": 226977,
+        "expectedSha": "8f1eb654b3be005fca29732359380369c156b3c7",
+        "match": true,
+        "path": "data/student5_v3/train/part-00049.jsonl"
+      },
+      {
+        "actualSha": "39c3b4246a12f3815a3b4e9c7b1f5c61d3019127",
+        "bytes": 227143,
+        "expectedSha": "39c3b4246a12f3815a3b4e9c7b1f5c61d3019127",
+        "match": true,
+        "path": "data/student5_v3/train/part-00050.jsonl"
+      },
+      {
+        "actualSha": "357d31fcdd2a4c05b499c47926708f23e27890e6",
+        "bytes": 226990,
+        "expectedSha": "357d31fcdd2a4c05b499c47926708f23e27890e6",
+        "match": true,
+        "path": "data/student5_v3/train/part-00051.jsonl"
+      },
+      {
+        "actualSha": "a233cbdb5ab9a4e3dbf77964de326928b38cf03c",
+        "bytes": 198331,
+        "expectedSha": "a233cbdb5ab9a4e3dbf77964de326928b38cf03c",
+        "match": true,
+        "path": "data/student5_v3/train/part-00052.jsonl"
+      },
+      {
+        "actualSha": "b26a4d9dc3a06930f8f4bb74b87ab381d54f60fc",
+        "bytes": 160211,
+        "expectedSha": "b26a4d9dc3a06930f8f4bb74b87ab381d54f60fc",
+        "match": true,
+        "path": "data/student5_v3/train/part-00053.jsonl"
+      },
+      {
+        "actualSha": "cefd196950b5177909700f217f287a982a113374",
+        "bytes": 158259,
+        "expectedSha": "cefd196950b5177909700f217f287a982a113374",
+        "match": true,
+        "path": "data/student5_v3/train/part-00054.jsonl"
+      },
+      {
+        "actualSha": "0d95813942ebe1f61c80050fc73e1be29ad255af",
+        "bytes": 154749,
+        "expectedSha": "0d95813942ebe1f61c80050fc73e1be29ad255af",
+        "match": true,
+        "path": "data/student5_v3/train/part-00055.jsonl"
+      },
+      {
+        "actualSha": "fbc9fcb4a39251ddb1cbb2863ada4c3a8f302f12",
+        "bytes": 149870,
+        "expectedSha": "fbc9fcb4a39251ddb1cbb2863ada4c3a8f302f12",
+        "match": true,
+        "path": "data/student5_v3/train/part-00056.jsonl"
+      },
+      {
+        "actualSha": "cdd4bfccf0d17f30a345f499fd45a8a200e8500d",
+        "bytes": 150100,
+        "expectedSha": "cdd4bfccf0d17f30a345f499fd45a8a200e8500d",
+        "match": true,
+        "path": "data/student5_v3/train/part-00057.jsonl"
+      },
+      {
+        "actualSha": "bdb3bbc3c12c517dc52b0110399912ddbeb1d7b0",
+        "bytes": 159155,
+        "expectedSha": "bdb3bbc3c12c517dc52b0110399912ddbeb1d7b0",
+        "match": true,
+        "path": "data/student5_v3/train/part-00058.jsonl"
+      },
+      {
+        "actualSha": "493b57160ecbeb051fbae66c9353c42468f8ecd4",
+        "bytes": 159946,
+        "expectedSha": "493b57160ecbeb051fbae66c9353c42468f8ecd4",
+        "match": true,
+        "path": "data/student5_v3/train/part-00059.jsonl"
+      },
+      {
+        "actualSha": "72b6afd1bdc6abcd8e23f34f3f72425e7dac2e39",
+        "bytes": 164058,
+        "expectedSha": "72b6afd1bdc6abcd8e23f34f3f72425e7dac2e39",
+        "match": true,
+        "path": "data/student5_v3/train/part-00060.jsonl"
+      },
+      {
+        "actualSha": "627d565265052b59cfc794a1e04e160a0111c141",
+        "bytes": 156615,
+        "expectedSha": "627d565265052b59cfc794a1e04e160a0111c141",
+        "match": true,
+        "path": "data/student5_v3/train/part-00061.jsonl"
+      },
+      {
+        "actualSha": "7da8eb0b463573b8e6e83e28376340b1fd9f3f6f",
+        "bytes": 160969,
+        "expectedSha": "7da8eb0b463573b8e6e83e28376340b1fd9f3f6f",
+        "match": true,
+        "path": "data/student5_v3/train/part-00062.jsonl"
+      },
+      {
+        "actualSha": "14155cb360bb019d3bfb83f5b6e717f9f2fbe912",
+        "bytes": 24223,
+        "expectedSha": "14155cb360bb019d3bfb83f5b6e717f9f2fbe912",
+        "match": true,
+        "path": "docs/MATRIX_NLU_CONTRACT_V3.md"
+      },
+      {
+        "actualSha": "988e2f34e82df5d733ac7ac62cecbbd8fcf80191",
+        "bytes": 7778,
+        "expectedSha": "988e2f34e82df5d733ac7ac62cecbbd8fcf80191",
+        "match": true,
+        "path": "matrix_nlu/contract_v3.py"
+      },
+      {
+        "actualSha": "6c6bdead6bb193cf49ef5b8b0646cadd2fd058dc",
+        "bytes": 5137,
+        "expectedSha": "6c6bdead6bb193cf49ef5b8b0646cadd2fd058dc",
+        "match": true,
+        "path": "matrix_nlu/referent_candidates.py"
+      },
+      {
+        "actualSha": "86e0e56f9fa702edd5f131ce7173e13a7e50ffae",
+        "bytes": 43465,
+        "expectedSha": "86e0e56f9fa702edd5f131ce7173e13a7e50ffae",
+        "match": true,
+        "path": "matrix_nlu/train_v3_migration.py"
+      },
+      {
+        "actualSha": "5e176ca7114f774faea17bf4c6b2d0c4eeb0254c",
+        "bytes": 6972,
+        "expectedSha": "5e176ca7114f774faea17bf4c6b2d0c4eeb0254c",
+        "match": true,
+        "path": "matrix_nlu/training_data_v3.py"
+      },
+      {
+        "actualSha": "70b96b943d2145b931e1560356d21765e8ea84b0",
+        "bytes": 9182,
+        "expectedSha": "70b96b943d2145b931e1560356d21765e8ea84b0",
+        "match": true,
+        "path": "reports/STUDENT_4_V21_POST_DEV_REPORT.md"
+      },
+      {
+        "actualSha": "b4267f0851cb5baf8923d642bd9eb3e5b52f8f9b",
+        "bytes": 7139,
+        "expectedSha": "b4267f0851cb5baf8923d642bd9eb3e5b52f8f9b",
+        "match": true,
+        "path": "reports/STUDENT_4_V21_STOP_REPORT.md"
+      },
+      {
+        "actualSha": "53109dfcbd52b7e7b3021e8b42dda8f90622747e",
+        "bytes": 8196,
+        "expectedSha": "53109dfcbd52b7e7b3021e8b42dda8f90622747e",
+        "match": true,
+        "path": "reports/STUDENT_4_V22A_CONTROLLED_REPAIR_REPORT.md"
+      },
+      {
+        "actualSha": "53288ce2de3d73898a563edf56628ff7e498b707",
+        "bytes": 3184,
+        "expectedSha": "53288ce2de3d73898a563edf56628ff7e498b707",
+        "match": true,
+        "path": "reports/STUDENT_4_V22A_REPAIR_PLAN.md"
+      },
+      {
+        "actualSha": "c22043dd83fa3fa112649a0e96f59f9b507e2805",
+        "bytes": 12302,
+        "expectedSha": "c22043dd83fa3fa112649a0e96f59f9b507e2805",
+        "match": true,
+        "path": "reports/STUDENT_5_TRAIN_V3_MIGRATION.md"
+      }
+    ]
+  },
+  "recoverySearch": {
+    "routes": [
+      "exact names CP39/student5/TRAIN_V2",
+      "alternate TRAIN v2 Repair/candidate-01",
+      "2026-09-07 exact CP39/logicalId/candidate-01"
+    ],
+    "matchingRecoverableCandidateFound": false,
+    "limitation": "Search results do not prove absence from every possible backup; no matching recoverable candidate was located. Unrelated result payloads not opened."
+  },
+  "blockers": [
+    {
+      "id": "R01_LOST_UNPUBLISHED_EVIDENCE",
+      "description": "Prior candidate, generation scripts and verification output unavailable; persistence required by canonical prompt was not achieved in the authorized branch."
+    },
+    {
+      "id": "R02_MANDATORY_REQUIREMENTS_NOT_VERIFIABLE",
+      "description": "Cannot verify row provenance, SHA256, counts, full D01-D07 or pedagogical/target-builder requirements without original candidate bytes. Recovery procedure step 7 requires STOP."
+    }
+  ],
+  "recoveryGuards": {
+    "trainingExecuted": false,
+    "canonicalDevRead": false,
+    "frozenDataRead": false,
+    "trainV1Modified": false,
+    "evaluatorModified": false,
+    "decoderModified": false,
+    "calibrationModified": false,
+    "quantizationExecuted": false,
+    "onnxExecuted": false,
+    "nextWorkStarted": false
+  },
+  "guardEvidenceLimits": "These booleans describe this recovery's executed actions. Historical local execution has no surviving exhaustive execution log; memory is not independent proof. Repository tracked files unchanged before recovery.",
+  "publicationAllowlist": [
+    "docs/WORK_CONTINUITY_STUDENT_5.md",
+    "reports/STUDENT_5_TRAIN_V2_REPAIR_RECOVERY_CP39.md",
+    "reports/evidence/student5-path-b-cp39-recovery/audit.json",
+    "reports/evidence/student5-path-b-cp39-recovery/starting-tree.json",
+    "reports/evidence/student5-path-b-cp39-recovery/SHA256SUMS"
+  ]
+}

@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP38_REPAIR_SPECIFICATION_BLOCKED_NEEDS_SUPERVISOR_DECISION / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
+Current state: `CP39_RECOVERY_BLOCKED_LOST_UNPUBLISHED_EVIDENCE / TRAIN_V2_NOT_VERIFIABLE / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -358,3 +358,34 @@ NEXT TASK READY for repair execution or training = false
 Exact next action: Supervisor GPT reviews the complete CP38 report and records semantic decisions plus owner-approved repair scope. ChatGPT Work stops and awaits a separate assignment. No implementation or later work is authorized by this specification. CP36 DEV identity/evaluator/calibration/error-analysis blockers remain open; broader training/candidate lock/export/quantization/runtime/final controlled Frozen work remains unexecuted as documented above, not a next action for this task.
 
 Persistent recovery: fetch CP38 report/evidence and this continuity through authenticated GitHub at the final introducing commit, verify SHA256SUMS and input identities. These text inputs were successfully acquired by that connector in CP38; scratch is not the canonical copy. Final tree/readback verification supports the handoff. Technical findings are addressed to Supervisor GPT; Alberto receives only plain status/impediment information.
+
+
+## Checkpoint 39 recovery — missing unpublished TRAIN v2 evidence; STOP
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+Verified starting HEAD: `ff6ee962bcc7629ace9bcd69263ddbf497376df8`.
+Assignment: Supervisor GPT RECOVERY / COMPLETION AUDIT ONLY of
+`prompts/WORK_STUDENT_5_PATH_B_V3_CREATE_REPAIRED_TRAIN_V2_ONLY.md`.
+Delivery HEAD: introducing commit of `reports/STUDENT_5_TRAIN_V2_REPAIR_RECOVERY_CP39.md`; exact SHA reported after remote verification.
+
+**TRAIN_V2_REPAIR = BLOCKED. NEXT TASK READY = false.**
+Full Supervisor report: `reports/STUDENT_5_TRAIN_V2_REPAIR_RECOVERY_CP39.md`.
+Persistent audit: `reports/evidence/student5-path-b-cp39-recovery/`, including starting tree, identity bridge, guards, checksums and limitations.
+
+D01–D07 were approved in the subsequent assignment commit ff6ee962; CP38's open-decision language is historical. No new approval is requested. The recovery does not change the decisions or lower gates.
+
+Verified current state: remote HEAD had not advanced beyond the assignment; no TRAIN v2 path or CP39 delivery in its complete tree, no branch Actions runs, no matching Release asset. The previous scratch checkout, candidate directories, generators and verification reports are unavailable after workspace maintenance. Searches found no recoverable matching backup. Local git status returns exit 128 (not a Git repository); do not describe that as a clean checkout.
+
+Session history describes local generation/verification awaiting publication, but none of those candidate bytes is currently verifiable. Historical numbers (NOT RECERTIFIED): final 1723 rows/2416 claims; SHA `01d0a249ea05febb83142ead6b730a914de67495e37dec4fa2faf6b1ccc0d813`; initial-candidate ZIP SHA `547957a5cf98db05a2f13a051e779398ecc5b46e3b570d89cf1d90f8e93f0128`. These are identification hints, not a recoverable artifact or PASS. Historical owner/subject coverage concern likewise remains unverified without candidate data.
+
+Fresh identity bridge: 140/140 baseline path identities match, including all 130 TRAIN v1 files. V1 `student5-matrix-nlu-v3-train-v1` remains at `data/student5_v3/`; canonical ordered SHA `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`, 3150 rows/3990 claims from unchanged canonical evidence. Raw TRAIN hashes were not recomputed in recovery. Contract fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0` unchanged.
+
+R01: persistence failed for previous unpublished candidate and audit.
+R02: mandatory CP38 D01–D07/provenance/validation/checksum requirements cannot be verified.
+Recovery procedure step 7 requires STOP. Only recovery report/evidence and continuity are produced now, no regenerated data.
+
+Recovery guards: trainingExecuted=false; canonicalDevRead=false; frozenDataRead=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; quantizationExecuted=false; onnxExecuted=false; nextWorkStarted=false. They describe this recovery, not a complete reconstructed historical process log. No model loaded, training, optimizer/backprop or workflow launched; no Frozen payload read. Full repository blob comparison protects all prior tracked artifacts except this intentionally appended continuity.
+
+Exact pending handoff: Supervisor reviews the loss report. To certify the old candidate, original candidate bytes, generator/config and per-row lineage/audit must be recovered; hashes above are hints only. If unavailable, a separately directed controlled reconstruction must label all regenerated output as new execution. No silent restart, guessed gold or training. Repository-backed inputs CP37/CP38 and immutable V1 are available via authenticated GitHub blob reads at starting HEAD; manifest locators and per-file hashes are in `data/student5_v3/migration-manifest.json` and `SHA256SUMS`. Pristine recovery remains CP35b; it is not needed for this audit. No candidate recovery route is currently verified.
+
+CP36's permitted DEV identity and evaluator/calibration/error-analysis blockers remain open and outside this recovery. All broader Path B work remains pending as previously recorded. Stop and await Supervisor GPT; send Alberto only plain status while addressing technical evidence to Supervisor.
