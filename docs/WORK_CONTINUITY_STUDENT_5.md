@@ -152,3 +152,30 @@ The supervisor must not start duplicate implementation, training or export while
 ## Immediate next action
 
 Deliver the existing assignment to Work on `student5-path-b-v3`, together with this continuity entry. Start at TASK 2.4, not TASK 2.3 and not direct training. The owner has already authorized continuation; Work must obey its gates, preserve versions persistently and report its actual execution identity and results. No action is requested from the owner to download model bundles or recreate source files.
+
+## Checkpoint 31 — Work pickup and Gate-A preservation preflight
+
+Date: 2026-09-07. Executor: Codex Work, current interactive execution (not an Actions run).
+Local execution label: `student5-path-b-v3-preflight-20260907-aca5968`.
+
+```text
+executionBranch = student5-path-b-v3
+HEAD_start = aca5968bc26f8d4d4ef22327f0d225b9685e1474
+activeTask = TASK_2_4_PHYSICAL_V3_BERT_ONNX
+activeOperation = GATE_A1_INPUT_AND_ENVIRONMENT_PREFLIGHT
+TASK_2_3 = ACCEPTED_NOT_REPEATED
+workStarted = true (repository/environment preflight only)
+physicalModelLoadStarted = false
+trainingStarted = false
+actionsRunsOnExecutionBranchObserved = 0
+```
+
+Read the complete current continuity and immutable CP01–29 archive, all ten mandatory package sources, and the adult/intimacy coverage policy. Inspected the actual `model_v3.py` adapter and `export_onnx_v3.py` structural export specification at the start commit. Repository tree metadata contains no AGENTS.md. No dataset partition was opened.
+
+The canonical release asset `545406840` remains present, uploaded, 88,361,246 bytes, with GitHub digest `sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191`. This is **remote metadata evidence, not an independent binary checksum verification**. Direct unauthenticated archive access from the local runtime returned HTTP 404. The configured GitHub fetch connector can read the private repository and release metadata but explicitly cannot download non-UTF-8 release binaries; its binary-download operation supports Actions artifacts, not Release assets. No credentials were extracted or repurposed.
+
+Local Python is 3.12.13. Module discovery found no torch, transformers, onnx, onnxruntime or sentencepiece. PyPI is reachable (HTTP 200), so missing packages alone are potentially installable and are not evidence of a network-wide denial. The named pristine archive/model was not located by filename search in the current workspace, /tmp or installed runtime tree. Older workspace directories were left untouched.
+
+Next operation: record the exact input-access/runner evidence and either proceed through a normally configured authenticated binary path, or preserve a Gate-A BLOCKED report if none is usable. Do not build from upstream, regenerate pristine, substitute Path A, use structural tests as physical evidence, or train around Gate A.
+
+Guards at this checkpoint: DEV unread/unused; Frozen unread; Student-4 unchanged; pristine unchanged; Path A unchanged; TRAIN v1 unchanged; no model forward/optimizer/backprop/training/quantization; no other repository modified. Mandatory remaining work is still the complete Gate-A A1–A4 sequence, then readiness and Gates B–E described above.
