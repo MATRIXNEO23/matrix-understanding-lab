@@ -417,3 +417,22 @@ Guards for this assignment:
 trainingExecuted=false; canonicalDevRead=false; frozenDataRead=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; quantizationExecuted=false; onnxExecuted=false; trainV2Recreated=false; nextWorkStarted=false.
 
 Next action: STOP and await Supervisor GPT. This search grants no reconstruction or training authority. Any future controlled reconstruction must be a separately assigned new execution with persistent checkpoints; never label regeneration as recovery of original bytes. Approved D01–D07 and original V1/CP37/CP38 inputs remain available at the locators preserved above. CP36 DEV/evaluation blockers remain separate and untouched. No additional task is active.
+
+
+## Checkpoint 39c — targeted Actions/cache recovery; STOP
+
+Date: 2026-09-07. Branch: student5-path-b-v3. Starting HEAD: c968992340363ba3472bbe0733958526e3e7f417.
+Final HEAD: introducing commit of reports/STUDENT_5_TRAIN_V2_ACTIONS_RECOVERY_CP39C.md, exact SHA supplied after publication/readback.
+
+ACTIONS_RECOVERY = NOT_FOUND, limited to queried Actions surfaces. No original candidate or complete original sources recovered; TRAIN_V2_REPAIR remains BLOCKED.
+
+The CP39b cache inventory gap is closed through direct read-only REST: 576 unique caches over six pages, 624 artifacts over seven pages, 302 runs over four pages, 11 workflows; all HTTP 200 with exhausted pagination. Connector cache/global-artifact/workflow URLs still return a tool-level 400 restriction, but direct HTTPS is available. All records predate ff6ee962's original assignment at 2026-09-07T09:03:19Z. Latest cache creation/access 06:32:37.168032Z; latest artifact update 06:32:27Z; latest run update 06:32:40Z. Response Date headers are preserved in evidence, reporting the 12:26–12:27 GMT snapshot. No statement about later changes is inferred.
+
+Current-branch cache, student5 key, assignment-SHA and post-assignment run queries each return zero. Both historical rerun first attempts were directly looked up; all 10 workflow IDs occurring in runs are covered by the 11-workflow list. No candidate-specific run/artifact/cache ID survives; none is invented. No cache is asserted expired/deleted; no candidate bytes certified. Dependency/model cache payloads were not opened because their timestamps and documented paths exclude the original generated candidate. No relevant cache remains simply “non-enumerable.”
+
+Report: reports/STUDENT_5_TRAIN_V2_ACTIONS_RECOVERY_CP39C.md.
+Evidence: reports/evidence/student5-path-b-cp39c-actions-recovery/inventory.json and SHA256SUMS. Only report/evidence/continuity changed; prior checkpoints preserved. No TRAIN v1, evaluator, decoder, calibration, workflow, Student-4, Path A or pristine modification.
+
+trainingExecuted=false; canonicalDevRead=false; frozenDataRead=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; quantizationExecuted=false; onnxExecuted=false; trainV2Recreated=false; nextWorkStarted=false.
+
+STOP and await Supervisor GPT. No recreation or training authorized. Prior candidate identity hints and CP38 D01–D07 remain historical inputs, not recovery. CP36 DEV/evaluation blockers and all broader Path B work remain pending and untouched. Other non-Actions CP39b access limitations (pruned storage, remote unreachable Git objects, host backups) are unchanged and outside this targeted assignment.
