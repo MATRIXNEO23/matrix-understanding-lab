@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `A2_A3_PHYSICAL_PASS / A4_PUBLICATION_IN_PROGRESS`
+Current state: `A4_PASS / A4_ONLY_ASSIGNMENT_FINISHED / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -74,7 +74,7 @@ After acquisition Work must fail closed unless archive bytes/SHA, ZIP integrity,
 
 The downloaded copy is execution-only. The existing pristine Release remains the immutable canonical source and must not be replaced.
 
-## Exact restart sequence
+## Historical CP33 restart sequence — superseded by A4-only assignment below
 
 ```text
 1. Work reads PROJECT_WORK_RULES.md, persistence policy, this continuity + both archives, original completion package, CP32 evidence, and CP32 resume prompt.
@@ -102,7 +102,7 @@ DO NOT use Frozen for tuning
 DO NOT integrate into Assembling in this workstream
 ```
 
-## Supervisor state
+## Historical supervisor state before A4-only assignment
 
 This chat prepares and audits. Work executes the substantive model/runtime/training work. No duplicate training/export is launched here.
 
@@ -164,3 +164,38 @@ Evidence: `reports/evidence/student5-path-b-cp35/report.json`, `artifact-manifes
 Pending A4: upload NEW private prerelease `student5-path-b-v3-untrained-gate-a-cp35-20260907`, archive 176837978 bytes, SHA256 dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71; perform fresh binary recovery/checksum/load, record release/asset IDs and registry entry. Local package `/workspace/scratch/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip`; local copy alone does not close A4.
 
 Then automatically examine Gate B permitted V3 DEV identity/evaluation contract, TRAIN coverage and acceptance criteria before any training. Remaining: frozen-backbone/head training, DEV/error analysis and TRAIN-only new versions, evidence-backed capacity escalation, taught FP32 lock/persistence, taught ONNX, protected quantization/parity/runtime, final one-shot Frozen only after lock, final handoff. STOP on genuine package blockers; do not invent V2/V3 gate equivalence. No promotion or Assembling integration.
+
+## Checkpoint 35b — A4-only durable publication PASS; return to Supervisor GPT
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`. Assignment/start HEAD and release-tag commit: `4c101cac96eab925b600012d989988449d3f09b7`. This evidence commit is its direct child; resolve branch HEAD for the exact handoff commit. Issuer/reviewer: Supervisor GPT; executor: ChatGPT Work. Scope: `prompts/WORK_STUDENT_5_PATH_B_V3_RESUME_CP35A_A4_ONLY.md`. This assignment supersedes all historical automatic-continuation instructions above. Assignment ends at A4; no later work started or authorized by this checkpoint.
+
+The retained local archive existed and matched CP35a exactly before upload. The browser's filechooser waiter timed out when used with the initial locator flow; the supported synchronized filechooser wait plus visible upload-control click succeeded. Exactly one asset was supplied and published as a new prerelease. No existing release/tag/asset was replaced.
+
+```text
+A4 = PASS
+artifactId / releaseTag = student5-path-b-v3-untrained-gate-a-cp35-20260907
+releaseId = 383886129
+assetId = 548329150
+assetName = student5-path-b-v3-untrained-gate-a-cp35-20260907.zip
+bytes = 176837978
+SHA-256 = dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71
+source model/export commit = aa3ab11fffdd4e25305fdfe949726358e0514fce
+source evidence commit = e95571b7df4ff2ff56cf52d0603f1bb5d43f0250
+fresh readback = PASS at 2026-09-07T07:03:10.041152+00:00
+ZIP integrity = PASS
+internal SHA256SUMS = 17/17 PASS
+manifest/base lineage = PASS
+status = UNTRAINED_GATE_A_RUNTIME_PROBE_ONLY / NOT_PRODUCTION_APPROVED
+```
+
+Primary persistent locator: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-path-b-v3-untrained-gate-a-cp35-20260907
+
+Binary acquisition URL: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-path-b-v3-untrained-gate-a-cp35-20260907/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip
+
+Working recovery route: public HTTPS GET (Python urllib.request.urlopen, no credentials) into a fresh output file, then independently verify bytes/SHA, ZIP integrity, internal SHA256SUMS and manifest lineage. The recovered file is distinct from the original upload archive. Browser upload uses `/home/oai/share/<archive name>` synchronized from `/workspace/scratch/<archive name>`; public recovery does not depend on that browser login. Last recovery proof: CP35b. Reproduction source is pinned above, but reproduction is not needed for this stored original binary.
+
+Evidence: `reports/evidence/student5-path-b-cp35b-a4/publication.json`, `recovery.json`, `SHA256SUMS`; registry: `docs/STUDENT_ARTIFACT_REGISTRY.md`. CP35a files remain byte-for-byte unchanged, including their historical A4_PENDING status. This CP35b publication manifest records the new A4 result separately.
+
+A1/A2/A3 and TASK 2.3 were not repeated. No model execution, training, optimizer, backprop, DEV, Frozen, quantization, Assembling work or promotion was performed during A4. Pristine, Path A, Student-4, TRAIN V3 v1 and prior Path-B files remain unchanged.
+
+Exact disposition: report A4 PASS and evidence to Supervisor GPT; await review. This executor does not anticipate or start another assignment.
