@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP42_TRAIN_V2_BUILT_AUDIT_FAIL / DELIVERY_COMPLETION / SUPERVISOR_GPT_REVIEW`
+Current state: `CP42_TRAIN_V2_BUILT_AUDIT_FAIL / DELIVERY_VERIFIED / STOP_SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -497,4 +497,6 @@ TRAIN v1 remains unchanged; model/evaluator/decoder/calibration untouched. Stati
 
 trainingExecuted=false; fineTuningExecuted=false; quantizationExecuted=false; onnxExecuted=false; student5PristineModified=false; trainV1Modified=false; postAuditCorrectionsExecuted=false; devUsedForTraining=false; frozenDataRead=false; nextWorkStarted=false.
 
-STOP after publication, readback, verification and final handoff. Supervisor reviews the unchanged FAIL candidate; no autonomous repairs, v2.1, model preparation or training. No active job remains.
+Publication/readback completed: data commit ee64a483bc3a1477b005b16c8fdd7af7d2665e72. All 19 published files were freshly downloaded via direct GitHub REST Git Blob JSON/base64 API and compared byte-for-byte, with 18/18 SHA256SUMS matches. Decompressed ordered dataset SHA, 3267 observations / 4101 claims, all six post-audit candidate hashes and the intentionally retained wrong negation span match. All 130 v1 Git blobs unchanged. Exact evidence: reports/evidence/student5-train-v2-audit-cp42/remote-readback.json; blob locators in delivery-entries.json. The receipt is scoped to the data commit; the final receipt/checksum/continuity commit is returned after its own remote verification. Text-only connector binary decoding failed; direct REST readback succeeded, so there is no unresolved binary-access blocker for this delivery. No candidate or existing audit content changed during delivery.
+
+STOP. Supervisor reviews the unchanged FAIL candidate; no autonomous repairs, v2.1, model preparation or training. No active job remains.
