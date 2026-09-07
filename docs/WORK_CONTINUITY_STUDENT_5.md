@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `A1_VERIFIED / A2_RUNTIME_PREPARATION_IN_PROGRESS`
+Current state: `A2_A3_PHYSICAL_PASS / A4_PUBLICATION_IN_PROGRESS`
 
 ## Preserved history
 
@@ -151,3 +151,16 @@ Recovery map: `reports/evidence/student5-path-b-cp34/recovery.json`. Canonical d
 Isolated runtime installation is in progress, using the repository's physical-probe pins (Torch 2.4.1+cpu, Transformers 4.44.2, ONNX 1.16.2, ORT 1.19.2; NumPy 1.26.4). No model operation has started.
 
 Exact remaining work: finish pinned runtime; A2 real pristine BERT/tokenizer and existing V3 adapter forward; A3 export via existing V3 contract, checker/runtime load/forward, all 17 tensors, masks/dynamic axes/fingerprint/numerical parity; A4 new immutable retained output and registry/checksum/readback. On Gate-A PASS, identify permitted V3 DEV and gate/evaluator compatibility before training, then the original Gate B–E sequence. All CP33 guards and previously recorded coverage gaps remain open. No Assembling integration or promotion.
+
+## Checkpoint 35a — physical Gate A executed; durable publication in progress
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`; executed source HEAD: `aa3ab11fffdd4e25305fdfe949726358e0514fce` (parent of this evidence commit).
+Real pristine BERT/tokenizer load, V3 16 conceptual heads / 17 tensors, forward, ONNX opset 17 checker/load/forward and fingerprint guard PASS. Four batches / seven safe authored IT/EN/ES probes cover batch 1/2/3, sequence 7/9/16, candidates 2/4/7/16 and anchors 1/2/3/5. Masked slots PASS; all output argmax agree; maximum absolute delta 3.129243850708008e-07 (atol=rtol=1e-4). Model: 37,171,640 parameters including 172,088 new head parameters.
+
+No optimizer/backprop/training, DEV or Frozen. Candidate embeddings use real token hidden states only to exercise mechanics; no learned semantic-quality claim. TracerWarning on fixed hidden dimension 384 is recorded; tested dynamic dimensions pass. TASK 2.3 not repeated; prior artifacts unchanged.
+
+Evidence: `reports/evidence/student5-path-b-cp35/report.json`, `artifact-manifest.json`, `artifact-SHA256SUMS`.
+
+Pending A4: upload NEW private prerelease `student5-path-b-v3-untrained-gate-a-cp35-20260907`, archive 176837978 bytes, SHA256 dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71; perform fresh binary recovery/checksum/load, record release/asset IDs and registry entry. Local package `/workspace/scratch/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip`; local copy alone does not close A4.
+
+Then automatically examine Gate B permitted V3 DEV identity/evaluation contract, TRAIN coverage and acceptance criteria before any training. Remaining: frozen-backbone/head training, DEV/error analysis and TRAIN-only new versions, evidence-backed capacity escalation, taught FP32 lock/persistence, taught ONNX, protected quantization/parity/runtime, final one-shot Frozen only after lock, final handoff. STOP on genuine package blockers; do not invent V2/V3 gate equivalence. No promotion or Assembling integration.

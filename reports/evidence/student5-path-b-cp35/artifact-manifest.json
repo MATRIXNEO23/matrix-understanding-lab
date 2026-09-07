@@ -1,0 +1,12 @@
+{
+  "artifactId": "student5-path-b-v3-untrained-gate-a-cp35-20260907",
+  "status": "UNTRAINED_RUNTIME_PROBE_ONLY / NOT_PRODUCTION_APPROVED",
+  "sourceCommit": "aa3ab11fffdd4e25305fdfe949726358e0514fce",
+  "baseReleaseId": 383143636,
+  "baseAssetId": 545406840,
+  "baseModelSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+  "trainingExecuted": false,
+  "frozenRead": false,
+  "candidateEmbeddingPolicy": "Real encoder token hidden vectors used only for structural runtime probe; not learned mention/role quality evidence",
+  "recovery": "Load pristine config/tokenizer, construct build_model_v3, then safetensors.torch.load_file and strict model.load_state_dict. ONNX consumes six canonical inputs including external candidate/anchor embeddings."
+}
