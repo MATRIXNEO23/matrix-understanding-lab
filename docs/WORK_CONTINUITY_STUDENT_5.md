@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `GATE_A_ACCEPTED / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
+Current state: `CP37_TRAIN_CURRICULUM_REPAIR_REQUIRED / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -252,3 +252,57 @@ Remaining within readiness: Supervisor must disposition missing V3 DEV identity 
 Broader Path B remains unexecuted after accepted Gate A: training/DEV cycles, any authorized TRAIN-only new versions or capacity changes, taught FP32 lock/persistence, taught export/quantization/parity/runtime, final Frozen handling under its lock policy, and final handoff. Listing them preserves continuity and is not execution or authorization for this assignment.
 
 Exact disposition: readiness audit delivered to Supervisor GPT with BLOCKED; stop and await the next assignment. Do not restart Gate A or start training from this checkpoint.
+
+## Checkpoint 37 — TRAIN curriculum audit; REPAIR_REQUIRED_BEFORE_TRAINING
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+Starting HEAD: `39ca73b9a461e4435fdf1f5e5f8172c7d303dc16`.
+Assignment: `prompts/WORK_STUDENT_5_PATH_B_V3_TRAIN_CURRICULUM_AUDIT_ONLY.md`.
+Issuer/reviewer: Supervisor GPT; executor: ChatGPT Work.
+Final delivery HEAD: direct child introducing `reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md`; resolve `git log -1 --format=%H -- reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md`. The handoff links the exact commit after remote verification.
+
+**TRAIN_CURRICULUM = REPAIR_REQUIRED_BEFORE_TRAINING**
+
+Report for Supervisor GPT: `reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md`.
+Machine census, semantic review, scripts, input identities and checksums:
+`reports/evidence/student5-path-b-cp37-train-audit/`.
+This bounded audit ends here. It supersedes historical automatic-continuation instructions; no remediation, Gate B repair or training is authorized by this checkpoint.
+
+The immutable TRAIN remains `student5-matrix-nlu-v3-train-v1`, path `data/student5_v3/`, 3,150 observations / 3,990 claims, ordered SHA-256 `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`, contract fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0`. Source hashes and acquisition locators remain those preserved at CP36 and in the registry; no new model artifact was created.
+
+Confirmed coverage/pedagogy:
+- COMMAND/BELIEF zero; PAST 14 (IT 12, EN 1, ES 1); five advanced temporal relations zero; all 2,622 supervised anchor targets speech-time.
+- Owner equals subject 3,990/3,990; perspective always speaker; eight IT-only negative-goal reports, all source=subject at claim start. Zero role UNKNOWN/AMBIGUOUS and no multi-context-entity choice.
+- REQUEST 27 (IT 19/EN 4/ES 4), CORRECT 10 (4/3/3); 189 abstained claims do exist, driven solely by polarity UNKNOWN (183 questions/six requests).
+- Negation cues 463 claims, all NEGATIVE; 232 negative claims have no cue (not inherently erroneous); temporal evidence positive in 389 claims. Token lexical all-O rates are high; these counts are audit-tokenizer diagnostics, not BERT tokens or model results.
+- 1,561 excess duplicate observation instances; 2,878 excess normalized claim instances. Zero exact same-input/context gold conflicts under the stated comparison; near-duplicate/template screens are concentration proxies, not a claim that every pair is harmful.
+- Adult desire assertions 15 IT-only, requests separately 15 IT-only; refusal 61 separate from one IT withdrawal. Eleven declared code-switch examples all teach speech.unresolved despite explicit desire wording.
+- Six bounded confirmed missing explicit temporal spans; 23 future-worded goal/CURRENT cases need time-target adjudication; report-perspective and six opinion-wrapper cases need semantic adjudication; 628 explicit-English-I instances omit subject spans, distinct from the 404 IT/ES bounded implicit-first-person cases that comply; six malformed double-participant request instances. Details, false-positive handling and source row IDs are preserved.
+
+Student-4 comparison uses persisted reports only:
+`reports/STUDENT_4_V21_POST_DEV_REPORT.md`,
+`reports/STUDENT_4_V22A_CONTROLLED_REPAIR_REPORT.md`,
+`reports/STUDENT_4_V21_STOP_REPORT.md`,
+`reports/STUDENT_4_V22A_REPAIR_PLAN.md`.
+Measured historical regressions and byte-identical V2/repair source lineage are DIRECTLY_SUPPORTED. Possible recurrence in negation, temporal, referent/report, correction/request, ownership/span and IT/ES performance is PLAUSIBLE_RISK. Curriculum causation and damage to Student-5 pristine are NOT_ESTABLISHED. Student-4 has no comparable independent V3 source head. No historical pipeline-import failure was mislabeled a model-quality failure.
+
+Minimal categories submitted for Supervisor disposition only: adjudicate annotation inconsistencies; provide required missing semantic/role/uncertainty coverage; balance temporal/spans/negation contrasts across languages; separate adult consent/refusal/withdrawal/desire/request/arousal and broader code-switch; address redundancy without discarding meaningful contrasts. No quotas, loss, sampler, architecture or unfreezing strategy was introduced. No replacement gold or new dataset was created.
+
+```text
+TRAIN read = true (authorized immutable input only)
+TRAIN modified = false
+DEV read / created / modified = false
+Frozen read / modified = false
+model weights modified = false
+training / optimizer / backprop / fine-tuning = NOT_EXECUTED
+augmentation / remediation = NOT_EXECUTED
+evaluator / decoder / threshold repair = NOT_EXECUTED
+Gate A / TASK 2.3 repeated = false
+Student-4 / pristine / Path A / CP36 / prior artifacts = UNCHANGED
+quantization / Assembling / promotion = NOT_EXECUTED
+background work / launched workflows = none
+```
+
+CP36 GATE_B_READINESS remains BLOCKED by missing permitted V3 DEV identity and incomplete V3 evaluation/calibration/error-analysis path. This assignment did not investigate or repair those payloads/pipelines. Broader pending training, candidate lock/export/quantization/runtime and final authorized Frozen policy remain exactly as preserved in CP36, outside this task.
+
+Exact next disposition: return this audit to Supervisor GPT, stop and await the next assignment. Technical details are directed to Supervisor GPT; Alberto requested only plain progress/impediment updates.

@@ -1,0 +1,2543 @@
+{
+  "scope": "READ_ONLY_TRAIN_SEMANTIC_REVIEW",
+  "definitions": {
+    "codeSwitchUnresolved": "Observed label correlation; clear desire wording conflicts with vocabulary-neutral ontology coverage. No replacement gold authored.",
+    "reportedPerspective": "Eight report labels compared to V3 viewpoint definition and normative Anna-said example; legacy speaker perspective requires semantic adjudication.",
+    "futureWordingCurrentRelation": "Temporal target ambiguity: time of wanting versus time of desired action. Screen establishes heterogeneous supervision, not a unique corrected label.",
+    "malformedDoubleConTeConMe": "Exact duplicated participant phrase; six row instances/four unique surfaces, reviewed as template quality issue.",
+    "explicitFirstPersonMissingSubject": "English explicit I at claim start, no subject span; distinct from correctly empty implicit first-person subjects.",
+    "implicitFirstPersonBoundedScreen": "Limited IT/ES first-person lexical prefixes; descriptive annotation consistency check, not a universal grammatical parser.",
+    "opinionWrapperReview": "Overt consider/considero wrapper with DIRECT; reviewer decision needed under BELIEF definition."
+  },
+  "groups": {
+    "codeSwitchUnresolved": {
+      "count": 11,
+      "uniqueSurfaces": 11,
+      "byLanguage": {
+        "code-switch": 11
+      },
+      "examples": [
+        {
+          "rowId": "mx-v22a-adult-it-049",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio sex con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-050",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio kiss con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-051",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio dirty talk con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-052",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio roleplay con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-053",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio petting con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-054",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio strip con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-055",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio hot chat con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-056",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio blowjob con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-057",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio handjob con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-058",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio flirt con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-059",
+          "claimId": "c0",
+          "language": "code-switch",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio teasing con te",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "speech.unresolved",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "ctx:observer",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        }
+      ]
+    },
+    "reportedPerspective": {
+      "count": 8,
+      "uniqueSurfaces": 8,
+      "byLanguage": {
+        "it": 8
+      },
+      "examples": [
+        {
+          "rowId": "mx-v22a-it-core-113",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Giulia dice che non vuole venire a casa",
+          "labels": {
+            "claimKind": "REPORT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "mention:m0",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [
+            "Giulia"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-115",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Sara dice che non vuole andare al bar",
+          "labels": {
+            "claimKind": "REPORT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "mention:m0",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [
+            "Sara"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-117",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Elena dice che non vuole parlare con Giulia",
+          "labels": {
+            "claimKind": "REPORT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "mention:m0",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [
+            "Elena"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-119",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Paolo dice che non vuole venire a casa",
+          "labels": {
+            "claimKind": "REPORT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "mention:m0",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [
+            "Paolo"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-121",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Giulia dice che non vuole andare al bar",
+          "labels": {
+            "claimKind": "REPORT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "mention:m0",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [
+            "Giulia"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-123",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Sara dice che non vuole parlare con Giulia",
+          "labels": {
+            "claimKind": "REPORT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "mention:m0",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [
+            "Sara"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-125",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Elena dice che non vuole venire a casa",
+          "labels": {
+            "claimKind": "REPORT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "mention:m0",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [
+            "Elena"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-127",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Paolo dice che non vuole andare al bar",
+          "labels": {
+            "claimKind": "REPORT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "mention:m0",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [
+            "Paolo"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        }
+      ]
+    },
+    "futureWordingCurrentRelation": {
+      "count": 23,
+      "uniqueSurfaces": 15,
+      "byLanguage": {
+        "en": 8,
+        "it": 15
+      },
+      "examples": [
+        {
+          "rowId": "mx-v22a-en-core-002",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "I want to talk to Giulia later",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "later"
+          ],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-en-core-007",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "I want to see Luna later",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "later"
+          ],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-en-core-012",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "I want to go to the bar later",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "later"
+          ],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-en-core-017",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "I want to meet Marco later",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "later"
+          ],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-en-core-022",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "I want to come home later",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "later"
+          ],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-en-core-027",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "I want to stay here later",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "later"
+          ],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-en-core-032",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "I want to talk to Giulia later",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "later"
+          ],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-en-core-037",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "I want to see Luna later",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "later"
+          ],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-it-core-003",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Sara non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Sara"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-009",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Giulia non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Giulia"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-015",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Paolo non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Paolo"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-021",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Elena non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Elena"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-027",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Sara non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Sara"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-033",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Giulia non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Giulia"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-039",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Paolo non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Paolo"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-045",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Elena non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Elena"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-051",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Sara non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Sara"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-057",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Giulia non vuole parlare con Giulia domani",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "mention:m0",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "mention:m0",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [
+            "domani"
+          ],
+          "subjectSpans": [
+            "Giulia"
+          ],
+          "negationCues": [
+            "non"
+          ]
+        },
+        {
+          "rowId": "mx-v22a-it-core-067",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio andare al bar più tardi",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-it-core-072",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio uscire con Marco più tardi",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-it-core-077",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio venire a casa più tardi",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-it-core-082",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio restare qui più tardi",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-it-core-087",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Voglio parlare con Giulia più tardi",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        }
+      ]
+    },
+    "malformedDoubleConTeConMe": {
+      "count": 6,
+      "uniqueSurfaces": 4,
+      "byLanguage": {
+        "it": 6
+      },
+      "examples": [
+        {
+          "rowId": "mx-v22a-adult-it-016",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Puoi fare sesso con te con me?",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "REQUEST",
+            "ownerReferent": "ctx:observer",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:observer",
+            "targetReferent": "ctx:speaker",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-017",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Puoi spogliarmi con te con me?",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "REQUEST",
+            "ownerReferent": "ctx:observer",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:observer",
+            "targetReferent": "ctx:speaker",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-018",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Puoi stare nudo con te con me?",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "REQUEST",
+            "ownerReferent": "ctx:observer",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:observer",
+            "targetReferent": "ctx:speaker",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-024",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Puoi dormire nudo con te con me?",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "REQUEST",
+            "ownerReferent": "ctx:observer",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:observer",
+            "targetReferent": "ctx:speaker",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-028",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Puoi fare sesso con te con me?",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "REQUEST",
+            "ownerReferent": "ctx:observer",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:observer",
+            "targetReferent": "ctx:speaker",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v22a-adult-it-029",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "v22a-repair-train",
+          "text": "Puoi spogliarmi con te con me?",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "REQUEST",
+            "ownerReferent": "ctx:observer",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:observer",
+            "targetReferent": "ctx:speaker",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        }
+      ]
+    },
+    "explicitFirstPersonMissingSubject": {
+      "count": 628,
+      "uniqueSurfaces": 185,
+      "byLanguage": {
+        "en": 628
+      },
+      "examples": [
+        {
+          "rowId": "mx-train-en-00003",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I love jazz",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00010",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I have lived for 30 years",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00011",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I reside near New York",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "residence.place",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00012",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I adore crowded venues",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00013",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I hate rain",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00019",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I turn 39",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00021",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I greatly appreciate rain",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00024",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I intend to travel to San Vendemiano",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "FUTURE"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00027",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I introduce myself as Helen",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.name",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00028",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I am a 48-year-old person",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00033",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I expect to visit Rome",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "FUTURE"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00038",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I am resident in La Spezia",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "residence.place",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00039",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I have a preference for jazz",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00040",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I prefer to avoid crowded venues",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00048",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I love crowded venues",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00055",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I have lived for 75 years",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00056",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I reside near San Vendemiano",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "residence.place",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00057",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I adore rain",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00058",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I hate blue",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-en-00064",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I turn 27",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        }
+      ]
+    },
+    "implicitFirstPersonBoundedScreen": {
+      "count": 404,
+      "uniqueSurfaces": 136,
+      "byLanguage": {
+        "es": 188,
+        "it": 216
+      },
+      "examples": [
+        {
+          "rowId": "mx-train-es-00024",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo intención de ir a San Vendemiano",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "FUTURE"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00028",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy una persona de 48 años",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00038",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy residente en La Spezia",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "residence.place",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00039",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo preferencia por el jazz",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00069",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo intención de ir a Roma",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "FUTURE"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00073",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy una persona de 36 años",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00083",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy residente en Nueva York",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "residence.place",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00084",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo preferencia por los locales llenos",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00114",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo intención de ir a La Spezia",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "FUTURE"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00118",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy una persona de 24 años",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00128",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy residente en San Vendemiano",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "residence.place",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00129",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo preferencia por la lluvia",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00159",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo intención de ir a Nueva York",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "FUTURE"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00163",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy una persona de 69 años",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00173",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy residente en Roma",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "residence.place",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00174",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo preferencia por el azul",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00204",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo intención de ir a San Vendemiano",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "goal.object",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "FUTURE"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00208",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy una persona de 57 años",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "identity.age",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00218",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "soy residente en La Spezia",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "residence.place",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-train-es-00219",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "tengo preferencia por el jazz",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        }
+      ]
+    },
+    "opinionWrapperReview": {
+      "count": 6,
+      "uniqueSurfaces": 6,
+      "byLanguage": {
+        "en": 2,
+        "es": 2,
+        "it": 2
+      },
+      "examples": [
+        {
+          "rowId": "mx-v2-train-en-attribute-00",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I consider myself a patient person",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "attribute.is",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v2-train-en-generalization-negative_preference-005",
+          "claimId": "c0",
+          "language": "en",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "I consider constant noise unbearable",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v2-train-es-attribute-00",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "me considero una persona paciente",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "attribute.is",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v2-train-es-generalization-negative_preference-000",
+          "claimId": "c0",
+          "language": "es",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "considero muy desagradable el ruido",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v2-train-it-attribute-00",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "mi considero una persona paziente",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "POSITIVE",
+            "predicate": "attribute.is",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": "speech-time",
+              "relation": "CURRENT"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        },
+        {
+          "rowId": "mx-v2-train-it-generalization-negative_preference-005",
+          "claimId": "c0",
+          "language": "it",
+          "sourceDatasetId": "matrix-v2-train",
+          "text": "considero insopportabile il disordine",
+          "labels": {
+            "claimKind": "DIRECT",
+            "dialogueAct": "ASSERT",
+            "ownerReferent": "ctx:speaker",
+            "perspectiveReferent": "ctx:speaker",
+            "polarity": "NEGATIVE",
+            "predicate": "preference.like",
+            "sourceReferent": "ctx:speaker",
+            "subjectReferent": "ctx:speaker",
+            "targetReferent": "NONE",
+            "temporalRelation": {
+              "anchorRef": null,
+              "relation": "ATEMPORAL"
+            }
+          },
+          "temporalEvidence": [],
+          "subjectSpans": [],
+          "negationCues": []
+        }
+      ]
+    }
+  },
+  "implicitScreenNonSpeakerOrNonemptySubject": 0,
+  "devRead": false,
+  "frozenRead": false,
+  "goldCreatedOrChanged": false
+}
