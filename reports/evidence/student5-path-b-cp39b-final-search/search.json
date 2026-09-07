@@ -1,0 +1,239 @@
+{
+  "schema": "student5.original-train-v2.final-recovery-search.v1",
+  "date": "2026-09-07",
+  "repository": "MATRIXNEO23/matrix-understanding-lab",
+  "branch": "student5-path-b-v3",
+  "startingHead": "663eecad745ab0f278e411f95b21da550ed6ed1a",
+  "verdict": "ORIGINAL_TRAIN_V2_RECOVERY = NOT_FOUND",
+  "meaning": "No original candidate or exact reconstructable source was found in the accessible pertinent surfaces checked; this is not a claim of nonexistence in inaccessible storage.",
+  "candidate": {
+    "logicalId": "student5-matrix-nlu-v3-train-v2",
+    "expectedDirectory": "data/student5_v3_train_v2/",
+    "payloadRecovered": false,
+    "originalGeneratorRecovered": false,
+    "certifiedRows": null,
+    "certifiedClaims": null,
+    "certifiedSha256": null
+  },
+  "historicalHints": {
+    "notReverified": true,
+    "rows": 1723,
+    "claims": 2416,
+    "logicalSha256": "01d0a249ea05febb83142ead6b730a914de67495e37dec4fa2faf6b1ccc0d813",
+    "firstCandidateZipBytes": 995905,
+    "firstCandidateZipSha256": "547957a5cf98db05a2f13a051e779398ecc5b46e3b570d89cf1d90f8e93f0128",
+    "initialLogicalSha256": "cad7b3fd078adcfec558375b267749258578a98f5e2170a1e9e42e9350f56bfd",
+    "priorDelivery": "/workspace/scratch/0a50431faa34/cp39-delivery",
+    "originalScriptNames": [
+      "student5_train_v2_authored.py",
+      "student5_train_v2_repair.py",
+      "audit_student5_train_v2.py",
+      "cp39_finish_report.py"
+    ]
+  },
+  "git": {
+    "refs": [
+      {
+        "ref": "refs/heads/main",
+        "sha": "9493e97cbdf5e731ee161b24d91b511076decb19"
+      },
+      {
+        "ref": "refs/heads/student5-path-b-v3",
+        "sha": "663eecad745ab0f278e411f95b21da550ed6ed1a"
+      },
+      {
+        "ref": "refs/tags/student-5-minilm-40k-phase-a-pristine",
+        "sha": "20230e52388560c537eb614083ca5a3bda29ecfc"
+      },
+      {
+        "ref": "refs/tags/student-5-minilm-40k-untaught-int8-runtime-probe",
+        "sha": "5f1eb582a98e0488ce73b0ab24682f860cd30a72"
+      },
+      {
+        "ref": "refs/tags/student5-path-b-v3-untrained-gate-a-cp35-20260907",
+        "sha": "4c101cac96eab925b600012d989988449d3f09b7"
+      }
+    ],
+    "reachableCommits": 247,
+    "allRefsInHistory": true,
+    "rootCommit": "f17c3af1124d500c24145c3241b2821e7ac69e07",
+    "recursiveHistoricalTreesChecked": 247,
+    "treeFetchErrors": 0,
+    "uniqueHistoricalPathBlobPairs": 655,
+    "prsReturned": 0,
+    "localGitDirectories": [
+      "/workspace/.git"
+    ],
+    "localGitUsable": false,
+    "localGitDirectoryEmpty": true,
+    "gitCommandsExitCode": 128,
+    "commands": [
+      "git -C /workspace status --short --branch",
+      "git -C /workspace worktree list --porcelain",
+      "git -C /workspace stash list",
+      "git -C /workspace reflog --all --format='%H %gs'",
+      "git -C /workspace fsck --full --no-reflogs --unreachable"
+    ],
+    "localStashReflogUnreachableScan": "NOT_APPLICABLE_NO_VALID_OBJECT_DATABASE"
+  },
+  "actions": {
+    "runs": 302,
+    "runPages": 4,
+    "artifactRunLists": 302,
+    "artifactMetadataRecords": 624,
+    "artifactInventoryErrors": 0,
+    "latestArtifactUpdated": "2026-09-07T06:32:27Z",
+    "assignmentCommitTime": "2026-09-07T09:03:19Z",
+    "artifactUpdatesAfterAssignment": 0,
+    "candidateNamesHashOrSizeMatches": 0,
+    "artifactPayloadsOpened": 0,
+    "reasonPayloadsNotOpened": "All available artifact metadata predates original assignment; unrelated mixed partitions/DEV/Frozen payloads were not accessed. Per-run endpoint recovered the inventory despite repository-wide artifact endpoint rejection."
+  },
+  "releases": [
+    {
+      "id": 383886129,
+      "tag": "student5-path-b-v3-untrained-gate-a-cp35-20260907",
+      "assets": [
+        {
+          "id": 548329150,
+          "name": "student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+          "bytes": 176837978,
+          "digest": "sha256:dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71"
+        }
+      ]
+    },
+    {
+      "id": 383162517,
+      "tag": "student-5-minilm-40k-untaught-int8-runtime-probe",
+      "assets": [
+        {
+          "id": 545486429,
+          "name": "student-5-minilm-40k-untaught-int8-runtime-probe.zip",
+          "bytes": 142463548,
+          "digest": "sha256:72eea0af4211959bdbc92be36387faf5b85da957830f9be0a6d0dd50ab7cedf6"
+        }
+      ]
+    },
+    {
+      "id": 383143636,
+      "tag": "student-5-minilm-40k-phase-a-pristine",
+      "assets": [
+        {
+          "id": 545406840,
+          "name": "student5-minilm-phase-a-pruned-40k.zip",
+          "bytes": 88361246,
+          "digest": "sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191"
+        }
+      ]
+    }
+  ],
+  "local": {
+    "rootsScanned": [
+      "/workspace",
+      "/tmp",
+      "/var/tmp",
+      "/root/.cache",
+      "/root/.local/share (absent)",
+      "/mnt",
+      "/media",
+      "/root/.codex/sessions",
+      "/root/.codex/cache",
+      "/root/.codex/.tmp",
+      "/root/.codex/tmp",
+      "/root/.codex_staging",
+      "/root/.codex/browser",
+      "/root/.codex/shell_snapshots",
+      "/root/.codex/generated_images",
+      "/home",
+      "/dev/shm"
+    ],
+    "primaryMetadataFiles": 1033,
+    "primaryScanErrors": 0,
+    "sourceTextFilesChecked": 5,
+    "hashMarkerMatches": "Only previous recovery report/continuity/audit; no candidate payload or original generator.",
+    "metadataSizeMatches": 0,
+    "deletedRelevantOpenFileHandles": 0,
+    "unreadableOrVanishedFdHandles": 132,
+    "sessionArchives": 11,
+    "sessionArchivesLatestMtime": "2026-08-26T21:42:03.510972+00:00",
+    "sessionArchiveHandling": "Metadata only; all predate candidate assignment. No current/recent original execution transcript located here.",
+    "gitSearchMatches": [
+      "/workspace/.git (empty)"
+    ],
+    "knownPriorMemoryStoreHandle": "cp39PendingDelivery absent"
+  },
+  "localArchives": [
+    {
+      "path": "/workspace/scratch/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+      "bytes": 176837978,
+      "sha256": "dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71",
+      "members": 18,
+      "candidateMembers": 0,
+      "classification": "Immutable CP35 Gate A archive; SHA matches published Release"
+    },
+    {
+      "path": "/workspace/scratch/student5-minilm-phase-a-pruned-40k.zip",
+      "bytes": 88361246,
+      "sha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+      "members": 22,
+      "candidateMembers": 0,
+      "classification": "Immutable pristine archive; SHA matches published Release"
+    },
+    {
+      "path": "/workspace/scratch/logs_89829753362.zip",
+      "bytes": 99466,
+      "sha256": "c287bbb3721b9a06ba8e05f07b8040f9d59ea6cfa762c59a65473cfc22573466",
+      "members": 13,
+      "candidateMembers": 0,
+      "classification": "Android/MLC build log member names; no dataset/source members; payload not extracted"
+    }
+  ],
+  "library": {
+    "ownedInventoryItems": 1217,
+    "pages": 7,
+    "paginationExhausted": true,
+    "sharedItems": 0,
+    "filesCreatedOrModifiedAfterAssignment": 0,
+    "historicalSizeMatches": 0,
+    "exactCandidateLocated": false,
+    "searchKeys": [
+      "logical ID",
+      "original script names",
+      "CP39",
+      "cp39-delivery",
+      "logical SHA256",
+      "first candidate ZIP SHA256",
+      "candidate-01"
+    ],
+    "searchResultsLimit": "Ranked search returned unrelated historical items, not exact hash proofs; metadata inventory exhausted and unrelated payloads not opened."
+  },
+  "inaccessibleOrLimited": [
+    "GitHub Actions cache-list endpoint rejected by connector (HTTP 400 INVALID_ARGUMENT); no alternative callable cache inventory tool exposed.",
+    "Remote unreachable/dangling Git objects and server reflogs cannot be enumerated through exposed APIs; no surviving local object database and no historical original candidate commit/blob Git SHA to query.",
+    "132 process file descriptor entries could not be inspected or vanished; no matching candidate handle among inspected entries.",
+    "Pruned previous storage/host snapshots and nonmounted backups are not exposed; no deleted-block recovery capability.",
+    "Library inventory covers currently exposed owned/shared files; nonexposed deleted versions/provider backups are not proven absent.",
+    "Current original CP39 execution transcripts were not found in accessible session archive inventory; textual memory is not a recoverable payload."
+  ],
+  "guards": {
+    "trainingExecuted": false,
+    "canonicalDevRead": false,
+    "frozenDataRead": false,
+    "trainV1Modified": false,
+    "evaluatorModified": false,
+    "decoderModified": false,
+    "calibrationModified": false,
+    "quantizationExecuted": false,
+    "onnxExecuted": false,
+    "trainV2Recreated": false,
+    "nextWorkStarted": false
+  },
+  "writeAllowlist": [
+    "docs/WORK_CONTINUITY_STUDENT_5.md",
+    "reports/STUDENT_5_TRAIN_V2_FINAL_RECOVERY_SEARCH_CP39B.md",
+    "reports/evidence/student5-path-b-cp39b-final-search/search.json",
+    "reports/evidence/student5-path-b-cp39b-final-search/git-history.json",
+    "reports/evidence/student5-path-b-cp39b-final-search/actions-inventory.json",
+    "reports/evidence/student5-path-b-cp39b-final-search/SHA256SUMS"
+  ]
+}

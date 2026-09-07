@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP39_RECOVERY_BLOCKED_LOST_UNPUBLISHED_EVIDENCE / TRAIN_V2_NOT_VERIFIABLE / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
+Current state: `CP39B_ORIGINAL_TRAIN_V2_NOT_FOUND_IN_ACCESSIBLE_SURFACES / TRAIN_V2_REPAIR_BLOCKED / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -389,3 +389,31 @@ Recovery guards: trainingExecuted=false; canonicalDevRead=false; frozenDataRead=
 Exact pending handoff: Supervisor reviews the loss report. To certify the old candidate, original candidate bytes, generator/config and per-row lineage/audit must be recovered; hashes above are hints only. If unavailable, a separately directed controlled reconstruction must label all regenerated output as new execution. No silent restart, guessed gold or training. Repository-backed inputs CP37/CP38 and immutable V1 are available via authenticated GitHub blob reads at starting HEAD; manifest locators and per-file hashes are in `data/student5_v3/migration-manifest.json` and `SHA256SUMS`. Pristine recovery remains CP35b; it is not needed for this audit. No candidate recovery route is currently verified.
 
 CP36's permitted DEV identity and evaluator/calibration/error-analysis blockers remain open and outside this recovery. All broader Path B work remains pending as previously recorded. Stop and await Supervisor GPT; send Alberto only plain status while addressing technical evidence to Supervisor.
+
+
+## Checkpoint 39b — final original TRAIN v2 recovery search; STOP
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+Starting HEAD verified: `663eecad745ab0f278e411f95b21da550ed6ed1a`.
+Supervisor assignment: LAST RECOVERY SEARCH ONLY — DO NOT RECREATE TRAIN V2.
+Final delivery HEAD: introducing commit of `reports/STUDENT_5_TRAIN_V2_FINAL_RECOVERY_SEARCH_CP39B.md`; exact SHA reported after remote readback.
+
+**ORIGINAL_TRAIN_V2_RECOVERY = NOT_FOUND**
+Meaning: not found in the accessible pertinent surfaces searched; not proof of global nonexistence.
+TRAIN_V2_REPAIR remains BLOCKED. No original candidate or complete source recovered; no data recreated.
+
+Report: `reports/STUDENT_5_TRAIN_V2_FINAL_RECOVERY_SEARCH_CP39B.md`.
+Evidence/metadata/checksums: `reports/evidence/student5-path-b-cp39b-final-search/`.
+
+Executed search: two branches and three tags, all 247 reachable commits and their recursive trees (655 distinct path/blob pairs); zero PRs returned; all 302 Actions runs and 624 artifact metadata records; three Releases; three local ZIPs by archive SHA/member index; surviving workspace, temp/output/cache directories; local Git discovery and failed stash/reflog/fsck due no valid local object database; accessible deleted-file handles; session-archive metadata; Library inventory 1217 owned items over seven exhausted pages, zero shared. No item identified the original payload or generator. Latest Actions artifact update 2026-09-07 06:32:27 UTC predates the original assignment at 09:03:19 UTC. Only matching historical hashes/path references occur in the previous recovery documentation.
+
+Preserved local archives are CP35 Gate A, pristine and Android/MLC logs; none is the initial candidate ZIP. CP39's historical SHA/count hints remain in the previous checkpoint and current report; they are not recertified.
+
+Unresolved access limits: Actions cache inventory rejected; remote unreachable objects/server reflogs not enumerable; no original local object database; 132 FD entries inaccessible or vanished; pruned storage/host snapshots/nonexposed backup versions unavailable. The original execution transcript is not in the eleven exposed session archives, which predate the task. Do not claim those inaccessible surfaces are empty.
+
+Only six documentation/evidence files changed: report, search.json, git-history.json, actions-inventory.json, SHA256SUMS and this continuity. The previous CP39 report/evidence remain immutable. No TRAIN, runtime, evaluator, decoder, calibration, workflow, Student-4, Path A or pristine modifications.
+
+Guards for this assignment:
+trainingExecuted=false; canonicalDevRead=false; frozenDataRead=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; quantizationExecuted=false; onnxExecuted=false; trainV2Recreated=false; nextWorkStarted=false.
+
+Next action: STOP and await Supervisor GPT. This search grants no reconstruction or training authority. Any future controlled reconstruction must be a separately assigned new execution with persistent checkpoints; never label regeneration as recovery of original bytes. Approved D01–D07 and original V1/CP37/CP38 inputs remain available at the locators preserved above. CP36 DEV/evaluation blockers remain separate and untouched. No additional task is active.
