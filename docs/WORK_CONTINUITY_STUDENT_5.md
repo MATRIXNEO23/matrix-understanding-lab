@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `A4_PASS / A4_ONLY_ASSIGNMENT_FINISHED / SUPERVISOR_GPT_REVIEW`
+Current state: `GATE_A_ACCEPTED / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -199,3 +199,56 @@ Evidence: `reports/evidence/student5-path-b-cp35b-a4/publication.json`, `recover
 A1/A2/A3 and TASK 2.3 were not repeated. No model execution, training, optimizer, backprop, DEV, Frozen, quantization, Assembling work or promotion was performed during A4. Pristine, Path A, Student-4, TRAIN V3 v1 and prior Path-B files remain unchanged.
 
 Exact disposition: report A4 PASS and evidence to Supervisor GPT; await review. This executor does not anticipate or start another assignment.
+
+## Checkpoint 36 — Gate B readiness BLOCKED; substantive Supervisor handoff
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+Starting HEAD: `cfe905aff7a1076fd2cf455041babb782ccf7289`.
+Assignment: `prompts/WORK_STUDENT_5_PATH_B_V3_GATE_B_READINESS_ONLY.md`.
+Issuer/reviewer: Supervisor GPT; executor: ChatGPT Work.
+Delivery commit: the direct child of starting HEAD introducing `reports/STUDENT_5_GATE_B_READINESS_CP36.md`; resolve `git log -1 --format=%H -- reports/STUDENT_5_GATE_B_READINESS_CP36.md` for its exact immutable SHA. The user-visible handoff reports that SHA after remote verification.
+
+This current assignment supersedes all historical automatic continuation instructions above. Gate A/A4 is ACCEPTED by Supervisor GPT. A1/A2/A3/A4 and TASK 2.3 were not repeated. Work reports readiness; Supervisor retains gate acceptance authority.
+
+**GATE_B_READINESS = BLOCKED. NEXT TASK READY = false.**
+
+Full substantive report: `reports/STUDENT_5_GATE_B_READINESS_CP36.md`.
+Machine verdict, complete runtime results, identities, inventory, reproducible probe and checksums:
+`reports/evidence/student5-path-b-cp36-readiness/`.
+
+The earlier readiness attempt executed safe checks at source HEAD `1ef81d3e8d7b92d9cbd2bf5f54e6d3d1918f8973`, but its report was not published before a read-only monitoring instruction interrupted delivery. The current assignment recovered those files and verified all 378 previously inspected path entries unchanged at the new starting HEAD, including 130 TRAIN files and nine software-source files. Those executed results are preserved with their actual source HEAD; they were not falsely reported as freshly rerun. No evidence was lost. `resume-validation.json` documents the identity bridge.
+
+Verified:
+- TRAIN artifact `student5-matrix-nlu-v3-train-v1`, path `data/student5_v3/`: 3,150 rows / 3,990 claims.
+- Ordered TRAIN SHA-256 `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`.
+- Migration manifest SHA-256 `87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98`.
+- Per-file SHA-256 129/129 match; repository Git blob identities 130/130 match.
+- V3 contract fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0`.
+- Safe software fault probes demonstrate that the evaluator misses wrong sourceSpan boundaries, wrong mention-table spans and forbidden downstream fields; all retain perfect returned accuracy metrics. An extra claim is caught by claimCountExact but paired claimExact remains 1.0. These are software defects, not model-quality measurements.
+- Evaluator/decoder source identities, exact observations and limitations are in report/source-integrity.json.
+
+First blocker: permitted DEV V3 has no verified ID/path/SHA/provenance in the current repository tree, registry or Release inventory. Documented V2 DEV identities are not an authorized V3 substitute. DEV was not read, reconstructed, migrated or modified.
+
+Other blockers: incomplete V3 model-to-decoder evaluation path; partial V3 scorer lacks required exact sets/boundary/entity checks and critical-family residuals; threshold selection imports legacy evaluator/decoder; no verified V3 metric/calibration mapping and connected IT/EN/ES per-family error-analysis pipeline.
+
+Required acceptance invariants remain ownership corruption=0, invented World Truth=0, no downstream state fields, critical uncertainty abstains, DEV-only calibration, unchanged gates. Legacy numerical thresholds are documented in the report but are not invented as V3-equivalent acceptance criteria. All required family/language coverage and prior TRAIN risks remain explicit.
+
+```text
+DEV identity = UNKNOWN / BLOCKED
+TRAIN integrity = PASS
+DEV copied into TRAIN = false
+DEV→TRAIN independent separation = UNKNOWN (missing DEV V3 identity)
+Frozen read = false
+training / optimizer / backprop / fine-tuning = NOT_EXECUTED
+augmentation / dataset mutation / quantization = NOT_EXECUTED
+model load/forward during readiness = NOT_EXECUTED
+Student-4 / Path A / pristine / prior artifacts = UNCHANGED
+productionPromotion / Assembling integration = false
+active background task / launched workflow = none
+```
+
+Remaining within readiness: Supervisor must disposition missing V3 DEV identity and substantive evaluation/calibration/error-analysis gaps, then a separately scoped repair/readiness recheck can establish them. No ordinary path/configuration/documentation fix could supply missing authorized gold or evaluation semantics. This executor changed only readiness evidence/report and this continuity; no training was started.
+
+Broader Path B remains unexecuted after accepted Gate A: training/DEV cycles, any authorized TRAIN-only new versions or capacity changes, taught FP32 lock/persistence, taught export/quantization/parity/runtime, final Frozen handling under its lock policy, and final handoff. Listing them preserves continuity and is not execution or authorization for this assignment.
+
+Exact disposition: readiness audit delivered to Supervisor GPT with BLOCKED; stop and await the next assignment. Do not restart Gate A or start training from this checkpoint.

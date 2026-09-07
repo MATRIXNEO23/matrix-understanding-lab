@@ -1,0 +1,38 @@
+[
+  {
+    "id": 383886129,
+    "tag": "student5-path-b-v3-untrained-gate-a-cp35-20260907",
+    "assets": [
+      {
+        "id": 548329150,
+        "name": "student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+        "size": 176837978,
+        "digest": "sha256:dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71"
+      }
+    ]
+  },
+  {
+    "id": 383162517,
+    "tag": "student-5-minilm-40k-untaught-int8-runtime-probe",
+    "assets": [
+      {
+        "id": 545486429,
+        "name": "student-5-minilm-40k-untaught-int8-runtime-probe.zip",
+        "size": 142463548,
+        "digest": "sha256:72eea0af4211959bdbc92be36387faf5b85da957830f9be0a6d0dd50ab7cedf6"
+      }
+    ]
+  },
+  {
+    "id": 383143636,
+    "tag": "student-5-minilm-40k-phase-a-pristine",
+    "assets": [
+      {
+        "id": 545406840,
+        "name": "student5-minilm-phase-a-pruned-40k.zip",
+        "size": 88361246,
+        "digest": "sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191"
+      }
+    ]
+  }
+]
