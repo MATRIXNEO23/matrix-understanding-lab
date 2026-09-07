@@ -39,4 +39,42 @@ Regole obbligatorie:
 - ogni nuova versione materiale riceve un nuovo identificativo e SHA-256;
 - un task che produce un modello non è chiuso finché artifact persistente + manifest/registry + checksum + lineage non sono salvati.
 
+## Continuità realmente riprendibile
+
+La continuity non è un semplice diario. Deve permettere a un nuovo executor/Work di ripartire senza memoria umana aggiuntiva.
+
+Per ogni input/artifact indispensabile al passo successivo deve contenere:
+
+```text
+cosa serve
+perché serve
+repository
+branch/HEAD di riferimento
+locator esatto
+release/tag/asset ID o path Git/LFS
+filename
+bytes attesi
+SHA-256 atteso
+modalità di accesso/autenticazione necessaria
+procedura di acquisizione prevista per l'executor
+fallback/reproduction source se esiste
+ultimo checkpoint in cui il recupero è stato verificato
+```
+
+Prima di chiudere una sessione o dichiarare pronto il passo successivo, verificare che gli artifact necessari siano **non solo esistenti ma recuperabili dall'ambiente che dovrà usarli**.
+
+Regola:
+
+```text
+NEXT TASK READY
+!=
+ARTIFACT EXISTS
+
+NEXT TASK READY
+=
+ARTIFACT LOCATED + ACCESS ROUTE KNOWN + IDENTITY CHECKSUM KNOWN + RESUME POINT RECORDED
+```
+
+Se l'accesso non è disponibile, il blocker va scoperto e registrato prima della fine del checkpoint precedente, non scaricato sul proprietario alla sessione successiva.
+
 Queste regole riguardano il metodo di lavoro e non modificano da sole l'architettura runtime.
