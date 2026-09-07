@@ -1,1689 +1,502 @@
-# Student-5 continuity — MiniLM deep vocabulary pruning
+# Student-5 continuity — current resume checkpoint
 
-Repository: `MATRIXNEO23/matrix-understanding-lab`  
-Branch: `main`  
-Phase: `PHASE_A_VOCABULARY_PRUNING_FEASIBILITY`  
+Updated: 2026-09-07
+Repository: `MATRIXNEO23/matrix-understanding-lab`
+Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
+Current state: `CP42_TRAIN_V2_BUILT_AUDIT_FAIL / DELIVERY_VERIFIED / STOP_SUPERVISOR_GPT_REVIEW`
 
-## Canonical authority
+## Preserved history
 
-- Phase-A execution prompt: `Pasted markdown(2).md`, received 2026-09-04 and treated as the controlling prompt.
-- Repository prompt: `prompts/WORK_STUDENT_5_MINILM_IT_EN_ES_PRUNED.md`.
-- Mandatory addendum: `prompts/WORK_STUDENT_5_ADULT_INTIMACY_ADDENDUM.md`.
-- Adult/intimacy policy: `docs/ADULT_INTIMACY_NLU_COVERAGE.md`.
-- Starting repository HEAD: `447bd5128a52433d7094b35b401eb3fa3d9fd932`.
+- Checkpoints 1–29: `docs/continuity_archive/STUDENT_5_CP01_CP29_d1d4096c6df1c2331eabb33830f6edb577be053f.md`
+- Checkpoints 30–32: `docs/continuity_archive/STUDENT_5_CP30_CP32_7acbd6a0081627baa26b44eb5d463ccc31895009.md`
 
-The controlling Phase-A prompt overrides the older repository prompt only where the latter would automatically continue into Phase B. This execution stops after the Phase-A GO/STOP decision and does not teach Matrix heads, fine-tune MiniLM, quantize Student-5, read Frozen, or integrate into Assembling.
+Both archives are preserved byte-for-byte. Historical STOP labels remain evidence for their checkpoint date; the owner authorization and CP33 below govern the current resume.
 
-## Immutable boundaries
+## Accepted state before resume
 
 ```text
-student4V22AChanged = false
-canonicalDevUsedForVocabularySelection = false
-frozenDataRead = false
-frozenDataTokenized = false
-frozenDataAnalyzed = false
-teachingExecuted = false
-matrixHeadsTrained = false
-quantizationExecuted = false
-productionPromotionExecuted = false
+TASK 2.3 = ACCEPTED / DO NOT REPEAT
+CP32 = GATE_A_BLOCKED_INPUT_ACCESS
+firstFailingLayer = A1_CANONICAL_PRISTINE_BINARY_ACQUISITION
+physicalBertLoad = NOT_EXECUTED
+physicalOnnxExportLoad = NOT_EXECUTED
+TASK 3 training = NOT_STARTED
+Student-4 changed = false
+Path A modified = false
+pristine modified = false
+TRAIN v1 modified = false
+DEV used = false
+Frozen read = false
 ```
 
-Only Matrix TRAIN, Matrix v2 TRAIN, v2.2A TRAIN-only repair, and MASSIVE TRAIN IT/EN/ES may enter vocabulary selection. Probe material must be separate and training-safe.
-
-## Checkpoint 1 — upstream pin and execution start
-
-Timestamp: `2026-09-04T17:18Z`
+Canonical pristine identity:
 
 ```text
-repository = microsoft/Multilingual-MiniLM-L12-H384
-revision = 6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf
-license = MIT
-modelTypeExpected = bert
-tokenizerClassExpected = XLMRobertaTokenizer
-vocabSizeExpected = 250037
-hiddenSizeExpected = 384
-layersExpected = 12
-attentionHeadsExpected = 12
-intermediateSizeExpected = 1536
-```
-
-The official model card confirms that the checkpoint uses `BertModel` with `XLMRobertaTokenizer` and warns that `AutoTokenizer` is not valid for this checkpoint. The exact token-ID/embedding-row relationship remains a fail-closed audit item and must pass before any pruned artifact can be accepted.
-
-Current activity: create the pinned local environment, retrieve exact upstream files, audit configuration/tokenizer/special-token mapping, and count model/embedding/Transformer parameters.
-
-Next checkpoint: after deterministic tokenizer/embedding alignment and upstream integrity are verified.
-
-
-## Checkpoint 2 — upstream alignment and TRAIN-only corpus complete
-
-Timestamp: `2026-09-04T17:27Z`
-
-Upstream audit:
-
-```text
-revision = 6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf
-modelType = bert
-tokenizerClass = XLMRobertaTokenizer
-sentencePiecePieces = 250000
-tokenizerVocabSize = 250002
-modelEmbeddingRows = 250037
-reachableTokenizerIds = 0..250001
-unreachableTrailingEmbeddingRows = 35
-totalParameters = 117653760
-wordEmbeddingParameters = 96014208
-allEmbeddingParameters = 96212352
-transformerParameters = 21293568
-poolerParameters = 147840
-upstreamPytorchBytes = 470657952
-upstreamPytorchSha256 = cce170910f4d4f3b45be025508f51ef1ad6a1de69f2d46dce7e4603ad31aaaeb
-sentencePieceSha256 = cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865
-```
-
-The tokenizer-to-embedding mapping is deterministic for every reachable ID: XLM-R special IDs are handled explicitly, ordinary SentencePiece pieces use the tokenizer's offset mapping, and the 35 unreachable trailing model rows are excluded. The upstream config declares `pad_token_id=0` while the tokenizer exposes `<pad>=1`; pruned artifacts will align config padding to ID 1 without modifying Transformer weights.
-
-TRAIN-only vocabulary-selection corpus:
-
-```text
-records = 16819
-sha256 = 2412a5727eb51b993f3172f3dc4a4d08199e16382b90c2e62e5080e3e23b8558
-Matrix v1 TRAIN = 2991
-Matrix v2 TRAIN = 2775
-v2.2A repair TRAIN-only = 375
-MASSIVE TRAIN IT = 3000
-MASSIVE TRAIN EN = 3000
-MASSIVE TRAIN ES = 3000
-authored general coverage = 720
-authored adult/intimacy coverage = 1206
-authored control rows = 4
-```
-
-MASSIVE source archive:
-
-```text
-sha256 = 7df623fd2d300a4d235d6ee5bd396c9a28258d3a0ccb29abdb054506eba153f8
-license = CC-BY-4.0
-nonTrainJsonDecoded = false
-```
-
-The Matrix v2 reconstruction used only v1 TRAIN, v2 TRAIN-only migrations/additions, and the canonical TRAIN drop IDs from audit control metadata. Canonical dev/frozen texts were not opened, tokenized, analyzed, or used for vocabulary selection.
-
-Current activity: build actual 40k/60k/80k/100k SentencePiece tokenizers and matching BERT embedding tables, then execute save/reload and all-ID alignment checks.
-
-
-## Checkpoint 3 — four real pruning candidates built
-
-Timestamp: `2026-09-04T19:34Z`
-
-A protobuf compatibility error (`ModelProto.pieces_size`) was corrected to `len(ModelProto.pieces)`; this was an infrastructure-only fix before candidate construction. No data, gate, or selection policy changed.
-
-```text
-targetsBuilt = [40000, 60000, 80000, 100000]
-allHuggingFaceSaveReloadChecks = PASS
-allSpecialTokenChecks = PASS
-allTokenizerEmbeddingAlignmentChecks = PASS
-allNonEmbeddingWeightsBitExact = true
-allObservedSelectionPiecesRetained = true
-allUnkRatesIT_EN_ES_Adult = 0
-semanticProbeSentences = 161
-semanticContrastPairs = 36
-canonicalDevUsed = false
-frozenDataRead = false
-```
-
-Preliminary gate results:
-
-| Vocab | FP32 model bytes | Est. runtime INT8 bytes | Gate |
-|---:|---:|---:|---|
-| 40k | 148,020,400 | 83,854,848 | PASS |
-| 60k | 178,740,552 | 114,574,848 | PASS |
-| 80k | 209,460,584 | 145,294,848 | PASS |
-| 100k | 240,180,584 | 176,014,848 | FAIL size gate |
-
-The smallest passing candidate is 40k. It has zero UNK on the separate IT/EN/ES/adult probe, mean token inflation 1.046/1.045/1.075 for IT/EN/ES, adult inflation 1.042, mean representation cosine 0.995580, worst cosine 0.943703, mean contrast delta 0.007855, p95 contrast delta 0.045259, and exact-forward delta 0 for unchanged tokenizations.
-
-Current activity: independently verify every recorded checksum, prepare complete comparison reports, and package the selected Phase-A artifact. No Phase-B work is authorized.
-
-
-## Checkpoint 4 — final Phase-A selection and preserved artifact
-
-Timestamp: `2026-09-04T19:45Z`
-
-Final decision:
-
-```text
-decision = PRUNING_CANDIDATE_SELECTED
-selectedVocabSize = 40000
-selectedModelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
-selectedFp32ModelBytes = 148020400
-selectedArtifactDirectoryBytes = 150116913
-estimatedRuntimeInt8Bytes = 83854848
-estimatedReductionVsStudent4Mixed = 43.988982%
-archiveBytes = 88361246
-archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
-status = NOT_PRODUCTION_APPROVED
-frozen = FROZEN_UNREAD
-```
-
-Selection evidence:
-
-- UNK IT/EN/ES/adult-intimacy: 0 for every slice.
-- Aggregate token inflation: IT 1.037634, EN 1.037037, ES 1.066852, adult/intimacy 1.039074, code-switch 1.059406, names/locations 1.060606.
-- Mean representation cosine: 0.995580; worst: 0.943703.
-- Mean/p95 semantic-contrast cosine delta: 0.007855/0.045259.
-- Exact-forward maximum delta on 103 unchanged-tokenization sentences: 0.
-- Exact selection/probe text overlap: 0, enforced fail-closed.
-- All recorded file sizes and SHA-256 values independently pass.
-- All four Hugging Face artifacts reload, preserve 12 layers, align tokenizer and embeddings, and execute a real forward.
-- Unit tests: 7/7 PASS.
-- 60k and 80k also pass. 100k fails only the unchanged material-size gate.
-- The 60k quality difference is small and does not justify 30,720,000 additional estimated runtime bytes over 40k.
-
-The selected archive contains the model, real reduced tokenizer, bidirectional token-ID remap, aggregate and candidate manifests, corpus provenance, Frozen guard, reports, source, and `SHA256SUMS`. ZIP integrity and every internal checksum pass.
-
-Repository implementation/report commits: `25546528917d42d70129f059ff56da672678c7d4`, corrected by `a1d407d63d4dcb84033d8ac525cce0e2475c27e1`.
-
-Canonical report: `reports/STUDENT_5_MINILM_DEEP_PRUNING.md`. Compatibility report: `reports/STUDENT_5_MINILM_PRUNING_FEASIBILITY.md`.
-
-Phase A stops here. Matrix teaching, the 15 Matrix heads, fine-tuning, canonical-dev downstream evaluation, quantization, Frozen access, Assembling integration, and production promotion remain unexecuted and require separate authorization.
-
-## Checkpoint 5 — approved completion plan, execution NOT started
-
-Timestamp: `2026-09-05`
-
-Owner-approved direction: complete Matrix-NLU using Student-5 40k as the primary candidate while keeping Student-4-v2.2A as a frozen comparative baseline. Work execution has NOT started from this checkpoint; this section records the plan only.
-
-### Repository and architecture boundary
-
-Writable repository for this workstream:
-
-```text
-MATRIXNEO23/matrix-understanding-lab
-```
-
-Authoritative architecture file to read and respect before implementation:
-
-```text
-ARCHITETTURA.md @ main
-```
-
-Hard boundary:
-- do not modify `assembling`;
-- do not modify `memoria`;
-- do not modify affective, game, historical or any other repository;
-- other repositories may be read only when needed for compatibility context;
-- all NLU code, training, tests, reports, artifacts and continuity updates stay in `matrix-understanding-lab`.
-
-### Student roles
-
-```text
-Student-4-v2.2A
-= preserved comparative baseline / regression reference
-= do not discard
-= do not auto-promote
-
-Student-5 MiniLM 40k Phase-A artifact
-= primary continuation candidate
-= same pristine 40k base feeds two separate experimental paths
-```
-
-The two Student-5 paths must remain independent. Quantizing path A must never mutate or become the training base for path B.
-
-### Path A — immediate untaught quantized runtime probe
-
-Purpose: isolate deployment/runtime risk before spending training effort.
-
-```text
-Student-5 40k pristine Phase-A
-→ no Matrix teaching
-→ ONNX export
-→ encoder INT8 / technically appropriate quantization
-→ desktop/runtime verification
-→ size / load / latency / memory measurements
-→ optional late Android probe only if software/runtime checks justify it
-```
-
-Required status label:
-
-```text
-STUDENT_5_40K_UNTAUGHT_INT8
-RUNTIME_PROBE_ONLY
-NOT_MATRIX_NLU
-NOT_PRODUCTION_APPROVED
-```
-
-Path-A results may justify export/runtime/infrastructure fixes, but its linguistic quality must not be used as evidence for Matrix-NLU capability or to contaminate Path-B training decisions.
-
-### Path B — Matrix teaching and quality path
-
-Start again from the same pristine Student-5 40k Phase-A artifact, never from the quantized Path-A artifact.
-
-Target initial architecture: preserve the existing Matrix 15-head contract unless a contract audit proves a missing indispensable output.
-
-Sequence heads:
-- `sequence.dialogueAct`;
-- `sequence.predicate`;
-- `sequence.subjectReferent`;
-- `sequence.targetReferent`;
-- `sequence.ownerReferent`;
-- `sequence.perspectiveReferent`;
-- `sequence.polarity`;
-- `sequence.temporalRelation`;
-- `sequence.claimKind`.
-
-Token/span heads:
-- `token.boundary`;
-- `token.subject`;
-- `token.object`;
-- `token.entity`;
-- `token.negation`;
-- `token.temporal`.
-
-Confidence/calibration and claim decomposition are mandatory output behavior even if implemented without adding new learned heads.
-
-### Capacity escalation policy
-
-Do not jump immediately to full fine-tuning. Increase trainable capacity only when evidence requires it:
-
-```text
-A. frozen 12-layer backbone + Matrix heads
-↓ if insufficient
-B. stronger/small MLP or adapter capacity
-↓ if insufficient
-C. unfreeze last 1–2 encoder layers
-↓
-D. unfreeze last 3–4 encoder layers if justified
-↓
-E. full fine-tuning only as last resort with regression evidence
-```
-
-Every escalation must compare against the previous Student-5 configuration and Student-4-v2.2A baseline. Preserve capabilities already strong; do not trade one critical family for another silently.
-
-### Priority linguistic families
-
-Training/error-mining priority:
-- negation;
-- temporal interpretation;
-- subject/target/owner/perspective referents;
-- ownership;
-- third-party/report;
-- correction;
-- goal/request;
-- span decoding;
-- multi-claim decomposition/signals;
-- Italian weaknesses;
-- Spanish weaknesses;
-- ambiguity/hypothesis;
-- code-switch IT/EN/ES;
-- colloquial, incomplete and typo/noisy input.
-
-### Mandatory adult/intimacy coverage
-
-Adult/intimacy coverage is a critical NLU family, not optional and not a censorship layer.
-
-All authored sexual training/probe material must involve adults only.
-
-Coverage must include, where linguistically relevant:
-- attraction, desire and arousal;
-- intimate/sexual requests;
-- consent grant;
-- refusal, withdrawal and boundaries;
-- initiation and reciprocal participation;
-- escalation/de-escalation;
-- anatomy/action references and explicit vocabulary;
-- slang and colloquial language in IT/EN/ES;
-- code-switching;
-- roles and consensual power dynamics;
-- sexual-health/protection language when semantically relevant;
-- negation, temporal relation, hypothesis, correction, report and referents inside adult contexts;
-- ambiguity;
-- coercion/pressure/threat distinguished semantically from consensual intimacy.
-
-Hard rule:
-
-```text
-adult/intimacy content alone
-≠ automatic block
-≠ automatic confidence penalty
-≠ automatic semantic degradation
-```
-
-Understanding must interpret the language accurately and emit the ordinary structured Matrix semantics. No sexual content involving minors is permitted.
-
-### Training and error-mining loop
-
-After each meaningful training attempt:
-
-```text
-TRAIN
-→ DEV evaluation
-→ per-language + per-family error taxonomy
-→ causal/root-cause analysis
-→ TRAIN-only hard-example/repair generation
-→ retrain
-→ regression comparison
-```
-
-Do not repair systematic linguistic failures with accumulating regex or hand-authored language-specific parser patches. Deterministic logic remains for schema/invariants, not as a replacement for learned Understanding.
-
-### Quality gates
-
-Do not judge completion from one global metric.
-
-The final candidate must show no critical systematic failure on:
-- negation;
-- temporal interpretation;
-- referents;
-- ownership/perspective;
-- third-party/report;
-- request;
-- correction;
-- goal;
-- multi-claim;
-- adult/intimacy including consent/refusal/boundaries;
-- IT/EN/ES and code-switch robustness.
-
-Hard invariants:
-
-```text
-ownership corruption = 0
-invented World Truth = 0
-```
-
-Target remains near-perfect practical generalization on a genuinely difficult unseen benchmark, not decimal chasing. A nominal >99% is insufficient if a critical family remains systematically broken.
-
-### Confidence and abstention
-
-Confidence is part of the NLU contract, not a cosmetic post-process.
-
-- calibrate per-head/per-output confidence on development evidence;
-- uncertain critical output must fail closed/abstain rather than silently corrupt downstream state;
-- thresholds are chosen on allowed development data only;
-- do not tune thresholds on Frozen.
-
-### Frozen policy
-
-Frozen remains closed during:
-- training;
-- architecture/capacity selection;
-- error mining;
-- hard-example generation;
-- hyperparameter tuning;
-- threshold calibration;
-- quantization recipe selection.
-
-Only after a candidate is locked may the final Frozen evaluation run. Frozen results must not be fed back into training.
-
-### Post-teaching compression path
-
-Once a taught FP32 Student-5 candidate reaches the quality gate:
-
-```text
-Student-5 40k taught FP32
-= quality reference
-        ↓
-encoder INT8 + protected semantic heads FP32 by default
-        ↓ parity tests
-Student-5 40k taught mixed/INT8 candidate
-```
-
-Alternative mixed precision is allowed only when measured evidence shows it preserves critical quality better within the mobile budget.
-
-Required comparisons:
-
-```text
-Student-4-v2.2A FP32/mixed baseline
-vs Student-5 taught FP32
-vs Student-5 taught mixed/INT8
-```
-
-### Mobile/runtime gate
-
-Physical Moto G56 testing remains late-stage.
-
-Before phone testing, CI/desktop/runtime checks must cover:
-- ONNX correctness;
-- tokenizer/model reload;
-- output parity;
-- package integrity/checksums;
-- estimated/runtime memory;
-- cold/warm latency where measurable;
-- unsupported operators/runtime failures.
-
-Path A may be used to discover deployment problems early, but repeated phone testing during linguistic iteration is not required.
-
-### Completion sequence
-
-```text
-S5-A 40k untaught runtime probe
-→ report/checkpoint
-
-S5-B pristine 40k + Matrix teaching
-→ DEV/error mining/controlled TRAIN-only repair
-→ capacity escalation only as justified
-
-S5-C taught FP32 candidate lock
-→ quantization/mixed precision
-→ parity/regression
-
-S5-D final candidate
-→ Frozen once
-→ late Moto hardware gate
-→ production integration remains separate
-```
-
-### STOP / non-promotion rules
-
-- do not lower existing acceptance gates to obtain PASS;
-- do not modify Frozen;
-- do not auto-promote Student-5;
-- do not discard Student-4 baseline prematurely;
-- do not integrate into Assembling from this workstream;
-- do not modify another repository;
-- if a genuine architecture-level blocker is found, preserve artifacts/reports/continuity and stop with evidence instead of hiding the failure.
-
-Next action when execution is explicitly authorized: prepare the Work prompt from this checkpoint, requiring Work to read `ARCHITETTURA.md` first and to operate only inside `MATRIXNEO23/matrix-understanding-lab`.
-
-## Checkpoint 6 — MiniLM 40k quality dossier consolidated
-
-Timestamp: `2026-09-05`
-
-A dedicated, analysis-ready quality dossier has been created at:
-
-```text
-reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md
-```
-
-It consolidates Phase-A identity, upstream pin, architecture, TRAIN-only provenance, all candidate size results, IT/EN/ES/adult/code-switch tokenization metrics, representation-preservation metrics, fixed gate thresholds, artifact checksums, residual risks, and the exact boundary between measured pruning quality and unmeasured Matrix-NLU quality.
-
-The earlier Student-4-v2.2A dossier created under the mistaken interpretation of “the new NLU” was removed. Student-4 remains only the preserved comparative baseline; no Student-4 model or evidence artifact was modified.
-
-Current authoritative interpretation:
-
-```text
-component = STUDENT_5_MINILM_40K_PHASE_A
-decision = PRUNING_CANDIDATE_SELECTED
-artifactRole = REPRESENTATION_PRESERVING_BACKBONE
-nluStatus = NOT_MATRIX_NLU
-matrixHeadsTrained = false
-canonicalDevEvaluated = false
-quantizationExecuted = false
-frozenDataRead = false
-productionStatus = NOT_PRODUCTION_APPROVED
-```
-
-No Matrix exact-set, claim-exact, negation, predicate, ownership, temporal, referent, World Truth, or calibration metric exists yet for Student-5. Those fields are marked “not measured” rather than copied from Student-4 or represented as zero.
-
-No training, quantization, Frozen access, data modification, gate change, Assembling integration, or production promotion occurred during this documentation checkpoint.
-
-
-## Checkpoint 7 — mandatory two-student isolation policy
-
-Timestamp: `2026-09-05`
-
-Owner-mandated preservation rule:
-
-```text
-Student-4-v2.2A = PRESERVED_COMPARATIVE_BASELINE
-Student-5-MiniLM-40k = PRESERVED_PRIMARY_CANDIDATE
-workMode = ONE_STUDENT_AT_A_TIME
-crossStudentMutation = FORBIDDEN
-automaticReplacement = FORBIDDEN
-automaticPromotion = FORBIDDEN
-```
-
-Operational contract:
-
-- both Student-4-v2.2A and Student-5 MiniLM 40k must remain preserved;
-- only one student workstream may be active at a time;
-- training, export, quantization, repair, configuration, checkpoints, reports and artifacts for the active student must not modify or overwrite the other student;
-- artifacts, manifests, checksums and evaluation evidence must remain separately named and traceable;
-- changing the active student requires an explicit continuity checkpoint identifying the source artifact and verifying that the previously active student remains unchanged;
-- Student-4 results may be used only as a comparative baseline while Student-5 is active;
-- Student-5 artifacts must remain untouched when future work explicitly returns to Student-4;
-- neither student may be discarded, silently replaced, or production-promoted as a side effect of work on the other.
-
-Current lock:
-
-```text
-activeStudent = Student-5-MiniLM-40k
-activeOperation = DOCUMENTATION_AND_QUALITY_ANALYSIS
-Student-4-v2.2AChanged = false
-Student-5TrainingExecuted = false
-Student-5QuantizationExecuted = false
-frozenDataRead = false
-productionPromotionExecuted = false
-```
-
-The MiniLM quality dossier remains `reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md`. This checkpoint changes documentation only; it performs no training, export, quantization, data mutation, Frozen access, gate change, or integration.
-
-
-## Checkpoint 8 — canonical artifact recovery locations recorded
-
-Timestamp: `2026-09-05`
-
-Canonical recovery registry:
-
-```text
-docs/STUDENT_ARTIFACT_REGISTRY.md
-```
-
-The registry now records:
-
-- Student-4 authoritative training run, report, bundle artifact, resumable checkpoint, digests and expiry dates;
-- Student-4 durable mixed/head-protected ZIP and manifest locations in `MATRIXNEO23/assembling` Git LFS;
-- Student-5 reports, deterministic generator, tests, implementation commits, selected model/archive sizes and SHA-256 identities;
-- mandatory one-student-at-a-time isolation and checksum verification rules;
-- the unresolved Student-5 preservation gap: no durable remote binary locator is presently recorded for the 40k archive.
-
-Preservation status:
-
-```text
-Student-4MixedRuntime = DURABLY_LOCATED_IN_ASSEMBLING_GIT_LFS
-Student-4BundleAndResume = ACTIONS_ARTIFACTS_EXPIRING_2026_10_04
-Student-5ReportsAndReproductionSource = DURABLY_LOCATED_IN_REPOSITORY
-Student-5BinaryArchive = REMOTE_LOCATOR_NOT_RECORDED
-nextPreservationAction = RECOVER_OR_REGENERATE_STUDENT5_ARCHIVE_AND_PUBLISH_WITH_SHA256
-```
-
-No artifact was overwritten and neither student was modified by this documentation checkpoint. Frozen remained unread.
-
-
-## Checkpoint 9 — TASK 0 pristine preservation started
-
-Timestamp: `2026-09-05`
-
-```text
-headStart = 3f317c842646b22ab6de02793bbec91eb2a4bba6
-branch = main
-activeStudent = Student-5-MiniLM-40k
-activeTask = TASK_0_PRISTINE_PRESERVATION
-scope = STUDENT-5_ARTIFACT_PRESERVATION_ONLY
-artifactSearchState = NOT_STARTED
-automaticContinuation = FORBIDDEN
-nextTask = NOT_AUTHORIZED
-```
-
-Expected canonical identity:
-
-```text
-vocabSize = 40000
-fp32ModelBytes = 148020400
-artifactDirectoryBytes = 150116913
-archiveBytes = 88361246
-modelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
-mappingSha256 = da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9
-sentencePieceSha256 = 748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78
-candidateManifestSha256 = a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d
-archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
-upstreamRevision = 6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf
-```
-
-Guards at task start:
-
-```text
-student4V22AChanged = false
-canonicalDevUsed = false
-frozenDataRead = false
-frozenDataTokenized = false
-frozenDataAnalyzed = false
-frozenPredictionsRead = false
-teachingExecuted = false
-matrixHeadsTrained = false
-quantizationExecuted = false
-otherRepositoriesModified = false
-```
-
-All seven mandatory documents were read in the owner-specified order before artifact operations. Recovery order is original workspace/cache/same-repository outputs first; deterministic reproduction is permitted only if the original cannot be recovered and must pass every canonical checksum fail-closed.
-
-
-## Checkpoint 10 — TASK 0 pristine preservation PASS
-
-Timestamp: `2026-09-05T05:23Z`
-
-```text
-task = TASK_0_PRISTINE_PRESERVATION
-result = PASS
-headStart = 3f317c842646b22ab6de02793bbec91eb2a4bba6
-headFinal = THIS_CHECKPOINT_COMMIT
-artifactSource = ORIGINAL_RECOVERED
-artifactRegenerated = false
-artifactModified = false
-status = PRISTINE_PHASE_A_BACKBONE
-nluStatus = NOT_MATRIX_NLU
-productionStatus = NOT_PRODUCTION_APPROVED
-automaticContinuation = FORBIDDEN
-nextTask = NOT_AUTHORIZED
-```
-
-The original 88,361,246-byte Phase-A archive was recovered from an existing preserved project output. Deterministic regeneration was not needed. The recovered binary remained unmodified.
-
-Canonical identity and fail-closed verification:
-
-```text
-vocabSize = 40000
-layers = 12
-hiddenSize = 384
-fp32ModelBytes = 148020400
-artifactDirectoryBytes = 150116913
-archiveBytes = 88361246
-modelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
-mappingSha256 = da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9
-sentencePieceSha256 = 748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78
-candidateManifestSha256 = a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d
-archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
-allCanonicalChecksumsVerified = true
-zipIntegrity = PASS
-internalSha256Sums = 17/17_PASS
-candidateManifestPayloads = 6/6_PASS
-unexpectedPayloadFiles = 0
-missingPayloadFiles = 0
-huggingFaceSaveReload = PASS
-tokenizerEmbeddingAlignment = PASS
-realOfflineForward = PASS
-```
-
-Durable preservation:
-
-- Release: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-phase-a-pristine`
-- Release type: `Pre-release`
-- Release ID: `383143636`
-- Asset ID: `545406840`
-- Tag: `student-5-minilm-40k-phase-a-pristine`
-- Tag commit: `20230e52388560c537eb614083ca5a3bda29ecfc`
-- Asset: `student5-minilm-phase-a-pruned-40k.zip`
-- Asset URL: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-phase-a-pristine/student5-minilm-phase-a-pruned-40k.zip`
-- GitHub-recorded asset digest: `sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191`
-- Binary preservation: `DURABLY_VERIFIED_IN_AUTHORIZED_REPOSITORY`
-
-Task evidence commits:
-
-```text
-startCheckpointCommit = 20230e52388560c537eb614083ca5a3bda29ecfc
-preservationReportCommit = cc262671b816908ce3621e99ff511d47a0b05c1f
-artifactRegistryCommit = f2e0c2444aadcab8fbfbdc45693f6bf1ece07f6c
-releaseIdentifierReportCommit = 8aeb387842e99be500193fbf1bc1b2ceb0a225d4
-releaseIdentifierRegistryCommit = 01ab127a66a5a4156077ceff1b65a0ad0657a42d
-continuityCompletionCommit = THIS_CHECKPOINT_COMMIT
-```
-
-Files changed from the start HEAD through the pre-final checkpoint:
-
-```text
-docs/STUDENT_ARTIFACT_REGISTRY.md
-docs/WORK_CONTINUITY_STUDENT_5.md
-reports/STUDENT_5_40K_PRISTINE_PRESERVATION.md
-```
-
-GitHub compare evidence shows no Student-4 file, dataset, training source, workflow, Frozen path, DEV path, or other repository change. The Release publication does not mutate Student-4.
-
-Final guards:
-
-```text
-canonicalStudent5ArtifactRecoveredOrBitExactRegenerated = true
-modelSha256Verified = true
-mappingSha256Verified = true
-sentencePieceSha256Verified = true
-manifestSha256Verified = true
-archiveSha256Verified = true
-durableRemoteLocatorRecorded = true
-durableRemoteLocatorBelongsToMatrixUnderstandingLab = true
-student4V22AChanged = false
-canonicalDevUsed = false
-frozenDataRead = false
-frozenDataTokenized = false
-frozenDataAnalyzed = false
-frozenPredictionsRead = false
-teachingExecuted = false
-matrixHeadsTrained = false
-quantizationExecuted = false
-productionPromotionExecuted = false
-otherRepositoriesModified = false
-```
-
-Next action:
-
-```text
-AWAIT OWNER REVIEW BEFORE TASK 1
-```
-
-
-## Checkpoint 11 — TASK 1 Path-A runtime probe started
-
-Timestamp: `2026-09-05`
-
-```text
-headStart = e64a49af2eec187d0ddf3b786a0e21cff9567ba8
-branch = main
-activeStudent = Student-5-MiniLM-40k
-activeTask = TASK_1_UNTAUGHT_INT8_RUNTIME_PROBE
-scope = STUDENT-5_PATH-A_RUNTIME_PROBE_ONLY
-logicalName = STUDENT_5_40K_UNTAUGHT_INT8
-status = RUNTIME_PROBE_ONLY
-nluStatus = NOT_MATRIX_NLU
-productionStatus = NOT_PRODUCTION_APPROVED
-pristineArchiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
-pristineModelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
-pristine40kModified = false
-Frozen = UNREAD
-PathB = NOT_STARTED
-automaticContinuation = FORBIDDEN
-TASK_2 = NOT_AUTHORIZED
-```
-
-All nine mandatory documents were read completely in the owner-specified order before runtime operations. TASK 0 is accepted from checkpoint `e64a49af2eec187d0ddf3b786a0e21cff9567ba8`. The canonical Release asset will be recovered into a separate local work directory and verified fail-closed before ONNX export.
-
-Start guards:
-
-```text
-student4V22AChanged = false
-canonicalDevUsed = false
-frozenDataRead = false
-frozenDataTokenized = false
-frozenDataAnalyzed = false
-frozenPredictionsRead = false
-frozenDataUsedForTuning = false
-teachingExecuted = false
-matrixHeadsTrained = false
-pathBStarted = false
-otherRepositoriesModified = false
-```
-
-
-## Checkpoint 12 — Path-A first export completed; benchmark instrumentation repair
-
-Timestamp: `2026-09-05`
-
-Attempt-1 reached verified FP32 export, strict HF-vs-ONNX FP32 parity, dynamic INT8 creation, INT8 runtime validation and full parity measurement. It then stopped before packaging because isolated benchmark instrumentation raised `psutil.NoSuchProcess` while querying the worker PID in the container namespace.
-
-This is a local benchmark/RSS instrumentation defect, not a model, ONNX, parity, dataset, architecture or quantization failure. The minimal repair is to read current/peak RSS from Linux `/proc/self/status` inside the isolated worker. No gate, model, tokenizer, data, operator-selection policy or architecture changes.
-
-Attempt-1 preserved diagnostics without overwriting:
-
-```text
-fp32OnnxBytes = 148202898
-fp32OnnxSha256 = 799d86b9231721c0e7ff656b48cb609611c98ea75c8489e4edebeaf7e9d7de23
-int8OnnxBytes = 84457299
-int8OnnxSha256 = f58463a6d1f4daca2e58c8e40f7f6d1cbaa7d107e9534160278bc46552e0304a
-failureStage = ISOLATED_BENCHMARK_RSS_INSTRUMENTATION
-failureClass = REPAIRABLE_INFRASTRUCTURE_BUG
-pristine40kModified = false
-canonicalDevUsed = false
-frozenDataRead = false
-student4V22AChanged = false
-teachingExecuted = false
-matrixHeadsTrained = false
-pathBStarted = false
-otherRepositoriesModified = false
-```
-
-Attempt-2 will use a new output directory. Quantization remains the same ONNX Runtime dynamic per-channel QInt8 method and the pristine input remains unchanged.
-
-
-## Checkpoint 13 — TASK 1 Path-A runtime probe PASS
-
-Timestamp: `2026-09-05T06:58Z`
-
-```text
-task = TASK_1_UNTAUGHT_INT8_RUNTIME_PROBE
-result = RUNTIME_PROBE_PASS
-headStart = e64a49af2eec187d0ddf3b786a0e21cff9567ba8
-headFinal = THIS_CHECKPOINT_COMMIT
-logicalName = STUDENT_5_40K_UNTAUGHT_INT8
-status = RUNTIME_PROBE_ONLY
-nluStatus = NOT_MATRIX_NLU
-productionStatus = NOT_PRODUCTION_APPROVED
-TASK_2 = NOT_STARTED
-TASK_3 = NOT_STARTED
-PATH_B = NOT_STARTED
-FROZEN = UNREAD
-```
-
-### Verified pristine input
-
-```text
-pristineReleaseId = 383143636
-pristineAssetId = 545406840
-archiveBytes = 88361246
+releaseTag = student-5-minilm-40k-phase-a-pristine
+releaseId = 383143636
+assetId = 545406840
+assetName = student5-minilm-phase-a-pruned-40k.zip
+assetBytes = 88361246
 archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
 modelBytes = 148020400
 modelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
-mappingSha256 = da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9
-sentencePieceSha256 = 748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78
-manifestSha256 = a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d
-internalSha256Sums = 17/17_PASS
-saveReload = PASS
-realForward = PASS
-pristine40kModified = false
+releasePage = https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-phase-a-pristine
 ```
 
-### FP32 ONNX
+Authenticated GitHub metadata re-verification on 2026-09-07 confirms the private Release asset still exists, is uploaded, has the expected 88,361,246 bytes and GitHub digest matching the canonical archive SHA-256. CP32 failed because the previous Work runtime had metadata-only connector access and no authenticated Release-binary acquisition route.
+
+## Checkpoint 33 — owner-authorized resume and method repair
+
+Owner explicitly authorized immediate operational resume after CP32 and required the continuity/artifact method to be corrected so a future executor never depends on the owner's memory to find project artifacts.
+
+Method changes committed on this branch:
 
 ```text
-opset = ai.onnx:17
-inputs = [input_ids, attention_mask]
-outputs = [last_hidden_state, pooler_output]
-dynamicBatch = true
-dynamicSequence = true
-externalDataRequired = false
-bytes = 148202898
-sha256 = 799d86b9231721c0e7ff656b48cb609611c98ea75c8489e4edebeaf7e9d7de23
-onnxChecker = PASS
-runtimeLoad = PASS
-forward = PASS
-hfVsFp32MeanRepresentationCosine = 0.9999999893
-hfVsFp32MinimumRepresentationCosine = 0.9999998808
-hfVsFp32MaximumAbsoluteDelta = 0.0000028610
-hfVsFp32ContrastMeanDelta = 0.0000000646
-fp32Parity = PASS
+docs/MODEL_ARTIFACT_PERSISTENCE_POLICY.md
+- machine-actionable recovery map mandatory
+- exact locator/auth/acquisition method mandatory
+- fresh-executor resume proof mandatory when possible
+- access blocker must be discovered/fixed before dependent work starts
+
+PROJECT_WORK_RULES.md
+- continuity is executable handoff, not diary
+- NEXT TASK READY requires locator + usable access route + identity + resume point
 ```
 
-### INT8 ONNX
+Resume package:
+
+`prompts/WORK_STUDENT_5_PATH_B_V3_RESUME_CP32.md`
+
+The package instructs Work to use its authenticated Cloud Browser / logged-in GitHub UI to download the existing private Release asset directly into the Work machine. The owner is not asked to download, copy or recreate the model.
+
+After acquisition Work must fail closed unless archive bytes/SHA, ZIP integrity, internal SHA256SUMS, model bytes/SHA, tokenizer/mapping/manifest identities all match canonical values.
+
+The downloaded copy is execution-only. The existing pristine Release remains the immutable canonical source and must not be replaced.
+
+## Historical CP33 restart sequence — superseded by A4-only assignment below
 
 ```text
-method = ONNX_RUNTIME_DYNAMIC_PER_CHANNEL_QINT8
-weightBearingEligibleMatMulOrGemm = 73
-matMulIntegerNodes = 73
-quantizationCoverage = 100.0%
-remainingFp32MatMul = 24
-remainingFp32MatMulClass = DYNAMIC_ATTENTION_SCORE_OR_CONTEXT
-embeddingPolicy = FP32_PRESERVED
-normalizationAnd1DPolicy = FP32_PRESERVED
-calibrationDataUsed = false
-bytes = 84457299
-sha256 = f58463a6d1f4daca2e58c8e40f7f6d1cbaa7d107e9534160278bc46552e0304a
-onnxChecker = PASS
-runtimeLoad = PASS
-forward = PASS
-sizeReductionVsFp32 = 43.012384%
+1. Work reads PROJECT_WORK_RULES.md, persistence policy, this continuity + both archives, original completion package, CP32 evidence, and CP32 resume prompt.
+2. Work reports actual branch/HEAD and starts A1 authenticated pristine acquisition.
+3. Use Work Cloud Browser / authenticated GitHub UI for private Release asset acquisition.
+4. Verify canonical archive/model/tokenizer identities before any model operation.
+5. Install isolated compatible runtime if needed.
+6. A2 real pristine BERT/tokenizer + existing V3 16-head model construction + real forward.
+7. A3 physical ONNX export/check/load/forward + all expected tensors/shapes/fingerprint/parity.
+8. A4 persist retained Gate-A output as a NEW immutable artifact.
+9. On Gate-A PASS continue automatically to Gate-B readiness and TASK 3 training under the original authorized completion package.
+10. Stop only on a genuine package-defined blocker; do not ask for duplicate authorization.
 ```
 
-### Parity summary
-
-The canonical Phase-A independent probe was reused: 95 coverage rows, 161 unique semantic-comparison sentences, 36 contrast pairs and 50 adult/intimacy sentences. Canonical DEV and Frozen were not used.
-
-| Slice | FP32 vs INT8 mean cosine | Minimum cosine |
-|---|---:|---:|
-| Overall | 0.9985922280 | 0.9974925518 |
-| General | 0.9985940893 | 0.9975170493 |
-| IT | 0.9985519545 | 0.9975170493 |
-| EN | 0.9986616887 | 0.9977059364 |
-| ES | 0.9986688186 | 0.9980143309 |
-| Adult/intimacy | 0.9985905528 | 0.9974925518 |
-| Adult IT | 0.9986285525 | 0.9980231524 |
-| Adult EN | 0.9986575033 | 0.9977059364 |
-| Adult ES | 0.9987037565 | 0.9983276129 |
-| Code-switch | 0.9982087836 | 0.9974925518 |
+## Non-overwrite guards
 
 ```text
-fp32VsInt8MeanAbsoluteDelta = 0.0142470635
-fp32VsInt8MaximumAbsoluteDelta = 0.2661950588
-contrastMeanAbsoluteCosineDelta = 0.0025965770
-contrastP95AbsoluteCosineDelta = 0.0056632161
-contrastMaximumAbsoluteCosineDelta = 0.0084947348
-spanishAdultConsentWithdrawalFp32Cosine = 0.8060526848
-spanishAdultConsentWithdrawalInt8Cosine = 0.8042662144
-spanishAdultConsentWithdrawalDelta = 0.0017864704
-adultIntimacyParityStatus = MEASURED_NO_DISPROPORTIONATE_REGRESSION_OBSERVED
+DO NOT overwrite pristine
+DO NOT overwrite Path A
+DO NOT overwrite Student-4
+DO NOT overwrite TRAIN V3 v1
+DO NOT overwrite prior Path-B checkpoints/candidates
+DO NOT use Path A INT8 as Path-B training base
+DO NOT use Frozen for tuning
+DO NOT integrate into Assembling in this workstream
 ```
 
-No canonical INT8 linguistic gate exists; values are recorded without inventing or lowering one. Adult/intimacy mean cosine is effectively equal to general.
+## Historical supervisor state before A4-only assignment
 
-### CPU runtime summary
+This chat prepares and audits. Work executes the substantive model/runtime/training work. No duplicate training/export is launched here.
 
-Environment: Linux 6.18.35 x86_64, AMD EPYC 9V74, 9 visible cores, Python 3.12.13, ONNX Runtime 1.22.1, CPUExecutionProvider, sequential execution, one intra-op and one inter-op thread. Each length used 5 warmups and 30 measured runs in isolated processes.
-
-| Model | Cold load | Warm reload | Seq32 median | Seq32 p95 | Warm-load RSS increase | Peak RSS |
-|---|---:|---:|---:|---:|---:|---:|
-| FP32 | 841.747 ms | 339.759 ms | 16.961 ms | 18.479 ms | 256581632 B | 351080448 B |
-| INT8 | 309.258 ms | 177.313 ms | 6.240 ms | 7.725 ms | 128000000 B | 210198528 B |
-
-Warm INT8 median/p95 at sequence lengths 16/32/64: `3.842/4.400 ms`, `6.240/7.725 ms`, `12.364/13.547 ms`.
-
-### Mobile audit
+Current next action:
 
 ```text
-MOBILE_COMPATIBILITY_PROVISIONAL = RISK
-standardOperatorsOnly = true
-problematicOperators = none
-externalDataRequired = false
-dynamicBatchAndSequence = true
-MotoTest = NOT_EXECUTED
+OWNER: relaunch/continue Work using prompts/WORK_STUDENT_5_PATH_B_V3_RESUME_CP32.md
+WORK: resume at A1 authenticated acquisition, then continue gates automatically on PASS
+SUPERVISOR: verify repository-visible results before accepting any gate
 ```
 
-No static blocker was found. Risk remains until tokenizer integration, reduced-operator build coverage, package memory and latency are tested on the actual mobile target.
+## Checkpoint 34 — Work A1 recovered and independently verified
 
-### Durable output
+Date: 2026-09-07T05:21:38Z. Executor: this interactive Codex Work session.
+Branch: `student5-path-b-v3`. Execution HEAD start: `955961d2e7907875312d599c7d2d8307bac81f66`.
+Execution directory: `/workspace/scratch/0a50431faa34/student5-path-b`.
+Sources are a selective, SHA-pinned snapshot from the GitHub connector, not a local Git checkout. Repository tree has no AGENTS.md.
+
+The prescribed Cloud Browser route was actually used. The logged-in GitHub Release UI exposed asset `student5-minilm-phase-a-pruned-40k.zip`; clicking it delivered the 88,361,246-byte file to shared scratch. The browser download-event waiter timed out after 3 seconds, but the completed file was independently located and verified; no second download or credential extraction was used.
 
 ```text
-releaseTag = student-5-minilm-40k-untaught-int8-runtime-probe
-releaseId = 383162517
-assetId = 545486429
-asset = student-5-minilm-40k-untaught-int8-runtime-probe.zip
-assetBytes = 142463548
-assetSha256 = 72eea0af4211959bdbc92be36387faf5b85da957830f9be0a6d0dd50ab7cedf6
-artifactDirectoryBytes = 234933515
-zipIntegrity = PASS
-artifactInternalSha256Sums = 18/18_PASS
+A1 pristine acquisition = PASS
+archive SHA-256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
+archive ZIP integrity = PASS
+internal SHA256SUMS = 17/17 PASS
+candidate manifest payload bytes/SHA = 6/6 PASS
+model bytes = 148020400
+model SHA-256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
+mapping SHA-256 = da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9
+SentencePiece SHA-256 = 748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78
+candidate manifest SHA-256 = a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d
+TRAIN v1 per-file SHA256SUMS = 129/129 PASS
+TRAIN v1 ordered shard SHA-256 = 1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e
+TRAIN migration manifest SHA-256 = 87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98
+TASK 2.3 = ACCEPTED / NOT REPEATED
+A2 physical BERT/V3 forward = NEXT / NOT YET EXECUTED
+A3 physical ONNX = NOT YET EXECUTED
+A4 output publication = NOT YET EXECUTED
+training / optimizer / backprop / quantization = NOT EXECUTED
+DEV / Frozen = UNREAD
+pristine / Path A / Student-4 / TRAIN v1 / previous versions = UNCHANGED
 ```
 
-Release: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-untaught-int8-runtime-probe`
+Recovery map: `reports/evidence/student5-path-b-cp34/recovery.json`. Canonical durable input remains Release 383143636, asset 545406840; scratch is an execution copy only. The same logged-in Release UI is the verified acquisition route for a fresh executor with that authentication. Never infer availability of this login in another session without checking.
 
-Direct asset: `https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-untaught-int8-runtime-probe/student-5-minilm-40k-untaught-int8-runtime-probe.zip`
+Isolated runtime installation is in progress, using the repository's physical-probe pins (Torch 2.4.1+cpu, Transformers 4.44.2, ONNX 1.16.2, ORT 1.19.2; NumPy 1.26.4). No model operation has started.
 
-Task evidence:
+Exact remaining work: finish pinned runtime; A2 real pristine BERT/tokenizer and existing V3 adapter forward; A3 export via existing V3 contract, checker/runtime load/forward, all 17 tensors, masks/dynamic axes/fingerprint/numerical parity; A4 new immutable retained output and registry/checksum/readback. On Gate-A PASS, identify permitted V3 DEV and gate/evaluator compatibility before training, then the original Gate B–E sequence. All CP33 guards and previously recorded coverage gaps remain open. No Assembling integration or promotion.
+
+## Checkpoint 35a — physical Gate A executed; durable publication in progress
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`; executed source HEAD: `aa3ab11fffdd4e25305fdfe949726358e0514fce` (parent of this evidence commit).
+Real pristine BERT/tokenizer load, V3 16 conceptual heads / 17 tensors, forward, ONNX opset 17 checker/load/forward and fingerprint guard PASS. Four batches / seven safe authored IT/EN/ES probes cover batch 1/2/3, sequence 7/9/16, candidates 2/4/7/16 and anchors 1/2/3/5. Masked slots PASS; all output argmax agree; maximum absolute delta 3.129243850708008e-07 (atol=rtol=1e-4). Model: 37,171,640 parameters including 172,088 new head parameters.
+
+No optimizer/backprop/training, DEV or Frozen. Candidate embeddings use real token hidden states only to exercise mechanics; no learned semantic-quality claim. TracerWarning on fixed hidden dimension 384 is recorded; tested dynamic dimensions pass. TASK 2.3 not repeated; prior artifacts unchanged.
+
+Evidence: `reports/evidence/student5-path-b-cp35/report.json`, `artifact-manifest.json`, `artifact-SHA256SUMS`.
+
+Pending A4: upload NEW private prerelease `student5-path-b-v3-untrained-gate-a-cp35-20260907`, archive 176837978 bytes, SHA256 dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71; perform fresh binary recovery/checksum/load, record release/asset IDs and registry entry. Local package `/workspace/scratch/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip`; local copy alone does not close A4.
+
+Then automatically examine Gate B permitted V3 DEV identity/evaluation contract, TRAIN coverage and acceptance criteria before any training. Remaining: frozen-backbone/head training, DEV/error analysis and TRAIN-only new versions, evidence-backed capacity escalation, taught FP32 lock/persistence, taught ONNX, protected quantization/parity/runtime, final one-shot Frozen only after lock, final handoff. STOP on genuine package blockers; do not invent V2/V3 gate equivalence. No promotion or Assembling integration.
+
+## Checkpoint 35b — A4-only durable publication PASS; return to Supervisor GPT
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`. Assignment/start HEAD and release-tag commit: `4c101cac96eab925b600012d989988449d3f09b7`. This evidence commit is its direct child; resolve branch HEAD for the exact handoff commit. Issuer/reviewer: Supervisor GPT; executor: ChatGPT Work. Scope: `prompts/WORK_STUDENT_5_PATH_B_V3_RESUME_CP35A_A4_ONLY.md`. This assignment supersedes all historical automatic-continuation instructions above. Assignment ends at A4; no later work started or authorized by this checkpoint.
+
+The retained local archive existed and matched CP35a exactly before upload. The browser's filechooser waiter timed out when used with the initial locator flow; the supported synchronized filechooser wait plus visible upload-control click succeeded. Exactly one asset was supplied and published as a new prerelease. No existing release/tag/asset was replaced.
 
 ```text
-startCheckpointCommit = 0b42b151c717e1450866155699cf0bfd1ff964cb
-benchmarkRepairCheckpointCommit = 0a5d08005ecdc8273cef33f125fb56ab184e4fb4
-reproductionSourceCommit = 5f1eb582a98e0488ce73b0ab24682f860cd30a72
-reportCommit = bbd765299ff6cd28b29b66ee0155bc84846d068b
-registryCommit = 04283174acd4f2fea7f6a4db3822e3668d675bb8
-continuityCompletionCommit = THIS_CHECKPOINT_COMMIT
+A4 = PASS
+artifactId / releaseTag = student5-path-b-v3-untrained-gate-a-cp35-20260907
+releaseId = 383886129
+assetId = 548329150
+assetName = student5-path-b-v3-untrained-gate-a-cp35-20260907.zip
+bytes = 176837978
+SHA-256 = dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71
+source model/export commit = aa3ab11fffdd4e25305fdfe949726358e0514fce
+source evidence commit = e95571b7df4ff2ff56cf52d0603f1bb5d43f0250
+fresh readback = PASS at 2026-09-07T07:03:10.041152+00:00
+ZIP integrity = PASS
+internal SHA256SUMS = 17/17 PASS
+manifest/base lineage = PASS
+status = UNTRAINED_GATE_A_RUNTIME_PROBE_ONLY / NOT_PRODUCTION_APPROVED
 ```
 
-Files changed from the TASK-1 start HEAD through the pre-final checkpoint:
+Primary persistent locator: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-path-b-v3-untrained-gate-a-cp35-20260907
+
+Binary acquisition URL: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-path-b-v3-untrained-gate-a-cp35-20260907/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip
+
+Working recovery route: public HTTPS GET (Python urllib.request.urlopen, no credentials) into a fresh output file, then independently verify bytes/SHA, ZIP integrity, internal SHA256SUMS and manifest lineage. The recovered file is distinct from the original upload archive. Browser upload uses `/home/oai/share/<archive name>` synchronized from `/workspace/scratch/<archive name>`; public recovery does not depend on that browser login. Last recovery proof: CP35b. Reproduction source is pinned above, but reproduction is not needed for this stored original binary.
+
+Evidence: `reports/evidence/student5-path-b-cp35b-a4/publication.json`, `recovery.json`, `SHA256SUMS`; registry: `docs/STUDENT_ARTIFACT_REGISTRY.md`. CP35a files remain byte-for-byte unchanged, including their historical A4_PENDING status. This CP35b publication manifest records the new A4 result separately.
+
+A1/A2/A3 and TASK 2.3 were not repeated. No model execution, training, optimizer, backprop, DEV, Frozen, quantization, Assembling work or promotion was performed during A4. Pristine, Path A, Student-4, TRAIN V3 v1 and prior Path-B files remain unchanged.
+
+Exact disposition: report A4 PASS and evidence to Supervisor GPT; await review. This executor does not anticipate or start another assignment.
+
+## Checkpoint 36 — Gate B readiness BLOCKED; substantive Supervisor handoff
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+Starting HEAD: `cfe905aff7a1076fd2cf455041babb782ccf7289`.
+Assignment: `prompts/WORK_STUDENT_5_PATH_B_V3_GATE_B_READINESS_ONLY.md`.
+Issuer/reviewer: Supervisor GPT; executor: ChatGPT Work.
+Delivery commit: the direct child of starting HEAD introducing `reports/STUDENT_5_GATE_B_READINESS_CP36.md`; resolve `git log -1 --format=%H -- reports/STUDENT_5_GATE_B_READINESS_CP36.md` for its exact immutable SHA. The user-visible handoff reports that SHA after remote verification.
+
+This current assignment supersedes all historical automatic continuation instructions above. Gate A/A4 is ACCEPTED by Supervisor GPT. A1/A2/A3/A4 and TASK 2.3 were not repeated. Work reports readiness; Supervisor retains gate acceptance authority.
+
+**GATE_B_READINESS = BLOCKED. NEXT TASK READY = false.**
+
+Full substantive report: `reports/STUDENT_5_GATE_B_READINESS_CP36.md`.
+Machine verdict, complete runtime results, identities, inventory, reproducible probe and checksums:
+`reports/evidence/student5-path-b-cp36-readiness/`.
+
+The earlier readiness attempt executed safe checks at source HEAD `1ef81d3e8d7b92d9cbd2bf5f54e6d3d1918f8973`, but its report was not published before a read-only monitoring instruction interrupted delivery. The current assignment recovered those files and verified all 378 previously inspected path entries unchanged at the new starting HEAD, including 130 TRAIN files and nine software-source files. Those executed results are preserved with their actual source HEAD; they were not falsely reported as freshly rerun. No evidence was lost. `resume-validation.json` documents the identity bridge.
+
+Verified:
+- TRAIN artifact `student5-matrix-nlu-v3-train-v1`, path `data/student5_v3/`: 3,150 rows / 3,990 claims.
+- Ordered TRAIN SHA-256 `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`.
+- Migration manifest SHA-256 `87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98`.
+- Per-file SHA-256 129/129 match; repository Git blob identities 130/130 match.
+- V3 contract fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0`.
+- Safe software fault probes demonstrate that the evaluator misses wrong sourceSpan boundaries, wrong mention-table spans and forbidden downstream fields; all retain perfect returned accuracy metrics. An extra claim is caught by claimCountExact but paired claimExact remains 1.0. These are software defects, not model-quality measurements.
+- Evaluator/decoder source identities, exact observations and limitations are in report/source-integrity.json.
+
+First blocker: permitted DEV V3 has no verified ID/path/SHA/provenance in the current repository tree, registry or Release inventory. Documented V2 DEV identities are not an authorized V3 substitute. DEV was not read, reconstructed, migrated or modified.
+
+Other blockers: incomplete V3 model-to-decoder evaluation path; partial V3 scorer lacks required exact sets/boundary/entity checks and critical-family residuals; threshold selection imports legacy evaluator/decoder; no verified V3 metric/calibration mapping and connected IT/EN/ES per-family error-analysis pipeline.
+
+Required acceptance invariants remain ownership corruption=0, invented World Truth=0, no downstream state fields, critical uncertainty abstains, DEV-only calibration, unchanged gates. Legacy numerical thresholds are documented in the report but are not invented as V3-equivalent acceptance criteria. All required family/language coverage and prior TRAIN risks remain explicit.
 
 ```text
-docs/STUDENT_ARTIFACT_REGISTRY.md
-docs/WORK_CONTINUITY_STUDENT_5.md
-matrix_nlu/student5_untaught_runtime_probe.py
-reports/STUDENT_5_40K_UNTAUGHT_INT8_RUNTIME_PROBE.md
-```
-
-GitHub compare evidence shows no Student-4 file, dataset, canonical DEV path, Frozen path, Matrix training implementation, Assembling file or other repository change.
-
-Final guards:
-
-```text
-pristineInputVerified = true
-pristineInputModified = false
-fp32OnnxExported = true
-fp32OnnxRuntimeLoad = true
-fp32OnnxForward = true
-int8ArtifactCreated = true
-int8RuntimeLoad = true
-int8Forward = true
-quantizedOperatorCensusRecorded = true
-fp32VsSourceParityMeasured = true
-int8VsFp32ParityMeasured = true
-adultIntimacyParityMeasured = true
-runtimeBenchmarkRecorded = true
-artifactChecksumsRecorded = true
-student4V22AChanged = false
-canonicalDevUsed = false
-frozenDataRead = false
-frozenDataTokenized = false
-frozenDataAnalyzed = false
-frozenPredictionsRead = false
-frozenDataUsedForTuning = false
-teachingExecuted = false
-matrixHeadsTrained = false
-pathBStarted = false
-otherRepositoriesModified = false
-productionPromotionExecuted = false
-```
-
-Next action:
-
-```text
-AWAIT OWNER REVIEW BEFORE TASK 2
-```
-
-
-## Checkpoint 14 — TASK 2 contract audit start
-
-Timestamp: `2026-09-05T08:00Z`
-
-```text
-task = TASK_2_15_HEAD_CONTRACT_AUDIT
-activeStudent = Student-5-MiniLM-40k
-headStart = 8a9a375c4bbd5b9d03f6f68f036059a3df414881
-headAtCheckpoint = THIS_CHECKPOINT_COMMIT
-expectedHeadTotal = 15
-expectedTokenHeads = [boundary, object, subject, negation, temporal, entity]
-expectedSequenceHeads = [dialogueAct, predicate, subjectReferent, targetReferent, ownerReferent, perspectiveReferent, polarity, temporalRelation, claimKind]
-pathAStatus = COMPLETE_READ_ONLY
-pathAModified = false
-pathBStarted = false
-canonicalDevUsed = false
-frozenDataRead = false
-student4V22AChanged = false
-teachingExecuted = false
-trainingExecuted = false
-otherRepositoriesModified = false
-```
-
-Scope is contract audit and documentation only. No head, label, dataset, decoder, training, model, tokenizer, pristine artifact, Path-A artifact, Student-4, DEV or Frozen change is authorized. Code and canonical documentation will be inspected; contract defects will be reported, not repaired.
-
-
-## Checkpoint 15 — TASK 2 contract audit complete / architectural stop
-
-Timestamp: `2026-09-05T08:45Z`
-
-```text
-task = TASK_2_15_HEAD_CONTRACT_AUDIT
-result = ARCHITECTURAL_CONTRACT_CHANGE_REQUIRED
-headStart = 8a9a375c4bbd5b9d03f6f68f036059a3df414881
-startCheckpointCommit = 2a41baba94ff5e36763552ca24f43dfb51d906de
-reportCommit = 07cb51eb477e771b11502ed393452ca1737e6905
-headFinal = THIS_CHECKPOINT_COMMIT
-headsFound = 15
-tokenHeads = 6
-sequenceHeads = 9
-labelRegistry = BLOCKED
-datasetTargetOutputDecoder = BLOCKED
-referentOwnership = BLOCKED
-negationPolarity = BLOCKED
-temporal = BLOCKED
-dialogueActClaimKind = BLOCKED
-multiClaim = RISK
-adultIntimacy = RISK
-itEnEs = RISK
-architectureOwnership = RISK
-implementationBugs = 9
-contractDriftFindings = 7
-P0 = 9
-P1 = 6
-P2 = 1
-TASK_3 = NOT_STARTED
-PATH_B = NOT_STARTED
-FROZEN = UNREAD
-```
-
-Canonical report:
-
-```text
-reports/STUDENT_5_15_HEAD_CONTRACT_AUDIT.md
-```
-
-### Architectural stop reasons
-
-1. Dataset v2 couples the full-source negation span one-to-one with NEGATIVE polarity, so token negation is not independent and composed/nested negation is not representable.
-2. HYPOTHESIS is duplicated between dialogueAct and claimKind while generic REPORT, BELIEF and COMMAND states are absent.
-3. KNOWN_ENTITY/RECENT_ENTITY categories cannot link distinct subject, target, owner, perspective and reported-source mentions when several entities appear; the entity training target discards dataset referent annotations.
-4. temporalRelation cannot encode BEFORE/AFTER/DURING with its current label set.
-
-The current Student-5 `BertModel` also requires an implementation-only adapter because `matrix_nlu/model.py` assumes DistilBERT internals. No implementation fix was made inside TASK 2.
-
-### Validation
-
-```text
-safeUnitTests = 12/12_PASS
-exactHeadRegistry = PASS_15_TOTAL_6_TOKEN_9_SEQUENCE
-uniqueLabelsWithinHeads = PASS
-pythonCompile = PASS
-syntheticMultiKnownEntityProbe = P0_REPRODUCED
-canonicalDevDatasetOpened = false
-frozenDatasetOpened = false
-```
-
-Tests that build or read DEV/test partitions were deliberately not executed. The canonical prior v2 audit result remains historical evidence and was not rerun.
-
-Files modified during TASK 2:
-
-```text
-docs/WORK_CONTINUITY_STUDENT_5.md
-reports/STUDENT_5_15_HEAD_CONTRACT_AUDIT.md
-```
-
-No model, tokenizer, label, dataset, DEV, Frozen, Student-4, Path-A artifact, training, decoder, inference implementation or other repository file was modified.
-
-Final guards:
-
-```text
-student4V22AChanged = false
-canonicalDevUsed = false
-frozenDataRead = false
-frozenDataTokenized = false
-frozenDataAnalyzed = false
-frozenPredictionsRead = false
-pathAModified = false
-pathBStarted = false
-teachingExecuted = false
-trainingExecuted = false
-otherRepositoriesModified = false
-productionPromotionExecuted = false
-```
-
-Next action:
-
-```text
-AWAIT OWNER REVIEW OF ARCHITECTURAL_CONTRACT_CHANGE_REQUIRED
-```
-
-
-## Checkpoint 16 — TASK 2.1 contract repair design start
-
-Timestamp: `2026-09-05T08:29:47Z`
-
-```text
-task = TASK_2_1_CONTRACT_REPAIR_DESIGN_AND_FREEZE
-headStart = c2b51fde2157f1e704f53adc46f840e7e6cc3a2f
-headAtCheckpoint = THIS_CHECKPOINT_COMMIT
-currentHeadCount = 15
-contractCandidate = MATRIX_NLU_CONTRACT_V3
-scope = ARCHITECTURE_CONTRACT_DESIGN_ONLY
-TASK_2_2 = NOT_STARTED
-TASK_3 = NOT_STARTED
-PATH_B = NOT_STARTED
-PATH_A = COMPLETE_READ_ONLY
-FROZEN = UNREAD
-canonicalDevUsed = false
-student4V22AChanged = false
-teachingExecuted = false
-trainingExecuted = false
-otherRepositoriesModified = false
-```
-
-TASK 2.1 will resolve the seven contract-drift findings and map the nine implementation bugs without modifying implementation, labels, datasets, model weights, tokenizers or runtime artifacts. Public technical sources may be consulted only to compare compact, deterministic design patterns. No DEV/Frozen dataset partition will be opened.
-
-## Checkpoint 17 — TASK 2.1 architecture decisions frozen
-
-Timestamp: `2026-09-05T08:38:21Z`
-
-```text
-headStart = c2b51fde2157f1e704f53adc46f840e7e6cc3a2f
-headAtDesignFreeze = 9ba920c0cd17374060a682e400c54da284e894f1
-task = TASK_2_1_CONTRACT_REPAIR_DESIGN_AND_FREEZE
-verdict = CONTRACT_V3_FROZEN
-contractVersion = MATRIX_NLU_CONTRACT_V3
-currentHeadCount = 15
-proposedHeadCount = 16
-headCountChangeRequired = true
-tokenHeads = 6
-sequenceHeads = 10
-roleLink = BOUNDED_MENTION_CANDIDATE_POINTERS
-sourceRepresentation = DEDICATED_SOURCE_REFERENT_POINTER
-negation = OVERT_CUE_SPANS_INDEPENDENT_FROM_POLARITY
-temporal = EVIDENCE_SPANS_PLUS_RELATION_AND_ANCHOR
-dialogueAct = CONVERSATIONAL_ACTION
-claimKind = EPISTEMIC_EVIDENTIAL_PRESENTATION
-confidence = FIELD_AWARE_FAIL_CLOSED
-implementationBugsMapped = 9/9
-contractP0Remaining = 0
-implementationP0Remaining = 4
-```
-
-The complete frozen specification is `docs/MATRIX_NLU_CONTRACT_V3.md`; the design analysis is `reports/STUDENT_5_CONTRACT_REPAIR_DESIGN.md`. The additional `sourceReferent` head is required because source and perspective are independent roles. No code or label registry has been implemented in this task.
-
-## Checkpoint 18 — TASK 2.1 completion and guard verification
-
-Timestamp: `2026-09-05T08:38:21Z`
-
-Static validation performed against the documentation checkpoint:
-
-```text
-documentationContractAssertions = PASS
-proposedHeadRegistry = 16 (6 token + 10 sequence) PASS
-allRequiredDecisionsPresent = PASS
-implementationBugMapping = 9/9 PASS
-v2MigrationClass = PARTIAL_BREAKING
-filesChangedFromHeadStart =
-  docs/MATRIX_NLU_CONTRACT_V3.md
-  docs/WORK_CONTINUITY_STUDENT_5.md
-  reports/STUDENT_5_CONTRACT_REPAIR_DESIGN.md
-forbiddenImplementationOrDataFilesChanged = false
-runtimeTestsRerun = false (documentation-only; code tree unchanged)
-```
-
-Final guards:
-
-```text
-Student-4 changed = false
-canonical DEV used = false
+DEV identity = UNKNOWN / BLOCKED
+TRAIN integrity = PASS
+DEV copied into TRAIN = false
+DEV→TRAIN independent separation = UNKNOWN (missing DEV V3 identity)
 Frozen read = false
-Frozen tokenized = false
-Frozen analyzed = false
-Frozen predictions read = false
-Path A modified = false
-Path B started = false
-Teaching executed = false
-Training executed = false
-Other repositories modified = false
-TASK 2.2 = NOT_STARTED
-TASK 3 = NOT_STARTED
+training / optimizer / backprop / fine-tuning = NOT_EXECUTED
+augmentation / dataset mutation / quantization = NOT_EXECUTED
+model load/forward during readiness = NOT_EXECUTED
+Student-4 / Path A / pristine / prior artifacts = UNCHANGED
+productionPromotion / Assembling integration = false
+active background task / launched workflow = none
 ```
 
-Next action:
+Remaining within readiness: Supervisor must disposition missing V3 DEV identity and substantive evaluation/calibration/error-analysis gaps, then a separately scoped repair/readiness recheck can establish them. No ordinary path/configuration/documentation fix could supply missing authorized gold or evaluation semantics. This executor changed only readiness evidence/report and this continuity; no training was started.
+
+Broader Path B remains unexecuted after accepted Gate A: training/DEV cycles, any authorized TRAIN-only new versions or capacity changes, taught FP32 lock/persistence, taught export/quantization/parity/runtime, final Frozen handling under its lock policy, and final handoff. Listing them preserves continuity and is not execution or authorization for this assignment.
+
+Exact disposition: readiness audit delivered to Supervisor GPT with BLOCKED; stop and await the next assignment. Do not restart Gate A or start training from this checkpoint.
+
+## Checkpoint 37 — TRAIN curriculum audit; REPAIR_REQUIRED_BEFORE_TRAINING
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+Starting HEAD: `39ca73b9a461e4435fdf1f5e5f8172c7d303dc16`.
+Assignment: `prompts/WORK_STUDENT_5_PATH_B_V3_TRAIN_CURRICULUM_AUDIT_ONLY.md`.
+Issuer/reviewer: Supervisor GPT; executor: ChatGPT Work.
+Final delivery HEAD: direct child introducing `reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md`; resolve `git log -1 --format=%H -- reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md`. The handoff links the exact commit after remote verification.
+
+**TRAIN_CURRICULUM = REPAIR_REQUIRED_BEFORE_TRAINING**
+
+Report for Supervisor GPT: `reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md`.
+Machine census, semantic review, scripts, input identities and checksums:
+`reports/evidence/student5-path-b-cp37-train-audit/`.
+This bounded audit ends here. It supersedes historical automatic-continuation instructions; no remediation, Gate B repair or training is authorized by this checkpoint.
+
+The immutable TRAIN remains `student5-matrix-nlu-v3-train-v1`, path `data/student5_v3/`, 3,150 observations / 3,990 claims, ordered SHA-256 `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`, contract fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0`. Source hashes and acquisition locators remain those preserved at CP36 and in the registry; no new model artifact was created.
+
+Confirmed coverage/pedagogy:
+- COMMAND/BELIEF zero; PAST 14 (IT 12, EN 1, ES 1); five advanced temporal relations zero; all 2,622 supervised anchor targets speech-time.
+- Owner equals subject 3,990/3,990; perspective always speaker; eight IT-only negative-goal reports, all source=subject at claim start. Zero role UNKNOWN/AMBIGUOUS and no multi-context-entity choice.
+- REQUEST 27 (IT 19/EN 4/ES 4), CORRECT 10 (4/3/3); 189 abstained claims do exist, driven solely by polarity UNKNOWN (183 questions/six requests).
+- Negation cues 463 claims, all NEGATIVE; 232 negative claims have no cue (not inherently erroneous); temporal evidence positive in 389 claims. Token lexical all-O rates are high; these counts are audit-tokenizer diagnostics, not BERT tokens or model results.
+- 1,561 excess duplicate observation instances; 2,878 excess normalized claim instances. Zero exact same-input/context gold conflicts under the stated comparison; near-duplicate/template screens are concentration proxies, not a claim that every pair is harmful.
+- Adult desire assertions 15 IT-only, requests separately 15 IT-only; refusal 61 separate from one IT withdrawal. Eleven declared code-switch examples all teach speech.unresolved despite explicit desire wording.
+- Six bounded confirmed missing explicit temporal spans; 23 future-worded goal/CURRENT cases need time-target adjudication; report-perspective and six opinion-wrapper cases need semantic adjudication; 628 explicit-English-I instances omit subject spans, distinct from the 404 IT/ES bounded implicit-first-person cases that comply; six malformed double-participant request instances. Details, false-positive handling and source row IDs are preserved.
+
+Student-4 comparison uses persisted reports only:
+`reports/STUDENT_4_V21_POST_DEV_REPORT.md`,
+`reports/STUDENT_4_V22A_CONTROLLED_REPAIR_REPORT.md`,
+`reports/STUDENT_4_V21_STOP_REPORT.md`,
+`reports/STUDENT_4_V22A_REPAIR_PLAN.md`.
+Measured historical regressions and byte-identical V2/repair source lineage are DIRECTLY_SUPPORTED. Possible recurrence in negation, temporal, referent/report, correction/request, ownership/span and IT/ES performance is PLAUSIBLE_RISK. Curriculum causation and damage to Student-5 pristine are NOT_ESTABLISHED. Student-4 has no comparable independent V3 source head. No historical pipeline-import failure was mislabeled a model-quality failure.
+
+Minimal categories submitted for Supervisor disposition only: adjudicate annotation inconsistencies; provide required missing semantic/role/uncertainty coverage; balance temporal/spans/negation contrasts across languages; separate adult consent/refusal/withdrawal/desire/request/arousal and broader code-switch; address redundancy without discarding meaningful contrasts. No quotas, loss, sampler, architecture or unfreezing strategy was introduced. No replacement gold or new dataset was created.
 
 ```text
-AWAIT OWNER REVIEW BEFORE TASK 2.2
+TRAIN read = true (authorized immutable input only)
+TRAIN modified = false
+DEV read / created / modified = false
+Frozen read / modified = false
+model weights modified = false
+training / optimizer / backprop / fine-tuning = NOT_EXECUTED
+augmentation / remediation = NOT_EXECUTED
+evaluator / decoder / threshold repair = NOT_EXECUTED
+Gate A / TASK 2.3 repeated = false
+Student-4 / pristine / Path A / CP36 / prior artifacts = UNCHANGED
+quantization / Assembling / promotion = NOT_EXECUTED
+background work / launched workflows = none
 ```
 
+CP36 GATE_B_READINESS remains BLOCKED by missing permitted V3 DEV identity and incomplete V3 evaluation/calibration/error-analysis path. This assignment did not investigate or repair those payloads/pipelines. Broader pending training, candidate lock/export/quantization/runtime and final authorized Frozen policy remain exactly as preserved in CP36, outside this task.
 
-## Checkpoint 19 — TASK 2.2 implementation start
+Exact next disposition: return this audit to Supervisor GPT, stop and await the next assignment. Technical details are directed to Supervisor GPT; Alberto requested only plain progress/impediment updates.
 
-Timestamp: `2026-09-05T09:00:00Z`
+
+## Checkpoint 38 — conservative TRAIN repair specification; Supervisor decisions required
+
+Date: 2026-09-07. Repository: `MATRIXNEO23/matrix-understanding-lab`; branch: `student5-path-b-v3`.
+Starting HEAD: `6cd1fac17bdceca742a8bf2932e0872ee5907601`, verified before execution.
+Assignment: `prompts/WORK_STUDENT_5_PATH_B_V3_TRAIN_REPAIR_SPECIFICATION_ONLY.md`.
+Issuer/reviewer: Supervisor GPT; final owner authority: Alberto; executor: ChatGPT Work.
+Final delivery HEAD: immutable introducing commit of `reports/STUDENT_5_TRAIN_REPAIR_SPECIFICATION_CP38.md`; resolve `git log -1 --format=%H -- reports/STUDENT_5_TRAIN_REPAIR_SPECIFICATION_CP38.md`. Exact SHA is reported in the remotely verified handoff. The assignment prompt refers internally to accepted predecessor CP37; the explicit owner starting HEAD governs this execution, without rollback.
+
+**REPAIR_SPECIFICATION = BLOCKED_NEEDS_SUPERVISOR_DECISION**
+
+Specification completed for substantive review, not applied. Report: `reports/STUDENT_5_TRAIN_REPAIR_SPECIFICATION_CP38.md`.
+Repair specification ID: `student5-v3-train-repair-spec-cp38-v1`.
+Evidence: `reports/evidence/student5-path-b-cp38-repair-spec/` with24 issue dispositions,11 overlapping annotation groups,7 precise semantic decisions, source identities, design verification and checksums.
+
+Preserved source: CP37 at `e81a2ae9e1d60c6af61a7d8d1baabed9171f3166`; all140 inspected input identities match current Git metadata, including130 TRAIN artifact files. Only documentation/CP37 evidence payloads were read in CP38. No raw TRAIN shard or model was loaded and no CP37 target-building audit was rerun. The628 explicit-English-I group and404 implicit-subject group have20 stored sample IDs each, not complete persisted row catalogs; the specification preserves exact selectors and requires complete enumeration only in a future authorized repair.
+
+Immutable base remains `student5-matrix-nlu-v3-train-v1`, `data/student5_v3/`,3150 rows3990 claims, ordered SHA-256 `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`, migration manifest SHA `87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98`, V3 fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0`. Canonical model/release recovery remains CP35b; no model artifact was created or acquired here.
+
+Future proposal only: `student5-matrix-nlu-v3-train-v2`, distinct directory `data/student5_v3_train_v2/`; NOT CREATED, no new dataset bytes/checksum/registry entry. Proposed lineage requires base identity, accepted specification/decision commit, changed/added/deactivated/unchanged row manifests, provenance aliases, file/ordered checksums and language/family/head census. V1 remains immutable and recoverable.
+
+Review decisions remaining:
+- D01: temporal target for present desire/future desired action,23 existing cases and competing template convention.
+- D02: attributed viewpoint in8 reported desires; no source→perspective copying rule.
+- D03: BELIEF versus DIRECT for6 opinion wrappers.
+- D04: exclude/quarantine versus explicitly justified repair of6 malformed participant requests; separately review3 reflexives.
+- D05: metalinguistic Spanish No in a flat positive correction, cue preservation versus polarity/status/atomic-scope treatment.
+- D06: genuine no-claim observation semantics/schema versus unresolved/abstained claim before any such coverage.
+- D07: semantically valid owner≠semantic-subject and source≠perspective constructions within fixed flat V3; no forced all-role inequality.
+
+Other proposed review items: approved missing teaching families/languages and deterministic exact-context/gold-equivalence selection with complete aliases. No blind near-duplicate deletion, numerical training quotas, sampler/loss/optimizer policy or gate changes. Confirmed span corrections, preserved valid fields, false-positive negation screens and unresolved policy cases remain separately identified. Historical Student-4 failures are evidence; recurrence is plausible and causation/pristine damage unestablished.
 
 ```text
-branch = main
-HEAD start = db60bf1f8bc1fc227ea314d9354c58db9ada6150
-activeStudent = Student-5-MiniLM-40k
-activeTask = TASK_2_2_IMPLEMENT_CONTRACT_V3_AND_P0_REPAIR
-contract = MATRIX_NLU_CONTRACT_V3
-scope = IMPLEMENTATION_SYNTHETIC_REGRESSION_ONLY
-TASK_2_3 = NOT_STARTED
-TASK_3 = NOT_STARTED
-PATH_B = NOT_STARTED
-PATH_A = COMPLETE_READ_ONLY
-canonicalDevUsed = false
-Frozen = UNREAD
-student4V22AChanged = false
-pristine40kModified = false
-optimizerCreated = false
-backpropExecuted = false
-trainingExecuted = false
-teachingExecuted = false
-otherRepositoriesModified = false
+TRAIN raw payload read in CP38 = false (CP37 evidence reviewed)
+TRAIN v1 modified / TRAIN v2 created = false
+DEV read / created / modified = false
+Frozen payload read / modified = false
+training / optimizer / backprop / fine-tuning / model load = NOT_EXECUTED
+augmentation / row relabel / row deletion / remediation = NOT_EXECUTED
+evaluator / decoder / threshold change = false
+Gate A / TASK 2.3 repeated = false
+Student-4 / Path A / pristine / prior artifacts = UNCHANGED
+quantization / Assembling / production promotion = NOT_EXECUTED
+workflow launched / active background work = none
+GATE_B_READINESS = BLOCKED (CP36 unchanged)
+NEXT TASK READY for repair execution or training = false
 ```
 
-TASK 2.2 will implement the frozen 16-head contract, close IB-01..IB-09 as required, and use only synthetic/data-independent tests. No canonical dataset partition will be opened or rewritten.
+Exact next action: Supervisor GPT reviews the complete CP38 report and records semantic decisions plus owner-approved repair scope. ChatGPT Work stops and awaits a separate assignment. No implementation or later work is authorized by this specification. CP36 DEV identity/evaluator/calibration/error-analysis blockers remain open; broader training/candidate lock/export/quantization/runtime/final controlled Frozen work remains unexecuted as documented above, not a next action for this task.
 
-## Checkpoint 20 — V3 registry, BERT adapter and pointer architecture
+Persistent recovery: fetch CP38 report/evidence and this continuity through authenticated GitHub at the final introducing commit, verify SHA256SUMS and input identities. These text inputs were successfully acquired by that connector in CP38; scratch is not the canonical copy. Final tree/readback verification supports the handoff. Technical findings are addressed to Supervisor GPT; Alberto receives only plain status/impediment information.
 
-```text
-HEAD before checkpoint = d9cfd0321a99925c9a5fe149ce9683052d6b1e4a
-contractModule = matrix_nlu/contract_v3.py
-candidateModule = matrix_nlu/referent_candidates.py
-modelModule = matrix_nlu/model_v3.py
-onnxContractModule = matrix_nlu/export_onnx_v3.py
-tests = matrix_nlu/test_contract_v3_core.py
-registry = 16 heads (6 token + 10 sequence) PASS
-sourceReferent = INDEPENDENT_POINTER_HEAD
-maxReferentCandidatesDefault = 16
-overflow = FAIL_CLOSED_WITH_LOST_CRITICAL_EVIDENCE
-Student5BertAdapter = encoder.layer + hidden_size supported
-headParametersAtHidden384 = 171704
-estimatedHeadFp32Bytes = 686816
-syntheticCoreTests = 9/9 PASS
-pyCompile = PASS
-optimizerCreated = false
-trainingExecuted = false
-canonicalDevUsed = false
-Frozen = UNREAD
-```
 
-The V3 path is isolated from legacy V2/Student-4 modules. The ONNX export contract is defined, but no export has been attempted at this checkpoint because Torch/Transformers/ONNX are not installed in the execution environment.
+## Checkpoint 39 recovery — missing unpublished TRAIN v2 evidence; STOP
 
-## Checkpoint 21 — V3 decoder, evaluator and target/migration tooling
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+Verified starting HEAD: `ff6ee962bcc7629ace9bcd69263ddbf497376df8`.
+Assignment: Supervisor GPT RECOVERY / COMPLETION AUDIT ONLY of
+`prompts/WORK_STUDENT_5_PATH_B_V3_CREATE_REPAIRED_TRAIN_V2_ONLY.md`.
+Delivery HEAD: introducing commit of `reports/STUDENT_5_TRAIN_V2_REPAIR_RECOVERY_CP39.md`; exact SHA reported after remote verification.
 
-```text
-HEAD before checkpoint = 38d6ad53e88082ac68037a6571b6653bb7651526
-decoder = matrix_nlu/inference_v3.py
-independentEvaluator = matrix_nlu/evaluate_v3.py
-targetBuilder = matrix_nlu/training_data_v3.py
-migrationClassifier = matrix_nlu/migrate_contract_v3.py
-syntheticInventory = matrix_nlu/synthetic_v3_fixtures.py
-multiSpanPreservation = PASS
-fiveIndependentRolePointers = PASS
-sourcePerspectiveSeparation = PASS
-negationCuePolarityIndependence = PASS
-temporalRelationAnchorValidation = PASS
-fieldAwareConfidenceAbstention = PASS
-goldProductionDecoderIndependence = PASS
-bundleFingerprintRuntimeGuard = PASS
-canonicalCorrectionLabel = CORRECT
-safeTests = 42/42 PASS (30 V3 + 12 legacy data-independent)
-canonicalDatasetFilesOpened = false
-optimizerCreated = false
-trainingExecuted = false
-Frozen = UNREAD
-```
+**TRAIN_V2_REPAIR = BLOCKED. NEXT TASK READY = false.**
+Full Supervisor report: `reports/STUDENT_5_TRAIN_V2_REPAIR_RECOVERY_CP39.md`.
+Persistent audit: `reports/evidence/student5-path-b-cp39-recovery/`, including starting tree, identity bridge, guards, checksums and limitations.
 
-The V2 migration module accepts only caller-supplied rows and reports DIRECT_REUSE / DETERMINISTIC_MIGRATION / NEEDS_REANNOTATION / UNUSABLE; it was not run on any canonical partition. The V3 canonical output contains no authority, World Truth, Memory Admission or persistent state fields.
+D01–D07 were approved in the subsequent assignment commit ff6ee962; CP38's open-decision language is historical. No new approval is requested. The recovery does not change the decisions or lower gates.
 
-## Checkpoint 22 — TASK 2.2 structural completion gate
+Verified current state: remote HEAD had not advanced beyond the assignment; no TRAIN v2 path or CP39 delivery in its complete tree, no branch Actions runs, no matching Release asset. The previous scratch checkout, candidate directories, generators and verification reports are unavailable after workspace maintenance. Searches found no recoverable matching backup. Local git status returns exit 128 (not a Git repository); do not describe that as a clean checkout.
 
-Timestamp: `2026-09-05T09:21:33Z`
+Session history describes local generation/verification awaiting publication, but none of those candidate bytes is currently verifiable. Historical numbers (NOT RECERTIFIED): final 1723 rows/2416 claims; SHA `01d0a249ea05febb83142ead6b730a914de67495e37dec4fa2faf6b1ccc0d813`; initial-candidate ZIP SHA `547957a5cf98db05a2f13a051e779398ecc5b46e3b570d89cf1d90f8e93f0128`. These are identification hints, not a recoverable artifact or PASS. Historical owner/subject coverage concern likewise remains unverified without candidate data.
 
-```text
-HEAD implementation = 3aa9d135661f15647e9d4b75dde6779025ee5fcd
-task = TASK_2_2_IMPLEMENT_CONTRACT_V3_AND_P0_REPAIR
-verdict = CONTRACT_V3_IMPLEMENTATION_PASS_WITH_NONBLOCKING_RISKS
-contract = MATRIX_NLU_CONTRACT_V3
-contractFingerprintSha256 = 7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0
-headCount = 16
-tokenHeads = 6
-sequenceHeads = 10
-sourceReferent = PASS
-student5BertAdapter = PASS_STRUCTURAL
-referentPointers = PASS
-multiEntityRoleSeparation = PASS
-negationPolarity = PASS
-temporalAnchor = PASS
-multiSpanDecoder = PASS
-confidenceAbstention = PASS
-independentEvaluator = PASS
-bundleFingerprintGuard = PASS
-V3OutputOwnership = PASS
-safeTests = 43/43 PASS
-pythonCompile = PASS
-headParameterDelta = 172088
-estimatedHeadFp32Bytes = 688352
-P0ImplementationRemaining = 0
-P1Remaining = 2 (physical pristine BERT load; physical ONNX export/load)
-P2Remaining = 0
-ONNXStructuralProbe = NOT_EXECUTED_MISSING_LOCAL_TOOLCHAIN
-```
+Fresh identity bridge: 140/140 baseline path identities match, including all 130 TRAIN v1 files. V1 `student5-matrix-nlu-v3-train-v1` remains at `data/student5_v3/`; canonical ordered SHA `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`, 3150 rows/3990 claims from unchanged canonical evidence. Raw TRAIN hashes were not recomputed in recovery. Contract fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0` unchanged.
 
-The ONNX graph contract is recorded with opset 17, dynamic batch/sequence/candidate/anchor axes, 17 output tensors for 16 conceptual heads, and no expected custom operators. Torch, Transformers, ONNX and ONNX Runtime are not installed in this environment, so no physical export/load result is claimed.
+R01: persistence failed for previous unpublished candidate and audit.
+R02: mandatory CP38 D01–D07/provenance/validation/checksum requirements cannot be verified.
+Recovery procedure step 7 requires STOP. Only recovery report/evidence and continuity are produced now, no regenerated data.
 
-Final guards at the implementation checkpoint:
+Recovery guards: trainingExecuted=false; canonicalDevRead=false; frozenDataRead=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; quantizationExecuted=false; onnxExecuted=false; nextWorkStarted=false. They describe this recovery, not a complete reconstructed historical process log. No model loaded, training, optimizer/backprop or workflow launched; no Frozen payload read. Full repository blob comparison protects all prior tracked artifacts except this intentionally appended continuity.
 
-```text
-Student-4 changed = false
-canonicalDevUsed = false
-Frozen read = false
-Frozen tokenized = false
-Frozen analyzed = false
-Frozen predictions read = false
-Path A modified = false
-pristine40kModified = false
-Path B started = false
-optimizerCreated = false
-backpropExecuted = false
-Teaching executed = false
-Training executed = false
-Other repositories modified = false
-TASK 2.3 = NOT_STARTED
-TASK 3 = NOT_STARTED
-```
+Exact pending handoff: Supervisor reviews the loss report. To certify the old candidate, original candidate bytes, generator/config and per-row lineage/audit must be recovered; hashes above are hints only. If unavailable, a separately directed controlled reconstruction must label all regenerated output as new execution. No silent restart, guessed gold or training. Repository-backed inputs CP37/CP38 and immutable V1 are available via authenticated GitHub blob reads at starting HEAD; manifest locators and per-file hashes are in `data/student5_v3/migration-manifest.json` and `SHA256SUMS`. Pristine recovery remains CP35b; it is not needed for this audit. No candidate recovery route is currently verified.
 
-Next action:
+CP36's permitted DEV identity and evaluator/calibration/error-analysis blockers remain open and outside this recovery. All broader Path B work remains pending as previously recorded. Stop and await Supervisor GPT; send Alberto only plain status while addressing technical evidence to Supervisor.
 
-```text
-AWAIT OWNER REVIEW BEFORE TASK 2.3
-```
 
-## Checkpoint 23 — TASK 2.2 remote evidence and STOP
+## Checkpoint 39b — final original TRAIN v2 recovery search; STOP
 
-Timestamp: `2026-09-05T09:25:00Z`
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+Starting HEAD verified: `663eecad745ab0f278e411f95b21da550ed6ed1a`.
+Supervisor assignment: LAST RECOVERY SEARCH ONLY — DO NOT RECREATE TRAIN V2.
+Final delivery HEAD: introducing commit of `reports/STUDENT_5_TRAIN_V2_FINAL_RECOVERY_SEARCH_CP39B.md`; exact SHA reported after remote readback.
 
-```text
-HEAD start = db60bf1f8bc1fc227ea314d9354c58db9ada6150
-implementation HEAD = 3aa9d135661f15647e9d4b75dde6779025ee5fcd
-report checkpoint = 2429373e7a8eac1fcd97c34473cc6cf3b5cc30f8
-branch = main
-remoteCompareStatus = ahead
-remoteCommits = 4
-remoteChangedFiles = 17
-forbiddenDataOrArtifactFilesChanged = false
-verdict = CONTRACT_V3_IMPLEMENTATION_PASS_WITH_NONBLOCKING_RISKS
-P0ImplementationRemaining = 0
-P1Remaining = 2
-P2Remaining = 0
-```
+**ORIGINAL_TRAIN_V2_RECOVERY = NOT_FOUND**
+Meaning: not found in the accessible pertinent surfaces searched; not proof of global nonexistence.
+TRAIN_V2_REPAIR remains BLOCKED. No original candidate or complete source recovered; no data recreated.
 
-The start-to-report remote comparison contains only V3 implementation/test files, the one-line `CORRECT` legacy evaluator repair, the required report, and this continuity file. The final ref update is continuity-only and does not change implementation or evidence.
+Report: `reports/STUDENT_5_TRAIN_V2_FINAL_RECOVERY_SEARCH_CP39B.md`.
+Evidence/metadata/checksums: `reports/evidence/student5-path-b-cp39b-final-search/`.
 
-```text
-Student-4 changed = false
-canonicalDevUsed = false
-Frozen read = false
-Path A modified = false
-pristine40kModified = false
-Path B started = false
-Teaching executed = false
-Training executed = false
-Other repositories modified = false
-TASK 2.3 = NOT_STARTED
-TASK 3 = NOT_STARTED
-```
+Executed search: two branches and three tags, all 247 reachable commits and their recursive trees (655 distinct path/blob pairs); zero PRs returned; all 302 Actions runs and 624 artifact metadata records; three Releases; three local ZIPs by archive SHA/member index; surviving workspace, temp/output/cache directories; local Git discovery and failed stash/reflog/fsck due no valid local object database; accessible deleted-file handles; session-archive metadata; Library inventory 1217 owned items over seven exhausted pages, zero shared. No item identified the original payload or generator. Latest Actions artifact update 2026-09-07 06:32:27 UTC predates the original assignment at 09:03:19 UTC. Only matching historical hashes/path references occur in the previous recovery documentation.
 
-STOP:
+Preserved local archives are CP35 Gate A, pristine and Android/MLC logs; none is the initial candidate ZIP. CP39's historical SHA/count hints remain in the previous checkpoint and current report; they are not recertified.
 
-```text
-AWAIT OWNER REVIEW BEFORE TASK 2.3
-```
+Unresolved access limits: Actions cache inventory rejected; remote unreachable objects/server reflogs not enumerable; no original local object database; 132 FD entries inaccessible or vanished; pruned storage/host snapshots/nonexposed backup versions unavailable. The original execution transcript is not in the eleven exposed session archives, which predate the task. Do not claim those inaccessible surfaces are empty.
 
-## Checkpoint 24 — TASK 2.3 start
+Only six documentation/evidence files changed: report, search.json, git-history.json, actions-inventory.json, SHA256SUMS and this continuity. The previous CP39 report/evidence remain immutable. No TRAIN, runtime, evaluator, decoder, calibration, workflow, Student-4, Path A or pristine modifications.
 
-Timestamp: `2026-09-05T10:00:00Z`
+Guards for this assignment:
+trainingExecuted=false; canonicalDevRead=false; frozenDataRead=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; quantizationExecuted=false; onnxExecuted=false; trainV2Recreated=false; nextWorkStarted=false.
 
-```text
-HEAD start = f2bcf0beb85f1fab4c763ce1e7aaf5ceba1b1e04
-branch = main
-activeTask = TASK_2_3_TRAIN_ONLY_V2_TO_V3_MIGRATION_REANNOTATION
-contract = MATRIX_NLU_CONTRACT_V3
-operation = TRAIN_SOURCE_INVENTORY
-TASK 2.4 = NOT_STARTED
-TASK 3 = NOT_STARTED
-Path B = NOT_STARTED
-P1-ENV-PHYSICAL-BERT-LOAD = OPEN
-P1-ENV-ONNX-EXPORT-LOAD = OPEN
-canonicalDevUsed = false
-Frozen = UNREAD
-student4V22AChanged = false
-PathAModified = false
-pristine40kModified = false
-optimizerCreated = false
-backpropExecuted = false
-trainingExecuted = false
-TeachingExecuted = false
-otherRepositoriesModified = false
-```
+Next action: STOP and await Supervisor GPT. This search grants no reconstruction or training authority. Any future controlled reconstruction must be a separately assigned new execution with persistent checkpoints; never label regeneration as recovery of original bytes. Approved D01–D07 and original V1/CP37/CP38 inputs remain available at the locators preserved above. CP36 DEV/evaluation blockers remain separate and untouched. No additional task is active.
 
-No DEV/Frozen dataset file will be opened. Source manifests and filenames may be used to exclude those partitions. Outputs will be written to a new versioned `data/student5_v3/` tree; V2 sources remain immutable.
 
-## Checkpoint 25 — TRAIN inventory and source recovery
+## Checkpoint 39c — targeted Actions/cache recovery; STOP
 
-Timestamp: `2026-09-05T10:10:00Z`
+Date: 2026-09-07. Branch: student5-path-b-v3. Starting HEAD: c968992340363ba3472bbe0733958526e3e7f417.
+Final HEAD: introducing commit of reports/STUDENT_5_TRAIN_V2_ACTIONS_RECOVERY_CP39C.md, exact SHA supplied after publication/readback.
 
-```text
-operation = TRAIN_INVENTORY_COMPLETE
-matrixV2TrainRows = 2775
-matrixV2TrainClaims = 3615
-matrixV2TrainSha256 = 5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820
-repairV22aTrainRows = 375
-repairV22aTrainClaims = 375
-repairV22aTrainSha256 = 8be02976d46ba47d746ff7307d688d93595453221965b3de995d4b1de655799f
-eligibleTrainRows = 3150
-p05V2TrainRowsRecordedByManifest = 30
-p05V2TrainSha256 = 413f60ca17879ed9de440add7903b6e2abaebdfbbed6055b32c6e0b105cadfcd
-p05V2Classification = HISTORICAL_REFERENCE_ONLY
-p05Reason = TRAIN_BYTES_NOT_DURABLY_SEPARATED_FROM_FORBIDDEN_PARTITIONS
-reportArtifactId = 9938144318
-reportArtifactSha256 = e71e153509e8f002fd74782ebb5667bb93b59438e6646c4c11723afe4be64129
-```
+ACTIONS_RECOVERY = NOT_FOUND, limited to queried Actions surfaces. No original candidate or complete original sources recovered; TRAIN_V2_REPAIR remains BLOCKED.
 
-The Matrix V2 TRAIN partition was reconstructed through TRAIN-only generator entry points plus the preserved train-drop metadata and matched its canonical SHA-256 exactly. The v2.2A repair file was extracted by explicit TRAIN-only ZIP member name and matched its recorded SHA-256. Only filenames/checksum metadata were inspected for excluded partitions; no DEV/Frozen row was extracted or opened. The P0.5 source is not used because its 30 TRAIN rows are not available as an independently readable durable member, and accessing the combined source would violate this task's partition boundary.
+The CP39b cache inventory gap is closed through direct read-only REST: 576 unique caches over six pages, 624 artifacts over seven pages, 302 runs over four pages, 11 workflows; all HTTP 200 with exhausted pagination. Connector cache/global-artifact/workflow URLs still return a tool-level 400 restriction, but direct HTTPS is available. All records predate ff6ee962's original assignment at 2026-09-07T09:03:19Z. Latest cache creation/access 06:32:37.168032Z; latest artifact update 06:32:27Z; latest run update 06:32:40Z. Response Date headers are preserved in evidence, reporting the 12:26–12:27 GMT snapshot. No statement about later changes is inferred.
 
-```text
-canonicalDevUsed = false
-Frozen read = false
-Student-4 changed = false
-Path A modified = false
-pristine40kModified = false
-trainingExecuted = false
-otherRepositoriesModified = false
-next = IMPLEMENT_CONTROLLED_V3_REANNOTATION
-```
+Current-branch cache, student5 key, assignment-SHA and post-assignment run queries each return zero. Both historical rerun first attempts were directly looked up; all 10 workflow IDs occurring in runs are covered by the 11-workflow list. No candidate-specific run/artifact/cache ID survives; none is invented. No cache is asserted expired/deleted; no candidate bytes certified. Dependency/model cache payloads were not opened because their timestamps and documented paths exclude the original generated candidate. No relevant cache remains simply “non-enumerable.”
 
-## Checkpoint 26 — migration/reannotation implementation
+Report: reports/STUDENT_5_TRAIN_V2_ACTIONS_RECOVERY_CP39C.md.
+Evidence: reports/evidence/student5-path-b-cp39c-actions-recovery/inventory.json and SHA256SUMS. Only report/evidence/continuity changed; prior checkpoints preserved. No TRAIN v1, evaluator, decoder, calibration, workflow, Student-4, Path A or pristine modification.
 
-Timestamp: `2026-09-05T10:30:00Z`
+trainingExecuted=false; canonicalDevRead=false; frozenDataRead=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; quantizationExecuted=false; onnxExecuted=false; trainV2Recreated=false; nextWorkStarted=false.
 
-```text
-HEAD before checkpoint = 8c1e77a5f163eb26eef864ebd895c2c35cb7acc5
-operation = MIGRATION_TOOL_AND_SYNTHETIC_GATES
-migrationTool = matrix_nlu/train_v3_migration.py
-targetBuilderRepair = V3_DATASET_LABEL_OBJECT_ALIGNMENT
-syntheticMigrationTests = 10/10 PASS
-safeV3TestsAtCheckpoint = 41/41 PASS
-sourceDiscovery = FORBIDDEN_EXPLICIT_TRAIN_PATHS_ONLY
-V2SourceOverwrite = false
-canonicalDevUsed = false
-Frozen read = false
-Student-4 changed = false
-Path A modified = false
-pristine40kModified = false
-optimizerCreated = false
-backpropExecuted = false
-trainingExecuted = false
-otherRepositoriesModified = false
-next = COMMIT_TOOL_THEN_EXECUTE_FULL_TRAIN_MIGRATION
-```
+STOP and await Supervisor GPT. No recreation or training authorized. Prior candidate identity hints and CP38 D01–D07 remain historical inputs, not recovery. CP36 DEV/evaluation blockers and all broader Path B work remain pending and untouched. Other non-Actions CP39b access limitations (pruned storage, remote unreachable Git objects, host backups) are unchanged and outside this targeted assignment.
 
-The tool implements controlled cue/temporal evidence reannotation against authored TRAIN surfaces, exact role-pointer reconstruction from explicit spans/context, source materialization, V3 status fields, contract/fingerprint validation, exhaustive target-builder dry run, and machine-readable statistics/provenance. It contains no partition discovery and refuses filenames that are not explicitly TRAIN-only.
 
-## Checkpoint 27 — full TRAIN migration and repair closure
+## Checkpoint 40 — requested trained Student-5 FP32 cannot be authenticated; STOP
 
-Timestamp: `2026-09-05T10:58:00Z`
+Date: 2026-09-07. Branch student5-path-b-v3. Starting HEAD 33077f1fecbf676553d3753eaafedeca33e67f1e. Final HEAD: introducing commit of reports/STUDENT_5_FP32_AUTHENTICATION_BLOCKED_CP40.md; exact SHA provided after remote verification.
 
-```text
-HEAD before checkpoint = 305706386d2b0f52b17a1daa6820b3b13c9fa080
-operation = FULL_TRAIN_MIGRATION_VALIDATED
-sourceRows = 3150
-finalRows = 3150
-finalClaims = 3990
-retentionPercent = 100.0
-DIRECT_REUSE = 0
-DETERMINISTIC_MIGRATION = 0
-NEEDS_REANNOTATION = 3150
-REANNOTATED = 3150
-UNUSABLE = 0
-structuralViolations = 0
-targetBuilderRows = 3150/3150
-targetBuilderExamples = 7140
-targetBuilderErrors = 0
-safeV3Tests = 44/44 PASS
-forbiddenV2RoleSentinels = 0
-invalidPointers = 0
-missingRequiredTemporalAnchors = 0
-duplicateRowIds = 0
-duplicateClaimIds = 0
-duplicateProvenance = 0
-conflictingGoldForIdenticalText = 0
-duplicateTexts = 1561 (recorded nonblocking corpus redundancy)
-```
+STUDENT5_FP32_ANALYSIS = BLOCKED. The analysis-only assignment ends at Phase 1 because the requested already-trained Student-5 Matrix-NLU FP32 checkpoint has no authenticated locator/filename/bytes/SHA256/training lineage in checked sources. Do not substitute pristine, Path A, CP35 untrained heads or Student-4. This is not a global nonexistence claim.
 
-Controlled reannotation closed the previously detected cross-lingual role conflict with exact row-ID evidence rather than first-mention guessing. Eight explicit Italian `dice che` TRAIN rows now carry independent `sourceReferent` pointers and `REPORT` claim kind; all eight preserve the original speaker perspective, making `source != perspective` explicit. No REPORT/BELIEF evidence was invented where the source text did not prove it. The single explicit adult withdrawal row is recorded as withdrawal without introducing moderation semantics.
+Read current continuity and both archives, registry, Phase-A quality dossier, CP37/CP38 reports and CP39c historical Actions inventory. Fresh metadata lists three Releases (pristine, Path-A untaught, CP35 untrained), two branches and 302 runs over four pages, same run IDs as CP39c. No new binary acquisition/probe/model execution. The Phase-A quality report expressly records matrixHeadsTrained=false; CP35 is mechanics only; CP37/CP38 are curriculum/risk/design evidence, not trained Student-5 behavior.
 
-Coverage risks carried forward for owner review: no BELIEF or COMMAND claims, report/source-attribution coverage is eight Italian-only claims, V3 BEFORE/AFTER/DURING/RECURRENT/AT_REFERENCE relations remain absent, adult withdrawal contains one Italian claim, and the source corpus contains substantial exact-text redundancy. These are TRAIN coverage limitations, not structural migration failures; TASK 2.3 does not authorize augmentation.
+HISTORICAL_EVIDENCE source map, excluded artifact identities and current metadata: reports/evidence/student5-fp32-authentication-cp40/authentication.json. NEW_REPRODUCED_ANALYSIS = none. Substantive report: reports/STUDENT_5_FP32_AUTHENTICATION_BLOCKED_CP40.md; SHA256SUMS covers report/evidence/continuity. Historical reports remain preserved at their exact paths and source blob IDs; no need to rediscover their meaning next session.
 
-```text
-canonicalDevUsed = false
-Frozen read = false
-Student-4 changed = false
-Path A modified = false
-pristine40kModified = false
-Path B started = false
-optimizerCreated = false
-backpropExecuted = false
-Teaching executed = false
-Training executed = false
-Other repositories modified = false
-next = COMMIT_MIGRATION_REPAIR_AND_REGENERATE_FINAL_ARTIFACT
-```
+D01–D07 remain approved/unchanged; every empirical Student-5 mapping is unavailable because authentication failed. No new TRAIN v2 specification or dataset generated. Learned capabilities/errors/regressions are not established. Do not claim Student-5 training from upstream pretraining, FP32 format, pruning or forward/parity tests.
 
-## Checkpoint 28 — final artifact, checksum and test gates
+Missing for continuation: original trained Student-5 durable checkpoint locator, artifact identity/bytes/SHA256, training run/source/TRAIN lineage and historical pre-quantization results. Supervisor must reconcile this missing identity with the documented NOT_STARTED training status before a new continuation assignment. This checkpoint does not authorize training or reconstruction. CP39c recovery remains NOT_FOUND in queried Actions surfaces; prior CP36 DEV/evaluator/calibration/error-analysis blockers and broader Path B sequence remain pending exactly as preserved above.
 
-Timestamp: `2026-09-05T11:08:00Z`
+trainingExecuted=false; quantizationExecuted=false; onnxExecuted=false; student5FP32Modified=false; trainV1Modified=false; trainV2Created=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; nextWorkStarted=false; canonicalDevRead=false; frozenDataRead=false.
 
-```text
-operation = FINAL_ARTIFACT_VALIDATED_AND_PRESERVED
-migrationImplementation = 5e515ddadf9abe473ee2d99f34b8898df38da957
-artifactCheckpoint = 117afd627ebe9f584b9328f1f78c63822980a49c
-artifactId = student5-matrix-nlu-v3-train-v1
-artifactLocator = data/student5_v3/
-artifactFiles = 130
-artifactFileBytes = 13137799
-datasetShards = 63
-provenanceShards = 63
-sourceRows = 3150
-finalRows = 3150
-finalClaims = 3990
-retentionPercent = 100.0
-datasetLogicalSha256 = 1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e
-migrationManifestSha256 = 87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98
-statisticsSha256 = 11f5ff43ceea9a1de6e8a4e9149b4c8af0834290cf623f3c13db1c59acf0d5c4
-SHA256SUMS = 129/129 PASS
-structuralViolations = 0
-targetBuilderRows = 3150/3150 PASS
-targetBuilderExamples = 7140
-safeRegressionTests = 56/56 PASS
-forbiddenV2RoleSentinels = 0
-invalidPointers = 0
-missingRequiredTemporalAnchors = 0
-```
+STOP and await Supervisor GPT. No active model job or workflow was launched by this assignment.
 
-Coverage summary:
+CP40 delivery recovery: the preceding execution stopped after preparing three local files; no CP40 commit had been published. Recovery verified unchanged starting HEAD 33077f1fecbf676553d3753eaafedeca33e67f1e and all six source blob identities, retained those files, added the Phase 0 audit and completed permanent publication/checksum/readback. Local git status exits 128 because the delivery is an API snapshot, not a Git checkout. Do not interpret the intervening read-only monitor response as completion of the analysis assignment. Phases 2–5 remain unexecuted because Phase 1 cannot authenticate a trained Student-5 checkpoint. This recovery completes the BLOCKED handoff only; no additional analysis or training authority is implied.
 
-```text
-languages = IT 1126 / EN 1006 / ES 1007 / code-switch 11
-reportClaims = 8 (IT only)
-sourceDiffersPerspective = 8
-negationRows = 695
-negationCueRows = 463
-multipleNegationCueRows = 13
-multiClaimRows = 699
-adultConsentClaims = 65
-adultRefusalClaims = 62
-adultDesireClaims = 30
-adultWithdrawalClaims = 1
-duplicateTextInstances = 1561
-conflictingGoldForIdenticalText = 0
-```
 
-```text
-P0Remaining = 0
-P1-ENV-PHYSICAL-BERT-LOAD = OPEN
-P1-ENV-ONNX-EXPORT-LOAD = OPEN
-P1-DATA-BELIEF-COMMAND-ZERO = OPEN
-P1-DATA-SOURCE-ATTRIBUTION-LANGUAGE = OPEN
-P1-DATA-TEMPORAL-RELATION-COVERAGE = OPEN
-P1-DATA-ADULT-WITHDRAWAL-COVERAGE = OPEN
-P1-DATA-DUPLICATE-SURFACES = OPEN
-P2Remaining = 0
-```
+## Checkpoint 41 — corrected pristine authenticated and probed; full analysis BLOCKED
 
-Guards:
+Starting HEAD 3bb4d42010c254785b02a327a0469c3d16c4902a; branch student5-path-b-v3. Final HEAD is the introducing commit of reports/STUDENT_5_PRISTINE_ANALYSIS_CP41.md, supplied after remote readback. Corrected Supervisor assignment selects PRISTINE; CP40 trained-subject premise is historical, not the current blocker.
 
-```text
-canonicalDevUsed = false
-Frozen read = false
-Student-4 changed = false
-Path A modified = false
-pristine40kModified = false
-Path B started = false
-optimizerCreated = false
-backpropExecuted = false
-Teaching executed = false
-Training executed = false
-Other repositories modified = false
-```
+STUDENT5_PRISTINE_ANALYSIS = BLOCKED. Authentication succeeds: surviving CP34 archive freshly hashed against live Release 383143636 / asset 545406840, canonical archive/model hashes above; 17/17 internal checks match. Physical FP32 inference executed: 33 authored contrast pairs / 64 texts / IT EN ES / 0 UNK / finite vectors / repeat delta 0 / 36,999,552 parameters / no missing or unexpected weights. Model SHA before/after unchanged. No fresh binary download is claimed; canonical durable source and authenticated Release UI acquisition route remain as documented above.
 
-## Checkpoint 29 — TASK 2.3 report and STOP
+Report: reports/STUDENT_5_PRISTINE_ANALYSIS_CP41.md. Evidence: reports/evidence/student5-pristine-analysis-cp41/ containing PLAN.md, probe.py, probes.json, results.json (complete vectors/token IDs/pair scores), provenance.json, historical-summary.json, SHA256SUMS. Reproduction: recover canonical archive via authenticated Release UI, verify declared hashes, extract model/, install Torch 2.4.1+cpu Transformers 4.44.2 NumPy 1.26.4 sentencepiece protobuf; run python probe.py <model directory>. No protected data dependency.
 
-Timestamp: `2026-09-05T11:10:00Z`
+Participant swaps have pooled cosine 0.996815–0.999367; attribution/viewpoint swaps 0.999045–0.999598. These are representation risks, NOT semantic binding accuracy. Bare pristine has no Matrix-NLU readout; full semantic capability/error diagnosis and owner-role independence remain unestablished. All D01–D07 mapped with coverage limits in report; provisional future-training requirements only. No row-level TRAIN v1 reuse certified. Historical pruning evidence remains separately classified.
 
-```text
-task = TASK_2_3_TRAIN_ONLY_V2_TO_V3_MIGRATION_REANNOTATION
-verdict = TRAIN_V3_MIGRATION_PASS_WITH_NONBLOCKING_RISKS
-report = reports/STUDENT_5_TRAIN_V3_MIGRATION.md
-artifactRegistry = docs/STUDENT_ARTIFACT_REGISTRY.md
-continuity = docs/WORK_CONTINUITY_STUDENT_5.md
-TASK 2.4 = NOT_STARTED
-TASK 3 = NOT_STARTED
-```
+Remaining: Supervisor review of actual evidence and further semantic-analysis method/scope; representative coverage and validated semantic readout missing. CP36 DEV/evaluator/calibration blockers and lost TRAIN v2 recovery remain untouched. No active model job remains. No training/dataset creation/ONNX/quantization or next work authorized.
 
-Final guards remain unchanged:
+trainingExecuted=false; trainV2Created=false; quantizationExecuted=false; onnxExecuted=false; student5PristineModified=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; nextWorkStarted=false; canonicalDevRead=false; frozenDataRead=false.
 
-```text
-Student-4 changed = false
-DEV used = false
-Frozen read = false
-Path A modified = false
-Pristine 40k modified = false
-Path B started = false
-Teaching executed = false
-Training executed = false
-Other repos modified = false
-```
+STOP and await Supervisor GPT.
 
-STOP:
 
-```text
-AWAIT OWNER REVIEW BEFORE TASK 2.4
-```
+## Checkpoint 42 preparation — authorized new TRAIN v2 build + audit only
+
+Starting HEAD 1396dd6c997ce0dbf5e4a5ce933437c82fc1c217, branch student5-path-b-v3. Supervisor now explicitly authorizes new candidate construction from valid immutable v1 plus CP37/CP38/D01–D07 and CP41 risks. This is NOT recovery of the lost original candidate. D01–D07 remain approved. TRAIN v1 all 129 manifest checks and ordered hash verified after acquiring all 130 files. Builder/design/source persisted under tools/student5_cp42/. Candidate not yet built at this preparation checkpoint; no audit executed yet.
+
+Next within current assignment: build into new data/student5_v3_train_v2/, freeze BUILD_LOCK, audit into separate reports/evidence/student5-train-v2-audit-cp42/, persist complete payloads and findings, verify remote readback, STOP. Never modify candidate after audit, even for trivial fixes. No training/model load/quantization/ONNX/DEV/Frozen. All previous blockers remain historically recorded; no further work is authorized by this assignment.
+
+
+## CP42 delivery completion — existing candidate and audit retained exactly
+
+Original build start: 1396dd6c997ce0dbf5e4a5ce933437c82fc1c217. Delivery resume start: f63a212d3ced384e5c9914d78d35ee6edb56530f. Branch: student5-path-b-v3. The intervening read-only monitoring turns published no candidate or audit; this assignment explicitly completes their pending publication. No build or audit was rerun in this delivery. Existing candidate files match all six recorded post-audit hashes before publication.
+
+TRAIN_V2_AUDIT = FAIL. Candidate student5-matrix-nlu-v3-train-v2 / CP42_BUILD_1_AUDIT_LOCKED: 3267 observations, 4101 claims, 123 additions; 2586 preserved rows, 558 corrected rows, 6 deactivated/quarantined rows. IT 1160, EN 1046, ES 1047, code-switch 14 observations. Ordered decompressed UTF-8 JSONL SHA256: 34ee224723d77a452a7ea6e776c95a6f11b3355b4ebf53672f99cf35d0bd64a9.
+
+Permanent payload: data/student5_v3_train_v2/train.jsonl.gz. Companion payloads: provenance-and-mapping.jsonl.gz, quarantine.jsonl.gz, construction-review.json, manifest.json, BUILD_LOCK.json in that directory. Manifest binds compressed/decompressed sizes and SHA; BUILD_LOCK binds candidate files. Sources/design: tools/student5_cp42/{build.py,authored.py,audit.py,DESIGN.md}. Full report: reports/STUDENT_5_TRAIN_V2_BUILD_AUDIT_CP42.md. Machine-readable findings/census/structural/duplicates/slices/input identities: reports/evidence/student5-train-v2-audit-cp42/. SHA256SUMS covers the complete delivery except itself. Recover exact bytes through GitHub Git Blob API (base64, then decode); gzip-decompress payload and check logical SHA before use. Do not recreate this candidate: the complete payload is published.
+
+Audit already executed: 0 invariant-validator errors and 0 diagnostic target-builder exceptions; deterministic reproduction outputs identical. This does NOT clear semantic defects. Sixteen register items remain, including English wrong negation span (L01), two identical-context conflicting rows (C01), 39 D01 present-want/FUTURE review cases, missing UNKNOWN act/kind/time classes, thin family coverage, role/reflexive/hesitation ambiguities, repetition and code-switch concentration, missing plural/multiword subject evidence, target-builder status limitations, and limits of held-out/provenance verification. Full affected IDs, heads, evidence, consequences and recommendations are in audit.json. No recommendation has been applied; wrong negation span is preserved exactly.
+
+TRAIN v1 remains unchanged; model/evaluator/decoder/calibration untouched. Statistical overlap with unread DEV/Frozen is not asserted; source-provenance isolation is the available evidence. Remote readback receipt records publication verification; final exact commit is supplied in the handoff. Prior CP36 readiness and broader Path B tasks remain pending, not activated.
+
+trainingExecuted=false; fineTuningExecuted=false; quantizationExecuted=false; onnxExecuted=false; student5PristineModified=false; trainV1Modified=false; postAuditCorrectionsExecuted=false; devUsedForTraining=false; frozenDataRead=false; nextWorkStarted=false.
+
+Publication/readback completed: data commit ee64a483bc3a1477b005b16c8fdd7af7d2665e72. All 19 published files were freshly downloaded via direct GitHub REST Git Blob JSON/base64 API and compared byte-for-byte, with 18/18 SHA256SUMS matches. Decompressed ordered dataset SHA, 3267 observations / 4101 claims, all six post-audit candidate hashes and the intentionally retained wrong negation span match. All 130 v1 Git blobs unchanged. Exact evidence: reports/evidence/student5-train-v2-audit-cp42/remote-readback.json; blob locators in delivery-entries.json. The receipt is scoped to the data commit; the final receipt/checksum/continuity commit is returned after its own remote verification. Text-only connector binary decoding failed; direct REST readback succeeded, so there is no unresolved binary-access blocker for this delivery. No candidate or existing audit content changed during delivery.
+
+STOP. Supervisor reviews the unchanged FAIL candidate; no autonomous repairs, v2.1, model preparation or training. No active job remains.

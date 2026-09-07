@@ -1,0 +1,1285 @@
+{
+  "scope": "GATE_B_READINESS_ONLY",
+  "sourceHead": "1ef81d3e8d7b92d9cbd2bf5f54e6d3d1918f8973",
+  "train": {
+    "artifactId": "student5-matrix-nlu-v3-train-v1",
+    "logicalSha256": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
+    "expectedLogicalSha256": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
+    "manifestSha256": "87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98",
+    "gitBlobChecks": [
+      {
+        "path": "data/student5_v3/SHA256SUMS",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/migration-manifest.json",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00000.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00001.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00002.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00003.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00004.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00005.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00006.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00007.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00008.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00009.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00010.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00011.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00012.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00013.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00014.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00015.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00016.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00017.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00018.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00019.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00020.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00021.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00022.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00023.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00024.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00025.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00026.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00027.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00028.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00029.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00030.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00031.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00032.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00033.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00034.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00035.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00036.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00037.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00038.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00039.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00040.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00041.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00042.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00043.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00044.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00045.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00046.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00047.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00048.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00049.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00050.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00051.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00052.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00053.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00054.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00055.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00056.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00057.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00058.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00059.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00060.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00061.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/provenance/part-00062.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/source-train-inventory.json",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/statistics.json",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00000.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00001.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00002.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00003.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00004.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00005.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00006.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00007.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00008.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00009.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00010.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00011.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00012.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00013.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00014.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00015.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00016.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00017.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00018.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00019.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00020.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00021.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00022.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00023.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00024.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00025.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00026.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00027.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00028.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00029.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00030.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00031.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00032.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00033.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00034.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00035.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00036.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00037.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00038.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00039.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00040.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00041.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00042.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00043.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00044.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00045.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00046.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00047.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00048.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00049.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00050.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00051.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00052.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00053.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00054.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00055.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00056.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00057.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00058.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00059.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00060.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00061.jsonl",
+        "match": true
+      },
+      {
+        "path": "data/student5_v3/train/part-00062.jsonl",
+        "match": true
+      }
+    ],
+    "perFileSha256Checks": [
+      {
+        "path": "source-train-inventory.json",
+        "match": true
+      },
+      {
+        "path": "statistics.json",
+        "match": true
+      },
+      {
+        "path": "migration-manifest.json",
+        "match": true
+      },
+      {
+        "path": "train/part-00000.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00001.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00002.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00003.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00004.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00005.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00006.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00007.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00008.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00009.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00010.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00011.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00012.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00013.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00014.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00015.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00016.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00017.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00018.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00019.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00020.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00021.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00022.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00023.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00024.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00025.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00026.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00027.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00028.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00029.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00030.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00031.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00032.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00033.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00034.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00035.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00036.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00037.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00038.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00039.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00040.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00041.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00042.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00043.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00044.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00045.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00046.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00047.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00048.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00049.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00050.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00051.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00052.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00053.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00054.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00055.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00056.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00057.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00058.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00059.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00060.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00061.jsonl",
+        "match": true
+      },
+      {
+        "path": "train/part-00062.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00000.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00001.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00002.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00003.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00004.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00005.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00006.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00007.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00008.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00009.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00010.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00011.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00012.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00013.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00014.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00015.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00016.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00017.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00018.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00019.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00020.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00021.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00022.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00023.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00024.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00025.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00026.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00027.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00028.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00029.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00030.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00031.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00032.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00033.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00034.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00035.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00036.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00037.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00038.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00039.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00040.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00041.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00042.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00043.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00044.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00045.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00046.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00047.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00048.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00049.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00050.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00051.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00052.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00053.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00054.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00055.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00056.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00057.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00058.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00059.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00060.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00061.jsonl",
+        "match": true
+      },
+      {
+        "path": "provenance/part-00062.jsonl",
+        "match": true
+      }
+    ],
+    "rows": 3150,
+    "claims": 3990,
+    "splits": {
+      "train": 3150
+    },
+    "sourceDatasetCounts": {
+      "matrix-v2-train": 2775,
+      "v22a-repair-train": 375
+    },
+    "sourceTemplateSplitCounts": {
+      "train": 2655,
+      "not-recorded": 495
+    },
+    "provenanceRecords": 3150,
+    "provenanceSourceCounts": {
+      "matrix-v2-train": 2775,
+      "v22a-repair-train": 375
+    },
+    "languages": {
+      "en": 1006,
+      "es": 1007,
+      "it": 1126,
+      "code-switch": 11
+    },
+    "nonTrainRows": 0,
+    "integrityPass": true
+  },
+  "softwareProbes": {
+    "fixture": "existing test_evaluate_v3.gold_and_prediction; English synthetic test fixture, not DEV",
+    "baseline": {
+      "rows": 1,
+      "claimCountExact": 1.0,
+      "claimExact": 1.0,
+      "fieldExact": 1.0,
+      "rolePointerExact": 1.0,
+      "spanGroupExact": 1.0,
+      "temporalExact": 1.0,
+      "fieldStatusExact": 1.0,
+      "ownershipCorruptions": 0,
+      "sourceCorruptions": 0,
+      "slices": {
+        "en:general": {
+          "fieldExact": 1.0,
+          "rolePointerExact": 1.0
+        }
+      }
+    },
+    "mutations": {
+      "wrongBoundary": {
+        "rejected": false,
+        "metrics": {
+          "rows": 1,
+          "claimCountExact": 1.0,
+          "claimExact": 1.0,
+          "fieldExact": 1.0,
+          "rolePointerExact": 1.0,
+          "spanGroupExact": 1.0,
+          "temporalExact": 1.0,
+          "fieldStatusExact": 1.0,
+          "ownershipCorruptions": 0,
+          "sourceCorruptions": 0,
+          "slices": {
+            "en:general": {
+              "fieldExact": 1.0,
+              "rolePointerExact": 1.0
+            }
+          }
+        }
+      },
+      "wrongMentionIdentity": {
+        "rejected": false,
+        "metrics": {
+          "rows": 1,
+          "claimCountExact": 1.0,
+          "claimExact": 1.0,
+          "fieldExact": 1.0,
+          "rolePointerExact": 1.0,
+          "spanGroupExact": 1.0,
+          "temporalExact": 1.0,
+          "fieldStatusExact": 1.0,
+          "ownershipCorruptions": 0,
+          "sourceCorruptions": 0,
+          "slices": {
+            "en:general": {
+              "fieldExact": 1.0,
+              "rolePointerExact": 1.0
+            }
+          }
+        }
+      },
+      "forbiddenDownstreamField": {
+        "rejected": false,
+        "metrics": {
+          "rows": 1,
+          "claimCountExact": 1.0,
+          "claimExact": 1.0,
+          "fieldExact": 1.0,
+          "rolePointerExact": 1.0,
+          "spanGroupExact": 1.0,
+          "temporalExact": 1.0,
+          "fieldStatusExact": 1.0,
+          "ownershipCorruptions": 0,
+          "sourceCorruptions": 0,
+          "slices": {
+            "en:general": {
+              "fieldExact": 1.0,
+              "rolePointerExact": 1.0
+            }
+          }
+        }
+      },
+      "extraClaim": {
+        "rejected": false,
+        "metrics": {
+          "rows": 1,
+          "claimCountExact": 0.0,
+          "claimExact": 1.0,
+          "fieldExact": 1.0,
+          "rolePointerExact": 1.0,
+          "spanGroupExact": 1.0,
+          "temporalExact": 1.0,
+          "fieldStatusExact": 1.0,
+          "ownershipCorruptions": 0,
+          "sourceCorruptions": 0,
+          "slices": {
+            "en:general": {
+              "fieldExact": 1.0,
+              "rolePointerExact": 1.0
+            }
+          }
+        }
+      },
+      "missingClaim": {
+        "rejected": false,
+        "metrics": {
+          "rows": 1,
+          "claimCountExact": 0.0,
+          "claimExact": 0.0,
+          "fieldExact": 0.0,
+          "rolePointerExact": 0.0,
+          "spanGroupExact": 0.0,
+          "temporalExact": 0.0,
+          "fieldStatusExact": 0.0,
+          "ownershipCorruptions": 0,
+          "sourceCorruptions": 0,
+          "slices": {}
+        }
+      }
+    }
+  },
+  "sourceIdentities": {
+    "evaluate_v3.py": {
+      "sha256": "b28aafa7b553b5ae8ffe1a2edddf3f269c1ed5892c2dba05f2bf4a4cd3cab7c4",
+      "bytes": 8096
+    },
+    "inference_v3.py": {
+      "sha256": "731b6729c63b7cdf28c7383d7bcfe79932a14717fd254458710567f5766927fe",
+      "bytes": 13349
+    },
+    "referent_candidates.py": {
+      "sha256": "a8cbabf3eff816e8eb1e4079ff8ffccb8a7de640bc1d890b5c2d4d4d6f97ec29",
+      "bytes": 5137
+    },
+    "contract_v3.py": {
+      "sha256": "e524946ae9092fdbc1344be106acc065f506c97c0550ad506ba99ee7e0dde371",
+      "bytes": 7778
+    },
+    "select_threshold.py": {
+      "sha256": "48a6b1af3898e349ff38951b4b6c7caae84fc2bea35d2888e768093352f1d998",
+      "bytes": 5657
+    },
+    "analyze_errors.py": {
+      "sha256": "e989a957c52ea540b8f9cd733700817c12ff65df4f0f334ef4540c59d02c5060",
+      "bytes": 2807
+    }
+  },
+  "topLevelFunctions": {
+    "evaluate_v3.py": [
+      "normalize_gold_v3",
+      "_prediction_value",
+      "_temporal_prediction",
+      "score_v3_rows"
+    ],
+    "inference_v3.py": [
+      "groups_from_tags",
+      "entity_spans",
+      "field",
+      "decode_pointer",
+      "categorical_field",
+      "_valid_span",
+      "_validate_non_overlapping_spans",
+      "_anchor_valid",
+      "required_critical_fields",
+      "validate_claim_v3",
+      "_assert_no_forbidden_fields",
+      "build_matrix_output_v3"
+    ],
+    "referent_candidates.py": [
+      "_span",
+      "_overlaps",
+      "build_mentions",
+      "_context_entities",
+      "build_candidate_table",
+      "pointer_values"
+    ],
+    "contract_v3.py": [
+      "ContractMismatchError",
+      "ids",
+      "contract_descriptor",
+      "contract_fingerprint",
+      "bundle_contract_metadata",
+      "validate_bundle_contract",
+      "write_bundle_contract",
+      "load_and_validate_bundle_contract",
+      "assert_registry"
+    ],
+    "select_threshold.py": [
+      "read_predictions",
+      "require_development",
+      "apply_threshold",
+      "choose_threshold",
+      "main"
+    ],
+    "analyze_errors.py": [
+      "classify",
+      "analyze",
+      "main"
+    ]
+  },
+  "devRead": false,
+  "frozenRead": false,
+  "trainingExecuted": false,
+  "modelExecuted": false,
+  "datasetModified": false,
+  "devToTrainCopyPerformed": false,
+  "trainDevOverlapVerified": false
+}

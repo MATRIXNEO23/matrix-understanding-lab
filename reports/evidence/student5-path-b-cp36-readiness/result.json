@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "student5.gate-b-readiness.cp36.v1",
+  "GATE_B_READINESS": "BLOCKED",
+  "branch": "student5-path-b-v3",
+  "startingHead": "cfe905aff7a1076fd2cf455041babb782ccf7289",
+  "executionSourceHead": "1ef81d3e8d7b92d9cbd2bf5f54e6d3d1918f8973",
+  "finalHeadResolution": "git log -1 --format=%H -- reports/STUDENT_5_GATE_B_READINESS_CP36.md",
+  "finalHeadReportedAfterRemoteVerification": true,
+  "assignment": "prompts/WORK_STUDENT_5_PATH_B_V3_GATE_B_READINESS_ONLY.md",
+  "train": {
+    "artifactId": "student5-matrix-nlu-v3-train-v1",
+    "logicalSha256": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
+    "expectedLogicalSha256": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
+    "manifestSha256": "87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98",
+    "rows": 3150,
+    "claims": 3990,
+    "splits": {
+      "train": 3150
+    },
+    "sourceDatasetCounts": {
+      "matrix-v2-train": 2775,
+      "v22a-repair-train": 375
+    },
+    "sourceTemplateSplitCounts": {
+      "train": 2655,
+      "not-recorded": 495
+    },
+    "provenanceRecords": 3150,
+    "provenanceSourceCounts": {
+      "matrix-v2-train": 2775,
+      "v22a-repair-train": 375
+    },
+    "languages": {
+      "en": 1006,
+      "es": 1007,
+      "it": 1126,
+      "code-switch": 11
+    },
+    "nonTrainRows": 0,
+    "integrityPass": true,
+    "directoryBytes": 13139472,
+    "path": "data/student5_v3/"
+  },
+  "dev": {
+    "identity": null,
+    "locator": null,
+    "sha256": null,
+    "provenance": null,
+    "status": "BLOCKED_NOT_IDENTIFIED"
+  },
+  "contractVersion": "MATRIX_NLU_CONTRACT_V3",
+  "contractFingerprint": "7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0",
+  "softwareIdentities": {
+    "evaluate_v3.py": {
+      "sha256": "b28aafa7b553b5ae8ffe1a2edddf3f269c1ed5892c2dba05f2bf4a4cd3cab7c4",
+      "bytes": 8096
+    },
+    "inference_v3.py": {
+      "sha256": "731b6729c63b7cdf28c7383d7bcfe79932a14717fd254458710567f5766927fe",
+      "bytes": 13349
+    },
+    "referent_candidates.py": {
+      "sha256": "a8cbabf3eff816e8eb1e4079ff8ffccb8a7de640bc1d890b5c2d4d4d6f97ec29",
+      "bytes": 5137
+    },
+    "contract_v3.py": {
+      "sha256": "e524946ae9092fdbc1344be106acc065f506c97c0550ad506ba99ee7e0dde371",
+      "bytes": 7778
+    },
+    "select_threshold.py": {
+      "sha256": "48a6b1af3898e349ff38951b4b6c7caae84fc2bea35d2888e768093352f1d998",
+      "bytes": 5657
+    },
+    "analyze_errors.py": {
+      "sha256": "e989a957c52ea540b8f9cd733700817c12ff65df4f0f334ef4540c59d02c5060",
+      "bytes": 2807
+    }
+  },
+  "metricsAndAcceptanceCriteria": "reports/STUDENT_5_GATE_B_READINESS_CP36.md",
+  "devCopiedIntoTrain": false,
+  "devTrainContaminationStatus": "UNKNOWN",
+  "trainDevOverlapVerified": false,
+  "noNonTrainSplitRowsDetected": true,
+  "frozenRead": false,
+  "trainingExecuted": false,
+  "optimizerExecuted": false,
+  "backpropExecuted": false,
+  "modelExecuted": false,
+  "datasetModified": false,
+  "gateARepeated": false,
+  "task23Repeated": false,
+  "blockers": [
+    "AUTHORIZED_DEV_V3_IDENTITY_UNAVAILABLE",
+    "V3_EVALUATION_AND_DECODER_PIPELINE_INCOMPLETE",
+    "V3_METRIC_CALIBRATION_AND_FAMILY_ERROR_ANALYSIS_UNVERIFIED"
+  ],
+  "nextAction": "Return to Supervisor GPT for disposition; no next assignment started"
+}

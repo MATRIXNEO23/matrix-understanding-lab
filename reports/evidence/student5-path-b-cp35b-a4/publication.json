@@ -1,0 +1,88 @@
+{
+  "a4": "PASS",
+  "artifactId": "student5-path-b-v3-untrained-gate-a-cp35-20260907",
+  "asset": {
+    "bytes": 176837978,
+    "id": 548329150,
+    "name": "student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+    "sha256": "dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71",
+    "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-path-b-v3-untrained-gate-a-cp35-20260907/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip"
+  },
+  "assignmentCommit": "4c101cac96eab925b600012d989988449d3f09b7",
+  "backpropExecuted": false,
+  "baseArtifactId": "student-5-minilm-40k-phase-a-pristine",
+  "baseAssetId": 545406840,
+  "baseModelSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+  "baseReleaseId": 383143636,
+  "checkpoint": "CP35b A4 ONLY",
+  "contractFingerprint": "7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0",
+  "contractVersion": "MATRIX_NLU_CONTRACT_V3",
+  "devRead": false,
+  "executor": "ChatGPT Work",
+  "format": [
+    "ZIP",
+    "FP32 safetensors",
+    "FP32 ONNX opset 17"
+  ],
+  "frozenRead": false,
+  "gateSummary": "A1/A2/A3 not repeated. Fresh public HTTPS recovery, exact archive bytes/SHA, ZIP integrity, 17 internal hashes and original manifest lineage verified. End assignment at A4; Supervisor GPT reviews.",
+  "limitations": [
+    "Untrained heads; no learned linguistic-quality claim.",
+    "Candidate/anchor embeddings exercise runtime mechanics only.",
+    "Original CP35 report records pre-publication A4_PENDING; this separate manifest records completed durable publication."
+  ],
+  "optimizerCreated": false,
+  "parentArtifactIds": [
+    "student-5-minilm-40k-phase-a-pristine"
+  ],
+  "path": "B",
+  "payloadArtifacts": {
+    "matrix-nlu-contract-v3.json": {
+      "bytes": 3191,
+      "sha256": "6e72efd274365f6afc200261086313e6ababd77669d240fe0e10031d63042bfc"
+    },
+    "student5-v3-untrained-fp32.onnx": {
+      "bytes": 148360424,
+      "sha256": "fea789af9a68cecadc369f70b84efd61e29c0249a007e0f0a2b7773df8a9f8cb"
+    },
+    "student5-v3-untrained.safetensors": {
+      "bytes": 148713328,
+      "sha256": "f77986e10bf5cf6011d893ee9785d0645d9f1d52ac0c38423fb71086e87366e5"
+    }
+  },
+  "priorArtifactOverwritten": false,
+  "productionPromotionExecuted": false,
+  "publicationTagCommit": "4c101cac96eab925b600012d989988449d3f09b7",
+  "quantizationExecuted": false,
+  "quantizationPolicy": "NONE",
+  "recovery": {
+    "acquisitionMethod": "Python urllib HTTPS public Release download, no credentials",
+    "assetId": 548329150,
+    "bytes": 176837978,
+    "internalFilesVerified": 17,
+    "lineageVerified": true,
+    "localPath": "/workspace/scratch/0a50431faa34/student5-path-b/a4-readback/recovered-cp35.zip",
+    "recoveredAt": "2026-09-07T07:03:10.041152+00:00",
+    "releaseId": 383886129,
+    "result": "PASS",
+    "sha256": "dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71",
+    "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-path-b-v3-untrained-gate-a-cp35-20260907/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+    "zipIntegrity": "PASS"
+  },
+  "release": {
+    "id": 383886129,
+    "prerelease": true,
+    "publishedAt": "2026-09-07T07:01:54Z",
+    "tag": "student5-path-b-v3-untrained-gate-a-cp35-20260907",
+    "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-path-b-v3-untrained-gate-a-cp35-20260907"
+  },
+  "schema": "matrix.student5.a4-publication.v1",
+  "sourceCommit": "aa3ab11fffdd4e25305fdfe949726358e0514fce",
+  "sourceEvidenceCommit": "e95571b7df4ff2ff56cf52d0603f1bb5d43f0250",
+  "status": "UNTRAINED_GATE_A_RUNTIME_PROBE_ONLY / NOT_PRODUCTION_APPROVED",
+  "student": "Student-5 MiniLM 40k",
+  "supervisor": "GPT",
+  "trainingDataset": null,
+  "trainingExecuted": false,
+  "trainingRun": null
+}

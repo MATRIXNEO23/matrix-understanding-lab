@@ -218,3 +218,22 @@ Student-5CrossMutation = false
 frozenDataRead = false
 productionPromotionExecuted = false
 ```
+
+## Student-5 Path B — CP35a untrained Gate-A artifact, preserved at CP35b
+
+Status: `UNTRAINED_GATE_A_RUNTIME_PROBE_ONLY / NOT_PRODUCTION_APPROVED`. A4 durable preservation: `PASS`; Supervisor GPT review pending. No training dataset/run applies; no quantization. Format: ZIP containing FP32 safetensors and FP32 ONNX opset 17, tokenizer/config/mapping, contract, source, pinned environment and original report.
+
+- Artifact ID/tag: `student5-path-b-v3-untrained-gate-a-cp35-20260907`
+- Release: [383886129](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-path-b-v3-untrained-gate-a-cp35-20260907), prerelease.
+- Asset: [student5-path-b-v3-untrained-gate-a-cp35-20260907.zip](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-path-b-v3-untrained-gate-a-cp35-20260907/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip), ID `548329150`.
+- Archive bytes: `176837978`; SHA-256: `dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71`.
+- Source code/model-export commit: `aa3ab11fffdd4e25305fdfe949726358e0514fce`; evidence commit: `e95571b7df4ff2ff56cf52d0603f1bb5d43f0250`; assignment/tag commit: `4c101cac96eab925b600012d989988449d3f09b7`.
+- Base/predecessor: `student-5-minilm-40k-phase-a-pristine`, Release `383143636`, asset `545406840`, model SHA-256 `d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2`.
+- Contract: `MATRIX_NLU_CONTRACT_V3`; fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0`.
+- FP32 safetensors: `148713328` bytes; SHA-256 `f77986e10bf5cf6011d893ee9785d0645d9f1d52ac0c38423fb71086e87366e5`.
+- FP32 ONNX: `148360424` bytes; SHA-256 `fea789af9a68cecadc369f70b84efd61e29c0249a007e0f0a2b7773df8a9f8cb`.
+- Working recovery: public HTTPS GET from the asset URL above, no credentials; verify exact archive bytes/SHA, ZIP integrity, all 17 internal hashes and base/source manifest. Fresh recovery PASS at `2026-09-07T07:03:10.041152+00:00`, checkpoint CP35b.
+- Complete machine-actionable manifest: `reports/evidence/student5-path-b-cp35b-a4/publication.json`; independent readback: `recovery.json` in the same directory; evidence checksums: `SHA256SUMS`.
+- Limits: new heads untrained; historical four-batch PyTorch/ONNX parity tests runtime mechanics only, no linguistic-quality claim; external candidate/anchor embeddings are not learned extraction evidence. All historical CP35a evidence remains unchanged.
+
+No prior artifact/version overwritten. Assignment ends at A4; return to Supervisor GPT.

@@ -1,0 +1,65 @@
+[
+  {
+    "path": "matrix_nlu/analyze_errors.py",
+    "sha256": "e989a957c52ea540b8f9cd733700817c12ff65df4f0f334ef4540c59d02c5060",
+    "gitBlobSha": "429227983887bf1540d4a21011929353097643e9",
+    "expectedGitBlobSha": "429227983887bf1540d4a21011929353097643e9",
+    "match": true
+  },
+  {
+    "path": "matrix_nlu/contract_v3.py",
+    "sha256": "e524946ae9092fdbc1344be106acc065f506c97c0550ad506ba99ee7e0dde371",
+    "gitBlobSha": "988e2f34e82df5d733ac7ac62cecbbd8fcf80191",
+    "expectedGitBlobSha": "988e2f34e82df5d733ac7ac62cecbbd8fcf80191",
+    "match": true
+  },
+  {
+    "path": "matrix_nlu/evaluate_v3.py",
+    "sha256": "b28aafa7b553b5ae8ffe1a2edddf3f269c1ed5892c2dba05f2bf4a4cd3cab7c4",
+    "gitBlobSha": "d78b0aeff78e9e0292c9ef8cc67507354cd38f0c",
+    "expectedGitBlobSha": "d78b0aeff78e9e0292c9ef8cc67507354cd38f0c",
+    "match": true
+  },
+  {
+    "path": "matrix_nlu/inference_v3.py",
+    "sha256": "731b6729c63b7cdf28c7383d7bcfe79932a14717fd254458710567f5766927fe",
+    "gitBlobSha": "35243a1b62402e6f9696d02ebcba096fca627533",
+    "expectedGitBlobSha": "35243a1b62402e6f9696d02ebcba096fca627533",
+    "match": true
+  },
+  {
+    "path": "matrix_nlu/referent_candidates.py",
+    "sha256": "a8cbabf3eff816e8eb1e4079ff8ffccb8a7de640bc1d890b5c2d4d4d6f97ec29",
+    "gitBlobSha": "6c6bdead6bb193cf49ef5b8b0646cadd2fd058dc",
+    "expectedGitBlobSha": "6c6bdead6bb193cf49ef5b8b0646cadd2fd058dc",
+    "match": true
+  },
+  {
+    "path": "matrix_nlu/select_threshold.py",
+    "sha256": "48a6b1af3898e349ff38951b4b6c7caae84fc2bea35d2888e768093352f1d998",
+    "gitBlobSha": "239eeab9604dbe8d9b2b14948dfa873e3b351ac2",
+    "expectedGitBlobSha": "239eeab9604dbe8d9b2b14948dfa873e3b351ac2",
+    "match": true
+  },
+  {
+    "path": "matrix_nlu/synthetic_v3_fixtures.py",
+    "sha256": "dc6311163dc74e398a6ae3b1f1c83145b94f7751f3c44bf5764591073b1dcd1a",
+    "gitBlobSha": "ffe19596c5229aa8bb387ebb75eb7c3a9da641fc",
+    "expectedGitBlobSha": "ffe19596c5229aa8bb387ebb75eb7c3a9da641fc",
+    "match": true
+  },
+  {
+    "path": "matrix_nlu/test_evaluate_v3.py",
+    "sha256": "44d222956155d49d7e501c52e60d7726816c4c0c1ef10f19bc0742a06a4542d7",
+    "gitBlobSha": "331b8c1abfddd2649297c4d32a7884be128cef16",
+    "expectedGitBlobSha": "331b8c1abfddd2649297c4d32a7884be128cef16",
+    "match": true
+  },
+  {
+    "path": "matrix_nlu/test_inference_v3.py",
+    "sha256": "e5db419505eb51aabd534d6a37afc97828ea5d3ec3d0048eb5f8ca423b8d7c6a",
+    "gitBlobSha": "44250b485fa9c77763452cdfec941e98186bc9d8",
+    "expectedGitBlobSha": "44250b485fa9c77763452cdfec941e98186bc9d8",
+    "match": true
+  }
+]

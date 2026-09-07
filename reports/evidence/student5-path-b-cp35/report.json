@@ -1,0 +1,915 @@
+{
+  "artifactId": "student5-path-b-v3-untrained-gate-a-cp35-20260907",
+  "sourceCommit": "aa3ab11fffdd4e25305fdfe949726358e0514fce",
+  "status": "PHYSICAL_GATE_A_RUNTIME_PASS_PENDING_DURABLE_PUBLICATION",
+  "stage": "A4_PENDING",
+  "seed": 3401,
+  "qualityMeaning": "UNTRAINED_RUNTIME_MECHANICS_ONLY",
+  "trainingExecuted": false,
+  "optimizerCreated": false,
+  "backpropExecuted": false,
+  "devRead": false,
+  "frozenRead": false,
+  "pristineModified": false,
+  "pathAModified": false,
+  "student4Modified": false,
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "torch": "2.4.1+cpu",
+    "transformers": "4.44.2",
+    "onnx": "1.16.2",
+    "onnxruntime": "1.19.2",
+    "numpy": "1.26.4",
+    "sentencepiece": "0.2.0",
+    "safetensors": "0.4.5"
+  },
+  "trainLogicalSha256": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
+  "pristineSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+  "contractFingerprint": "7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0",
+  "parameters": {
+    "total": 37171640,
+    "encoder": 36999552,
+    "heads": 172088,
+    "encoderLayers": 12,
+    "hiddenSize": 384
+  },
+  "a2": {
+    "status": "PASS",
+    "shapes": {
+      "token.boundary": [
+        1,
+        7,
+        3
+      ],
+      "token.object": [
+        1,
+        7,
+        3
+      ],
+      "token.subject": [
+        1,
+        7,
+        3
+      ],
+      "token.negation": [
+        1,
+        7,
+        3
+      ],
+      "token.temporal": [
+        1,
+        7,
+        3
+      ],
+      "token.entity": [
+        1,
+        7,
+        5
+      ],
+      "sequence.dialogueAct": [
+        1,
+        6
+      ],
+      "sequence.predicate": [
+        1,
+        12
+      ],
+      "sequence.subjectReferent": [
+        1,
+        6
+      ],
+      "sequence.targetReferent": [
+        1,
+        6
+      ],
+      "sequence.ownerReferent": [
+        1,
+        6
+      ],
+      "sequence.perspectiveReferent": [
+        1,
+        6
+      ],
+      "sequence.sourceReferent": [
+        1,
+        6
+      ],
+      "sequence.polarity": [
+        1,
+        3
+      ],
+      "sequence.claimKind": [
+        1,
+        5
+      ],
+      "sequence.temporalRelation.relation": [
+        1,
+        10
+      ],
+      "sequence.temporalRelation.anchor": [
+        1,
+        3
+      ]
+    }
+  },
+  "probes": [
+    {
+      "texts": [
+        "Abito a Roma."
+      ],
+      "batch": 1,
+      "sequence": 7,
+      "candidates": 4,
+      "anchors": 3,
+      "outputs": {
+        "token.boundary": {
+          "shape": [
+            1,
+            7,
+            3
+          ],
+          "maxAbsoluteDelta": 2.2351741790771484e-07,
+          "argmaxEqual": true
+        },
+        "token.object": {
+          "shape": [
+            1,
+            7,
+            3
+          ],
+          "maxAbsoluteDelta": 1.9371509552001953e-07,
+          "argmaxEqual": true
+        },
+        "token.subject": {
+          "shape": [
+            1,
+            7,
+            3
+          ],
+          "maxAbsoluteDelta": 1.341104507446289e-07,
+          "argmaxEqual": true
+        },
+        "token.negation": {
+          "shape": [
+            1,
+            7,
+            3
+          ],
+          "maxAbsoluteDelta": 2.086162567138672e-07,
+          "argmaxEqual": true
+        },
+        "token.temporal": {
+          "shape": [
+            1,
+            7,
+            3
+          ],
+          "maxAbsoluteDelta": 1.6391277313232422e-07,
+          "argmaxEqual": true
+        },
+        "token.entity": {
+          "shape": [
+            1,
+            7,
+            5
+          ],
+          "maxAbsoluteDelta": 1.6763806343078613e-07,
+          "argmaxEqual": true
+        },
+        "sequence.dialogueAct": {
+          "shape": [
+            1,
+            6
+          ],
+          "maxAbsoluteDelta": 1.4901161193847656e-07,
+          "argmaxEqual": true
+        },
+        "sequence.predicate": {
+          "shape": [
+            1,
+            12
+          ],
+          "maxAbsoluteDelta": 1.043081283569336e-07,
+          "argmaxEqual": true
+        },
+        "sequence.subjectReferent": {
+          "shape": [
+            1,
+            6
+          ],
+          "maxAbsoluteDelta": 1.7462298274040222e-08,
+          "argmaxEqual": true
+        },
+        "sequence.targetReferent": {
+          "shape": [
+            1,
+            6
+          ],
+          "maxAbsoluteDelta": 7.450580596923828e-09,
+          "argmaxEqual": true
+        },
+        "sequence.ownerReferent": {
+          "shape": [
+            1,
+            6
+          ],
+          "maxAbsoluteDelta": 2.2351741790771484e-08,
+          "argmaxEqual": true
+        },
+        "sequence.perspectiveReferent": {
+          "shape": [
+            1,
+            6
+          ],
+          "maxAbsoluteDelta": 5.587935447692871e-09,
+          "argmaxEqual": true
+        },
+        "sequence.sourceReferent": {
+          "shape": [
+            1,
+            6
+          ],
+          "maxAbsoluteDelta": 1.0244548320770264e-08,
+          "argmaxEqual": true
+        },
+        "sequence.polarity": {
+          "shape": [
+            1,
+            3
+          ],
+          "maxAbsoluteDelta": 1.862645149230957e-08,
+          "argmaxEqual": true
+        },
+        "sequence.claimKind": {
+          "shape": [
+            1,
+            5
+          ],
+          "maxAbsoluteDelta": 1.341104507446289e-07,
+          "argmaxEqual": true
+        },
+        "sequence.temporalRelation.relation": {
+          "shape": [
+            1,
+            10
+          ],
+          "maxAbsoluteDelta": 1.1175870895385742e-07,
+          "argmaxEqual": true
+        },
+        "sequence.temporalRelation.anchor": {
+          "shape": [
+            1,
+            3
+          ],
+          "maxAbsoluteDelta": 1.862645149230957e-09,
+          "argmaxEqual": true
+        }
+      }
+    },
+    {
+      "texts": [
+        "I do not live in Rome.",
+        "No vivo en Roma."
+      ],
+      "batch": 2,
+      "sequence": 9,
+      "candidates": 7,
+      "anchors": 2,
+      "outputs": {
+        "token.boundary": {
+          "shape": [
+            2,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 2.4586915969848633e-07,
+          "argmaxEqual": true
+        },
+        "token.object": {
+          "shape": [
+            2,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 2.5331974029541016e-07,
+          "argmaxEqual": true
+        },
+        "token.subject": {
+          "shape": [
+            2,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 1.7881393432617188e-07,
+          "argmaxEqual": true
+        },
+        "token.negation": {
+          "shape": [
+            2,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 2.3096799850463867e-07,
+          "argmaxEqual": true
+        },
+        "token.temporal": {
+          "shape": [
+            2,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 1.9371509552001953e-07,
+          "argmaxEqual": true
+        },
+        "token.entity": {
+          "shape": [
+            2,
+            9,
+            5
+          ],
+          "maxAbsoluteDelta": 2.421438694000244e-07,
+          "argmaxEqual": true
+        },
+        "sequence.dialogueAct": {
+          "shape": [
+            2,
+            6
+          ],
+          "maxAbsoluteDelta": 1.043081283569336e-07,
+          "argmaxEqual": true
+        },
+        "sequence.predicate": {
+          "shape": [
+            2,
+            12
+          ],
+          "maxAbsoluteDelta": 1.4901161193847656e-07,
+          "argmaxEqual": true
+        },
+        "sequence.subjectReferent": {
+          "shape": [
+            2,
+            9
+          ],
+          "maxAbsoluteDelta": 3.3527612686157227e-08,
+          "argmaxEqual": true
+        },
+        "sequence.targetReferent": {
+          "shape": [
+            2,
+            9
+          ],
+          "maxAbsoluteDelta": 3.3527612686157227e-08,
+          "argmaxEqual": true
+        },
+        "sequence.ownerReferent": {
+          "shape": [
+            2,
+            9
+          ],
+          "maxAbsoluteDelta": 2.2351741790771484e-08,
+          "argmaxEqual": true
+        },
+        "sequence.perspectiveReferent": {
+          "shape": [
+            2,
+            9
+          ],
+          "maxAbsoluteDelta": 2.7474015951156616e-08,
+          "argmaxEqual": true
+        },
+        "sequence.sourceReferent": {
+          "shape": [
+            2,
+            9
+          ],
+          "maxAbsoluteDelta": 2.514570951461792e-08,
+          "argmaxEqual": true
+        },
+        "sequence.polarity": {
+          "shape": [
+            2,
+            3
+          ],
+          "maxAbsoluteDelta": 9.685754776000977e-08,
+          "argmaxEqual": true
+        },
+        "sequence.claimKind": {
+          "shape": [
+            2,
+            5
+          ],
+          "maxAbsoluteDelta": 8.66129994392395e-08,
+          "argmaxEqual": true
+        },
+        "sequence.temporalRelation.relation": {
+          "shape": [
+            2,
+            10
+          ],
+          "maxAbsoluteDelta": 1.6391277313232422e-07,
+          "argmaxEqual": true
+        },
+        "sequence.temporalRelation.anchor": {
+          "shape": [
+            2,
+            2
+          ],
+          "maxAbsoluteDelta": 2.0489096641540527e-08,
+          "argmaxEqual": true
+        }
+      }
+    },
+    {
+      "texts": [
+        "Ieri vivevo a Padova, oggi abito a Roma."
+      ],
+      "batch": 1,
+      "sequence": 16,
+      "candidates": 2,
+      "anchors": 1,
+      "outputs": {
+        "token.boundary": {
+          "shape": [
+            1,
+            16,
+            3
+          ],
+          "maxAbsoluteDelta": 3.129243850708008e-07,
+          "argmaxEqual": true
+        },
+        "token.object": {
+          "shape": [
+            1,
+            16,
+            3
+          ],
+          "maxAbsoluteDelta": 2.682209014892578e-07,
+          "argmaxEqual": true
+        },
+        "token.subject": {
+          "shape": [
+            1,
+            16,
+            3
+          ],
+          "maxAbsoluteDelta": 1.564621925354004e-07,
+          "argmaxEqual": true
+        },
+        "token.negation": {
+          "shape": [
+            1,
+            16,
+            3
+          ],
+          "maxAbsoluteDelta": 1.7881393432617188e-07,
+          "argmaxEqual": true
+        },
+        "token.temporal": {
+          "shape": [
+            1,
+            16,
+            3
+          ],
+          "maxAbsoluteDelta": 3.129243850708008e-07,
+          "argmaxEqual": true
+        },
+        "token.entity": {
+          "shape": [
+            1,
+            16,
+            5
+          ],
+          "maxAbsoluteDelta": 2.2351741790771484e-07,
+          "argmaxEqual": true
+        },
+        "sequence.dialogueAct": {
+          "shape": [
+            1,
+            6
+          ],
+          "maxAbsoluteDelta": 1.9371509552001953e-07,
+          "argmaxEqual": true
+        },
+        "sequence.predicate": {
+          "shape": [
+            1,
+            12
+          ],
+          "maxAbsoluteDelta": 2.3096799850463867e-07,
+          "argmaxEqual": true
+        },
+        "sequence.subjectReferent": {
+          "shape": [
+            1,
+            4
+          ],
+          "maxAbsoluteDelta": 1.1175870895385742e-08,
+          "argmaxEqual": true
+        },
+        "sequence.targetReferent": {
+          "shape": [
+            1,
+            4
+          ],
+          "maxAbsoluteDelta": 1.4901161193847656e-08,
+          "argmaxEqual": true
+        },
+        "sequence.ownerReferent": {
+          "shape": [
+            1,
+            4
+          ],
+          "maxAbsoluteDelta": 1.862645149230957e-08,
+          "argmaxEqual": true
+        },
+        "sequence.perspectiveReferent": {
+          "shape": [
+            1,
+            4
+          ],
+          "maxAbsoluteDelta": 9.313225746154785e-09,
+          "argmaxEqual": true
+        },
+        "sequence.sourceReferent": {
+          "shape": [
+            1,
+            4
+          ],
+          "maxAbsoluteDelta": 2.421438694000244e-08,
+          "argmaxEqual": true
+        },
+        "sequence.polarity": {
+          "shape": [
+            1,
+            3
+          ],
+          "maxAbsoluteDelta": 2.2351741790771484e-08,
+          "argmaxEqual": true
+        },
+        "sequence.claimKind": {
+          "shape": [
+            1,
+            5
+          ],
+          "maxAbsoluteDelta": 9.685754776000977e-08,
+          "argmaxEqual": true
+        },
+        "sequence.temporalRelation.relation": {
+          "shape": [
+            1,
+            10
+          ],
+          "maxAbsoluteDelta": 2.4400651454925537e-07,
+          "argmaxEqual": true
+        },
+        "sequence.temporalRelation.anchor": {
+          "shape": [
+            1,
+            1
+          ],
+          "maxAbsoluteDelta": 7.450580596923828e-09,
+          "argmaxEqual": true
+        }
+      }
+    },
+    {
+      "texts": [
+        "Maybe Anna will arrive tomorrow.",
+        "Prima lavoravo a Milano.",
+        "Ana dice que vive en Madrid."
+      ],
+      "batch": 3,
+      "sequence": 9,
+      "candidates": 16,
+      "anchors": 5,
+      "outputs": {
+        "token.boundary": {
+          "shape": [
+            3,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 2.998858690261841e-07,
+          "argmaxEqual": true
+        },
+        "token.object": {
+          "shape": [
+            3,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 2.5331974029541016e-07,
+          "argmaxEqual": true
+        },
+        "token.subject": {
+          "shape": [
+            3,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 2.2351741790771484e-07,
+          "argmaxEqual": true
+        },
+        "token.negation": {
+          "shape": [
+            3,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 2.0116567611694336e-07,
+          "argmaxEqual": true
+        },
+        "token.temporal": {
+          "shape": [
+            3,
+            9,
+            3
+          ],
+          "maxAbsoluteDelta": 2.905726432800293e-07,
+          "argmaxEqual": true
+        },
+        "token.entity": {
+          "shape": [
+            3,
+            9,
+            5
+          ],
+          "maxAbsoluteDelta": 3.129243850708008e-07,
+          "argmaxEqual": true
+        },
+        "sequence.dialogueAct": {
+          "shape": [
+            3,
+            6
+          ],
+          "maxAbsoluteDelta": 1.2665987014770508e-07,
+          "argmaxEqual": true
+        },
+        "sequence.predicate": {
+          "shape": [
+            3,
+            12
+          ],
+          "maxAbsoluteDelta": 1.4901161193847656e-07,
+          "argmaxEqual": true
+        },
+        "sequence.subjectReferent": {
+          "shape": [
+            3,
+            18
+          ],
+          "maxAbsoluteDelta": 3.3527612686157227e-08,
+          "argmaxEqual": true
+        },
+        "sequence.targetReferent": {
+          "shape": [
+            3,
+            18
+          ],
+          "maxAbsoluteDelta": 1.6763806343078613e-08,
+          "argmaxEqual": true
+        },
+        "sequence.ownerReferent": {
+          "shape": [
+            3,
+            18
+          ],
+          "maxAbsoluteDelta": 2.60770320892334e-08,
+          "argmaxEqual": true
+        },
+        "sequence.perspectiveReferent": {
+          "shape": [
+            3,
+            18
+          ],
+          "maxAbsoluteDelta": 2.60770320892334e-08,
+          "argmaxEqual": true
+        },
+        "sequence.sourceReferent": {
+          "shape": [
+            3,
+            18
+          ],
+          "maxAbsoluteDelta": 2.60770320892334e-08,
+          "argmaxEqual": true
+        },
+        "sequence.polarity": {
+          "shape": [
+            3,
+            3
+          ],
+          "maxAbsoluteDelta": 6.705522537231445e-08,
+          "argmaxEqual": true
+        },
+        "sequence.claimKind": {
+          "shape": [
+            3,
+            5
+          ],
+          "maxAbsoluteDelta": 1.1362135410308838e-07,
+          "argmaxEqual": true
+        },
+        "sequence.temporalRelation.relation": {
+          "shape": [
+            3,
+            10
+          ],
+          "maxAbsoluteDelta": 1.7881393432617188e-07,
+          "argmaxEqual": true
+        },
+        "sequence.temporalRelation.anchor": {
+          "shape": [
+            3,
+            5
+          ],
+          "maxAbsoluteDelta": 2.60770320892334e-08,
+          "argmaxEqual": true
+        }
+      }
+    }
+  ],
+  "a3": {
+    "status": "PASS",
+    "spec": {
+      "opset": 17,
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "candidate_embeddings",
+        "candidate_mask",
+        "temporal_anchor_embeddings",
+        "temporal_anchor_mask"
+      ],
+      "outputs": [
+        "token.boundary",
+        "token.object",
+        "token.subject",
+        "token.negation",
+        "token.temporal",
+        "token.entity",
+        "sequence.dialogueAct",
+        "sequence.predicate",
+        "sequence.subjectReferent",
+        "sequence.targetReferent",
+        "sequence.ownerReferent",
+        "sequence.perspectiveReferent",
+        "sequence.sourceReferent",
+        "sequence.polarity",
+        "sequence.claimKind",
+        "sequence.temporalRelation.relation",
+        "sequence.temporalRelation.anchor"
+      ],
+      "dynamicAxes": {
+        "input_ids": {
+          "0": "batch",
+          "1": "sequence"
+        },
+        "attention_mask": {
+          "0": "batch",
+          "1": "sequence"
+        },
+        "candidate_embeddings": {
+          "0": "batch",
+          "1": "candidates"
+        },
+        "candidate_mask": {
+          "0": "batch",
+          "1": "candidates"
+        },
+        "temporal_anchor_embeddings": {
+          "0": "batch",
+          "1": "temporal_anchors"
+        },
+        "temporal_anchor_mask": {
+          "0": "batch",
+          "1": "temporal_anchors"
+        },
+        "token.boundary": {
+          "0": "batch",
+          "1": "sequence"
+        },
+        "token.object": {
+          "0": "batch",
+          "1": "sequence"
+        },
+        "token.subject": {
+          "0": "batch",
+          "1": "sequence"
+        },
+        "token.negation": {
+          "0": "batch",
+          "1": "sequence"
+        },
+        "token.temporal": {
+          "0": "batch",
+          "1": "sequence"
+        },
+        "token.entity": {
+          "0": "batch",
+          "1": "sequence"
+        },
+        "sequence.dialogueAct": {
+          "0": "batch"
+        },
+        "sequence.predicate": {
+          "0": "batch"
+        },
+        "sequence.subjectReferent": {
+          "0": "batch"
+        },
+        "sequence.targetReferent": {
+          "0": "batch"
+        },
+        "sequence.ownerReferent": {
+          "0": "batch"
+        },
+        "sequence.perspectiveReferent": {
+          "0": "batch"
+        },
+        "sequence.sourceReferent": {
+          "0": "batch"
+        },
+        "sequence.polarity": {
+          "0": "batch"
+        },
+        "sequence.claimKind": {
+          "0": "batch"
+        },
+        "sequence.temporalRelation.relation": {
+          "0": "batch"
+        },
+        "sequence.temporalRelation.anchor": {
+          "0": "batch",
+          "1": "temporal_anchors"
+        }
+      },
+      "pointerCandidateDimension": "dynamic candidates + NONE + UNKNOWN",
+      "temporalAnchorDimension": "dynamic speech/context/evidence/claim anchors",
+      "expectedStandardOperators": [
+        "Gather",
+        "MatMul",
+        "Add",
+        "Concat",
+        "Equal",
+        "Where",
+        "Softmax"
+      ],
+      "customOperators": [],
+      "roleHeads": [
+        "subjectReferent",
+        "targetReferent",
+        "ownerReferent",
+        "perspectiveReferent",
+        "sourceReferent"
+      ],
+      "qualityMeaning": "NONE_UNTRAINED_STRUCTURAL_PROBE_ONLY"
+    },
+    "operators": [
+      "Add",
+      "Cast",
+      "Concat",
+      "Constant",
+      "ConstantOfShape",
+      "Div",
+      "Equal",
+      "Erf",
+      "Expand",
+      "Gather",
+      "Gemm",
+      "Identity",
+      "LayerNormalization",
+      "MatMul",
+      "Mul",
+      "Reshape",
+      "Shape",
+      "Slice",
+      "Softmax",
+      "Squeeze",
+      "Sub",
+      "Transpose",
+      "Unsqueeze",
+      "Where"
+    ],
+    "numericalTolerance": {
+      "atol": 0.0001,
+      "rtol": 0.0001
+    },
+    "probes": 4
+  },
+  "artifacts": {
+    "matrix-nlu-contract-v3.json": {
+      "bytes": 3191,
+      "sha256": "6e72efd274365f6afc200261086313e6ababd77669d240fe0e10031d63042bfc"
+    },
+    "student5-v3-untrained.safetensors": {
+      "bytes": 148713328,
+      "sha256": "f77986e10bf5cf6011d893ee9785d0645d9f1d52ac0c38423fb71086e87366e5"
+    },
+    "student5-v3-untrained-fp32.onnx": {
+      "bytes": 148360424,
+      "sha256": "fea789af9a68cecadc369f70b84efd61e29c0249a007e0f0a2b7773df8a9f8cb"
+    }
+  }
+}

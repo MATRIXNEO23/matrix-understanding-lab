@@ -1,0 +1,3469 @@
+{
+  "commit": {
+    "author": {
+      "date": "2026-09-07T09:03:19Z",
+      "email": "101059510+MATRIXNEO23@users.noreply.github.com",
+      "name": "MATRIXNEO23"
+    },
+    "committer": {
+      "date": "2026-09-07T09:03:19Z",
+      "email": "101059510+MATRIXNEO23@users.noreply.github.com",
+      "name": "MATRIXNEO23"
+    },
+    "html_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/commit/ff6ee962bcc7629ace9bcd69263ddbf497376df8",
+    "message": "prompts: add Supervisor-GPT repaired TRAIN v2 creation-only assignment",
+    "node_id": "C_kwDOUM4WLtoAKGZmNmVlOTYyYmNjNzYyOWFjZTliY2Q2OTI2M2RkYmY0OTczNzZkZjg",
+    "parents": [
+      {
+        "html_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/commit/eef2682538dc91a5827bdd3eaff0be202f95a79e",
+        "sha": "eef2682538dc91a5827bdd3eaff0be202f95a79e",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/commits/eef2682538dc91a5827bdd3eaff0be202f95a79e"
+      }
+    ],
+    "sha": "ff6ee962bcc7629ace9bcd69263ddbf497376df8",
+    "tree": {
+      "sha": "614e9154e2c4ba67fa7c3a22dc17514ff31e3e9e",
+      "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/614e9154e2c4ba67fa7c3a22dc17514ff31e3e9e"
+    },
+    "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/commits/ff6ee962bcc7629ace9bcd69263ddbf497376df8",
+    "verification": {
+      "payload": null,
+      "reason": "unsigned",
+      "signature": null,
+      "verified": false,
+      "verified_at": null
+    }
+  },
+  "tree": {
+    "sha": "ff6ee962bcc7629ace9bcd69263ddbf497376df8",
+    "tree": [
+      {
+        "mode": "040000",
+        "path": ".github",
+        "sha": "858dd626418fa5f46429c51ff3f4fd1fafb034bb",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/858dd626418fa5f46429c51ff3f4fd1fafb034bb"
+      },
+      {
+        "mode": "040000",
+        "path": ".github/workflows",
+        "sha": "acb99dbeb050e4b84d7ae1800c87879bc76ce1b4",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/acb99dbeb050e4b84d7ae1800c87879bc76ce1b4"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-evidence-extract.yml",
+        "sha": "34d8e6c7e96ee3ce98db49b06c086c94eaa924f1",
+        "size": 2565,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/34d8e6c7e96ee3ce98db49b06c086c94eaa924f1"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-post-train.yml",
+        "sha": "97c07864379e074db264c66578107c934c91f872",
+        "size": 3435,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/97c07864379e074db264c66578107c934c91f872"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-probe.yml",
+        "sha": "6808f23e60ce4a91ee3155d946bd5b4284038283",
+        "size": 1783,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6808f23e60ce4a91ee3155d946bd5b4284038283"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-student-4-v2-post.yml",
+        "sha": "d922d29eb137dbf853a30fea213ed181bf8f5860",
+        "size": 4251,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d922d29eb137dbf853a30fea213ed181bf8f5860"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-student-4-v2.yml",
+        "sha": "02b29b798e32a6f210386328a6e92b8dbc82f6fd",
+        "size": 6991,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/02b29b798e32a6f210386328a6e92b8dbc82f6fd"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-student-4-v21-post.yml",
+        "sha": "0c9cb1957b491e6c609dfe5d337aca97a89548e6",
+        "size": 3906,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0c9cb1957b491e6c609dfe5d337aca97a89548e6"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-student-4-v21.yml",
+        "sha": "b0c862f02772e0737a23d7ccd6cd949d0c9f101b",
+        "size": 4455,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b0c862f02772e0737a23d7ccd6cd949d0c9f101b"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-student-4-v22a-mixed-quantization.yml",
+        "sha": "268aa6bce284d5abaa2999a8a86e2bec4087b548",
+        "size": 4188,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/268aa6bce284d5abaa2999a8a86e2bec4087b548"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-student-4-v22a.yml",
+        "sha": "1049ac1796eee1dc0c95959a00f57e391006e758",
+        "size": 5175,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1049ac1796eee1dc0c95959a00f57e391006e758"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/matrix-nlu-train.yml",
+        "sha": "3cb85eae169c709df827a1fc0aedaeac4435dab3",
+        "size": 5354,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3cb85eae169c709df827a1fc0aedaeac4435dab3"
+      },
+      {
+        "mode": "100644",
+        "path": ".github/workflows/p0.yml",
+        "sha": "6c2c4e06b62a7a2e07870a8c00482c2e686bf7b8",
+        "size": 2098,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6c2c4e06b62a7a2e07870a8c00482c2e686bf7b8"
+      },
+      {
+        "mode": "100644",
+        "path": ".gitignore",
+        "sha": "ea8619bea6faab99df9a7e4a6a5c1b6b3a277404",
+        "size": 43,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ea8619bea6faab99df9a7e4a6a5c1b6b3a277404"
+      },
+      {
+        "mode": "100644",
+        "path": "ARCHITETTURA.md",
+        "sha": "810df28f9073d9d3806f332acaeab237f5349014",
+        "size": 12979,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/810df28f9073d9d3806f332acaeab237f5349014"
+      },
+      {
+        "mode": "100644",
+        "path": "PROJECT_WORK_RULES.md",
+        "sha": "5bb18a994315cda08f6f4ad8228fd3d7a0ae29e9",
+        "size": 3399,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5bb18a994315cda08f6f4ad8228fd3d7a0ae29e9"
+      },
+      {
+        "mode": "100644",
+        "path": "README.md",
+        "sha": "94f86555cceb34b5b9b5d14d84fd8350c7dc3033",
+        "size": 2067,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/94f86555cceb34b5b9b5d14d84fd8350c7dc3033"
+      },
+      {
+        "mode": "040000",
+        "path": "android-probe",
+        "sha": "f72c54a52e47a4c77449843f9e343d65e5851a84",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/f72c54a52e47a4c77449843f9e343d65e5851a84"
+      },
+      {
+        "mode": "100644",
+        "path": "android-probe/build.gradle",
+        "sha": "14a0cab805163e37252d1ab654e164bdaf64d09e",
+        "size": 975,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/14a0cab805163e37252d1ab654e164bdaf64d09e"
+      },
+      {
+        "mode": "040000",
+        "path": "android-probe/src",
+        "sha": "8339ea9169707ea50bcd22d22dec613ccff60279",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/8339ea9169707ea50bcd22d22dec613ccff60279"
+      },
+      {
+        "mode": "040000",
+        "path": "android-probe/src/main",
+        "sha": "b1dea40ee927f0089fc4de7ed40205822bb88c1e",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/b1dea40ee927f0089fc4de7ed40205822bb88c1e"
+      },
+      {
+        "mode": "100644",
+        "path": "android-probe/src/main/AndroidManifest.xml",
+        "sha": "7aa8e38c4417a1420427f548ec2d5062c3447bac",
+        "size": 598,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7aa8e38c4417a1420427f548ec2d5062c3447bac"
+      },
+      {
+        "mode": "040000",
+        "path": "android-probe/src/main/java",
+        "sha": "fe94b187b43d83122ea3195aabd53b78e2cb42a6",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/fe94b187b43d83122ea3195aabd53b78e2cb42a6"
+      },
+      {
+        "mode": "040000",
+        "path": "android-probe/src/main/java/com",
+        "sha": "1da84f9e7db726e1dc6dd5cf6ae6fe11b80d061e",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/1da84f9e7db726e1dc6dd5cf6ae6fe11b80d061e"
+      },
+      {
+        "mode": "040000",
+        "path": "android-probe/src/main/java/com/matrix",
+        "sha": "17db8fdfdd06c8aee2472b18c5bbf49927519945",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/17db8fdfdd06c8aee2472b18c5bbf49927519945"
+      },
+      {
+        "mode": "040000",
+        "path": "android-probe/src/main/java/com/matrix/p0",
+        "sha": "2714fc495b34da2c8942ced8874be7609c8b3160",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/2714fc495b34da2c8942ced8874be7609c8b3160"
+      },
+      {
+        "mode": "040000",
+        "path": "android-probe/src/main/java/com/matrix/p0/probe",
+        "sha": "4edddce3359258f012dafc902f729c7efa07e900",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/4edddce3359258f012dafc902f729c7efa07e900"
+      },
+      {
+        "mode": "100644",
+        "path": "android-probe/src/main/java/com/matrix/p0/probe/MainActivity.java",
+        "sha": "79904cc1093be3c01a13322393721dfb1cd324f2",
+        "size": 8228,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/79904cc1093be3c01a13322393721dfb1cd324f2"
+      },
+      {
+        "mode": "100644",
+        "path": "android-probe/src/main/java/com/matrix/p0/probe/PlatformIcuWordSegmenter.java",
+        "sha": "985db9f01cbce1a3c4318933ebd517154e129dee",
+        "size": 1346,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/985db9f01cbce1a3c4318933ebd517154e129dee"
+      },
+      {
+        "mode": "040000",
+        "path": "artifacts",
+        "sha": "ba4d2d6fd903acf51e7dc91b5af9c9ef268b97c8",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/ba4d2d6fd903acf51e7dc91b5af9c9ef268b97c8"
+      },
+      {
+        "mode": "040000",
+        "path": "artifacts/matrix-nlu",
+        "sha": "eccc6e063d71c6bc8276b3e2163ea55d45ae17bf",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/eccc6e063d71c6bc8276b3e2163ea55d45ae17bf"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/matrix-nlu/dev-contract-audit-student-4.json",
+        "sha": "8dd9b7112decff219752171828ce30089840dd57",
+        "size": 63744,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/8dd9b7112decff219752171828ce30089840dd57"
+      },
+      {
+        "mode": "040000",
+        "path": "artifacts/matrix-nlu/massive",
+        "sha": "ef0499ceecf8172fec776ef3ac9d07b64f765b0f",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/ef0499ceecf8172fec776ef3ac9d07b64f765b0f"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/matrix-nlu/massive/MASSIVE-CC-BY-4.0.txt",
+        "sha": "5e3fb878c9b8905a8bc6cf460f7f58999a46023c",
+        "size": 18704,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5e3fb878c9b8905a8bc6cf460f7f58999a46023c"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/matrix-nlu/massive/first-observation-manifest.json",
+        "sha": "ae4e371dccd06101bd667481049ce8ecd5c3aade",
+        "size": 5576,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ae4e371dccd06101bd667481049ce8ecd5c3aade"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/matrix-nlu/massive/pinned-manifest.json",
+        "sha": "049b3f8fb93f0a3bc1bf818f840c647d969038a2",
+        "size": 5602,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/049b3f8fb93f0a3bc1bf818f840c647d969038a2"
+      },
+      {
+        "mode": "040000",
+        "path": "artifacts/matrix-nlu/probes",
+        "sha": "4a6a1365759f536cef0e4c9c45f04099aaa0f6d6",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/4a6a1365759f536cef0e4c9c45f04099aaa0f6d6"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/matrix-nlu/probes/candidate-probe-c6875b9.json",
+        "sha": "bb13eef48962e5e73b59da00081d39a2eed307a5",
+        "size": 16693,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/bb13eef48962e5e73b59da00081d39a2eed307a5"
+      },
+      {
+        "mode": "040000",
+        "path": "artifacts/p05-opennlp-baseline",
+        "sha": "7cdf17273dcfc99c6fdacc4ef9f820b823655082",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/7cdf17273dcfc99c6fdacc4ef9f820b823655082"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/p05-opennlp-baseline/MARKIT-CC-BY-4.0.txt",
+        "sha": "a7b465577bca288b1eb6f7eed92d83558e038d68",
+        "size": 188,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a7b465577bca288b1eb6f7eed92d83558e038d68"
+      },
+      {
+        "mode": "040000",
+        "path": "artifacts/p05-opennlp-baseline/models",
+        "sha": "5af12e0902d80cbdfd488da44367f8780a37852a",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/5af12e0902d80cbdfd488da44367f8780a37852a"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/p05-opennlp-baseline/models/opennlp-it-markit-maxent-i100-c1.bin",
+        "sha": "5e75739d2e4beb0da3a23a5d4d063a4f771ea70d",
+        "size": 416913,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5e75739d2e4beb0da3a23a5d4d063a4f771ea70d"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/p05-opennlp-baseline/models/opennlp-it-markit-maxent-i200-c1.bin",
+        "sha": "e6be87a85c34646d4f78f12f893dfb1f1836241a",
+        "size": 417199,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e6be87a85c34646d4f78f12f893dfb1f1836241a"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/p05-opennlp-baseline/models/opennlp-it-markit-perceptron-i100-c1.bin",
+        "sha": "31c30b0409c31ddfaadd5a45c91eaf0547209e9b",
+        "size": 126860,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/31c30b0409c31ddfaadd5a45c91eaf0547209e9b"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/p05-opennlp-baseline/p05-baseline-results.json",
+        "sha": "478e9ec62090449e0c94730a0da3f8093057ff34",
+        "size": 833574,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/478e9ec62090449e0c94730a0da3f8093057ff34"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/p05-opennlp-baseline/p05-baseline-results.md",
+        "sha": "418dbadbb5b8f2bd02e5567d1804aa1faf593e7f",
+        "size": 945,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/418dbadbb5b8f2bd02e5567d1804aa1faf593e7f"
+      },
+      {
+        "mode": "100644",
+        "path": "artifacts/p05-opennlp-baseline/training-manifest.json",
+        "sha": "15d36b19d43808e967ff3b92ac7a957033547a6c",
+        "size": 4238,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/15d36b19d43808e967ff3b92ac7a957033547a6c"
+      },
+      {
+        "mode": "100644",
+        "path": "auto_test.py",
+        "sha": "b77f2e2dd8bfc605522eb7efe0a1c49d17192b44",
+        "size": 21470,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b77f2e2dd8bfc605522eb7efe0a1c49d17192b44"
+      },
+      {
+        "mode": "100644",
+        "path": "auto_train.py",
+        "sha": "754fec2296d4af3969a123cd14f303e234313b0f",
+        "size": 12296,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/754fec2296d4af3969a123cd14f303e234313b0f"
+      },
+      {
+        "mode": "100644",
+        "path": "build.gradle",
+        "sha": "6e42a651bb4fa9f9b3bc728b4b48218989a03b78",
+        "size": 154,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6e42a651bb4fa9f9b3bc728b4b48218989a03b78"
+      },
+      {
+        "mode": "040000",
+        "path": "cli",
+        "sha": "4298fae6cee966fe826a821cc3960b330022c339",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/4298fae6cee966fe826a821cc3960b330022c339"
+      },
+      {
+        "mode": "100644",
+        "path": "cli/build.gradle",
+        "sha": "9d24cc3b36c962216fb4fb15cd552bb9f2dba661",
+        "size": 715,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9d24cc3b36c962216fb4fb15cd552bb9f2dba661"
+      },
+      {
+        "mode": "040000",
+        "path": "cli/src",
+        "sha": "639e9ff847b22e185374888ab197e5ec86800a92",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/639e9ff847b22e185374888ab197e5ec86800a92"
+      },
+      {
+        "mode": "040000",
+        "path": "cli/src/main",
+        "sha": "8d21fefe7ea975b2319c13d6a8de27e959c8a992",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/8d21fefe7ea975b2319c13d6a8de27e959c8a992"
+      },
+      {
+        "mode": "040000",
+        "path": "cli/src/main/java",
+        "sha": "61a2673d5643744376bd1b9b5ef4fbeb50e58d08",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/61a2673d5643744376bd1b9b5ef4fbeb50e58d08"
+      },
+      {
+        "mode": "040000",
+        "path": "cli/src/main/java/com",
+        "sha": "4b80ebb47f207828d71f9a1084e82f63a034e12f",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/4b80ebb47f207828d71f9a1084e82f63a034e12f"
+      },
+      {
+        "mode": "040000",
+        "path": "cli/src/main/java/com/matrix",
+        "sha": "ecb3234aafa3530bb31463196fa3b33228a972ce",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/ecb3234aafa3530bb31463196fa3b33228a972ce"
+      },
+      {
+        "mode": "040000",
+        "path": "cli/src/main/java/com/matrix/p0",
+        "sha": "983911d958f60228395eaed589f54204c0a0e375",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/983911d958f60228395eaed589f54204c0a0e375"
+      },
+      {
+        "mode": "040000",
+        "path": "cli/src/main/java/com/matrix/p0/cli",
+        "sha": "af1575b6fa1fd3f420e5884454b86a21e45535f8",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/af1575b6fa1fd3f420e5884454b86a21e45535f8"
+      },
+      {
+        "mode": "100644",
+        "path": "cli/src/main/java/com/matrix/p0/cli/Icu4jWordSegmenter.java",
+        "sha": "49d0cbfc33abd5ebc8e0eb5c613a7cd95cbadae4",
+        "size": 928,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/49d0cbfc33abd5ebc8e0eb5c613a7cd95cbadae4"
+      },
+      {
+        "mode": "100644",
+        "path": "cli/src/main/java/com/matrix/p0/cli/Main.java",
+        "sha": "e19b230d9c39c54b363979071be800d84258baaf",
+        "size": 4386,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e19b230d9c39c54b363979071be800d84258baaf"
+      },
+      {
+        "mode": "040000",
+        "path": "core",
+        "sha": "195323d8d9ccb0b8b3ffa439e1aa9eb4c13f8de8",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/195323d8d9ccb0b8b3ffa439e1aa9eb4c13f8de8"
+      },
+      {
+        "mode": "100644",
+        "path": "core/build.gradle",
+        "sha": "0dce1dd2c641bcf019367d93050f81920f4f22e4",
+        "size": 708,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0dce1dd2c641bcf019367d93050f81920f4f22e4"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src",
+        "sha": "47bf915def635dc88856a0d95b972f1c9bb9162f",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/47bf915def635dc88856a0d95b972f1c9bb9162f"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/main",
+        "sha": "6b1150bf27f098e3789a74d4f328ab541564673d",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/6b1150bf27f098e3789a74d4f328ab541564673d"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/main/java",
+        "sha": "212d6637451eee0242d44e9e4f4191b59f5532f4",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/212d6637451eee0242d44e9e4f4191b59f5532f4"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/main/java/com",
+        "sha": "cb93627778e7354597a3730834082a353fd1ed66",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/cb93627778e7354597a3730834082a353fd1ed66"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/main/java/com/matrix",
+        "sha": "d895ae0bad92a264bc1f96aa0521d0db09d9db7d",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/d895ae0bad92a264bc1f96aa0521d0db09d9db7d"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/main/java/com/matrix/p0",
+        "sha": "3878d4f5bcf98396efadb52c16c9d5ecfc16c1ba",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/3878d4f5bcf98396efadb52c16c9d5ecfc16c1ba"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/main/java/com/matrix/p0/BaselineAEngine.java",
+        "sha": "d803899bcc4ca978e0ee0f8a998455f24c903562",
+        "size": 9422,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d803899bcc4ca978e0ee0f8a998455f24c903562"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/main/java/com/matrix/p0/CandidateBEngine.java",
+        "sha": "d52b5d28d208945266452791e4a30c3c8ee2c79d",
+        "size": 15783,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d52b5d28d208945266452791e4a30c3c8ee2c79d"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/main/java/com/matrix/p0/Domain.java",
+        "sha": "eb37ee840df5833c5c2a6817a8b8e51f35fc29c2",
+        "size": 2015,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/eb37ee840df5833c5c2a6817a8b8e51f35fc29c2"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/main/java/com/matrix/p0/Evaluator.java",
+        "sha": "af4ab569a3d5c14fb101c5ebf06dff4f4b64d18a",
+        "size": 8775,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/af4ab569a3d5c14fb101c5ebf06dff4f4b64d18a"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/main/java/com/matrix/p0/GoldDataset.java",
+        "sha": "0ab22209bcb906a16f3c9aceb26aac1040645712",
+        "size": 4795,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0ab22209bcb906a16f3c9aceb26aac1040645712"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/main/java/com/matrix/p0/OpenNlpPosService.java",
+        "sha": "f83ef801fea15ab8d3fa65944104e0a6b11c8be1",
+        "size": 1425,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f83ef801fea15ab8d3fa65944104e0a6b11c8be1"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/main/java/com/matrix/p0/UnderstandingEngine.java",
+        "sha": "30f700bbeaa34b516a1bd3e684c8af033bd23b66",
+        "size": 318,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/30f700bbeaa34b516a1bd3e684c8af033bd23b66"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/main/java/com/matrix/p0/WordSegmenter.java",
+        "sha": "b616b5401f443bb120ca25813d62122f8f5c0739",
+        "size": 279,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b616b5401f443bb120ca25813d62122f8f5c0739"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/test",
+        "sha": "bad5e8bd482b8b26549dc6fe225037cefe11e0dc",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/bad5e8bd482b8b26549dc6fe225037cefe11e0dc"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/test/java",
+        "sha": "a50168db075b1c936bfd0661ad29b2f46108cfb5",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/a50168db075b1c936bfd0661ad29b2f46108cfb5"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/test/java/com",
+        "sha": "e5582845d328982cd94c8b3d3b662d32e593edd0",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/e5582845d328982cd94c8b3d3b662d32e593edd0"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/test/java/com/matrix",
+        "sha": "c155b18afc136e12dda31b7bdeba686d51e718e5",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/c155b18afc136e12dda31b7bdeba686d51e718e5"
+      },
+      {
+        "mode": "040000",
+        "path": "core/src/test/java/com/matrix/p0",
+        "sha": "7b0bf15ce0fce3943151d454062decdc5b2e85eb",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/7b0bf15ce0fce3943151d454062decdc5b2e85eb"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/test/java/com/matrix/p0/BaselineAEngineTest.java",
+        "sha": "ee863865fd266bce943f4cb039d9b43eae33ee2f",
+        "size": 1266,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ee863865fd266bce943f4cb039d9b43eae33ee2f"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/test/java/com/matrix/p0/CandidateBEngineTest.java",
+        "sha": "cb7064235fc3cc30f6f0a8b2a7c80f9d8a9bcc41",
+        "size": 2466,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/cb7064235fc3cc30f6f0a8b2a7c80f9d8a9bcc41"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/test/java/com/matrix/p0/GoldSetIntegrityTest.java",
+        "sha": "ce5d92d0f6ad4600cb4ff80ca6f767e345032bb2",
+        "size": 1420,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ce5d92d0f6ad4600cb4ff80ca6f767e345032bb2"
+      },
+      {
+        "mode": "100644",
+        "path": "core/src/test/java/com/matrix/p0/P05GoldSetIntegrityTest.java",
+        "sha": "dbd342c440753008864d7630bb9179c8a811d899",
+        "size": 2161,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/dbd342c440753008864d7630bb9179c8a811d899"
+      },
+      {
+        "mode": "040000",
+        "path": "data",
+        "sha": "baf05032b762021d72e16df2aa514ada041af0d6",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/baf05032b762021d72e16df2aa514ada041af0d6"
+      },
+      {
+        "mode": "040000",
+        "path": "data/student5_v3",
+        "sha": "d55992c45547bfbeea37bd77b2ec9736a0cc8b25",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/d55992c45547bfbeea37bd77b2ec9736a0cc8b25"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/SHA256SUMS",
+        "sha": "5b9b0caffada9e010cd6823828a806c507806387",
+        "size": 11795,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5b9b0caffada9e010cd6823828a806c507806387"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/migration-manifest.json",
+        "sha": "752d254dd462fbd4bbefa4e8a006f994bd8ed3cf",
+        "size": 28248,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/752d254dd462fbd4bbefa4e8a006f994bd8ed3cf"
+      },
+      {
+        "mode": "040000",
+        "path": "data/student5_v3/provenance",
+        "sha": "b57df9ddacd960bb61dee0ea6910b69296db0048",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/b57df9ddacd960bb61dee0ea6910b69296db0048"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00000.jsonl",
+        "sha": "ee0440fc783256d783bda726430b432f7b15db29",
+        "size": 33399,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ee0440fc783256d783bda726430b432f7b15db29"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00001.jsonl",
+        "sha": "b1d9f61d36fc0f8e4948743eee4fdfa3ccfbc364",
+        "size": 33126,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b1d9f61d36fc0f8e4948743eee4fdfa3ccfbc364"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00002.jsonl",
+        "sha": "88d077cf2076cbd66fcf9c826e40b43260d2ee68",
+        "size": 33254,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/88d077cf2076cbd66fcf9c826e40b43260d2ee68"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00003.jsonl",
+        "sha": "f2aedee062d0473d274fe48c9d51b8eadfd25ac0",
+        "size": 33399,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f2aedee062d0473d274fe48c9d51b8eadfd25ac0"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00004.jsonl",
+        "sha": "95909b64f7bf6075bed76b2d720750cbdeaf85e7",
+        "size": 33191,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/95909b64f7bf6075bed76b2d720750cbdeaf85e7"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00005.jsonl",
+        "sha": "bed360e0ca220215794c7cb54fb6535c8eb3edbe",
+        "size": 33254,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/bed360e0ca220215794c7cb54fb6535c8eb3edbe"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00006.jsonl",
+        "sha": "cdd9729be6e4309d5d240709185cd363f6e67cd3",
+        "size": 33327,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/cdd9729be6e4309d5d240709185cd363f6e67cd3"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00007.jsonl",
+        "sha": "99cb14c65b310ab43ab14ed2197355282ac561e4",
+        "size": 33263,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/99cb14c65b310ab43ab14ed2197355282ac561e4"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00008.jsonl",
+        "sha": "17d246cfdce0346eec32a6fa7ea8f06a83d81426",
+        "size": 33190,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/17d246cfdce0346eec32a6fa7ea8f06a83d81426"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00009.jsonl",
+        "sha": "adaa7299f13b0590bd021069b4efa77d8c6381b3",
+        "size": 33327,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/adaa7299f13b0590bd021069b4efa77d8c6381b3"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00010.jsonl",
+        "sha": "e7bf648558fd9f43e522e2897b50010e5484b4ca",
+        "size": 33262,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e7bf648558fd9f43e522e2897b50010e5484b4ca"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00011.jsonl",
+        "sha": "0b44caa0fbcaa054bcb8fda2cd57df541c480980",
+        "size": 33565,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0b44caa0fbcaa054bcb8fda2cd57df541c480980"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00012.jsonl",
+        "sha": "982eaa2d270c716c03bcbdb44a0e9528052144bf",
+        "size": 34604,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/982eaa2d270c716c03bcbdb44a0e9528052144bf"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00013.jsonl",
+        "sha": "fa4ea724941219afe701800d79f6e2d25a64a903",
+        "size": 34700,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/fa4ea724941219afe701800d79f6e2d25a64a903"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00014.jsonl",
+        "sha": "46cef7168c0c1e61c685de0c927f92c478643be0",
+        "size": 34556,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/46cef7168c0c1e61c685de0c927f92c478643be0"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00015.jsonl",
+        "sha": "017b7842b6207186457aa641a956b73186334585",
+        "size": 34692,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/017b7842b6207186457aa641a956b73186334585"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00016.jsonl",
+        "sha": "b694518f4beca9ffd786f4ad06e8bd4f5026adc5",
+        "size": 34484,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b694518f4beca9ffd786f4ad06e8bd4f5026adc5"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00017.jsonl",
+        "sha": "d3c2962c4123b4e749663f4ee884a000d0238646",
+        "size": 34732,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d3c2962c4123b4e749663f4ee884a000d0238646"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00018.jsonl",
+        "sha": "c931caf79f8b3e761b3c8e8a0a282fbd8fae7627",
+        "size": 33190,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c931caf79f8b3e761b3c8e8a0a282fbd8fae7627"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00019.jsonl",
+        "sha": "3f54c3f0b568759b3414b7242e750df435559a93",
+        "size": 33255,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3f54c3f0b568759b3414b7242e750df435559a93"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00020.jsonl",
+        "sha": "348ee3b8f4f5d794c123e56c936eb08d9c2e8959",
+        "size": 33399,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/348ee3b8f4f5d794c123e56c936eb08d9c2e8959"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00021.jsonl",
+        "sha": "bb62d6570a878ca5a1391baeba9b494e36d7dc01",
+        "size": 33190,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/bb62d6570a878ca5a1391baeba9b494e36d7dc01"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00022.jsonl",
+        "sha": "0e9c3d8f70803cbb846d37f936837f90d1587bab",
+        "size": 33255,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0e9c3d8f70803cbb846d37f936837f90d1587bab"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00023.jsonl",
+        "sha": "2304fcc4e8f3d4ce3fcdfc723bfbd67bc12926dd",
+        "size": 33399,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2304fcc4e8f3d4ce3fcdfc723bfbd67bc12926dd"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00024.jsonl",
+        "sha": "33ebf6fecf5fabe4d758c36c8e7d651d695e58d3",
+        "size": 33126,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/33ebf6fecf5fabe4d758c36c8e7d651d695e58d3"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00025.jsonl",
+        "sha": "284a913ee35eb7a0876195acd508766a44286cf8",
+        "size": 33254,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/284a913ee35eb7a0876195acd508766a44286cf8"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00026.jsonl",
+        "sha": "f9b88f5d79df82e2fdd61863c535c58718440069",
+        "size": 33327,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f9b88f5d79df82e2fdd61863c535c58718440069"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00027.jsonl",
+        "sha": "83434da1e840f0f2945703f46be74e266d2b71e5",
+        "size": 33263,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/83434da1e840f0f2945703f46be74e266d2b71e5"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00028.jsonl",
+        "sha": "b632a03455cf63ffbaaa499753dffbee52cbfc16",
+        "size": 33190,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b632a03455cf63ffbaaa499753dffbee52cbfc16"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00029.jsonl",
+        "sha": "f1d843af124b56d27a04ce7308bbf2878c9ccb46",
+        "size": 33969,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f1d843af124b56d27a04ce7308bbf2878c9ccb46"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00030.jsonl",
+        "sha": "0fef67a14b5fc981d99687491faec5f4d5eb9ba1",
+        "size": 34692,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0fef67a14b5fc981d99687491faec5f4d5eb9ba1"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00031.jsonl",
+        "sha": "cc3aac325cf9a9dcd2171996a938fd20809ef323",
+        "size": 34628,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/cc3aac325cf9a9dcd2171996a938fd20809ef323"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00032.jsonl",
+        "sha": "94921bb87e06174a9ae2c37dcad02bee5554de4d",
+        "size": 34692,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/94921bb87e06174a9ae2c37dcad02bee5554de4d"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00033.jsonl",
+        "sha": "9c1bb95e9ac8ee092129fc18cc0112b1313cb5fe",
+        "size": 34556,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9c1bb95e9ac8ee092129fc18cc0112b1313cb5fe"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00034.jsonl",
+        "sha": "adbf51e4be9a7f89a9b3cd1ea2d22878c1814966",
+        "size": 34705,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/adbf51e4be9a7f89a9b3cd1ea2d22878c1814966"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00035.jsonl",
+        "sha": "76143fc1fa32ddfddb2294f285b3cc43a8231843",
+        "size": 34091,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/76143fc1fa32ddfddb2294f285b3cc43a8231843"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00036.jsonl",
+        "sha": "50c5f457f7248ba394a5aa98c499727cf348e35d",
+        "size": 33327,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/50c5f457f7248ba394a5aa98c499727cf348e35d"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00037.jsonl",
+        "sha": "5e8db1bdd82025c89c104ba116f7e01d8caa2a86",
+        "size": 33262,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5e8db1bdd82025c89c104ba116f7e01d8caa2a86"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00038.jsonl",
+        "sha": "a8998d769a051ceb80655ebac7ce4ed563658604",
+        "size": 33255,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a8998d769a051ceb80655ebac7ce4ed563658604"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00039.jsonl",
+        "sha": "e2081b916cf0e2b71e5715c460b92dfa9f1a3d86",
+        "size": 33262,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e2081b916cf0e2b71e5715c460b92dfa9f1a3d86"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00040.jsonl",
+        "sha": "14e3207b8877d82a057384fd7f5f00d0c85a2005",
+        "size": 33327,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/14e3207b8877d82a057384fd7f5f00d0c85a2005"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00041.jsonl",
+        "sha": "79c6778b62e3367cd4d874691477e3981bfc2bb2",
+        "size": 33190,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/79c6778b62e3367cd4d874691477e3981bfc2bb2"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00042.jsonl",
+        "sha": "477ade8ff76a1fb301585e7826b41fc57c6a893f",
+        "size": 33255,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/477ade8ff76a1fb301585e7826b41fc57c6a893f"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00043.jsonl",
+        "sha": "e5c3f6e1e0a92dce86580e8d9f922c85a4f981b8",
+        "size": 33399,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e5c3f6e1e0a92dce86580e8d9f922c85a4f981b8"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00044.jsonl",
+        "sha": "3bdda39ac8bfa345ab990f8e37733da574af3fe8",
+        "size": 33126,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3bdda39ac8bfa345ab990f8e37733da574af3fe8"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00045.jsonl",
+        "sha": "1e5c038526e985e8747455c7777bd84efe89c879",
+        "size": 33254,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1e5c038526e985e8747455c7777bd84efe89c879"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00046.jsonl",
+        "sha": "23b870ab6747937d20c17b824fecbe864b619400",
+        "size": 33399,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/23b870ab6747937d20c17b824fecbe864b619400"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00047.jsonl",
+        "sha": "5e3a36da0ce9752d93f4c19df1dcfd3726c1d13c",
+        "size": 34245,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5e3a36da0ce9752d93f4c19df1dcfd3726c1d13c"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00048.jsonl",
+        "sha": "91963ce77e567e4310d6252d0f0691cc8a9ffa07",
+        "size": 34764,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/91963ce77e567e4310d6252d0f0691cc8a9ffa07"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00049.jsonl",
+        "sha": "fce343dfde726fbbd5a4d3b772aa4391005fc109",
+        "size": 34556,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/fce343dfde726fbbd5a4d3b772aa4391005fc109"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00050.jsonl",
+        "sha": "9f9c255e392cc3cc92ea0b817e5b2452047714a5",
+        "size": 34628,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9f9c255e392cc3cc92ea0b817e5b2452047714a5"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00051.jsonl",
+        "sha": "1ea07c691ddcea9f268631f73624c9ccfbae4232",
+        "size": 34620,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1ea07c691ddcea9f268631f73624c9ccfbae4232"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00052.jsonl",
+        "sha": "a86fd8b876f4c4279591470fe95f0cd65f45b1f3",
+        "size": 34862,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a86fd8b876f4c4279591470fe95f0cd65f45b1f3"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00053.jsonl",
+        "sha": "5cb4065b2fffb3090a0c34150b0054dd10192132",
+        "size": 37094,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5cb4065b2fffb3090a0c34150b0054dd10192132"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00054.jsonl",
+        "sha": "96ab970bd12a54948727b108f060c66aeb5d5937",
+        "size": 37656,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/96ab970bd12a54948727b108f060c66aeb5d5937"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00055.jsonl",
+        "sha": "e687ed4657e5454227ee2ec39bb4ddc2dc53e2b9",
+        "size": 38654,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e687ed4657e5454227ee2ec39bb4ddc2dc53e2b9"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00056.jsonl",
+        "sha": "36b21da172cc0f271cc29f60657108acec494c26",
+        "size": 37652,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/36b21da172cc0f271cc29f60657108acec494c26"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00057.jsonl",
+        "sha": "5e54f7e0f61c19328d598cde034c89c24c4e1a96",
+        "size": 35356,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5e54f7e0f61c19328d598cde034c89c24c4e1a96"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00058.jsonl",
+        "sha": "244b5244a9eb86873ecf7b6c40df435349e9f107",
+        "size": 37860,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/244b5244a9eb86873ecf7b6c40df435349e9f107"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00059.jsonl",
+        "sha": "7f0572935e20cec4c7a4d74af149650979d4fb8b",
+        "size": 35092,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7f0572935e20cec4c7a4d74af149650979d4fb8b"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00060.jsonl",
+        "sha": "5af8bd72a1d059c31637340a46412718c02eb731",
+        "size": 34788,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5af8bd72a1d059c31637340a46412718c02eb731"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00061.jsonl",
+        "sha": "94b411824e9696e620fd9f57cc8e17063f7ed004",
+        "size": 33528,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/94b411824e9696e620fd9f57cc8e17063f7ed004"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/provenance/part-00062.jsonl",
+        "sha": "be2f10591145fdfb53cadc05a03cfea071ea56f0",
+        "size": 35593,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/be2f10591145fdfb53cadc05a03cfea071ea56f0"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/source-train-inventory.json",
+        "sha": "bd464885b0789b2111ebd51536151b2e5811d1a9",
+        "size": 3619,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/bd464885b0789b2111ebd51536151b2e5811d1a9"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/statistics.json",
+        "sha": "734362a35859a2b623c856449e0bb04cc2551695",
+        "size": 7831,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/734362a35859a2b623c856449e0bb04cc2551695"
+      },
+      {
+        "mode": "040000",
+        "path": "data/student5_v3/train",
+        "sha": "3f08979294e9de07dda6061b67921826624a080d",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/3f08979294e9de07dda6061b67921826624a080d"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00000.jsonl",
+        "sha": "59354fa4f5bb15b0bff376db4e067c94a888dc5e",
+        "size": 158002,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/59354fa4f5bb15b0bff376db4e067c94a888dc5e"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00001.jsonl",
+        "sha": "b790569aa77d65fec4ad868402d9be3b8d71efed",
+        "size": 157165,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b790569aa77d65fec4ad868402d9be3b8d71efed"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00002.jsonl",
+        "sha": "7fbc4a32c7cc602101dcdf8cda6eb82e69babbbc",
+        "size": 157531,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7fbc4a32c7cc602101dcdf8cda6eb82e69babbbc"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00003.jsonl",
+        "sha": "cbeb3bfb5ae2a5945d1f19f311cdfb0ba67605b5",
+        "size": 158020,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/cbeb3bfb5ae2a5945d1f19f311cdfb0ba67605b5"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00004.jsonl",
+        "sha": "3d786b46018ad9b72dbdfbca3ecf2d9ec3b4a88f",
+        "size": 158161,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3d786b46018ad9b72dbdfbca3ecf2d9ec3b4a88f"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00005.jsonl",
+        "sha": "1565d4c8bd88259f9d370758169896a0076c103f",
+        "size": 157070,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1565d4c8bd88259f9d370758169896a0076c103f"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00006.jsonl",
+        "sha": "6bfafad79c04ebd0f2883d8669a2ef004ff1c2c3",
+        "size": 157902,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6bfafad79c04ebd0f2883d8669a2ef004ff1c2c3"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00007.jsonl",
+        "sha": "b812fbb4ef31421a8e51d4404d07216c931bd27e",
+        "size": 158755,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b812fbb4ef31421a8e51d4404d07216c931bd27e"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00008.jsonl",
+        "sha": "88fee3cb87277b54cf23382133ef7fe42b8e6264",
+        "size": 157259,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/88fee3cb87277b54cf23382133ef7fe42b8e6264"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00009.jsonl",
+        "sha": "72838077ea9b6c712763d39745f655fda05ce51f",
+        "size": 157931,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/72838077ea9b6c712763d39745f655fda05ce51f"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00010.jsonl",
+        "sha": "237fa74663450a329d61964f34b58791089b36d3",
+        "size": 157510,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/237fa74663450a329d61964f34b58791089b36d3"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00011.jsonl",
+        "sha": "0093f6b7ba93ea803d570293453d3a99b7db1ab5",
+        "size": 155015,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0093f6b7ba93ea803d570293453d3a99b7db1ab5"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00012.jsonl",
+        "sha": "9f997d764e93d6c8af13758eba6c14c79fdf2c50",
+        "size": 201640,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9f997d764e93d6c8af13758eba6c14c79fdf2c50"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00013.jsonl",
+        "sha": "494f2cf245eda3ed784de21ac00585e07e4d0480",
+        "size": 227313,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/494f2cf245eda3ed784de21ac00585e07e4d0480"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00014.jsonl",
+        "sha": "ca412d87b2647a613214fa27a29fa7f588d48a29",
+        "size": 227050,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ca412d87b2647a613214fa27a29fa7f588d48a29"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00015.jsonl",
+        "sha": "1fe38342a1227eb52faa9215bb851c245865aa11",
+        "size": 227201,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1fe38342a1227eb52faa9215bb851c245865aa11"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00016.jsonl",
+        "sha": "c414fa5021797a813124f5ddf3a573dfcbd44f11",
+        "size": 226118,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c414fa5021797a813124f5ddf3a573dfcbd44f11"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00017.jsonl",
+        "sha": "a22b9b80510cb24160e29490ba3cbecde727aa9e",
+        "size": 174152,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a22b9b80510cb24160e29490ba3cbecde727aa9e"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00018.jsonl",
+        "sha": "8cc5aed457c7614e366b4eac8add9fd50eee61eb",
+        "size": 157523,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/8cc5aed457c7614e366b4eac8add9fd50eee61eb"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00019.jsonl",
+        "sha": "6bec01957b2edd6caf0173d7682e1079ac117aff",
+        "size": 158092,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6bec01957b2edd6caf0173d7682e1079ac117aff"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00020.jsonl",
+        "sha": "1b66fcf4dee77f068d8998dacdfa5f872eb8a73e",
+        "size": 158355,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1b66fcf4dee77f068d8998dacdfa5f872eb8a73e"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00021.jsonl",
+        "sha": "e6a081d1a71fd2d8f5158097379a09a8c58f1a27",
+        "size": 157064,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e6a081d1a71fd2d8f5158097379a09a8c58f1a27"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00022.jsonl",
+        "sha": "676342277d88471c678f037efe637bb866bfbeb5",
+        "size": 158376,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/676342277d88471c678f037efe637bb866bfbeb5"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00023.jsonl",
+        "sha": "2c2e5c5f0f5b8cf7435b8e6397ad1e4a0b7952c4",
+        "size": 158083,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2c2e5c5f0f5b8cf7435b8e6397ad1e4a0b7952c4"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00024.jsonl",
+        "sha": "6804de8fb37c5283939c83561887bae60c7e6eb6",
+        "size": 157716,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6804de8fb37c5283939c83561887bae60c7e6eb6"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00025.jsonl",
+        "sha": "777f12a3b07ecd4a70adf40ac506206fa2a6e9db",
+        "size": 157350,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/777f12a3b07ecd4a70adf40ac506206fa2a6e9db"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00026.jsonl",
+        "sha": "4d3fd345929e357b15554c8caa54877ff82e6804",
+        "size": 157959,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/4d3fd345929e357b15554c8caa54877ff82e6804"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00027.jsonl",
+        "sha": "a192abf01933ee315f3e6597bedf9bdff5da60e1",
+        "size": 158658,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a192abf01933ee315f3e6597bedf9bdff5da60e1"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00028.jsonl",
+        "sha": "d64f351ab3203f7b64238a4a0cbc529aaa06b2b1",
+        "size": 157096,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d64f351ab3203f7b64238a4a0cbc529aaa06b2b1"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00029.jsonl",
+        "sha": "a65ae32628d172b7b4a9f3ac719c824b4f7e63c0",
+        "size": 151572,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a65ae32628d172b7b4a9f3ac719c824b4f7e63c0"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00030.jsonl",
+        "sha": "dd02b86027bfc11e0bb2fdd64c467f6322957f83",
+        "size": 225777,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/dd02b86027bfc11e0bb2fdd64c467f6322957f83"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00031.jsonl",
+        "sha": "ddd2c1a9b8ed65f5f9b6570091bbce0ff45b5dbb",
+        "size": 227401,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ddd2c1a9b8ed65f5f9b6570091bbce0ff45b5dbb"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00032.jsonl",
+        "sha": "b5a0be3414e9c6ce503ca7d0c611c72af8ee3add",
+        "size": 226882,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b5a0be3414e9c6ce503ca7d0c611c72af8ee3add"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00033.jsonl",
+        "sha": "627f19d2697628be9c178a60a4f8d709ea13d2c3",
+        "size": 227029,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/627f19d2697628be9c178a60a4f8d709ea13d2c3"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00034.jsonl",
+        "sha": "9ab2c6fd312675639da7877779c94e9b989d10b1",
+        "size": 212434,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9ab2c6fd312675639da7877779c94e9b989d10b1"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00035.jsonl",
+        "sha": "7f3a54f7144b5ef32475b0722993ca28879cee01",
+        "size": 167506,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7f3a54f7144b5ef32475b0722993ca28879cee01"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00036.jsonl",
+        "sha": "fb6703528a1db87dfec8b6bb582c474cbf6e66da",
+        "size": 158023,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/fb6703528a1db87dfec8b6bb582c474cbf6e66da"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00037.jsonl",
+        "sha": "88fb87b0171c0d6659a96028f1d1a5b48a8abb82",
+        "size": 157160,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/88fb87b0171c0d6659a96028f1d1a5b48a8abb82"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00038.jsonl",
+        "sha": "2e88782ce11187df42e7a68603ba2ec65f2ec437",
+        "size": 158314,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2e88782ce11187df42e7a68603ba2ec65f2ec437"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00039.jsonl",
+        "sha": "3bc6634a6ac25adf35c57c2e4f1de40115d55b72",
+        "size": 157688,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3bc6634a6ac25adf35c57c2e4f1de40115d55b72"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00040.jsonl",
+        "sha": "fd7469769a4c26307af728aeff77ba274073d96a",
+        "size": 157924,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/fd7469769a4c26307af728aeff77ba274073d96a"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00041.jsonl",
+        "sha": "34c9409a32bcf336f1b9497b628d94daf29af5e2",
+        "size": 157527,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/34c9409a32bcf336f1b9497b628d94daf29af5e2"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00042.jsonl",
+        "sha": "1bd0a03c0e191cfa3550ce98ac0ff3d8ac8dc593",
+        "size": 158389,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1bd0a03c0e191cfa3550ce98ac0ff3d8ac8dc593"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00043.jsonl",
+        "sha": "496539d76082cdf5a4aa6b30fe43f0aa0669c190",
+        "size": 158061,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/496539d76082cdf5a4aa6b30fe43f0aa0669c190"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00044.jsonl",
+        "sha": "3ec17d4fd9bd5c37f33b7f1226d8831ea06785b0",
+        "size": 157231,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3ec17d4fd9bd5c37f33b7f1226d8831ea06785b0"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00045.jsonl",
+        "sha": "e9ab7c01a6c9cff37039f20e7f367e8977e38aa4",
+        "size": 157629,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e9ab7c01a6c9cff37039f20e7f367e8977e38aa4"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00046.jsonl",
+        "sha": "6f7c21cc3e2d8efb41126ae0b2af77e0b46cbaca",
+        "size": 158065,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6f7c21cc3e2d8efb41126ae0b2af77e0b46cbaca"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00047.jsonl",
+        "sha": "ec77e090efb02bb92812d4092602a0114aed03b8",
+        "size": 171133,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ec77e090efb02bb92812d4092602a0114aed03b8"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00048.jsonl",
+        "sha": "49261ea70f9c4770ffc19e5bf9f7cbbcb83881dd",
+        "size": 227284,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/49261ea70f9c4770ffc19e5bf9f7cbbcb83881dd"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00049.jsonl",
+        "sha": "8f1eb654b3be005fca29732359380369c156b3c7",
+        "size": 226977,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/8f1eb654b3be005fca29732359380369c156b3c7"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00050.jsonl",
+        "sha": "39c3b4246a12f3815a3b4e9c7b1f5c61d3019127",
+        "size": 227143,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/39c3b4246a12f3815a3b4e9c7b1f5c61d3019127"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00051.jsonl",
+        "sha": "357d31fcdd2a4c05b499c47926708f23e27890e6",
+        "size": 226990,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/357d31fcdd2a4c05b499c47926708f23e27890e6"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00052.jsonl",
+        "sha": "a233cbdb5ab9a4e3dbf77964de326928b38cf03c",
+        "size": 198331,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a233cbdb5ab9a4e3dbf77964de326928b38cf03c"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00053.jsonl",
+        "sha": "b26a4d9dc3a06930f8f4bb74b87ab381d54f60fc",
+        "size": 160211,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b26a4d9dc3a06930f8f4bb74b87ab381d54f60fc"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00054.jsonl",
+        "sha": "cefd196950b5177909700f217f287a982a113374",
+        "size": 158259,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/cefd196950b5177909700f217f287a982a113374"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00055.jsonl",
+        "sha": "0d95813942ebe1f61c80050fc73e1be29ad255af",
+        "size": 154749,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0d95813942ebe1f61c80050fc73e1be29ad255af"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00056.jsonl",
+        "sha": "fbc9fcb4a39251ddb1cbb2863ada4c3a8f302f12",
+        "size": 149870,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/fbc9fcb4a39251ddb1cbb2863ada4c3a8f302f12"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00057.jsonl",
+        "sha": "cdd4bfccf0d17f30a345f499fd45a8a200e8500d",
+        "size": 150100,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/cdd4bfccf0d17f30a345f499fd45a8a200e8500d"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00058.jsonl",
+        "sha": "bdb3bbc3c12c517dc52b0110399912ddbeb1d7b0",
+        "size": 159155,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/bdb3bbc3c12c517dc52b0110399912ddbeb1d7b0"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00059.jsonl",
+        "sha": "493b57160ecbeb051fbae66c9353c42468f8ecd4",
+        "size": 159946,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/493b57160ecbeb051fbae66c9353c42468f8ecd4"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00060.jsonl",
+        "sha": "72b6afd1bdc6abcd8e23f34f3f72425e7dac2e39",
+        "size": 164058,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/72b6afd1bdc6abcd8e23f34f3f72425e7dac2e39"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00061.jsonl",
+        "sha": "627d565265052b59cfc794a1e04e160a0111c141",
+        "size": 156615,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/627d565265052b59cfc794a1e04e160a0111c141"
+      },
+      {
+        "mode": "100644",
+        "path": "data/student5_v3/train/part-00062.jsonl",
+        "sha": "7da8eb0b463573b8e6e83e28376340b1fd9f3f6f",
+        "size": 160969,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7da8eb0b463573b8e6e83e28376340b1fd9f3f6f"
+      },
+      {
+        "mode": "040000",
+        "path": "docs",
+        "sha": "a6cf5f0d3c99790168981c7af0aed897e63cc0bf",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/a6cf5f0d3c99790168981c7af0aed897e63cc0bf"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/ADULT_INTIMACY_NLU_COVERAGE.md",
+        "sha": "6768abbd3b42db2028825b40d598220746e58c6e",
+        "size": 5857,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6768abbd3b42db2028825b40d598220746e58c6e"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/AUTOMATED_TRAIN_TEST_PIPELINE_POLICY.md",
+        "sha": "0f9978772a5fd7f58c9dc2987c1dc4404720f314",
+        "size": 6554,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0f9978772a5fd7f58c9dc2987c1dc4404720f314"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/AUTOMATIC_TRAINING_FIRST_POLICY.md",
+        "sha": "894d2eb69e26711fe80d495de8f85eff1af9b3ba",
+        "size": 2770,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/894d2eb69e26711fe80d495de8f85eff1af9b3ba"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/CANDIDATE_B_RESEARCH.md",
+        "sha": "2fe9431ff85602385cfeb57dc83e67600569cb05",
+        "size": 10861,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2fe9431ff85602385cfeb57dc83e67600569cb05"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/CANDIDATE_C_RESEARCH.md",
+        "sha": "d8f1576095027b9dc8d404e707cdbad7b7fe5978",
+        "size": 9740,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d8f1576095027b9dc8d404e707cdbad7b7fe5978"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/DECISION_REQUIRED_MATRIX_NLU_ANNOTATION_CONTRACT.md",
+        "sha": "6ed1aa510044b682ec1231b41cdd6199c6a0059a",
+        "size": 4522,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6ed1aa510044b682ec1231b41cdd6199c6a0059a"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/FINAL_MATRIX_ECOSYSTEM_MOTO_G56.md",
+        "sha": "b620346b291c89db466b764b33a30bd84de7b1b0",
+        "size": 20943,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b620346b291c89db466b764b33a30bd84de7b1b0"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/FINAL_MATRIX_UNDERSTANDING_ARCHITECTURE.md",
+        "sha": "84394293c9f1ea6f1b41b6f32ae8aabe3581c6cc",
+        "size": 9825,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/84394293c9f1ea6f1b41b6f32ae8aabe3581c6cc"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/FROZEN_MATRIX_CONTRACT.md",
+        "sha": "e8c60a078b7850b444e16d2ff4d7f59753a6a714",
+        "size": 2268,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e8c60a078b7850b444e16d2ff4d7f59753a6a714"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/GOLD_SET_CARD.md",
+        "sha": "23e011d247143838a9ddcf8897983f26e8312963",
+        "size": 1538,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/23e011d247143838a9ddcf8897983f26e8312963"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MASSIVE_PROVENANCE.md",
+        "sha": "2716892416db988901e4add48241045d53520aaa",
+        "size": 2650,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2716892416db988901e4add48241045d53520aaa"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MATRIX_NLU_CONTRACT_V3.md",
+        "sha": "14155cb360bb019d3bfb83f5b6e717f9f2fbe912",
+        "size": 24223,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/14155cb360bb019d3bfb83f5b6e717f9f2fbe912"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MATRIX_NLU_DATASET_CARD.md",
+        "sha": "ee5f271a8c928c5afa62b647a4b80535444abfc9",
+        "size": 3784,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ee5f271a8c928c5afa62b647a4b80535444abfc9"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MATRIX_NLU_DATASET_V2.md",
+        "sha": "6a559c25504af346880a7cc16ad3e8c9340fde4b",
+        "size": 2970,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6a559c25504af346880a7cc16ad3e8c9340fde4b"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MATRIX_NLU_MODEL_DATA_PLAN.md",
+        "sha": "0eef6f622a604a24d98dae73fc11b4e3c6562f5d",
+        "size": 6253,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0eef6f622a604a24d98dae73fc11b4e3c6562f5d"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MATRIX_NLU_TRAINING_PLAN.md",
+        "sha": "5b81dced5e09b66e1e018b0b6716d7d44355f864",
+        "size": 2744,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5b81dced5e09b66e1e018b0b6716d7d44355f864"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MOBILE_PROBE.md",
+        "sha": "8bb259a39e0c47bc6df40e6a81e86c91408cb4d7",
+        "size": 4087,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/8bb259a39e0c47bc6df40e6a81e86c91408cb4d7"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MODEL_ACCEPTANCE_TIERS.md",
+        "sha": "7ac084a9b5848f43d0a2d714e82bc770e484096f",
+        "size": 11338,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7ac084a9b5848f43d0a2d714e82bc770e484096f"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/MODEL_ARTIFACT_PERSISTENCE_POLICY.md",
+        "sha": "e508ad13fec21e55504008733620b7a5fc3de268",
+        "size": 6007,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e508ad13fec21e55504008733620b7a5fc3de268"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/OWNER_OVERRIDE_STUDENT_4_V22A.md",
+        "sha": "74a3e346349bd09720cfcdc130b97157113c53bb",
+        "size": 3618,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/74a3e346349bd09720cfcdc130b97157113c53bb"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P05_DATA_PLAN.md",
+        "sha": "7cb80416fd981e84dbb27980dec2ef350407a9f7",
+        "size": 6288,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7cb80416fd981e84dbb27980dec2ef350407a9f7"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P05_GOLD_SET_CARD.md",
+        "sha": "c8ef06a0a94a16105b34d4d7cefc31eac91ceef8",
+        "size": 2490,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c8ef06a0a94a16105b34d4d7cefc31eac91ceef8"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P05_OPENNLP_HANDOFF.md",
+        "sha": "03b931cd3880f9c20053904c82bbd7dd90952d3b",
+        "size": 5108,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/03b931cd3880f9c20053904c82bbd7dd90952d3b"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P05_TRAINING_RESULTS.md",
+        "sha": "cb6480c49ab85b1b898dd4f96f171128a5aa7e32",
+        "size": 1873,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/cb6480c49ab85b1b898dd4f96f171128a5aa7e32"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P0_DEVILS_ADVOCATE.md",
+        "sha": "23d05615848da74257b766b316d41c2c5372f48d",
+        "size": 6724,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/23d05615848da74257b766b316d41c2c5372f48d"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P0_ERROR_ANALYSIS.md",
+        "sha": "24422f8cd3c3dbbb9fe523f43691a37d04e36e60",
+        "size": 5084,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/24422f8cd3c3dbbb9fe523f43691a37d04e36e60"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P0_QUALITY_RESULTS.md",
+        "sha": "37a40cf4a72e6016b2cbe716fbd2e6ed4f0f7383",
+        "size": 3835,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/37a40cf4a72e6016b2cbe716fbd2e6ed4f0f7383"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P0_UNDERSTANDING_BENCHMARK_SPEC.md",
+        "sha": "2e6a7f4d6859a83cec5a372c30c4c2c6218ab8cb",
+        "size": 4217,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2e6a7f4d6859a83cec5a372c30c4c2c6218ab8cb"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/P0_VERDICT.md",
+        "sha": "a8371ff576090560c717e535de406e551ba4384a",
+        "size": 7250,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a8371ff576090560c717e535de406e551ba4384a"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/PROMPT_WORK_P05_PRODUCTION_CANDIDATE.md",
+        "sha": "a7f54c83c73301c470973c8b1641085920c5f9d6",
+        "size": 10185,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a7f54c83c73301c470973c8b1641085920c5f9d6"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/PROMPT_WORK_P0_UNDERSTANDING_LAB.md",
+        "sha": "e84018757db2d8a50923e4ca8f8182ee95060533",
+        "size": 7738,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e84018757db2d8a50923e4ca8f8182ee95060533"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/SENIOR_SUPERVISOR_EXECUTION_PLAN.md",
+        "sha": "6d753d5d66b21a6f6e6f829f8238b3543bb26076",
+        "size": 10682,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6d753d5d66b21a6f6e6f829f8238b3543bb26076"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/STUDENT_4_V21_CONTROLLED_STOP_AND_TARGETED_QUANTIZATION.md",
+        "sha": "5863452b032a4ed5be85add1f8fbd1a856df5c6c",
+        "size": 6559,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5863452b032a4ed5be85add1f8fbd1a856df5c6c"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/STUDENT_4_V22A_FINAL_REPAIR_MIX.md",
+        "sha": "4c10ba86aca58ebd303f1d1666f7aaecf3e09227",
+        "size": 5094,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/4c10ba86aca58ebd303f1d1666f7aaecf3e09227"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/STUDENT_5_WORK_DISPATCH_POLICY.md",
+        "sha": "fce764223bb3106a1e96444c25390de8f641c994",
+        "size": 7576,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/fce764223bb3106a1e96444c25390de8f641c994"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/STUDENT_ARTIFACT_REGISTRY.md",
+        "sha": "b1564b0ac9e23cea7d1a47e45bda55baa07743e0",
+        "size": 15118,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b1564b0ac9e23cea7d1a47e45bda55baa07743e0"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/WORK_CONTINUITY.md",
+        "sha": "d0f5615b2e9bcf916802019274aceee5b1619350",
+        "size": 72306,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d0f5615b2e9bcf916802019274aceee5b1619350"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/WORK_CONTINUITY_STUDENT_4_V22A.md",
+        "sha": "45183888a287949c2837038c5694bbf083219110",
+        "size": 16518,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/45183888a287949c2837038c5694bbf083219110"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/WORK_CONTINUITY_STUDENT_5.md",
+        "sha": "6cb5ef2813700a68303b7884c773d2d47ddcc1f2",
+        "size": 29833,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6cb5ef2813700a68303b7884c773d2d47ddcc1f2"
+      },
+      {
+        "mode": "040000",
+        "path": "docs/continuity_archive",
+        "sha": "b7ca04cf11ffcad433edd9b27f5ebc9836b9014c",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/b7ca04cf11ffcad433edd9b27f5ebc9836b9014c"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/continuity_archive/STUDENT_5_CP01_CP29_d1d4096c6df1c2331eabb33830f6edb577be053f.md",
+        "sha": "d1d4096c6df1c2331eabb33830f6edb577be053f",
+        "size": 59127,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d1d4096c6df1c2331eabb33830f6edb577be053f"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/continuity_archive/STUDENT_5_CP30_CP32_7acbd6a0081627baa26b44eb5d463ccc31895009.md",
+        "sha": "7acbd6a0081627baa26b44eb5d463ccc31895009",
+        "size": 20593,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7acbd6a0081627baa26b44eb5d463ccc31895009"
+      },
+      {
+        "mode": "040000",
+        "path": "docs/decisions",
+        "sha": "77a15d49a6704440b17a9c97a24872f0ff807fc5",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/77a15d49a6704440b17a9c97a24872f0ff807fc5"
+      },
+      {
+        "mode": "100644",
+        "path": "docs/decisions/2026-09-04_STUDENT_4_V21_TARGETED_QUANTIZATION.md",
+        "sha": "08d3b07dc4aa763786ce70a7a3cc8c0bd9bf4c6e",
+        "size": 4097,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/08d3b07dc4aa763786ce70a7a3cc8c0bd9bf4c6e"
+      },
+      {
+        "mode": "040000",
+        "path": "gold",
+        "sha": "ba889ac428ed55e040c45ba1fd11a81d123a9efd",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/ba889ac428ed55e040c45ba1fd11a81d123a9efd"
+      },
+      {
+        "mode": "100644",
+        "path": "gold/p0-gold-schema-v1.json",
+        "sha": "2a04260b6a8fdeb2bd181a93188d463919dc5960",
+        "size": 1387,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2a04260b6a8fdeb2bd181a93188d463919dc5960"
+      },
+      {
+        "mode": "100644",
+        "path": "gold/p0-gold-v1.json",
+        "sha": "4508148214f6ac8db913060d38e787c7a49103e8",
+        "size": 24032,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/4508148214f6ac8db913060d38e787c7a49103e8"
+      },
+      {
+        "mode": "100644",
+        "path": "gold/p05-gold-v1.json",
+        "sha": "835725577e8711160f5900ec57422ebe32e46f7d",
+        "size": 171911,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/835725577e8711160f5900ec57422ebe32e46f7d"
+      },
+      {
+        "mode": "040000",
+        "path": "matrix_nlu",
+        "sha": "e7f371d8ae8d20624d36f9e61ab51c2f93c1a9fb",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/e7f371d8ae8d20624d36f9e61ab51c2f93c1a9fb"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/analyze_errors.py",
+        "sha": "429227983887bf1540d4a21011929353097643e9",
+        "size": 2807,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/429227983887bf1540d4a21011929353097643e9"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/audit_dataset_contract.py",
+        "sha": "2c48eca1e987478ced459acdb3968ae2fdd89418",
+        "size": 9668,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2c48eca1e987478ced459acdb3968ae2fdd89418"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/audit_dataset_v2.py",
+        "sha": "d88ea7f0ec13ebae989bd4d464e13942df82fcb2",
+        "size": 13113,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d88ea7f0ec13ebae989bd4d464e13942df82fcb2"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/build_dataset.py",
+        "sha": "24be5645d6f324ba9fc957a3e20332be2f54a04d",
+        "size": 33613,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/24be5645d6f324ba9fc957a3e20332be2f54a04d"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/build_dataset_v2.py",
+        "sha": "72fdc1c28c085cf24aa66c734598e23fc2894f9c",
+        "size": 23460,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/72fdc1c28c085cf24aa66c734598e23fc2894f9c"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/build_dataset_v22a.py",
+        "sha": "04da97fd8c9813fda204f37a247e1293854ecb5c",
+        "size": 21846,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/04da97fd8c9813fda204f37a247e1293854ecb5c"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/candidates.json",
+        "sha": "71c91a8314b3e4f4c581ac27e4af87c558eeea10",
+        "size": 1416,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/71c91a8314b3e4f4c581ac27e4af87c558eeea10"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/contract_v3.py",
+        "sha": "988e2f34e82df5d733ac7ac62cecbbd8fcf80191",
+        "size": 7778,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/988e2f34e82df5d733ac7ac62cecbbd8fcf80191"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/controlled_dev_v21.py",
+        "sha": "198db876bc6bdaee6ecb80bedf91dbc90fa7f722",
+        "size": 5546,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/198db876bc6bdaee6ecb80bedf91dbc90fa7f722"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/controlled_dev_v22a.py",
+        "sha": "454e232aab9f3c5dff5638a67862571ab079aff4",
+        "size": 5916,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/454e232aab9f3c5dff5638a67862571ab079aff4"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/evaluate_e2e.py",
+        "sha": "d5c899e2c3ba027c7b39af47ce471910901f5832",
+        "size": 16363,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d5c899e2c3ba027c7b39af47ce471910901f5832"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/evaluate_v3.py",
+        "sha": "d78b0aeff78e9e0292c9ef8cc67507354cd38f0c",
+        "size": 8096,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d78b0aeff78e9e0292c9ef8cc67507354cd38f0c"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/export_mixed_head_protected_onnx.py",
+        "sha": "3e1fa9f7ec4c951e1918aee32e81ab72a312e9e3",
+        "size": 18124,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3e1fa9f7ec4c951e1918aee32e81ab72a312e9e3"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/export_onnx.py",
+        "sha": "768b3596744e3bb5935ca207b56595ae155b9e53",
+        "size": 5855,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/768b3596744e3bb5935ca207b56595ae155b9e53"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/export_onnx_v3.py",
+        "sha": "afac90d1912b249e2743dc89501c4b974861956d",
+        "size": 3133,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/afac90d1912b249e2743dc89501c4b974861956d"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/inference.py",
+        "sha": "4b3a0462278d866e8c28ddf073664d8203dc0313",
+        "size": 13151,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/4b3a0462278d866e8c28ddf073664d8203dc0313"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/inference_v3.py",
+        "sha": "35243a1b62402e6f9696d02ebcba096fca627533",
+        "size": 13349,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/35243a1b62402e6f9696d02ebcba096fca627533"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/labels.py",
+        "sha": "5d60372d8a50ea4c8ae55519954a31f59e9dd912",
+        "size": 1577,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5d60372d8a50ea4c8ae55519954a31f59e9dd912"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/massive_source.json",
+        "sha": "c12254daef5d4dde508c052d187902a9e6bf22e2",
+        "size": 483,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c12254daef5d4dde508c052d187902a9e6bf22e2"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/migrate_contract_v3.py",
+        "sha": "3075af592b26664da6ea99577e2151894827ea96",
+        "size": 2706,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3075af592b26664da6ea99577e2151894827ea96"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/model.py",
+        "sha": "f827b1e6d0cc8cdb0b8f45b11cd4f5ac28da4bc4",
+        "size": 2940,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f827b1e6d0cc8cdb0b8f45b11cd4f5ac28da4bc4"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/model_v3.py",
+        "sha": "4e9f2cd0d16e7f5fa6847575bc44b2eb5f4c5edc",
+        "size": 7354,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/4e9f2cd0d16e7f5fa6847575bc44b2eb5f4c5edc"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/pipeline_support.py",
+        "sha": "0e18c1734d0b283c09614fa110f5efd2cb1acdeb",
+        "size": 3649,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0e18c1734d0b283c09614fa110f5efd2cb1acdeb"
+      },
+      {
+        "mode": "100755",
+        "path": "matrix_nlu/prepare_massive.py",
+        "sha": "896a454081bc39eb47bfd2e4f6052942f01c7fa5",
+        "size": 5961,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/896a454081bc39eb47bfd2e4f6052942f01c7fa5"
+      },
+      {
+        "mode": "100755",
+        "path": "matrix_nlu/probe_candidates.py",
+        "sha": "c912d19debc3b521edad3fe41a39320c41ac180a",
+        "size": 7456,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c912d19debc3b521edad3fe41a39320c41ac180a"
+      },
+      {
+        "mode": "100755",
+        "path": "matrix_nlu/probe_massive.py",
+        "sha": "7255f060ebd7bafcbe59e33aaff1a1faee9a8813",
+        "size": 4017,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7255f060ebd7bafcbe59e33aaff1a1faee9a8813"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/referent_candidates.py",
+        "sha": "6c6bdead6bb193cf49ef5b8b0646cadd2fd058dc",
+        "size": 5137,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6c6bdead6bb193cf49ef5b8b0646cadd2fd058dc"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/requirements-probe.txt",
+        "sha": "fae8f9e47dc14fc1cae72426c5273695bf1213b0",
+        "size": 102,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/fae8f9e47dc14fc1cae72426c5273695bf1213b0"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/requirements-train.txt",
+        "sha": "f4f123e4ae928bd2e8c5aab9ae096a435f82de70",
+        "size": 150,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f4f123e4ae928bd2e8c5aab9ae096a435f82de70"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/select_threshold.py",
+        "sha": "239eeab9604dbe8d9b2b14948dfa873e3b351ac2",
+        "size": 5657,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/239eeab9604dbe8d9b2b14948dfa873e3b351ac2"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/student5_deep_pruning.py",
+        "sha": "10da416278f0c1faa797b093d6c826f0334f3427",
+        "size": 39460,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/10da416278f0c1faa797b093d6c826f0334f3427"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/student5_pruning_corpus.py",
+        "sha": "a3cd9737a1025a3500c61b94ee7c067d5cf7ce0c",
+        "size": 21385,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a3cd9737a1025a3500c61b94ee7c067d5cf7ce0c"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/student5_untaught_runtime_probe.py",
+        "sha": "791e011cf5b97812733035a41cec87401f347bc5",
+        "size": 36876,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/791e011cf5b97812733035a41cec87401f347bc5"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/student5_v3_gate_a.py",
+        "sha": "6d0441e72911a0cbb7dbeb14c68b2e237837e0e3",
+        "size": 10075,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6d0441e72911a0cbb7dbeb14c68b2e237837e0e3"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/synthetic_v3_fixtures.py",
+        "sha": "ffe19596c5229aa8bb387ebb75eb7c3a9da641fc",
+        "size": 3265,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ffe19596c5229aa8bb387ebb75eb7c3a9da641fc"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_analyze_errors.py",
+        "sha": "1ce414bd8d878f1666722a26437332463c70fdda",
+        "size": 1163,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1ce414bd8d878f1666722a26437332463c70fdda"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_audit_dataset_contract.py",
+        "sha": "4595ac301cd22b314cd5999f1e685655a94ad352",
+        "size": 3838,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/4595ac301cd22b314cd5999f1e685655a94ad352"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_build_dataset.py",
+        "sha": "aa33acd26dde58e2b6d4e1e7add0c864ca06f44c",
+        "size": 6814,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/aa33acd26dde58e2b6d4e1e7add0c864ca06f44c"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_contract_v3_core.py",
+        "sha": "5f0f9dcdc5482b2a857528d3df3bcd9d0dd6911d",
+        "size": 5927,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5f0f9dcdc5482b2a857528d3df3bcd9d0dd6911d"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_dataset_v2.py",
+        "sha": "e8dc5c456d503f83e75ec4e30d1061f6dc54a812",
+        "size": 4151,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e8dc5c456d503f83e75ec4e30d1061f6dc54a812"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_evaluate_e2e.py",
+        "sha": "8afb7742fe1498e22b2bb792cd1ed54dcb1816c9",
+        "size": 4079,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/8afb7742fe1498e22b2bb792cd1ed54dcb1816c9"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_evaluate_v3.py",
+        "sha": "331b8c1abfddd2649297c4d32a7884be128cef16",
+        "size": 5266,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/331b8c1abfddd2649297c4d32a7884be128cef16"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_export_onnx.py",
+        "sha": "29a3a592b9720573dae47b4be42834056b5abcd0",
+        "size": 4361,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/29a3a592b9720573dae47b4be42834056b5abcd0"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_inference.py",
+        "sha": "289c3a5d721ecaa890c431b58d3502f99efdb548",
+        "size": 8315,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/289c3a5d721ecaa890c431b58d3502f99efdb548"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_inference_v3.py",
+        "sha": "44250b485fa9c77763452cdfec941e98186bc9d8",
+        "size": 10540,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/44250b485fa9c77763452cdfec941e98186bc9d8"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_migrate_contract_v3.py",
+        "sha": "de335ed774fd2740dd3b78ad388e03317b7b1f4b",
+        "size": 1819,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/de335ed774fd2740dd3b78ad388e03317b7b1f4b"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_pipeline_automation.py",
+        "sha": "867cc68f14784a3289bac484dd5eff725182ffbe",
+        "size": 9582,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/867cc68f14784a3289bac484dd5eff725182ffbe"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_prepare_massive.py",
+        "sha": "f9e190a529072cc2ebd735c11637fb2fe594b570",
+        "size": 763,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f9e190a529072cc2ebd735c11637fb2fe594b570"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_probe_candidates.py",
+        "sha": "410df8823b1a0a2affb65f88def105e28f3fa01e",
+        "size": 2087,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/410df8823b1a0a2affb65f88def105e28f3fa01e"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_probe_massive.py",
+        "sha": "b28eb771088432b7d312a5694675391fbb80eeff",
+        "size": 809,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b28eb771088432b7d312a5694675391fbb80eeff"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_select_threshold.py",
+        "sha": "770d2ccbd2901ae0596d3cce317d8b79e4ef8db4",
+        "size": 2328,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/770d2ccbd2901ae0596d3cce317d8b79e4ef8db4"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_student5_deep_pruning.py",
+        "sha": "f07dfdc1bf687a17814dd3591d18968a4afc879f",
+        "size": 2518,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f07dfdc1bf687a17814dd3591d18968a4afc879f"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_train_resume.py",
+        "sha": "9db18a65c19c32509652c8099eb4d25cd9bd9ad9",
+        "size": 3231,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9db18a65c19c32509652c8099eb4d25cd9bd9ad9"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_train_v3_migration.py",
+        "sha": "81eb1ec7ccb93c389873b0a781710bee21ac93c3",
+        "size": 10546,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/81eb1ec7ccb93c389873b0a781710bee21ac93c3"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_training_data.py",
+        "sha": "2ec9b973b24cc97efd6c1f565c22713b4856ae5c",
+        "size": 1424,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2ec9b973b24cc97efd6c1f565c22713b4856ae5c"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/test_training_data_v3.py",
+        "sha": "53aeeda0c16932650178aa9cfdb4f361fd9d20ec",
+        "size": 3236,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/53aeeda0c16932650178aa9cfdb4f361fd9d20ec"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/train.py",
+        "sha": "f378f650769d80361bcd56ab441ce6d94221820b",
+        "size": 22985,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f378f650769d80361bcd56ab441ce6d94221820b"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/train_config.json",
+        "sha": "c40e8addc25a534407779445f7702ac7fd62345a",
+        "size": 724,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c40e8addc25a534407779445f7702ac7fd62345a"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/train_config_v2.json",
+        "sha": "b5e0b7988332cac257e0aab1cb133bc3163249c0",
+        "size": 921,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b5e0b7988332cac257e0aab1cb133bc3163249c0"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/train_config_v21.json",
+        "sha": "f76653563734e3f1de92c464bb684d423d6a7b6b",
+        "size": 932,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f76653563734e3f1de92c464bb684d423d6a7b6b"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/train_config_v22a.json",
+        "sha": "72f3fb4aea6d4ac257494d9cbf62634de00ad6be",
+        "size": 2000,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/72f3fb4aea6d4ac257494d9cbf62634de00ad6be"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/train_v22a.py",
+        "sha": "667bce7f8cbf6f13611bc56c09429d3d595f8605",
+        "size": 5697,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/667bce7f8cbf6f13611bc56c09429d3d595f8605"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/train_v3_migration.py",
+        "sha": "86e0e56f9fa702edd5f131ce7173e13a7e50ffae",
+        "size": 43465,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/86e0e56f9fa702edd5f131ce7173e13a7e50ffae"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/training_data.py",
+        "sha": "a0cd3d244331d33fe84dfc9468b267422d62ae97",
+        "size": 6885,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a0cd3d244331d33fe84dfc9468b267422d62ae97"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/training_data_v3.py",
+        "sha": "5e176ca7114f774faea17bf4c6b2d0c4eeb0254c",
+        "size": 6972,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5e176ca7114f774faea17bf4c6b2d0c4eeb0254c"
+      },
+      {
+        "mode": "100644",
+        "path": "matrix_nlu/v2_train_generalization.py",
+        "sha": "01bc49b8d01c2aa79bbb88d9441c48a63991d081",
+        "size": 15457,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/01bc49b8d01c2aa79bbb88d9441c48a63991d081"
+      },
+      {
+        "mode": "040000",
+        "path": "pipeline",
+        "sha": "d067e99803c507ba8dbcff970fe53ae15570c49e",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/d067e99803c507ba8dbcff970fe53ae15570c49e"
+      },
+      {
+        "mode": "100644",
+        "path": "pipeline/student-4-evidence.trigger",
+        "sha": "b609ba5b788c2a471a119796e1df83a91fc003d2",
+        "size": 74,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b609ba5b788c2a471a119796e1df83a91fc003d2"
+      },
+      {
+        "mode": "100644",
+        "path": "pipeline/student-4-v2-resume.trigger",
+        "sha": "d65708a7c3ae19672cfdb1eeb4a9b321cf6b640b",
+        "size": 12,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/d65708a7c3ae19672cfdb1eeb4a9b321cf6b640b"
+      },
+      {
+        "mode": "100644",
+        "path": "pipeline/student-4-v2-retrain.trigger",
+        "sha": "57c1ace5a0add96988f29f6b3ba9f82b52ada611",
+        "size": 260,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/57c1ace5a0add96988f29f6b3ba9f82b52ada611"
+      },
+      {
+        "mode": "100644",
+        "path": "pipeline/student-4-v2.trigger",
+        "sha": "04dfb18596fc57bc24c67ff55d1888bea96d850e",
+        "size": 389,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/04dfb18596fc57bc24c67ff55d1888bea96d850e"
+      },
+      {
+        "mode": "100644",
+        "path": "pipeline/student-4-v21-post.trigger",
+        "sha": "b8a6fa5ca3c8550239ca085a265476df8a1ad2c0",
+        "size": 13,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b8a6fa5ca3c8550239ca085a265476df8a1ad2c0"
+      },
+      {
+        "mode": "100644",
+        "path": "pipeline/student-4-v21.trigger",
+        "sha": "19e5834d4c6ddf468e0b370b283c2b95333798f9",
+        "size": 192,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/19e5834d4c6ddf468e0b370b283c2b95333798f9"
+      },
+      {
+        "mode": "100644",
+        "path": "pipeline/student-4.trigger",
+        "sha": "05d446a461c059ee035ba20bef764337b5499115",
+        "size": 101,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/05d446a461c059ee035ba20bef764337b5499115"
+      },
+      {
+        "mode": "100644",
+        "path": "pipeline/teacher-post.trigger",
+        "sha": "1568f523d7a39a5ccef39d379ed32ebe10db5b33",
+        "size": 12,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1568f523d7a39a5ccef39d379ed32ebe10db5b33"
+      },
+      {
+        "mode": "040000",
+        "path": "prompts",
+        "sha": "7aa5a4ece3d4258f7cbd68158d780785e67caf7f",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/7aa5a4ece3d4258f7cbd68158d780785e67caf7f"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_4_V22A_CONTROLLED_REPAIR.md",
+        "sha": "6c15a8758bae2bfdcbcbeb8c572e4f02655e75b9",
+        "size": 6246,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6c15a8758bae2bfdcbcbeb8c572e4f02655e75b9"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_ADULT_INTIMACY_ADDENDUM.md",
+        "sha": "8de6a50b17d9d56f076efe70ba01b2ef6b837426",
+        "size": 2815,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/8de6a50b17d9d56f076efe70ba01b2ef6b837426"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_MINILM_IT_EN_ES_PRUNED.md",
+        "sha": "ddbdf0e332c434ff31f62087bf12feaa3b14361a",
+        "size": 11851,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ddbdf0e332c434ff31f62087bf12feaa3b14361a"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_PATH_B_V3_COMPLETION.md",
+        "sha": "695be3d8a9f9cd74b07bdecdf45f459f4a96aaa8",
+        "size": 16406,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/695be3d8a9f9cd74b07bdecdf45f459f4a96aaa8"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_PATH_B_V3_CREATE_REPAIRED_TRAIN_V2_ONLY.md",
+        "sha": "e79406b72f7559de474629e5956ebd23e4a43e78",
+        "size": 11079,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e79406b72f7559de474629e5956ebd23e4a43e78"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_PATH_B_V3_GATE_B_READINESS_ONLY.md",
+        "sha": "bbc5fa089107a578688106a53828128e4596b65f",
+        "size": 5421,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/bbc5fa089107a578688106a53828128e4596b65f"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_PATH_B_V3_RESUME_CP32.md",
+        "sha": "e6c56b71d4ba1ecf84df246b22577374b006af8b",
+        "size": 3902,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e6c56b71d4ba1ecf84df246b22577374b006af8b"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_PATH_B_V3_RESUME_CP35A_A4_ONLY.md",
+        "sha": "965e766d97deb315d2e27438542a4a1c4102da81",
+        "size": 5403,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/965e766d97deb315d2e27438542a4a1c4102da81"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_PATH_B_V3_TRAIN_CURRICULUM_AUDIT_ONLY.md",
+        "sha": "76629e9c848d63b6dc7c93036aef38b8d27012d2",
+        "size": 7317,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/76629e9c848d63b6dc7c93036aef38b8d27012d2"
+      },
+      {
+        "mode": "100644",
+        "path": "prompts/WORK_STUDENT_5_PATH_B_V3_TRAIN_REPAIR_SPECIFICATION_ONLY.md",
+        "sha": "5d72ee282923e6e5f6d5da1003f54e099c678bba",
+        "size": 11245,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5d72ee282923e6e5f6d5da1003f54e099c678bba"
+      },
+      {
+        "mode": "040000",
+        "path": "reports",
+        "sha": "58eebb579ca1008b338a52ee3eab4f94b72dda69",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/58eebb579ca1008b338a52ee3eab4f94b72dda69"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_4_V21_POST_DEV_REPORT.md",
+        "sha": "70b96b943d2145b931e1560356d21765e8ea84b0",
+        "size": 9182,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/70b96b943d2145b931e1560356d21765e8ea84b0"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_4_V21_STOP_REPORT.md",
+        "sha": "b4267f0851cb5baf8923d642bd9eb3e5b52f8f9b",
+        "size": 7139,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b4267f0851cb5baf8923d642bd9eb3e5b52f8f9b"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_4_V22A_CONTROLLED_REPAIR_REPORT.md",
+        "sha": "53109dfcbd52b7e7b3021e8b42dda8f90622747e",
+        "size": 8196,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/53109dfcbd52b7e7b3021e8b42dda8f90622747e"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_4_V22A_REPAIR_PLAN.md",
+        "sha": "53288ce2de3d73898a563edf56628ff7e498b707",
+        "size": 3184,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/53288ce2de3d73898a563edf56628ff7e498b707"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_15_HEAD_CONTRACT_AUDIT.md",
+        "sha": "5a50970997ae4c21faff14b179e042f766c42562",
+        "size": 41117,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5a50970997ae4c21faff14b179e042f766c42562"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_40K_PRISTINE_PRESERVATION.md",
+        "sha": "9ead4a3036b71fd18a7bd6e74a4654db442f9c5c",
+        "size": 5705,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9ead4a3036b71fd18a7bd6e74a4654db442f9c5c"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_40K_UNTAUGHT_INT8_RUNTIME_PROBE.md",
+        "sha": "c85a6834a70ab5206725a12b43dfc4d2235a711d",
+        "size": 11424,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c85a6834a70ab5206725a12b43dfc4d2235a711d"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_CONTRACT_REPAIR_DESIGN.md",
+        "sha": "b17a37db144dfb1d5ad1a1ea40084e8730cb9ce5",
+        "size": 23045,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b17a37db144dfb1d5ad1a1ea40084e8730cb9ce5"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_CONTRACT_V3_IMPLEMENTATION.md",
+        "sha": "dce324e3a27f43ca96be56c7f01ae301a3675bbd",
+        "size": 12531,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/dce324e3a27f43ca96be56c7f01ae301a3675bbd"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_GATE_B_READINESS_CP36.md",
+        "sha": "53119e8fd5c24a45146704d7fe9869accf7ce7f4",
+        "size": 13753,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/53119e8fd5c24a45146704d7fe9869accf7ce7f4"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md",
+        "sha": "7c26d5e059327bdebda7924ec80058353e824cbf",
+        "size": 17135,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7c26d5e059327bdebda7924ec80058353e824cbf"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_MINILM_DEEP_PRUNING.md",
+        "sha": "c68d28388c02181a08d2b4c727cb0b786a3a3193",
+        "size": 15467,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c68d28388c02181a08d2b4c727cb0b786a3a3193"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_MINILM_PRUNING_FEASIBILITY.md",
+        "sha": "5e6fd48157810bb6d857b0f88e1af826d15e9e0c",
+        "size": 552,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5e6fd48157810bb6d857b0f88e1af826d15e9e0c"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_PATH_B_GATE_A_PREFLIGHT_20260907.md",
+        "sha": "e8f0813cf3d53582e47acdcb6eb0152f1a7dd180",
+        "size": 8687,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e8f0813cf3d53582e47acdcb6eb0152f1a7dd180"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md",
+        "sha": "2e3130e790a8abdbebf55ea20efc2badb447042c",
+        "size": 32720,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2e3130e790a8abdbebf55ea20efc2badb447042c"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_TRAIN_REPAIR_SPECIFICATION_CP38.md",
+        "sha": "f45a57e9cb3cf17b0edb6b4e60c94d1b858a9a5f",
+        "size": 65161,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f45a57e9cb3cf17b0edb6b4e60c94d1b858a9a5f"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/STUDENT_5_TRAIN_V3_MIGRATION.md",
+        "sha": "c22043dd83fa3fa112649a0e96f59f9b507e2805",
+        "size": 12302,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c22043dd83fa3fa112649a0e96f59f9b507e2805"
+      },
+      {
+        "mode": "040000",
+        "path": "reports/evidence",
+        "sha": "87f853a5fee3cede654cdedabad4a6e431718ec8",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/87f853a5fee3cede654cdedabad4a6e431718ec8"
+      },
+      {
+        "mode": "040000",
+        "path": "reports/evidence/student5-path-b-cp34",
+        "sha": "5eef8227f003474b13c2503cb90913fd8a92c72b",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/5eef8227f003474b13c2503cb90913fd8a92c72b"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp34/recovery.json",
+        "sha": "10e354dd322eb673cca29a91df479b6f3bdbf634",
+        "size": 1028,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/10e354dd322eb673cca29a91df479b6f3bdbf634"
+      },
+      {
+        "mode": "040000",
+        "path": "reports/evidence/student5-path-b-cp35",
+        "sha": "fee20b24adabe6c10c87058f1df9d6f89fce83c9",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/fee20b24adabe6c10c87058f1df9d6f89fce83c9"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp35/artifact-SHA256SUMS",
+        "sha": "7beb21756a0c11bc4e42be6dfe03317911a55bb4",
+        "size": 1618,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/7beb21756a0c11bc4e42be6dfe03317911a55bb4"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp35/artifact-manifest.json",
+        "sha": "26c5d2f8dd934ab34a6e93fb5be8461133365d64",
+        "size": 777,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/26c5d2f8dd934ab34a6e93fb5be8461133365d64"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp35/report.json",
+        "sha": "307b525536406d1b7e81eef1189379634cf37e78",
+        "size": 21033,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/307b525536406d1b7e81eef1189379634cf37e78"
+      },
+      {
+        "mode": "040000",
+        "path": "reports/evidence/student5-path-b-cp35b-a4",
+        "sha": "f80fbefc1517c92b4f7277dfe957cd64c3541249",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/f80fbefc1517c92b4f7277dfe957cd64c3541249"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp35b-a4/SHA256SUMS",
+        "sha": "481ff08dba46818528f2a129fb35bedf6a5552c5",
+        "size": 163,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/481ff08dba46818528f2a129fb35bedf6a5552c5"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp35b-a4/publication.json",
+        "sha": "2f45f45993ef909d7ec4c0b620a2d64f40d97843",
+        "size": 3865,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/2f45f45993ef909d7ec4c0b620a2d64f40d97843"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp35b-a4/recovery.json",
+        "sha": "c3044e72022e0d67daf9a9ad28a31829f3d88f4e",
+        "size": 685,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/c3044e72022e0d67daf9a9ad28a31829f3d88f4e"
+      },
+      {
+        "mode": "040000",
+        "path": "reports/evidence/student5-path-b-cp36-readiness",
+        "sha": "d6eb12d2031a112462795f6f86e790a074861544",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/d6eb12d2031a112462795f6f86e790a074861544"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/SHA256SUMS",
+        "sha": "603c5b4a884f9cd66aeb47ae2c06f8ea6d968556",
+        "size": 1290,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/603c5b4a884f9cd66aeb47ae2c06f8ea6d968556"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/inventory.json",
+        "sha": "59b55f0f53da282965c2adc3c5607b2bb081b337",
+        "size": 37717,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/59b55f0f53da282965c2adc3c5607b2bb081b337"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/readiness_probe.py",
+        "sha": "193569a02e071a6016b2494eb072a0717299c861",
+        "size": 5065,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/193569a02e071a6016b2494eb072a0717299c861"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/result.json",
+        "sha": "6b7cbe446f5b9fe49d1def6af74ac90f1662a9d4",
+        "size": 3309,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/6b7cbe446f5b9fe49d1def6af74ac90f1662a9d4"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/resume-release-inventory.json",
+        "sha": "ae48074f55cd8bed98fc9fcc46fc9b14b02ecd5c",
+        "size": 1020,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ae48074f55cd8bed98fc9fcc46fc9b14b02ecd5c"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/resume-validation.json",
+        "sha": "9ff23933443f29451aa9a49d72997f2a6aca2480",
+        "size": 471,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9ff23933443f29451aa9a49d72997f2a6aca2480"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/runtime-readiness-evidence.json",
+        "sha": "a582071f7c72d7086d05db3e2b3256463031ef1b",
+        "size": 30426,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/a582071f7c72d7086d05db3e2b3256463031ef1b"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/source-integrity.json",
+        "sha": "81bfd4492a893c15bbb110d7a90a68d814ed17d7",
+        "size": 2579,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/81bfd4492a893c15bbb110d7a90a68d814ed17d7"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp36-readiness/train-tree.json",
+        "sha": "94a67181a25a97dc0dbf4d69945fed1601625fd6",
+        "size": 35205,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/94a67181a25a97dc0dbf4d69945fed1601625fd6"
+      },
+      {
+        "mode": "040000",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit",
+        "sha": "6c3c3228acde10b3037cb0228028748c1dc84635",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/6c3c3228acde10b3037cb0228028748c1dc84635"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit/SHA256SUMS",
+        "sha": "e3db0162d65f15992344f3bc477f7563873f7642",
+        "size": 1154,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e3db0162d65f15992344f3bc477f7563873f7642"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit/audit_curriculum.py",
+        "sha": "9996c57c6f71804014b4dc5253c6005904d2b666",
+        "size": 18722,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/9996c57c6f71804014b4dc5253c6005904d2b666"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit/curriculum.json",
+        "sha": "89a8aa4b316d17f9081433a9f4ebb86004d8929a",
+        "size": 79135,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/89a8aa4b316d17f9081433a9f4ebb86004d8929a"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit/inputs-tree.json",
+        "sha": "62bafeb2fdf0f9e46e07a13b4b7c836ed4dda0f8",
+        "size": 37928,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/62bafeb2fdf0f9e46e07a13b4b7c836ed4dda0f8"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit/result.json",
+        "sha": "f2552698fe73e927761f599a9eec01b01b469955",
+        "size": 1249,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f2552698fe73e927761f599a9eec01b01b469955"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit/review-evidence.json",
+        "sha": "4b5ab1cffe61c05a0791d7b3e694c42abefa980e",
+        "size": 225778,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/4b5ab1cffe61c05a0791d7b3e694c42abefa980e"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit/review_semantics.py",
+        "sha": "fa9b514753f2c2897f25de98deb8075a276c8b2b",
+        "size": 4119,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/fa9b514753f2c2897f25de98deb8075a276c8b2b"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp37-train-audit/semantic-review.json",
+        "sha": "e2a804d88860e7bbbec8b94f5e39e369a211d025",
+        "size": 83792,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/e2a804d88860e7bbbec8b94f5e39e369a211d025"
+      },
+      {
+        "mode": "040000",
+        "path": "reports/evidence/student5-path-b-cp38-repair-spec",
+        "sha": "11258f8167e84c7ad1765dd761bd5b802d1005cc",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/11258f8167e84c7ad1765dd761bd5b802d1005cc"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp38-repair-spec/SHA256SUMS",
+        "sha": "1206293dbb2dec230894e4e43def5b5cb633e805",
+        "size": 908,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/1206293dbb2dec230894e4e43def5b5cb633e805"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp38-repair-spec/annotation-dispositions.json",
+        "sha": "421c683e846f4a0ffd998c525bdfa98c77fdbbaa",
+        "size": 16352,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/421c683e846f4a0ffd998c525bdfa98c77fdbbaa"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp38-repair-spec/decisions.json",
+        "sha": "74894a1d100f8e99369135556f1be5ac6a66b651",
+        "size": 3885,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/74894a1d100f8e99369135556f1be5ac6a66b651"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp38-repair-spec/design-validation.json",
+        "sha": "bd6eb104ed6107fe758327ab736711c56fdc1769",
+        "size": 890,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/bd6eb104ed6107fe758327ab736711c56fdc1769"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp38-repair-spec/input-identities.json",
+        "sha": "ea1215a1c3127c69f285fa9d01c7d850a79c75d4",
+        "size": 31378,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ea1215a1c3127c69f285fa9d01c7d850a79c75d4"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-cp38-repair-spec/issue-register.json",
+        "sha": "f4af60131c8c91e4fbb9cad3e22245d5e3c0e36f",
+        "size": 37102,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/f4af60131c8c91e4fbb9cad3e22245d5e3c0e36f"
+      },
+      {
+        "mode": "040000",
+        "path": "reports/evidence/student5-path-b-gate-a-preflight-20260907",
+        "sha": "b882eec2b25c8e565b8dc7cd084abc66f5982f46",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/b882eec2b25c8e565b8dc7cd084abc66f5982f46"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-gate-a-preflight-20260907/SHA256SUMS",
+        "sha": "80f5a4f43d81549448c067c095bf08ca54da4c6c",
+        "size": 263,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/80f5a4f43d81549448c067c095bf08ca54da4c6c"
+      },
+      {
+        "mode": "100644",
+        "path": "reports/evidence/student5-path-b-gate-a-preflight-20260907/diagnostics.json",
+        "sha": "eb359ae58aea1fe30ca6f1a14fa402c5fb7d09f4",
+        "size": 3712,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/eb359ae58aea1fe30ca6f1a14fa402c5fb7d09f4"
+      },
+      {
+        "mode": "100644",
+        "path": "run_pipeline.py",
+        "sha": "0b0cc64fe17607e14f5078403e7cdca8b8d9fd13",
+        "size": 6116,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/0b0cc64fe17607e14f5078403e7cdca8b8d9fd13"
+      },
+      {
+        "mode": "100644",
+        "path": "settings.gradle",
+        "sha": "95f7ff8b1bcdc1dd6e235a2e5e6aed2535065556",
+        "size": 382,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/95f7ff8b1bcdc1dd6e235a2e5e6aed2535065556"
+      },
+      {
+        "mode": "040000",
+        "path": "tools",
+        "sha": "6e41d6c6cf02a32d853dc91cd60b30e35385bec3",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/6e41d6c6cf02a32d853dc91cd60b30e35385bec3"
+      },
+      {
+        "mode": "100755",
+        "path": "tools/build_p05_gold.py",
+        "sha": "307cd6127742faa7ad08d833f422fed811a83377",
+        "size": 24622,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/307cd6127742faa7ad08d833f422fed811a83377"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer",
+        "sha": "4a4ebee8c25fd09590695c8cfa0e4b7deba8efd6",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/4a4ebee8c25fd09590695c8cfa0e4b7deba8efd6"
+      },
+      {
+        "mode": "100644",
+        "path": "trainer/build.gradle",
+        "sha": "5c353ec2a4ec9629d3ed29e4b32f45a39c956a04",
+        "size": 869,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/5c353ec2a4ec9629d3ed29e4b32f45a39c956a04"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src",
+        "sha": "3dcba32f59f119ddaf020162e524006c4ab29efc",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/3dcba32f59f119ddaf020162e524006c4ab29efc"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/main",
+        "sha": "202f7f8f9fa8c001ee4a4c6029a0f683a2e891a7",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/202f7f8f9fa8c001ee4a4c6029a0f683a2e891a7"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/main/java",
+        "sha": "31efd82e35ae6d419f120c3699a50f9892d9189b",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/31efd82e35ae6d419f120c3699a50f9892d9189b"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/main/java/com",
+        "sha": "177ba3830522f9151f420f8cc4ad72833c1f8404",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/177ba3830522f9151f420f8cc4ad72833c1f8404"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/main/java/com/matrix",
+        "sha": "ccabbdbc08a50254c15e54c8cd954dc924630640",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/ccabbdbc08a50254c15e54c8cd954dc924630640"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/main/java/com/matrix/p05",
+        "sha": "1c2fc67c1fa4459a135c44fff2172d66b0631b28",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/1c2fc67c1fa4459a135c44fff2172d66b0631b28"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/main/java/com/matrix/p05/train",
+        "sha": "2e24ed77212528c45f726e4fcc912cb2f9cd3d8a",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/2e24ed77212528c45f726e4fcc912cb2f9cd3d8a"
+      },
+      {
+        "mode": "100644",
+        "path": "trainer/src/main/java/com/matrix/p05/train/ConlluCorpus.java",
+        "sha": "3b487a78795ef5bc7a16b413d565b1b058846514",
+        "size": 2465,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/3b487a78795ef5bc7a16b413d565b1b058846514"
+      },
+      {
+        "mode": "100644",
+        "path": "trainer/src/main/java/com/matrix/p05/train/SourceManifest.java",
+        "sha": "ecb7e58f116372f60625f70f5401675dd7c7c549",
+        "size": 1219,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/ecb7e58f116372f60625f70f5401675dd7c7c549"
+      },
+      {
+        "mode": "100644",
+        "path": "trainer/src/main/java/com/matrix/p05/train/TrainItalianPos.java",
+        "sha": "251b933211c4c3066637d6cfbb88758018a4444f",
+        "size": 10850,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/251b933211c4c3066637d6cfbb88758018a4444f"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/test",
+        "sha": "e1e7173964f89c9eff1fa492cd8646daf2ee1eb3",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/e1e7173964f89c9eff1fa492cd8646daf2ee1eb3"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/test/java",
+        "sha": "e520a2af1767f246a1266000cd43239102e91dd3",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/e520a2af1767f246a1266000cd43239102e91dd3"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/test/java/com",
+        "sha": "75c9f2a62e63d071f9c20b05c967ac29dcdb524b",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/75c9f2a62e63d071f9c20b05c967ac29dcdb524b"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/test/java/com/matrix",
+        "sha": "e58eef7fcbce144feac12501023f1be0c8f1a79a",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/e58eef7fcbce144feac12501023f1be0c8f1a79a"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/test/java/com/matrix/p05",
+        "sha": "15fd172a23e40f640337cb79eeecb6ccbe8cabc9",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/15fd172a23e40f640337cb79eeecb6ccbe8cabc9"
+      },
+      {
+        "mode": "040000",
+        "path": "trainer/src/test/java/com/matrix/p05/train",
+        "sha": "6828deea09b3d3bb12053aee87bc6f621df811ec",
+        "type": "tree",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/6828deea09b3d3bb12053aee87bc6f621df811ec"
+      },
+      {
+        "mode": "100644",
+        "path": "trainer/src/test/java/com/matrix/p05/train/ConlluCorpusTest.java",
+        "sha": "b1ca42597fdd4674f1fee940b2591f3fb12291b2",
+        "size": 1270,
+        "type": "blob",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/blobs/b1ca42597fdd4674f1fee940b2591f3fb12291b2"
+      }
+    ],
+    "truncated": false,
+    "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/git/trees/ff6ee962bcc7629ace9bcd69263ddbf497376df8"
+  }
+}

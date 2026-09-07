@@ -1,0 +1,233 @@
+[
+  {
+    "id": "D01-it",
+    "family": "D01",
+    "language": "it",
+    "left": "Voglio partire domani.",
+    "right": "Domani vorrò partire."
+  },
+  {
+    "id": "D01-en",
+    "family": "D01",
+    "language": "en",
+    "left": "I want to leave tomorrow.",
+    "right": "Tomorrow I will want to leave."
+  },
+  {
+    "id": "D01-es",
+    "family": "D01",
+    "language": "es",
+    "left": "Quiero salir mañana.",
+    "right": "Mañana querré salir."
+  },
+  {
+    "id": "D02-it",
+    "family": "D02",
+    "language": "it",
+    "left": "Anna dice che, secondo Luca, è utile.",
+    "right": "Luca dice che, secondo Anna, è utile."
+  },
+  {
+    "id": "D02-en",
+    "family": "D02",
+    "language": "en",
+    "left": "Anna says that, in Luca’s view, it is useful.",
+    "right": "Luca says that, in Anna’s view, it is useful."
+  },
+  {
+    "id": "D02-es",
+    "family": "D02",
+    "language": "es",
+    "left": "Ana dice que, según Lucas, es útil.",
+    "right": "Lucas dice que, según Ana, es útil."
+  },
+  {
+    "id": "D03-it",
+    "family": "D03",
+    "language": "it",
+    "left": "Penso che sia utile.",
+    "right": "È utile."
+  },
+  {
+    "id": "D03-en",
+    "family": "D03",
+    "language": "en",
+    "left": "I believe it is useful.",
+    "right": "It is useful."
+  },
+  {
+    "id": "D03-es",
+    "family": "D03",
+    "language": "es",
+    "left": "Creo que es útil.",
+    "right": "Es útil."
+  },
+  {
+    "id": "D04-it",
+    "family": "D04",
+    "language": "it",
+    "left": "Luca chiede di lavarsi.",
+    "right": "Luca chiede di lavare Anna."
+  },
+  {
+    "id": "D04-en",
+    "family": "D04",
+    "language": "en",
+    "left": "Luca asks to wash himself.",
+    "right": "Luca asks to wash Anna."
+  },
+  {
+    "id": "D04-es",
+    "family": "D04",
+    "language": "es",
+    "left": "Lucas pide lavarse.",
+    "right": "Lucas pide lavar a Ana."
+  },
+  {
+    "id": "D05-it",
+    "family": "D05",
+    "language": "it",
+    "left": "No, intendevo che mi piace.",
+    "right": "Non mi piace."
+  },
+  {
+    "id": "D05-en",
+    "family": "D05",
+    "language": "en",
+    "left": "No, I meant that I like it.",
+    "right": "I do not like it."
+  },
+  {
+    "id": "D05-es",
+    "family": "D05",
+    "language": "es",
+    "left": "No, quería decir que me gusta.",
+    "right": "No me gusta."
+  },
+  {
+    "id": "D06-it",
+    "family": "D06",
+    "language": "it",
+    "left": "...",
+    "right": "Qualcuno è arrivato."
+  },
+  {
+    "id": "D06-en",
+    "family": "D06",
+    "language": "en",
+    "left": "...",
+    "right": "Someone arrived."
+  },
+  {
+    "id": "D06-es",
+    "family": "D06",
+    "language": "es",
+    "left": "...",
+    "right": "Alguien llegó."
+  },
+  {
+    "id": "D07-it",
+    "family": "D07",
+    "language": "it",
+    "left": "Anna aiuta Luca.",
+    "right": "Luca aiuta Anna."
+  },
+  {
+    "id": "D07-en",
+    "family": "D07",
+    "language": "en",
+    "left": "Anna helps Luca.",
+    "right": "Luca helps Anna."
+  },
+  {
+    "id": "D07-es",
+    "family": "D07",
+    "language": "es",
+    "left": "Ana ayuda a Lucas.",
+    "right": "Lucas ayuda a Ana."
+  },
+  {
+    "id": "dialogue-it",
+    "family": "dialogue",
+    "language": "it",
+    "left": "Apri la porta.",
+    "right": "Apri la porta?"
+  },
+  {
+    "id": "dialogue-en",
+    "family": "dialogue",
+    "language": "en",
+    "left": "Open the door.",
+    "right": "Can you open the door?"
+  },
+  {
+    "id": "dialogue-es",
+    "family": "dialogue",
+    "language": "es",
+    "left": "Abre la puerta.",
+    "right": "¿Puedes abrir la puerta?"
+  },
+  {
+    "id": "polarity-it",
+    "family": "polarity",
+    "language": "it",
+    "left": "Voglio essere toccato.",
+    "right": "Non voglio essere toccato."
+  },
+  {
+    "id": "polarity-en",
+    "family": "polarity",
+    "language": "en",
+    "left": "I want to be touched.",
+    "right": "I do not want to be touched."
+  },
+  {
+    "id": "polarity-es",
+    "family": "polarity",
+    "language": "es",
+    "left": "Quiero que me toquen.",
+    "right": "No quiero que me toquen."
+  },
+  {
+    "id": "past_future-it",
+    "family": "past_future",
+    "language": "it",
+    "left": "È partito ieri.",
+    "right": "Partirà domani."
+  },
+  {
+    "id": "past_future-en",
+    "family": "past_future",
+    "language": "en",
+    "left": "He left yesterday.",
+    "right": "He will leave tomorrow."
+  },
+  {
+    "id": "past_future-es",
+    "family": "past_future",
+    "language": "es",
+    "left": "Salió ayer.",
+    "right": "Saldrá mañana."
+  },
+  {
+    "id": "malformed-it",
+    "family": "malformed",
+    "language": "it",
+    "left": "Luca Luca a chiede Anna di.",
+    "right": "Luca chiede ad Anna di partire."
+  },
+  {
+    "id": "malformed-en",
+    "family": "malformed",
+    "language": "en",
+    "left": "Luca Luca to asks Anna of.",
+    "right": "Luca asks Anna to leave."
+  },
+  {
+    "id": "malformed-es",
+    "family": "malformed",
+    "language": "es",
+    "left": "Lucas Lucas a pide Ana de.",
+    "right": "Lucas pide a Ana que salga."
+  }
+]

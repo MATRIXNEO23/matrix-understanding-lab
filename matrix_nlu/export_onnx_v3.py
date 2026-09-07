@@ -46,3 +46,37 @@ def structural_export_spec() -> dict:
         "roleHeads": list(ROLE_HEADS),
         "qualityMeaning": "NONE_UNTRAINED_STRUCTURAL_PROBE_ONLY",
     }
+
+
+def export_model_v3(model, sample_inputs, output_path):
+    """Execute the canonical V3 export spec on a real, caller-owned model.
+
+    The wrapper only flattens named model outputs into the frozen tensor order.
+    It does not change weights, labels, masks or candidate semantics.
+    """
+    import torch
+
+    class FlatOutputs(torch.nn.Module):
+        def __init__(self, wrapped):
+            super().__init__()
+            self.wrapped = wrapped
+
+        def forward(self, *inputs):
+            result = self.wrapped(*inputs)
+            tensors = []
+            for name in OUTPUT_NAMES:
+                parts = name.split(".")
+                value = result["tokens" if parts[0] == "token" else "sequence"][parts[1]]
+                if len(parts) == 3:
+                    value = value[parts[2]]
+                tensors.append(value)
+            return tuple(tensors)
+
+    spec = structural_export_spec()
+    torch.onnx.export(
+        FlatOutputs(model).eval(), tuple(sample_inputs), str(output_path),
+        input_names=spec["inputs"], output_names=spec["outputs"],
+        dynamic_axes=spec["dynamicAxes"], opset_version=spec["opset"],
+        do_constant_folding=True,
+    )
+    return spec

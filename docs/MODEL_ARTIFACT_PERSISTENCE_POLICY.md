@@ -46,12 +46,12 @@ logical artifact ID
 student/model family
 path: A/B/other
 version/checkpoint name
-status (baseline/candidate/experimental/production-approved/etc.)
+status
 source/base artifact ID
 training dataset ID + checksum when trained
 training run/workflow ID and commit
 architecture/contract version
-format (PyTorch/ONNX/etc.)
+format
 quantization policy
 byte size
 SHA-256
@@ -65,6 +65,35 @@ gate/test summary
 
 The repository registry and `SHA256SUMS`/manifest are authoritative for identity. Artifact bytes whose SHA-256 does not match the registry must fail closed.
 
+## Mandatory resumability and executable locator
+
+A binary is not operationally preserved merely because it exists somewhere. Every artifact required by later work must have a machine-actionable recovery map in continuity/registry:
+
+```text
+primary durable locator
+repository
+exact release tag / release ID / asset ID OR exact Git/LFS path
+filename
+expected bytes
+expected SHA-256
+required authentication/access mode
+known working acquisition method for the intended executor/Work
+fallback locator or reproduction source when available
+last successful recovery checkpoint
+```
+
+A sentence such as `saved in a Release` is insufficient.
+
+Before closing a preservation/model-producing checkpoint, prove resumability from a clean execution context whenever technically possible:
+
+```text
+LOCATE -> ACQUIRE -> VERIFY BYTES -> VERIFY SHA-256 -> VERIFY MANIFEST/LINEAGE
+```
+
+If the intended executor cannot retrieve the artifact with its available authentication/tooling, record and fix that execution-access problem **before** starting the dependent task. Do not postpone discovery until training/export requires the model.
+
+For private GitHub Release assets, continuity must record both exact Release/asset identity and the authenticated acquisition route. Metadata-only access is not a binary acquisition route. When Work has an authenticated Cloud Browser capable of downloading the private Release asset, that route may be used; the downloaded bytes must pass canonical SHA-256 before use.
+
 ## Student-5 preservation rules
 
 The following lineages must remain permanently distinguishable:
@@ -73,7 +102,7 @@ The following lineages must remain permanently distinguishable:
 Student-5 pristine 40k FP32
 Student-5 Path A untaught FP32 ONNX
 Student-5 Path A untaught INT8 ONNX
-Student-5 Path B trained checkpoints (each selected checkpoint/version)
+Student-5 Path B trained checkpoints
 Student-5 Path B trained FP32 export
 Student-5 Path B trained quantized exports
 Student-4-v2.2A comparative baseline
@@ -88,16 +117,16 @@ Do not persist every transient optimizer step by default. Persist at minimum:
 - initial immutable training base;
 - each checkpoint that becomes the best candidate for a gate or materially changes architecture/data/training strategy;
 - every candidate used for comparison against another version;
-- final checkpoint of each training attempt that is retained for analysis;
+- final checkpoint of each training attempt retained for analysis;
 - FP32 export used to create a quantized candidate;
 - each quantized candidate used in parity/runtime evaluation;
 - final promoted candidate.
 
-If storage pressure requires pruning, no registered baseline/candidate may be deleted or replaced without explicit owner authorization. Pruning is a separate operation and must preserve provenance and checksums.
+If storage pressure requires pruning, no registered baseline/candidate may be deleted or replaced without explicit owner authorization.
 
 ## Closure gate for Work
 
-A model-producing task is not closed until all retained outputs satisfy:
+A model-producing or preservation task is not closed until all retained outputs satisfy:
 
 ```text
 persistent bytes exist in repository-owned storage
@@ -107,11 +136,13 @@ lineage/base recorded
 version name is unique
 no previous artifact overwritten
 workflow-temporary artifact is not the only copy
-continuity records the persistent locator and exact next step
+continuity records persistent locator and exact next step
+machine-actionable acquisition route recorded
+resume proof performed or access blocker fixed before dependent work
 ```
 
 ## Current binding decision
 
-Owner instruction on 2026-09-07: all versions must be saved persistently in the repository and must not overwrite earlier versions.
+Owner instruction on 2026-09-07: all versions must be saved persistently in the repository and must not overwrite earlier versions. Continuity must let a fresh executor locate and recover every required artifact without relying on human memory.
 
 This policy applies to Student-4, Student-5 Path A, Student-5 Path B, and future Matrix-NLU model versions unless the owner explicitly changes it.

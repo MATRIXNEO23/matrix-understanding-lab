@@ -1,0 +1,32 @@
+{
+  "verdict": "TRAIN_CURRICULUM = REPAIR_REQUIRED_BEFORE_TRAINING",
+  "branch": "student5-path-b-v3",
+  "startingHead": "39ca73b9a461e4435fdf1f5e5f8172c7d303dc16",
+  "deliveryHeadResolution": "git log -1 --format=%H -- reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md",
+  "report": "reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md",
+  "trainIdentity": {
+    "artifactId": "student5-matrix-nlu-v3-train-v1",
+    "path": "data/student5_v3/",
+    "logicalSha256": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
+    "rows": 3150,
+    "claims": 3990,
+    "contractFingerprint": "7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0"
+  },
+  "gateBReadiness": "BLOCKED_UNCHANGED_CP36",
+  "historicalLinkage": {
+    "sharedSourceLineage": "DIRECTLY_SUPPORTED",
+    "possibleRecurrence": "PLAUSIBLE_RISK",
+    "curriculumCausation": "NOT_ESTABLISHED",
+    "pristineDegradation": "NOT_ESTABLISHED"
+  },
+  "guards": {
+    "devRead": false,
+    "frozenRead": false,
+    "trainingExecuted": false,
+    "optimizerExecuted": false,
+    "modelExecuted": false,
+    "datasetModified": false,
+    "remediationExecuted": false
+  },
+  "nextDisposition": "Return to Supervisor GPT; no remediation or training; await next assignment"
+}

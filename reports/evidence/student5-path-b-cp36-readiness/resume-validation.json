@@ -1,0 +1,13 @@
+{
+  "startingHead": "cfe905aff7a1076fd2cf455041babb782ccf7289",
+  "priorProbeSourceHead": "1ef81d3e8d7b92d9cbd2bf5f54e6d3d1918f8973",
+  "treeTruncated": false,
+  "revalidatedPreviouslyInspectedPaths": 378,
+  "changedPreviouslyInspectedPaths": [],
+  "trainBlobsUnchanged": 130,
+  "executionSourceBlobsUnchanged": 9,
+  "newRelevantPaths": [
+    "prompts/WORK_STUDENT_5_PATH_B_V3_GATE_B_READINESS_ONLY.md"
+  ],
+  "priorProbeResultsReusedBecauseSourceAndInputsMatch": true
+}

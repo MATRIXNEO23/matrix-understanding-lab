@@ -1,0 +1,14 @@
+{
+  "acquisitionMethod": "Python urllib HTTPS public Release download, no credentials",
+  "assetId": 548329150,
+  "bytes": 176837978,
+  "internalFilesVerified": 17,
+  "lineageVerified": true,
+  "localPath": "/workspace/scratch/0a50431faa34/student5-path-b/a4-readback/recovered-cp35.zip",
+  "recoveredAt": "2026-09-07T07:03:10.041152+00:00",
+  "releaseId": 383886129,
+  "result": "PASS",
+  "sha256": "dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71",
+  "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-path-b-v3-untrained-gate-a-cp35-20260907/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+  "zipIntegrity": "PASS"
+}

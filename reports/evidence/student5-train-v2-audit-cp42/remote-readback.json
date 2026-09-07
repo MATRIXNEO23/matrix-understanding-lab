@@ -1,0 +1,159 @@
+{
+  "files": [
+    {
+      "path": "data/student5_v3_train_v2/BUILD_LOCK.json",
+      "gitBlobSha": "96ccc70e9cb8f59334d831f581e451d1f251ea11",
+      "bytes": 474,
+      "sha256": "18ca6b62129543bdc40388a5556cdb2cc4a4f40280ae79e2a856a2990da30786",
+      "exactReadback": true
+    },
+    {
+      "path": "data/student5_v3_train_v2/construction-review.json",
+      "gitBlobSha": "d85fbfd59eeed61c99d999d9ff6c1936d85b799f",
+      "bytes": 63555,
+      "sha256": "c82cbfdfba7aa1eeb40e0f5e3c1de904d56dcc1fe62049f5a3503ea33b2e6322",
+      "exactReadback": true
+    },
+    {
+      "path": "data/student5_v3_train_v2/manifest.json",
+      "gitBlobSha": "f03e53d77bda676f5fc688c5ad9a3c12d155c22a",
+      "bytes": 14316,
+      "sha256": "5d0c3d0aec96b6925ce6e4d30dfb6db29928211eadf90e73fd7003308fdf5168",
+      "exactReadback": true
+    },
+    {
+      "path": "data/student5_v3_train_v2/provenance-and-mapping.jsonl.gz",
+      "gitBlobSha": "529619ab1865035657dda61b014d0a6e235d8691",
+      "bytes": 308459,
+      "sha256": "376e3226a0ce608b425b9caa3d6f7969ba78fadfb3fcf2d36fceeb35b17a59c6",
+      "exactReadback": true
+    },
+    {
+      "path": "data/student5_v3_train_v2/quarantine.jsonl.gz",
+      "gitBlobSha": "5e3b6ce3f05454d45ad7257b188e2ecb878c02b4",
+      "bytes": 1343,
+      "sha256": "d05fb7f86f6b4bc5bfde6a04997002079a6d9c87adb9a497fed8cf3c6f5afab3",
+      "exactReadback": true
+    },
+    {
+      "path": "data/student5_v3_train_v2/train.jsonl.gz",
+      "gitBlobSha": "a9edda7b4e8ec491e8ac1897f644c6574578baa9",
+      "bytes": 297117,
+      "sha256": "b6acf41e6634c2f89e6b8251fb5f816ec60fb0ca1cd6c90dfcbed46c2c12584c",
+      "exactReadback": true
+    },
+    {
+      "path": "docs/WORK_CONTINUITY_STUDENT_5.md",
+      "gitBlobSha": "f8f58cb8c59478dfd4fba451ab7cf6f2fa95eab3",
+      "bytes": 50774,
+      "sha256": "051733134d43956c26ce057ad7757a6cadeb47fdf787acb76f31c7d2a2f699d3",
+      "exactReadback": true
+    },
+    {
+      "path": "reports/STUDENT_5_TRAIN_V2_BUILD_AUDIT_CP42.md",
+      "gitBlobSha": "b4651b82ffe1fc955c1305f4c27cee25e0ed7bdd",
+      "bytes": 18609,
+      "sha256": "90b29e0c92b0923c5b49a9d74d7c42c11813773781b2d68d39a038641ef09284",
+      "exactReadback": true
+    },
+    {
+      "path": "reports/evidence/student5-train-v2-audit-cp42/SHA256SUMS",
+      "gitBlobSha": "4fee7d4a94efc4489427eb25f02469fbb21d8917",
+      "bytes": 2043,
+      "sha256": "6433fd0635ebb0c431d2b1f091a933672f7527b54e32c17c3be7edb00ac11ac7",
+      "exactReadback": true
+    },
+    {
+      "path": "reports/evidence/student5-train-v2-audit-cp42/audit.json",
+      "gitBlobSha": "ca69f356e24683f6a42e74cdf003b87f17b70c41",
+      "bytes": 180488,
+      "sha256": "e771118f4bd45ca7230e4de6e62766ecc1537ba2c891c9a953d8f656dee2d604",
+      "exactReadback": true
+    },
+    {
+      "path": "reports/evidence/student5-train-v2-audit-cp42/census.json",
+      "gitBlobSha": "38ac441debf84cc6233d090a9af0a6d4ca5c9c20",
+      "bytes": 15299,
+      "sha256": "2e39191b1b830f724f2c2028c7fd5823d1e5176dd1c4847208c0db291f9918fd",
+      "exactReadback": true
+    },
+    {
+      "path": "reports/evidence/student5-train-v2-audit-cp42/input-and-source-identities.json",
+      "gitBlobSha": "e272c76eb8be0e0bc113d8fdb63c369a201d4e06",
+      "bytes": 17622,
+      "sha256": "947d3bd98fc52c23c4168512e7d37b3493b9f18bb76cdb026c6bf211acd343ae",
+      "exactReadback": true
+    },
+    {
+      "path": "reports/evidence/student5-train-v2-audit-cp42/redundancy.json",
+      "gitBlobSha": "11c16327c52a9ab7dbfd22c526637779fb9c91ef",
+      "bytes": 400083,
+      "sha256": "12a0cdf045d93b848728b2c52d9cad583c71ed57a0b0fb9fef822da64664a1e7",
+      "exactReadback": true
+    },
+    {
+      "path": "reports/evidence/student5-train-v2-audit-cp42/slices.json",
+      "gitBlobSha": "7842558a2782bf1c5156a17110a988ee896f6daa",
+      "bytes": 414756,
+      "sha256": "7408897b2daaf3f5c3f8d48e5b0938723e0cb2140287c625caa605f017981c5b",
+      "exactReadback": true
+    },
+    {
+      "path": "reports/evidence/student5-train-v2-audit-cp42/structural.json",
+      "gitBlobSha": "06a472bd79ff9a256b6b51a6d7273e4f5e65a094",
+      "bytes": 68,
+      "sha256": "e1523839253eb925e10601af74dd473995ed528d3ec012e94fb609ddf8c0eb1a",
+      "exactReadback": true
+    },
+    {
+      "path": "tools/student5_cp42/DESIGN.md",
+      "gitBlobSha": "32ae0cf8e66c7e14a6b04c682340fe531473040b",
+      "bytes": 3969,
+      "sha256": "7a0fdec4132e29e13d48d570ee55c56919ba360c96e824f20adbc5abc73e976e",
+      "exactReadback": true
+    },
+    {
+      "path": "tools/student5_cp42/audit.py",
+      "gitBlobSha": "af920b327334f54ec2653ad5df6cfc9ab1e95f46",
+      "bytes": 19224,
+      "sha256": "3aa2ce262bfe4f6592ddf167729451ecca9f4786fdaa7d8c33cfb99553f49d42",
+      "exactReadback": true
+    },
+    {
+      "path": "tools/student5_cp42/authored.py",
+      "gitBlobSha": "8bfa97d12456cc9e4b9d3ab9c5b3c4506d59a932",
+      "bytes": 17897,
+      "sha256": "743212b9d7540d3bccbbe319f55cc4646533968b26885e70f8190b6f893c4eca",
+      "exactReadback": true
+    },
+    {
+      "path": "tools/student5_cp42/build.py",
+      "gitBlobSha": "c2fa1e9d78875979ffde4aebff86cee0fbc33157",
+      "bytes": 8332,
+      "sha256": "cfc41e94314404c77b892f6ce94db92f9b7f3bd66026803dba1bff8b4cb41ec6",
+      "exactReadback": true
+    }
+  ],
+  "manifestChecks": 18,
+  "orderedDatasetSha256": "34ee224723d77a452a7ea6e776c95a6f11b3355b4ebf53672f99cf35d0bd64a9",
+  "observations": 3267,
+  "claims": 4101,
+  "auditedCandidateExact": true,
+  "wrongSpanPreserved": true,
+  "access": "Direct GitHub REST Git Blob API application/vnd.github+json; base64 decode. Text-only connector binary read rejected; direct REST succeeded.",
+  "dataCommit": "ee64a483bc3a1477b005b16c8fdd7af7d2665e72",
+  "deliveryStartingHead": "f63a212d3ced384e5c9914d78d35ee6edb56530f",
+  "trainV1GitBlobsUnchanged": 130,
+  "scope": {
+    "trainingExecuted": false,
+    "fineTuningExecuted": false,
+    "quantizationExecuted": false,
+    "onnxExecuted": false,
+    "student5PristineModified": false,
+    "trainV1Modified": false,
+    "postAuditCorrectionsExecuted": false,
+    "devUsedForTraining": false,
+    "frozenDataRead": false,
+    "nextWorkStarted": false
+  }
+}

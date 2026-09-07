@@ -1,0 +1,21 @@
+{
+  "scope": "DESIGN_DOCUMENT_COMPLETENESS_AND_SOURCE_IDENTITY_ONLY",
+  "verdict": "REPAIR_SPECIFICATION = BLOCKED_NEEDS_SUPERVISOR_DECISION",
+  "startingHead": "6cd1fac17bdceca742a8bf2932e0872ee5907601",
+  "issueCount": 24,
+  "annotationGroups": 11,
+  "semanticDecisions": 7,
+  "sourceBlobsVerified": 18,
+  "cp37InputMetadataMatches": 140,
+  "allRequiredIssueFieldsPresent": true,
+  "annotationSampleLimitDisclosed": true,
+  "newTrainBytesCreated": false,
+  "replacementGoldCreated": false,
+  "semanticAcceptance": "NOT_GRANTED_AWAITING_SUPERVISOR",
+  "modelQualityMeasured": false,
+  "devRead": false,
+  "frozenRead": false,
+  "rawTrainRead": false,
+  "onlyAllowedDeliveryPaths": true,
+  "verificationLimits": "No dataset validator/model checks were executed; source identities do not prove semantic accuracy. Final remote tree/readback comparison performed separately before handoff."
+}

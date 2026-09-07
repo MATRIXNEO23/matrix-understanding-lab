@@ -1,0 +1,3125 @@
+{
+  "startingHead": "33077f1fecbf676553d3753eaafedeca33e67f1e",
+  "verdict": "BLOCKED",
+  "reason": "TRAINED_STUDENT5_FP32_IDENTITY_NOT_AUTHENTICATED",
+  "sources": [
+    {
+      "path": "docs/STUDENT_ARTIFACT_REGISTRY.md",
+      "blob": "b1564b0ac9e23cea7d1a47e45bda55baa07743e0",
+      "excerpts": [
+        "Status: `PRUNING_CANDIDATE_SELECTED / NOT_MATRIX_NLU / NOT_PRODUCTION_APPROVED`.  ",
+        "nluStatus = NOT_MATRIX_NLU",
+        "nluStatus = NOT_MATRIX_NLU",
+        "trainingExecuted = false",
+        "## Student-5 Path B — CP35a untrained Gate-A artifact, preserved at CP35b",
+        "Status: `UNTRAINED_GATE_A_RUNTIME_PROBE_ONLY / NOT_PRODUCTION_APPROVED`. A4 durable preservation: `PASS`; Supervisor GPT review pending. No training dataset/run applies; no quantization. Format: ZIP containing FP32 safetensors and FP32 ONNX opset 17, tokenizer/config/mapping, contract, source, pinned environment and original report.",
+        "- Artifact ID/tag: `student5-path-b-v3-untrained-gate-a-cp35-20260907`",
+        "- Release: [383886129](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-path-b-v3-untrained-gate-a-cp35-20260907), prerelease.",
+        "- Asset: [student5-path-b-v3-untrained-gate-a-cp35-20260907.zip](https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-path-b-v3-untrained-gate-a-cp35-20260907/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip), ID `548329150`.",
+        "- Limits: new heads untrained; historical four-batch PyTorch/ONNX parity tests runtime mechanics only, no linguistic-quality claim; external candidate/anchor embeddings are not learned extraction evidence. All historical CP35a evidence remains unchanged."
+      ]
+    },
+    {
+      "path": "reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md",
+      "blob": "7c26d5e059327bdebda7924ec80058353e824cbf",
+      "excerpts": [
+        "NLU status: `NOT_MATRIX_NLU`  ",
+        "matrixHeadsTrained = false",
+        "The following metrics are intentionally reported as **not measured**, not zero:",
+        "| Exact-set accuracy | Not measured — no Matrix heads |",
+        "| Claim exact | Not measured — no Matrix heads |",
+        "| Negation F1 | Not measured — no Matrix heads |",
+        "| Predicate accuracy | Not measured — no Matrix heads |",
+        "| Ownership corruption | Not measured — no Matrix heads |",
+        "| Temporal accuracy | Not measured — no Matrix heads |",
+        "| Referent accuracy | Not measured — no Matrix heads |",
+        "| World Truth updates | Not measured — no Matrix runtime evaluation |",
+        "| Selective accuracy / calibration | Not measured — no trained confidence layer |",
+        "NOT_MATRIX_NLU",
+        "matrixHeadsTrained = false",
+        "NOT_MATRIX_NLU"
+      ]
+    },
+    {
+      "path": "reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md",
+      "blob": "2e3130e790a8abdbebf55ea20efc2badb447042c",
+      "excerpts": [
+        "4. **Code-switch desires are taught as unresolved.** All 11 declared code-switch rows (`mx-v22a-adult-it-049` through `059`) contain explicit desire wording and target, yet have `speech.unresolved`. Example `mx-v22a-adult-it-050`: “Voglio kiss con te”. V3 supports `goal.object` and says unfamiliar/adult vocabulary alone must not drive rejection. This is an objective label concentration plus semantic mismatch with vocabulary-neutral goal evidence; it is not measured moderation or a learned confidence penalty. No replacement data/labels were generated."
+      ]
+    },
+    {
+      "path": "reports/STUDENT_5_TRAIN_REPAIR_SPECIFICATION_CP38.md",
+      "blob": "f45a57e9cb3cf17b0edb6b4e60c94d1b858a9a5f",
+      "excerpts": [
+        "| Student-4 recurrence | Third-party family weakness documented; independent V3 source-head failure not measured. |",
+        "| Student-4 recurrence | Historical span weakness supports repair need; BERT subword counts not measured here. |",
+        "| Student-4 recurrence | Historical request/ownership/span weaknesses apply as plausible risk, not measured adult-specific V3 regression. |",
+        "| Student-4 recurrence | IT/ES robustness is historical concern; noisy Student-5 regression not measured. |"
+      ]
+    },
+    {
+      "path": "docs/continuity_archive/STUDENT_5_CP01_CP29_d1d4096c6df1c2331eabb33830f6edb577be053f.md",
+      "blob": "d1d4096c6df1c2331eabb33830f6edb577be053f",
+      "excerpts": [
+        "matrixHeadsTrained = false",
+        "→ no Matrix teaching",
+        "NOT_MATRIX_NLU",
+        "nluStatus = NOT_MATRIX_NLU",
+        "matrixHeadsTrained = false",
+        "No Matrix exact-set, claim-exact, negation, predicate, ownership, temporal, referent, World Truth, or calibration metric exists yet for Student-5. Those fields are marked “not measured” rather than copied from Student-4 or represented as zero.",
+        "Student-5TrainingExecuted = false",
+        "artifactSearchState = NOT_STARTED",
+        "matrixHeadsTrained = false",
+        "nluStatus = NOT_MATRIX_NLU",
+        "matrixHeadsTrained = false",
+        "nluStatus = NOT_MATRIX_NLU",
+        "PathB = NOT_STARTED",
+        "matrixHeadsTrained = false",
+        "matrixHeadsTrained = false",
+        "nluStatus = NOT_MATRIX_NLU",
+        "TASK_2 = NOT_STARTED",
+        "TASK_3 = NOT_STARTED",
+        "PATH_B = NOT_STARTED",
+        "matrixHeadsTrained = false",
+        "trainingExecuted = false",
+        "TASK_3 = NOT_STARTED",
+        "PATH_B = NOT_STARTED",
+        "trainingExecuted = false",
+        "TASK_2_2 = NOT_STARTED",
+        "TASK_3 = NOT_STARTED",
+        "PATH_B = NOT_STARTED",
+        "trainingExecuted = false",
+        "TASK 2.2 = NOT_STARTED",
+        "TASK 3 = NOT_STARTED",
+        "TASK_2_3 = NOT_STARTED",
+        "TASK_3 = NOT_STARTED",
+        "PATH_B = NOT_STARTED",
+        "trainingExecuted = false",
+        "trainingExecuted = false",
+        "trainingExecuted = false",
+        "TASK 2.3 = NOT_STARTED",
+        "TASK 3 = NOT_STARTED",
+        "TASK 2.3 = NOT_STARTED",
+        "TASK 3 = NOT_STARTED",
+        "TASK 2.4 = NOT_STARTED",
+        "TASK 3 = NOT_STARTED",
+        "Path B = NOT_STARTED",
+        "trainingExecuted = false",
+        "trainingExecuted = false",
+        "trainingExecuted = false",
+        "TASK 2.4 = NOT_STARTED",
+        "TASK 3 = NOT_STARTED"
+      ]
+    },
+    {
+      "path": "docs/continuity_archive/STUDENT_5_CP30_CP32_7acbd6a0081627baa26b44eb5d463ccc31895009.md",
+      "blob": "7acbd6a0081627baa26b44eb5d463ccc31895009",
+      "excerpts": [
+        "Current state: `GATE_A_BLOCKED_INPUT_ACCESS / PHYSICAL_MODEL_EXECUTION_NOT_STARTED`",
+        "Its Git blob is exactly `d1d4096c6df1c2331eabb33830f6edb577be053f`, the same blob returned for the prior canonical file. It retains all original requirements, authorizations, constraints, operations, results, source pins, model/tokenizer/corpus identities, artifact locations, defect inventories, guards and unfinished work. This is an immutable history archive, not a competing specification. Read it completely together with this current checkpoint and the canonical task before execution. Historical STOP/NOT_STARTED statements describe their checkpoint dates; the authorization below governs the next task.",
+        "status = RUNTIME_PROBE_ONLY / NOT_MATRIX_NLU / NOT_PRODUCTION_APPROVED",
+        "2. **TASK 2.4 / Gate A.** Load the real pristine 40k BERT/tokenizer; attach the existing V3 16 conceptual heads (6 token + 10 sequence, including independent `sourceReferent`); run real forward; export through the V3 exporter contract; ONNX checker/load/forward; compare PyTorch/ONNX tensors and shapes, pointer masks/dynamic dimensions and contract fingerprint. Preserve any retained untrained structural export under a new name. Untrained heads and synthetic inputs prove runtime mechanics only, not linguistic comprehension.",
+        "TASK_3_TRAINING = NOT_STARTED",
+        "Gates_B_C_D_E = NOT_STARTED",
+        "trainingExecuted = false"
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "assets": [
+        {
+          "browser_download_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-path-b-v3-untrained-gate-a-cp35-20260907/student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+          "content_type": "application/zip",
+          "created_at": "2026-09-07T07:01:05Z",
+          "digest": "sha256:dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71",
+          "download_count": 1,
+          "id": 548329150,
+          "label": null,
+          "name": "student5-path-b-v3-untrained-gate-a-cp35-20260907.zip",
+          "node_id": "RA_kwDOUM4WLs4grta-",
+          "size": 176837978,
+          "state": "uploaded",
+          "updated_at": "2026-09-07T07:01:15Z",
+          "uploader": {
+            "avatar_url": "https://avatars.githubusercontent.com/u/101059510?v=4",
+            "events_url": "https://api.github.com/users/MATRIXNEO23/events{/privacy}",
+            "followers_url": "https://api.github.com/users/MATRIXNEO23/followers",
+            "following_url": "https://api.github.com/users/MATRIXNEO23/following{/other_user}",
+            "gists_url": "https://api.github.com/users/MATRIXNEO23/gists{/gist_id}",
+            "gravatar_id": "",
+            "html_url": "https://github.com/MATRIXNEO23",
+            "id": 101059510,
+            "login": "MATRIXNEO23",
+            "node_id": "U_kgDOBgYLtg",
+            "organizations_url": "https://api.github.com/users/MATRIXNEO23/orgs",
+            "received_events_url": "https://api.github.com/users/MATRIXNEO23/received_events",
+            "repos_url": "https://api.github.com/users/MATRIXNEO23/repos",
+            "site_admin": false,
+            "starred_url": "https://api.github.com/users/MATRIXNEO23/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/MATRIXNEO23/subscriptions",
+            "type": "User",
+            "url": "https://api.github.com/users/MATRIXNEO23",
+            "user_view_type": "public"
+          },
+          "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/assets/548329150"
+        }
+      ],
+      "assets_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383886129/assets",
+      "author": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/101059510?v=4",
+        "events_url": "https://api.github.com/users/MATRIXNEO23/events{/privacy}",
+        "followers_url": "https://api.github.com/users/MATRIXNEO23/followers",
+        "following_url": "https://api.github.com/users/MATRIXNEO23/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MATRIXNEO23/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/MATRIXNEO23",
+        "id": 101059510,
+        "login": "MATRIXNEO23",
+        "node_id": "U_kgDOBgYLtg",
+        "organizations_url": "https://api.github.com/users/MATRIXNEO23/orgs",
+        "received_events_url": "https://api.github.com/users/MATRIXNEO23/received_events",
+        "repos_url": "https://api.github.com/users/MATRIXNEO23/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/MATRIXNEO23/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MATRIXNEO23/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/MATRIXNEO23",
+        "user_view_type": "public"
+      },
+      "body": "Immutable Path-B runtime reference; NOT trained, NOT production approved.\r\n\r\nReal pristine 40k BERT + V3 forward, ONNX checker/load and parity passed on 7 training-safe IT/EN/ES sentences (4 dynamic-shape batches). Maximum absolute delta: 3.129243850708008e-07. No optimizer/backprop, DEV or Frozen use. Candidate embeddings test runtime mechanics only, not learned mention extraction.\r\n\r\nSource: aa3ab11fffdd4e25305fdfe949726358e0514fce. Base pristine model SHA256: d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2.\r\n\r\nArchive: 176837978 bytes; SHA256 dfe20ae4cfa49656f557872f6ba2afeabef6caea06390f943ae8cd0945a37d71. Includes FP32 safetensors, FP32 ONNX, tokenizer/config/mapping, contract, source, pinned environment, report, manifest and internal checksums. Recover through authenticated Release download; verify archive and internal SHA256SUMS before loading. Preserve every prior artifact.",
+      "created_at": "2026-09-07T06:56:32Z",
+      "draft": false,
+      "html_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-path-b-v3-untrained-gate-a-cp35-20260907",
+      "id": 383886129,
+      "immutable": false,
+      "name": "Student-5 Path B V3 — untrained physical Gate A — CP35",
+      "node_id": "RE_kwDOUM4WLs4W4aMx",
+      "prerelease": true,
+      "published_at": "2026-09-07T07:01:54Z",
+      "tag_name": "student5-path-b-v3-untrained-gate-a-cp35-20260907",
+      "tarball_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/tarball/student5-path-b-v3-untrained-gate-a-cp35-20260907",
+      "target_commitish": "student5-path-b-v3",
+      "updated_at": "2026-09-07T07:01:54Z",
+      "upload_url": "https://uploads.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383886129/assets{?name,label}",
+      "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383886129",
+      "zipball_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/zipball/student5-path-b-v3-untrained-gate-a-cp35-20260907"
+    },
+    {
+      "assets": [
+        {
+          "browser_download_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-untaught-int8-runtime-probe/student-5-minilm-40k-untaught-int8-runtime-probe.zip",
+          "content_type": "application/zip",
+          "created_at": "2026-09-05T06:57:36Z",
+          "digest": "sha256:72eea0af4211959bdbc92be36387faf5b85da957830f9be0a6d0dd50ab7cedf6",
+          "download_count": 0,
+          "id": 545486429,
+          "label": null,
+          "name": "student-5-minilm-40k-untaught-int8-runtime-probe.zip",
+          "node_id": "RA_kwDOUM4WLs4gg3Zd",
+          "size": 142463548,
+          "state": "uploaded",
+          "updated_at": "2026-09-05T06:57:44Z",
+          "uploader": {
+            "avatar_url": "https://avatars.githubusercontent.com/u/101059510?v=4",
+            "events_url": "https://api.github.com/users/MATRIXNEO23/events{/privacy}",
+            "followers_url": "https://api.github.com/users/MATRIXNEO23/followers",
+            "following_url": "https://api.github.com/users/MATRIXNEO23/following{/other_user}",
+            "gists_url": "https://api.github.com/users/MATRIXNEO23/gists{/gist_id}",
+            "gravatar_id": "",
+            "html_url": "https://github.com/MATRIXNEO23",
+            "id": 101059510,
+            "login": "MATRIXNEO23",
+            "node_id": "U_kgDOBgYLtg",
+            "organizations_url": "https://api.github.com/users/MATRIXNEO23/orgs",
+            "received_events_url": "https://api.github.com/users/MATRIXNEO23/received_events",
+            "repos_url": "https://api.github.com/users/MATRIXNEO23/repos",
+            "site_admin": false,
+            "starred_url": "https://api.github.com/users/MATRIXNEO23/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/MATRIXNEO23/subscriptions",
+            "type": "User",
+            "url": "https://api.github.com/users/MATRIXNEO23",
+            "user_view_type": "public"
+          },
+          "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/assets/545486429"
+        }
+      ],
+      "assets_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383162517/assets",
+      "author": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/101059510?v=4",
+        "events_url": "https://api.github.com/users/MATRIXNEO23/events{/privacy}",
+        "followers_url": "https://api.github.com/users/MATRIXNEO23/followers",
+        "following_url": "https://api.github.com/users/MATRIXNEO23/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MATRIXNEO23/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/MATRIXNEO23",
+        "id": 101059510,
+        "login": "MATRIXNEO23",
+        "node_id": "U_kgDOBgYLtg",
+        "organizations_url": "https://api.github.com/users/MATRIXNEO23/orgs",
+        "received_events_url": "https://api.github.com/users/MATRIXNEO23/received_events",
+        "repos_url": "https://api.github.com/users/MATRIXNEO23/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/MATRIXNEO23/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MATRIXNEO23/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/MATRIXNEO23",
+        "user_view_type": "public"
+      },
+      "body": "Path-A deployment probe for the pristine Student-5 MiniLM 40k backbone.\r\n\r\nStatus:\r\n- STUDENT_5_40K_UNTAUGHT_INT8\r\n- RUNTIME_PROBE_ONLY\r\n- NOT_MATRIX_NLU\r\n- NOT_PRODUCTION_APPROVED\r\n- RUNTIME_PROBE_PASS\r\n- FROZEN_UNREAD\r\n- PATH_B_NOT_STARTED\r\n\r\nInput:\r\n- pristine archive SHA-256: 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191\r\n- pristine model SHA-256: d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2\r\n- pristine40kModified: false\r\n\r\nOutput:\r\n- FP32 ONNX: 148202898 bytes\r\n- FP32 ONNX SHA-256: 799d86b9231721c0e7ff656b48cb609611c98ea75c8489e4edebeaf7e9d7de23\r\n- INT8 ONNX: 84457299 bytes\r\n- INT8 ONNX SHA-256: f58463a6d1f4daca2e58c8e40f7f6d1cbaa7d107e9534160278bc46552e0304a\r\n- archive bytes: 142463548\r\n- archive SHA-256: 72eea0af4211959bdbc92be36387faf5b85da957830f9be0a6d0dd50ab7cedf6\r\n- quantized weight-bearing operators: 73/73\r\n- FP32 vs INT8 mean representation cosine: 0.9985922280\r\n- FP32 vs INT8 minimum representation cosine: 0.9974925518\r\n- mobile compatibility: RISK (static audit; no physical Moto test)\r\n\r\nThe archive contains separate FP32 and dynamic per-channel QInt8 ONNX graphs, immutable tokenizer files, runtime manifest, full operator census, parity and benchmark JSON, probe provenance, source, and SHA256SUMS.\r\n\r\nNo training, Matrix heads, canonical DEV, Frozen access, Student-4 mutation, Path-B work, Assembling integration, cross-repository change, or production promotion occurred.",
+      "created_at": "2026-09-05T06:13:56Z",
+      "draft": false,
+      "html_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-untaught-int8-runtime-probe",
+      "id": 383162517,
+      "immutable": false,
+      "name": "Student-5 40k Untaught INT8 Runtime Probe",
+      "node_id": "RE_kwDOUM4WLs4W1piV",
+      "prerelease": true,
+      "published_at": "2026-09-05T06:58:03Z",
+      "tag_name": "student-5-minilm-40k-untaught-int8-runtime-probe",
+      "tarball_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/tarball/student-5-minilm-40k-untaught-int8-runtime-probe",
+      "target_commitish": "main",
+      "updated_at": "2026-09-05T06:58:03Z",
+      "upload_url": "https://uploads.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383162517/assets{?name,label}",
+      "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383162517",
+      "zipball_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/zipball/student-5-minilm-40k-untaught-int8-runtime-probe"
+    },
+    {
+      "assets": [
+        {
+          "browser_download_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student-5-minilm-40k-phase-a-pristine/student5-minilm-phase-a-pruned-40k.zip",
+          "content_type": "application/zip",
+          "created_at": "2026-09-05T05:22:48Z",
+          "digest": "sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+          "download_count": 2,
+          "id": 545406840,
+          "label": null,
+          "name": "student5-minilm-phase-a-pruned-40k.zip",
+          "node_id": "RA_kwDOUM4WLs4ggj94",
+          "size": 88361246,
+          "state": "uploaded",
+          "updated_at": "2026-09-05T05:22:54Z",
+          "uploader": {
+            "avatar_url": "https://avatars.githubusercontent.com/u/101059510?v=4",
+            "events_url": "https://api.github.com/users/MATRIXNEO23/events{/privacy}",
+            "followers_url": "https://api.github.com/users/MATRIXNEO23/followers",
+            "following_url": "https://api.github.com/users/MATRIXNEO23/following{/other_user}",
+            "gists_url": "https://api.github.com/users/MATRIXNEO23/gists{/gist_id}",
+            "gravatar_id": "",
+            "html_url": "https://github.com/MATRIXNEO23",
+            "id": 101059510,
+            "login": "MATRIXNEO23",
+            "node_id": "U_kgDOBgYLtg",
+            "organizations_url": "https://api.github.com/users/MATRIXNEO23/orgs",
+            "received_events_url": "https://api.github.com/users/MATRIXNEO23/received_events",
+            "repos_url": "https://api.github.com/users/MATRIXNEO23/repos",
+            "site_admin": false,
+            "starred_url": "https://api.github.com/users/MATRIXNEO23/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/MATRIXNEO23/subscriptions",
+            "type": "User",
+            "url": "https://api.github.com/users/MATRIXNEO23",
+            "user_view_type": "public"
+          },
+          "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/assets/545406840"
+        }
+      ],
+      "assets_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383143636/assets",
+      "author": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/101059510?v=4",
+        "events_url": "https://api.github.com/users/MATRIXNEO23/events{/privacy}",
+        "followers_url": "https://api.github.com/users/MATRIXNEO23/followers",
+        "following_url": "https://api.github.com/users/MATRIXNEO23/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MATRIXNEO23/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/MATRIXNEO23",
+        "id": 101059510,
+        "login": "MATRIXNEO23",
+        "node_id": "U_kgDOBgYLtg",
+        "organizations_url": "https://api.github.com/users/MATRIXNEO23/orgs",
+        "received_events_url": "https://api.github.com/users/MATRIXNEO23/received_events",
+        "repos_url": "https://api.github.com/users/MATRIXNEO23/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/MATRIXNEO23/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MATRIXNEO23/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/MATRIXNEO23",
+        "user_view_type": "public"
+      },
+      "body": "Durable preservation of the canonical pristine Student-5 MiniLM 40k Phase-A backbone.\r\n\r\nStatus:\r\n- PRISTINE_PHASE_A_BACKBONE\r\n- NOT_MATRIX_NLU\r\n- NOT_PRODUCTION_APPROVED\r\n- FROZEN_UNREAD\r\n\r\nIdentity:\r\n- vocabSize: 40000\r\n- layers: 12\r\n- hiddenSize: 384\r\n- model SHA-256: d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2\r\n- archive SHA-256: 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191\r\n- upstream: microsoft/Multilingual-MiniLM-L12-H384@6e8c1ec6b4ec4e3fc6eb7d2cd834fcd582b61daf\r\n\r\nThis release preserves the original, bit-identical Phase-A artifact. It performs no teaching, Matrix-head training, quantization, DEV use, Frozen read, or production promotion.",
+      "created_at": "2026-09-05T04:53:19Z",
+      "draft": false,
+      "html_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student-5-minilm-40k-phase-a-pristine",
+      "id": 383143636,
+      "immutable": false,
+      "name": "Student-5 MiniLM 40k Phase-A Pristine",
+      "node_id": "RE_kwDOUM4WLs4W1k7U",
+      "prerelease": true,
+      "published_at": "2026-09-05T05:23:16Z",
+      "tag_name": "student-5-minilm-40k-phase-a-pristine",
+      "tarball_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/tarball/student-5-minilm-40k-phase-a-pristine",
+      "target_commitish": "main",
+      "updated_at": "2026-09-05T05:23:16Z",
+      "upload_url": "https://uploads.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383143636/assets{?name,label}",
+      "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/383143636",
+      "zipball_url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/zipball/student-5-minilm-40k-phase-a-pristine"
+    }
+  ],
+  "branches": [
+    {
+      "commit": {
+        "sha": "9493e97cbdf5e731ee161b24d91b511076decb19",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/commits/9493e97cbdf5e731ee161b24d91b511076decb19"
+      },
+      "name": "main",
+      "protected": false
+    },
+    {
+      "commit": {
+        "sha": "33077f1fecbf676553d3753eaafedeca33e67f1e",
+        "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/commits/33077f1fecbf676553d3753eaafedeca33e67f1e"
+      },
+      "name": "student5-path-b-v3",
+      "protected": false
+    }
+  ],
+  "runs": [
+    {
+      "id": 34080903226,
+      "name": "P0 Understanding Lab",
+      "sha": "9493e97cbdf5e731ee161b24d91b511076decb19",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-07T06:32:40Z"
+    },
+    {
+      "id": 34080789651,
+      "name": "P0 Understanding Lab",
+      "sha": "8337ce51a3f1012bbe5e3c93f5ba249290d59071",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-07T03:46:39Z"
+    },
+    {
+      "id": 34080779770,
+      "name": "P0 Understanding Lab",
+      "sha": "bb706323c7391571bdc3de93122a249af850163d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-07T03:46:28Z"
+    },
+    {
+      "id": 33962625227,
+      "name": "P0 Understanding Lab",
+      "sha": "5e49a2d81ecf054a543e3e92f76260fafeca9cc6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:10:46Z"
+    },
+    {
+      "id": 33962511710,
+      "name": "P0 Understanding Lab",
+      "sha": "117afd627ebe9f584b9328f1f78c63822980a49c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:08:19Z"
+    },
+    {
+      "id": 33962491979,
+      "name": "P0 Understanding Lab",
+      "sha": "5e515ddadf9abe473ee2d99f34b8898df38da957",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:07:49Z"
+    },
+    {
+      "id": 33962491873,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "5e515ddadf9abe473ee2d99f34b8898df38da957",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:07:49Z"
+    },
+    {
+      "id": 33962441963,
+      "name": "P0 Understanding Lab",
+      "sha": "cf47ecb6be0bd4890d66eb309406b72816df7a0c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:06:43Z"
+    },
+    {
+      "id": 33962415956,
+      "name": "P0 Understanding Lab",
+      "sha": "783fc308320ca72420038d513fd94bbb52ed7c70",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:06:08Z"
+    },
+    {
+      "id": 33962415933,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "783fc308320ca72420038d513fd94bbb52ed7c70",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:06:08Z"
+    },
+    {
+      "id": 33962414790,
+      "name": "P0 Understanding Lab",
+      "sha": "e079977d46c2f7ae4abcbc22e37859b9e83b0f45",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:06:07Z"
+    },
+    {
+      "id": 33962414780,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "e079977d46c2f7ae4abcbc22e37859b9e83b0f45",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:06:07Z"
+    },
+    {
+      "id": 33962365295,
+      "name": "P0 Understanding Lab",
+      "sha": "730182625b9c56192d1cd9809fdc19e8e8fe5c8c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T11:05:04Z"
+    },
+    {
+      "id": 33962106159,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "ea57fec385b7ec666ea4d03db67b3c233faad740",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:59:39Z"
+    },
+    {
+      "id": 33962106002,
+      "name": "P0 Understanding Lab",
+      "sha": "ea57fec385b7ec666ea4d03db67b3c233faad740",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:59:37Z"
+    },
+    {
+      "id": 33962070395,
+      "name": "P0 Understanding Lab",
+      "sha": "0a3c934f5b6bcd52228d1f55533b71359a7441c2",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:58:43Z"
+    },
+    {
+      "id": 33962065287,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "d5691e7f380ea03a57924bd56a723df424fd1581",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:58:35Z"
+    },
+    {
+      "id": 33962065285,
+      "name": "P0 Understanding Lab",
+      "sha": "d5691e7f380ea03a57924bd56a723df424fd1581",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:58:36Z"
+    },
+    {
+      "id": 33962057450,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "227dbee5abcc9ba1d0049c2d5933e2fe24c58096",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:58:25Z"
+    },
+    {
+      "id": 33962057433,
+      "name": "P0 Understanding Lab",
+      "sha": "227dbee5abcc9ba1d0049c2d5933e2fe24c58096",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:58:25Z"
+    },
+    {
+      "id": 33961629322,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "305706386d2b0f52b17a1daa6820b3b13c9fa080",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:48:22Z"
+    },
+    {
+      "id": 33961629319,
+      "name": "P0 Understanding Lab",
+      "sha": "305706386d2b0f52b17a1daa6820b3b13c9fa080",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:48:23Z"
+    },
+    {
+      "id": 33961363117,
+      "name": "P0 Understanding Lab",
+      "sha": "8c1e77a5f163eb26eef864ebd895c2c35cb7acc5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T10:42:12Z"
+    },
+    {
+      "id": 33957907101,
+      "name": "P0 Understanding Lab",
+      "sha": "f2bcf0beb85f1fab4c763ce1e7aaf5ceba1b1e04",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T09:24:46Z"
+    },
+    {
+      "id": 33957873750,
+      "name": "P0 Understanding Lab",
+      "sha": "2429373e7a8eac1fcd97c34473cc6cf3b5cc30f8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T09:24:02Z"
+    },
+    {
+      "id": 33957750038,
+      "name": "P0 Understanding Lab",
+      "sha": "3aa9d135661f15647e9d4b75dde6779025ee5fcd",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T09:21:15Z"
+    },
+    {
+      "id": 33957750036,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "3aa9d135661f15647e9d4b75dde6779025ee5fcd",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T09:21:17Z"
+    },
+    {
+      "id": 33957226992,
+      "name": "P0 Understanding Lab",
+      "sha": "38d6ad53e88082ac68037a6571b6653bb7651526",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T09:09:50Z"
+    },
+    {
+      "id": 33957226985,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "38d6ad53e88082ac68037a6571b6653bb7651526",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T09:09:49Z"
+    },
+    {
+      "id": 33956974733,
+      "name": "P0 Understanding Lab",
+      "sha": "d9cfd0321a99925c9a5fe149ce9683052d6b1e4a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T09:04:17Z"
+    },
+    {
+      "id": 33955864012,
+      "name": "P0 Understanding Lab",
+      "sha": "db60bf1f8bc1fc227ea314d9354c58db9ada6150",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T08:39:37Z"
+    },
+    {
+      "id": 33955793401,
+      "name": "P0 Understanding Lab",
+      "sha": "9ba920c0cd17374060a682e400c54da284e894f1",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T08:38:05Z"
+    },
+    {
+      "id": 33955426921,
+      "name": "P0 Understanding Lab",
+      "sha": "2fbb01bd2ef70d0ec708762a316516b6d0a0144c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T08:30:07Z"
+    },
+    {
+      "id": 33954242014,
+      "name": "P0 Understanding Lab",
+      "sha": "c2b51fde2157f1e704f53adc46f840e7e6cc3a2f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T08:04:00Z"
+    },
+    {
+      "id": 33954200505,
+      "name": "P0 Understanding Lab",
+      "sha": "07cb51eb477e771b11502ed393452ca1737e6905",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T08:03:07Z"
+    },
+    {
+      "id": 33953712549,
+      "name": "P0 Understanding Lab",
+      "sha": "2a41baba94ff5e36763552ca24f43dfb51d906de",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T07:51:56Z"
+    },
+    {
+      "id": 33951410629,
+      "name": "P0 Understanding Lab",
+      "sha": "8a9a375c4bbd5b9d03f6f68f036059a3df414881",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T07:01:39Z"
+    },
+    {
+      "id": 33951355385,
+      "name": "P0 Understanding Lab",
+      "sha": "04283174acd4f2fea7f6a4db3822e3668d675bb8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T07:00:33Z"
+    },
+    {
+      "id": 33951336820,
+      "name": "P0 Understanding Lab",
+      "sha": "bbd765299ff6cd28b29b66ee0155bc84846d068b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T07:00:14Z"
+    },
+    {
+      "id": 33949251883,
+      "name": "P0 Understanding Lab",
+      "sha": "5f1eb582a98e0488ce73b0ab24682f860cd30a72",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T06:14:03Z"
+    },
+    {
+      "id": 33949251740,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "5f1eb582a98e0488ce73b0ab24682f860cd30a72",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T06:14:02Z"
+    },
+    {
+      "id": 33949041234,
+      "name": "P0 Understanding Lab",
+      "sha": "0a5d08005ecdc8273cef33f125fb56ab184e4fb4",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T06:09:18Z"
+    },
+    {
+      "id": 33948556292,
+      "name": "P0 Understanding Lab",
+      "sha": "0b42b151c717e1450866155699cf0bfd1ff964cb",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T05:58:15Z"
+    },
+    {
+      "id": 33947196067,
+      "name": "P0 Understanding Lab",
+      "sha": "e64a49af2eec187d0ddf3b786a0e21cff9567ba8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T05:26:12Z"
+    },
+    {
+      "id": 33947184728,
+      "name": "P0 Understanding Lab",
+      "sha": "01ab127a66a5a4156077ceff1b65a0ad0657a42d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T05:25:57Z"
+    },
+    {
+      "id": 33947179576,
+      "name": "P0 Understanding Lab",
+      "sha": "8aeb387842e99be500193fbf1bc1b2ceb0a225d4",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T05:25:50Z"
+    },
+    {
+      "id": 33947165059,
+      "name": "P0 Understanding Lab",
+      "sha": "dbd144243dee3a3696607499745ccb01a7858439",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T05:25:32Z"
+    },
+    {
+      "id": 33947134300,
+      "name": "P0 Understanding Lab",
+      "sha": "f2e0c2444aadcab8fbfbdc45693f6bf1ece07f6c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T05:24:52Z"
+    },
+    {
+      "id": 33947121685,
+      "name": "P0 Understanding Lab",
+      "sha": "cc262671b816908ce3621e99ff511d47a0b05c1f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T05:24:35Z"
+    },
+    {
+      "id": 33945756702,
+      "name": "P0 Understanding Lab",
+      "sha": "20230e52388560c537eb614083ca5a3bda29ecfc",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:53:30Z"
+    },
+    {
+      "id": 33945359568,
+      "name": "P0 Understanding Lab",
+      "sha": "3f317c842646b22ab6de02793bbec91eb2a4bba6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:44:14Z"
+    },
+    {
+      "id": 33945085072,
+      "name": "P0 Understanding Lab",
+      "sha": "046f308350d9c6045cfa76a97b1190687b2573da",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:38:03Z"
+    },
+    {
+      "id": 33945073819,
+      "name": "P0 Understanding Lab",
+      "sha": "08997f4c870948996ee00b3e70756dec56b02875",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:37:51Z"
+    },
+    {
+      "id": 33944872954,
+      "name": "P0 Understanding Lab",
+      "sha": "4a02b1bbea163a8a838beba558af6b32447ff8bd",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:33:25Z"
+    },
+    {
+      "id": 33944779521,
+      "name": "P0 Understanding Lab",
+      "sha": "ea33cee5e53f5fd31f688b59fad0518279a7706f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:31:22Z"
+    },
+    {
+      "id": 33944766327,
+      "name": "P0 Understanding Lab",
+      "sha": "10015db91f3b00d77960243937f6c4b20b7da50d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:31:07Z"
+    },
+    {
+      "id": 33944678613,
+      "name": "P0 Understanding Lab",
+      "sha": "66f466c34f8e9a43e9959b2ad5e160dc504aa834",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:29:17Z"
+    },
+    {
+      "id": 33944610281,
+      "name": "P0 Understanding Lab",
+      "sha": "0d38961320e7abbdfa21c585d09d531e06dea522",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:27:43Z"
+    },
+    {
+      "id": 33944489816,
+      "name": "P0 Understanding Lab",
+      "sha": "c33b74634ea89d8edb6609c2440e12d312dadc70",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-05T04:25:03Z"
+    },
+    {
+      "id": 33904377447,
+      "name": "P0 Understanding Lab",
+      "sha": "4d94a8f3966fba2130d26e435e1e080fcfc8aae3",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T18:09:34Z"
+    },
+    {
+      "id": 33902750392,
+      "name": "P0 Understanding Lab",
+      "sha": "037f52d24eeb28f94647c6ae55344f85d7312bbe",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:51:05Z"
+    },
+    {
+      "id": 33902702339,
+      "name": "P0 Understanding Lab",
+      "sha": "a1d407d63d4dcb84033d8ac525cce0e2475c27e1",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:50:32Z"
+    },
+    {
+      "id": 33902702258,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "a1d407d63d4dcb84033d8ac525cce0e2475c27e1",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:50:31Z"
+    },
+    {
+      "id": 33902201722,
+      "name": "P0 Understanding Lab",
+      "sha": "5557cd60d7f9a47d094553f0f4b057fe6c071039",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:44:51Z"
+    },
+    {
+      "id": 33902100881,
+      "name": "P0 Understanding Lab",
+      "sha": "25546528917d42d70129f059ff56da672678c7d4",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:43:40Z"
+    },
+    {
+      "id": 33902100878,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "25546528917d42d70129f059ff56da672678c7d4",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:43:41Z"
+    },
+    {
+      "id": 33901501154,
+      "name": "P0 Understanding Lab",
+      "sha": "5fd971f66eb3728238efd0fd2e8222a70a13e6e7",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:36:47Z"
+    },
+    {
+      "id": 33900677776,
+      "name": "P0 Understanding Lab",
+      "sha": "e78fad95b3e32184fc24770521fd0dbe7e0611b5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:27:32Z"
+    },
+    {
+      "id": 33899772062,
+      "name": "P0 Understanding Lab",
+      "sha": "c68e3c76fc073bbe45a07f7efbd9fa964108c531",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:17:30Z"
+    },
+    {
+      "id": 33898500482,
+      "name": "P0 Understanding Lab",
+      "sha": "447bd5128a52433d7094b35b401eb3fa3d9fd932",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:03:22Z"
+    },
+    {
+      "id": 33898468590,
+      "name": "P0 Understanding Lab",
+      "sha": "b328711342dd5d57a47f0eb1ac71f12be4fe2195",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T17:03:00Z"
+    },
+    {
+      "id": 33896724080,
+      "name": "P0 Understanding Lab",
+      "sha": "d7a9dc942a23e860d3c4dcf60b0ce8aec5bed582",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T16:43:32Z"
+    },
+    {
+      "id": 33888438612,
+      "name": "P0 Understanding Lab",
+      "sha": "89a7f2a8865b1c76c71cdc3aa7f7de7ba9317bde",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:15:34Z"
+    },
+    {
+      "id": 33888060404,
+      "name": "P0 Understanding Lab",
+      "sha": "ab3e3cadb1cf0c71782e0540bfc9926ea4ae3234",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:11:38Z"
+    },
+    {
+      "id": 33887918627,
+      "name": "P0 Understanding Lab",
+      "sha": "b4a40b392c29dacc5b550ecb32a3a4e3f6d0f874",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:10:09Z"
+    },
+    {
+      "id": 33887750472,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "0098d4e8fa953665d38006d22d74ab479d94b4c9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:08:20Z"
+    },
+    {
+      "id": 33887750441,
+      "name": "P0 Understanding Lab",
+      "sha": "0098d4e8fa953665d38006d22d74ab479d94b4c9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:08:19Z"
+    },
+    {
+      "id": 33887750410,
+      "name": "Matrix-NLU Student-4 V2.2A Experimental Mixed Quantization",
+      "sha": "0098d4e8fa953665d38006d22d74ab479d94b4c9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:08:19Z"
+    },
+    {
+      "id": 33887739666,
+      "name": "Matrix-NLU Student-4 V2.2A Experimental Mixed Quantization",
+      "sha": "d77354ffb51fb9fa0cee8cca6dc5448ad09b2c68",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:08:12Z"
+    },
+    {
+      "id": 33887739633,
+      "name": "P0 Understanding Lab",
+      "sha": "d77354ffb51fb9fa0cee8cca6dc5448ad09b2c68",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:08:13Z"
+    },
+    {
+      "id": 33887739599,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "d77354ffb51fb9fa0cee8cca6dc5448ad09b2c68",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T15:08:12Z"
+    },
+    {
+      "id": 33886715609,
+      "name": "Matrix-NLU Student-4 V2.2A Experimental Mixed Quantization",
+      "sha": "67ebda28033304290496f1caa2a5c748dffbe7df",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:57:32Z"
+    },
+    {
+      "id": 33886715481,
+      "name": "P0 Understanding Lab",
+      "sha": "67ebda28033304290496f1caa2a5c748dffbe7df",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:57:32Z"
+    },
+    {
+      "id": 33886715412,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "67ebda28033304290496f1caa2a5c748dffbe7df",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:57:32Z"
+    },
+    {
+      "id": 33886274713,
+      "name": "P0 Understanding Lab",
+      "sha": "7ae25350e9926eab314b780db6df4ffc63088430",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:52:53Z"
+    },
+    {
+      "id": 33885544307,
+      "name": "P0 Understanding Lab",
+      "sha": "16f45769a56c32e751b44af1e521b1b96ff1ab26",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:45:14Z"
+    },
+    {
+      "id": 33885329406,
+      "name": "P0 Understanding Lab",
+      "sha": "b0b8a4db4f57bbcd9c959e1c35d4984dd9db2f68",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:42:59Z"
+    },
+    {
+      "id": 33883454878,
+      "name": "P0 Understanding Lab",
+      "sha": "29dbc633598ef2e0a28e76c40c7d205128628dbf",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:23:35Z"
+    },
+    {
+      "id": 33883411635,
+      "name": "P0 Understanding Lab",
+      "sha": "1fc9001a016148b521880add2e074a62fd117397",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:23:09Z"
+    },
+    {
+      "id": 33882810952,
+      "name": "P0 Understanding Lab",
+      "sha": "4756962baac25317c4e8d14f7e6d85b728a69958",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:16:56Z"
+    },
+    {
+      "id": 33882172879,
+      "name": "Matrix-NLU Student-4 V2.2A Experimental Mixed Quantization",
+      "sha": "2d4efa2f9abd390175daedab6810b59ef52413d5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:20:39Z"
+    },
+    {
+      "id": 33882172872,
+      "name": "P0 Understanding Lab",
+      "sha": "2d4efa2f9abd390175daedab6810b59ef52413d5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:10:14Z"
+    },
+    {
+      "id": 33882135537,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "202b4ff0b431a91ca5da0aac2380a46b7580d827",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:09:52Z"
+    },
+    {
+      "id": 33882135391,
+      "name": "P0 Understanding Lab",
+      "sha": "202b4ff0b431a91ca5da0aac2380a46b7580d827",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:09:51Z"
+    },
+    {
+      "id": 33882101411,
+      "name": "P0 Understanding Lab",
+      "sha": "8fe6faf523469b453dcf8f1ee023656f236b3447",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:09:28Z"
+    },
+    {
+      "id": 33882101375,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "8fe6faf523469b453dcf8f1ee023656f236b3447",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T14:09:29Z"
+    },
+    {
+      "id": 33880141517,
+      "name": "P0 Understanding Lab",
+      "sha": "760b9da9fb683b694c5a03a4162210d087304269",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T13:48:51Z"
+    },
+    {
+      "id": 33880078081,
+      "name": "P0 Understanding Lab",
+      "sha": "12ac2cfebdce171392893d5692d17d03e8317886",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T13:48:09Z"
+    },
+    {
+      "id": 33860928854,
+      "name": "P0 Understanding Lab",
+      "sha": "617aeca8a6abac4366eb13347fb88026307dc3b8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T10:00:54Z"
+    },
+    {
+      "id": 33860928806,
+      "name": "Matrix-NLU Student-4 V2.2A Controlled Repair",
+      "sha": "617aeca8a6abac4366eb13347fb88026307dc3b8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T13:12:51Z"
+    },
+    {
+      "id": 33860905849,
+      "name": "Matrix-NLU Student-4 V2.2A Controlled Repair",
+      "sha": "3d840b32e67b33bbbb0562d01a5b5497155efd0b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T13:27:13Z"
+    },
+    {
+      "id": 33860905804,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "3d840b32e67b33bbbb0562d01a5b5497155efd0b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T09:58:23Z"
+    },
+    {
+      "id": 33860905782,
+      "name": "P0 Understanding Lab",
+      "sha": "3d840b32e67b33bbbb0562d01a5b5497155efd0b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T10:00:06Z"
+    },
+    {
+      "id": 33860882761,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "ee107e3ebc18ea6dbd554aba7faf4abeb2e5ae9c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T09:57:58Z"
+    },
+    {
+      "id": 33860882760,
+      "name": "Matrix-NLU Student-4 V2.2A Controlled Repair",
+      "sha": "ee107e3ebc18ea6dbd554aba7faf4abeb2e5ae9c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T13:01:49Z"
+    },
+    {
+      "id": 33860882700,
+      "name": "P0 Understanding Lab",
+      "sha": "ee107e3ebc18ea6dbd554aba7faf4abeb2e5ae9c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T09:59:58Z"
+    },
+    {
+      "id": 33860234550,
+      "name": "P0 Understanding Lab",
+      "sha": "65ec18458eb5ab59327206da63a77f01e341b0a2",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T09:51:36Z"
+    },
+    {
+      "id": 33860202062,
+      "name": "P0 Understanding Lab",
+      "sha": "57df9ca9e92b450666eb190acc13fff45af1d983",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T09:51:27Z"
+    },
+    {
+      "id": 33855858422,
+      "name": "P0 Understanding Lab",
+      "sha": "75efdb67a4de966ccf2bdcdf336f5a374619af02",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:58:52Z"
+    },
+    {
+      "id": 33855798785,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "7cb1bee4e89521fbd6215c5c0c1e060f09f7b1ae",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:56:09Z"
+    },
+    {
+      "id": 33855798760,
+      "name": "Matrix-NLU Student-4 V2.2A Controlled Repair",
+      "sha": "7cb1bee4e89521fbd6215c5c0c1e060f09f7b1ae",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T08:56:29Z"
+    },
+    {
+      "id": 33855798759,
+      "name": "P0 Understanding Lab",
+      "sha": "7cb1bee4e89521fbd6215c5c0c1e060f09f7b1ae",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:58:17Z"
+    },
+    {
+      "id": 33855689726,
+      "name": "P0 Understanding Lab",
+      "sha": "7193cce175493edc1e4ec19bdb894f3cda74b2ab",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:56:28Z"
+    },
+    {
+      "id": 33855648285,
+      "name": "P0 Understanding Lab",
+      "sha": "b5b5d140cddc947256550ef070465acfdebe90f5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:56:14Z"
+    },
+    {
+      "id": 33855648159,
+      "name": "Matrix-NLU Student-4 V2.2A Controlled Repair",
+      "sha": "b5b5d140cddc947256550ef070465acfdebe90f5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T08:54:43Z"
+    },
+    {
+      "id": 33855608457,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "e51407b7df6efb0d645f5da7e1ec995dd50667aa",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:53:57Z"
+    },
+    {
+      "id": 33855608437,
+      "name": "P0 Understanding Lab",
+      "sha": "e51407b7df6efb0d645f5da7e1ec995dd50667aa",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:55:45Z"
+    },
+    {
+      "id": 33855561111,
+      "name": "P0 Understanding Lab",
+      "sha": "6d79a6b5e6d9e2d7e8d8a5eea8c7c3fe45ce8f47",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:55:28Z"
+    },
+    {
+      "id": 33855561025,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "6d79a6b5e6d9e2d7e8d8a5eea8c7c3fe45ce8f47",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:53:21Z"
+    },
+    {
+      "id": 33855530448,
+      "name": "P0 Understanding Lab",
+      "sha": "775d5299dd720c339d7431ad8e87f2e85b28ad5b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:55:00Z"
+    },
+    {
+      "id": 33855530426,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "775d5299dd720c339d7431ad8e87f2e85b28ad5b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:52:55Z"
+    },
+    {
+      "id": 33855505843,
+      "name": "P0 Understanding Lab",
+      "sha": "8049c51be310e8281c0a03c09f1b5d1e317c1ed8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:54:42Z"
+    },
+    {
+      "id": 33855505717,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "8049c51be310e8281c0a03c09f1b5d1e317c1ed8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T08:52:35Z"
+    },
+    {
+      "id": 33849433329,
+      "name": "P0 Understanding Lab",
+      "sha": "d184557104e579c0f07e0365bb89f05b3a8b9057",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:37:49Z"
+    },
+    {
+      "id": 33848931720,
+      "name": "Matrix-NLU Student-4 V2.1 Post-Run Dev Gate",
+      "sha": "813126cbff80bfb6bc82636c87e8ac16b1a917a8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:32:14Z"
+    },
+    {
+      "id": 33848931716,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "813126cbff80bfb6bc82636c87e8ac16b1a917a8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:29:42Z"
+    },
+    {
+      "id": 33848931684,
+      "name": "P0 Understanding Lab",
+      "sha": "813126cbff80bfb6bc82636c87e8ac16b1a917a8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:31:23Z"
+    },
+    {
+      "id": 33847785759,
+      "name": "P0 Understanding Lab",
+      "sha": "8fe4ac7a994f872b9232dbc3858f7f6bd1eb82a8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:16:07Z"
+    },
+    {
+      "id": 33847689221,
+      "name": "P0 Understanding Lab",
+      "sha": "45a6100cc55f13b4649d4926a337d321b2c8cf96",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:15:35Z"
+    },
+    {
+      "id": 33847269021,
+      "name": "Matrix-NLU Student-4 V2.1 Post-Run Dev Gate",
+      "sha": "3348a269735d7f2ef5df7ec618057430c1f559d9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:09:55Z"
+    },
+    {
+      "id": 33847268972,
+      "name": "P0 Understanding Lab",
+      "sha": "3348a269735d7f2ef5df7ec618057430c1f559d9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:09:38Z"
+    },
+    {
+      "id": 33847242872,
+      "name": "P0 Understanding Lab",
+      "sha": "31ba96d40d6f662bbb253ce2c60146d8cf6f026e",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:09:20Z"
+    },
+    {
+      "id": 33847228841,
+      "name": "P0 Understanding Lab",
+      "sha": "3dd2be2cc45d4cde1b439fb261c8c167ab1eb4bb",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T07:08:56Z"
+    },
+    {
+      "id": 33837897461,
+      "name": "P0 Understanding Lab",
+      "sha": "72f14286e89df88f41aedb169c7307b26b57eedf",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:46:17Z"
+    },
+    {
+      "id": 33837897457,
+      "name": "Matrix-NLU Student-4 V2.1 Controlled Stop",
+      "sha": "72f14286e89df88f41aedb169c7307b26b57eedf",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T06:56:45Z"
+    },
+    {
+      "id": 33837883095,
+      "name": "P0 Understanding Lab",
+      "sha": "5c776b9447b55b448e11d7d9345cc97f005a6302",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:46:24Z"
+    },
+    {
+      "id": 33837832513,
+      "name": "P0 Understanding Lab",
+      "sha": "3be3238a32c840beecd57e1c3109e88571b1696a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:45:31Z"
+    },
+    {
+      "id": 33837831499,
+      "name": "P0 Understanding Lab",
+      "sha": "bdefe0ae34720dc88487203c52debf847e72a2c9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:45:43Z"
+    },
+    {
+      "id": 33837831409,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "bdefe0ae34720dc88487203c52debf847e72a2c9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:43:35Z"
+    },
+    {
+      "id": 33837829721,
+      "name": "P0 Understanding Lab",
+      "sha": "d6aa7607e0a125e77ebc22fe5cd22520b02374b9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:44:51Z"
+    },
+    {
+      "id": 33837829718,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "d6aa7607e0a125e77ebc22fe5cd22520b02374b9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:43:34Z"
+    },
+    {
+      "id": 33835690428,
+      "name": "P0 Understanding Lab",
+      "sha": "cd99a792443a4cfc24bdcbf73a8e3b611edacf21",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:10:40Z"
+    },
+    {
+      "id": 33835437180,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "a556095d84cd2c8f39b54c957e3b15e8bbb93132",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:04:40Z"
+    },
+    {
+      "id": 33835437163,
+      "name": "P0 Understanding Lab",
+      "sha": "a556095d84cd2c8f39b54c957e3b15e8bbb93132",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T04:06:26Z"
+    },
+    {
+      "id": 33826815563,
+      "name": "P0 Understanding Lab",
+      "sha": "f04b069d8c989d7894d6028367987c2baf79bbfb",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T01:45:46Z"
+    },
+    {
+      "id": 33826815562,
+      "name": "Matrix-NLU Student-4 V2 Checkpoint",
+      "sha": "f04b069d8c989d7894d6028367987c2baf79bbfb",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T03:56:22Z"
+    },
+    {
+      "id": 33826601401,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "909dd2f1a786bfe2eac61c2d1921b4ebd27679c5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T01:40:11Z"
+    },
+    {
+      "id": 33826601373,
+      "name": "P0 Understanding Lab",
+      "sha": "909dd2f1a786bfe2eac61c2d1921b4ebd27679c5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T01:42:30Z"
+    },
+    {
+      "id": 33825895948,
+      "name": "Matrix-NLU Student-4 V2 Checkpoint",
+      "sha": "353a5163da7bfe4421073f2bd2239eb90188f2d6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T01:32:54Z"
+    },
+    {
+      "id": 33825895887,
+      "name": "P0 Understanding Lab",
+      "sha": "353a5163da7bfe4421073f2bd2239eb90188f2d6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T01:31:02Z"
+    },
+    {
+      "id": 33825683892,
+      "name": "P0 Understanding Lab",
+      "sha": "e02948093595eaf6f2e9a9b39b4937cdf843a028",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T01:27:26Z"
+    },
+    {
+      "id": 33825683886,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "e02948093595eaf6f2e9a9b39b4937cdf843a028",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-04T01:25:41Z"
+    },
+    {
+      "id": 33819551609,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "00d126fbfffce978de97eb5af227250916a2d724",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:54:31Z"
+    },
+    {
+      "id": 33819551603,
+      "name": "P0 Understanding Lab",
+      "sha": "00d126fbfffce978de97eb5af227250916a2d724",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:56:18Z"
+    },
+    {
+      "id": 33819241151,
+      "name": "P0 Understanding Lab",
+      "sha": "bfd143c64dc57227b4e6892f02e68e675ccfeb72",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:51:44Z"
+    },
+    {
+      "id": 33819166185,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "238eba30fbee5c633a059043a13d80bde17dd263",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:49:01Z"
+    },
+    {
+      "id": 33819166133,
+      "name": "P0 Understanding Lab",
+      "sha": "238eba30fbee5c633a059043a13d80bde17dd263",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:50:55Z"
+    },
+    {
+      "id": 33818777517,
+      "name": "P0 Understanding Lab",
+      "sha": "f5920ca602d053e050a562a13ee744b06b7a366e",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:45:15Z"
+    },
+    {
+      "id": 33818777290,
+      "name": "Matrix-NLU One-Click Pipeline",
+      "sha": "f5920ca602d053e050a562a13ee744b06b7a366e",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-04T01:20:36Z"
+    },
+    {
+      "id": 33818635852,
+      "name": "P0 Understanding Lab",
+      "sha": "42e065cf80b7dcc5d0903733ed79b26fdded1122",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:43:40Z"
+    },
+    {
+      "id": 33818635726,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "42e065cf80b7dcc5d0903733ed79b26fdded1122",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:41:29Z"
+    },
+    {
+      "id": 33818277364,
+      "name": "P0 Understanding Lab",
+      "sha": "d2d455a33e5f725e0189010d081d0973aeb0b9a6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:38:18Z"
+    },
+    {
+      "id": 33818277359,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "d2d455a33e5f725e0189010d081d0973aeb0b9a6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:36:18Z"
+    },
+    {
+      "id": 33817056531,
+      "name": "P0 Understanding Lab",
+      "sha": "47866314cb646212904ade0ef9a62d7caa15fcc1",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:21:38Z"
+    },
+    {
+      "id": 33816068824,
+      "name": "P0 Understanding Lab",
+      "sha": "ce8c4acdc247fe789372e17c25361c6c1f4cd3bb",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:07:53Z"
+    },
+    {
+      "id": 33815787611,
+      "name": "P0 Understanding Lab",
+      "sha": "325737008772d2276dae3cd04066d21faebe0010",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:04:58Z"
+    },
+    {
+      "id": 33815709498,
+      "name": "P0 Understanding Lab",
+      "sha": "846748547f892b483effb85b8cf71cb62f669f6e",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:03:42Z"
+    },
+    {
+      "id": 33815613991,
+      "name": "P0 Understanding Lab",
+      "sha": "00101513a4ec1df8b825226451ba93d197fab94c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:02:17Z"
+    },
+    {
+      "id": 33815613927,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "00101513a4ec1df8b825226451ba93d197fab94c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:00:26Z"
+    },
+    {
+      "id": 33815504380,
+      "name": "P0 Understanding Lab",
+      "sha": "c5640655ff1febee043335406a85fb338b7a8b42",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T23:00:51Z"
+    },
+    {
+      "id": 33815504206,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "c5640655ff1febee043335406a85fb338b7a8b42",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T22:58:58Z"
+    },
+    {
+      "id": 33815343446,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "0f4dc7afe9daf09a6a0d53b577738a69a4f810d8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T22:56:48Z"
+    },
+    {
+      "id": 33815343409,
+      "name": "P0 Understanding Lab",
+      "sha": "0f4dc7afe9daf09a6a0d53b577738a69a4f810d8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T22:58:31Z"
+    },
+    {
+      "id": 33815110966,
+      "name": "P0 Understanding Lab",
+      "sha": "60e21e6cfe9cccd70f355a3fd6c040beb39f3853",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T22:55:13Z"
+    },
+    {
+      "id": 33814984495,
+      "name": "P0 Understanding Lab",
+      "sha": "093b49626d2581ad7d7be27b4fc6f800a423f429",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T22:53:29Z"
+    },
+    {
+      "id": 33814617275,
+      "name": "P0 Understanding Lab",
+      "sha": "c6b511076ac8a1474ffaa97012ec3ebb1ad00c35",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T22:48:58Z"
+    },
+    {
+      "id": 33814528873,
+      "name": "Matrix-NLU Evidence Extract",
+      "sha": "e5f9ea68cf4aa3c646dffe0023317731dedb62ee",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T22:46:20Z"
+    },
+    {
+      "id": 33814528780,
+      "name": "P0 Understanding Lab",
+      "sha": "e5f9ea68cf4aa3c646dffe0023317731dedb62ee",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T22:47:51Z"
+    },
+    {
+      "id": 33807093583,
+      "name": "P0 Understanding Lab",
+      "sha": "55a464b33df863da0f1aa1fddb8d12b805b2ed55",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T21:19:19Z"
+    },
+    {
+      "id": 33807052105,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "4d67aaf921bfa9cfa0e88cc274ba118f384ecd8d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T21:17:10Z"
+    },
+    {
+      "id": 33807052083,
+      "name": "P0 Understanding Lab",
+      "sha": "4d67aaf921bfa9cfa0e88cc274ba118f384ecd8d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T21:19:00Z"
+    },
+    {
+      "id": 33804637314,
+      "name": "P0 Understanding Lab",
+      "sha": "e9fc3778eceac029487e7d01ed6b49a55133de2f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:53:13Z"
+    },
+    {
+      "id": 33804575007,
+      "name": "P0 Understanding Lab",
+      "sha": "6d8d463f76a3ff7de292b947a5854d308d8a9c3c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:52:53Z"
+    },
+    {
+      "id": 33804574916,
+      "name": "Matrix-NLU One-Click Pipeline",
+      "sha": "6d8d463f76a3ff7de292b947a5854d308d8a9c3c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T22:42:32Z"
+    },
+    {
+      "id": 33804561934,
+      "name": "P0 Understanding Lab",
+      "sha": "078f979f1f11bc89bafdebf7900ca941aa9b2b63",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:53:19Z"
+    },
+    {
+      "id": 33804498375,
+      "name": "P0 Understanding Lab",
+      "sha": "f74679738af501e9ca823d3c4745e7a399ef0fce",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:51:46Z"
+    },
+    {
+      "id": 33804498340,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "f74679738af501e9ca823d3c4745e7a399ef0fce",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:50:03Z"
+    },
+    {
+      "id": 33803914583,
+      "name": "P0 Understanding Lab",
+      "sha": "faf85c3bb62c3af8ef7833459fcc3b7e4e7c144a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:46:01Z"
+    },
+    {
+      "id": 33803654320,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "6ff5c3959407f0304e725fadbb0f3a37376524ec",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T20:41:12Z"
+    },
+    {
+      "id": 33803654316,
+      "name": "P0 Understanding Lab",
+      "sha": "6ff5c3959407f0304e725fadbb0f3a37376524ec",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:43:31Z"
+    },
+    {
+      "id": 33803486184,
+      "name": "P0 Understanding Lab",
+      "sha": "ae883e7d25cc48040a762ac5c3d67c7ae73f4a3b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:41:33Z"
+    },
+    {
+      "id": 33802794340,
+      "name": "P0 Understanding Lab",
+      "sha": "36cd3ce1704fe16a2582fc5896eccb96fc189695",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:34:30Z"
+    },
+    {
+      "id": 33802563626,
+      "name": "Matrix-NLU Post-Training Gates",
+      "sha": "ffdbb224059ad27b7b544aa988e4cc2665a4159d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T20:33:52Z"
+    },
+    {
+      "id": 33802563595,
+      "name": "P0 Understanding Lab",
+      "sha": "ffdbb224059ad27b7b544aa988e4cc2665a4159d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:32:02Z"
+    },
+    {
+      "id": 33802535658,
+      "name": "P0 Understanding Lab",
+      "sha": "16754f79e26caa003679ffb70b512f6226c13627",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:32:00Z"
+    },
+    {
+      "id": 33793769115,
+      "name": "P0 Understanding Lab",
+      "sha": "40496a617cebb1c291347d86a71f2585eb9b0f94",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T19:02:42Z"
+    },
+    {
+      "id": 33793722841,
+      "name": "P0 Understanding Lab",
+      "sha": "07119f939a54b9fc99361dd439dda9811b13a245",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T19:01:26Z"
+    },
+    {
+      "id": 33793232803,
+      "name": "P0 Understanding Lab",
+      "sha": "9e7ec5fbde2254fbfe222b5b807c357d921859d8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:56:10Z"
+    },
+    {
+      "id": 33793144548,
+      "name": "P0 Understanding Lab",
+      "sha": "b7572c4c947fb771e6a87d1844ba0ec84f0ba60b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:55:33Z"
+    },
+    {
+      "id": 33792980170,
+      "name": "P0 Understanding Lab",
+      "sha": "be07a7a88d1a2137445e9a03a9205b23f56dee91",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:53:30Z"
+    },
+    {
+      "id": 33792928250,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "be3538a68e401727c2f56d77aedfda24c8b2e118",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:51:24Z"
+    },
+    {
+      "id": 33792928139,
+      "name": "P0 Understanding Lab",
+      "sha": "be3538a68e401727c2f56d77aedfda24c8b2e118",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:53:10Z"
+    },
+    {
+      "id": 33792699484,
+      "name": "P0 Understanding Lab",
+      "sha": "9de15a15d45f04ee742ed46779b31d686c51daa5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:51:06Z"
+    },
+    {
+      "id": 33792634749,
+      "name": "P0 Understanding Lab",
+      "sha": "a841a67e7586d8ec50b8876d42329636042b4a4e",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:51:55Z"
+    },
+    {
+      "id": 33792634718,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "a841a67e7586d8ec50b8876d42329636042b4a4e",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:48:21Z"
+    },
+    {
+      "id": 33792463251,
+      "name": "P0 Understanding Lab",
+      "sha": "1615fa4201773269df6b66da6f13cae449979bac",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:48:49Z"
+    },
+    {
+      "id": 33792398237,
+      "name": "P0 Understanding Lab",
+      "sha": "4c237fef443e1bd07c6ba34d31fc63012657e8a4",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:47:52Z"
+    },
+    {
+      "id": 33792398233,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "4c237fef443e1bd07c6ba34d31fc63012657e8a4",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:45:58Z"
+    },
+    {
+      "id": 33791989961,
+      "name": "P0 Understanding Lab",
+      "sha": "29fb7c1b0f5a4d02c90f4e6c98b51c6d19c20a3d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:43:47Z"
+    },
+    {
+      "id": 33791939617,
+      "name": "P0 Understanding Lab",
+      "sha": "a6818f971dc55ba2c5faf7f2eb3bb8d8e7d081f1",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:43:16Z"
+    },
+    {
+      "id": 33791826289,
+      "name": "P0 Understanding Lab",
+      "sha": "48d87865aca279c3984f6513ecd0b238d9610153",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:42:13Z"
+    },
+    {
+      "id": 33791709488,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "732725fd94241e8523cb6692f1a05cfd4b8a1ee7",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:38:50Z"
+    },
+    {
+      "id": 33791709413,
+      "name": "P0 Understanding Lab",
+      "sha": "732725fd94241e8523cb6692f1a05cfd4b8a1ee7",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:41:17Z"
+    },
+    {
+      "id": 33790546169,
+      "name": "P0 Understanding Lab",
+      "sha": "c2178b60586042fdb912a5c08459302ea50957c7",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:28:46Z"
+    },
+    {
+      "id": 33790325591,
+      "name": "P0 Understanding Lab",
+      "sha": "c32e4127861d1929af622017fe2189a6c6801fb3",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:26:49Z"
+    },
+    {
+      "id": 33790048168,
+      "name": "P0 Understanding Lab",
+      "sha": "3f9cfa1b8e60db875cdbd8fc405f94e0f81f6b36",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:24:35Z"
+    },
+    {
+      "id": 33789737458,
+      "name": "P0 Understanding Lab",
+      "sha": "a3d345db0543efd0ce42ae0fdc7ed4a92d8ee16b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:21:11Z"
+    },
+    {
+      "id": 33789564244,
+      "name": "P0 Understanding Lab",
+      "sha": "f350db0b02deba2032bb08725eb386a7effd9373",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:19:22Z"
+    },
+    {
+      "id": 33789538716,
+      "name": "P0 Understanding Lab",
+      "sha": "6e6a0c47c93be6f5e8b7dac04bdb4f38f47fb795",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:19:12Z"
+    },
+    {
+      "id": 33789519154,
+      "name": "P0 Understanding Lab",
+      "sha": "ea1655004d4fea31d8d911ab45d3c27e6f21dff3",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:19:09Z"
+    },
+    {
+      "id": 33789343332,
+      "name": "P0 Understanding Lab",
+      "sha": "cd335740bdb4a3203074353d06e60178a7ad2fd9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:17:39Z"
+    },
+    {
+      "id": 33789253154,
+      "name": "P0 Understanding Lab",
+      "sha": "2e965e6802cfaa37504f6c9586032c05396a320a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:16:20Z"
+    },
+    {
+      "id": 33789253142,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "2e965e6802cfaa37504f6c9586032c05396a320a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:14:20Z"
+    },
+    {
+      "id": 33789215389,
+      "name": "P0 Understanding Lab",
+      "sha": "4ef989f2a0fc0a0f246ef4e03f186b600cdb8e9a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:15:45Z"
+    },
+    {
+      "id": 33789001235,
+      "name": "P0 Understanding Lab",
+      "sha": "96535c4231db71fb0cbb26d0373fa661f19b295a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:13:55Z"
+    },
+    {
+      "id": 33788875651,
+      "name": "P0 Understanding Lab",
+      "sha": "c6d0f28b1179300e9ee147221333d75dd8d00391",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:12:45Z"
+    },
+    {
+      "id": 33788826475,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "781373ab899e5854401ceba0f1c7e1b31efa1fbd",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:10:40Z"
+    },
+    {
+      "id": 33788826397,
+      "name": "P0 Understanding Lab",
+      "sha": "781373ab899e5854401ceba0f1c7e1b31efa1fbd",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:12:12Z"
+    },
+    {
+      "id": 33788811769,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "781373ab899e5854401ceba0f1c7e1b31efa1fbd",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:09:46Z"
+    },
+    {
+      "id": 33788811689,
+      "name": "P0 Understanding Lab",
+      "sha": "781373ab899e5854401ceba0f1c7e1b31efa1fbd",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:11:59Z"
+    },
+    {
+      "id": 33788797255,
+      "name": "P0 Understanding Lab",
+      "sha": "16d53e55bdc419717ddda717e7fc00aae5690192",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:11:59Z"
+    },
+    {
+      "id": 33788557332,
+      "name": "P0 Understanding Lab",
+      "sha": "1545da449e558609120e98a976c4778468faebf0",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:09:14Z"
+    },
+    {
+      "id": 33788525444,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "b161d5dd1553207de7465b7bc1eb37606a002f1b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:07:01Z"
+    },
+    {
+      "id": 33788524991,
+      "name": "P0 Understanding Lab",
+      "sha": "b161d5dd1553207de7465b7bc1eb37606a002f1b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:09:08Z"
+    },
+    {
+      "id": 33788432273,
+      "name": "P0 Understanding Lab",
+      "sha": "9bc6fd53b5284b3711b523c1cea30033733cd185",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:08:00Z"
+    },
+    {
+      "id": 33788400465,
+      "name": "P0 Understanding Lab",
+      "sha": "2f6a603cce44b5d062731f1f99891df8fe640a19",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:08:00Z"
+    },
+    {
+      "id": 33788400322,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "2f6a603cce44b5d062731f1f99891df8fe640a19",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:05:45Z"
+    },
+    {
+      "id": 33788308297,
+      "name": "P0 Understanding Lab",
+      "sha": "ffc2de565c1d04968b932ab6f1eb5a05b4236c57",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:06:43Z"
+    },
+    {
+      "id": 33788308294,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "ffc2de565c1d04968b932ab6f1eb5a05b4236c57",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:04:49Z"
+    },
+    {
+      "id": 33788305677,
+      "name": "P0 Understanding Lab",
+      "sha": "9c1d3571845e6e3e5f108b0adfb4991a2ca39577",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:07:11Z"
+    },
+    {
+      "id": 33788258626,
+      "name": "P0 Understanding Lab",
+      "sha": "2c85ca19b5d1daefd11b44a939a2186893902883",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:06:40Z"
+    },
+    {
+      "id": 33788258318,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "2c85ca19b5d1daefd11b44a939a2186893902883",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:04:21Z"
+    },
+    {
+      "id": 33788088574,
+      "name": "P0 Understanding Lab",
+      "sha": "911977b3e1258bd94a1c4daffdb47f3848a99881",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:04:35Z"
+    },
+    {
+      "id": 33787895530,
+      "name": "P0 Understanding Lab",
+      "sha": "0477f7637f234ef817babacb8091f199f3c440e0",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:03:22Z"
+    },
+    {
+      "id": 33787831650,
+      "name": "P0 Understanding Lab",
+      "sha": "210efc5db9c08f20b9a412a95484f9af5d41ce96",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:02:19Z"
+    },
+    {
+      "id": 33787778894,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "44db7995ce28236d79e4552d17934b1164cdb6ac",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:59:36Z"
+    },
+    {
+      "id": 33787778695,
+      "name": "P0 Understanding Lab",
+      "sha": "44db7995ce28236d79e4552d17934b1164cdb6ac",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:01:45Z"
+    },
+    {
+      "id": 33787679031,
+      "name": "P0 Understanding Lab",
+      "sha": "968953a9b6dade4d039577f989f31292d959d1f8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:01:12Z"
+    },
+    {
+      "id": 33787637410,
+      "name": "P0 Understanding Lab",
+      "sha": "16b1a12216abd0c48b2ba258546e97460fbc0abf",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T18:00:13Z"
+    },
+    {
+      "id": 33787599674,
+      "name": "P0 Understanding Lab",
+      "sha": "39fa4127fcc99a770f52ff86a84e11f44b60bd4f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:59:32Z"
+    },
+    {
+      "id": 33787599620,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "39fa4127fcc99a770f52ff86a84e11f44b60bd4f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:57:39Z"
+    },
+    {
+      "id": 33787360330,
+      "name": "P0 Understanding Lab",
+      "sha": "faf3bb1ce278d12fea95377e7c418b207020a086",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:57:14Z"
+    },
+    {
+      "id": 33787244443,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "9027ff3f177a6fcde57e5324e9ad27c7c15de4d4",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:54:07Z"
+    },
+    {
+      "id": 33787244391,
+      "name": "P0 Understanding Lab",
+      "sha": "9027ff3f177a6fcde57e5324e9ad27c7c15de4d4",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:56:16Z"
+    },
+    {
+      "id": 33787180852,
+      "name": "P0 Understanding Lab",
+      "sha": "21e1de86fc0ecf8ce86d59b71ab89e2bccc827ea",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:55:33Z"
+    },
+    {
+      "id": 33786766806,
+      "name": "P0 Understanding Lab",
+      "sha": "8386b27060fdb204915e0a246d61640090688df2",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:51:24Z"
+    },
+    {
+      "id": 33786677349,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "37ef11c99785fb0fd56e99267f33e71d4c9e15e6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:48:28Z"
+    },
+    {
+      "id": 33786677296,
+      "name": "Matrix-NLU Training",
+      "sha": "37ef11c99785fb0fd56e99267f33e71d4c9e15e6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T20:26:38Z"
+    },
+    {
+      "id": 33786677289,
+      "name": "P0 Understanding Lab",
+      "sha": "37ef11c99785fb0fd56e99267f33e71d4c9e15e6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:51:46Z"
+    },
+    {
+      "id": 33785912634,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "de7cea4376d9a2bb7886e6ad6c6c10878541012f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:40:43Z"
+    },
+    {
+      "id": 33785912488,
+      "name": "P0 Understanding Lab",
+      "sha": "de7cea4376d9a2bb7886e6ad6c6c10878541012f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:42:32Z"
+    },
+    {
+      "id": 33785721399,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "ac723626bd36dbfdc03aa651d9728fc16292455b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:38:35Z"
+    },
+    {
+      "id": 33785721234,
+      "name": "P0 Understanding Lab",
+      "sha": "ac723626bd36dbfdc03aa651d9728fc16292455b",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:40:41Z"
+    },
+    {
+      "id": 33785421461,
+      "name": "P0 Understanding Lab",
+      "sha": "d8ef350ad723156cd6b8fd64509a64ae7575107c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:37:41Z"
+    },
+    {
+      "id": 33785421435,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "d8ef350ad723156cd6b8fd64509a64ae7575107c",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T17:35:35Z"
+    },
+    {
+      "id": 33784868087,
+      "name": "P0 Understanding Lab",
+      "sha": "c6875b9e492cd0827ada0bc27c9471dcd4454a21",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:32:17Z"
+    },
+    {
+      "id": 33784868028,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "c6875b9e492cd0827ada0bc27c9471dcd4454a21",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:30:11Z"
+    },
+    {
+      "id": 33784416259,
+      "name": "P0 Understanding Lab",
+      "sha": "0acef2f46b8827fa15bb033bddae9be10f9f9d1d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:27:41Z"
+    },
+    {
+      "id": 33784416207,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "0acef2f46b8827fa15bb033bddae9be10f9f9d1d",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T17:26:34Z"
+    },
+    {
+      "id": 33784241590,
+      "name": "Matrix-NLU Candidate Probe",
+      "sha": "19cc3542d6b0d65dd7332f94dd7e6bfed1c36c20",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T17:23:41Z"
+    },
+    {
+      "id": 33784241405,
+      "name": "P0 Understanding Lab",
+      "sha": "19cc3542d6b0d65dd7332f94dd7e6bfed1c36c20",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:25:55Z"
+    },
+    {
+      "id": 33784079607,
+      "name": "P0 Understanding Lab",
+      "sha": "d2a388b340ce5430395526880266182d06324a07",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:23:47Z"
+    },
+    {
+      "id": 33784078023,
+      "name": ".github/workflows/matrix-nlu-probe.yml",
+      "sha": "d2a388b340ce5430395526880266182d06324a07",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T17:21:34Z"
+    },
+    {
+      "id": 33783971394,
+      "name": "P0 Understanding Lab",
+      "sha": "6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:23:02Z"
+    },
+    {
+      "id": 33783967907,
+      "name": ".github/workflows/matrix-nlu-probe.yml",
+      "sha": "6bf5492fd4155e4e77b2a6e514a793f8e5e6c5ff",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T17:20:27Z"
+    },
+    {
+      "id": 33783070685,
+      "name": "P0 Understanding Lab",
+      "sha": "5b9bb591586c8bb03acb49d40dbb156d53bd5a95",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:15:52Z"
+    },
+    {
+      "id": 33782563956,
+      "name": "P0 Understanding Lab",
+      "sha": "cf6395b0fefc254febe3c804751ca4b048f974d1",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:08:53Z"
+    },
+    {
+      "id": 33782429036,
+      "name": "P0 Understanding Lab",
+      "sha": "cf1a7b990bf587f696a2e289fb7071a3e7cfa8ad",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:07:18Z"
+    },
+    {
+      "id": 33782234207,
+      "name": "P0 Understanding Lab",
+      "sha": "8f327b8a095531e6378b4c14c2b6a3c92ad02399",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:05:06Z"
+    },
+    {
+      "id": 33782141363,
+      "name": "P0 Understanding Lab",
+      "sha": "86cd30db7bb3b12f52bf70e198a38f29f961de10",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T17:04:27Z"
+    },
+    {
+      "id": 33781321112,
+      "name": "P0 Understanding Lab",
+      "sha": "47d9b15ce09af75d89e05677b39069ba6ede6cb8",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T16:55:49Z"
+    },
+    {
+      "id": 33781094968,
+      "name": "P0 Understanding Lab",
+      "sha": "84be3d3b2aef8d368ed518dd49d6060f806206f5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T16:52:14Z"
+    },
+    {
+      "id": 33781022848,
+      "name": "P0 Understanding Lab",
+      "sha": "cd801e169deb68170efc7592db948cc482dd17ca",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T16:52:12Z"
+    },
+    {
+      "id": 33780704730,
+      "name": "P0 Understanding Lab",
+      "sha": "263690efbe76fe05655909ccdcd4ce2c9fe0dfc6",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T16:49:12Z"
+    },
+    {
+      "id": 33780628361,
+      "name": "P0 Understanding Lab",
+      "sha": "bac46a43c7c2af7347b0405f4de170a12b9d4274",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T16:48:02Z"
+    },
+    {
+      "id": 33779836895,
+      "name": "P0 Understanding Lab",
+      "sha": "2a0ea18f0d6a47f1e4ca75256d501847a343f35a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T16:40:18Z"
+    },
+    {
+      "id": 33778894885,
+      "name": "P0 Understanding Lab",
+      "sha": "cfd46f909888653b435f8121a8de9ceb47774604",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T16:30:51Z"
+    },
+    {
+      "id": 33745833042,
+      "name": "P0 Understanding Lab",
+      "sha": "897ad9d0628c9e2c0bad91e426aabea2b0557cb9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:45:04Z"
+    },
+    {
+      "id": 33745451037,
+      "name": "P0 Understanding Lab",
+      "sha": "de377a7549d2eb58971f362c6e750b4f12a8647a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:40:50Z"
+    },
+    {
+      "id": 33745180436,
+      "name": "P0 Understanding Lab",
+      "sha": "d7087a4483a4feb70c3fac0cc85cda4bf1db62c9",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T10:38:40Z"
+    },
+    {
+      "id": 33744944026,
+      "name": "P0 Understanding Lab",
+      "sha": "7daf2c97b3941e007c6f5ede8ebf89e373017def",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T10:35:25Z"
+    },
+    {
+      "id": 33744635625,
+      "name": "P0 Understanding Lab",
+      "sha": "5fdbd63c8794ca070d19db22d0d82deb5a06140f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T10:32:21Z"
+    },
+    {
+      "id": 33744387249,
+      "name": "P0 Understanding Lab",
+      "sha": "0df3f2d27b1cfe2398fe9e986a348efcce596be5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:28:31Z"
+    },
+    {
+      "id": 33743677988,
+      "name": "P0 Understanding Lab",
+      "sha": "95bf64cc735225cfd13daeffa989ae3b904b2632",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:20:44Z"
+    },
+    {
+      "id": 33743608355,
+      "name": "P0 Understanding Lab",
+      "sha": "33b20fd075fe7ab14e5675c16c125736cda5577e",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:19:45Z"
+    },
+    {
+      "id": 33743338928,
+      "name": "P0 Understanding Lab",
+      "sha": "fa8b76b911321921a391845ccdbeda5177fe807f",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:16:52Z"
+    },
+    {
+      "id": 33743150708,
+      "name": "P0 Understanding Lab",
+      "sha": "b8d422ab4f1e5d2675d2cedfb3a1a93a6ab44853",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:14:39Z"
+    },
+    {
+      "id": 33742693112,
+      "name": "P0 Understanding Lab",
+      "sha": "a1f1d0627aa91982a63adfe01bb3df4d76b00562",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:09:44Z"
+    },
+    {
+      "id": 33742500395,
+      "name": "P0 Understanding Lab",
+      "sha": "5c120c4ac5f5fa6e33b95ee3885ddf9c62bd170a",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T10:07:09Z"
+    },
+    {
+      "id": 33742180143,
+      "name": "P0 Understanding Lab",
+      "sha": "6eaf847663e45a1eeecdcb1e37c6be7aeec288fb",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:04:13Z"
+    },
+    {
+      "id": 33741847531,
+      "name": "P0 Understanding Lab",
+      "sha": "b3516e9b994b08fdcaeb378d180c32d214023ac5",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "success",
+      "updated": "2026-09-03T10:00:50Z"
+    },
+    {
+      "id": 33741614127,
+      "name": "P0 Understanding Lab",
+      "sha": "2f6ac76d8121ad517e86ef2c1bf17839780c6bc2",
+      "branch": "main",
+      "status": "completed",
+      "conclusion": "failure",
+      "updated": "2026-09-03T09:57:38Z"
+    }
+  ],
+  "runCount": 302,
+  "runIDsEqualCP39c": true,
+  "historicalArtifactCount": 624,
+  "historicalArtifactSource": "reports/evidence/student5-path-b-cp39c-actions-recovery/inventory.json",
+  "newModelProbes": [],
+  "checkpointAuthenticated": false,
+  "guards": {
+    "trainingExecuted": false,
+    "quantizationExecuted": false,
+    "onnxExecuted": false,
+    "student5FP32Modified": false,
+    "trainV1Modified": false,
+    "trainV2Created": false,
+    "evaluatorModified": false,
+    "decoderModified": false,
+    "calibrationModified": false,
+    "nextWorkStarted": false,
+    "canonicalDevRead": false,
+    "frozenDataRead": false
+  }
+}
