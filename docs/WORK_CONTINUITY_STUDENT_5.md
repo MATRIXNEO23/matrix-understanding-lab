@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP37_TRAIN_CURRICULUM_REPAIR_REQUIRED / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
+Current state: `CP38_REPAIR_SPECIFICATION_BLOCKED_NEEDS_SUPERVISOR_DECISION / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -306,3 +306,55 @@ background work / launched workflows = none
 CP36 GATE_B_READINESS remains BLOCKED by missing permitted V3 DEV identity and incomplete V3 evaluation/calibration/error-analysis path. This assignment did not investigate or repair those payloads/pipelines. Broader pending training, candidate lock/export/quantization/runtime and final authorized Frozen policy remain exactly as preserved in CP36, outside this task.
 
 Exact next disposition: return this audit to Supervisor GPT, stop and await the next assignment. Technical details are directed to Supervisor GPT; Alberto requested only plain progress/impediment updates.
+
+
+## Checkpoint 38 — conservative TRAIN repair specification; Supervisor decisions required
+
+Date: 2026-09-07. Repository: `MATRIXNEO23/matrix-understanding-lab`; branch: `student5-path-b-v3`.
+Starting HEAD: `6cd1fac17bdceca742a8bf2932e0872ee5907601`, verified before execution.
+Assignment: `prompts/WORK_STUDENT_5_PATH_B_V3_TRAIN_REPAIR_SPECIFICATION_ONLY.md`.
+Issuer/reviewer: Supervisor GPT; final owner authority: Alberto; executor: ChatGPT Work.
+Final delivery HEAD: immutable introducing commit of `reports/STUDENT_5_TRAIN_REPAIR_SPECIFICATION_CP38.md`; resolve `git log -1 --format=%H -- reports/STUDENT_5_TRAIN_REPAIR_SPECIFICATION_CP38.md`. Exact SHA is reported in the remotely verified handoff. The assignment prompt refers internally to accepted predecessor CP37; the explicit owner starting HEAD governs this execution, without rollback.
+
+**REPAIR_SPECIFICATION = BLOCKED_NEEDS_SUPERVISOR_DECISION**
+
+Specification completed for substantive review, not applied. Report: `reports/STUDENT_5_TRAIN_REPAIR_SPECIFICATION_CP38.md`.
+Repair specification ID: `student5-v3-train-repair-spec-cp38-v1`.
+Evidence: `reports/evidence/student5-path-b-cp38-repair-spec/` with24 issue dispositions,11 overlapping annotation groups,7 precise semantic decisions, source identities, design verification and checksums.
+
+Preserved source: CP37 at `e81a2ae9e1d60c6af61a7d8d1baabed9171f3166`; all140 inspected input identities match current Git metadata, including130 TRAIN artifact files. Only documentation/CP37 evidence payloads were read in CP38. No raw TRAIN shard or model was loaded and no CP37 target-building audit was rerun. The628 explicit-English-I group and404 implicit-subject group have20 stored sample IDs each, not complete persisted row catalogs; the specification preserves exact selectors and requires complete enumeration only in a future authorized repair.
+
+Immutable base remains `student5-matrix-nlu-v3-train-v1`, `data/student5_v3/`,3150 rows3990 claims, ordered SHA-256 `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`, migration manifest SHA `87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98`, V3 fingerprint `7b0646e44243ad897760c0fcadbe141f1b8e88e3fd8d63a1789106571b9987b0`. Canonical model/release recovery remains CP35b; no model artifact was created or acquired here.
+
+Future proposal only: `student5-matrix-nlu-v3-train-v2`, distinct directory `data/student5_v3_train_v2/`; NOT CREATED, no new dataset bytes/checksum/registry entry. Proposed lineage requires base identity, accepted specification/decision commit, changed/added/deactivated/unchanged row manifests, provenance aliases, file/ordered checksums and language/family/head census. V1 remains immutable and recoverable.
+
+Review decisions remaining:
+- D01: temporal target for present desire/future desired action,23 existing cases and competing template convention.
+- D02: attributed viewpoint in8 reported desires; no source→perspective copying rule.
+- D03: BELIEF versus DIRECT for6 opinion wrappers.
+- D04: exclude/quarantine versus explicitly justified repair of6 malformed participant requests; separately review3 reflexives.
+- D05: metalinguistic Spanish No in a flat positive correction, cue preservation versus polarity/status/atomic-scope treatment.
+- D06: genuine no-claim observation semantics/schema versus unresolved/abstained claim before any such coverage.
+- D07: semantically valid owner≠semantic-subject and source≠perspective constructions within fixed flat V3; no forced all-role inequality.
+
+Other proposed review items: approved missing teaching families/languages and deterministic exact-context/gold-equivalence selection with complete aliases. No blind near-duplicate deletion, numerical training quotas, sampler/loss/optimizer policy or gate changes. Confirmed span corrections, preserved valid fields, false-positive negation screens and unresolved policy cases remain separately identified. Historical Student-4 failures are evidence; recurrence is plausible and causation/pristine damage unestablished.
+
+```text
+TRAIN raw payload read in CP38 = false (CP37 evidence reviewed)
+TRAIN v1 modified / TRAIN v2 created = false
+DEV read / created / modified = false
+Frozen payload read / modified = false
+training / optimizer / backprop / fine-tuning / model load = NOT_EXECUTED
+augmentation / row relabel / row deletion / remediation = NOT_EXECUTED
+evaluator / decoder / threshold change = false
+Gate A / TASK 2.3 repeated = false
+Student-4 / Path A / pristine / prior artifacts = UNCHANGED
+quantization / Assembling / production promotion = NOT_EXECUTED
+workflow launched / active background work = none
+GATE_B_READINESS = BLOCKED (CP36 unchanged)
+NEXT TASK READY for repair execution or training = false
+```
+
+Exact next action: Supervisor GPT reviews the complete CP38 report and records semantic decisions plus owner-approved repair scope. ChatGPT Work stops and awaits a separate assignment. No implementation or later work is authorized by this specification. CP36 DEV identity/evaluator/calibration/error-analysis blockers remain open; broader training/candidate lock/export/quantization/runtime/final controlled Frozen work remains unexecuted as documented above, not a next action for this task.
+
+Persistent recovery: fetch CP38 report/evidence and this continuity through authenticated GitHub at the final introducing commit, verify SHA256SUMS and input identities. These text inputs were successfully acquired by that connector in CP38; scratch is not the canonical copy. Final tree/readback verification supports the handoff. Technical findings are addressed to Supervisor GPT; Alberto receives only plain status/impediment information.

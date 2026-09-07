@@ -1,0 +1,62 @@
+{
+  "blockingSemanticDecisions": [
+    {
+      "id": "D01",
+      "affects": "A02 / R09",
+      "question": "For goal.object with present wanting and a later desired action, which event/state does the single temporalRelation describe? How must conflicting legacy FUTURE templates be treated?",
+      "recommendationNotDecision": "Choose one explicit linguistic convention for all languages; preserve temporal surface evidence regardless. Do not mass-relabel adverb matches. Until decided, affected targets excluded/quarantined from a future candidate, with justification.",
+      "status": "AWAITING_SUPERVISOR_OWNER"
+    },
+    {
+      "id": "D02",
+      "affects": "A03 / R18",
+      "question": "For the eight reported desires, is perspective the attributed person as in V3 Anna-said, rather than inherited ctx:speaker? What wording establishes a different viewpoint than source?",
+      "recommendationNotDecision": "Recommend attributed holder for supported cases; require per-row signoff and distinct evidence for source/perspective. No automatic copying.",
+      "status": "AWAITING_SUPERVISOR_OWNER"
+    },
+    {
+      "id": "D03",
+      "affects": "A04 / R19",
+      "question": "Which of six consider/considero clauses are overt holder-marked opinion/BELIEF versus lexicalized DIRECT evaluation?",
+      "recommendationNotDecision": "Apply V3 BELIEF when propositional opinion wrapper is actually present; document approved linguistic boundary. No keyword-only decision.",
+      "status": "AWAITING_SUPERVISOR_OWNER"
+    },
+    {
+      "id": "D04",
+      "affects": "A06/A07 / R20",
+      "question": "For six doubled-participant requests, approve exclusion or specify intended participants/text repair? For three reflexive requests, is current participant binding valid?",
+      "recommendationNotDecision": "Recommend quarantine of the six malformed instances rather than guessing intent; separately adjudicate the three reflexives. No removal or rewrite performed.",
+      "status": "AWAITING_SUPERVISOR_OWNER"
+    },
+    {
+      "id": "D05",
+      "affects": "A09 / R21",
+      "question": "Does initial metalinguistic No attach safely to the flat positive correction or require an unresolved/abstained proposition?",
+      "recommendationNotDecision": "Preserve cue; never automatically flip positive corrected content. Approve exact boundary/polarity/status convention before reuse.",
+      "status": "AWAITING_SUPERVISOR_OWNER"
+    },
+    {
+      "id": "D06",
+      "affects": "R23",
+      "question": "Does current V3 permit genuine no-claim observations, and how are those distinguished from speech.unresolved or abstained claims?",
+      "recommendationNotDecision": "Do not introduce empty-gold examples until schema/semantic interpretation is approved; this optional coverage cannot silently alter V3.",
+      "status": "AWAITING_SUPERVISOR_OWNER"
+    },
+    {
+      "id": "D07",
+      "affects": "R04/R18",
+      "question": "Which constructions under fixed V3 support owner different from semantic subject, and source different from perspective, while remaining faithful flat atomic claims?",
+      "recommendationNotDecision": "Do not force all five roles unequal. Approve linguistic definitions/representable families; use already-supported reporter≠embedded-subject and non-speaker-viewpoint cases, but do not claim those alone establish owner≠subject or source≠perspective.",
+      "status": "AWAITING_SUPERVISOR_OWNER"
+    }
+  ],
+  "separateApprovalItems": [
+    "Scope/languages of proposed missing families",
+    "Deterministic exact-equivalence selection policy and any deactivations",
+    "Approval to implement a new TRAIN version in a later assignment"
+  ],
+  "gateBReadinessBlockersRemain": [
+    "Permitted DEV V3 identity unavailable at CP36",
+    "V3 evaluation/decoder/calibration/error-analysis gaps; not examined or repaired here"
+  ]
+}

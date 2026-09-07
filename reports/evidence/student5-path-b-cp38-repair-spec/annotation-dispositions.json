@@ -1,0 +1,598 @@
+{
+  "status": "DESIGN_ONLY_NO_REPLACEMENT_GOLD",
+  "groupsOverlap": true,
+  "doNotSumCounts": true,
+  "groups": [
+    {
+      "annotationGroupId": "A01",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/review-evidence.json#/heuristicReviewScreens/temporalCatalogMissing",
+      "count": 6,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v2-train-it-generalization-known_third_party-002",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-067",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-072",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-077",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-082",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-087",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "CORRECT_IN_FUTURE_V2",
+      "reason": "Restore six explicit temporal evidence spans only; five relation decisions overlap A02.",
+      "decisionId": null,
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A02",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/semantic-review.json#/groups/futureWordingCurrentRelation",
+      "count": 23,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v22a-en-core-002",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-en-core-007",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-en-core-012",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-en-core-017",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-en-core-022",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-en-core-027",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-en-core-032",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-en-core-037",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-003",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-009",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-015",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-021",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-027",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-033",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-039",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-045",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-051",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-057",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-067",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-072",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-077",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-082",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-087",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "NEEDS_SUPERVISOR_SEMANTIC_DECISION",
+      "reason": "Time of wanting versus desired action; no new relation gold chosen.",
+      "decisionId": "D01",
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A03",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/semantic-review.json#/groups/reportedPerspective",
+      "count": 8,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v22a-it-core-113",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-115",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-117",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-119",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-121",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-123",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-125",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-127",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "NEEDS_SUPERVISOR_SEMANTIC_DECISION",
+      "reason": "Reported viewpoint versus inherited speaker perspective; no source-copy rule.",
+      "decisionId": "D02",
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A04",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/semantic-review.json#/groups/opinionWrapperReview",
+      "count": 6,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v2-train-en-attribute-00",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v2-train-en-generalization-negative_preference-005",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v2-train-es-attribute-00",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v2-train-es-generalization-negative_preference-000",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v2-train-it-attribute-00",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v2-train-it-generalization-negative_preference-005",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "NEEDS_SUPERVISOR_SEMANTIC_DECISION",
+      "reason": "Overt opinion versus lexicalized direct evaluation.",
+      "decisionId": "D03",
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A05",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/semantic-review.json#/groups/explicitFirstPersonMissingSubject",
+      "count": 628,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-train-en-00003",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00010",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00011",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00012",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00013",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00019",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00021",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00024",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00027",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00028",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00033",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00038",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00039",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00040",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00048",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00055",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00056",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00057",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00058",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-en-00064",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": false,
+      "actionInFutureV2Only": "CORRECT_IN_FUTURE_V2",
+      "reason": "Restore explicit English I subject evidence after row/offset review, preserving other justified fields.",
+      "decisionId": null,
+      "exactSelectionRule": "Exact CP37 selector from review_semantics.py: language=='en', re.match(r'^I\\b', claim text), empty subjectSpans. Count628; CP37 persisted first20 IDs only. Future authorized executor must enumerate complete group from pinned v1; do not treat these20 as full manifest.",
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A06",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/semantic-review.json#/groups/malformedDoubleConTeConMe",
+      "count": 6,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v22a-adult-it-016",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-017",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-018",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-024",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-028",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-029",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "NEEDS_SUPERVISOR_SEMANTIC_DECISION",
+      "reason": "Recommend quarantine/exclusion until intended participants are decided; no automatic rewrite.",
+      "decisionId": "D04",
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A07",
+      "cp37Evidence": "reports/STUDENT_5_TRAIN_CURRICULUM_AUDIT_CP37.md section3.7",
+      "count": 3,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v22a-adult-it-015",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-025",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-026",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "NEEDS_SUPERVISOR_SEMANTIC_DECISION",
+      "reason": "Reflexive request forms with external target: linguistic review, not automatically malformed.",
+      "decisionId": "D04",
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A08",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/semantic-review.json#/groups/codeSwitchUnresolved",
+      "count": 11,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v22a-adult-it-049",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-050",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-051",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-052",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-053",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-054",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-055",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-056",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-057",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-058",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-059",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "CORRECT_IN_FUTURE_V2",
+      "reason": "Clear desire wording should use covered goal semantics after individual review; not an all-code-switch conversion rule.",
+      "decisionId": null,
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A09",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/review-evidence.json#/heuristicReviewScreens/cueCatalogMismatch",
+      "count": 1,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v2-train-es-generalization-dialogue_correct-005",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "NEEDS_SUPERVISOR_SEMANTIC_DECISION",
+      "reason": "Metalinguistic No cue must be preserved; proposition/flat-scope polarity status requires decision.",
+      "decisionId": "D05",
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A10",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/review-evidence.json#/heuristicReviewScreens/cueCatalogMismatch",
+      "count": 8,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-v22a-adult-it-007",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-020",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-adult-it-033",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-067",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-072",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-077",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-082",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-v22a-it-core-087",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": true,
+      "actionInFutureV2Only": "KEEP_UNCHANGED",
+      "reason": "Negation false positives only; five temporal omissions still corrected separately under A01.",
+      "decisionId": null,
+      "exactSelectionRule": null,
+      "applied": false
+    },
+    {
+      "annotationGroupId": "A11",
+      "cp37Evidence": "reports/evidence/student5-path-b-cp37-train-audit/semantic-review.json#/groups/implicitFirstPersonBoundedScreen",
+      "count": 404,
+      "storedExampleIds": [
+        {
+          "rowId": "mx-train-es-00024",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00028",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00038",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00039",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00069",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00073",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00083",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00084",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00114",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00118",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00128",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00129",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00159",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00163",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00173",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00174",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00204",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00208",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00218",
+          "claimId": "c0"
+        },
+        {
+          "rowId": "mx-train-es-00219",
+          "claimId": "c0"
+        }
+      ],
+      "storedIdsAreComplete": false,
+      "actionInFutureV2Only": "KEEP_UNCHANGED",
+      "reason": "404 IT/ES implicit-subject cases comply for subject evidence/pointer; not blanket certification of every other field.",
+      "decisionId": null,
+      "exactSelectionRule": "Bounded CP37 IT/ES prefix selector in review_semantics.py; first20 IDs persisted, full count404. No rerun needed for this design task.",
+      "applied": false
+    }
+  ]
+}
