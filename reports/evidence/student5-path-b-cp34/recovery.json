@@ -1,0 +1,23 @@
+{
+  "checkpoint": "CP34",
+  "repository": "MATRIXNEO23/matrix-understanding-lab",
+  "branch": "student5-path-b-v3",
+  "sourceHead": "955961d2e7907875312d599c7d2d8307bac81f66",
+  "releaseTag": "student-5-minilm-40k-phase-a-pristine",
+  "releaseId": 383143636,
+  "assetId": 545406840,
+  "filename": "student5-minilm-phase-a-pruned-40k.zip",
+  "bytes": 88361246,
+  "sha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "acquisition": "Authenticated Work Cloud Browser GitHub Release UI asset click; shared download directory; independent archive/internal hash verification",
+  "verifiedAt": "2026-09-07T05:21:38Z",
+  "zipIntegrity": "PASS",
+  "internalChecksums": "17/17 PASS",
+  "manifestPayloads": "6/6 PASS",
+  "trainChecksums": "129/129 PASS",
+  "modelSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+  "localExecutionCopy": "/workspace/scratch/0a50431faa34/student5-path-b/pristine/model",
+  "localCopyDurable": false,
+  "trainingExecuted": false,
+  "frozenRead": false
+}

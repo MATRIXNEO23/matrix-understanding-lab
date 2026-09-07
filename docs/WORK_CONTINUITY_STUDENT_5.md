@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `OWNER_AUTHORIZED_RESUME_AFTER_CP32 / WORK_RESTART_REQUIRED`
+Current state: `A1_VERIFIED / A2_RUNTIME_PREPARATION_IN_PROGRESS`
 
 ## Preserved history
 
@@ -113,3 +113,41 @@ OWNER: relaunch/continue Work using prompts/WORK_STUDENT_5_PATH_B_V3_RESUME_CP32
 WORK: resume at A1 authenticated acquisition, then continue gates automatically on PASS
 SUPERVISOR: verify repository-visible results before accepting any gate
 ```
+
+## Checkpoint 34 — Work A1 recovered and independently verified
+
+Date: 2026-09-07T05:21:38Z. Executor: this interactive Codex Work session.
+Branch: `student5-path-b-v3`. Execution HEAD start: `955961d2e7907875312d599c7d2d8307bac81f66`.
+Execution directory: `/workspace/scratch/0a50431faa34/student5-path-b`.
+Sources are a selective, SHA-pinned snapshot from the GitHub connector, not a local Git checkout. Repository tree has no AGENTS.md.
+
+The prescribed Cloud Browser route was actually used. The logged-in GitHub Release UI exposed asset `student5-minilm-phase-a-pruned-40k.zip`; clicking it delivered the 88,361,246-byte file to shared scratch. The browser download-event waiter timed out after 3 seconds, but the completed file was independently located and verified; no second download or credential extraction was used.
+
+```text
+A1 pristine acquisition = PASS
+archive SHA-256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191
+archive ZIP integrity = PASS
+internal SHA256SUMS = 17/17 PASS
+candidate manifest payload bytes/SHA = 6/6 PASS
+model bytes = 148020400
+model SHA-256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2
+mapping SHA-256 = da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9
+SentencePiece SHA-256 = 748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78
+candidate manifest SHA-256 = a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d
+TRAIN v1 per-file SHA256SUMS = 129/129 PASS
+TRAIN v1 ordered shard SHA-256 = 1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e
+TRAIN migration manifest SHA-256 = 87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98
+TASK 2.3 = ACCEPTED / NOT REPEATED
+A2 physical BERT/V3 forward = NEXT / NOT YET EXECUTED
+A3 physical ONNX = NOT YET EXECUTED
+A4 output publication = NOT YET EXECUTED
+training / optimizer / backprop / quantization = NOT EXECUTED
+DEV / Frozen = UNREAD
+pristine / Path A / Student-4 / TRAIN v1 / previous versions = UNCHANGED
+```
+
+Recovery map: `reports/evidence/student5-path-b-cp34/recovery.json`. Canonical durable input remains Release 383143636, asset 545406840; scratch is an execution copy only. The same logged-in Release UI is the verified acquisition route for a fresh executor with that authentication. Never infer availability of this login in another session without checking.
+
+Isolated runtime installation is in progress, using the repository's physical-probe pins (Torch 2.4.1+cpu, Transformers 4.44.2, ONNX 1.16.2, ORT 1.19.2; NumPy 1.26.4). No model operation has started.
+
+Exact remaining work: finish pinned runtime; A2 real pristine BERT/tokenizer and existing V3 adapter forward; A3 export via existing V3 contract, checker/runtime load/forward, all 17 tensors, masks/dynamic axes/fingerprint/numerical parity; A4 new immutable retained output and registry/checksum/readback. On Gate-A PASS, identify permitted V3 DEV and gate/evaluator compatibility before training, then the original Gate B–E sequence. All CP33 guards and previously recorded coverage gaps remain open. No Assembling integration or promotion.
