@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP39B_ORIGINAL_TRAIN_V2_NOT_FOUND_IN_ACCESSIBLE_SURFACES / TRAIN_V2_REPAIR_BLOCKED / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
+Current state: `CP40_STUDENT5_TRAINED_FP32_AUTHENTICATION_BLOCKED / TRAIN_V2_REPAIR_BLOCKED / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -436,3 +436,24 @@ Evidence: reports/evidence/student5-path-b-cp39c-actions-recovery/inventory.json
 trainingExecuted=false; canonicalDevRead=false; frozenDataRead=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; quantizationExecuted=false; onnxExecuted=false; trainV2Recreated=false; nextWorkStarted=false.
 
 STOP and await Supervisor GPT. No recreation or training authorized. Prior candidate identity hints and CP38 D01–D07 remain historical inputs, not recovery. CP36 DEV/evaluation blockers and all broader Path B work remain pending and untouched. Other non-Actions CP39b access limitations (pruned storage, remote unreachable Git objects, host backups) are unchanged and outside this targeted assignment.
+
+
+## Checkpoint 40 — requested trained Student-5 FP32 cannot be authenticated; STOP
+
+Date: 2026-09-07. Branch student5-path-b-v3. Starting HEAD 33077f1fecbf676553d3753eaafedeca33e67f1e. Final HEAD: introducing commit of reports/STUDENT_5_FP32_AUTHENTICATION_BLOCKED_CP40.md; exact SHA provided after remote verification.
+
+STUDENT5_FP32_ANALYSIS = BLOCKED. The analysis-only assignment ends at Phase 1 because the requested already-trained Student-5 Matrix-NLU FP32 checkpoint has no authenticated locator/filename/bytes/SHA256/training lineage in checked sources. Do not substitute pristine, Path A, CP35 untrained heads or Student-4. This is not a global nonexistence claim.
+
+Read current continuity and both archives, registry, Phase-A quality dossier, CP37/CP38 reports and CP39c historical Actions inventory. Fresh metadata lists three Releases (pristine, Path-A untaught, CP35 untrained), two branches and 302 runs over four pages, same run IDs as CP39c. No new binary acquisition/probe/model execution. The Phase-A quality report expressly records matrixHeadsTrained=false; CP35 is mechanics only; CP37/CP38 are curriculum/risk/design evidence, not trained Student-5 behavior.
+
+HISTORICAL_EVIDENCE source map, excluded artifact identities and current metadata: reports/evidence/student5-fp32-authentication-cp40/authentication.json. NEW_REPRODUCED_ANALYSIS = none. Substantive report: reports/STUDENT_5_FP32_AUTHENTICATION_BLOCKED_CP40.md; SHA256SUMS covers report/evidence/continuity. Historical reports remain preserved at their exact paths and source blob IDs; no need to rediscover their meaning next session.
+
+D01–D07 remain approved/unchanged; every empirical Student-5 mapping is unavailable because authentication failed. No new TRAIN v2 specification or dataset generated. Learned capabilities/errors/regressions are not established. Do not claim Student-5 training from upstream pretraining, FP32 format, pruning or forward/parity tests.
+
+Missing for continuation: original trained Student-5 durable checkpoint locator, artifact identity/bytes/SHA256, training run/source/TRAIN lineage and historical pre-quantization results. Supervisor must reconcile this missing identity with the documented NOT_STARTED training status before a new continuation assignment. This checkpoint does not authorize training or reconstruction. CP39c recovery remains NOT_FOUND in queried Actions surfaces; prior CP36 DEV/evaluator/calibration/error-analysis blockers and broader Path B sequence remain pending exactly as preserved above.
+
+trainingExecuted=false; quantizationExecuted=false; onnxExecuted=false; student5FP32Modified=false; trainV1Modified=false; trainV2Created=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; nextWorkStarted=false; canonicalDevRead=false; frozenDataRead=false.
+
+STOP and await Supervisor GPT. No active model job or workflow was launched by this assignment.
+
+CP40 delivery recovery: the preceding execution stopped after preparing three local files; no CP40 commit had been published. Recovery verified unchanged starting HEAD 33077f1fecbf676553d3753eaafedeca33e67f1e and all six source blob identities, retained those files, added the Phase 0 audit and completed permanent publication/checksum/readback. Local git status exits 128 because the delivery is an API snapshot, not a Git checkout. Do not interpret the intervening read-only monitor response as completion of the analysis assignment. Phases 2–5 remain unexecuted because Phase 1 cannot authenticate a trained Student-5 checkpoint. This recovery completes the BLOCKED handoff only; no additional analysis or training authority is implied.
