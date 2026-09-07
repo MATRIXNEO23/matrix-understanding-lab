@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP40_STUDENT5_TRAINED_FP32_AUTHENTICATION_BLOCKED / TRAIN_V2_REPAIR_BLOCKED / GATE_B_READINESS_BLOCKED / SUPERVISOR_GPT_REVIEW`
+Current state: `CP41_PRISTINE_AUTHENTICATED_PROBED / FULL_SEMANTIC_ANALYSIS_BLOCKED / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -457,3 +457,20 @@ trainingExecuted=false; quantizationExecuted=false; onnxExecuted=false; student5
 STOP and await Supervisor GPT. No active model job or workflow was launched by this assignment.
 
 CP40 delivery recovery: the preceding execution stopped after preparing three local files; no CP40 commit had been published. Recovery verified unchanged starting HEAD 33077f1fecbf676553d3753eaafedeca33e67f1e and all six source blob identities, retained those files, added the Phase 0 audit and completed permanent publication/checksum/readback. Local git status exits 128 because the delivery is an API snapshot, not a Git checkout. Do not interpret the intervening read-only monitor response as completion of the analysis assignment. Phases 2–5 remain unexecuted because Phase 1 cannot authenticate a trained Student-5 checkpoint. This recovery completes the BLOCKED handoff only; no additional analysis or training authority is implied.
+
+
+## Checkpoint 41 — corrected pristine authenticated and probed; full analysis BLOCKED
+
+Starting HEAD 3bb4d42010c254785b02a327a0469c3d16c4902a; branch student5-path-b-v3. Final HEAD is the introducing commit of reports/STUDENT_5_PRISTINE_ANALYSIS_CP41.md, supplied after remote readback. Corrected Supervisor assignment selects PRISTINE; CP40 trained-subject premise is historical, not the current blocker.
+
+STUDENT5_PRISTINE_ANALYSIS = BLOCKED. Authentication succeeds: surviving CP34 archive freshly hashed against live Release 383143636 / asset 545406840, canonical archive/model hashes above; 17/17 internal checks match. Physical FP32 inference executed: 33 authored contrast pairs / 64 texts / IT EN ES / 0 UNK / finite vectors / repeat delta 0 / 36,999,552 parameters / no missing or unexpected weights. Model SHA before/after unchanged. No fresh binary download is claimed; canonical durable source and authenticated Release UI acquisition route remain as documented above.
+
+Report: reports/STUDENT_5_PRISTINE_ANALYSIS_CP41.md. Evidence: reports/evidence/student5-pristine-analysis-cp41/ containing PLAN.md, probe.py, probes.json, results.json (complete vectors/token IDs/pair scores), provenance.json, historical-summary.json, SHA256SUMS. Reproduction: recover canonical archive via authenticated Release UI, verify declared hashes, extract model/, install Torch 2.4.1+cpu Transformers 4.44.2 NumPy 1.26.4 sentencepiece protobuf; run python probe.py <model directory>. No protected data dependency.
+
+Participant swaps have pooled cosine 0.996815–0.999367; attribution/viewpoint swaps 0.999045–0.999598. These are representation risks, NOT semantic binding accuracy. Bare pristine has no Matrix-NLU readout; full semantic capability/error diagnosis and owner-role independence remain unestablished. All D01–D07 mapped with coverage limits in report; provisional future-training requirements only. No row-level TRAIN v1 reuse certified. Historical pruning evidence remains separately classified.
+
+Remaining: Supervisor review of actual evidence and further semantic-analysis method/scope; representative coverage and validated semantic readout missing. CP36 DEV/evaluator/calibration blockers and lost TRAIN v2 recovery remain untouched. No active model job remains. No training/dataset creation/ONNX/quantization or next work authorized.
+
+trainingExecuted=false; trainV2Created=false; quantizationExecuted=false; onnxExecuted=false; student5PristineModified=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; nextWorkStarted=false; canonicalDevRead=false; frozenDataRead=false.
+
+STOP and await Supervisor GPT.

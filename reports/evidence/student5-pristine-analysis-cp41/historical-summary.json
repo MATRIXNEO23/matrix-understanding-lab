@@ -1,0 +1,592 @@
+{
+  "classification": "HISTORICAL_EVIDENCE",
+  "source": "canonical archive/evidence/student5-deep-pruning-manifest.json",
+  "sourceSha256": "3a38328d9c6df7974fb3975c040f3deff085b4fa69f3f1e5f633aa7781eb4cf1",
+  "probe": {
+    "source": "PROJECT_AUTHORED_SEPARATE_TRAINING_SAFE_PROBE",
+    "records": 95,
+    "contrastPairs": 36,
+    "selectionCorpusOverlapChecked": true,
+    "selectionCorpusExactTextOverlap": 0,
+    "canonicalDevUsed": false,
+    "frozenUsed": false
+  },
+  "policy": {
+    "phase": "A_ONLY",
+    "teachingExecuted": false,
+    "matrixHeadsTrained": false,
+    "quantizationExecuted": false,
+    "canonicalDevRead": false,
+    "frozenDataRead": false,
+    "frozenDataTokenized": false,
+    "frozenDataAnalyzed": false,
+    "student4V22AChanged": false,
+    "productionPromotionExecuted": false
+  },
+  "candidate": {
+    "targetVocabSize": 40000,
+    "actualTokenizerLength": 40000,
+    "embeddingParameters": 15360000,
+    "totalParameters": 36999552,
+    "parameterReductionPercent": 68.55217206827899,
+    "modelFp32Bytes": 148020400,
+    "artifactDirectoryBytes": 150116913,
+    "estimatedMixedHeadProtectedInt8Bytes": 83854848,
+    "tokenizerBytes": 885726,
+    "mappingSha256": "da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9",
+    "modelSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+    "sentencePieceSha256": "748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78",
+    "specialTokenIds": {
+      "bos": 0,
+      "pad": 1,
+      "eos": 2,
+      "unk": 3,
+      "mask": 39999
+    },
+    "observedSelectionPiecesRetained": true,
+    "tokenizerModelAlignment": "PASS",
+    "saveReloadIntegrity": "PASS",
+    "nonEmbeddingWeightsUnchanged": true,
+    "files": [
+      {
+        "path": "candidate-manifest.json",
+        "bytes": 18213,
+        "sha256": "a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d"
+      },
+      {
+        "path": "config.json",
+        "bytes": 687,
+        "sha256": "447f6d16a312069ceaf1c9b36dda10cf3327f30d8b83dfba02397b5579c7c504"
+      },
+      {
+        "path": "model.safetensors",
+        "bytes": 148020400,
+        "sha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2"
+      },
+      {
+        "path": "sentencepiece.bpe.model",
+        "bytes": 884247,
+        "sha256": "748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78"
+      },
+      {
+        "path": "special_tokens_map.json",
+        "bytes": 280,
+        "sha256": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+      },
+      {
+        "path": "token-id-remap.json",
+        "bytes": 1210100,
+        "sha256": "da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "bytes": 1199,
+        "sha256": "3d2c97bf6696333c33eec6c8c04a8d8731e8f143fadf641240f6d23345c70060"
+      }
+    ],
+    "coverage": {
+      "adult_category_anatomy": {
+        "sentences": 3,
+        "tokens": 58,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 19.333333333333332,
+        "p95TokensPerSentence": 21.0,
+        "aggregateInflationVsOriginal": 1.0175438596491229,
+        "meanSentenceInflationVsOriginal": 1.0166666666666666,
+        "p95SentenceInflationVsOriginal": 1.05
+      },
+      "adult_category_code_switch": {
+        "sentences": 8,
+        "tokens": 107,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 13.375,
+        "p95TokensPerSentence": 17.0,
+        "aggregateInflationVsOriginal": 1.0594059405940595,
+        "meanSentenceInflationVsOriginal": 1.0608766233766234,
+        "p95SentenceInflationVsOriginal": 1.2142857142857142
+      },
+      "adult_category_conditional": {
+        "sentences": 3,
+        "tokens": 43,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 14.333333333333334,
+        "p95TokensPerSentence": 15.0,
+        "aggregateInflationVsOriginal": 1.048780487804878,
+        "meanSentenceInflationVsOriginal": 1.0515873015873016,
+        "p95SentenceInflationVsOriginal": 1.0833333333333333
+      },
+      "adult_category_consent_boundary": {
+        "sentences": 6,
+        "tokens": 88,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 14.666666666666666,
+        "p95TokensPerSentence": 16.0,
+        "aggregateInflationVsOriginal": 1.0476190476190477,
+        "meanSentenceInflationVsOriginal": 1.047863247863248,
+        "p95SentenceInflationVsOriginal": 1.1538461538461537
+      },
+      "adult_category_correction": {
+        "sentences": 3,
+        "tokens": 50,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 16.666666666666668,
+        "p95TokensPerSentence": 18.0,
+        "aggregateInflationVsOriginal": 1.0204081632653061,
+        "meanSentenceInflationVsOriginal": 1.0196078431372548,
+        "p95SentenceInflationVsOriginal": 1.0588235294117647
+      },
+      "adult_category_desire": {
+        "sentences": 6,
+        "tokens": 87,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 14.5,
+        "p95TokensPerSentence": 16.0,
+        "aggregateInflationVsOriginal": 1.0357142857142858,
+        "meanSentenceInflationVsOriginal": 1.0366300366300365,
+        "p95SentenceInflationVsOriginal": 1.1428571428571428
+      },
+      "adult_category_health": {
+        "sentences": 3,
+        "tokens": 44,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 14.666666666666666,
+        "p95TokensPerSentence": 17.0,
+        "aggregateInflationVsOriginal": 1.0,
+        "meanSentenceInflationVsOriginal": 1.0,
+        "p95SentenceInflationVsOriginal": 1.0
+      },
+      "adult_category_practice": {
+        "sentences": 3,
+        "tokens": 42,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 14,
+        "p95TokensPerSentence": 15.0,
+        "aggregateInflationVsOriginal": 1.0,
+        "meanSentenceInflationVsOriginal": 1.0,
+        "p95SentenceInflationVsOriginal": 1.0
+      },
+      "adult_category_request": {
+        "sentences": 6,
+        "tokens": 70,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 11.666666666666666,
+        "p95TokensPerSentence": 13.0,
+        "aggregateInflationVsOriginal": 1.0606060606060606,
+        "meanSentenceInflationVsOriginal": 1.0623737373737374,
+        "p95SentenceInflationVsOriginal": 1.2
+      },
+      "adult_category_slang": {
+        "sentences": 3,
+        "tokens": 48,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 16,
+        "p95TokensPerSentence": 17.0,
+        "aggregateInflationVsOriginal": 1.0666666666666667,
+        "meanSentenceInflationVsOriginal": 1.0714285714285714,
+        "p95SentenceInflationVsOriginal": 1.2142857142857142
+      },
+      "adult_category_temporal": {
+        "sentences": 3,
+        "tokens": 44,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 14.666666666666666,
+        "p95TokensPerSentence": 17.0,
+        "aggregateInflationVsOriginal": 1.0232558139534884,
+        "meanSentenceInflationVsOriginal": 1.0208333333333333,
+        "p95SentenceInflationVsOriginal": 1.0625
+      },
+      "adult_category_third_party": {
+        "sentences": 3,
+        "tokens": 37,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 12.333333333333334,
+        "p95TokensPerSentence": 13.0,
+        "aggregateInflationVsOriginal": 1.0571428571428572,
+        "meanSentenceInflationVsOriginal": 1.058080808080808,
+        "p95SentenceInflationVsOriginal": 1.0909090909090908
+      },
+      "adult_intimacy": {
+        "sentences": 50,
+        "tokens": 718,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 14.36,
+        "p95TokensPerSentence": 18.0,
+        "aggregateInflationVsOriginal": 1.0390738060781477,
+        "meanSentenceInflationVsOriginal": 1.0416565738183385,
+        "p95SentenceInflationVsOriginal": 1.2
+      },
+      "adult_intimacy_en": {
+        "sentences": 14,
+        "tokens": 192,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 13.714285714285714,
+        "p95TokensPerSentence": 17.0,
+        "aggregateInflationVsOriginal": 1.037837837837838,
+        "meanSentenceInflationVsOriginal": 1.0432151182151181,
+        "p95SentenceInflationVsOriginal": 1.2
+      },
+      "adult_intimacy_es": {
+        "sentences": 14,
+        "tokens": 207,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 14.785714285714286,
+        "p95TokensPerSentence": 21.0,
+        "aggregateInflationVsOriginal": 1.0507614213197969,
+        "meanSentenceInflationVsOriginal": 1.049312224889956,
+        "p95SentenceInflationVsOriginal": 1.2142857142857142
+      },
+      "adult_intimacy_it": {
+        "sentences": 14,
+        "tokens": 212,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 15.142857142857142,
+        "p95TokensPerSentence": 20.0,
+        "aggregateInflationVsOriginal": 1.0192307692307692,
+        "meanSentenceInflationVsOriginal": 1.0214594928880643,
+        "p95SentenceInflationVsOriginal": 1.1428571428571428
+      },
+      "code_switch": {
+        "sentences": 8,
+        "tokens": 107,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 13.375,
+        "p95TokensPerSentence": 17.0,
+        "aggregateInflationVsOriginal": 1.0594059405940595,
+        "meanSentenceInflationVsOriginal": 1.0608766233766234,
+        "p95SentenceInflationVsOriginal": 1.2142857142857142
+      },
+      "en": {
+        "sentences": 29,
+        "tokens": 364,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 12.551724137931034,
+        "p95TokensPerSentence": 18.0,
+        "aggregateInflationVsOriginal": 1.037037037037037,
+        "meanSentenceInflationVsOriginal": 1.0450405915923158,
+        "p95SentenceInflationVsOriginal": 1.2
+      },
+      "es": {
+        "sentences": 29,
+        "tokens": 383,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 13.206896551724139,
+        "p95TokensPerSentence": 18.0,
+        "aggregateInflationVsOriginal": 1.0668523676880224,
+        "meanSentenceInflationVsOriginal": 1.0748532259941996,
+        "p95SentenceInflationVsOriginal": 1.2857142857142858
+      },
+      "it": {
+        "sentences": 29,
+        "tokens": 386,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 13.310344827586206,
+        "p95TokensPerSentence": 17.0,
+        "aggregateInflationVsOriginal": 1.0376344086021505,
+        "meanSentenceInflationVsOriginal": 1.0457140560588836,
+        "p95SentenceInflationVsOriginal": 1.3
+      },
+      "names_locations": {
+        "sentences": 3,
+        "tokens": 35,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 11.666666666666666,
+        "p95TokensPerSentence": 14.0,
+        "aggregateInflationVsOriginal": 1.0606060606060606,
+        "meanSentenceInflationVsOriginal": 1.0555555555555556,
+        "p95SentenceInflationVsOriginal": 1.1666666666666667
+      },
+      "overall": {
+        "sentences": 95,
+        "tokens": 1240,
+        "unknownTokens": 0,
+        "unkRate": 0.0,
+        "meanTokensPerSentence": 13.052631578947368,
+        "p95TokensPerSentence": 18.0,
+        "aggregateInflationVsOriginal": 1.048182586644125,
+        "meanSentenceInflationVsOriginal": 1.0556804349761006,
+        "p95SentenceInflationVsOriginal": 1.2857142857142858
+      }
+    },
+    "specialTokenIntegrity": true,
+    "semanticPreservation": {
+      "sentences": 161,
+      "meanRepresentationCosine": 0.9955801004918627,
+      "minimumRepresentationCosine": 0.9437030410652252,
+      "p05RepresentationCosine": 0.9760727837787185,
+      "contrastPairs": 36,
+      "meanContrastCosineDelta": 0.007854675215505045,
+      "p95ContrastCosineDelta": 0.045258816175921646,
+      "maximumContrastCosineDelta": 0.05102438525110753,
+      "unchangedTokenizationSentences": 103,
+      "unchangedTokenizationMaxForwardDelta": 0.0,
+      "contrastDetails": [
+        {
+          "id": "negation-it",
+          "originalCosine": 0.973239796952616,
+          "candidateCosine": 0.973239796952616,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "negation-en",
+          "originalCosine": 0.9817517109452177,
+          "candidateCosine": 0.9817517109452177,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "negation-es",
+          "originalCosine": 0.9746651186140167,
+          "candidateCosine": 0.9746651186140167,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "question-request-it",
+          "originalCosine": 0.9323139574660487,
+          "candidateCosine": 0.9314014620745348,
+          "absoluteDelta": 0.0009124953915139455
+        },
+        {
+          "id": "question-request-en",
+          "originalCosine": 0.941053982405548,
+          "candidateCosine": 0.941053982405548,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "question-request-es",
+          "originalCosine": 0.9064180435257743,
+          "candidateCosine": 0.9064180435257743,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "correction-it",
+          "originalCosine": 0.8378809363461852,
+          "candidateCosine": 0.8831397525221069,
+          "absoluteDelta": 0.045258816175921646
+        },
+        {
+          "id": "correction-en",
+          "originalCosine": 0.9057797303981197,
+          "candidateCosine": 0.9015169157152785,
+          "absoluteDelta": 0.004262814682841176
+        },
+        {
+          "id": "correction-es",
+          "originalCosine": 0.8478841515186336,
+          "candidateCosine": 0.8848560064561661,
+          "absoluteDelta": 0.03697185493753252
+        },
+        {
+          "id": "third-party-it",
+          "originalCosine": 0.9348978813670159,
+          "candidateCosine": 0.9348978813670159,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "third-party-en",
+          "originalCosine": 0.9573976157431521,
+          "candidateCosine": 0.9573976157431521,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "third-party-es",
+          "originalCosine": 0.9401385820990571,
+          "candidateCosine": 0.9401385820990571,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "temporal-it-past",
+          "originalCosine": 0.9747914066021315,
+          "candidateCosine": 0.9894288625390705,
+          "absoluteDelta": 0.014637455936938992
+        },
+        {
+          "id": "temporal-it-future",
+          "originalCosine": 0.9427962564839875,
+          "candidateCosine": 0.9821584863200467,
+          "absoluteDelta": 0.03936222983605919
+        },
+        {
+          "id": "temporal-en-past",
+          "originalCosine": 0.972457873928923,
+          "candidateCosine": 0.972457873928923,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "temporal-en-future",
+          "originalCosine": 0.985765127842895,
+          "candidateCosine": 0.985765127842895,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "temporal-es-past",
+          "originalCosine": 0.9445409152411213,
+          "candidateCosine": 0.9854267968900967,
+          "absoluteDelta": 0.04088588164897544
+        },
+        {
+          "id": "temporal-es-future",
+          "originalCosine": 0.9759668861031768,
+          "candidateCosine": 0.9835162895458199,
+          "absoluteDelta": 0.007549403442643099
+        },
+        {
+          "id": "adult-desire-request-it",
+          "originalCosine": 0.9753147722652571,
+          "candidateCosine": 0.9753147722652571,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-consent-refusal-it",
+          "originalCosine": 0.9850213595066426,
+          "candidateCosine": 0.9850213595066426,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-withdrawal-it",
+          "originalCosine": 0.7515542676335525,
+          "candidateCosine": 0.7515542676335525,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-preference-experience-it",
+          "originalCosine": 0.9478498854033287,
+          "candidateCosine": 0.9478498854033287,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-desire-request-en",
+          "originalCosine": 0.9817399275037356,
+          "candidateCosine": 0.9817399275037356,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-consent-refusal-en",
+          "originalCosine": 0.9862752119134715,
+          "candidateCosine": 0.9862752119134715,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-withdrawal-en",
+          "originalCosine": 0.8563024074864338,
+          "candidateCosine": 0.8587683499002922,
+          "absoluteDelta": 0.0024659424138583352
+        },
+        {
+          "id": "adult-preference-experience-en",
+          "originalCosine": 0.9553528258191664,
+          "candidateCosine": 0.9553528258191664,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-desire-request-es",
+          "originalCosine": 0.9438699438973391,
+          "candidateCosine": 0.9549163130056736,
+          "absoluteDelta": 0.011046369108334453
+        },
+        {
+          "id": "adult-consent-refusal-es",
+          "originalCosine": 0.9877698359850068,
+          "candidateCosine": 0.9877698359850068,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-withdrawal-es",
+          "originalCosine": 0.7550283329173572,
+          "candidateCosine": 0.8060527181684647,
+          "absoluteDelta": 0.05102438525110753
+        },
+        {
+          "id": "adult-preference-experience-es",
+          "originalCosine": 0.9268869571496949,
+          "candidateCosine": 0.9268869571496949,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-target-it",
+          "originalCosine": 0.8967132077407496,
+          "candidateCosine": 0.8967132077407496,
+          "absoluteDelta": 0.0
+        },
+        {
+          "id": "adult-target-en",
+          "originalCosine": 0.9438176719994963,
+          "candidateCosine": 0.937007464604245,
+          "absoluteDelta": 0.006810207395251289
+        },
+        {
+          "id": "adult-target-es",
+          "originalCosine": 0.8309715850276558,
+          "candidateCosine": 0.82387284604386,
+          "absoluteDelta": 0.00709873898379576
+        },
+        {
+          "id": "adult-explicit-hypothesis-it",
+          "originalCosine": 0.9808473533684028,
+          "candidateCosine": 0.981212449541499,
+          "absoluteDelta": 0.00036509617309621323
+        },
+        {
+          "id": "adult-explicit-hypothesis-en",
+          "originalCosine": 0.9885042419541096,
+          "candidateCosine": 0.9817613198864751,
+          "absoluteDelta": 0.006742922067634494
+        },
+        {
+          "id": "adult-explicit-hypothesis-es",
+          "originalCosine": 0.965241091368732,
+          "candidateCosine": 0.9726147856814096,
+          "absoluteDelta": 0.007373694312677537
+        }
+      ]
+    },
+    "byteReductionVsUpstreamPytorchPercent": 68.55032420656944,
+    "estimatedInt8ReductionVsStudent4MixedPercent": 43.98898189037699,
+    "gate": {
+      "passed": true,
+      "checks": {
+        "specialTokenIntegrity": true,
+        "tokenizerModelAlignment": true,
+        "saveReloadIntegrity": true,
+        "allSelectionPiecesRetained": true,
+        "unkIt": true,
+        "unkEn": true,
+        "unkEs": true,
+        "unkAdult": true,
+        "inflationIt": true,
+        "inflationEn": true,
+        "inflationEs": true,
+        "codeSwitchInflation": true,
+        "adultInflation": true,
+        "adultNotDisproportionate": true,
+        "namesLocationsInflation": true,
+        "meanRepresentationCosine": true,
+        "worstRepresentationCosine": true,
+        "meanContrastPreservation": true,
+        "p95ContrastPreservation": true,
+        "exactForwardEquivalence": true,
+        "estimatedRuntimeSmallerThanStudent4": true
+      },
+      "failedChecks": []
+    }
+  }
+}
