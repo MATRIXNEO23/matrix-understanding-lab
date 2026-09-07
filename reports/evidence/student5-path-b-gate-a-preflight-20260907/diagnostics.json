@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "student5.pathb.gate-a-preflight.v1",
+  "executionId": "student5-path-b-v3-preflight-20260907-aca5968",
+  "observedAtUtc": "2026-09-07T04:03:31Z",
+  "repository": "MATRIXNEO23/matrix-understanding-lab",
+  "branch": "student5-path-b-v3",
+  "headStart": "aca5968bc26f8d4d4ef22327f0d225b9685e1474",
+  "preflightCheckpointCommit": "4c010cf99f022662394405870aaada0b043d84ff",
+  "verdict": "GATE_A_BLOCKED_INPUT_ACCESS",
+  "workstreamComplete": false,
+  "firstFailingLayer": "A1_CANONICAL_PRISTINE_BINARY_ACQUISITION",
+  "rootCause": "Authenticated GitHub connector supports Release metadata but not Release binary downloads; direct unauthenticated private Release URL returned HTTP 404. No pristine copy found by filename in inspected local locations.",
+  "pristine": {
+    "assetId": 545406840,
+    "releaseId": 383143636,
+    "tag": "student-5-minilm-40k-phase-a-pristine",
+    "name": "student5-minilm-phase-a-pruned-40k.zip",
+    "remoteState": "uploaded",
+    "remoteBytes": 88361246,
+    "remoteDigest": "sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+    "expectedModelBytes": 148020400,
+    "expectedModelSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+    "remoteMetadataMatchesExpected": true,
+    "archiveDownloaded": false,
+    "independentArchiveSha256": null,
+    "independentModelSha256": null,
+    "reloadExecuted": false
+  },
+  "environment": {
+    "python": "3.12.13",
+    "modulesPresent": {
+      "torch": false,
+      "transformers": false,
+      "onnx": false,
+      "onnxruntime": false,
+      "sentencepiece": false,
+      "numpy": true
+    },
+    "pypiHttpStatus": 200,
+    "packagesInstalled": false,
+    "configuredLocalGithubCredentialProvided": false,
+    "credentialsExtracted": false
+  },
+  "runnerEvidence": {
+    "executionBranchRuns": 0,
+    "latestExistingMainRun": 34080903226,
+    "jobId": 101615840792,
+    "conclusion": "failure",
+    "steps": [],
+    "runnerName": "",
+    "cause": "UNVERIFIED",
+    "annotationEndpoint": "REJECTED_BY_CONNECTOR_ALLOWLIST",
+    "newRunStarted": false
+  },
+  "train": {
+    "artifactId": "student5-matrix-nlu-v3-train-v1",
+    "task23Accepted": true,
+    "migrationRepeated": false,
+    "datasetOpened": false,
+    "checksumVerification": "PENDING_A1",
+    "expectedLogicalSha256": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e"
+  },
+  "execution": {
+    "modelLoad": false,
+    "modelForward": false,
+    "onnxExport": false,
+    "onnxRuntimeLoad": false,
+    "optimizerCreated": false,
+    "backpropExecuted": false,
+    "training": false,
+    "quantization": false
+  },
+  "guards": {
+    "student4Changed": false,
+    "pristine40kModified": false,
+    "pathAModified": false,
+    "trainV1Modified": false,
+    "canonicalDevUsed": false,
+    "frozenDataRead": false,
+    "frozenDataTokenized": false,
+    "frozenDataAnalyzed": false,
+    "frozenPredictionsRead": false,
+    "otherRepositoriesModified": false,
+    "productionPromotion": false
+  },
+  "pendingGates": [
+    "A1 binary+TRAIN checksum verification",
+    "A2 physical BERT/V3 forward",
+    "A3 existing V3 export contract physical ONNX parity",
+    "A4 durable retained artifact",
+    "B readiness: permitted V3 DEV identity and acceptance criteria",
+    "B training/error analysis/versioned TRAIN repair/candidate preservation",
+    "C taught FP32 lock",
+    "D taught export/quantization/parity/preservation",
+    "E one-shot Frozen only after candidate and recipe lock"
+  ],
+  "nextAction": "Restore a normally configured authenticated Release-binary acquisition/publication path in the execution environment, then resume A1 under existing authorization. Do not redo TASK 2.3."
+}
+

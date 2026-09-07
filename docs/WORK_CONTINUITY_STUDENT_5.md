@@ -2,10 +2,12 @@
 
 Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
-Active execution branch prepared for Work: `student5-path-b-v3`
-Branch HEAD observed before this documentation checkpoint: `9493e97cbdf5e731ee161b24d91b511076decb19`
+Active execution branch: `student5-path-b-v3`
+Execution HEAD start: `aca5968bc26f8d4d4ef22327f0d225b9685e1474`
+Latest completed checkpoint before CP32: `4c010cf99f022662394405870aaada0b043d84ff`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `OWNER_AUTHORIZED_WORK_HANDOFF / EXECUTION_NOT_VERIFIED_STARTED`
+Current state: `GATE_A_BLOCKED_INPUT_ACCESS / PHYSICAL_MODEL_EXECUTION_NOT_STARTED`
+Current result and exact remaining work: **Checkpoint 32** below. CP30 is retained as historical handoff.
 
 ## Complete continuity — no history discarded
 
@@ -179,3 +181,68 @@ Local Python is 3.12.13. Module discovery found no torch, transformers, onnx, on
 Next operation: record the exact input-access/runner evidence and either proceed through a normally configured authenticated binary path, or preserve a Gate-A BLOCKED report if none is usable. Do not build from upstream, regenerate pristine, substitute Path A, use structural tests as physical evidence, or train around Gate A.
 
 Guards at this checkpoint: DEV unread/unused; Frozen unread; Student-4 unchanged; pristine unchanged; Path A unchanged; TRAIN v1 unchanged; no model forward/optimizer/backprop/training/quantization; no other repository modified. Mandatory remaining work is still the complete Gate-A A1–A4 sequence, then readiness and Gates B–E described above.
+
+## Checkpoint 32 — Gate-A input-access STOP, no training
+
+Date: 2026-09-07. Branch: `student5-path-b-v3`.
+HEAD start: `aca5968bc26f8d4d4ef22327f0d225b9685e1474`.
+Previous persisted checkpoint: `4c010cf99f022662394405870aaada0b043d84ff`.
+HEAD final: the Git commit introducing CP32 and its report (recorded in the final handoff); no self-referential SHA is invented.
+
+```text
+activeTask = TASK_2_4_PHYSICAL_V3_BERT_ONNX
+workstreamStatus = GATE_A_BLOCKED_INPUT_ACCESS
+firstFailingLayer = A1_CANONICAL_PRISTINE_BINARY_ACQUISITION
+physicalBertLoad = NOT_EXECUTED
+physicalOnnxExportLoad = NOT_EXECUTED
+TASK_2_3 = ACCEPTED_NOT_REPEATED
+TASK_3_TRAINING = NOT_STARTED
+Gates_B_C_D_E = NOT_STARTED
+workstreamComplete = false
+```
+
+The canonical pristine Release asset is present, uploaded and metadata-matching, but this runtime has no configured authenticated Release-binary download/publication operation. Direct private Release URL returned 404; authenticated connector supplies metadata and explicitly does not handle Release binary bytes. No credentials were extracted or repurposed. Local archive/model SHA verification is **not performed**. Missing Torch/Transformers/ONNX dependencies remain uninstalled; PyPI is reachable, so dependency absence is not the primary access blocker.
+
+The existing main Actions run `34080903226` has a failed job with no steps/runner name. Its detailed annotations endpoint was rejected by the connector allowlist. Cause is unverified; do not assert billing failure. No new job was launched; no workflow was created or rerun. No alternate route bypassing access restrictions was attempted.
+
+Persistent evidence:
+
+- [Gate-A preflight report](../reports/STUDENT_5_PATH_B_GATE_A_PREFLIGHT_20260907.md)
+- [Machine-readable diagnostics](../reports/evidence/student5-path-b-gate-a-preflight-20260907/diagnostics.json)
+- [Checksums](../reports/evidence/student5-path-b-gate-a-preflight-20260907/SHA256SUMS)
+- Report SHA-256: `a0f6dd80eb8af4d1ce1d91988a24c106fa27092dd1672e12683b97a370b62b41`.
+- Diagnostics SHA-256: `31e77f72aa9e403116002b232b38830c962dd91dcaf103e668aac04c4bad7319`.
+
+No new candidate/model artifact exists. The artifact registry and all previously preserved versions are unchanged. The only repository changes in this execution are current Student-5 continuity and new preflight diagnostics/report/checksums; the CP01–29 archive stays byte-identical. No physical test PASS or learned-quality result is claimed.
+
+### Remaining prerequisites and exact resumption
+
+1. Supply a normally configured authenticated Release-binary acquisition/publication capability to the execution environment; the workstream is already authorized, so do not ask for duplicate task approval or manually recreate pristine.
+2. Resume A1 at the actual latest branch HEAD: exact pristine archive/internal checksums, TRAIN-v1 checksum verification (not migration), separate immutable source/output locations.
+3. Install isolated pinned runtime; A2 real pristine BERT/V3 construction and forward; A3 physical ONNX using existing export contract, all tensors/masks/dynamic shapes/fingerprint and numerical parity; A4 durable distinct retained artifact.
+4. If A passes, continue automatically under the assigned package to Gate-B readiness: establish permitted V3 DEV identity and gate/evaluator compatibility before training or selection. Do not invent V2 equivalence.
+5. Continue actual frozen-backbone-first training, independent DEV analysis, versioned TRAIN repairs, capacity escalation only with evidence and durable previous candidates; then taught FP32 lock, taught ONNX and protected-head quantization/parity/runtime persistence.
+6. Frozen remains unread until the package's final locked-candidate one-shot gate; no Frozen feedback. No Assembling or production promotion.
+
+Carry forward all previously documented coverage gaps and both physical-environment P1 items as OPEN. No model/source/dataset/evaluator changes were made to hide them.
+
+```text
+Student-4 changed = false
+DEV used = false
+Frozen read/tokenized/analyzed/predictionsRead = false
+Path A modified = false
+pristine40kModified = false
+TRAIN v1 modified = false
+Path B training started = false
+optimizerCreated = false
+backpropExecuted = false
+teachingExecuted = false
+trainingExecuted = false
+quantizationExecuted = false
+otherRepositoriesModified = false
+productionPromotionExecuted = false
+NEXT = RESTORE AUTHENTICATED BINARY EXECUTION CAPABILITY, THEN RESUME GATE A1
+```
+
+STOP with explicit owner-facing report. No background work or future automatic delivery is promised.
+
