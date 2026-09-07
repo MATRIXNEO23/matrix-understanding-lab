@@ -4,7 +4,7 @@ Updated: 2026-09-07
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `student5-path-b-v3`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP41_PRISTINE_AUTHENTICATED_PROBED / FULL_SEMANTIC_ANALYSIS_BLOCKED / SUPERVISOR_GPT_REVIEW`
+Current state: `CP42_TRAIN_V2_BUILT_AUDIT_FAIL / DELIVERY_COMPLETION / SUPERVISOR_GPT_REVIEW`
 
 ## Preserved history
 
@@ -481,3 +481,20 @@ STOP and await Supervisor GPT.
 Starting HEAD 1396dd6c997ce0dbf5e4a5ce933437c82fc1c217, branch student5-path-b-v3. Supervisor now explicitly authorizes new candidate construction from valid immutable v1 plus CP37/CP38/D01–D07 and CP41 risks. This is NOT recovery of the lost original candidate. D01–D07 remain approved. TRAIN v1 all 129 manifest checks and ordered hash verified after acquiring all 130 files. Builder/design/source persisted under tools/student5_cp42/. Candidate not yet built at this preparation checkpoint; no audit executed yet.
 
 Next within current assignment: build into new data/student5_v3_train_v2/, freeze BUILD_LOCK, audit into separate reports/evidence/student5-train-v2-audit-cp42/, persist complete payloads and findings, verify remote readback, STOP. Never modify candidate after audit, even for trivial fixes. No training/model load/quantization/ONNX/DEV/Frozen. All previous blockers remain historically recorded; no further work is authorized by this assignment.
+
+
+## CP42 delivery completion — existing candidate and audit retained exactly
+
+Original build start: 1396dd6c997ce0dbf5e4a5ce933437c82fc1c217. Delivery resume start: f63a212d3ced384e5c9914d78d35ee6edb56530f. Branch: student5-path-b-v3. The intervening read-only monitoring turns published no candidate or audit; this assignment explicitly completes their pending publication. No build or audit was rerun in this delivery. Existing candidate files match all six recorded post-audit hashes before publication.
+
+TRAIN_V2_AUDIT = FAIL. Candidate student5-matrix-nlu-v3-train-v2 / CP42_BUILD_1_AUDIT_LOCKED: 3267 observations, 4101 claims, 123 additions; 2586 preserved rows, 558 corrected rows, 6 deactivated/quarantined rows. IT 1160, EN 1046, ES 1047, code-switch 14 observations. Ordered decompressed UTF-8 JSONL SHA256: 34ee224723d77a452a7ea6e776c95a6f11b3355b4ebf53672f99cf35d0bd64a9.
+
+Permanent payload: data/student5_v3_train_v2/train.jsonl.gz. Companion payloads: provenance-and-mapping.jsonl.gz, quarantine.jsonl.gz, construction-review.json, manifest.json, BUILD_LOCK.json in that directory. Manifest binds compressed/decompressed sizes and SHA; BUILD_LOCK binds candidate files. Sources/design: tools/student5_cp42/{build.py,authored.py,audit.py,DESIGN.md}. Full report: reports/STUDENT_5_TRAIN_V2_BUILD_AUDIT_CP42.md. Machine-readable findings/census/structural/duplicates/slices/input identities: reports/evidence/student5-train-v2-audit-cp42/. SHA256SUMS covers the complete delivery except itself. Recover exact bytes through GitHub Git Blob API (base64, then decode); gzip-decompress payload and check logical SHA before use. Do not recreate this candidate: the complete payload is published.
+
+Audit already executed: 0 invariant-validator errors and 0 diagnostic target-builder exceptions; deterministic reproduction outputs identical. This does NOT clear semantic defects. Sixteen register items remain, including English wrong negation span (L01), two identical-context conflicting rows (C01), 39 D01 present-want/FUTURE review cases, missing UNKNOWN act/kind/time classes, thin family coverage, role/reflexive/hesitation ambiguities, repetition and code-switch concentration, missing plural/multiword subject evidence, target-builder status limitations, and limits of held-out/provenance verification. Full affected IDs, heads, evidence, consequences and recommendations are in audit.json. No recommendation has been applied; wrong negation span is preserved exactly.
+
+TRAIN v1 remains unchanged; model/evaluator/decoder/calibration untouched. Statistical overlap with unread DEV/Frozen is not asserted; source-provenance isolation is the available evidence. Remote readback receipt records publication verification; final exact commit is supplied in the handoff. Prior CP36 readiness and broader Path B tasks remain pending, not activated.
+
+trainingExecuted=false; fineTuningExecuted=false; quantizationExecuted=false; onnxExecuted=false; student5PristineModified=false; trainV1Modified=false; postAuditCorrectionsExecuted=false; devUsedForTraining=false; frozenDataRead=false; nextWorkStarted=false.
+
+STOP after publication, readback, verification and final handoff. Supervisor reviews the unchanged FAIL candidate; no autonomous repairs, v2.1, model preparation or training. No active job remains.
