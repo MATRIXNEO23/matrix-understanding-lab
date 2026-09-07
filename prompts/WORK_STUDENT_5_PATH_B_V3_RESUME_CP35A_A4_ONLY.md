@@ -1,9 +1,21 @@
 # WORK — Student-5 Path B — CP35a / A4 ONLY
 
-Status: OWNER-AUTHORIZED IMMEDIATE STEP
+Status: **SUPERVISOR-GPT ASSIGNMENT / OWNER-AUTHORIZED IMMEDIATE STEP**
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Branch: `student5-path-b-v3`
 Reference HEAD at handoff: `e95571b7df4ff2ff56cf52d0603f1bb5d43f0250`
+
+## Authority and reporting chain
+
+```text
+OWNER = Alberto / final project authority
+SUPERVISOR GPT = this supervising ChatGPT session
+EXECUTOR = ChatGPT Work
+```
+
+Work executes this assignment. Supervisor GPT defines the immediate scope, verifies repository-visible evidence, accepts/rejects the gate result, and prepares any later assignment. Work must not expand this assignment into later work on its own.
+
+If the step completes, return the evidence to **Supervisor GPT** for review. If blocked, report the blocker immediately to **Supervisor GPT** with the exact attempted operations and minimum required intervention. Do not silently stop.
 
 ## Read first
 
@@ -87,7 +99,7 @@ NO modification of TRAIN V3 v1
 NO overwrite of prior Path-B artifacts
 ```
 
-Do not execute or describe the next workstream after A4. Finish this assignment at A4 PASS or explicit A4 BLOCKED.
+Do not execute or describe the next workstream after A4. Finish this assignment at A4 PASS or explicit A4 BLOCKED and report back to Supervisor GPT.
 
 ## First update
 
@@ -101,8 +113,16 @@ active operation = A4_DURABLE_PUBLICATION_ONLY
 local retained package present = true/false
 local bytes/SHA match CP35a = true/false
 publication route selected
+supervisor = GPT
 ```
 
 ## Final update
 
 Return only the actual A4 result with persistent locator/IDs/checksum evidence and the resulting branch HEAD. Do not claim completion from metadata alone.
+
+---
+
+**Issued by: Supervisor GPT**  
+Role: Matrix Engine supervisor / architecture / evidence audit / Work coordination  
+Authority: owner-authorized supervision; no authority to override owner decisions  
+Executor: ChatGPT Work
