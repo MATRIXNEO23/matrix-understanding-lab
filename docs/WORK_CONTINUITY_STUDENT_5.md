@@ -474,3 +474,10 @@ Remaining: Supervisor review of actual evidence and further semantic-analysis me
 trainingExecuted=false; trainV2Created=false; quantizationExecuted=false; onnxExecuted=false; student5PristineModified=false; trainV1Modified=false; evaluatorModified=false; decoderModified=false; calibrationModified=false; nextWorkStarted=false; canonicalDevRead=false; frozenDataRead=false.
 
 STOP and await Supervisor GPT.
+
+
+## Checkpoint 42 preparation — authorized new TRAIN v2 build + audit only
+
+Starting HEAD 1396dd6c997ce0dbf5e4a5ce933437c82fc1c217, branch student5-path-b-v3. Supervisor now explicitly authorizes new candidate construction from valid immutable v1 plus CP37/CP38/D01–D07 and CP41 risks. This is NOT recovery of the lost original candidate. D01–D07 remain approved. TRAIN v1 all 129 manifest checks and ordered hash verified after acquiring all 130 files. Builder/design/source persisted under tools/student5_cp42/. Candidate not yet built at this preparation checkpoint; no audit executed yet.
+
+Next within current assignment: build into new data/student5_v3_train_v2/, freeze BUILD_LOCK, audit into separate reports/evidence/student5-train-v2-audit-cp42/, persist complete payloads and findings, verify remote readback, STOP. Never modify candidate after audit, even for trivial fixes. No training/model load/quantization/ONNX/DEV/Frozen. All previous blockers remain historically recorded; no further work is authorized by this assignment.

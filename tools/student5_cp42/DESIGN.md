@@ -1,0 +1,19 @@
+# CP42 — TRAIN v2 construction and one-way audit
+
+Assignment: Supervisor GPT BUILD TRAIN v2 + AUDIT ONLY, starting 1396dd6c997ce0dbf5e4a5ce933437c82fc1c217.
+
+Inputs: immutable data/student5_v3 (ordered SHA 1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e); CP37 curriculum audit; CP38 repair cards; approved D01–D07 in CREATE_REPAIRED_TRAIN_V2_ONLY prompt; fixed Contract V3; CP41 representation risk analysis. Historical awaiting-approval text is superseded. No DEV/Frozen input, model load, training or evaluator modification.
+
+Design: conservative preservation of inherited semantic payload except enumerated CP38 changes, six malformed rows quarantined with original payload, complete v1→v2 lineage and before/after claim diffs. Exact first-person selector enumerates all 628, implicit-subject selector records 404. No deduplication based on similarity. Authoring explicitly declares semantics and derives only offsets/candidates mechanically; fixed grammar/name/topic-position contrasts address CP41 risks. No CP41 probe payload becomes a training example.
+
+New families include command/request/correction/belief/direct controls, desire-time contrast, seven time relations with non-goal predicate, source-viewpoint binding, participant swaps/topic inversion, owner/action-subject permission, consent/desire/refusal/withdrawal/hesitation/description, slang/profanity/abbreviation/borrowed terms/code-switch, double and cue-free negation, grammatical reflexive and nonpropositional fragment, matched resolved/ambiguous antecedent context. Three languages use authored sentences; identical group sizes reflect parallel contrasts, not a target percentage. No sampling/loss settings selected. All adult participants explicitly adults; semantic analysis only, no downstream policy.
+
+UNKNOWN is only proposed for actual indeterminacy, not unfamiliar/adult vocabulary. NONE is a nonapplicable role; RESOLVED is the V3 equivalent of known, not an invented KNOWN label. Ambiguity has primary UNKNOWN and ranked alternatives. Whether current target builder consumes status/alternatives is a separate audit concern; it must not be silently repaired.
+
+Phase boundary: build.py refuses any existing output directory and writes BUILD_LOCK.json covering all candidate construction outputs. After that, audit.py may read candidate and write ONLY a separate audit directory. It cannot modify the candidate or build a successor. Every found problem remains in this exact candidate. Reproducibility runs may build the identical candidate in an isolated verification directory only; they are not corrective iterations.
+
+Format: deterministic gzip (mtime=0) containing full UTF-8 JSONL, one ordered shard; logical ordered SHA is over decompressed JSONL bytes, same concatenation convention as v1. Compressed transport checksum recorded separately. Rows preserved semantically still receive explicit v2 identity/provenance. Entire old provenance retained. Full ledgers and quarantine payload are compressed JSONL, not a pointer-only dataset.
+
+Audit plan: all rows, all spans, fixed registries, candidate/pointer/anchor validity, provenance, input immutability, full language/head/status/family counts, duplicates/context conflicts/template concentration/near-similar unique pairs and role correlations. Existing pure target builder exercised with an explicitly diagnostic whitespace-offset tokenizer, not claimed as real pristine tokenization or readiness. Representative linguistic review plus all known decision groups, full machine-readable findings with severity/IDs/heads/consequence/recommendation. No claim that automated checks prove exhaustive linguistic correctness. Training regression cannot be measured from this dataset; curriculum slice indices enable review but do not create independent held-out evaluation.
+
+Stop after audit, persistence and remote readback. FAIL/BLOCKED evidence is a valid delivery; neither permits automatic fixes or training.
