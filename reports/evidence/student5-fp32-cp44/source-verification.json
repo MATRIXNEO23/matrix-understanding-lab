@@ -1,0 +1,86 @@
+[
+  {
+    "path": "matrix_nlu/training_data_v3.py",
+    "gitBlobSha": "793fcf74ec5edce729ce9024687dbf1ac0b0f0f4",
+    "sha256": "89fdc2d6f847dc5b6a08612602b01b39c874e9af00f2961488b7b5e4cfeca88c",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "matrix_nlu/contract_v3.py",
+    "gitBlobSha": "988e2f34e82df5d733ac7ac62cecbbd8fcf80191",
+    "sha256": "e524946ae9092fdbc1344be106acc065f506c97c0550ad506ba99ee7e0dde371",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "matrix_nlu/referent_candidates.py",
+    "gitBlobSha": "6c6bdead6bb193cf49ef5b8b0646cadd2fd058dc",
+    "sha256": "a8cbabf3eff816e8eb1e4079ff8ffccb8a7de640bc1d890b5c2d4d4d6f97ec29",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "reports/evidence/student5-pristine-analysis-cp41/provenance.json",
+    "gitBlobSha": "5209740bd3278056a43094fac613ae0b6fca677a",
+    "sha256": "fb58f165853ac0e91d487ddd9413d5a4fc77030b723041342f314b226b38aab3",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "prompts/WORK_STUDENT_5_PATH_B_V3_COMPLETION.md",
+    "gitBlobSha": "695be3d8a9f9cd74b07bdecdf45f459f4a96aaa8",
+    "sha256": "b5770319828cf4b126376cfd40f9a9b12bdf090396ad090e2c0ba4e17587a93f",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "reports/evidence/student5-path-b-cp36-readiness/result.json",
+    "gitBlobSha": "6b7cbe446f5b9fe49d1def6af74ac90f1662a9d4",
+    "sha256": "cac11412bb194e47b5bfbe916ea3dfda2118237a4da8db1f052cd31c25536daf",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "data/student5_v3_train_v21/BUILD_LOCK.json",
+    "gitBlobSha": "4b650d3fb3b43e7094865f3aea8ec81d03a5536e",
+    "sha256": "b5d441d6db22a6700e88e3c44d7901469c464c97e2753a1c016116c4800bc10e",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "data/student5_v3_train_v21/provenance-and-mapping.jsonl.gz",
+    "gitBlobSha": "0c43d6e35bd30c678cff94a4667b1498d2e5cf2a",
+    "sha256": "60c56945e5c791d4291dfc1696bc679637a19f7e7071b59e4849df2accb0e840",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "data/student5_v3_train_v21/quarantine.jsonl.gz",
+    "gitBlobSha": "23f0a4df67f352b121575172b00f5bef9f767b3b",
+    "sha256": "8d106294171fdfa2d90d8bbf6a785a9c37fa75e14be2193800c98260c53ebf2d",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "data/student5_v3_train_v21/manifest.json",
+    "gitBlobSha": "daa50a619dda4133cfc5281b4d0f8ff3bd607842",
+    "sha256": "2c6f7be7d6e9dac484868f7b92260609f0a1ffd1e831378e247a5217ce286a65",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "data/student5_v3_train_v21/correction-register.jsonl.gz",
+    "gitBlobSha": "37d4d75225de3e02437d5b4936995509a59313ec",
+    "sha256": "059740759d6d5d307a6088fc2a7ec5379ad12f48c69218ebaf9ee18037a2813d",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "data/student5_v3_train_v21/exact-redundancy-decisions.json",
+    "gitBlobSha": "d45179d955357c0cc46de5c26c0474e52b1fac38",
+    "sha256": "03b2d62afd7534ea69328e104a2fb4a91941bdab13378a1d1c0966f6f5e14042",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "data/student5_v3_train_v21/SHA256SUMS",
+    "gitBlobSha": "cdae80ea413f536d93b81af171070663f7458bd0",
+    "sha256": "7f35a7bd81a417cb9617bbef00329ac4b250181b98c710471d2f945c623d01cc",
+    "matchesStartingHead": true
+  },
+  {
+    "path": "data/student5_v3_train_v21/train.jsonl.gz",
+    "gitBlobSha": "f24abdc79066857dde67d186243e337c9ed6c38f",
+    "sha256": "f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4",
+    "matchesStartingHead": true
+  }
+]

@@ -1,10 +1,10 @@
 # Student-5 continuity — current resume checkpoint
 
-Updated: 2026-09-07
+Updated: 2026-09-08
 Repository: `MATRIXNEO23/matrix-understanding-lab`
-Active execution branch: `student5-path-b-v3`
+Active execution branch: `main`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP42_TRAIN_V2_BUILT_AUDIT_FAIL / DELIVERY_VERIFIED / STOP_SUPERVISOR_GPT_REVIEW`
+Current state: `CP44_FP32_AUTHORIZED / INPUTS_AND_REAL_TARGETS_VERIFIED / BLOCKED_MISSING_SELECTION_GOLD`
 
 ## Preserved history
 
@@ -544,3 +544,55 @@ directory and the final Supervisor handoff.
 STOP. FP32 training requires separate Supervisor authorization.
 trainingExecuted=false; fineTuningExecuted=false; quantizationExecuted=false;
 onnxExecuted=false; nextWorkStarted=false.
+
+
+## Checkpoint 44 — FP32 authorized; inputs and targets verified; selection input missing
+
+Starting main HEAD: `6389e82c255c50964ce2df370a4682ba7206248b`.
+Current Supervisor explicitly authorizes one FP32 training/evaluation/persistence
+task, without repairs, quantization, ONNX or Android integration.
+G03 remains PASS; G04 is post-training; G07 was not reopened.
+
+STUDENT5_FP32 = BLOCKED; trainingExecuted=false. Concrete dependency:
+FP32-S01, no authenticated permitted V3 DEV gold ID/path/SHA identified for
+the already-defined DEV-based checkpoint-selection method. See
+`reports/STUDENT_5_FP32_CP44_HANDOFF.md` and
+`reports/evidence/student5-fp32-cp44/selection-input.json`.
+No TRAIN-loss replacement selection, V2 DEV migration, new evaluation gold,
+or software-fixture competitive evaluation was invented. Training permission
+is already granted; the missing input is selection/evaluation material.
+
+Completed: original pristine archive authenticated against current Release
+383143636 / asset 545406840; all 17 CP41 internal hashes pass; all 199 stored
+model tensors F32. Model SHA
+`d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2`.
+Archive SHA
+`7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191`.
+Durable recovery: canonical pristine Release/tag/asset and authenticated UI
+route documented at the top of this continuity and in the CP44 report.
+Freshly authenticated surviving archive:
+`/workspace/scratch/student5-minilm-phase-a-pruned-40k.zip`; execution-only
+model copy `/workspace/scratch/0a50431faa34/pristine-analysis-input/model`;
+compatible runtime `/workspace/scratch/0a50431faa34/pristine-analysis-env/bin/python`.
+Local paths are conveniences, not durable artifact locators.
+
+Unchanged TRAIN ID `student5-matrix-nlu-v3-train-v2.1-cp43r2`, path
+`data/student5_v3_train_v21/`, SHA
+`f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4`.
+Prepared 4,355 examples with real pristine tokenizer from 1,831 rows / 2,524
+claims. Fast/slow IDs match 4,355/4,355; no truncation (maximum 33 tokens);
+8 G03 rows / 14 ambiguous fields preserve exact representation.
+Persisted targets and input identities: `reports/evidence/student5-fp32-cp44/`;
+source `tools/student5_fp32/preflight.py`. No model forward, optimizer,
+backprop, training checkpoint or evaluation metric was produced.
+
+Resume after Supervisor supplies existing permitted V3 DEV ID/path/SHA and
+selection reference, or scopes its preparation. Then continue the existing
+FP32 task, starting with intended frozen backbone plus V3 heads, using current
+practical acceptance and no automatic subsequent training rounds. Do not repeat
+pristine analysis or dataset repair. Code/evidence publication/readback receipt
+is in `remote-readback.json`; final commit supplied in the handoff.
+
+trainDatasetModified=false; quantizationExecuted=false; onnxExecuted=false;
+androidIntegrationExecuted=false; student4Modified=false; frozenUsedForTraining=false;
+nextWorkStarted=false. STOP; no background job.
