@@ -1,0 +1,323 @@
+{
+  "dataCommit": "f9f237db57a178a77e263128441469ed132722eb",
+  "files": [
+    {
+      "path": "data/student5_v3_train_v21/BUILD_LOCK.json",
+      "bytes": 583,
+      "sha256": "b5d441d6db22a6700e88e3c44d7901469c464c97e2753a1c016116c4800bc10e",
+      "gitBlobSha": "4b650d3fb3b43e7094865f3aea8ec81d03a5536e"
+    },
+    {
+      "path": "data/student5_v3_train_v21/SHA256SUMS",
+      "bytes": 620,
+      "sha256": "7f35a7bd81a417cb9617bbef00329ac4b250181b98c710471d2f945c623d01cc",
+      "gitBlobSha": "cdae80ea413f536d93b81af171070663f7458bd0"
+    },
+    {
+      "path": "data/student5_v3_train_v21/correction-register.jsonl.gz",
+      "bytes": 572419,
+      "sha256": "059740759d6d5d307a6088fc2a7ec5379ad12f48c69218ebaf9ee18037a2813d",
+      "gitBlobSha": "37d4d75225de3e02437d5b4936995509a59313ec"
+    },
+    {
+      "path": "data/student5_v3_train_v21/exact-redundancy-decisions.json",
+      "bytes": 290235,
+      "sha256": "03b2d62afd7534ea69328e104a2fb4a91941bdab13378a1d1c0966f6f5e14042",
+      "gitBlobSha": "d45179d955357c0cc46de5c26c0474e52b1fac38"
+    },
+    {
+      "path": "data/student5_v3_train_v21/manifest.json",
+      "bytes": 3640,
+      "sha256": "2c6f7be7d6e9dac484868f7b92260609f0a1ffd1e831378e247a5217ce286a65",
+      "gitBlobSha": "daa50a619dda4133cfc5281b4d0f8ff3bd607842"
+    },
+    {
+      "path": "data/student5_v3_train_v21/provenance-and-mapping.jsonl.gz",
+      "bytes": 370338,
+      "sha256": "60c56945e5c791d4291dfc1696bc679637a19f7e7071b59e4849df2accb0e840",
+      "gitBlobSha": "0c43d6e35bd30c678cff94a4667b1498d2e5cf2a"
+    },
+    {
+      "path": "data/student5_v3_train_v21/quarantine.jsonl.gz",
+      "bytes": 179797,
+      "sha256": "8d106294171fdfa2d90d8bbf6a785a9c37fa75e14be2193800c98260c53ebf2d",
+      "gitBlobSha": "23f0a4df67f352b121575172b00f5bef9f767b3b"
+    },
+    {
+      "path": "data/student5_v3_train_v21/train.jsonl.gz",
+      "bytes": 292481,
+      "sha256": "f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4",
+      "gitBlobSha": "f24abdc79066857dde67d186243e337c9ed6c38f"
+    },
+    {
+      "path": "docs/WORK_CONTINUITY_STUDENT_5.md",
+      "bytes": 53761,
+      "sha256": "2bd28a8ef732e808898702bd374df7febe58c342d63c212536ee5489f9955a3f",
+      "gitBlobSha": "70d0b959a605e34066d625314a3b4af31b9f7b53"
+    },
+    {
+      "path": "reports/STUDENT_5_TRAIN_V21_REPAIR_AUDIT_CP43.md",
+      "bytes": 17146,
+      "sha256": "e1b583e569ec250d4633de653fa3e0d66baa4ab8bae615c98020797f6de4df27",
+      "gitBlobSha": "a770d7da2e7a3c5b41193409f57da43a3cd3a07a"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/SHA256SUMS",
+      "bytes": 6704,
+      "sha256": "bfe3d3a616ec7700d83e3dcc64449a505ebe6203f4c96e4ce7b02e9dfed857ec",
+      "gitBlobSha": "49b2e36d875299918a895516224e15e7245cc2db"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/all-claims-review.jsonl.gz",
+      "bytes": 96905,
+      "sha256": "b5eb117b8cfde95180561fa01706773d6a731a2ebc45c5aea9e4fa4741fce28a",
+      "gitBlobSha": "7ecdacd3e977e907eef6367abfad179e100cec35"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/audit.json",
+      "bytes": 59645,
+      "sha256": "ea081a86e416883ada13d572d5ed3e18176f34653e5fefde3e02b51ef443381d",
+      "gitBlobSha": "f17c1bf5c7d1262d32be613059249fbe4fab7cc7"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/census.json",
+      "bytes": 12173,
+      "sha256": "8a1e924b0bd1ae5cd2f6c6237fba913f73c3bd6d1eb24a09b2869b284779a9e8",
+      "gitBlobSha": "6daa20ec45d4b256b775cee4ae4870e543c6eca6"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/duplicates-after.json",
+      "bytes": 397829,
+      "sha256": "871a5824470bb1914ea63e3af03a6e03db85d4b68f245e4e457b63da5b8fd066",
+      "gitBlobSha": "51a6f6db549d6edb3542e6b5bfaa17475815fc5a"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/duplicates-before.json",
+      "bytes": 697164,
+      "sha256": "ac40182c599701838ff68ccf529d322d0bbe1f093b578b18d39d270c75792764",
+      "gitBlobSha": "80bd645e30776510d621367a52da13659f7f8967"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/integrity.json",
+      "bytes": 3011,
+      "sha256": "6f1dc21032957172d9e88cbebb10f6f5a7ab5713559ad7e6e9b292e43e94f396",
+      "gitBlobSha": "762ea53918f61d2616c063d5f4abbc0af08bcdba"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/preservation-and-controls.json",
+      "bytes": 2775,
+      "sha256": "3f298729c2c54de6b250cb4b6964b9fe5dd672dc2356de4488dc13620aee5d06",
+      "gitBlobSha": "5b5caed128fc3f1d165ab1e8ecfe8823d7854884"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/semantic-invariants.json",
+      "bytes": 8942,
+      "sha256": "289ebaca77a0068bb0457b7b2eeb103f0630e23dcd96732a27130005136827ab",
+      "gitBlobSha": "323304a28ec29fbbab0fa92e18c742eaca6e2d9e"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/source-CP42-Supervisor-handoff.md",
+      "bytes": 20318,
+      "sha256": "6304f131e0c60ad64eb098c13f29848b99222e6f86ef5f2786dddc1becd1a9ca",
+      "gitBlobSha": "b2dbd6bf2515232396892374842d23996d4ad1da"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/source-CP42-verified-findings.json.gz",
+      "bytes": 50557,
+      "sha256": "9c9fa06dd7752a3bd09b315ee8fe92bbf2bfe4e1d39025b4b1fc847abac22dae",
+      "gitBlobSha": "11388dabc8297c81735311b4cfad2fdb9c1c864b"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/source-census.json",
+      "bytes": 9368,
+      "sha256": "3078b08ff6db7b7d6178cecddd82cdef3912cd5452d96f7cb818f0e113fb8d7a",
+      "gitBlobSha": "e91505863e3ebb66a39dd006ac8f0e31af4aa13a"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/status-target-readiness.json",
+      "bytes": 2764,
+      "sha256": "011e663781120888a3eab2e1e4a67e33f9d510e0c20034edeafe42f08e8dbe0a",
+      "gitBlobSha": "88f9de1e8ce7a4f29cef314e5869b261450e2c07"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43/train-v1-baseline-proof.json",
+      "bytes": 21182,
+      "sha256": "852f9a0f029c053565f0c7a98cd5616d06418ca201cee63caab35150a1204a01",
+      "gitBlobSha": "357fe79d4f9604851c7144992605f47ab9cb9400"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/SUPPLEMENTAL_AUDIT.json",
+      "bytes": 918,
+      "sha256": "ea2e97b3c9cd37cad6216a72dfbb93a251bdb52051ae8ad87dd6cf6622239335",
+      "gitBlobSha": "4e501e3122a8692546a7c397562bbe94f02c657b"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/all-claims-review.jsonl.gz",
+      "bytes": 96870,
+      "sha256": "159e5efaa8fcb3350467f73dccf056287ba3fefc8229e9b2e59398630e21bfc5",
+      "gitBlobSha": "fd1179042078025a56d9a0ad84c5a5f5c8fe15d1"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/audit.json",
+      "bytes": 58988,
+      "sha256": "2e973986389da08da4497c3f00eb98b0d5d2ac80ddf8df9dac4afd9c73af9421",
+      "gitBlobSha": "d1114e8a50db62822b586d6b485e1bb74722f2f1"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/census.json",
+      "bytes": 12173,
+      "sha256": "c5c11fcf8fd969f734b1eb0aa3e19346a8007d50e25a92482331c3dd5ec5e460",
+      "gitBlobSha": "b7fb41fdcc25f66f354d0d5d954bedd56f02369f"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/duplicates-after.json",
+      "bytes": 397829,
+      "sha256": "871a5824470bb1914ea63e3af03a6e03db85d4b68f245e4e457b63da5b8fd066",
+      "gitBlobSha": "51a6f6db549d6edb3542e6b5bfaa17475815fc5a"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/duplicates-before.json",
+      "bytes": 697164,
+      "sha256": "ac40182c599701838ff68ccf529d322d0bbe1f093b578b18d39d270c75792764",
+      "gitBlobSha": "80bd645e30776510d621367a52da13659f7f8967"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/integrity.json",
+      "bytes": 3011,
+      "sha256": "922e833a20bd7fbb0c740a63b1210b90960db8cd1edf0195e7e6c77fde4a21c1",
+      "gitBlobSha": "f78439f83d75a2d7cd69f84ff9487e155a387618"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/preservation-and-controls.json",
+      "bytes": 2775,
+      "sha256": "3f298729c2c54de6b250cb4b6964b9fe5dd672dc2356de4488dc13620aee5d06",
+      "gitBlobSha": "5b5caed128fc3f1d165ab1e8ecfe8823d7854884"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/semantic-invariants.json",
+      "bytes": 8942,
+      "sha256": "289ebaca77a0068bb0457b7b2eeb103f0630e23dcd96732a27130005136827ab",
+      "gitBlobSha": "323304a28ec29fbbab0fa92e18c742eaca6e2d9e"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/source-census.json",
+      "bytes": 9368,
+      "sha256": "3078b08ff6db7b7d6178cecddd82cdef3912cd5452d96f7cb818f0e113fb8d7a",
+      "gitBlobSha": "e91505863e3ebb66a39dd006ac8f0e31af4aa13a"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/audit/status-target-readiness.json",
+      "bytes": 2764,
+      "sha256": "011e663781120888a3eab2e1e4a67e33f9d510e0c20034edeafe42f08e8dbe0a",
+      "gitBlobSha": "88f9de1e8ce7a4f29cef314e5869b261450e2c07"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/candidate/BUILD_LOCK.json",
+      "bytes": 583,
+      "sha256": "af0c60be4a41561b20cbde066b9c3068904b05a7ffe125ba227a0ad9dfa65408",
+      "gitBlobSha": "2bf65684e142bdb73f8ee156b577e72eb91fe860"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/candidate/SHA256SUMS",
+      "bytes": 620,
+      "sha256": "c244ddb73a77096715d49a5e896202c393821928f0678de2efaa41acd75e2b86",
+      "gitBlobSha": "d71dba824bc25300f34dc8333385e36f5907500c"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/candidate/correction-register.jsonl.gz",
+      "bytes": 572663,
+      "sha256": "d8ee79641fea189a7ebefe61ce585b342bc78926f5ef1dddeeb0a1b20abc5639",
+      "gitBlobSha": "ed2e6cfd24e8ba4ce40234915a965ab8a5a8dcff"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/candidate/exact-redundancy-decisions.json",
+      "bytes": 290235,
+      "sha256": "03b2d62afd7534ea69328e104a2fb4a91941bdab13378a1d1c0966f6f5e14042",
+      "gitBlobSha": "d45179d955357c0cc46de5c26c0474e52b1fac38"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/candidate/manifest.json",
+      "bytes": 3633,
+      "sha256": "981976bbf22e0671fbd50272ca39046845e408dec539e349deb2e2deae6255e4",
+      "gitBlobSha": "6807e776437eb1c089ba4ada697b3d3b979cf463"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/candidate/provenance-and-mapping.jsonl.gz",
+      "bytes": 370461,
+      "sha256": "ae45164cde9696497f03b852f0d06524884f7347bdbb0c33bab3521cd27a3a99",
+      "gitBlobSha": "438497a5ef802dcfe723738be9bb604aee3eba90"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/candidate/quarantine.jsonl.gz",
+      "bytes": 179797,
+      "sha256": "8d106294171fdfa2d90d8bbf6a785a9c37fa75e14be2193800c98260c53ebf2d",
+      "gitBlobSha": "23f0a4df67f352b121575172b00f5bef9f767b3b"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/candidate/train.jsonl.gz",
+      "bytes": 291777,
+      "sha256": "2cc751c9138e6ab2c97b972c136c7147adef0d3426d12eed6ca1a231635b6552",
+      "gitBlobSha": "017c1a62a6d1e892be0d4c46c368931bb822724f"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/revision2-semantic-diff.json",
+      "bytes": 1691,
+      "sha256": "de31889e18184d91bb8657706e8b9b244a67c7a402ea9e88d0852bd34455eaf7",
+      "gitBlobSha": "362f72a227ac5ef932428ee403e81e92b75324cf"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/sources/audit.py",
+      "bytes": 22734,
+      "sha256": "816a7fa3e60663df6e35b8501c2520e51d22c738e44cf300c23348006863fa14",
+      "gitBlobSha": "b4201c72f9c7da2a4ec5ed632870d7217b6bfbf6"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/sources/authored.py",
+      "bytes": 23166,
+      "sha256": "9d7acbf22dcfebd0b3948523584274586cd56ade839c57c63167c506201bdfe5",
+      "gitBlobSha": "adc09c803e2ca96184e8e018d3957e6c634a227a"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/sources/build.py",
+      "bytes": 9870,
+      "sha256": "5d98110181eb3b099c94cba493e92e3774bb37b143bd7ca35cc2c769bdc459f2",
+      "gitBlobSha": "607d248d3403e527985e5e7053f30686dffda94e"
+    },
+    {
+      "path": "reports/evidence/student5-train-v21-cp43-build1/sources/repairs.json",
+      "bytes": 115647,
+      "sha256": "89eb3681491b52ca80c43d470797c482ad06b38c6d9f3255296109180294254c",
+      "gitBlobSha": "72e940e62aa96e26801eacd1fbf242b4497870ea"
+    },
+    {
+      "path": "tools/student5_cp43/DESIGN.md",
+      "bytes": 2509,
+      "sha256": "523c3210cc534fe69f9edd8843b867f5fc37e627ab52d7f79d72d8a8f0e06ad2",
+      "gitBlobSha": "e451d8758efa0f6cf26c91e74892b2c6315f7ff5"
+    },
+    {
+      "path": "tools/student5_cp43/audit.py",
+      "bytes": 23824,
+      "sha256": "7acb312e97d279d6fc3dae6564f8b8c381a51bda0ad62c409e118cc6bb89ed6d",
+      "gitBlobSha": "106ca0bd47eab650c9a72286cf073fe5e6e0d30f"
+    },
+    {
+      "path": "tools/student5_cp43/authored.py",
+      "bytes": 23317,
+      "sha256": "09314ddd88a729df28094094374b4d1b245e153eabafe0a29c5592294df0f28a",
+      "gitBlobSha": "0873416655c512ec91730eda53a52b5309cf5d78"
+    },
+    {
+      "path": "tools/student5_cp43/build.py",
+      "bytes": 9877,
+      "sha256": "dc03684582ce0d43d8c4c0e6ec6306136e1ce8ab3bc19787e80a6c5d093f2e64",
+      "gitBlobSha": "c6f077d451ada9d28af8c2f7a039950561f9b968"
+    },
+    {
+      "path": "tools/student5_cp43/repairs.json",
+      "bytes": 115647,
+      "sha256": "89eb3681491b52ca80c43d470797c482ad06b38c6d9f3255296109180294254c",
+      "gitBlobSha": "72e940e62aa96e26801eacd1fbf242b4497870ea"
+    }
+  ]
+}

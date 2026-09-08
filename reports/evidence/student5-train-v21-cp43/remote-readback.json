@@ -1,0 +1,33 @@
+{
+  "dataCommit": "f9f237db57a178a77e263128441469ed132722eb",
+  "filesReadBack": 53,
+  "allUploadedFilesMatch": true,
+  "candidateCompressedSha256": "f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4",
+  "candidateOrderedSha256": "6d3b1c77c29c639c04956c480529edc7195f80182f422b51d08f5e38ef896ee4",
+  "buildLockMatch": true,
+  "manifestMatch": true,
+  "provenanceMatch": true,
+  "candidateObservations": 1831,
+  "candidateClaims": 2524,
+  "trainV1GitBlobsUnchanged": 130,
+  "trainV2SourceGitBlobsUnchanged": 6,
+  "allPreviousRepositoryBlobsUnchangedExcept": [
+    "docs/WORK_CONTINUITY_STUDENT_5.md"
+  ],
+  "trainingExecuted": false,
+  "fineTuningExecuted": false,
+  "quantizationExecuted": false,
+  "onnxExecuted": false,
+  "student5PristineModified": false,
+  "devUsedForTraining": false,
+  "frozenDataRead": false,
+  "postAuditTrainingStarted": false,
+  "nextWorkStarted": false,
+  "verifiedAtUtc": "2026-09-08T00:40:30.714293+00:00",
+  "workflowRunsAtDataCommit": 0,
+  "sourceBranch": "main",
+  "readbackMethod": "Pinned GitHub fetch_file encoding=base64; decode bytes, verify SHA256 and Git blob SHA, revalidate candidate manifest/BUILD_LOCK/provenance.",
+  "candidateAndSourceIdentitiesUnchangedDuringReceiptCommit": true,
+  "verifiedFileInventory": "delivery-inventory.json",
+  "receiptScope": "53 files at dataCommit; subsequent receipt-only commit updates report/continuity/checksums, not candidate/source bytes."
+}

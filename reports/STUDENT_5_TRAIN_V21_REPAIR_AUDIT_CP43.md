@@ -146,3 +146,7 @@ nextWorkStarted=false
 ```
 
 STOP after publication/readback. G03, G04 and G07 require Supervisor action; neither successful structural validation nor a future PASS would authorize training.
+
+## Remote readback completed
+
+Data commit: f9f237db57a178a77e263128441469ed132722eb. All 53 published files downloaded at that exact commit; SHA256, byte counts and Git blob identities match. Candidate SHA256 independently recalculated from remote bytes: f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4. Manifest, BUILD_LOCK and every new-row provenance hash pass. All 130 v1 and six source v2 Git blobs unchanged; every pre-existing repository blob except the intended continuity update is unchanged. Workflow runs for data commit: 0. Receipt: reports/evidence/student5-train-v21-cp43/remote-readback.json. The receipt-only final commit SHA is supplied in the final handoff after its own readback. Candidate/source bytes are unchanged by that commit. STOP; no training or next task.
