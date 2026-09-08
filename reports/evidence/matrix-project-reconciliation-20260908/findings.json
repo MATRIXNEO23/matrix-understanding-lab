@@ -1,0 +1,92 @@
+[
+  {
+    "id": "R01",
+    "kind": "CONFIRMED_VERIFICATION_GAP",
+    "priority": "FIRST",
+    "finding": "Whole current canonical V3 -> prompt -> real model -> output -> memory cycle is not established. Existing orchestrator integration exercises static legacy NLU and echo GGUF; root prompt requires legacy fields.",
+    "evidence": [
+      "E02",
+      "E03",
+      "E05",
+      "E08",
+      "E10"
+    ],
+    "action": "One bounded V3-to-prompt wiring proof before any further module build; establish where current path stops. No repair applied."
+  },
+  {
+    "id": "R02",
+    "kind": "CONFIRMED_MISSING_IMPLEMENTATION_IN_CURRENT_TREE",
+    "priority": "HIGH",
+    "finding": "Durable Memory/retrieval, decision domains and real backend/validator remain absent or unwired in current Assembling.",
+    "evidence": [
+      "E08",
+      "E09",
+      "E10"
+    ],
+    "action": "Preserve partial implementation; require real producer/consumer and runtime evidence for each domain."
+  },
+  {
+    "id": "R03",
+    "kind": "DOCUMENTATION_SCOPE_AMBIGUITY",
+    "priority": "HIGH",
+    "finding": "Lab Python architecture plan and Assembling Kotlin implementation must not be conflated; CP-complete labels cover narrower work than full Engine capability.",
+    "evidence": [
+      "C01",
+      "E01",
+      "E05"
+    ],
+    "action": "Maintain explicit scope and approval provenance; no unilateral architecture choice."
+  },
+  {
+    "id": "R04",
+    "kind": "CONFIRMED_HANDOFF_CORRECTION",
+    "priority": "MEDIUM",
+    "finding": "Student-5 selection result is known: BLOCKED, zero evaluated, none selected. It was not unavailable in persisted project evidence.",
+    "evidence": [
+      "L02",
+      "STUDENT5_MODULE_INDEX.md"
+    ],
+    "action": "Carry the existing selection result forward without repeating training."
+  },
+  {
+    "id": "R05",
+    "kind": "CONFIRMED_STORAGE_IDENTITY",
+    "priority": "MEDIUM",
+    "finding": "Student-4 134-byte Git object is a valid LFS pointer, matching archive manifest OID/size. E5 has two LFS pointers; import logs show upload. This is not fresh payload readback.",
+    "evidence": [
+      "L01",
+      "L04"
+    ],
+    "action": "Distinguish pointer/manifest from recovered binary and executable model; preserve both locators."
+  },
+  {
+    "id": "R06",
+    "kind": "CONFIRMED_SCOPE_SPILL_AND_RECORD_GAP",
+    "priority": "MEDIUM",
+    "finding": "E5 fetch workflow plus candidate README/script remain in Assembling; isolated snapshot imported in lab. No runtime integration diff was found in the import commit. Existing Student5 index does not yet describe E5 as its own candidate.",
+    "evidence": [
+      "L04"
+    ],
+    "action": "Inventory without deletion; keep candidate separate and record it without declaring it a Student-5 replacement."
+  },
+  {
+    "id": "R07",
+    "kind": "UNVERIFIED_EXPLORATORY_RESULT",
+    "priority": "MEDIUM",
+    "finding": "Colab 2/8 is reported but not independently reproducible from recovered inputs.",
+    "evidence": [
+      "L05"
+    ],
+    "action": "Do not use as a model selection or architecture rejection gate."
+  },
+  {
+    "id": "R08",
+    "kind": "CONFIRMED_HISTORICAL_AUTHORIZATION_DISTINCTION",
+    "priority": "MEDIUM",
+    "finding": "Student-4 failed DEV gate coexists with later R2 runtime-test authorization; NOT_PRODUCTION_APPROVED remains.",
+    "evidence": [
+      "L01"
+    ],
+    "action": "Do not confuse R2 permission with production approval or stale absolute quantization prohibitions."
+  }
+]

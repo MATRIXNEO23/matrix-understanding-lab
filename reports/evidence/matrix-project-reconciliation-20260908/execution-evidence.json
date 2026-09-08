@@ -1,0 +1,99 @@
+{
+  "logs": [
+    {
+      "repo": "assembling",
+      "jobId": 101949567727,
+      "rawLogSha256": "d0c0cea747f46b965af2ef3f0c4c331696fb9f26f462c62589a7d3b163228a51",
+      "excerpts": [
+        {
+          "line": 209,
+          "text": "2026-09-08T05:36:13.7550211Z ##[group]Run gradle test"
+        },
+        {
+          "line": 245,
+          "text": "2026-09-08T05:36:55.1496635Z > Task :testClasses UP-TO-DATE"
+        },
+        {
+          "line": 246,
+          "text": "2026-09-08T05:36:56.9356321Z > Task :test"
+        },
+        {
+          "line": 257,
+          "text": "2026-09-08T05:36:56.9367145Z BUILD SUCCESSFUL in 43s"
+        },
+        {
+          "line": 319,
+          "text": "2026-09-08T05:37:03.8780049Z BUILD SUCCESSFUL in 4s"
+        }
+      ],
+      "scope": "Recovered existing run logs; no new workflow or local suite executed."
+    },
+    {
+      "repo": "assembling",
+      "jobId": 101949567783,
+      "rawLogSha256": "ea87f8f30358d52393e0c9c6b7c2ddce92f2a85c5fd71605488082797d87a0f6",
+      "excerpts": [
+        {
+          "line": 218,
+          "text": "2026-09-08T05:36:17.5826286Z understanding/candidates/jangedoo-multilingual-e5-small-pruned/upstream_snapshot/model.safetensors: OK"
+        },
+        {
+          "line": 326,
+          "text": "2026-09-08T05:37:26.8495954Z SHA256 digest of uploaded artifact zip is d1d93b2f002183c7bfef0726366dafdc10fd4d3f8561eab947b12d13a2d6bd4a"
+        },
+        {
+          "line": 328,
+          "text": "2026-09-08T05:37:27.1325111Z Artifact jangedoo-multilingual-e5-small-pruned-pinned.zip successfully finalized. Artifact ID 10042298574"
+        },
+        {
+          "line": 329,
+          "text": "2026-09-08T05:37:27.1327127Z Artifact jangedoo-multilingual-e5-small-pruned-pinned has been successfully uploaded! Final size is 216231681 bytes. Artifact ID is 10042298574"
+        }
+      ],
+      "scope": "Recovered existing run logs; no new workflow or local suite executed."
+    },
+    {
+      "repo": "matrix-understanding-lab",
+      "jobId": 101951491202,
+      "rawLogSha256": "4e4470b9866fd9b9311c0edc4bfb8ecb97298bd2ba1fcd8f0b3c23e824a4226d",
+      "excerpts": [
+        {
+          "line": 203,
+          "text": "2026-09-08T05:46:23.1818374Z bytes= 351646568"
+        },
+        {
+          "line": 204,
+          "text": "2026-09-08T05:46:23.1818996Z sha256= e8de21ecee219f55eb9a29e3f0ba7a6167756b6109512d201895b3158e97ae3e"
+        },
+        {
+          "line": 246,
+          "text": "2026-09-08T05:46:24.2684563Z [main 815b1ca] Add isolated multilingual E5 pruned candidate snapshot"
+        },
+        {
+          "line": 260,
+          "text": "2026-09-08T05:46:33.2709853Z Uploading LFS objects: 100% (2/2), 369 MB | 42 MB/s, done."
+        },
+        {
+          "line": 262,
+          "text": "2026-09-08T05:46:34.5515099Z    d0ce321..815b1ca  HEAD -> main"
+        }
+      ],
+      "scope": "Recovered existing run logs; no new workflow or local suite executed."
+    }
+  ],
+  "assembling": {
+    "head": "8e94db9e692e387f8ef2b5d528f8dd3f1c1d8fcf",
+    "runId": 34191239860,
+    "jobId": 101949567727,
+    "command": "gradle test",
+    "conclusion": "success",
+    "logShowsTestTask": true,
+    "sourceTestFiles": 18,
+    "sourceTestAnnotations": 150,
+    "testCountScope": "150 is a static @Test annotation census, not an executed-test count. Individual JUnit XML reports were not recovered.",
+    "realNluInferenceProven": false,
+    "realGgufInferenceProven": false,
+    "durableMemoryCycleProven": false
+  },
+  "freshSuitesExecuted": 0
+}

@@ -1,0 +1,270 @@
+{
+  "statusPolicy": "VERIFIED_SCOPED means only the identified property/test boundary, never whole-module practical readiness. NOT_WIRED is explicit known absence, not a failed implemented module. FAILED is historical gate evidence. UNKNOWN is not failure.",
+  "components": [
+    {
+      "id": "E01",
+      "name": "MIP contracts / MatrixTurnFrame",
+      "status": "VERIFIED_SCOPED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/mip/",
+        "src/main/kotlin/matrix/assembling/MatrixTurnFrame.kt",
+        "docs/MATRIX_INTERMODULE_PROTOCOL.md",
+        "docs/MIP_BRIDGE_COMPATIBILITY_AUDIT.md"
+      ],
+      "evidence": "Source establishes different roles; current JVM CI executes contract tests.",
+      "practicalLimit": "MIP is semantic protocol authority; MatrixTurnFrame carries turn data. Neither replaces the other. CI is not a full Engine quality test.",
+      "nextVerification": "Reproduce contract/status/provenance regressions at pinned HEAD; review assertions before treating them as coverage.",
+      "existingTestPaths": [
+        "src/test/kotlin/matrix/assembling/mip/MipEvidenceContractsTest.kt",
+        "src/test/kotlin/matrix/assembling/MatrixTurnFrameCanonicalSlotsTest.kt"
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "Canonical Understanding V3 adapter",
+      "status": "VERIFIED_SCOPED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/understanding/v3/CanonicalUnderstandingV3Adapter.kt",
+        "src/main/kotlin/matrix/assembling/mip/MipUnderstandingV3Contracts.kt"
+      ],
+      "evidence": "Adapter implementation, dedicated source tests, current CI log; historical U3 run 33966306986 success independently confirmed.",
+      "practicalLimit": "Tests supply a MatrixNluV3RuntimeBridge with authored outputs. No actual Student-5 -> V3 runtime -> adapter inference was demonstrated by these tests.",
+      "nextVerification": "Validate runtime-produced output against the same adapter with authenticated model/tokenizer/decoder; maintain separate deterministic contract tests.",
+      "existingTestPaths": [
+        "src/test/kotlin/matrix/assembling/understanding/v3/CanonicalUnderstandingV3AdapterTest.kt"
+      ]
+    },
+    {
+      "id": "E03",
+      "name": "V3 -> Authority",
+      "status": "VERIFIED_SCOPED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/authority/runtime/CanonicalUnderstandingV3AuthorityPort.kt",
+        "src/main/kotlin/matrix/assembling/authority/AuthorityResolver.kt"
+      ],
+      "evidence": "Five focused test methods cover structured projection, ambiguity and multi-claim retrieval; CI and historical CP-A2 run 34020878347 success confirmed.",
+      "practicalLimit": "Fixture-level integration. Multi-claim retrieval intentionally remains unresolved without unambiguous binding. External Python Authority source in memoria not independently inspected in this two-repo pass.",
+      "nextVerification": "Exercise producer -> context/retrieval -> Authority using explicit claim identities; check equality/divergence and unresolved candidates.",
+      "existingTestPaths": [
+        "src/test/kotlin/matrix/assembling/authority/runtime/CanonicalUnderstandingV3AuthorityPortTest.kt",
+        "src/test/kotlin/matrix/assembling/authority/AuthorityResolverTest.kt"
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "Coherence",
+      "status": "VERIFIED_SCOPED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/coherence/CoherenceGuard.kt",
+        "src/main/kotlin/matrix/assembling/adapters/BasicAdapters.kt"
+      ],
+      "evidence": "Implementation and boundary/compatibility tests present; current JVM CI success.",
+      "practicalLimit": "Basic root adapter reads legacy typedClaims. Coverage of the complete canonical V3 orchestration path is not established.",
+      "nextVerification": "Test canonical V3, zero/multi-claim, ambiguous/missing evidence and downstream consequences.",
+      "existingTestPaths": [
+        "src/test/kotlin/matrix/assembling/P1BoundaryTest.kt",
+        "src/test/kotlin/matrix/assembling/adapters/ComponentMappingCompatibilityTest.kt"
+      ]
+    },
+    {
+      "id": "E05",
+      "name": "Orchestrator / prompt / diagnostics",
+      "status": "IMPLEMENTED_NOT_FUNCTIONALLY_VERIFIED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/MatrixAssemblingOrchestrator.kt",
+        "src/main/kotlin/matrix/assembling/SemanticFrameToPrompt.kt",
+        "src/main/kotlin/matrix/assembling/MatrixTurnFrame.kt"
+      ],
+      "evidence": "Six integration tests supply integration-static-nlu and EchoGgufAdapter; current CI gradle test succeeds.",
+      "practicalLimit": "Prompt calls requireSemantic()/requireAuthority() for legacy slots; V3 adapter populates canonicalUnderstandingV3 without auto-populating legacy semantic/typedClaims. A complete V3 -> prompt -> real GGUF path is not demonstrated. This is a wiring/verification gap, not a reproduced runtime bug in this pass.",
+      "nextVerification": "First bounded integration check: prove how canonical V3 and canonical Authority reach the current prompt path without fabricating legacy values; stop and record the first missing edge.",
+      "existingTestPaths": [
+        "src/test/kotlin/matrix/assembling/MatrixAssemblingOrchestratorIntegrationTest.kt",
+        "src/test/kotlin/matrix/assembling/DiagnosticTraceTest.kt",
+        "src/test/kotlin/matrix/assembling/PromptBoundaryTest.kt"
+      ]
+    },
+    {
+      "id": "E06",
+      "name": "Affective boundary / prototype",
+      "status": "IMPLEMENTED_NOT_FUNCTIONALLY_VERIFIED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/adapters/AffectiveLabAdapter.kt",
+        "vendor/matrix-affective-lab/src/affective_engine.py"
+      ],
+      "evidence": "Kotlin adapter, Python prototype and mapping test source exist.",
+      "practicalLimit": "Gradle JVM build does not execute the Python prototype as part of a real cross-runtime Engine turn. Runtime bridge is an interface; no concrete production bridge identified in current source.",
+      "nextVerification": "Execute the approved prototype and bridge in the intended runtime, verify trajectories and ownership separation.",
+      "existingTestPaths": [
+        "src/test/kotlin/matrix/assembling/adapters/ComponentMappingCompatibilityTest.kt"
+      ]
+    },
+    {
+      "id": "E07",
+      "name": "Memory preflight",
+      "status": "VERIFIED_SCOPED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/adapters/NoPersistentMemoryAdmission.kt",
+        "src/main/kotlin/matrix/assembling/IntegrationPorts.kt"
+      ],
+      "evidence": "Current integration tests and orchestrator explicitly enforce stableWrite=false and no durable memory IDs before output validation.",
+      "practicalLimit": "This proves a no-write boundary in software tests, not Memory implementation.",
+      "nextVerification": "Retain preflight regressions; do not substitute a durable writer before response.",
+      "existingTestPaths": [
+        "src/test/kotlin/matrix/assembling/MatrixAssemblingOrchestratorIntegrationTest.kt",
+        "src/test/kotlin/matrix/assembling/ArchitectureBoundaryTest.kt"
+      ]
+    },
+    {
+      "id": "E08",
+      "name": "Durable Memory / retrieval / consolidation",
+      "status": "NOT_IMPLEMENTED_NOT_WIRED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/IntegrationPorts.kt",
+        "docs/MEMORY_INTEGRATION_STATUS.md",
+        "docs/WORK_CONTINUITY.md"
+      ],
+      "evidence": "Docs explicitly state preflight only; no persistent implementation in all 80 current Git files. Build is kotlin-jvm, no Room/Android plugin.",
+      "practicalLimit": "Cannot claim save/restart/retrieve, transactions, rollback or supersede works in this repository. External Memory project not declared nonexistent.",
+      "nextVerification": "Identify the existing authorized Android-capable target and Memory implementation before testing persistence. Do not build Room into this JVM module to fabricate completion.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "E09",
+      "name": "Relationship / Intimacy-Consent / Goals / Decision",
+      "status": "NOT_IMPLEMENTED_NOT_WIRED",
+      "sourcePaths": [
+        "docs/MODULE_CONNECTIONS.md",
+        "docs/ENGINE_MODULE_INDEX.md",
+        "src/main/kotlin/matrix/assembling/IntegrationPorts.kt"
+      ],
+      "evidence": "Reserved semantic domains and explicit NON_CABLATO status; no production controllers located in current source tree.",
+      "practicalLimit": "Affective summaries and prompt text are not implementations of these state owners.",
+      "nextVerification": "Locate authorized implementations, contracts and target before functional tests. No new module construction authorized by this reconciliation.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "E10",
+      "name": "Real GGUF / semantic output validator",
+      "status": "NOT_IMPLEMENTED_NOT_WIRED",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/IntegrationPorts.kt",
+        "src/main/kotlin/matrix/assembling/adapters/BasicAdapters.kt"
+      ],
+      "evidence": "GgufPort exists; EchoGgufAdapter is explicitly a fake smoke-test adapter. OutputValidatorPort is optional and missing validator is tagged NON_CABLATO.",
+      "practicalLimit": "A returned string in integration tests does not demonstrate llama.cpp/MLC or semantic output validation.",
+      "nextVerification": "Bind only an approved real backend for inference; validate output and post-response persistence at their actual boundaries.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "E11",
+      "name": "Legacy compatibility paths",
+      "status": "OBSOLETE_FOR_NEW_CANONICAL_CALLERS",
+      "sourcePaths": [
+        "src/main/kotlin/matrix/assembling/contracts/MatrixAssemblyContracts.kt",
+        "src/main/kotlin/matrix/assembling/pipeline/MatrixAssemblyPipeline.kt",
+        "src/main/kotlin/matrix/assembling/prompt/SemanticFrameToPrompt.kt",
+        "src/main/kotlin/matrix/assembling/adapters/UnderstandingLabAdapter.kt"
+      ],
+      "evidence": "Canonical index distinguishes compatibility/test paths from current source authorities.",
+      "practicalLimit": "Retained compatibility code is not automatically broken; do not delete it or silently use it as canonical V3 conversion.",
+      "nextVerification": "Map actual callers and prove no lossy V3 fallback before proposing cleanup.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "E12",
+      "name": "Entity resolution as standalone module",
+      "status": "UNKNOWN",
+      "sourcePaths": [
+        "docs/ENGINE_MODULE_INDEX.md",
+        "src/main/kotlin/matrix/assembling/mip/MipUnderstandingV3Contracts.kt"
+      ],
+      "evidence": "Entity references and candidate identities exist in contracts; no standalone Entity Resolution implementation identified in this tree.",
+      "practicalLimit": "Absence from these two trees is not proof no module exists elsewhere. A proposed standalone module cannot be called ready.",
+      "nextVerification": "Locate existing owner/implementation and upstream entityRef binding evidence before making this a test task.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "L01",
+      "name": "Student-4 v2.2A",
+      "status": "FAILED_HISTORICAL_DEV_GATE",
+      "sourcePaths": [
+        "reports/STUDENT_4_V22A_CONTROLLED_REPAIR_REPORT.md",
+        "docs/WORK_CONTINUITY_STUDENT_4_V22A.md",
+        "assembling:vendor/matrix-understanding-lab/runtime-candidate/student-4-v2.2a/ASSEMBLING_ARTIFACT.json"
+      ],
+      "evidence": "Reports preserve failed production DEV gate and later explicit R2 controlled-runtime authorization.",
+      "practicalLimit": "Not production approved. Historical quantization prohibition was superseded for R2; this is documented, not a fresh authorization to quantize. No metrics rerun here.",
+      "nextVerification": "Preserve R2 lineage and evaluate only under the applicable approved comparison; do not promote or rerun training automatically.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "L02",
+      "name": "Student-5 CP47 ten FP32 checkpoints",
+      "status": "IMPLEMENTED_NOT_FUNCTIONALLY_VERIFIED",
+      "sourcePaths": [
+        "reports/evidence/student5-fp32-cp47/training-manifest.json",
+        "reports/evidence/student5-fp32-cp47/checkpoint-verification.json",
+        "reports/evidence/student5-fp32-cp47/evaluation-status.json",
+        "STUDENT5_MODULE_INDEX.md"
+      ],
+      "evidence": "Release 384423046 / asset 549780835 metadata reconfirmed; existing CP47 evidence records 10 strict FP32 loads, frozen encoder equality and completed head training.",
+      "practicalLimit": "Training exists but canonical held-out quality, regression and best checkpoint are unmeasured. Earlier work in this same thread independently verified CP47 bytes; this pass did not re-download models.",
+      "nextVerification": "Recover authorized selection identity before comparing all ten; retain BLOCKED selection and do not choose by train loss.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "L03",
+      "name": "TRAIN / G03 target preparation",
+      "status": "VERIFIED_SCOPED",
+      "sourcePaths": [
+        "data/student5_v3_train_v21/",
+        "reports/evidence/student5-g03-closure/unit-tests.txt",
+        "reports/evidence/student5-fp32-cp47/target-consumption.json"
+      ],
+      "evidence": "Persisted tests/consumption evidence records 4355 targets and G03 ordered alternatives/status.",
+      "practicalLimit": "A correct target encoding does not prove a trained model predicts the right status/rank or generalizes; no new TRAIN audit or read in this pass.",
+      "nextVerification": "Preserve immutable data and existing tests. Verify prediction/decoder behavior separately when authorized evaluation input is identified.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "L04",
+      "name": "E5 isolated candidate",
+      "status": "IMPLEMENTED_NOT_FUNCTIONALLY_VERIFIED",
+      "sourcePaths": [
+        "understanding/candidates/jangedoo-multilingual-e5-small-pruned/",
+        ".github/workflows/import_e5_pruned_candidate.yml"
+      ],
+      "evidence": "Pinned revision 696e4b64a2e33f6ffa036d24a666a16fd2280556; real CI log checks size/hash and uploads two LFS objects.",
+      "practicalLimit": "Presence/import is verified; fresh remote LFS payload readback, correct custom-tokenizer loading and MATRIX task quality are not established by fetch CI. Candidate is an embedding backbone, not the Student-5 V3 16-head model.",
+      "nextVerification": "Separate future candidate task: full payload readback + tokenizer remap + forward test before any task-quality comparison. No automatic replacement or integration.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "L05",
+      "name": "Colab 2/8 probe",
+      "status": "UNKNOWN",
+      "sourcePaths": [
+        "User-supplied handoff only"
+      ],
+      "evidence": "User reports 2/8 on eight ad-hoc pairs of pristine MiniLM.",
+      "practicalLimit": "No notebook/script, exact scoring rule, environment or raw output recovered in this pass. Cannot attribute result to trained Student-5 or treat as canonical gate.",
+      "nextVerification": "Recover original notebook, inputs, model hash, metric and raw output before interpreting or reproducing the exploratory result.",
+      "existingTestPaths": []
+    },
+    {
+      "id": "C01",
+      "name": "ARCHITETTURA.md Python design",
+      "status": "DESIGN_ONLY",
+      "sourcePaths": [
+        "ARCHITETTURA.md",
+        "assembling:build.gradle.kts",
+        "assembling:docs/WORK_CONTINUITY.md"
+      ],
+      "evidence": "Lab document explicitly says progettazione / no application code authorized; describes Python matrix_ai packages. Assembling build/source is Kotlin/JVM; Memory Kotlin/Room is next in its continuity.",
+      "practicalLimit": "These are different scopes/plans. No evidence in this pass establishes an approved project-wide replacement of Kotlin Engine by the Python design. Cannot label proposed files as implemented modules.",
+      "nextVerification": "Reconcile plan scope and approval history before any architecture pivot; do not execute the design file order automatically.",
+      "existingTestPaths": []
+    }
+  ]
+}

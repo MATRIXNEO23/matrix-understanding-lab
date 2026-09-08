@@ -1,0 +1,39 @@
+{
+  "student4": {
+    "pointerRepo": "MATRIXNEO23/assembling",
+    "pointerPath": "models/matrix-nlu/matrix-nlu-student-4-v22a-mixed-head-protected-local-20260904T1440Z.zip",
+    "pointerBytes": 134,
+    "payloadBytes": 356134801,
+    "sha256": "4998ce2f44dd8553d75f86b8d7975529f6a5f779de9107eef393648022d6ccb5",
+    "manifestMatch": true,
+    "freshPayloadReadback": false
+  },
+  "e5": {
+    "labPath": "understanding/candidates/jangedoo-multilingual-e5-small-pruned/",
+    "upstreamRevision": "696e4b64a2e33f6ffa036d24a666a16fd2280556",
+    "modelBytes": 351646568,
+    "modelSha256": "e8de21ecee219f55eb9a29e3f0ba7a6167756b6109512d201895b3158e97ae3e",
+    "tokenizerBytes": 17082735,
+    "tokenizerSha256": "6040ba36e3e2f7b2fa6ae076b69d024a08666bea4c345105a32e542900fcc7e7",
+    "importRun": 34191899115,
+    "importJob": 101951491202,
+    "importUploadLog": "2/2 LFS objects uploaded",
+    "assemblingFetchRun": 34191239854,
+    "artifactId": 10042298574,
+    "artifactBytes": 216231681,
+    "artifactSha256": "d1d93b2f002183c7bfef0726366dafdc10fd4d3f8561eab947b12d13a2d6bd4a",
+    "freshPayloadReadback": false,
+    "inferenceExecutedInThisPass": false
+  },
+  "student5": {
+    "runId": "student5-matrix-nlu-v3-fp32-cp47-run1",
+    "releaseId": 384423046,
+    "assetId": 549780835,
+    "archiveBytes": 93830912,
+    "archiveSha256": "029bc292c11091da3aa5742ac85017ffdbc7dbb7ba7be6fadc5cc603f07ceafa",
+    "checkpoints": 10,
+    "selection": "BLOCKED_MISSING_CANONICAL_EVAL_SET",
+    "checkpointsEvaluated": 0,
+    "freshBinaryReadbackInThisPass": false
+  }
+}
