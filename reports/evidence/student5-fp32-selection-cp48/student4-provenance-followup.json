@@ -1,0 +1,1290 @@
+{
+  "task": "Existing CP47 checkpoint selection — targeted Student-4 provenance lead follow-up",
+  "requestedHead": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+  "continuationHead": "3c289b4a6c1778ee96f03665d33d137d4d16fbb6",
+  "BEST_CHECKPOINT": "BLOCKED",
+  "reason": "Existing Student-4 DEV identities and selection purpose are confirmed, but the chain does not identify an authorized, recoverable Student-5 V3 selection artifact or an approved compatible target representation. No name-based exclusion was used.",
+  "leadVerified": true,
+  "sourceInputs": [
+    {
+      "dataset": "matrix.nlu.dataset.v2 / Matrix DEV",
+      "records": 756,
+      "claims": 972,
+      "sha256": "704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012"
+    },
+    {
+      "dataset": "P0.5 V2 DEV",
+      "sha256": "7533f56194431bd17b6f8544031d5436ca14ee6e209336da8133e1f05cdf0866"
+    },
+    {
+      "dataset": "Matrix V1 DEV",
+      "records": 756,
+      "claims": 972,
+      "sha256": "aa19e414a5d5dd1bc3ec9c1e257b8224b568a2a7460a92f31875ce3741003177"
+    },
+    {
+      "dataset": "P0.5 V1 DEV",
+      "records": 84,
+      "claims": 108,
+      "sha256": "b48753dc07adee70538e890473a2df08524260fdaec31d9946f2e5c57183582b"
+    }
+  ],
+  "hashVerificationScope": "Documentary identities confirmed in pinned source reports/cards; no dataset payload newly acquired, generated, relabeled or hashed.",
+  "provenanceChain": [
+    "Student-4 v2.1 STOP report binds matrix.nlu.dataset.v2, separate TRAIN/DEV hashes, and best-dev-score checkpoint selection.",
+    "Student-4 v2.2A report preserves the identical V2 DEV hashes after TRAIN-only repairs.",
+    "matrix_nlu/train.py selects V2 paths from datasetVersion and records inputHashes for separate train/dev inputs and manifests.",
+    "Earlier Matrix/P0.5 V1 cards also identify separate DEV with variant-choice/calibration purpose; this is historical evaluation evidence, not evidence of existing compatible V3 targets.",
+    "Student-5 V3 migration explicitly migrated TRAIN only. It records that V2 rows require reannotation for source role, concrete pointer roles, cue-only negation, claim kinds and field statuses.",
+    "Student-5 completion protocol requires DEV selection and meaningful baseline comparison but does not bind any recovered legacy DEV identity as the authorized compatible selection set.",
+    "CP36, CP44 and CP47 leave selection-input identity missing. CP48 broader recovery evidence remains preserved; its historical ZIP access failures remain unresolved and were not retried here."
+  ],
+  "missing": [
+    "Exact recoverable existing authorized selection artifact locator",
+    "Dataset ID and expected SHA-256 for those bytes",
+    "Provenance tying its permitted split and compatible targets to Student-5 checkpoint selection"
+  ],
+  "checkpointsAvailable": 10,
+  "checkpointsEvaluated": 0,
+  "selectedCheckpoint": null,
+  "metrics": "NOT_MEASURED",
+  "regressions": "NOT_MEASURED",
+  "trainLossUsedForSelection": false,
+  "sources": [
+    {
+      "path": "reports/STUDENT_4_V21_POST_DEV_REPORT.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "70b96b943d2145b931e1560356d21765e8ea84b0",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# Student-4-v2.1 — Post-run development gate report"
+        },
+        {
+          "line": 16,
+          "text": "- Final dev-only run: `33848931720`, job `100947061031`"
+        },
+        {
+          "line": 17,
+          "text": "- Evaluation artifact: `matrix-nlu-student-4-v21-post-dev-33848931720`, ID `9927657001`"
+        },
+        {
+          "line": 18,
+          "text": "- Artifact archive SHA-256:"
+        },
+        {
+          "line": 20,
+          "text": "- Model-state SHA-256:"
+        },
+        {
+          "line": 22,
+          "text": "- Training-result SHA-256:"
+        },
+        {
+          "line": 24,
+          "text": "- Labels SHA-256:"
+        },
+        {
+          "line": 28,
+          "text": "`studentLayers == 4`, `trainingSplitsRead == [\"train\", \"dev\"]`,"
+        },
+        {
+          "line": 35,
+          "text": "- Threshold candidates evaluated: 188, development only."
+        },
+        {
+          "line": 53,
+          "text": "## Complete end-to-end dev summary"
+        },
+        {
+          "line": 55,
+          "text": "| Dataset/language | Obs. | Claims | Count exact | Exact set | Claim exact | Field exact | Span F1 | Entity F1 | Coverage | Selective acc. | Ownership corrupt. | Negation F1 | Predicate acc. | Temporal acc. |"
+        },
+        {
+          "line": 72,
+          "text": "| Field/head | Matrix dev | P0.5 dev | Status |"
+        },
+        {
+          "line": 81,
+          "text": "| `sequence.polarity` | 0.956790 | 0.928571 | weak interaction with negation |"
+        },
+        {
+          "line": 86,
+          "text": "| Span metric | Matrix dev | P0.5 dev |"
+        },
+        {
+          "line": 90,
+          "text": "| negation span F1 | 0.509169 | 0.940426 |"
+        },
+        {
+          "line": 94,
+          "text": "end-to-end values. In particular, Matrix `tokens.negation` training accuracy"
+        },
+        {
+          "line": 95,
+          "text": "was 0.873621 at the best checkpoint while end-to-end negation span F1 is only"
+        },
+        {
+          "line": 103,
+          "text": "| negation | 156 | 101 | 0.352564 | 0.173077 | 0.730769 | 0.153846 |"
+        },
+        {
+          "line": 125,
+          "text": "recorded Student-4-v2 dev baseline: exact set 0.719577 vs 0.560847, claim exact"
+        },
+        {
+          "line": 137,
+          "text": "No quantization candidate may be tested while this dev gate is failed. If a"
+        },
+        {
+          "line": 138,
+          "text": "future corrected model passes dev, the prepared order is:"
+        },
+        {
+          "line": 143,
+          "text": "4. test selective/mixed precision while protecting negation, predicate,"
+        },
+        {
+          "line": 156,
+          "text": "The final artifact's present files match its `SHA256SUMS`. The archive digest"
+        },
+        {
+          "line": 159,
+          "text": "Key evidence SHA-256 values:"
+        },
+        {
+          "line": 167,
+          "text": "lower gates, retrain blindly, change dev/test/frozen, quantize, open frozen,"
+        }
+      ]
+    },
+    {
+      "path": "reports/STUDENT_4_V21_STOP_REPORT.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "b4267f0851cb5baf8923d642bd9eb3e5b52f8f9b",
+      "excerpts": [
+        {
+          "line": 12,
+          "text": "- Job: `train-and-dev-only`, ID `100914050985`"
+        },
+        {
+          "line": 13,
+          "text": "- Failed step: 11, `Evaluate development and stop`; exit code 1"
+        },
+        {
+          "line": 18,
+          "text": "    File \"/home/runner/work/matrix-understanding-lab/matrix-understanding-lab/matrix_nlu/controlled_dev_v21.py\", line 13, in <module>"
+        },
+        {
+          "line": 19,
+          "text": "      from matrix_nlu.pipeline_support import Step, atomic_json, run_step, sha256"
+        },
+        {
+          "line": 24,
+          "text": "Training completed successfully. The failure occurred before end-to-end dev"
+        },
+        {
+          "line": 25,
+          "text": "prediction, threshold selection or any dev gate decision. It is not classified"
+        },
+        {
+          "line": 26,
+          "text": "as a model failure or a dev-gate failure. Per the controlled-stop policy, it was"
+        },
+        {
+          "line": 32,
+          "text": "- Config SHA-256: `1011dae1572c24b7aabb07c21027c2eab93aa285f17de536bc9bfa4a671b2964`"
+        },
+        {
+          "line": 37,
+          "text": "- MASSIVE: 1 epoch; 3,000 train and 600 dev per language; test count 0"
+        },
+        {
+          "line": 46,
+          "text": "  SHA-256 `5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820`"
+        },
+        {
+          "line": 47,
+          "text": "- Matrix dev unchanged: 756 rows / 972 claims;"
+        },
+        {
+          "line": 48,
+          "text": "  SHA-256 `704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012`"
+        },
+        {
+          "line": 49,
+          "text": "- P0.5 train/dev unchanged:"
+        },
+        {
+          "line": 52,
+          "text": "- Mapping/provenance SHA-256:"
+        },
+        {
+          "line": 59,
+          "text": "- Training provenance: `trainingSplitsRead=[train,dev]`;"
+        },
+        {
+          "line": 69,
+          "text": "- Best dev selection score: `0.9676758069767126`"
+        },
+        {
+          "line": 70,
+          "text": "- Best checkpoint/model-state SHA-256:"
+        },
+        {
+          "line": 72,
+          "text": "- Latest resumable checkpoint: epoch 7, SHA-256"
+        },
+        {
+          "line": 74,
+          "text": "- Training-result SHA-256:"
+        },
+        {
+          "line": 79,
+          "text": "| Metric | Matrix dev | P0.5 dev |"
+        },
+        {
+          "line": 82,
+          "text": "| Dev loss | 0.075984117 | 0.324663108 |"
+        },
+        {
+          "line": 88,
+          "text": "| Head | Matrix dev | P0.5 dev |"
+        },
+        {
+          "line": 101,
+          "text": "| negation token | 0.859579 | 0.985112 |"
+        },
+        {
+          "line": 106,
+          "text": "## Required end-to-end dev evidence"
+        },
+        {
+          "line": 108,
+          "text": "No end-to-end dev inference completed because the evaluator launcher failed at"
+        },
+        {
+          "line": 111,
+          "text": "per-language exact-set, field exact, span F1, entity F1, end-to-end negation and"
+        },
+        {
+          "line": 120,
+          "text": "- Best dev selection score: 0.967675807 vs 0.959051200,"
+        },
+        {
+          "line": 122,
+          "text": "- Latest Matrix dev loss: 0.075984117 vs 0.260681200,"
+        },
+        {
+          "line": 125,
+          "text": "- Latest P0.5 dev loss: 0.324663108 vs 0.369114218,"
+        },
+        {
+          "line": 129,
+          "text": "  temporal token to 1.0; Matrix negation token regressed from 0.873621 to"
+        },
+        {
+          "line": 133,
+          "text": "  regression/generalization judgment is unavailable because dev inference did"
+        },
+        {
+          "line": 138,
+          "text": "- Report artifact `9926693211`: 30,411 bytes; archive SHA-256"
+        },
+        {
+          "line": 140,
+          "text": "- Bundle artifact `9926696572`: 217,601,847 bytes; archive SHA-256"
+        },
+        {
+          "line": 142,
+          "text": "- Resume artifact `9926705228`: 649,139,558 bytes; archive SHA-256"
+        },
+        {
+          "line": 147,
+          "text": "  stages were outside the authorized dev-only run."
+        },
+        {
+          "line": 152,
+          "text": "- P1: no valid end-to-end dev gate decision exists due to evaluator-launch"
+        },
+        {
+          "line": 154,
+          "text": "- P2: Matrix negation token accuracy regressed relative to baseline; this is"
+        }
+      ]
+    },
+    {
+      "path": "reports/STUDENT_4_V22A_CONTROLLED_REPAIR_REPORT.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "53109dfcbd52b7e7b3021e8b42dda8f90622747e",
+      "excerpts": [
+        {
+          "line": 16,
+          "text": "- Model-state SHA-256: `446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c`"
+        },
+        {
+          "line": 17,
+          "text": "- Training-result SHA-256: `ddbc65ad5c291f56dbf277a4e75a8b7f138b5e6334f1471a6712649e2b7043cd`"
+        },
+        {
+          "line": 18,
+          "text": "- Labels SHA-256: `65c421c5d9b7d2ff3f552150950db5c23db2401c4a5806a60725f7ec7b81b9bf`"
+        },
+        {
+          "line": 20,
+          "text": "The workflow trained fresh with `studentLayers=4`, `--defer-frozen`, train/dev only, and no ONNX or quantization. Matrix training stopped normally at epoch 8/10 after three non-improving epochs; the best selection score was `0.9577545560826969` at epoch 5."
+        },
+        {
+          "line": 24,
+          "text": "| Artifact | ID | Size | Archive SHA-256 |"
+        },
+        {
+          "line": 30,
+          "text": "The report archive was downloaded and its SHA-256 matches GitHub. All 23 report files represented in `SHA256SUMS` match; no mismatch or unlisted evidence file was found. Bundle and resumable checkpoint remain preserved even though the dev gate failed. The resumable checkpoint SHA-256 recorded by the run is `b57737a3e3f6acf9d72da86f918f730f9bb655839c6cf00f8b614d3b706f815b`."
+        },
+        {
+          "line": 38,
+          "text": "The repair file SHA-256 is `8be02976d46ba47d746ff7307d688d93595453221965b3de995d4b1de655799f`; its manifest SHA-256 is `5c4a142a6b226c64cbfac31ee9f8d525b10f8559ba0bb303bf815d6f6c63ed2e`. Independent verification found 375 unique rows, all `split=train`:"
+        },
+        {
+          "line": 50,
+          "text": "Immutable dev hashes remain exactly:"
+        },
+        {
+          "line": 52,
+          "text": "- Matrix dev: `704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012`"
+        },
+        {
+          "line": 53,
+          "text": "- P0.5 dev: `7533f56194431bd17b6f8544031d5436ca14ee6e209336da8133e1f05cdf0866`"
+        },
+        {
+          "line": 55,
+          "text": "## Development gate result"
+        },
+        {
+          "line": 59,
+          "text": "- Candidate thresholds evaluated: 190, development only"
+        },
+        {
+          "line": 66,
+          "text": "## Complete end-to-end dev metrics"
+        },
+        {
+          "line": 68,
+          "text": "| Dataset/language | Obs. | Claims | Count exact | Exact set | Claim exact | Field exact | Span F1 | Entity F1 | Coverage | Selective acc. | Ownership corrupt. | Negation F1 | Predicate acc. | Temporal acc. |"
+        },
+        {
+          "line": 85,
+          "text": "- Matrix overall regresses: exact-set `0.719577 -> 0.679894`, claim exact `0.732510 -> 0.713992`, negation F1 `0.509169 -> 0.490644`, predicate `0.989712 -> 0.936214`, and temporal accuracy `1.0 -> 0.956790`."
+        },
+        {
+          "line": 86,
+          "text": "- Matrix IT exact-set improves slightly `0.611111 -> 0.619048` and negation F1 improves `0.247012 -> 0.287037`, but predicate collapses `1.0 -> 0.808642` and temporal accuracy falls `1.0 -> 0.870370`."
+        },
+        {
+          "line": 87,
+          "text": "- Matrix ES regresses in exact-set `0.595238 -> 0.523810` and negation F1 `0.158228 -> 0.129534`, despite predicate improving to `1.0`."
+        },
+        {
+          "line": 89,
+          "text": "- P0.5 improves in exact-set `0.450000 -> 0.516667`, claim exact `0.607143 -> 0.654762`, negation F1 `0.940426 -> 1.0`, and predicate `0.750000 -> 0.797619`."
+        },
+        {
+          "line": 93,
+          "text": "Residual analysis covers 271 failed observations and 759 individual errors: semantic classification 354, span decoding 293, authority/referent decoding 62, and entity resolution 50. Request remains 0/6 exact, correction 1/6 exact, and combined negation-family exact-set is only `0.262821`."
+        },
+        {
+          "line": 101,
+          "text": "- `trainingSplitsRead=train,dev`"
+        }
+      ]
+    },
+    {
+      "path": "docs/WORK_CONTINUITY_STUDENT_4_V22A.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "45183888a287949c2837038c5694bbf083219110",
+      "excerpts": [
+        {
+          "line": 10,
+          "text": "Student-4-v2.2A completed training and dev-only evaluation successfully, but did not pass the original canonical dev gate."
+        },
+        {
+          "line": 18,
+          "text": "FAILED_CANONICAL_DEV_GATE_CARRY_OVER_ALLOWED"
+        },
+        {
+          "line": 62,
+          "text": "FAILED_CANONICAL_DEV_GATE_CARRY_OVER_ALLOWED"
+        },
+        {
+          "line": 72,
+          "text": "- `FAILED_DEV_GATE`"
+        },
+        {
+          "line": 78,
+          "text": "- Matrix negation F1 `0.509169`"
+        },
+        {
+          "line": 99,
+          "text": "- v2.2A train-only repair dataset build;"
+        },
+        {
+          "line": 103,
+          "text": "- development-only controlled evaluation;"
+        },
+        {
+          "line": 113,
+          "text": "digest: sha256:e71e153509e8f002fd74782ebb5667bb93b59438e6646c4c11723afe4be64129"
+        },
+        {
+          "line": 118,
+          "text": "digest: sha256:f2dfea052df525af741f8ddd98e279b5443645450d09f949970a6eac18edb987"
+        },
+        {
+          "line": 123,
+          "text": "digest: sha256:ff66bd687fc55f1b767164b84795ad84aba4937130b7d8b0aead9afff5f018cd"
+        },
+        {
+          "line": 126,
+          "text": "## v2.2A dev verdict"
+        },
+        {
+          "line": 146,
+          "text": "Matrix dev:"
+        },
+        {
+          "line": 162,
+          "text": "negationF1 = 0.49064449064449067"
+        },
+        {
+          "line": 166,
+          "text": "Matrix dev by language:"
+        },
+        {
+          "line": 174,
+          "text": "P0.5 dev:"
+        },
+        {
+          "line": 190,
+          "text": "negationF1 = 1.0"
+        },
+        {
+          "line": 194,
+          "text": "P0.5 dev by language:"
+        },
+        {
+          "line": 215,
+          "text": "- P0.5 negation improved strongly;"
+        },
+        {
+          "line": 220,
+          "text": "- canonical dev gate failed;"
+        },
+        {
+          "line": 222,
+          "text": "- Matrix negation remains weak, especially IT/ES;"
+        },
+        {
+          "line": 271,
+          "text": "token.negation"
+        },
+        {
+          "line": 292,
+          "text": "canonicalDevGatePassed = false"
+        },
+        {
+          "line": 334,
+          "text": "5. Do not edit dev/test/frozen data."
+        },
+        {
+          "line": 338,
+          "text": "9. Record file sizes, SHA256, protected heads, excluded nodes and latency."
+        },
+        {
+          "line": 349,
+          "text": "FAILED_CANONICAL_DEV_GATE_CARRY_OVER_ALLOWED"
+        },
+        {
+          "line": 375,
+          "text": "bundleArchiveSha256 = f2dfea052df525af741f8ddd98e279b5443645450d09f949970a6eac18edb987"
+        },
+        {
+          "line": 376,
+          "text": "modelStateSha256 = 446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c"
+        },
+        {
+          "line": 384,
+          "text": "- no train/dev/test/frozen dataset is present or read;"
+        },
+        {
+          "line": 386,
+          "text": "- `trainingSplitsRead = [train, dev]`;"
+        },
+        {
+          "line": 396,
+          "text": "FAILED_DEV_GATE_CARRY_OVER"
+        },
+        {
+          "line": 412,
+          "text": "model-state.pt sha256 = 446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c"
+        },
+        {
+          "line": 421,
+          "text": "Constraints remain unchanged: `FROZEN_UNREAD`, `FAILED_DEV_GATE_CARRY_OVER`, and `EXPERIMENTAL_TEST_CANDIDATE_NOT_PRODUCTION_APPROVED`."
+        },
+        {
+          "line": 433,
+          "text": "expected modelStateSha256 = 446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c"
+        },
+        {
+          "line": 434,
+          "text": "recovery mirror sha256     = 446b6a58265500001efd350f81d75867227cbfd3c6da699ed9c9330257d16a9c"
+        },
+        {
+          "line": 465,
+          "text": "artifactSha256 = 4998ce2f44dd8553d75f86b8d7975529f6a5f779de9107eef393648022d6ccb5"
+        },
+        {
+          "line": 472,
+          "text": "| Model | Bytes | SHA-256 |"
+        },
+        {
+          "line": 487,
+          "text": "- `token.negation` is `/model/negation/MatMul` with a FLOAT initializer and is not quantized;"
+        },
+        {
+          "line": 496,
+          "text": "token.negation"
+        },
+        {
+          "line": 520,
+          "text": "- decoded negation spans: 6/6 exact;"
+        },
+        {
+          "line": 523,
+          "text": "This parity result is evidence for controlled runtime testing, not a production gate pass. The artifact includes the FP32 reference, mixed INT8 model, manifest, per-head validation report, decoded parity evidence, `SHA256SUMS`, `FROZEN_GUARD.txt`, labels, tokenizer and non-weight runtime configuration."
+        },
+        {
+          "line": 531,
+          "text": "decisionCarryOver = FAILED_DEV_GATE_CARRY_OVER"
+        },
+        {
+          "line": 532,
+          "text": "sourceDevDecision = STOPPED_FOR_REVIEW_FAILED_DEV_GATE"
+        },
+        {
+          "line": 550,
+          "text": "artifactSha256 = 4998ce2f44dd8553d75f86b8d7975529f6a5f779de9107eef393648022d6ccb5"
+        },
+        {
+          "line": 554,
+          "text": "The archive passed `unzip -t`; its internal `SHA256SUMS` verified every one of the 13 payload files. The handoff does not change the model decision or authorize frozen evaluation or production promotion."
+        }
+      ]
+    },
+    {
+      "path": "matrix_nlu/train_config_v21.json",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "f76653563734e3f1de92c464bb684d423d6a7b6b",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "  \"datasetVersion\": \"matrix.nlu.dataset.v2\","
+        },
+        {
+          "line": 15,
+          "text": "    \"devPerLanguage\": 600,"
+        },
+        {
+          "line": 35,
+          "text": "  \"testPolicy\": \"frozen test is unread; stop after the first development gate decision\""
+        }
+      ]
+    },
+    {
+      "path": "matrix_nlu/train_config_v22a.json",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "72f3fb4aea6d4ac257494d9cbf62634de00ad6be",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "  \"datasetVersion\": \"matrix.nlu.dataset.v2\","
+        },
+        {
+          "line": 15,
+          "text": "    \"devPerLanguage\": 600,"
+        },
+        {
+          "line": 41,
+          "text": "      \"negation\": 4.0,"
+        },
+        {
+          "line": 65,
+          "text": "      \"Matrix IT negation F1 0.2470\","
+        },
+        {
+          "line": 66,
+          "text": "      \"Matrix ES negation F1 0.1582\","
+        },
+        {
+          "line": 73,
+          "text": "    \"quantizationPolicy\": \"blocked until unchanged dev gate passes\""
+        },
+        {
+          "line": 77,
+          "text": "  \"testPolicy\": \"frozen test is unread; stop after the first development gate decision\""
+        }
+      ]
+    },
+    {
+      "path": "prompts/WORK_STUDENT_5_PATH_B_V3_COMPLETION.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "695be3d8a9f9cd74b07bdecdf45f459f4a96aaa8",
+      "excerpts": [
+        {
+          "line": 19,
+          "text": "-> DEV evaluation + error mining + TRAIN-only repair loop"
+        },
+        {
+          "line": 39,
+          "text": "reports/STUDENT_5_TRAIN_V3_MIGRATION.md"
+        },
+        {
+          "line": 57,
+          "text": "archiveSha256 = 7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191"
+        },
+        {
+          "line": 59,
+          "text": "modelSha256 = d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2"
+        },
+        {
+          "line": 77,
+          "text": "pathAInt8OnnxSha256 = f58463a6d1f4daca2e58c8e40f7f6d1cbaa7d107e9534160278bc46552e0304a"
+        },
+        {
+          "line": 96,
+          "text": "datasetLogicalSha256 = 1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e"
+        },
+        {
+          "line": 97,
+          "text": "migrationManifestSha256 = 87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98"
+        },
+        {
+          "line": 103,
+          "text": "TRAIN source is immutable. Repairs/augmentations, when justified by DEV error analysis, must be new TRAIN-only versioned artifacts with new IDs/checksums. Never overwrite `student5-matrix-nlu-v3-train-v1`."
+        },
+        {
+          "line": 119,
+          "text": "negation"
+        },
+        {
+          "line": 139,
+          "text": "The runtime must preserve independent source/perspective roles, cue-only negation evidence, temporal relation/anchor semantics, candidate-pointer referents, field statuses, confidence/abstention and multi-claim decomposition. Do not reintroduce V2 sentinels or linguistic regex parsing."
+        },
+        {
+          "line": 153,
+          "text": "verify pristine Release locator and SHA-256"
+        },
+        {
+          "line": 208,
+          "text": "SHA-256"
+        },
+        {
+          "line": 261,
+          "text": "-> DEV evaluation"
+        },
+        {
+          "line": 264,
+          "text": "-> TRAIN-only repair/hard-example generation if justified"
+        },
+        {
+          "line": 272,
+          "text": "No DEV example may be copied into TRAIN. Frozen remains closed until the final candidate is locked."
+        },
+        {
+          "line": 279,
+          "text": "negation"
+        },
+        {
+          "line": 280,
+          "text": "negation cue spans independent of polarity"
+        },
+        {
+          "line": 326,
+          "text": "Before training or during the first DEV/error-analysis cycle, determine which gaps materially block the required contract. If augmentation is needed, create a **new TRAIN-only dataset version**, with provenance and checksums, without changing the canonical v1 artifact."
+        },
+        {
+          "line": 328,
+          "text": "Do not fabricate labels from unsupported text. Prefer balanced authored TRAIN-only examples plus controlled validation when provenance/license permit."
+        },
+        {
+          "line": 335,
+          "text": "calibrate on allowed DEV only"
+        },
+        {
+          "line": 366,
+          "text": "Lock a taught FP32 candidate only when DEV evidence shows no critical systematic failure remaining within the accepted gate definition."
+        },
+        {
+          "line": 374,
+          "text": "DEV evaluation identity"
+        },
+        {
+          "line": 379,
+          "text": "checkpoint/model SHA-256"
+        },
+        {
+          "line": 419,
+          "text": "negation"
+        },
+        {
+          "line": 428,
+          "text": "Persist each retained quantized candidate immutably with a new version and SHA-256. Never overwrite the taught FP32 export."
+        },
+        {
+          "line": 466,
+          "text": "SHA-256"
+        },
+        {
+          "line": 546,
+          "text": "DEV/Frozen evaluation"
+        },
+        {
+          "line": 564,
+          "text": "DEV per-language/per-family error analysis completed"
+        },
+        {
+          "line": 565,
+          "text": "observed systematic defects fixed through TRAIN-only/evidence-backed work"
+        },
+        {
+          "line": 577,
+          "text": "registry + SHA-256 + lineage + continuity complete"
+        }
+      ]
+    },
+    {
+      "path": "docs/MATRIX_NLU_DATASET_CARD.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "ee5f271a8c928c5afa62b647a4b80535444abfc9",
+      "excerpts": [
+        {
+          "line": 12,
+          "text": "subject/target/owner/perspective referents, polarity and negation span,"
+        },
+        {
+          "line": 20,
+          "text": "Train, dev and frozen test use different surface-template families and disjoint"
+        },
+        {
+          "line": 22,
+          "text": "multi-token places absent from train/dev and paraphrase structures that do not"
+        },
+        {
+          "line": 31,
+          "text": "| dev | 180 | variant choice, calibration and causal fixes |"
+        },
+        {
+          "line": 36,
+          "text": "| Split | Records | Per language | Claims | SHA-256 |"
+        },
+        {
+          "line": 39,
+          "text": "| dev | 756 | 252 | 972 | `aa19e414a5d5dd1bc3ec9c1e257b8224b568a2a7460a92f31875ce3741003177` |"
+        },
+        {
+          "line": 46,
+          "text": "| Split | Records | Claims | SHA-256 |"
+        },
+        {
+          "line": 49,
+          "text": "| dev | 84 | 108 | `b48753dc07adee70538e890473a2df08524260fdaec31d9946f2e5c57183582b` |"
+        },
+        {
+          "line": 64,
+          "text": "  duplicated across partitions. The adapter emits P0.5 train/dev/test separately;"
+        },
+        {
+          "line": 65,
+          "text": "  training may consume only P0.5 train, selection only P0.5 dev, and final"
+        }
+      ]
+    },
+    {
+      "path": "reports/STUDENT_5_TRAIN_V3_MIGRATION.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "c22043dd83fa3fa112649a0e96f59f9b507e2805",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# Student-5 TRAIN-only V2 → Matrix-NLU Contract V3 Migration"
+        },
+        {
+          "line": 5,
+          "text": "`TRAIN_V3_MIGRATION_PASS_WITH_NONBLOCKING_RISKS`."
+        },
+        {
+          "line": 7,
+          "text": "The canonical TRAIN-only artifact contains 3,150 rows and 3,990 flat atomic claims under `MATRIX_NLU_CONTRACT_V3`. All rows pass the V3 structural validator and target builder. The verdict carries coverage risks rather than migration failures: BELIEF and COMMAND are absent, report/source attribution is limited to eight Italian claims, advanced temporal relations are absent, adult withdrawal has one Italian row, and the inherited corpus contains 1,561 repeated texts."
+        },
+        {
+          "line": 9,
+          "text": "No training, DEV/Frozen access, model mutation, Student-4 change, Path-A change, or production promotion occurred."
+        },
+        {
+          "line": 14,
+          "text": "- Migration implementation used: `5e515ddadf9abe473ee2d99f34b8898df38da957`"
+        },
+        {
+          "line": 30,
+          "text": "| Source | SHA-256 | Provenance |"
+        },
+        {
+          "line": 32,
+          "text": "| Matrix V2 TRAIN | `5118d37ce2ab19d5be171f757f448698085e3c222a4a627f9838329836185820` | Canonical TRAIN-only generator output reconstructed with preserved train-drop metadata; checksum exact |"
+        },
+        {
+          "line": 38,
+          "text": "## 5. Migration classification counts"
+        },
+        {
+          "line": 43,
+          "text": "| DETERMINISTIC_MIGRATION | 0 |"
+        },
+        {
+          "line": 47,
+          "text": "All V2 rows need explicit reannotation because V2 cannot directly encode the new `sourceReferent`, five concrete pointer roles, cue-only negation evidence, V3 claim-kind registry, and field statuses."
+        },
+        {
+          "line": 53,
+          "text": "## 7. DETERMINISTIC_MIGRATION"
+        },
+        {
+          "line": 63,
+          "text": "Zero after fail-closed repair. Earlier dry runs exposed 259 incomplete role mappings; these were resolved only when explicit V2 spans/context proved a unique identity. Multiple or absent candidate identities remain fail-closed in the migration tool."
+        },
+        {
+          "line": 74,
+          "text": "- Logical dataset SHA-256: `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e`"
+        },
+        {
+          "line": 92,
+          "text": "| Negation | 695 | 695 | 288 | 187 | 220 | 0 |"
+        },
+        {
+          "line": 128,
+          "text": "## 15. Negation audit"
+        },
+        {
+          "line": 138,
+          "text": "Representative cue-only spans were inspected in IT (`Non`), EN (`not`), and ES (`No`). The V2 full-claim negation span is never reused. The audited Spanish cross-lingual correction now records `No` at `[0,2]` and `NEGATIVE` independently."
+        },
+        {
+          "line": 154,
+          "text": "- Multiple negation-cue spans: 13 claims"
+        },
+        {
+          "line": 181,
+          "text": "Across the five pointer heads: UNKNOWN 0, AMBIGUOUS 0; NONE occurs only for 3,726 target roles. Polarity UNKNOWN occurs on 189 claims. NONE and UNKNOWN remain distinct schema values. The lack of ambiguous pointer gold is a coverage risk for future teaching, not a migration error."
+        },
+        {
+          "line": 205,
+          "text": "## 24. Migration manifest"
+        },
+        {
+          "line": 207,
+          "text": "- Manifest: [`data/student5_v3/migration-manifest.json`](https://github.com/MATRIXNEO23/matrix-understanding-lab/blob/main/data/student5_v3/migration-manifest.json)"
+        },
+        {
+          "line": 208,
+          "text": "- Manifest SHA-256: `87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98`"
+        },
+        {
+          "line": 209,
+          "text": "- Tool version: `student5.task2.3.train-migration.v1`"
+        },
+        {
+          "line": 216,
+          "text": "- Migration manifest: `87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98`"
+        },
+        {
+          "line": 220,
+          "text": "- Per-file checksums: [`data/student5_v3/SHA256SUMS`](https://github.com/MATRIXNEO23/matrix-understanding-lab/blob/main/data/student5_v3/SHA256SUMS)"
+        },
+        {
+          "line": 222,
+          "text": "All entries in `SHA256SUMS` were verified locally after final generation. Git blob identities for the final changed files matched the locally computed Git blob hashes before the artifact checkpoint was committed."
+        },
+        {
+          "line": 252,
+          "text": "DEV used = false"
+        }
+      ]
+    },
+    {
+      "path": "reports/STUDENT_5_GATE_B_READINESS_CP36.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "53119e8fd5c24a45146704d7fe9869accf7ce7f4",
+      "excerpts": [
+        {
+          "line": 22,
+          "text": "| TRAIN logical SHA-256 | `1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e` | Ordered 63-shard bytes match |"
+        },
+        {
+          "line": 23,
+          "text": "| TRAIN migration manifest SHA-256 | `87b4a43035d2e3d84a6d599e1f81b497af6e2f36e4ef2c470adb87341c17da98` | Exact match |"
+        },
+        {
+          "line": 25,
+          "text": "| Allowed DEV V3 | No registered identity, checksum, locator or authorized V3 migration found in the inspected current tree/registry/Release inventory and dataset documentation | BLOCKED; no DEV opened or substituted |"
+        },
+        {
+          "line": 26,
+          "text": "| Evaluator | `matrix_nlu/evaluate_v3.py`, SHA-256 `b28aafa7b553b5ae8ffe1a2edddf3f269c1ed5892c2dba05f2bf4a4cd3cab7c4` | Partial scorer, insufficient for required gate |"
+        },
+        {
+          "line": 27,
+          "text": "| Decoder helpers | `matrix_nlu/inference_v3.py`, SHA-256 `731b6729c63b7cdf28c7383d7bcfe79932a14717fd254458710567f5766927fe` | V3 helpers exist; complete model-to-evaluation path not demonstrated |"
+        },
+        {
+          "line": 28,
+          "text": "| Calibration | `matrix_nlu/select_threshold.py`, SHA-256 `48a6b1af3898e349ff38951b4b6c7caae84fc2bea35d2888e768093352f1d998` | Imports legacy evaluator/decoder; no demonstrated V3 calibration path |"
+        },
+        {
+          "line": 29,
+          "text": "| Error analysis | `matrix_nlu/analyze_errors.py`, SHA-256 `e989a957c52ea540b8f9cd733700817c12ff65df4f0f334ef4540c59d02c5060` | Legacy residual input; no connected V3 per-family pipeline |"
+        },
+        {
+          "line": 37,
+          "text": "- 129/129 per-file SHA-256 entries match; logical dataset and manifest match their authorized identities."
+        },
+        {
+          "line": 42,
+          "text": "- No DEV was copied into TRAIN, no data was changed, no new examples were produced."
+        },
+        {
+          "line": 44,
+          "text": "**DEV copied into TRAIN = false. Contaminazione DEV→TRAIN = UNKNOWN for independent dataset separation.** No split/provenance violation was detected in the audited TRAIN, and no contamination was introduced by this assignment."
+        },
+        {
+          "line": 45,
+          "text": "This does **not** certify pairwise TRAIN–DEV disjointness. That check is `UNVERIFIABLE_MISSING_DEV_V3_IDENTITY`; no DEV V3 artifact is identified to compare. This unverified requirement contributes to BLOCKED. Existing repeated TRAIN surfaces are not by themselves evidence of DEV contamination."
+        },
+        {
+          "line": 51,
+          "text": "The reproducible [readiness_probe.py](evidence/student5-path-b-cp36-readiness/readiness_probe.py) imports the existing `test_evaluate_v3.gold_and_prediction` software fixture. It mutates predictions in memory only. The fixture is English synthetic software data, **not DEV** and not learned-model output. It does not prove linguistic quality in any language."
+        },
+        {
+          "line": 71,
+          "text": "Historical DEV references are explicitly V1/V2, not V3. `docs/MATRIX_NLU_DATASET_V2.md` records Matrix V2 DEV SHA-256 `704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012` and P0.5 V2 DEV `7533f56194431bd17b6f8544031d5436ca14ee6e209336da8133e1f05cdf0866`. Their documented negation-scope/schema semantics differ from V3 cue-only semantics. No DEV payload was read, migrated, rebuilt or relabeled. These historical identities do not supply the missing approved V3 DEV identity."
+        },
+        {
+          "line": 87,
+          "text": "Required hard invariants: ownership corruption = 0 on required gate set; invented World Truth = 0; no downstream-state fields emitted. Calibrate on allowed DEV only; critical uncertainty must abstain/fail closed. Never tune on Frozen or lower gates."
+        },
+        {
+          "line": 89,
+          "text": "Required independent slices: negation and cue spans/polarity; temporal and supported advanced relations; all five referents and source!=perspective; ownership; report/third party; belief/hypothesis; request; command; correction; goal/desire; spans/entities; multi-claim; ambiguity/abstention; IT/EN/ES, code-switch/noisy input; adult consent/refusal/withdrawal/desire/boundaries. Adult content alone must not cause a confidence penalty."
+        },
+        {
+          "line": 91,
+          "text": "Existing legacy numerical defaults in `select_threshold.py`: selective accuracy >=0.99, claim-count exact >=0.99, exact claim set >=0.98, valid coverage >=0.98, critical-family/language exact claim set >=0.98, ownership/world-truth counters zero. These values are recorded **as legacy definitions**, not silently adopted or relaxed as V3-equivalent metrics. The current V3 scorer does not compute their full equivalents. A V3 evaluation/calibration configuration and handling of empty required slices remain unspecified/unverified. Runtime confidence thresholds must be derived later from authorized DEV; their absence before calibration is not itself a demand to invent fixed probabilities."
+        },
+        {
+          "line": 93,
+          "text": "Known accepted TRAIN coverage risks remain: BELIEF/COMMAND absent; REPORT 8 IT-only; advanced temporal relations absent; adult withdrawal one IT claim; repeated surfaces 1,561. No augmentation or reclassification of TASK 2.3 acceptance occurred. Their material effect cannot be established without the missing DEV/evaluation path."
+        },
+        {
+          "line": 97,
+          "text": "1. Identify an authorized, recoverable V3 DEV artifact with ID/version, locator, SHA-256, V3 gold/provenance and split/family/language coverage; then independently verify separation from immutable TRAIN. No V2 substitution or DEV creation is authorized by this audit."
+        },
+        {
+          "line": 99,
+          "text": "3. Define and verify the V3 metric/gate mapping, DEV-only calibration interface and connected IT/EN/ES per-family residual analysis."
+        },
+        {
+          "line": 101,
+          "text": "These are data-identity and substantive evaluation-pipeline gaps, not merely a broken path or ordinary configuration typo. Only documentation/evidence was changed within this assignment. No unapproved metric definition, dataset migration or evaluator redesign was substituted to obtain PASS."
+        },
+        {
+          "line": 115,
+          "text": "Evidence directory: [student5-path-b-cp36-readiness](evidence/student5-path-b-cp36-readiness/). `inventory.json` preserves the original search scope and metadata; `resume-validation.json` binds it to the current HEAD, and `resume-release-inventory.json` records the refreshed Release inventory; `source-integrity.json` binds execution sources to Git blobs; `runtime-readiness-evidence.json` holds all executed results; `result.json` records the scoped verdict. `SHA256SUMS` covers these evidence files, this report and the updated continuity."
+        }
+      ]
+    },
+    {
+      "path": "docs/MATRIX_NLU_DATASET_V2.md",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "6a559c25504af346880a7cc16ad3e8c9340fde4b",
+      "excerpts": [
+        {
+          "line": 13,
+          "text": "results. The complete per-claim correction, train-only addition, and partition"
+        },
+        {
+          "line": 18,
+          "text": "- `negation` is the semantic scope. A negative claim uses the complete claim"
+        },
+        {
+          "line": 19,
+          "text": "  source; a non-negative claim has no negation span. Cue-only supervision is"
+        },
+        {
+          "line": 25,
+          "text": "- Every row records the v1 lineage or an explicit v2 train-only augmentation"
+        },
+        {
+          "line": 26,
+          "text": "  lineage and the `SUPERVISOR_OPTION_A` migration policy."
+        },
+        {
+          "line": 30,
+          "text": "| Dataset | Train | Dev | Frozen test |"
+        },
+        {
+          "line": 35,
+          "text": "Reproducible v1-to-v2 mapping SHA-256:"
+        },
+        {
+          "line": 39,
+          "text": "and 129 balanced IT/EN/ES train-only additions. The additions close label"
+        },
+        {
+          "line": 40,
+          "text": "coverage and add distinct-surface supervision for dev-observed semantic"
+        },
+        {
+          "line": 44,
+          "text": "Matrix dev/frozen and every P0.5 split remain byte-identical to the original"
+        }
+      ]
+    },
+    {
+      "path": "matrix_nlu/train.py",
+      "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+      "gitBlobSha": "f378f650769d80361bcd56ab441ce6d94221820b",
+      "excerpts": [
+        {
+          "line": 31,
+          "text": "def sha256(path: pathlib.Path) -> str:"
+        },
+        {
+          "line": 32,
+          "text": "    return hashlib.sha256(path.read_bytes()).hexdigest()"
+        },
+        {
+          "line": 35,
+          "text": "def move(batch, device):"
+        },
+        {
+          "line": 36,
+          "text": "    return {key: ({name: value.to(device) for name, value in item.items()}"
+        },
+        {
+          "line": 37,
+          "text": "                  if isinstance(item, dict) else item.to(device))"
+        },
+        {
+          "line": 71,
+          "text": "def tensor_class_weights(values: dict, device):"
+        },
+        {
+          "line": 73,
+          "text": "    return {group: {head: torch.tensor(weight, dtype=torch.float32, device=device)"
+        },
+        {
+          "line": 106,
+          "text": "def evaluate(model, loader, device, class_weights=None) -> dict:"
+        },
+        {
+          "line": 114,
+          "text": "            batch = move(raw, device)"
+        },
+        {
+          "line": 145,
+          "text": "def train_stage(model, train_loader, dev_loaders, device, stage: str, epochs: int,"
+        },
+        {
+          "line": 187,
+          "text": "            batch = move(raw, device)"
+        },
+        {
+          "line": 206,
+          "text": "        dev = {name: evaluate(model, loader, device, class_weights)"
+        },
+        {
+          "line": 207,
+          "text": "               for name, loader in dev_loaders.items()}"
+        },
+        {
+          "line": 208,
+          "text": "        score = sum(value[\"macroHeadAccuracy\"] for value in dev.values()) / len(dev)"
+        },
+        {
+          "line": 210,
+          "text": "                 \"trainLoss\": running / max(1, len(train_loader)), \"dev\": dev,"
+        },
+        {
+          "line": 253,
+          "text": "        \"datasetVersion\": expected_identity[\"datasetVersion\"],"
+        },
+        {
+          "line": 259,
+          "text": "    actual_checkpoint_hash = sha256(checkpoint_path)"
+        },
+        {
+          "line": 260,
+          "text": "    if evidence.get(\"checkpointSha256\") != actual_checkpoint_hash:"
+        },
+        {
+          "line": 261,
+          "text": "        mismatches[\"checkpointSha256\"] = {"
+        },
+        {
+          "line": 262,
+          "text": "            \"expected\": evidence.get(\"checkpointSha256\"), \"actual\": actual_checkpoint_hash}"
+        },
+        {
+          "line": 287,
+          "text": "    is_v2 = config.get(\"datasetVersion\") == \"matrix.nlu.dataset.v2\""
+        },
+        {
+          "line": 304,
+          "text": "    device = torch.device(\"cpu\")"
+        },
+        {
+          "line": 305,
+          "text": "    network.to(device)"
+        },
+        {
+          "line": 310,
+          "text": "    massive_dev_rows = read_jsonl([args.massive_dir / \"massive-dev.jsonl\"])"
+        },
+        {
+          "line": 315,
+          "text": "    massive_dev = massive_examples(massive_dev_rows, tokenizer, max_length, intent_ids, labels[\"slotTypes\"])"
+        },
+        {
+          "line": 326,
+          "text": "    matrix_dev_rows = read_jsonl([dataset_path(\"matrix\", \"dev\")])"
+        },
+        {
+          "line": 327,
+          "text": "    p05_dev_rows = read_jsonl([dataset_path(\"p05\", \"dev\")])"
+        },
+        {
+          "line": 333,
+          "text": "    matrix_dev = matrix_examples(matrix_dev_rows, tokenizer, max_length)"
+        },
+        {
+          "line": 334,
+          "text": "    p05_dev = matrix_examples(p05_dev_rows, tokenizer, max_length)"
+        },
+        {
+          "line": 338,
+          "text": "    class_weights = tensor_class_weights(class_weight_numbers, device)"
+        },
+        {
+          "line": 343,
+          "text": "        \"datasetVersion\": config.get(\"datasetVersion\", \"matrix.nlu.dataset.v1\"),"
+        },
+        {
+          "line": 344,
+          "text": "        \"configSha256\": hashlib.sha256(config_bytes).hexdigest(),"
+        },
+        {
+          "line": 374,
+          "text": "            {\"massiveDev\": loader(massive_dev, batch_size * 2, False, config[\"seed\"])},"
+        },
+        {
+          "line": 375,
+          "text": "            device, \"massive-aux\", config[\"massive\"][\"epochs\"], config, args.output_dir, resume,"
+        },
+        {
+          "line": 380,
+          "text": "        {\"matrixDev\": loader(matrix_dev, batch_size * 2, False, config[\"seed\"]),"
+        },
+        {
+          "line": 381,
+          "text": "         \"p05Dev\": loader(p05_dev, batch_size * 2, False, config[\"seed\"])},"
+        },
+        {
+          "line": 382,
+          "text": "        device, \"matrix\", config[\"matrix\"][\"epochs\"], config, args.output_dir,"
+        },
+        {
+          "line": 389,
+          "text": "    # Frozen tests are touched only after the dev-selected model is loaded."
+        },
+        {
+          "line": 390,
+          "text": "    frozen = ({\"status\": \"DEFERRED_UNTIL_DEV_THRESHOLD_GATE\"} if args.defer_frozen else {"
+        },
+        {
+          "line": 391,
+          "text": "        \"matrixTest\": evaluate(network, loader(matrix_test, batch_size * 2, False, config[\"seed\"]), device),"
+        },
+        {
+          "line": 392,
+          "text": "        \"p05Test\": evaluate(network, loader(p05_test, batch_size * 2, False, config[\"seed\"]), device),"
+        },
+        {
+          "line": 393,
+          "text": "        \"massiveTest\": evaluate(network, loader(massive_test, batch_size * 2, False, config[\"seed\"]), device),"
+        },
+        {
+          "line": 400,
+          "text": "              \"configSha256\": hashlib.sha256(config_bytes).hexdigest(),"
+        },
+        {
+          "line": 402,
+          "text": "              \"parameters\": parameter_summary(network), \"bestDevScore\": best,"
+        },
+        {
+          "line": 406,
+          "text": "              \"trainingSplitsRead\": [\"train\", \"dev\"] if args.defer_frozen else [\"train\", \"dev\", \"test\"],"
+        },
+        {
+          "line": 407,
+          "text": "              \"datasetVersion\": config.get(\"datasetVersion\", \"matrix.nlu.dataset.v1\")}"
+        },
+        {
+          "line": 408,
+          "text": "    allowed_splits = (\"train\", \"dev\") if args.defer_frozen else (\"train\", \"dev\", \"test\")"
+        },
+        {
+          "line": 418,
+          "text": "    result[\"inputHashes\"] = {str(path): sha256(path) for path in input_paths}"
+        },
+        {
+          "line": 422,
+          "text": "            \"sha256\": sha256(args.resume_evidence),"
+        },
+        {
+          "line": 426,
+          "text": "    result[\"modelStateSha256\"] = sha256(args.output_dir / \"model-state.pt\")"
+        },
+        {
+          "line": 428,
+          "text": "    print(json.dumps({\"bestDevScore\": best, \"parameters\": result[\"parameters\"],"
+        },
+        {
+          "line": 429,
+          "text": "                      \"frozen\": frozen, \"modelStateSha256\": result[\"modelStateSha256\"]}, indent=2))"
+        }
+      ]
+    }
+  ],
+  "priorEvidence": "reports/STUDENT_5_FP32_SELECTION_CP48.md",
+  "trainingExecuted": false,
+  "quantizationExecuted": false,
+  "onnxExecuted": false,
+  "datasetModified": false,
+  "devCreated": false,
+  "devModified": false,
+  "assemblingWorkExecuted": false,
+  "student4Modified": false,
+  "newAuditExecuted": false,
+  "nextTrainingStageStarted": false
+}
