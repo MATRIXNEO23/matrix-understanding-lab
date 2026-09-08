@@ -10,7 +10,6 @@ from typing import Mapping, Sequence
 
 from contract_v3 import (
     CONTRACT_VERSION,
-    FIELD_STATUSES,
     FIXED_SEQUENCE_IDS,
     POINTER_SPECIAL_VALUES,
     ROLE_HEADS,
@@ -20,65 +19,6 @@ from referent_candidates import build_candidate_table, pointer_values
 
 
 IGNORE = -100
-ROLE_STATUS_IDS = {value: index for index, value in enumerate(FIELD_STATUSES)}
-
-
-def role_supervision(claim: Mapping, role_values: Sequence[str], max_candidates: int) -> dict:
-    """Encode independent role statuses and ranked diagnostic pointer targets.
-
-    KNOWN is the V3 status RESOLVED; NONE is NOT_APPLICABLE. Ambiguity
-    retains an UNKNOWN primary pointer, never the first alternative. Rank
-    slots preserve annotation order, not probabilities or preference weights.
-    These are target-preparation fields, not additional neural output heads.
-    """
-    ids = {value: index for index, value in enumerate(role_values)}
-    statuses = claim.get("fieldStatusByField", {})
-    alternatives = claim.get("alternativesByField", {})
-    if not isinstance(statuses, Mapping) or not isinstance(alternatives, Mapping):
-        raise ValueError("role status/alternatives must be mappings")
-    result = {
-        "role_status_labels": {},
-        "role_alternative_pointer_labels": {},
-        "role_alternative_mask": {},
-    }
-    for head in ROLE_HEADS:
-        value = claim["labels"][head]
-        if value not in ids:
-            raise ValueError(f"role target is not in deterministic candidate table: {head}={value}")
-        # Legacy callers may omit status for an unambiguous literal label.
-        # Alternatives require explicit status so ambiguity cannot disappear.
-        items = alternatives.get(head, [])
-        if not isinstance(items, (list, tuple)):
-            raise ValueError(f"role alternatives must be an ordered sequence: {head}")
-        if items and head not in statuses:
-            raise ValueError(f"alternatives require explicit field status: {head}")
-        inferred = "NOT_APPLICABLE" if value == "NONE" else "UNKNOWN" if value == "UNKNOWN" else "RESOLVED"
-        status = statuses.get(head, inferred)
-        if status not in ROLE_STATUS_IDS:
-            raise ValueError(f"invalid V3 role status: {head}={status}")
-        compatible = (
-            (status == "RESOLVED" and value not in POINTER_SPECIAL_VALUES)
-            or (status == "NOT_APPLICABLE" and value == "NONE")
-            or (status in ("UNKNOWN", "AMBIGUOUS") and value == "UNKNOWN")
-        )
-        if not compatible:
-            raise ValueError(f"role status/pointer mismatch: {head}={status}/{value}")
-        encoded = []
-        for rank, item in enumerate(items, 1):
-            if not isinstance(item, Mapping) or type(item.get("rank")) is not int or item["rank"] != rank:
-                raise ValueError(f"role alternative ranks must be ordered, contiguous and one-based: {head}")
-            alternative = item.get("value")
-            if alternative not in ids or alternative in POINTER_SPECIAL_VALUES:
-                raise ValueError(f"role alternative is not an available referent candidate: {head}={alternative}")
-            encoded.append(ids[alternative])
-        if len(encoded) != len(set(encoded)) or len(encoded) > max_candidates:
-            raise ValueError(f"duplicate or overflowing role alternatives: {head}")
-        if status == "AMBIGUOUS" and len(encoded) < 2:
-            raise ValueError(f"ambiguous role requires at least two candidates: {head}")
-        result["role_status_labels"][head] = ROLE_STATUS_IDS[status]
-        result["role_alternative_pointer_labels"][head] = encoded + [IGNORE] * (max_candidates - len(encoded))
-        result["role_alternative_mask"][head] = [1] * len(encoded) + [0] * (max_candidates - len(encoded))
-    return result
 
 
 def overlapping_token_indices(offsets, span):
@@ -174,9 +114,6 @@ def build_v3_examples(
         },
         "fixed_sequence_labels": {head: IGNORE for head in FIXED_SEQUENCE_IDS},
         "role_pointer_labels": {head: IGNORE for head in ROLE_HEADS},
-        "role_status_labels": {head: IGNORE for head in ROLE_HEADS},
-        "role_alternative_pointer_labels": {head: [IGNORE] * max_referent_candidates for head in ROLE_HEADS},
-        "role_alternative_mask": {head: [0] * max_referent_candidates for head in ROLE_HEADS},
         "temporal_anchor_label": IGNORE,
     }]
 
@@ -228,7 +165,6 @@ def build_v3_examples(
             "token_labels": token_labels,
             "fixed_sequence_labels": fixed,
             "role_pointer_labels": roles,
-            **role_supervision(claim, role_values, max_referent_candidates),
             "role_pointer_values": role_values,
             "candidateMask": candidate_table["candidateMask"],
             "temporal_anchor_values": anchors,

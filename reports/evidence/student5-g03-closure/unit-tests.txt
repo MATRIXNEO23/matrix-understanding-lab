@@ -1,0 +1,33 @@
+test_plural_cue_and_pointer_targets_are_encoded_without_data_io (test_training_data_v3.TrainingDataV3Test.test_plural_cue_and_pointer_targets_are_encoded_without_data_io) ... ok
+test_v2_row_is_rejected_not_reinterpreted (test_training_data_v3.TrainingDataV3Test.test_v2_row_is_rejected_not_reinterpreted) ... ok
+test_annotation_rank_not_candidate_position_controls_order (test_training_data_v3_g03.G03TargetsTest.test_annotation_rank_not_candidate_position_controls_order) ... ok
+test_boundary_and_zero_claim_have_no_role_supervision (test_training_data_v3_g03.G03TargetsTest.test_boundary_and_zero_claim_have_no_role_supervision) ... ok
+test_bounded_overflow_cannot_silently_drop_alternative (test_training_data_v3_g03.G03TargetsTest.test_bounded_overflow_cannot_silently_drop_alternative) ... ok
+test_each_role_is_encoded_independently (test_training_data_v3_g03.G03TargetsTest.test_each_role_is_encoded_independently) ... ok
+test_invalid_or_lost_alternatives_fail_closed (test_training_data_v3_g03.G03TargetsTest.test_invalid_or_lost_alternatives_fail_closed) ... ok
+test_invalid_status_pointer_combinations_fail_closed (test_training_data_v3_g03.G03TargetsTest.test_invalid_status_pointer_combinations_fail_closed) ... ok
+test_known_none_unknown_and_ambiguous_are_distinct (test_training_data_v3_g03.G03TargetsTest.test_known_none_unknown_and_ambiguous_are_distinct) ... ok
+test_missing_explicit_status_with_alternatives_is_rejected (test_training_data_v3_g03.G03TargetsTest.test_missing_explicit_status_with_alternatives_is_rejected) ... ok
+test_ordered_alternatives_encode_candidate_ids_without_selecting_one (test_training_data_v3_g03.G03TargetsTest.test_ordered_alternatives_encode_candidate_ids_without_selecting_one) ... ok
+test_all_bio_groups_are_preserved (test_inference_v3.InferenceV3Test.test_all_bio_groups_are_preserved) ... ok
+test_flat_multi_claim_output_preserves_both_claims (test_inference_v3.InferenceV3Test.test_flat_multi_claim_output_preserves_both_claims) ... ok
+test_low_critical_token_confidence_can_abstain (test_inference_v3.InferenceV3Test.test_low_critical_token_confidence_can_abstain) ... ok
+test_multi_entity_fixture_preserves_six_distinct_semantic_roles (test_inference_v3.InferenceV3Test.test_multi_entity_fixture_preserves_six_distinct_semantic_roles) ... ok
+test_negation_cues_do_not_determine_polarity (test_inference_v3.InferenceV3Test.test_negation_cues_do_not_determine_polarity) ... ok
+test_obsolete_role_values_are_rejected (test_inference_v3.InferenceV3Test.test_obsolete_role_values_are_rejected) ... ok
+test_pointer_ambiguity_abstains_from_guessing (test_inference_v3.InferenceV3Test.test_pointer_ambiguity_abstains_from_guessing) ... ok
+test_pointer_heads_select_roles_independently (test_inference_v3.InferenceV3Test.test_pointer_heads_select_roles_independently) ... ok
+test_relative_temporal_relation_requires_anchor (test_inference_v3.InferenceV3Test.test_relative_temporal_relation_requires_anchor) ... ok
+test_v3_output_contains_no_downstream_ownership (test_inference_v3.InferenceV3Test.test_v3_output_contains_no_downstream_ownership) ... ok
+test_field_status_and_abstention_are_scored (test_evaluate_v3.EvaluateV3Test.test_field_status_and_abstention_are_scored) ... ok
+test_gold_normalizer_is_independent_from_production_validator (test_evaluate_v3.EvaluateV3Test.test_gold_normalizer_is_independent_from_production_validator) ... ok
+test_language_and_adult_slices_remain_ordinary (test_evaluate_v3.EvaluateV3Test.test_language_and_adult_slices_remain_ordinary) ... ok
+test_negation_polarity_temporal_anchor_and_status_are_scored (test_evaluate_v3.EvaluateV3Test.test_negation_polarity_temporal_anchor_and_status_are_scored) ... ok
+test_perfect_structure_scores_one (test_evaluate_v3.EvaluateV3Test.test_perfect_structure_scores_one) ... ok
+test_synthetic_inventory_covers_required_families_and_languages (test_evaluate_v3.EvaluateV3Test.test_synthetic_inventory_covers_required_families_and_languages) ... ok
+test_wrong_role_is_detected_not_mirrored_into_gold (test_evaluate_v3.EvaluateV3Test.test_wrong_role_is_detected_not_mirrored_into_gold) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.004s
+
+OK

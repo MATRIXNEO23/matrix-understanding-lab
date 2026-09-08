@@ -513,3 +513,34 @@ Report: reports/STUDENT_5_TRAIN_V21_REPAIR_AUDIT_CP43.md. Complete evidence: rep
 Resume action: Supervisor reviews G03/G04/G07 and excluded material, then issues a separate assignment. No training is authorized. Do not repeat pristine analysis or rebuild original CP42. Access: GitHub connector Git Blob API base64; fetch exact commit/path, decode and verify compressed and logical SHA plus BUILD_LOCK. Deterministic builder is for authorized reproduction only, not a recovery need. No model load, training, fine-tuning, quantization, ONNX, DEV/Frozen payload use, or next task executed.
 
 CP43 publication VERIFIED: data commit f9f237db57a178a77e263128441469ed132722eb; all 53 files remotely read and hashes matched. Candidate SHA f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4 verified from downloaded compressed bytes; manifest/BUILD_LOCK/provenance pass. Original TRAIN v1 130 blobs and TRAIN v2 six blobs unchanged. No workflow run at data commit. Receipt and complete file inventory: reports/evidence/student5-train-v21-cp43/{remote-readback.json,delivery-inventory.json}. Final receipt-only commit is supplied to Supervisor after its verification. Remaining state BLOCKED (G03/G04/G07); next action belongs to Supervisor; no model work or next task started.
+
+
+## G03 closure — target preparation only
+
+Starting HEAD: `8ee33811fde3aa9646a8d4eff1d5160c37ee76a4`.
+G03 = PASS, exact rows 8/8. Canonical report:
+`reports/STUDENT_5_G03_CLOSURE.md`. Evidence:
+`reports/evidence/student5-g03-closure/`; executable focused verification:
+`tools/student5_g03/verify.py`; production change:
+`matrix_nlu/training_data_v3.py`.
+
+TRAIN remains immutable `student5-matrix-nlu-v3-train-v2.1-cp43r2` at
+`data/student5_v3_train_v21/`, compressed SHA-256
+`f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4`.
+No dataset row/identity/path/manifest/lock/provenance changed.
+Builder now validates and encodes role statuses and ordered alternative
+pointer targets, retaining UNKNOWN primary pointers for genuine ambiguity.
+28 focused tests pass; all 4,355 pre-existing target examples retain every
+previous field exactly; new targets rebuild deterministically. Structural
+validation passes. No model or training execution.
+
+This authorized G03 closure supersedes the G03 blocker in the immutable CP43
+audit, not its historical evidence. Supervisor has deferred G04 to
+post-training regression; G07 is outside this task and not an established
+contamination defect. Neither was reopened or used to block this closure.
+Publication/readback details are in `remote-readback.json` in the evidence
+directory and the final Supervisor handoff.
+
+STOP. FP32 training requires separate Supervisor authorization.
+trainingExecuted=false; fineTuningExecuted=false; quantizationExecuted=false;
+onnxExecuted=false; nextWorkStarted=false.

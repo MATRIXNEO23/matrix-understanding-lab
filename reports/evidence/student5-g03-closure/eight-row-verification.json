@@ -1,0 +1,2316 @@
+[
+  {
+    "rowId": "mx-v22a-adult-it-015",
+    "rowSha256": "aa8d988a176d067944d0f9616b3c1eb69ec782239545d4cb3a0ca28cafe9e0d0",
+    "language": "it",
+    "text": "Puoi abbracciarti con me?",
+    "family": "v22a_adult_it_request",
+    "context": {
+      "contextEntities": [],
+      "observer": "luna",
+      "speaker": "PLAYER"
+    },
+    "canonicalRoles": {
+      "subjectReferent": "ctx:observer",
+      "ownerReferent": "ctx:speaker",
+      "targetReferent": "UNKNOWN",
+      "perspectiveReferent": "ctx:speaker",
+      "sourceReferent": "ctx:speaker"
+    },
+    "statuses": {
+      "subjectReferent": "RESOLVED",
+      "targetReferent": "AMBIGUOUS",
+      "ownerReferent": "RESOLVED",
+      "perspectiveReferent": "RESOLVED",
+      "sourceReferent": "RESOLVED"
+    },
+    "orderedAlternatives": {
+      "targetReferent": [
+        {
+          "value": "ctx:observer",
+          "rank": 1
+        },
+        {
+          "value": "ctx:speaker",
+          "rank": 2
+        }
+      ]
+    },
+    "reason": "D04/D07: addressee performs the requested action, requester owns the requested goal; colloquial reflexive with con me does not uniquely distinguish self-action with companion from reciprocal action.",
+    "beforeTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 1,
+        "targetReferent": 3,
+        "ownerReferent": 0,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "beforeStatusSupport": false,
+    "beforeAlternativesSupport": false,
+    "afterTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 1,
+        "targetReferent": 3,
+        "ownerReferent": 0,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "NONE",
+        "UNKNOWN"
+      ],
+      "role_alternative_mask": {
+        "subjectReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "targetReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ownerReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "perspectiveReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sourceReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "role_alternative_pointer_labels": {
+        "subjectReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "targetReferent": [
+          1,
+          0,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "ownerReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "perspectiveReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "sourceReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ]
+      },
+      "role_status_labels": {
+        "subjectReferent": 0,
+        "targetReferent": 2,
+        "ownerReferent": 0,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      }
+    },
+    "structuralStatus": "VALID",
+    "interpretationStatus": "AMBIGUOUS",
+    "rowModified": false,
+    "result": "PASS"
+  },
+  {
+    "rowId": "mx-v22a-adult-it-025",
+    "rowSha256": "07cecbfd96e3d96ae5a3d9a5019172a81db7f88d40ff7e43bd799d500c6ab67d",
+    "language": "it",
+    "text": "Puoi baciarti con me?",
+    "family": "v22a_adult_it_request",
+    "context": {
+      "contextEntities": [],
+      "observer": "luna",
+      "speaker": "PLAYER"
+    },
+    "canonicalRoles": {
+      "subjectReferent": "ctx:observer",
+      "ownerReferent": "ctx:speaker",
+      "targetReferent": "UNKNOWN",
+      "perspectiveReferent": "ctx:speaker",
+      "sourceReferent": "ctx:speaker"
+    },
+    "statuses": {
+      "subjectReferent": "RESOLVED",
+      "targetReferent": "AMBIGUOUS",
+      "ownerReferent": "RESOLVED",
+      "perspectiveReferent": "RESOLVED",
+      "sourceReferent": "RESOLVED"
+    },
+    "orderedAlternatives": {
+      "targetReferent": [
+        {
+          "value": "ctx:observer",
+          "rank": 1
+        },
+        {
+          "value": "ctx:speaker",
+          "rank": 2
+        }
+      ]
+    },
+    "reason": "D04/D07: addressee performs the requested action, requester owns the requested goal; colloquial reflexive with con me does not uniquely distinguish self-action with companion from reciprocal action.",
+    "beforeTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 1,
+        "targetReferent": 3,
+        "ownerReferent": 0,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "beforeStatusSupport": false,
+    "beforeAlternativesSupport": false,
+    "afterTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 1,
+        "targetReferent": 3,
+        "ownerReferent": 0,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "NONE",
+        "UNKNOWN"
+      ],
+      "role_alternative_mask": {
+        "subjectReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "targetReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ownerReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "perspectiveReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sourceReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "role_alternative_pointer_labels": {
+        "subjectReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "targetReferent": [
+          1,
+          0,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "ownerReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "perspectiveReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "sourceReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ]
+      },
+      "role_status_labels": {
+        "subjectReferent": 0,
+        "targetReferent": 2,
+        "ownerReferent": 0,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      }
+    },
+    "structuralStatus": "VALID",
+    "interpretationStatus": "AMBIGUOUS",
+    "rowModified": false,
+    "result": "PASS"
+  },
+  {
+    "rowId": "cp42-it-ambiguous_binding-0117",
+    "rowSha256": "10f6beac66f45ab633c3e548c41170071a87b5a088253567048847e5f071c988",
+    "language": "it",
+    "text": "Lui vive a Pisa.",
+    "family": "ambiguous_binding",
+    "context": {
+      "contextEntities": [
+        {
+          "entityRef": "adult-a",
+          "surfaceForms": [
+            "Paolo"
+          ]
+        },
+        {
+          "entityRef": "adult-b",
+          "surfaceForms": [
+            "Marco"
+          ]
+        }
+      ],
+      "discourse": "Two equally salient adult men; no unique antecedent.",
+      "observer": "cp42-adult-addressee",
+      "speaker": "cp42-adult-speaker"
+    },
+    "canonicalRoles": {
+      "subjectReferent": "UNKNOWN",
+      "ownerReferent": "UNKNOWN",
+      "targetReferent": "NONE",
+      "perspectiveReferent": "ctx:speaker",
+      "sourceReferent": "ctx:speaker"
+    },
+    "statuses": {
+      "subjectReferent": "AMBIGUOUS",
+      "targetReferent": "NOT_APPLICABLE",
+      "ownerReferent": "AMBIGUOUS",
+      "perspectiveReferent": "RESOLVED",
+      "sourceReferent": "RESOLVED"
+    },
+    "orderedAlternatives": {
+      "subjectReferent": [
+        {
+          "value": "entity:adult-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:adult-b",
+          "rank": 2
+        }
+      ],
+      "ownerReferent": [
+        {
+          "value": "entity:adult-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:adult-b",
+          "rank": 2
+        }
+      ]
+    },
+    "reason": "D06/D07: supplied context explicitly has two equally salient compatible antecedents; subject and owner share the unresolved residence holder, while interpersonal target is inapplicable. The location mention is object evidence, not an interpersonal target.",
+    "beforeTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:adult-a",
+        "entity:adult-b",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "beforeStatusSupport": false,
+    "beforeAlternativesSupport": false,
+    "afterTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:adult-a",
+        "entity:adult-b",
+        "NONE",
+        "UNKNOWN"
+      ],
+      "role_alternative_mask": {
+        "subjectReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "targetReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ownerReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "perspectiveReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sourceReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "role_alternative_pointer_labels": {
+        "subjectReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "targetReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "ownerReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "perspectiveReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "sourceReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ]
+      },
+      "role_status_labels": {
+        "subjectReferent": 2,
+        "targetReferent": 3,
+        "ownerReferent": 2,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      }
+    },
+    "structuralStatus": "VALID",
+    "interpretationStatus": "AMBIGUOUS",
+    "rowModified": false,
+    "result": "PASS"
+  },
+  {
+    "rowId": "cp42-en-ambiguous_binding-0119",
+    "rowSha256": "bd9804926d5866e6190e23ba94cadc9629a586347638ed1ac62ac77d820235f9",
+    "language": "en",
+    "text": "He lives in York.",
+    "family": "ambiguous_binding",
+    "context": {
+      "contextEntities": [
+        {
+          "entityRef": "adult-a",
+          "surfaceForms": [
+            "Paolo"
+          ]
+        },
+        {
+          "entityRef": "adult-b",
+          "surfaceForms": [
+            "Marco"
+          ]
+        }
+      ],
+      "discourse": "Two equally salient adult men; no unique antecedent.",
+      "observer": "cp42-adult-addressee",
+      "speaker": "cp42-adult-speaker"
+    },
+    "canonicalRoles": {
+      "subjectReferent": "UNKNOWN",
+      "ownerReferent": "UNKNOWN",
+      "targetReferent": "NONE",
+      "perspectiveReferent": "ctx:speaker",
+      "sourceReferent": "ctx:speaker"
+    },
+    "statuses": {
+      "subjectReferent": "AMBIGUOUS",
+      "targetReferent": "NOT_APPLICABLE",
+      "ownerReferent": "AMBIGUOUS",
+      "perspectiveReferent": "RESOLVED",
+      "sourceReferent": "RESOLVED"
+    },
+    "orderedAlternatives": {
+      "subjectReferent": [
+        {
+          "value": "entity:adult-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:adult-b",
+          "rank": 2
+        }
+      ],
+      "ownerReferent": [
+        {
+          "value": "entity:adult-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:adult-b",
+          "rank": 2
+        }
+      ]
+    },
+    "reason": "D06/D07: supplied context explicitly has two equally salient compatible antecedents; subject and owner share the unresolved residence holder, while interpersonal target is inapplicable. The location mention is object evidence, not an interpersonal target.",
+    "beforeTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:adult-a",
+        "entity:adult-b",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "beforeStatusSupport": false,
+    "beforeAlternativesSupport": false,
+    "afterTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:adult-a",
+        "entity:adult-b",
+        "NONE",
+        "UNKNOWN"
+      ],
+      "role_alternative_mask": {
+        "subjectReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "targetReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ownerReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "perspectiveReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sourceReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "role_alternative_pointer_labels": {
+        "subjectReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "targetReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "ownerReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "perspectiveReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "sourceReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ]
+      },
+      "role_status_labels": {
+        "subjectReferent": 2,
+        "targetReferent": 3,
+        "ownerReferent": 2,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      }
+    },
+    "structuralStatus": "VALID",
+    "interpretationStatus": "AMBIGUOUS",
+    "rowModified": false,
+    "result": "PASS"
+  },
+  {
+    "rowId": "cp42-es-ambiguous_binding-0121",
+    "rowSha256": "48dda75607e35ff2f337267014a483eec6cb94a710a90eca4cee283f6f5a510a",
+    "language": "es",
+    "text": "Él vive en Cádiz.",
+    "family": "ambiguous_binding",
+    "context": {
+      "contextEntities": [
+        {
+          "entityRef": "adult-a",
+          "surfaceForms": [
+            "Paolo"
+          ]
+        },
+        {
+          "entityRef": "adult-b",
+          "surfaceForms": [
+            "Marco"
+          ]
+        }
+      ],
+      "discourse": "Two equally salient adult men; no unique antecedent.",
+      "observer": "cp42-adult-addressee",
+      "speaker": "cp42-adult-speaker"
+    },
+    "canonicalRoles": {
+      "subjectReferent": "UNKNOWN",
+      "ownerReferent": "UNKNOWN",
+      "targetReferent": "NONE",
+      "perspectiveReferent": "ctx:speaker",
+      "sourceReferent": "ctx:speaker"
+    },
+    "statuses": {
+      "subjectReferent": "AMBIGUOUS",
+      "targetReferent": "NOT_APPLICABLE",
+      "ownerReferent": "AMBIGUOUS",
+      "perspectiveReferent": "RESOLVED",
+      "sourceReferent": "RESOLVED"
+    },
+    "orderedAlternatives": {
+      "subjectReferent": [
+        {
+          "value": "entity:adult-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:adult-b",
+          "rank": 2
+        }
+      ],
+      "ownerReferent": [
+        {
+          "value": "entity:adult-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:adult-b",
+          "rank": 2
+        }
+      ]
+    },
+    "reason": "D06/D07: supplied context explicitly has two equally salient compatible antecedents; subject and owner share the unresolved residence holder, while interpersonal target is inapplicable. The location mention is object evidence, not an interpersonal target.",
+    "beforeTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:adult-a",
+        "entity:adult-b",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "beforeStatusSupport": false,
+    "beforeAlternativesSupport": false,
+    "afterTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:adult-a",
+        "entity:adult-b",
+        "NONE",
+        "UNKNOWN"
+      ],
+      "role_alternative_mask": {
+        "subjectReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "targetReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ownerReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "perspectiveReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sourceReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "role_alternative_pointer_labels": {
+        "subjectReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "targetReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "ownerReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "perspectiveReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "sourceReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ]
+      },
+      "role_status_labels": {
+        "subjectReferent": 2,
+        "targetReferent": 3,
+        "ownerReferent": 2,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      }
+    },
+    "structuralStatus": "VALID",
+    "interpretationStatus": "AMBIGUOUS",
+    "rowModified": false,
+    "result": "PASS"
+  },
+  {
+    "rowId": "cp43-it-antecedent_ambiguous-0121",
+    "rowSha256": "99bb593dc318f488a5d5fc54178006726a6a51448cb9b55c54f37a1570d9c87e",
+    "language": "it",
+    "text": "Lei abita a Lucca.",
+    "family": "antecedent_ambiguous",
+    "context": {
+      "contextEntities": [
+        {
+          "entityRef": "woman-a",
+          "gender": "female",
+          "surfaceForms": [
+            "Ada"
+          ]
+        },
+        {
+          "entityRef": "woman-b",
+          "gender": "female",
+          "surfaceForms": [
+            "Bea"
+          ]
+        }
+      ],
+      "discourse": "Only the listed female candidate(s) can be antecedents; all are equally salient.",
+      "observer": "cp43-adult-observer",
+      "speaker": "cp43-adult-speaker"
+    },
+    "canonicalRoles": {
+      "subjectReferent": "UNKNOWN",
+      "ownerReferent": "UNKNOWN",
+      "targetReferent": "NONE",
+      "perspectiveReferent": "ctx:speaker",
+      "sourceReferent": "ctx:speaker"
+    },
+    "statuses": {
+      "subjectReferent": "AMBIGUOUS",
+      "targetReferent": "NOT_APPLICABLE",
+      "ownerReferent": "AMBIGUOUS",
+      "perspectiveReferent": "RESOLVED",
+      "sourceReferent": "RESOLVED"
+    },
+    "orderedAlternatives": {
+      "subjectReferent": [
+        {
+          "value": "entity:woman-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:woman-b",
+          "rank": 2
+        }
+      ],
+      "ownerReferent": [
+        {
+          "value": "entity:woman-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:woman-b",
+          "rank": 2
+        }
+      ]
+    },
+    "reason": "D06/D07: supplied context explicitly has two equally salient compatible antecedents; subject and owner share the unresolved residence holder, while interpersonal target is inapplicable. The location mention is object evidence, not an interpersonal target.",
+    "beforeTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:woman-a",
+        "entity:woman-b",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "beforeStatusSupport": false,
+    "beforeAlternativesSupport": false,
+    "afterTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:woman-a",
+        "entity:woman-b",
+        "NONE",
+        "UNKNOWN"
+      ],
+      "role_alternative_mask": {
+        "subjectReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "targetReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ownerReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "perspectiveReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sourceReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "role_alternative_pointer_labels": {
+        "subjectReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "targetReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "ownerReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "perspectiveReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "sourceReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ]
+      },
+      "role_status_labels": {
+        "subjectReferent": 2,
+        "targetReferent": 3,
+        "ownerReferent": 2,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      }
+    },
+    "structuralStatus": "VALID",
+    "interpretationStatus": "AMBIGUOUS",
+    "rowModified": false,
+    "result": "PASS"
+  },
+  {
+    "rowId": "cp43-en-antecedent_ambiguous-0124",
+    "rowSha256": "d5f5884e538657955d11fd5ad65ba27e4b38a9ff6d06939cf83dcc76966bcbbf",
+    "language": "en",
+    "text": "She lives in Bath.",
+    "family": "antecedent_ambiguous",
+    "context": {
+      "contextEntities": [
+        {
+          "entityRef": "woman-a",
+          "gender": "female",
+          "surfaceForms": [
+            "Ada"
+          ]
+        },
+        {
+          "entityRef": "woman-b",
+          "gender": "female",
+          "surfaceForms": [
+            "Bea"
+          ]
+        }
+      ],
+      "discourse": "Only the listed female candidate(s) can be antecedents; all are equally salient.",
+      "observer": "cp43-adult-observer",
+      "speaker": "cp43-adult-speaker"
+    },
+    "canonicalRoles": {
+      "subjectReferent": "UNKNOWN",
+      "ownerReferent": "UNKNOWN",
+      "targetReferent": "NONE",
+      "perspectiveReferent": "ctx:speaker",
+      "sourceReferent": "ctx:speaker"
+    },
+    "statuses": {
+      "subjectReferent": "AMBIGUOUS",
+      "targetReferent": "NOT_APPLICABLE",
+      "ownerReferent": "AMBIGUOUS",
+      "perspectiveReferent": "RESOLVED",
+      "sourceReferent": "RESOLVED"
+    },
+    "orderedAlternatives": {
+      "subjectReferent": [
+        {
+          "value": "entity:woman-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:woman-b",
+          "rank": 2
+        }
+      ],
+      "ownerReferent": [
+        {
+          "value": "entity:woman-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:woman-b",
+          "rank": 2
+        }
+      ]
+    },
+    "reason": "D06/D07: supplied context explicitly has two equally salient compatible antecedents; subject and owner share the unresolved residence holder, while interpersonal target is inapplicable. The location mention is object evidence, not an interpersonal target.",
+    "beforeTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:woman-a",
+        "entity:woman-b",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "beforeStatusSupport": false,
+    "beforeAlternativesSupport": false,
+    "afterTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:woman-a",
+        "entity:woman-b",
+        "NONE",
+        "UNKNOWN"
+      ],
+      "role_alternative_mask": {
+        "subjectReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "targetReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ownerReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "perspectiveReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sourceReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "role_alternative_pointer_labels": {
+        "subjectReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "targetReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "ownerReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "perspectiveReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "sourceReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ]
+      },
+      "role_status_labels": {
+        "subjectReferent": 2,
+        "targetReferent": 3,
+        "ownerReferent": 2,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      }
+    },
+    "structuralStatus": "VALID",
+    "interpretationStatus": "AMBIGUOUS",
+    "rowModified": false,
+    "result": "PASS"
+  },
+  {
+    "rowId": "cp43-es-antecedent_ambiguous-0127",
+    "rowSha256": "3f4d984d5727e03ae28b97a95717e0c1d28ff6941d54b03eea615b91c9318f36",
+    "language": "es",
+    "text": "Ella vive en Lugo.",
+    "family": "antecedent_ambiguous",
+    "context": {
+      "contextEntities": [
+        {
+          "entityRef": "woman-a",
+          "gender": "female",
+          "surfaceForms": [
+            "Ada"
+          ]
+        },
+        {
+          "entityRef": "woman-b",
+          "gender": "female",
+          "surfaceForms": [
+            "Bea"
+          ]
+        }
+      ],
+      "discourse": "Only the listed female candidate(s) can be antecedents; all are equally salient.",
+      "observer": "cp43-adult-observer",
+      "speaker": "cp43-adult-speaker"
+    },
+    "canonicalRoles": {
+      "subjectReferent": "UNKNOWN",
+      "ownerReferent": "UNKNOWN",
+      "targetReferent": "NONE",
+      "perspectiveReferent": "ctx:speaker",
+      "sourceReferent": "ctx:speaker"
+    },
+    "statuses": {
+      "subjectReferent": "AMBIGUOUS",
+      "targetReferent": "NOT_APPLICABLE",
+      "ownerReferent": "AMBIGUOUS",
+      "perspectiveReferent": "RESOLVED",
+      "sourceReferent": "RESOLVED"
+    },
+    "orderedAlternatives": {
+      "subjectReferent": [
+        {
+          "value": "entity:woman-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:woman-b",
+          "rank": 2
+        }
+      ],
+      "ownerReferent": [
+        {
+          "value": "entity:woman-a",
+          "rank": 1
+        },
+        {
+          "value": "entity:woman-b",
+          "rank": 2
+        }
+      ]
+    },
+    "reason": "D06/D07: supplied context explicitly has two equally salient compatible antecedents; subject and owner share the unresolved residence holder, while interpersonal target is inapplicable. The location mention is object evidence, not an interpersonal target.",
+    "beforeTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:woman-a",
+        "entity:woman-b",
+        "NONE",
+        "UNKNOWN"
+      ]
+    },
+    "beforeStatusSupport": false,
+    "beforeAlternativesSupport": false,
+    "afterTargets": {
+      "role_pointer_labels": {
+        "subjectReferent": 6,
+        "targetReferent": 5,
+        "ownerReferent": 6,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      },
+      "role_pointer_values": [
+        "ctx:speaker",
+        "ctx:observer",
+        "mention:m0",
+        "entity:woman-a",
+        "entity:woman-b",
+        "NONE",
+        "UNKNOWN"
+      ],
+      "role_alternative_mask": {
+        "subjectReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "targetReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ownerReferent": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "perspectiveReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sourceReferent": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "role_alternative_pointer_labels": {
+        "subjectReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "targetReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "ownerReferent": [
+          3,
+          4,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "perspectiveReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ],
+        "sourceReferent": [
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100,
+          -100
+        ]
+      },
+      "role_status_labels": {
+        "subjectReferent": 2,
+        "targetReferent": 3,
+        "ownerReferent": 2,
+        "perspectiveReferent": 0,
+        "sourceReferent": 0
+      }
+    },
+    "structuralStatus": "VALID",
+    "interpretationStatus": "AMBIGUOUS",
+    "rowModified": false,
+    "result": "PASS"
+  }
+]
