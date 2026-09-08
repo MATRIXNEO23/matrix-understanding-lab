@@ -1,7 +1,7 @@
 # Regole canoniche di lavoro
 
 Stato: CANONICO
-Data: 2026-09-07
+Data: 2026-09-08
 
 ## Una repository alla volta
 
@@ -38,6 +38,21 @@ Regole obbligatorie:
 - Student-4, Student-5 pristine, Path A e Path B restano linee distinte;
 - ogni nuova versione materiale riceve un nuovo identificativo e SHA-256;
 - un task che produce un modello non è chiuso finché artifact persistente + manifest/registry + checksum + lineage non sono salvati.
+
+## Indice canonico moduli/artifact Student-5
+
+Per Student-5 la prima fonte operativa obbligatoria è:
+
+`STUDENT5_MODULE_INDEX.md`
+
+Regole obbligatorie:
+
+- ogni nuova sessione/chat/Work deve leggere `STUDENT5_MODULE_INDEX.md` prima di cercare artifact o ricostruire il contesto;
+- ogni nuovo modello, dataset, builder, target-preparation, audit, benchmark, release, ONNX, quantizzazione, checkpoint o integrazione persistente deve essere aggiunto/aggiornato nell'indice nello stesso workstream;
+- l'indice deve riportare ID, stato, repository/branch/HEAD, path o Release/tag/asset ID, filename, byte attesi, SHA-256, dipendenze, recovery locator e note di readback quando disponibili;
+- una versione superseded non va cancellata: resta registrata con stato storico e puntatore alla nuova versione;
+- un task Student-5 che crea o modifica un artifact persistente NON è completo finché `STUDENT5_MODULE_INDEX.md` non è stato aggiornato e riletto dal branch remoto;
+- non creare o ricostruire un artifact dichiarato esistente prima di aver consultato l'indice e verificato i locator registrati.
 
 ## Continuità realmente riprendibile
 
