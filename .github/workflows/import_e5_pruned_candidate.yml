@@ -1,0 +1,76 @@
+name: Import E5 Pruned Candidate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import_e5_pruned_candidate.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Hugging Face client
+        run: pip install -q huggingface_hub
+
+      - name: Download pinned full snapshot
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(
+              repo_id='jangedoo/multilingual-e5-small-pruned',
+              revision='696e4b64a2e33f6ffa036d24a666a16fd2280556',
+              local_dir='understanding/candidates/jangedoo-multilingual-e5-small-pruned',
+          )
+          PY
+
+      - name: Verify model binary
+        run: |
+          python - <<'PY'
+          import hashlib, pathlib, sys
+          p = pathlib.Path('understanding/candidates/jangedoo-multilingual-e5-small-pruned/model.safetensors')
+          expected_size = 351646568
+          expected_sha = 'e8de21ecee219f55eb9a29e3f0ba7a6167756b6109512d201895b3158e97ae3e'
+          if not p.exists():
+              raise SystemExit('model.safetensors missing')
+          size = p.stat().st_size
+          h = hashlib.sha256()
+          with p.open('rb') as f:
+              for chunk in iter(lambda: f.read(1024 * 1024), b''):
+                  h.update(chunk)
+          digest = h.hexdigest()
+          print('bytes=', size)
+          print('sha256=', digest)
+          if size != expected_size or digest != expected_sha:
+              raise SystemExit('Pinned model verification failed')
+          PY
+
+      - name: Track model with Git LFS
+        run: |
+          git lfs install
+          git lfs track 'understanding/candidates/jangedoo-multilingual-e5-small-pruned/*.safetensors'
+
+      - name: Remove Hugging Face cache metadata
+        run: |
+          rm -rf understanding/candidates/jangedoo-multilingual-e5-small-pruned/.cache
+
+      - name: Commit complete isolated candidate
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .gitattributes understanding/candidates/jangedoo-multilingual-e5-small-pruned
+          git commit -m 'Add isolated multilingual E5 pruned candidate snapshot' || exit 0
+          git push origin HEAD:main
