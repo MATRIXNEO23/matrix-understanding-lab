@@ -1,0 +1,50 @@
+{
+  "id": 384423046,
+  "tag": "student5-matrix-nlu-v3-fp32-cp47-run1",
+  "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-matrix-nlu-v3-fp32-cp47-run1",
+  "publishedAt": "2026-09-08T03:13:52Z",
+  "assets": [
+    {
+      "id": 549780936,
+      "name": "ARCHIVE_SHA256SUMS",
+      "bytes": 111,
+      "sha256": "2ddbdc4f0c332548665585d003f97ca2d1cc4843226a7b9fbad890a29e7b4c59",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-matrix-nlu-v3-fp32-cp47-run1/ARCHIVE_SHA256SUMS"
+    },
+    {
+      "id": 549780942,
+      "name": "MODEL_MANIFEST.json",
+      "bytes": 7222,
+      "sha256": "48f3fb6a9e693fdf8f651197fde836b7d2660296242f3cbc776730fdbbd18332",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-matrix-nlu-v3-fp32-cp47-run1/MODEL_MANIFEST.json"
+    },
+    {
+      "id": 549780957,
+      "name": "RECOVERY.md",
+      "bytes": 2095,
+      "sha256": "de554f3f81742b0bfaa0f91c39c4ea37baf393dd35f4cdbcfc0c21b303622de7",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-matrix-nlu-v3-fp32-cp47-run1/RECOVERY.md"
+    },
+    {
+      "id": 549780835,
+      "name": "student5-matrix-nlu-v3-fp32-cp47-run1.tar.xz",
+      "bytes": 93830912,
+      "sha256": "029bc292c11091da3aa5742ac85017ffdbc7dbb7ba7be6fadc5cc603f07ceafa",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-matrix-nlu-v3-fp32-cp47-run1/student5-matrix-nlu-v3-fp32-cp47-run1.tar.xz"
+    },
+    {
+      "id": 549780992,
+      "name": "training-manifest.json",
+      "bytes": 4270,
+      "sha256": "a12881f009a27a4cf5b13377493122dfcc7c9aef963a8e7fc09e72503bed6d60",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-matrix-nlu-v3-fp32-cp47-run1/training-manifest.json"
+    },
+    {
+      "id": 549780967,
+      "name": "training-metrics.json",
+      "bytes": 20714,
+      "sha256": "52e445a29002c1e9217d5c26bc16ea9d2f8a8ed269cfe0ce2e7bcfca34bd7b18",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-matrix-nlu-v3-fp32-cp47-run1/training-metrics.json"
+    }
+  ]
+}

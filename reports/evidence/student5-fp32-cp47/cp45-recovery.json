@@ -1,0 +1,11 @@
+{
+  "CP45_RECOVERY": "PASS",
+  "sourceReleaseId": 384399324,
+  "sourceAssetId": 549697344,
+  "downloadUrl": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-minilm-40k-phase-a-fp32-working-copy-cp45/student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip",
+  "archiveBytes": 88361246,
+  "archiveSha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "fp32Bytes": 148020400,
+  "fp32Sha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+  "invalidLocalCopyQuarantined": true
+}

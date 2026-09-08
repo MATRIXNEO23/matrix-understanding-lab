@@ -1,0 +1,17 @@
+{
+  "selection": "PENDING",
+  "selectedCheckpoint": null,
+  "evaluationExecuted": false,
+  "authorizedV3DevIdentity": null,
+  "evidenceReferences": [
+    "reports/evidence/student5-fp32-cp44/selection-input.json",
+    "reports/STUDENT_5_GATE_B_READINESS_CP36.md",
+    "STUDENT5_MODULE_INDEX.md"
+  ],
+  "currentInstruction": "Missing selection input does not prevent training. Preserve all fixed epoch checkpoints without selecting on TRAIN.",
+  "eligibleCheckpoints": 10,
+  "frozenRead": false,
+  "devCreated": false,
+  "devSubstituted": false,
+  "practicalCompetitiveness": "NOT_ESTABLISHED"
+}

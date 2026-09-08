@@ -1,0 +1,22 @@
+{
+  "maxAbsoluteErrorByOutput": {
+    "token.boundary": 2.5331974029541016e-07,
+    "token.object": 2.682209014892578e-07,
+    "token.subject": 1.6391277313232422e-07,
+    "token.negation": 2.2351741790771484e-07,
+    "token.temporal": 1.9371509552001953e-07,
+    "token.entity": 2.2724270820617676e-07,
+    "sequence.dialogueAct": 1.4901161193847656e-07,
+    "sequence.predicate": 1.043081283569336e-07,
+    "sequence.polarity": 5.960464477539063e-08,
+    "sequence.claimKind": 7.078051567077637e-08,
+    "sequence.subjectReferent": 2.60770320892334e-08,
+    "sequence.targetReferent": 2.60770320892334e-08,
+    "sequence.ownerReferent": 1.862645149230957e-08,
+    "sequence.perspectiveReferent": 3.3527612686157227e-08,
+    "sequence.sourceReferent": 2.9802322387695312e-08,
+    "sequence.temporalRelation": 1.1920928955078125e-07,
+    "sequence.temporalAnchor": 3.3527612686157227e-08
+  },
+  "pass": true
+}

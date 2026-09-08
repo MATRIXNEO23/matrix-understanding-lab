@@ -204,3 +204,44 @@ TRAIN and existing 4,355 prepared-target bytes verified unchanged; fresh builder
 Handoff: `reports/STUDENT_5_FP32_CP46_HANDOFF.md`.
 Evidence/recovery details: `reports/evidence/student5-fp32-cp46/preflight-blocked.json`; `SHA256SUMS` covers new evidence. `unexecuted-run-plan.json` is draft only, zero optimizer steps.
 Canonical CP45 model/release/asset/checksums/recovery locator above are unchanged. No trained model, evaluation, quantization, ONNX, Engine integration, Student-4 change, or DEV/Frozen use occurred. STOP after evidence readback; no automatic next task.
+
+## CP47 — FP32 head training completed; checkpoint selection pending
+
+Starting HEAD: `c9b4984fba6c3da71e27387c4008d78a52208385`. Status: `TRAINING_COMPLETED_SELECTION_PENDING`. No checkpoint selected or production/runtime integration approved.
+
+CP45 recovered fresh and verified: Release 384399324 / asset 549697344, 88,361,246 bytes, archive SHA-256 `7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191`, FP32 SHA-256 `d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2`. CP46 invalid local ZIP quarantined. TRAIN v2.1 and immutable 4,355 prepared targets unchanged; G03 eight rows/14 fields/28 alternatives PASS.
+
+One run: canonical stage A, frozen 12-layer encoder + 172,088 V3 head parameters; 10 epochs / 1,370 optimizer steps; 24.637829853 s optimization plus checkpoint writes, 35.160938859 s including cached feature preparation. Configuration/code: `tools/student5_fp32/train_cp47_config.json`, `train_cp47.py`, `verify_cp47.py`. No architecture or label changes; exact training adapter/loss/runtime details are recorded.
+
+### Durable checkpoint recovery
+
+- Repository/branch: `MATRIXNEO23/matrix-understanding-lab` / `main`.
+- New Release: **384423046**, tag `student5-matrix-nlu-v3-fp32-cp47-run1`; source tag commit is the starting HEAD above.
+- Archive asset: **549780835**, `student5-matrix-nlu-v3-fp32-cp47-run1.tar.xz`, **93830912 bytes**.
+- Archive SHA-256: `029bc292c11091da3aa5742ac85017ffdbc7dbb7ba7be6fadc5cc603f07ceafa`.
+- Exact acquisition URL: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-matrix-nlu-v3-fp32-cp47-run1/student5-matrix-nlu-v3-fp32-cp47-run1.tar.xz
+- Access: HTTPS download; GitHub authenticated Release access if required. Fresh HTTPS readback succeeded in CP47. Use only this exact immutable asset and verify size/SHA before extraction.
+- Recover: extract the tar.xz into a new directory; check internal `SHA256SUMS`; run included `recover_checkpoint.py --epoch N`. Every epoch contains full FP32 weights and optimizer/scheduler/RNG state; config/tokenizer/vocabulary/remap and source are shared in the bundle.
+- Remote proof: six assets downloaded, all 58 internal checksum entries and all ten model hashes verified. Recovered epoch-01 strict full-model load PASS. All ten checkpoints also passed strict load, finite-FP32 and frozen-encoder equality checks; 28 software regressions PASS.
+- Machine-readable per-checkpoint paths/Release/asset/metrics: `reports/evidence/student5-fp32-cp47/checkpoint-locations.json`.
+
+| New checkpoint identity | Epoch / step | TRAIN mean batch loss | Full FP32 SHA-256 |
+|---|---:|---:|---|
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-01` | 1 / 137 | 18.907279 | `dcf03bca3ead7bbd43573c9fddc20ef8c954132bb089625de969d35fa5609035` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-02` | 2 / 274 | 7.447614 | `71e5b7558cb778db7c3eb40418e88c815745dea34144b1dbad9598f9fe10a265` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-03` | 3 / 411 | 5.883487 | `45c1109e9258d53679f853622d19370f794d5ce274c47e44e4dd89261e50eb49` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-04` | 4 / 548 | 5.516301 | `3c0f0fdfb64972c1f921508b2fdb25abde5871cbcc13725b0af0323bca7e1b1b` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-05` | 5 / 685 | 5.223078 | `3f2e656832a435082ad7ac0e53ba401dd35237eb553fad5123a22a371d09a328` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-06` | 6 / 822 | 5.100230 | `7b7f670bc265e6e1e11fb76c87875494e2d7325dbc45a0993dad413bbda6ead9` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-07` | 7 / 959 | 5.021640 | `ee45bb926bd26f7278fc6c2cac02173774d3106dd4258a33c7cc826d4ab16663` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-08` | 8 / 1096 | 4.947185 | `1e5cb002dfc770a45e01aca5c89578acc851d39dbcec2e305828d3bfffde2f20` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-09` | 9 / 1233 | 4.951446 | `89956185f8ba446a0178ff231b65de3cc9f4cb3410ddb28a088bb488aca9e990` |
+| `student5-matrix-nlu-v3-fp32-cp47-run1-epoch-10` | 10 / 1370 | 4.855911 | `f19920de1f6224f37fde056e6b2e423ff4905b215409684a53a5295a1a0ddc6d` |
+
+All models are 148,713,360 bytes; each is stored under `student5-matrix-nlu-v3-fp32-cp47-run1/<checkpointId>/model.safetensors` inside the common archive above. All ten remain eligible, none selected. Epoch losses are TRAIN optimization diagnostics, not held-out accuracy or a selection rule.
+
+Companion Release assets: `ARCHIVE_SHA256SUMS` (ID 549780936, SHA-256 `2ddbdc4f0c332548665585d003f97ca2d1cc4843226a7b9fbad890a29e7b4c59`); `MODEL_MANIFEST.json` (ID 549780942, SHA-256 `48f3fb6a9e693fdf8f651197fde836b7d2660296242f3cbc776730fdbbd18332`); `RECOVERY.md` (ID 549780957, SHA-256 `de554f3f81742b0bfaa0f91c39c4ea37baf393dd35f4cdbcfc0c21b303622de7`); `training-manifest.json` (ID 549780992, SHA-256 `a12881f009a27a4cf5b13377493122dfcc7c9aef963a8e7fc09e72503bed6d60`); `training-metrics.json` (ID 549780967, SHA-256 `52e445a29002c1e9217d5c26bc16ea9d2f8a8ed269cfe0ce2e7bcfca34bd7b18`).
+
+Handoff: `reports/STUDENT_5_FP32_CP47_HANDOFF.md`. Evidence directory: `reports/evidence/student5-fp32-cp47/` (model/training manifests, full per-head losses, checksums, provenance, recovery, target consumption, tests and remote readback).
+
+G04 practical regression evaluation remains pending identifiable authorized evaluation input; G07 remains the documented evidence limitation. No DEV creation/substitution, Frozen use, quantization, ONNX, Student-4 change or Assembling integration occurred. Existing artifact identities remain unchanged. STOP after persistence/readback; no automatic retraining or next phase.

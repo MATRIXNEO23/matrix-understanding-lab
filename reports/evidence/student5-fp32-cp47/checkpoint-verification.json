@@ -1,0 +1,84 @@
+{
+  "checkpoints": [
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-01",
+      "modelSha256": "dcf03bca3ead7bbd43573c9fddc20ef8c954132bb089625de969d35fa5609035",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-02",
+      "modelSha256": "71e5b7558cb778db7c3eb40418e88c815745dea34144b1dbad9598f9fe10a265",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-03",
+      "modelSha256": "45c1109e9258d53679f853622d19370f794d5ce274c47e44e4dd89261e50eb49",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-04",
+      "modelSha256": "3c0f0fdfb64972c1f921508b2fdb25abde5871cbcc13725b0af0323bca7e1b1b",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-05",
+      "modelSha256": "3f2e656832a435082ad7ac0e53ba401dd35237eb553fad5123a22a371d09a328",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-06",
+      "modelSha256": "7b7f670bc265e6e1e11fb76c87875494e2d7325dbc45a0993dad413bbda6ead9",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-07",
+      "modelSha256": "ee45bb926bd26f7278fc6c2cac02173774d3106dd4258a33c7cc826d4ab16663",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-08",
+      "modelSha256": "1e5cb002dfc770a45e01aca5c89578acc851d39dbcec2e305828d3bfffde2f20",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-09",
+      "modelSha256": "89956185f8ba446a0178ff231b65de3cc9f4cb3410ddb28a088bb488aca9e990",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    },
+    {
+      "checkpointId": "student5-matrix-nlu-v3-fp32-cp47-run1-epoch-10",
+      "modelSha256": "f19920de1f6224f37fde056e6b2e423ff4905b215409684a53a5295a1a0ddc6d",
+      "strictLoad": true,
+      "allTensorsFiniteFp32": true,
+      "encoderByteIdenticalToRecoveredCp45": true
+    }
+  ],
+  "candidatePermutationMaxError": {
+    "subjectReferent": 0.0,
+    "targetReferent": 0.0,
+    "ownerReferent": 0.0,
+    "perspectiveReferent": 0.0,
+    "sourceReferent": 0.0
+  },
+  "softwareProbeOnly": true,
+  "evaluationExecuted": false,
+  "pass": true
+}

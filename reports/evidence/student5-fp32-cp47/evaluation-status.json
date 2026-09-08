@@ -1,0 +1,11 @@
+{
+  "status": "NOT_EXECUTED_MISSING_AUTHENTICATED_V3_SELECTION_INPUT",
+  "selectedCheckpoint": null,
+  "qualityMetrics": null,
+  "perLanguageMetrics": null,
+  "regressionClassification": "NOT_MEASURED",
+  "G04": "PENDING_AUTHORIZED_EVALUATION",
+  "G07": "Existing evidence limitation; no protected material read or new contamination check",
+  "backbonePreservation": "All encoder tensors byte-identical across ten checkpoints; does not establish task-level non-regression",
+  "trainingLossIsNotEvaluation": true
+}

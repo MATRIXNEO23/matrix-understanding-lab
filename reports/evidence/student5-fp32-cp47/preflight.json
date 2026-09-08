@@ -1,0 +1,206 @@
+{
+  "startingHead": "c9b4984fba6c3da71e27387c4008d78a52208385",
+  "archiveSha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "modelSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+  "modelTensorDtypes": {
+    "F32": 199
+  },
+  "internalChecks": [
+    {
+      "path": "FROZEN_GUARD.txt",
+      "sha256": "df2af8cc66a186b941e763c1622a9c3a6c776bc4776da043416042b62bfac103",
+      "pass": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "449e44008580114b1167c353abf289da955467d57f83dd9579dee23786c3019f",
+      "pass": true
+    },
+    {
+      "path": "evidence/student5-deep-pruning-manifest.json",
+      "sha256": "3a38328d9c6df7974fb3975c040f3deff085b4fa69f3f1e5f633aa7781eb4cf1",
+      "pass": true
+    },
+    {
+      "path": "evidence/student5-vocab-selection-corpus-manifest.json",
+      "sha256": "82538124b74978248b702bccf879aa836e71825e5108b28d27eea96519bc8e6d",
+      "pass": true
+    },
+    {
+      "path": "evidence/upstream-audit.json",
+      "sha256": "f8092337a6395e3339ad62cb2a5d712967e1f646e4f3408ac3a010f3f807c0ab",
+      "pass": true
+    },
+    {
+      "path": "model/candidate-manifest.json",
+      "sha256": "a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d",
+      "pass": true
+    },
+    {
+      "path": "model/config.json",
+      "sha256": "447f6d16a312069ceaf1c9b36dda10cf3327f30d8b83dfba02397b5579c7c504",
+      "pass": true
+    },
+    {
+      "path": "model/model.safetensors",
+      "sha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+      "pass": true
+    },
+    {
+      "path": "model/sentencepiece.bpe.model",
+      "sha256": "748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78",
+      "pass": true
+    },
+    {
+      "path": "model/special_tokens_map.json",
+      "sha256": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f",
+      "pass": true
+    },
+    {
+      "path": "model/token-id-remap.json",
+      "sha256": "da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9",
+      "pass": true
+    },
+    {
+      "path": "model/tokenizer_config.json",
+      "sha256": "3d2c97bf6696333c33eec6c8c04a8d8731e8f143fadf641240f6d23345c70060",
+      "pass": true
+    },
+    {
+      "path": "reports/STUDENT_5_MINILM_DEEP_PRUNING.md",
+      "sha256": "16b64678c8e127c73fd3f22d3e68c55ba5cfe3a620d3bc1c158cbdb8d2e4d249",
+      "pass": true
+    },
+    {
+      "path": "reports/STUDENT_5_MINILM_PRUNING_FEASIBILITY.md",
+      "sha256": "35c774bef1cfab54b6e59229f3f92cd303aa067330e5a5101d0f6df1e8a8c76c",
+      "pass": true
+    },
+    {
+      "path": "source/student5_deep_pruning.py",
+      "sha256": "d929b5f293b4f4f1448ca48c376935373bcbf11d18ed1e5d4114f96a8a7c8470",
+      "pass": true
+    },
+    {
+      "path": "source/student5_pruning_corpus.py",
+      "sha256": "92d2fe7832005f70509b7866001f3c74d21467cc66efd03b2a5538eb1a163b04",
+      "pass": true
+    },
+    {
+      "path": "source/test_student5_deep_pruning.py",
+      "sha256": "79fd4bde04d79442e9e14e883feaac52a82fb3a52eac0aa839a54ca841c6878c",
+      "pass": true
+    }
+  ],
+  "trainId": "student5-matrix-nlu-v3-train-v2.1-cp43r2",
+  "trainSha256": "f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4",
+  "datasetFilesSha256": {
+    "BUILD_LOCK.json": "b5d441d6db22a6700e88e3c44d7901469c464c97e2753a1c016116c4800bc10e",
+    "provenance-and-mapping.jsonl.gz": "60c56945e5c791d4291dfc1696bc679637a19f7e7071b59e4849df2accb0e840",
+    "quarantine.jsonl.gz": "8d106294171fdfa2d90d8bbf6a785a9c37fa75e14be2193800c98260c53ebf2d",
+    "manifest.json": "2c6f7be7d6e9dac484868f7b92260609f0a1ffd1e831378e247a5217ce286a65",
+    "correction-register.jsonl.gz": "059740759d6d5d307a6088fc2a7ec5379ad12f48c69218ebaf9ee18037a2813d",
+    "exact-redundancy-decisions.json": "03b2d62afd7534ea69328e104a2fb4a91941bdab13378a1d1c0966f6f5e14042",
+    "SHA256SUMS": "7f35a7bd81a417cb9617bbef00329ac4b250181b98c710471d2f945c623d01cc",
+    "train.jsonl.gz": "f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4"
+  },
+  "targetBuilderSha256": "89fdc2d6f847dc5b6a08612602b01b39c874e9af00f2961488b7b5e4cfeca88c",
+  "preparedExamples": 4355,
+  "rows": 1831,
+  "claims": 2524,
+  "tokenizerIdComparisons": 4355,
+  "maxObservedTokens": 33,
+  "maxLength": 256,
+  "fastTokenizerMethod": "XLMRobertaTokenizerFast.from_pretrained(local pristine, from_slow=True); every text compared to canonical slow token IDs",
+  "targetPreparationErrors": [],
+  "g03Rows": [
+    {
+      "rowId": "mx-v22a-adult-it-015",
+      "pass": true,
+      "ambiguousFields": [
+        "targetReferent"
+      ]
+    },
+    {
+      "rowId": "mx-v22a-adult-it-025",
+      "pass": true,
+      "ambiguousFields": [
+        "targetReferent"
+      ]
+    },
+    {
+      "rowId": "cp42-it-ambiguous_binding-0117",
+      "pass": true,
+      "ambiguousFields": [
+        "subjectReferent",
+        "ownerReferent"
+      ]
+    },
+    {
+      "rowId": "cp42-en-ambiguous_binding-0119",
+      "pass": true,
+      "ambiguousFields": [
+        "subjectReferent",
+        "ownerReferent"
+      ]
+    },
+    {
+      "rowId": "cp42-es-ambiguous_binding-0121",
+      "pass": true,
+      "ambiguousFields": [
+        "subjectReferent",
+        "ownerReferent"
+      ]
+    },
+    {
+      "rowId": "cp43-it-antecedent_ambiguous-0121",
+      "pass": true,
+      "ambiguousFields": [
+        "subjectReferent",
+        "ownerReferent"
+      ]
+    },
+    {
+      "rowId": "cp43-en-antecedent_ambiguous-0124",
+      "pass": true,
+      "ambiguousFields": [
+        "subjectReferent",
+        "ownerReferent"
+      ]
+    },
+    {
+      "rowId": "cp43-es-antecedent_ambiguous-0127",
+      "pass": true,
+      "ambiguousFields": [
+        "subjectReferent",
+        "ownerReferent"
+      ]
+    }
+  ],
+  "preparedTargetsSha256": "1c31639c65a958e5490378df4956c3d6f036def003eb93336704fb6ca97cda45",
+  "preparedTargetsOrderedSha256": "02c9fb785602e0e2127a0018cd98646b8facd2da3a8acd63fde7b9c464cffa09",
+  "dependencies": {
+    "torch": "2.4.1+cpu",
+    "transformers": "4.44.2",
+    "numpy": "1.26.4",
+    "safetensors": "0.8.0",
+    "tokenizers": "0.19.1",
+    "sentencepiece": "0.2.2",
+    "protobuf": "7.36.1"
+  },
+  "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+  "scope": "Input authentication and real-tokenizer target preparation only. Not a dataset semantic audit, model quality evaluation or training run.",
+  "trainingExecuted": false,
+  "optimizerExecuted": false,
+  "modelForwardExecuted": false,
+  "quantizationExecuted": false,
+  "onnxExecuted": false,
+  "frozenRead": false,
+  "trainDatasetModified": false,
+  "ancestorPristineIdentity": "student-5-minilm-40k-phase-a-pristine",
+  "sourceModelId": "student-5-minilm-40k-phase-a-fp32-working-copy",
+  "sourceReleaseId": 384399324,
+  "sourceAssetId": 549697344,
+  "canonicalTargetReproductionMatch": true
+}

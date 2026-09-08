@@ -1,0 +1,8 @@
+{
+  "numericalConfiguration": "Fixed before training in training-config.json; one head-training run, ten epochs, no tuning or second round",
+  "preOptimizerVerificationFix": "First feature-cache comparison included padded token output positions. Corrected the assertion to compare every attention-mask-active token plus all sequence outputs. Padding is ignored by all training token losses. Maximum final error 2.682209014892578e-7, tolerance 1e-5. No optimizer step occurred in the discarded preparation attempt.",
+  "architecture": "Original model_v3.py and all labels unchanged. Cached forward algebra independently verified. No additional status head.",
+  "alternatives": "Primary ambiguous pointers remain UNKNOWN. Ordered alternatives are retained and used as a plausible set, with no rank probability weights.",
+  "evaluationLimitation": "TRAIN loss only. No DEV/Frozen examples, quality scoring or checkpoint selection.",
+  "durationDefinition": "trainingDurationSeconds includes optimization and epoch checkpoint writes; totalElapsedSeconds also includes frozen feature preparation. Model/tokenizer loading and source download excluded."
+}

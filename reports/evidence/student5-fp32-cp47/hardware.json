@@ -1,0 +1,9 @@
+{
+  "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+  "visibleCpuCount": 9,
+  "torchThreads": 4,
+  "torchInteropThreads": 1,
+  "device": "CPU",
+  "mixedPrecision": false,
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
+}

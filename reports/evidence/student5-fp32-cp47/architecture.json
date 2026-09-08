@@ -1,0 +1,163 @@
+{
+  "contractVersion": "MATRIX_NLU_CONTRACT_V3",
+  "schemaVersion": "3.0",
+  "maxReferentCandidates": 16,
+  "tokenHeads": [
+    "boundary",
+    "object",
+    "subject",
+    "negation",
+    "temporal",
+    "entity"
+  ],
+  "sequenceHeads": [
+    "dialogueAct",
+    "predicate",
+    "subjectReferent",
+    "targetReferent",
+    "ownerReferent",
+    "perspectiveReferent",
+    "sourceReferent",
+    "polarity",
+    "temporalRelation",
+    "claimKind"
+  ],
+  "headTypes": {
+    "boundary": "TOKEN_BIO",
+    "object": "TOKEN_BIO",
+    "subject": "TOKEN_BIO",
+    "negation": "TOKEN_BIO",
+    "temporal": "TOKEN_BIO",
+    "entity": "TOKEN_BIO",
+    "subjectReferent": "SEQUENCE_POINTER",
+    "targetReferent": "SEQUENCE_POINTER",
+    "ownerReferent": "SEQUENCE_POINTER",
+    "perspectiveReferent": "SEQUENCE_POINTER",
+    "sourceReferent": "SEQUENCE_POINTER",
+    "dialogueAct": "SEQUENCE_CATEGORICAL",
+    "predicate": "SEQUENCE_CATEGORICAL",
+    "polarity": "SEQUENCE_CATEGORICAL",
+    "temporalRelation": "SEQUENCE_RELATION_WITH_ANCHOR",
+    "claimKind": "SEQUENCE_CATEGORICAL"
+  },
+  "tokenLabels": {
+    "boundary": [
+      "O",
+      "B-CLAIM",
+      "I-CLAIM"
+    ],
+    "object": [
+      "O",
+      "B-OBJECT",
+      "I-OBJECT"
+    ],
+    "subject": [
+      "O",
+      "B-SUBJECT",
+      "I-SUBJECT"
+    ],
+    "negation": [
+      "O",
+      "B-NEGATION_CUE",
+      "I-NEGATION_CUE"
+    ],
+    "temporal": [
+      "O",
+      "B-TEMPORAL",
+      "I-TEMPORAL"
+    ],
+    "entity": [
+      "O",
+      "B-PERSON",
+      "I-PERSON",
+      "B-LOCATION",
+      "I-LOCATION"
+    ]
+  },
+  "fixedSequenceLabels": {
+    "dialogueAct": [
+      "ASSERT",
+      "QUESTION",
+      "REQUEST",
+      "COMMAND",
+      "CORRECT",
+      "UNKNOWN"
+    ],
+    "predicate": [
+      "identity.name",
+      "identity.age",
+      "residence.place",
+      "presence.reported",
+      "preference.like",
+      "work.role",
+      "possession.has",
+      "goal.object",
+      "attribute.is",
+      "consent.grant",
+      "consent.refuse",
+      "speech.unresolved"
+    ],
+    "polarity": [
+      "POSITIVE",
+      "NEGATIVE",
+      "UNKNOWN"
+    ],
+    "temporalRelation": [
+      "ATEMPORAL",
+      "CURRENT",
+      "PAST",
+      "FUTURE",
+      "BEFORE",
+      "AFTER",
+      "DURING",
+      "RECURRENT",
+      "AT_REFERENCE",
+      "UNKNOWN"
+    ],
+    "claimKind": [
+      "DIRECT",
+      "REPORT",
+      "BELIEF",
+      "HYPOTHESIS",
+      "UNKNOWN"
+    ]
+  },
+  "roleHeads": [
+    "subjectReferent",
+    "targetReferent",
+    "ownerReferent",
+    "perspectiveReferent",
+    "sourceReferent"
+  ],
+  "pointerSpecialValues": [
+    "NONE",
+    "UNKNOWN"
+  ],
+  "candidateKinds": [
+    "CONTEXT_SPEAKER",
+    "CONTEXT_OBSERVER",
+    "MENTION",
+    "CONTEXT_ENTITY"
+  ],
+  "fieldStatuses": [
+    "RESOLVED",
+    "UNKNOWN",
+    "AMBIGUOUS",
+    "NOT_APPLICABLE"
+  ],
+  "structuralStatuses": [
+    "VALID",
+    "INVALID"
+  ],
+  "interpretationStatuses": [
+    "RESOLVED",
+    "AMBIGUOUS",
+    "ABSTAINED"
+  ],
+  "temporalAnchorKinds": [
+    "SPEECH_TIME",
+    "CONTEXT_REFERENCE",
+    "TEMPORAL_EVIDENCE",
+    "CLAIM"
+  ]
+}

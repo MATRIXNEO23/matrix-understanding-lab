@@ -1,0 +1,158 @@
+{
+  "preparedExamples": 4355,
+  "immutablePreparedTargetsSha256": "1c31639c65a958e5490378df4956c3d6f036def003eb93336704fb6ca97cda45",
+  "roleStatusCounts": {
+    "RESOLVED": 10269,
+    "NOT_APPLICABLE": 2334,
+    "AMBIGUOUS": 14,
+    "UNKNOWN": 3
+  },
+  "g03Fields": [
+    {
+      "rowId": "mx-v22a-adult-it-015:c0",
+      "head": "targetReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "ctx:observer",
+        "ctx:speaker"
+      ]
+    },
+    {
+      "rowId": "mx-v22a-adult-it-025:c0",
+      "head": "targetReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "ctx:observer",
+        "ctx:speaker"
+      ]
+    },
+    {
+      "rowId": "cp42-it-ambiguous_binding-0117:c0",
+      "head": "subjectReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:adult-a",
+        "entity:adult-b"
+      ]
+    },
+    {
+      "rowId": "cp42-it-ambiguous_binding-0117:c0",
+      "head": "ownerReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:adult-a",
+        "entity:adult-b"
+      ]
+    },
+    {
+      "rowId": "cp42-en-ambiguous_binding-0119:c0",
+      "head": "subjectReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:adult-a",
+        "entity:adult-b"
+      ]
+    },
+    {
+      "rowId": "cp42-en-ambiguous_binding-0119:c0",
+      "head": "ownerReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:adult-a",
+        "entity:adult-b"
+      ]
+    },
+    {
+      "rowId": "cp42-es-ambiguous_binding-0121:c0",
+      "head": "subjectReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:adult-a",
+        "entity:adult-b"
+      ]
+    },
+    {
+      "rowId": "cp42-es-ambiguous_binding-0121:c0",
+      "head": "ownerReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:adult-a",
+        "entity:adult-b"
+      ]
+    },
+    {
+      "rowId": "cp43-it-antecedent_ambiguous-0121:c0",
+      "head": "subjectReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:woman-a",
+        "entity:woman-b"
+      ]
+    },
+    {
+      "rowId": "cp43-it-antecedent_ambiguous-0121:c0",
+      "head": "ownerReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:woman-a",
+        "entity:woman-b"
+      ]
+    },
+    {
+      "rowId": "cp43-en-antecedent_ambiguous-0124:c0",
+      "head": "subjectReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:woman-a",
+        "entity:woman-b"
+      ]
+    },
+    {
+      "rowId": "cp43-en-antecedent_ambiguous-0124:c0",
+      "head": "ownerReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:woman-a",
+        "entity:woman-b"
+      ]
+    },
+    {
+      "rowId": "cp43-es-antecedent_ambiguous-0127:c0",
+      "head": "subjectReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:woman-a",
+        "entity:woman-b"
+      ]
+    },
+    {
+      "rowId": "cp43-es-antecedent_ambiguous-0127:c0",
+      "head": "ownerReferent",
+      "status": "AMBIGUOUS",
+      "primary": "UNKNOWN",
+      "orderedAlternatives": [
+        "entity:woman-a",
+        "entity:woman-b"
+      ]
+    }
+  ],
+  "g03Rows": 8,
+  "g03FieldsTotal": 14,
+  "g03AlternativesTotal": 28,
+  "opaqueIdsUsedAsInput": false,
+  "semanticLabelsUsedAsInput": false,
+  "teacherForcedTrainingSpans": true
+}
