@@ -4,7 +4,7 @@ Updated: 2026-09-08
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `main`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP45_SEPARATE_FP32_WORKING_COPY_PERSISTED_VERIFIED / TRAINING_NOT_STARTED / STOP`
+Current state: `CP46_PREFLIGHT_ARCHIVE_IDENTITY_BLOCKED / TRAINING_NOT_STARTED / STOP`
 
 ## Preserved history
 
@@ -648,3 +648,13 @@ onnxExecuted=false; student5PristineModified=false; trainModified=false;
 devCreated=false; devModified=false; nextWorkStarted=false.
 
 CP45 publication incorporates concurrent main `d922d6ad7e67d60f88c00dcf56b1e67bfe89f2da`; `STUDENT5_MODULE_INDEX.md` is now the mandatory first lookup and its existing working-copy entry was completed with verified CP45 recovery details. New project rules and all other index entries preserved.
+
+## CP46 — authorized FP32 attempt stopped at archive pre-flight
+
+Starting main HEAD: `241bc1abe6cad2856716c198f55430494f4811a7`.
+Status: `STUDENT5_FP32 = BLOCKED`; training not started; zero checkpoints and no new model Release.
+The fresh local CP45 ZIP read back as 73,400,320 bytes / SHA-256 `8497ecf2167cf7948d954fe46301ca9b8e09024c30bc5af8828a818acad32980`, failing the required 88,361,246-byte canonical identity. User-required STOP on unexpected identity mismatch applied. Cause not established; CP45 durable Release metadata and older verified recovery copy remain canonical. No source artifact was modified.
+TRAIN and existing 4,355 prepared-target bytes verified unchanged; fresh builder/G03 replay was not reached. Historical G03 PASS is preserved. Missing DEV selection is not the blocker and must not block an otherwise valid resumed run under the current authorization.
+Handoff: `reports/STUDENT_5_FP32_CP46_HANDOFF.md`.
+Evidence/recovery details: `reports/evidence/student5-fp32-cp46/preflight-blocked.json`; `SHA256SUMS` covers new evidence. `unexecuted-run-plan.json` is draft only, zero optimizer steps.
+Canonical CP45 model/release/asset/checksums/recovery locator above are unchanged. No trained model, evaluation, quantization, ONNX, Engine integration, Student-4 change, or DEV/Frozen use occurred. STOP after evidence readback; no automatic next task.

@@ -1,0 +1,107 @@
+{
+  "acquisitionLog": "The acquisition command previously returned exit 0 and 'CP45 fresh download and extraction SHA256 PASS'. Subsequent independent reads returned 73400320 bytes and a different SHA-256 twice. Cause of this local post-acquisition discrepancy is not established.",
+  "assemblingIntegrationExecuted": false,
+  "checkpointsCreated": 0,
+  "checkpointsPersisted": 0,
+  "distinction": "Remote Release metadata still has the canonical size/digest. The older CP45 remote-readback local copy still verifies. No evidence establishes damage to the durable CP45 asset. User explicitly requires STOP on unexpected preflight identity difference; no fallback was used to bypass that stop.",
+  "evaluationExecuted": false,
+  "expectedArchiveBytes": 88361246,
+  "expectedArchiveSha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "firstFailingLayer": "preflight canonical working-copy archive identity",
+  "frozenUsedForTraining": false,
+  "g03": "Prior PASS preserved; fresh preflight G03 replay not reached.",
+  "nextWorkStarted": false,
+  "observations": [
+    {
+      "bytes": 73400320,
+      "checkedAt": "2026-09-08T02:43:24.383084+00:00",
+      "path": "/workspace/scratch/4729da267a67/cp46/cp45-working-copy.zip",
+      "sha256": "8497ecf2167cf7948d954fe46301ca9b8e09024c30bc5af8828a818acad32980"
+    },
+    {
+      "bytes": 148020400,
+      "checkedAt": "2026-09-08T02:43:24.563969+00:00",
+      "path": "/workspace/scratch/4729da267a67/cp46/source/model/model.safetensors",
+      "sha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2"
+    },
+    {
+      "bytes": 292481,
+      "checkedAt": "2026-09-08T02:43:24.567094+00:00",
+      "path": "/workspace/scratch/4729da267a67/snapshot/data/student5_v3_train_v21/train.jsonl.gz",
+      "sha256": "f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4"
+    },
+    {
+      "bytes": 345899,
+      "checkedAt": "2026-09-08T02:43:24.567685+00:00",
+      "path": "/workspace/scratch/4729da267a67/snapshot/reports/evidence/student5-fp32-cp44/prepared-targets.jsonl.gz",
+      "sha256": "1c31639c65a958e5490378df4956c3d6f036def003eb93336704fb6ca97cda45"
+    },
+    {
+      "bytes": 88361246,
+      "checkedAt": "2026-09-08T02:43:24.656349+00:00",
+      "path": "/workspace/scratch/student5-fp32-working-copy-cp45/remote-readback/student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip",
+      "sha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191"
+    }
+  ],
+  "onnxExecuted": false,
+  "optimizerExecuted": false,
+  "preflightException": "preflight.py:37 assert len(archive) == 88361246 and sha(archive) == ARCHIVE_SHA -> AssertionError; exit 1",
+  "preparedExamples": 4355,
+  "preparedExamplesBasis": "Existing immutable CP44 target file; fresh builder replay aborted at the earlier archive guard.",
+  "preparedTargetsIdentityVerified": true,
+  "quantizationExecuted": false,
+  "recovery": "For a separately resumed task, use only CP45 Release 384399324 / asset 549697344 and verify stable complete archive bytes immediately before target preparation. CP45 durable locator is unchanged. Do not use the 73400320-byte local archive.",
+  "selectedCheckpoint": null,
+  "selection": "No authenticated V3 selection identity recovered from current tree/registry or four Release inventories, consistent with CP36/CP44. This is not the reason training stopped; missing selection is explicitly nonblocking for the authorized run.",
+  "sourcePristineModified": false,
+  "sourceRelease": {
+    "asset": {
+      "browser_download_url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-minilm-40k-phase-a-fp32-working-copy-cp45/student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip",
+      "content_type": "application/zip",
+      "created_at": "2026-09-08T01:55:58Z",
+      "digest": "sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+      "download_count": 2,
+      "id": 549697344,
+      "label": null,
+      "name": "student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip",
+      "node_id": "RA_kwDOUM4WLs4gw7dA",
+      "size": 88361246,
+      "state": "uploaded",
+      "updated_at": "2026-09-08T01:56:05Z",
+      "uploader": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/101059510?v=4",
+        "events_url": "https://api.github.com/users/MATRIXNEO23/events{/privacy}",
+        "followers_url": "https://api.github.com/users/MATRIXNEO23/followers",
+        "following_url": "https://api.github.com/users/MATRIXNEO23/following{/other_user}",
+        "gists_url": "https://api.github.com/users/MATRIXNEO23/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/MATRIXNEO23",
+        "id": 101059510,
+        "login": "MATRIXNEO23",
+        "node_id": "U_kgDOBgYLtg",
+        "organizations_url": "https://api.github.com/users/MATRIXNEO23/orgs",
+        "received_events_url": "https://api.github.com/users/MATRIXNEO23/received_events",
+        "repos_url": "https://api.github.com/users/MATRIXNEO23/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/MATRIXNEO23/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/MATRIXNEO23/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/MATRIXNEO23",
+        "user_view_type": "public"
+      },
+      "url": "https://api.github.com/repos/MATRIXNEO23/matrix-understanding-lab/releases/assets/549697344"
+    },
+    "id": 384399324,
+    "tag": "student5-minilm-40k-phase-a-fp32-working-copy-cp45",
+    "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-minilm-40k-phase-a-fp32-working-copy-cp45"
+  },
+  "startingHead": "241bc1abe6cad2856716c198f55430494f4811a7",
+  "status": "BLOCKED",
+  "student4Modified": false,
+  "task": "CP46 authorized Student-5 FP32 training",
+  "trainIdentityVerified": true,
+  "trainModified": false,
+  "trainingCompleted": false,
+  "trainingStarted": false,
+  "workingCopyInitialSnapshotModified": false
+}
