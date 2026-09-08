@@ -1,0 +1,12 @@
+{
+  "sourceReleaseId": 383143636,
+  "sourceTag": "student-5-minilm-40k-phase-a-pristine",
+  "assetId": 545406840,
+  "name": "student5-minilm-phase-a-pruned-40k.zip",
+  "bytes": 88361246,
+  "digest": "sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "updatedAt": "2026-09-05T05:22:54Z",
+  "beforeAfterIdentityMatched": true,
+  "sourceReleaseUnmodified": true,
+  "workingCopyReleaseId": 384399324
+}

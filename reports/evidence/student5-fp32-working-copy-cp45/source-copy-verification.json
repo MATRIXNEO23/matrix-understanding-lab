@@ -1,0 +1,99 @@
+{
+  "sourceBeforeSha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "sourceAfterSha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "copySha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "sourceInode": 1835612,
+  "copyInode": 1993841,
+  "files": [
+    {
+      "path": "SHA256SUMS",
+      "bytes": 1690,
+      "sha256": "5ec09cea58c104f84446b5049233da62c101c5dfee04f3d4a75be7d9049042b1"
+    },
+    {
+      "path": "model/token-id-remap.json",
+      "bytes": 1210100,
+      "sha256": "da36a5e1a9057391da935354d895edb3bc3a959744aca6b6602e511f9d4ea9b9"
+    },
+    {
+      "path": "model/special_tokens_map.json",
+      "bytes": 280,
+      "sha256": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "model/config.json",
+      "bytes": 687,
+      "sha256": "447f6d16a312069ceaf1c9b36dda10cf3327f30d8b83dfba02397b5579c7c504"
+    },
+    {
+      "path": "model/tokenizer_config.json",
+      "bytes": 1199,
+      "sha256": "3d2c97bf6696333c33eec6c8c04a8d8731e8f143fadf641240f6d23345c70060"
+    },
+    {
+      "path": "model/sentencepiece.bpe.model",
+      "bytes": 884247,
+      "sha256": "748f8053688469d7dc98c135a28a3fc0713bdbb82853f86f8d7a254bada46f78"
+    },
+    {
+      "path": "model/model.safetensors",
+      "bytes": 148020400,
+      "sha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2"
+    },
+    {
+      "path": "model/candidate-manifest.json",
+      "bytes": 18213,
+      "sha256": "a9d23de7816d487986316351c163f37a67d65d001861dbf042b9114c455f066d"
+    },
+    {
+      "path": "FROZEN_GUARD.txt",
+      "bytes": 470,
+      "sha256": "df2af8cc66a186b941e763c1622a9c3a6c776bc4776da043416042b62bfac103"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1020,
+      "sha256": "449e44008580114b1167c353abf289da955467d57f83dd9579dee23786c3019f"
+    },
+    {
+      "path": "reports/STUDENT_5_MINILM_PRUNING_FEASIBILITY.md",
+      "bytes": 552,
+      "sha256": "35c774bef1cfab54b6e59229f3f92cd303aa067330e5a5101d0f6df1e8a8c76c"
+    },
+    {
+      "path": "reports/STUDENT_5_MINILM_DEEP_PRUNING.md",
+      "bytes": 15467,
+      "sha256": "16b64678c8e127c73fd3f22d3e68c55ba5cfe3a620d3bc1c158cbdb8d2e4d249"
+    },
+    {
+      "path": "evidence/upstream-audit.json",
+      "bytes": 5853,
+      "sha256": "f8092337a6395e3339ad62cb2a5d712967e1f646e4f3408ac3a010f3f807c0ab"
+    },
+    {
+      "path": "evidence/student5-deep-pruning-manifest.json",
+      "bytes": 98307,
+      "sha256": "3a38328d9c6df7974fb3975c040f3deff085b4fa69f3f1e5f633aa7781eb4cf1"
+    },
+    {
+      "path": "evidence/student5-vocab-selection-corpus-manifest.json",
+      "bytes": 2296,
+      "sha256": "82538124b74978248b702bccf879aa836e71825e5108b28d27eea96519bc8e6d"
+    },
+    {
+      "path": "source/test_student5_deep_pruning.py",
+      "bytes": 2518,
+      "sha256": "79fd4bde04d79442e9e14e883feaac52a82fb3a52eac0aa839a54ca841c6878c"
+    },
+    {
+      "path": "source/student5_pruning_corpus.py",
+      "bytes": 21385,
+      "sha256": "92d2fe7832005f70509b7866001f3c74d21467cc66efd03b2a5538eb1a163b04"
+    },
+    {
+      "path": "source/student5_deep_pruning.py",
+      "bytes": 39460,
+      "sha256": "d929b5f293b4f4f1448ca48c376935373bcbf11d18ed1e5d4114f96a8a7c8470"
+    }
+  ]
+}

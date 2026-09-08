@@ -237,3 +237,36 @@ Status: `UNTRAINED_GATE_A_RUNTIME_PROBE_ONLY / NOT_PRODUCTION_APPROVED`. A4 dura
 - Limits: new heads untrained; historical four-batch PyTorch/ONNX parity tests runtime mechanics only, no linguistic-quality claim; external candidate/anchor embeddings are not learned extraction evidence. All historical CP35a evidence remains unchanged.
 
 No prior artifact/version overwritten. Assignment ends at A4; return to Supervisor GPT.
+
+
+## Student-5 FP32 working copy — CP45
+
+Model ID: `student-5-minilm-40k-phase-a-fp32-working-copy`
+Version: `CP45_INITIAL_BYTE_IDENTICAL`; status: UNTRAINED_FP32_WORKING_COPY.
+Source pristine Release 383143636 / asset 545406840 remains immutable.
+Separate Release **384399324**, archive asset **549697344**.
+Tag: `student5-minilm-40k-phase-a-fp32-working-copy-cp45`.
+Tag source commit: `2bf43b6ce92436fbab0cb04580fc1f51f0a1fd0a`.
+Filename: `student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip`.
+Release: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-minilm-40k-phase-a-fp32-working-copy-cp45
+Archive: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-minilm-40k-phase-a-fp32-working-copy-cp45/student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip
+Archive bytes 88361246; SHA-256
+`7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191`.
+Internal model/model.safetensors bytes 148020400; SHA-256
+`d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2`.
+
+Complete source archive bytes copied to a new physical file and separate
+Release asset. Sidecar MODEL_MANIFEST.json (asset 549697449) assigns its new
+identity; original IDs inside the unchanged ZIP represent source provenance.
+SHA256SUMS asset 549697459; RECOVERY.md asset 549697481; source copy proof
+asset 549697495. All five assets recovered freshly and verified against
+upload bytes; remote ZIP/model match source. No training occurred.
+
+Future training may modify only an extracted working copy from this separate
+locator. Never change original pristine files/Release. Preserve this initial
+snapshot and publish trained outputs under new immutable identities.
+Recovery: public HTTPS GET succeeded at CP45; authenticated Release UI is
+fallback if needed. Download all five assets, check SHA256SUMS, extract into
+a NEW empty working directory and verify internal SHA256SUMS.
+Full evidence: `reports/evidence/student5-fp32-working-copy-cp45/`; report:
+`reports/STUDENT_5_FP32_WORKING_COPY_CP45.md`.

@@ -1,0 +1,64 @@
+{
+  "workingCopyModelId": "student-5-minilm-40k-phase-a-fp32-working-copy",
+  "releaseId": 384399324,
+  "releaseTag": "student5-minilm-40k-phase-a-fp32-working-copy-cp45",
+  "archiveAssetId": 549697344,
+  "remoteReadback": "PASS",
+  "method": "Fresh HTTPS downloads from the newly published Release URLs into a separate empty readback directory, no credentials needed; byte length/SHA and original upload bytes compared for all five assets. Browser download attempt failed before acquisition; HTTPS recovery then succeeded.",
+  "assets": [
+    {
+      "assetId": 549697449,
+      "name": "MODEL_MANIFEST.json",
+      "bytes": 5357,
+      "sha256": "d108ef92e37de57fc29a2668dbbd65936d43aa3b916290c3b51fa26ad4bdad40",
+      "byteIdentity": true
+    },
+    {
+      "assetId": 549697481,
+      "name": "RECOVERY.md",
+      "bytes": 1889,
+      "sha256": "8c7552998db2eb03cd755010de82a2cb188ecf98e839ffa6f0138a99dbcdd98e",
+      "byteIdentity": true
+    },
+    {
+      "assetId": 549697459,
+      "name": "SHA256SUMS",
+      "bytes": 381,
+      "sha256": "415a339392eb5af78c985dc44dd58737ee98e943bb1813ab408dd9da3fdd0ead",
+      "byteIdentity": true
+    },
+    {
+      "assetId": 549697495,
+      "name": "source-copy-verification.json",
+      "bytes": 3305,
+      "sha256": "6e42a082a550ba24a16ff3b07c9744f64ef7c9751a539af474239859406cb53b",
+      "byteIdentity": true
+    },
+    {
+      "assetId": 549697344,
+      "name": "student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip",
+      "bytes": 88361246,
+      "sha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+      "byteIdentity": true
+    }
+  ],
+  "archiveSha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "modelSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+  "modelBytes": 148020400,
+  "internalFilesVerified": 18,
+  "internalSha256SumsVerified": 17,
+  "sidecarSha256SumsVerified": 4,
+  "sourcePristineUnchanged": true,
+  "sourceArchiveAfterSha256": "7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+  "sourceModelAfterSha256": "d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2",
+  "workingCopyByteIdentityVerified": true,
+  "trainingExecuted": false,
+  "fineTuningExecuted": false,
+  "quantizationExecuted": false,
+  "onnxExecuted": false,
+  "student5PristineModified": false,
+  "trainModified": false,
+  "devCreated": false,
+  "devModified": false,
+  "nextWorkStarted": false
+}

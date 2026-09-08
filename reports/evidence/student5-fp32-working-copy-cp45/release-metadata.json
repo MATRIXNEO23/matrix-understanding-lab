@@ -1,0 +1,42 @@
+{
+  "id": 384399324,
+  "tag": "student5-minilm-40k-phase-a-fp32-working-copy-cp45",
+  "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-minilm-40k-phase-a-fp32-working-copy-cp45",
+  "assets": [
+    {
+      "id": 549697449,
+      "name": "MODEL_MANIFEST.json",
+      "size": 5357,
+      "digest": "sha256:d108ef92e37de57fc29a2668dbbd65936d43aa3b916290c3b51fa26ad4bdad40",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-minilm-40k-phase-a-fp32-working-copy-cp45/MODEL_MANIFEST.json"
+    },
+    {
+      "id": 549697481,
+      "name": "RECOVERY.md",
+      "size": 1889,
+      "digest": "sha256:8c7552998db2eb03cd755010de82a2cb188ecf98e839ffa6f0138a99dbcdd98e",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-minilm-40k-phase-a-fp32-working-copy-cp45/RECOVERY.md"
+    },
+    {
+      "id": 549697459,
+      "name": "SHA256SUMS",
+      "size": 381,
+      "digest": "sha256:415a339392eb5af78c985dc44dd58737ee98e943bb1813ab408dd9da3fdd0ead",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-minilm-40k-phase-a-fp32-working-copy-cp45/SHA256SUMS"
+    },
+    {
+      "id": 549697495,
+      "name": "source-copy-verification.json",
+      "size": 3305,
+      "digest": "sha256:6e42a082a550ba24a16ff3b07c9744f64ef7c9751a539af474239859406cb53b",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-minilm-40k-phase-a-fp32-working-copy-cp45/source-copy-verification.json"
+    },
+    {
+      "id": 549697344,
+      "name": "student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip",
+      "size": 88361246,
+      "digest": "sha256:7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191",
+      "url": "https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/download/student5-minilm-40k-phase-a-fp32-working-copy-cp45/student5-minilm-40k-phase-a-fp32-working-copy-cp45.zip"
+    }
+  ]
+}

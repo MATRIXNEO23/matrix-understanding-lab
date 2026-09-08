@@ -4,7 +4,7 @@ Updated: 2026-09-08
 Repository: `MATRIXNEO23/matrix-understanding-lab`
 Active execution branch: `main`
 Production status: `NOT_PRODUCTION_APPROVED`
-Current state: `CP44_FP32_AUTHORIZED / INPUTS_AND_REAL_TARGETS_VERIFIED / BLOCKED_MISSING_SELECTION_GOLD`
+Current state: `CP45_SEPARATE_FP32_WORKING_COPY_PERSISTED_VERIFIED / TRAINING_NOT_STARTED / STOP`
 
 ## Preserved history
 
@@ -596,3 +596,55 @@ is in `remote-readback.json`; final commit supplied in the handoff.
 trainDatasetModified=false; quantizationExecuted=false; onnxExecuted=false;
 androidIntegrationExecuted=false; student4Modified=false; frozenUsedForTraining=false;
 nextWorkStarted=false. STOP; no background job.
+
+
+## Checkpoint 45 — separate persistent FP32 working copy
+
+Assignment: copy/persist/verify only. No training and no DEV search/creation.
+Requested canonical HEAD was `6389e82c255c50964ce2df370a4682ba7206248b`;
+actual starting main `2bf43b6ce92436fbab0cb04580fc1f51f0a1fd0a` preserved CP44
+and all 4355 prepared targets.
+
+Working-copy ID: `student-5-minilm-40k-phase-a-fp32-working-copy`; version
+`CP45_INITIAL_BYTE_IDENTICAL`. New Release 384399324; archive asset 549697344.
+Tag/filename: `student5-minilm-40k-phase-a-fp32-working-copy-cp45` / same + `.zip`.
+Durable page: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-minilm-40k-phase-a-fp32-working-copy-cp45
+Archive bytes 88361246; SHA-256
+`7804bfb245b71df9b835fff7ee00f6ec887e019772ae34c82d269d821d587191`.
+Internal `model/model.safetensors`: 148020400 bytes; SHA-256
+`d6e45891d1e0ec4ed023caaeb17c0dd0ae80a93b8bf877d275310b7f2837efa2`.
+
+Canonical pristine Release 383143636 / asset 545406840 authenticated and
+unchanged. Entire ZIP copied without repacking to a distinct file/asset;
+all 18 package files and original metadata retain byte identity. Sidecar
+MODEL_MANIFEST.json gives the new working-copy identity and lineage.
+Fresh public HTTPS recovery of all five Release assets succeeded; checksums
+and full byte comparison pass, including remotely recovered FP32 weights.
+Authenticated Release UI is fallback if credentials later become necessary.
+Download all assets, verify sidecar SHA256SUMS, extract into a NEW empty
+working directory and verify internal SHA256SUMS. Do not regenerate pristine.
+
+Working local extraction (convenience, not durable locator):
+`/workspace/scratch/student5-fp32-working-copy-cp45/working-package/model`.
+Future authorized training must use this working-copy lineage exclusively,
+never original pristine files. Keep initial working-copy Release immutable
+and persist trained outputs under a new identity.
+
+Report `reports/STUDENT_5_FP32_WORKING_COPY_CP45.md`; evidence directory
+`reports/evidence/student5-fp32-working-copy-cp45/` contains manifest, source
+copy proof, Release metadata, remote readback, recovery and checksums.
+Artifact registry updated. Final repository commit supplied in final handoff.
+
+TRAIN v2.1 SHA remains
+`f90ae775a44023c37bf0c3a5087d64746413cbec770ca36cf154d1d533544aa4`;
+ID `student5-matrix-nlu-v3-train-v2.1-cp43r2`, path `data/student5_v3_train_v21/`.
+G03 PASS and CP44 targets/evidence remain unchanged.
+Current instruction STOP: training remains off; no DEV created, modified or
+searched. Original DEV gold recovery is not started by this task. No new
+model authorization or dataset decisions follow automatically.
+
+trainingExecuted=false; fineTuningExecuted=false; quantizationExecuted=false;
+onnxExecuted=false; student5PristineModified=false; trainModified=false;
+devCreated=false; devModified=false; nextWorkStarted=false.
+
+CP45 publication incorporates concurrent main `d922d6ad7e67d60f88c00dcf56b1e67bfe89f2da`; `STUDENT5_MODULE_INDEX.md` is now the mandatory first lookup and its existing working-copy entry was completed with verified CP45 recovery details. New project rules and all other index entries preserved.

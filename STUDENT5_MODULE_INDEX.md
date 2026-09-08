@@ -43,6 +43,15 @@ A new chat/session must treat this file as the first operational lookup before s
 - Companion assets: `MODEL_MANIFEST.json`, `SHA256SUMS`, `RECOVERY.md`, `source-copy-verification.json`.
 - Status: untrained, byte-identical initial working snapshot.
 - Recovery: use Release + `RECOVERY.md`; preserve this snapshot and create a new identity for any trained output.
+- Repository/branch: `MATRIXNEO23/matrix-understanding-lab`, `main`; Release tag source HEAD `2bf43b6ce92436fbab0cb04580fc1f51f0a1fd0a`.
+- Persistent locator: https://github.com/MATRIXNEO23/matrix-understanding-lab/releases/tag/student5-minilm-40k-phase-a-fp32-working-copy-cp45
+- Internal FP32 model bytes: `148,020,400`; complete archive has 18 files.
+- Companion asset IDs: MODEL_MANIFEST `549697449`; SHA256SUMS `549697459`; RECOVERY `549697481`; source-copy-verification `549697495`.
+- Source dependency: pristine Release `383143636` / asset `545406840`, verified unchanged before/after copying and remote recovery.
+- CP45 readback: PASS; all five assets freshly downloaded via HTTPS into a separate directory; complete byte identity, archive/model hashes, 18 file identities, 17 internal checksums and four sidecar checksum entries verified.
+- Evidence: `reports/evidence/student5-fp32-working-copy-cp45/remote-readback.json`; manifest/checksums/recovery in the same directory.
+- Handoff: `reports/STUDENT_5_FP32_WORKING_COPY_CP45.md`; repository delivery commit identified by this report's introduction on main.
+- Local working extraction, convenience only: `/workspace/scratch/student5-fp32-working-copy-cp45/working-package/model`. No training executed.
 
 ### 3. Student-5 original INT8 ONNX runtime probe
 - Status ID: `STUDENT_5_40K_UNTAUGHT_INT8`
