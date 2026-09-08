@@ -245,3 +245,16 @@ Companion Release assets: `ARCHIVE_SHA256SUMS` (ID 549780936, SHA-256 `2ddbdc4f0
 Handoff: `reports/STUDENT_5_FP32_CP47_HANDOFF.md`. Evidence directory: `reports/evidence/student5-fp32-cp47/` (model/training manifests, full per-head losses, checksums, provenance, recovery, target consumption, tests and remote readback).
 
 G04 practical regression evaluation remains pending identifiable authorized evaluation input; G07 remains the documented evidence limitation. No DEV creation/substitution, Frozen use, quantization, ONNX, Student-4 change or Assembling integration occurred. Existing artifact identities remain unchanged. STOP after persistence/readback; no automatic retraining or next phase.
+
+## CP48 — canonical checkpoint-selection input recovery
+
+Starting HEAD: `045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef`.
+Status: `STUDENT5_FP32_SELECTION = BLOCKED_MISSING_CANONICAL_EVAL_SET`.
+CP47 training remains completed with all ten eligible checkpoints persistently registered in Release 384423046 / asset 549780835. Zero checkpoints evaluated in CP48; no selected model, no Release created, no artifact identity changed, no new training. Metrics/regressions/competitiveness remain unmeasured.
+
+Recovery examined both branch trees, five Releases / 14 assets / five tags, 306 Actions runs, 637 artifact records, 588 cache records, 11 workflows, 266 main commit metadata records and 24 pinned documents. DEV V2, P0/P05 gold, MASSIVE development, pruning corpora and V3 software fixtures have different documented roles; none was authenticated as the authorized Student-5 V3 selection set. Two historical Actions ZIPs could not be materialized (reference HTTP 403, direct API HTTP 401); their contents are an explicit search limitation. No assertion that every historical archive was inspected.
+
+Handoff: `reports/STUDENT_5_FP32_SELECTION_CP48.md`.
+Evidence: `reports/evidence/student5-fp32-selection-cp48/`; `SHA256SUMS` pins report/evidence bytes, `result.json` records exact status, `candidate-set-register.json` records historical candidates, and `checkpoint-comparison.json` records all ten NOT_EVALUATED states. These are recovery evidence, not a model or evaluation dataset. Recover report/evidence from their introducing commit on main and verify checksums; final delivery response records remote readback and commit SHA.
+
+Required existing input: exact dataset ID, permitted split/V3-target selection provenance, recoverable repository path/ref or Release/asset locator, expected byte size and SHA-256. Historical name may differ from DEV V3. No replacement/gold generation or silent V2 substitution authorized. Once authenticated under a separate continuation, evaluate all ten existing checkpoints consistently; never select on TRAIN loss. G04 awaits evaluation; G07 not reopened. No TRAIN, DEV, pristine, CP45, CP47 checkpoint, Student-4 or Assembling changes. STOP after report/index readback.

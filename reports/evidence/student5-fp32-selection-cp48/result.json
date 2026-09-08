@@ -1,0 +1,80 @@
+{
+  "task": "CP48 Student-5 FP32 checkpoint selection",
+  "startingHead": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+  "STUDENT5_FP32_SELECTION": "BLOCKED_MISSING_CANONICAL_EVAL_SET",
+  "EVAL_SET_ID": null,
+  "EVAL_SET_PATH_OR_LOCATOR": null,
+  "EVAL_SET_SHA256": null,
+  "EVAL_SET_PROVENANCE": null,
+  "CHECKPOINTS_EVALUATED": 0,
+  "CHECKPOINTS_PRESERVED": 10,
+  "BEST_CHECKPOINT": null,
+  "BEST_EPOCH": null,
+  "BEST_MODEL_SHA256": null,
+  "SELECTED_MODEL_ID": null,
+  "SELECTED_RELEASE_ID": null,
+  "SELECTED_ASSET_ID": null,
+  "SELECTED_MODEL_SHA256": null,
+  "WHAT_WON": "NOT_DETERMINED",
+  "WHY_IT_WON": "No selection performed",
+  "WHAT_REGRESSED": "NOT_MEASURED",
+  "PRACTICAL_COMPETITIVENESS": "NOT_ESTABLISHED",
+  "trainingLineageStatus": "TRAINING_COMPLETED_SELECTION_PENDING",
+  "sourceReleaseId": 384423046,
+  "sourceAssetId": 549780835,
+  "searchScope": {
+    "repository": "MATRIXNEO23/matrix-understanding-lab",
+    "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+    "branches": 2,
+    "recursiveTreeEntries": {
+      "main": 615,
+      "historical_branch": 489
+    },
+    "recursiveTreesTruncated": {
+      "main": false,
+      "historical_branch": false
+    },
+    "releases": 5,
+    "releaseAssets": 14,
+    "tags": 5,
+    "actionsRuns": 306,
+    "actionsArtifacts": 637,
+    "actionsCaches": 588,
+    "workflows": 11,
+    "reachableMainCommitMetadata": 266,
+    "pinnedDocumentsRead": 24,
+    "commitSearchQueries": [
+      "repo:MATRIXNEO23/matrix-understanding-lab dev",
+      "repo:MATRIXNEO23/matrix-understanding-lab gold",
+      "repo:MATRIXNEO23/matrix-understanding-lab selection"
+    ],
+    "pagination": "All listed REST inventories exhausted; connector unsupported artifacts/tags endpoints were recovered using direct HTTPS REST metadata."
+  },
+  "limitations": [
+    "Commit metadata and both branch trees were searched; CP48 did not inspect every historical commit tree or every artifact ZIP.",
+    "Two targeted historical Actions ZIP acquisitions returned connector file references, but both original and fresh reference downloads failed HTTP 403; direct GitHub ZIP acquisition failed HTTP 401. Their members/payloads could not be inspected.",
+    "Metadata and documented provenance cannot prove that no compatible set exists in an unregistered or inaccessible location.",
+    "No DEV/gold/Frozen payload, cache payload or replacement data was read/generated; no model inference or checkpoint selection was performed."
+  ],
+  "missingIdentity": [
+    "existing authorized dataset ID",
+    "exact recoverable repository path/ref or persistent Release/asset locator",
+    "expected bytes/SHA-256 for that selection input",
+    "provenance identifying permitted split, canonical V3 targets and authorized checkpoint-selection role"
+  ],
+  "resumeInstruction": "Recover the existing authenticated selection input; evaluate all ten CP47 checkpoints using the same authorized procedure. Do not create data, silently promote V2, use TRAIN loss as selection, or retrain.",
+  "trainingExecuted": false,
+  "trainModified": false,
+  "devCreated": false,
+  "devModified": false,
+  "quantizationExecuted": false,
+  "onnxExecuted": false,
+  "assemblingIntegrationExecuted": false,
+  "student4Modified": false,
+  "frozenUsedForTraining": false,
+  "nextWorkStarted": false,
+  "evaluationExecuted": false,
+  "frozenPayloadRead": false,
+  "goldPayloadRead": false,
+  "selectedModelCreated": false
+}

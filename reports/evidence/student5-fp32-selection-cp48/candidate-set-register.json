@@ -1,0 +1,109 @@
+{
+  "hashScope": "Non-null candidate dataset hashes below are documentary identities only; no historical DEV/gold payload bytes were fetched or newly authenticated.",
+  "candidates": [
+    {
+      "candidate": "Student-5 V3 canonical checkpoint-selection DEV (descriptive name)",
+      "datasetId": null,
+      "locator": null,
+      "sha256": null,
+      "role": "Required V3 DEV-only checkpoint selection",
+      "disposition": "NOT_AUTHENTICATED",
+      "reason": "CP36 readiness, CP44 selection-input, CP47 selection-status and current index do not register an existing ID/path/SHA/provenance.",
+      "evidence": [
+        "reports/STUDENT_5_GATE_B_READINESS_CP36.md",
+        "reports/evidence/student5-fp32-cp44/selection-input.json",
+        "reports/evidence/student5-fp32-cp47/selection-status.json",
+        "STUDENT5_MODULE_INDEX.md"
+      ]
+    },
+    {
+      "candidate": "matrix-v2-dev.jsonl",
+      "datasetId": "MATRIX NLU V2 DEV (documented name)",
+      "locator": "Historical generated data-dir/matrix-v2-dev.jsonl; controlled_dev_v21.py / controlled_dev_v22a.py",
+      "sha256": "704e809f0e9ebace3a5c047989b74d354ac8811757a2644b0d9c04cfb0631012",
+      "role": "Student-4 / V2 validation",
+      "disposition": "NOT_AUTHORIZED_AS_STUDENT5_V3_SELECTION",
+      "reason": "Different contract, including negation and referent representation; no approved V3 label mapping or selection identity. Do not silently substitute.",
+      "evidence": [
+        "docs/MATRIX_NLU_DATASET_V2.md",
+        "matrix_nlu/controlled_dev_v21.py",
+        "matrix_nlu/controlled_dev_v22a.py"
+      ]
+    },
+    {
+      "candidate": "p05-v2-dev.jsonl",
+      "datasetId": "P05 V2 DEV (documented name)",
+      "locator": "Historical generated data-dir/p05-v2-dev.jsonl",
+      "sha256": "7533f56194431bd17b6f8544031d5436ca14ee6e209336da8133e1f05cdf0866",
+      "role": "Student-4 / V2 validation",
+      "disposition": "NOT_AUTHORIZED_AS_STUDENT5_V3_SELECTION",
+      "reason": "Existing older DEV reference is not evidence of a canonical compatible Student-5 V3 selection set.",
+      "evidence": [
+        "docs/MATRIX_NLU_DATASET_V2.md",
+        "matrix_nlu/controlled_dev_v21.py"
+      ]
+    },
+    {
+      "candidate": "P0 gold v1",
+      "datasetId": "p0.gold.v1",
+      "locator": "gold/p0-gold-v1.json",
+      "sha256": "85ae9320bea512cda2a3748bc49acc610a7b9d9dd17eee5222a2616faea6a99a",
+      "role": "Original P0 mixed train/dev/test gold, 21/18/27",
+      "disposition": "NOT_AUTHORIZED_AS_STUDENT5_V3_SELECTION",
+      "reason": "Historical task/schema and mixed-split payload; no Student-5 V3 target identity or promotion. Payload not opened.",
+      "evidence": [
+        "docs/GOLD_SET_CARD.md"
+      ]
+    },
+    {
+      "candidate": "P05 gold v1",
+      "datasetId": "P05 gold v1 (documented name)",
+      "locator": "gold/p05-gold-v1.json",
+      "sha256": "08c216641bdc071059c5dfd261a271dedc481a6879705ffb06c57164f01b9ea1",
+      "role": "Original P05 mixed train/dev/test gold, 87/84/93",
+      "disposition": "NOT_AUTHORIZED_AS_STUDENT5_V3_SELECTION",
+      "reason": "Card authorizes older variant selection, not a compatible Student-5 V3 all-head selection corpus; mixed payload not opened.",
+      "evidence": [
+        "docs/P05_GOLD_SET_CARD.md"
+      ]
+    },
+    {
+      "candidate": "MASSIVE dev IT/EN/ES",
+      "datasetId": "MASSIVE development split (documented name)",
+      "locator": "docs/MASSIVE_PROVENANCE.md; Actions matrix-nlu-massive-provenance",
+      "sha256": null,
+      "role": "Auxiliary intent/slot development, 2033 per language",
+      "disposition": "NOT_AUTHORIZED_AS_STUDENT5_V3_SELECTION",
+      "reason": "No canonical MATRIX V3 referent/status/alternatives gold or selection linkage; no payload fetched.",
+      "evidence": [
+        "docs/MASSIVE_PROVENANCE.md"
+      ]
+    },
+    {
+      "candidate": "Phase-A selection corpus",
+      "datasetId": "Phase-A TRAIN-safe vocabulary-pruning corpus (documented name)",
+      "locator": "reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md",
+      "sha256": "2412a5727eb51b993f3172f3dc4a4d08199e16382b90c2e62e5080e3e23b8558",
+      "role": "16819-record vocabulary pruning input",
+      "disposition": "TRAIN_SAFE_PRUNING_NOT_HELD_OUT_NLU_GOLD",
+      "reason": "The word selection refers to vocabulary pruning; multilingual/tokenization probe is explicitly not MATRIX NLU gold.",
+      "evidence": [
+        "reports/STUDENT_5_MINILM_40K_QUALITY_ANALYSIS.md",
+        "reports/evidence/student5-pristine-analysis-cp41/provenance.json"
+      ]
+    },
+    {
+      "candidate": "V3 software fixtures and CP35 Gate-A probe",
+      "datasetId": null,
+      "locator": "matrix_nlu/synthetic_v3_fixtures.py; Release 383886129 / asset 548329150",
+      "sha256": null,
+      "role": "Structural/contract tests and untrained runtime probe",
+      "disposition": "NOT_VALIDATED_HELD_OUT_SELECTION_GOLD",
+      "reason": "Passing software fixtures or structural probe is not checkpoint generalization evaluation.",
+      "evidence": [
+        "matrix_nlu/synthetic_v3_fixtures.py",
+        "reports/evidence/student5-path-b-cp35/artifact-manifest.json"
+      ]
+    }
+  ]
+}

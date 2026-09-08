@@ -1,0 +1,14 @@
+[
+  {
+    "artifact_id": 10035624558,
+    "direct_api_error": "HTTP Error 401: Unauthorized",
+    "connector_acquisition": "Returned file reference successfully; materializing reference failed HTTP 403 on both original and refreshed links.",
+    "payloads_read": false
+  },
+  {
+    "artifact_id": 9927657001,
+    "direct_api_error": "HTTP Error 401: Unauthorized",
+    "connector_acquisition": "Returned file reference successfully; materializing reference failed HTTP 403 on both original and refreshed links.",
+    "payloads_read": false
+  }
+]

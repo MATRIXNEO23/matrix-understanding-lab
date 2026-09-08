@@ -1,0 +1,76 @@
+{
+  "scope": {
+    "repository": "MATRIXNEO23/matrix-understanding-lab",
+    "ref": "045b5f06ea6ce0371d3e3e5a14cbeb5864f3d0ef",
+    "branches": 2,
+    "recursiveTreeEntries": {
+      "main": 615,
+      "historical_branch": 489
+    },
+    "recursiveTreesTruncated": {
+      "main": false,
+      "historical_branch": false
+    },
+    "releases": 5,
+    "releaseAssets": 14,
+    "tags": 5,
+    "actionsRuns": 306,
+    "actionsArtifacts": 637,
+    "actionsCaches": 588,
+    "workflows": 11,
+    "reachableMainCommitMetadata": 266,
+    "pinnedDocumentsRead": 24,
+    "commitSearchQueries": [
+      "repo:MATRIXNEO23/matrix-understanding-lab dev",
+      "repo:MATRIXNEO23/matrix-understanding-lab gold",
+      "repo:MATRIXNEO23/matrix-understanding-lab selection"
+    ],
+    "pagination": "All listed REST inventories exhausted; connector unsupported artifacts/tags endpoints were recovered using direct HTTPS REST metadata."
+  },
+  "limitations": [
+    "Commit metadata and both branch trees were searched; CP48 did not inspect every historical commit tree or every artifact ZIP.",
+    "Two targeted historical Actions ZIP acquisitions returned connector file references, but both original and fresh reference downloads failed HTTP 403; direct GitHub ZIP acquisition failed HTTP 401. Their members/payloads could not be inspected.",
+    "Metadata and documented provenance cannot prove that no compatible set exists in an unregistered or inaccessible location.",
+    "No DEV/gold/Frozen payload, cache payload or replacement data was read/generated; no model inference or checkpoint selection was performed."
+  ],
+  "artifactNameCounts": {
+    "matrix-nlu-bundle-33804574916": 1,
+    "matrix-nlu-bundle-33818777290": 1,
+    "matrix-nlu-candidate-probe": 42,
+    "matrix-nlu-massive-provenance": 41,
+    "matrix-nlu-one-click-33804574916": 1,
+    "matrix-nlu-post-training-gates": 1,
+    "matrix-nlu-report-33804574916": 1,
+    "matrix-nlu-report-33818777290": 1,
+    "matrix-nlu-resume-33818777290": 1,
+    "matrix-nlu-student-4-v2-bundle-33825895948": 1,
+    "matrix-nlu-student-4-v2-bundle-33826815562": 1,
+    "matrix-nlu-student-4-v2-report-33825895948": 1,
+    "matrix-nlu-student-4-v2-report-33826815562": 1,
+    "matrix-nlu-student-4-v2-resume-33825895948": 1,
+    "matrix-nlu-student-4-v2-resume-33826815562": 1,
+    "matrix-nlu-student-4-v21-bundle-33837897457": 1,
+    "matrix-nlu-student-4-v21-post-dev-33847269021": 1,
+    "matrix-nlu-student-4-v21-post-dev-33848931720": 1,
+    "matrix-nlu-student-4-v21-report-33837897457": 1,
+    "matrix-nlu-student-4-v21-resume-33837897457": 1,
+    "matrix-nlu-student-4-v22a-bundle-33860882760": 1,
+    "matrix-nlu-student-4-v22a-bundle-33860905849": 1,
+    "matrix-nlu-student-4-v22a-bundle-33860928806": 1,
+    "matrix-nlu-student-4-v22a-report-33855648159": 1,
+    "matrix-nlu-student-4-v22a-report-33855798760": 1,
+    "matrix-nlu-student-4-v22a-report-33860882760": 1,
+    "matrix-nlu-student-4-v22a-report-33860905849": 1,
+    "matrix-nlu-student-4-v22a-report-33860928806": 1,
+    "matrix-nlu-student-4-v22a-resume-33860882760": 1,
+    "matrix-nlu-student-4-v22a-resume-33860905849": 1,
+    "matrix-nlu-student-4-v22a-resume-33860928806": 1,
+    "matrix-nlu-teacher-evidence": 1,
+    "matrix-nlu-teacher-resume-checkpoint": 1,
+    "p0-android-probe": 133,
+    "p0-baseline-results": 2,
+    "p0-results": 139,
+    "p05-baseline": 123,
+    "p05-training": 126
+  }
+}
