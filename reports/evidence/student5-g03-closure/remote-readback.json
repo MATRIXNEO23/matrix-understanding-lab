@@ -1,0 +1,98 @@
+{
+  "dataCommit": "b22270ffa2ab49d389c6ec307a0d40f5675d6bfc",
+  "startingHead": "8ee33811fde3aa9646a8d4eff1d5160c37ee76a4",
+  "verifiedRemoteFiles": [
+    {
+      "bytes": 56009,
+      "gitBlobSha": "29b6ce1bebed4e305a176f8c7ee03159db1e25e5",
+      "path": "docs/WORK_CONTINUITY_STUDENT_5.md",
+      "sha256": "3ae7980c06582204767234bea7b0e35087077d2ac11bf2d46f10b8a5a68f241f"
+    },
+    {
+      "bytes": 6157,
+      "gitBlobSha": "bb30fccdfbd1267e1360da330bbea576993d9bb8",
+      "path": "matrix_nlu/test_training_data_v3_g03.py",
+      "sha256": "5520d3dfac78ffa10400ce6cd40451fdfd07a335aa834b9f8b0ecb9f3d83e2e8"
+    },
+    {
+      "bytes": 10840,
+      "gitBlobSha": "793fcf74ec5edce729ce9024687dbf1ac0b0f0f4",
+      "path": "matrix_nlu/training_data_v3.py",
+      "sha256": "89fdc2d6f847dc5b6a08612602b01b39c874e9af00f2961488b7b5e4cfeca88c"
+    },
+    {
+      "bytes": 7093,
+      "gitBlobSha": "9d229aeeed5b0b7bba7275fe1afbcd4b64eff211",
+      "path": "reports/STUDENT_5_G03_CLOSURE.md",
+      "sha256": "5d31c5545a24a00407b0c07cb36eb3f1845089e201561bb8755286223ef79ddc"
+    },
+    {
+      "bytes": 45162,
+      "gitBlobSha": "c6409df54935f651d119e9f519b071fcdd13397b",
+      "path": "reports/evidence/student5-g03-closure/eight-row-verification.json",
+      "sha256": "410575cf43fd896c24c69f3fcfd6fbdecfad6088c61135061895aa90ba943aea"
+    },
+    {
+      "bytes": 4911,
+      "gitBlobSha": "5820b25d727db196a5d826d9b7f96682aa02e889",
+      "path": "reports/evidence/student5-g03-closure/source-integrity.json",
+      "sha256": "d6a9599bb8a8a942a26397c33ddd1b0599012dcde9661b192f2ce19768778687"
+    },
+    {
+      "bytes": 6972,
+      "gitBlobSha": "5e176ca7114f774faea17bf4c6b2d0c4eeb0254c",
+      "path": "reports/evidence/student5-g03-closure/training_data_v3.before.py",
+      "sha256": "4996dbbeffee6e092d778cefea43962b26266ae150ca8798d9cf1dc7555b6afe"
+    },
+    {
+      "bytes": 4212,
+      "gitBlobSha": "b11eb840a1f9892267225c0f6417bfe48443c5ce",
+      "path": "reports/evidence/student5-g03-closure/unit-tests.txt",
+      "sha256": "3b3db8a530343db3d3db58c9ffae0b268278ef96cc84ae151dfde63e8022bce4"
+    },
+    {
+      "bytes": 2460,
+      "gitBlobSha": "4230b3b31a630c0636beee49b18971b4a9f7e546",
+      "path": "reports/evidence/student5-g03-closure/verification.json",
+      "sha256": "ff25883115333d18e7572ee1a18c4a34d29b8d8ea0f77858f7aaf1ec49741aa5"
+    },
+    {
+      "bytes": 10466,
+      "gitBlobSha": "ce31b4bec801f7a52c472300e89d008bc9551e52",
+      "path": "tools/student5_g03/verify.py",
+      "sha256": "d24ebbe829d9e96eca299edd24912f61cbdc0f895f60e53211cc74fe0a66b69b"
+    },
+    {
+      "bytes": 1127,
+      "gitBlobSha": "77f38b2d2ea9936a50175c401e8dc4ced794b5b3",
+      "path": "reports/evidence/student5-g03-closure/SHA256SUMS",
+      "sha256": "8d8a2202c737c514332a2d5366ba39155b265db34cf507244014452cf9bcf7d0"
+    }
+  ],
+  "remoteReadback": true,
+  "verification": "Each listed file fetched at dataCommit, base64-decoded, checked for byte length, SHA-256 and Git blob identity.",
+  "changedExistingPaths": [
+    "docs/WORK_CONTINUITY_STUDENT_5.md",
+    "matrix_nlu/training_data_v3.py"
+  ],
+  "addedPaths": [
+    "matrix_nlu/test_training_data_v3_g03.py",
+    "reports/STUDENT_5_G03_CLOSURE.md",
+    "reports/evidence/student5-g03-closure/SHA256SUMS",
+    "reports/evidence/student5-g03-closure/eight-row-verification.json",
+    "reports/evidence/student5-g03-closure/source-integrity.json",
+    "reports/evidence/student5-g03-closure/training_data_v3.before.py",
+    "reports/evidence/student5-g03-closure/unit-tests.txt",
+    "reports/evidence/student5-g03-closure/verification.json",
+    "tools/student5_g03/verify.py"
+  ],
+  "allOtherExistingBlobsUnchanged": true,
+  "sourceTrainV21FilesUnchanged": 8,
+  "workflowRuns": 0,
+  "trainingExecuted": false,
+  "fineTuningExecuted": false,
+  "quantizationExecuted": false,
+  "onnxExecuted": false,
+  "nextWorkStarted": false,
+  "receiptScope": "This receipt is published by a subsequent metadata-only commit; its final commit and readback are supplied in the Supervisor handoff."
+}
