@@ -1,0 +1,54 @@
+{
+  "sourceFilesUnchanged": {
+    "BUILD_LOCK.json": "18ca6b62129543bdc40388a5556cdb2cc4a4f40280ae79e2a856a2990da30786",
+    "provenance-and-mapping.jsonl.gz": "376e3226a0ce608b425b9caa3d6f7969ba78fadfb3fcf2d36fceeb35b17a59c6",
+    "quarantine.jsonl.gz": "d05fb7f86f6b4bc5bfde6a04997002079a6d9c87adb9a497fed8cf3c6f5afab3",
+    "construction-review.json": "c82cbfdfba7aa1eeb40e0f5e3c1de904d56dcc1fe62049f5a3503ea33b2e6322",
+    "manifest.json": "5d0c3d0aec96b6925ce6e4d30dfb6db29928211eadf90e73fd7003308fdf5168",
+    "train.jsonl.gz": "b6acf41e6634c2f89e6b8251fb5f816ec60fb0ca1cd6c90dfcbed46c2c12584c"
+  },
+  "candidateFilesBefore": {
+    "BUILD_LOCK.json": "af0c60be4a41561b20cbde066b9c3068904b05a7ffe125ba227a0ad9dfa65408",
+    "provenance-and-mapping.jsonl.gz": "ae45164cde9696497f03b852f0d06524884f7347bdbb0c33bab3521cd27a3a99",
+    "quarantine.jsonl.gz": "8d106294171fdfa2d90d8bbf6a785a9c37fa75e14be2193800c98260c53ebf2d",
+    "manifest.json": "981976bbf22e0671fbd50272ca39046845e408dec539e349deb2e2deae6255e4",
+    "correction-register.jsonl.gz": "d8ee79641fea189a7ebefe61ce585b342bc78926f5ef1dddeeb0a1b20abc5639",
+    "exact-redundancy-decisions.json": "03b2d62afd7534ea69328e104a2fb4a91941bdab13378a1d1c0966f6f5e14042",
+    "SHA256SUMS": "c244ddb73a77096715d49a5e896202c393821928f0678de2efaa41acd75e2b86",
+    "train.jsonl.gz": "2cc751c9138e6ab2c97b972c136c7147adef0d3426d12eed6ca1a231635b6552"
+  },
+  "candidateFilesAfter": {
+    "BUILD_LOCK.json": "af0c60be4a41561b20cbde066b9c3068904b05a7ffe125ba227a0ad9dfa65408",
+    "provenance-and-mapping.jsonl.gz": "ae45164cde9696497f03b852f0d06524884f7347bdbb0c33bab3521cd27a3a99",
+    "quarantine.jsonl.gz": "8d106294171fdfa2d90d8bbf6a785a9c37fa75e14be2193800c98260c53ebf2d",
+    "manifest.json": "981976bbf22e0671fbd50272ca39046845e408dec539e349deb2e2deae6255e4",
+    "correction-register.jsonl.gz": "d8ee79641fea189a7ebefe61ce585b342bc78926f5ef1dddeeb0a1b20abc5639",
+    "exact-redundancy-decisions.json": "03b2d62afd7534ea69328e104a2fb4a91941bdab13378a1d1c0966f6f5e14042",
+    "SHA256SUMS": "c244ddb73a77096715d49a5e896202c393821928f0678de2efaa41acd75e2b86",
+    "train.jsonl.gz": "2cc751c9138e6ab2c97b972c136c7147adef0d3426d12eed6ca1a231635b6552"
+  },
+  "reproducibility": {
+    "BUILD_LOCK.json": true,
+    "provenance-and-mapping.jsonl.gz": true,
+    "quarantine.jsonl.gz": true,
+    "manifest.json": true,
+    "correction-register.jsonl.gz": true,
+    "exact-redundancy-decisions.json": true,
+    "SHA256SUMS": true,
+    "train.jsonl.gz": true
+  },
+  "provenanceErrors": [],
+  "manifestPayloadMatch": true,
+  "all3267SourceIdsAccounted": true,
+  "readAllowlist": [
+    "data/student5_v3_train_v2/",
+    "data/student5_v3_train_v21/",
+    "explicit CP43 reproduction directory",
+    "tools/student5_cp43/",
+    "matrix_nlu pure schema/target source",
+    "persisted CP42 evidence"
+  ],
+  "devUsedForTraining": false,
+  "frozenDataRead": false,
+  "trainV1Evidence": "No TRAIN v1 shards read or written; remote Git blob comparison separately persisted."
+}

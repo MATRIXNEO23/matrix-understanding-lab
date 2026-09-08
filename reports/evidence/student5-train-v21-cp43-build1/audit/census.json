@@ -1,0 +1,704 @@
+{
+  "errors": [],
+  "targetErrors": [],
+  "observations": 1831,
+  "claims": 2524,
+  "diagnosticTargetExamples": 4355,
+  "languages": {
+    "en": 582,
+    "es": 581,
+    "it": 640,
+    "code-switch": 28
+  },
+  "fixedHeads": {
+    "dialogueAct": {
+      "ASSERT": 2383,
+      "QUESTION": 65,
+      "REQUEST": 37,
+      "COMMAND": 12,
+      "CORRECT": 24,
+      "UNKNOWN": 3
+    },
+    "predicate": {
+      "identity.name": 292,
+      "identity.age": 441,
+      "residence.place": 450,
+      "presence.reported": 51,
+      "preference.like": 560,
+      "work.role": 104,
+      "possession.has": 34,
+      "goal.object": 465,
+      "attribute.is": 72,
+      "consent.grant": 26,
+      "consent.refuse": 28,
+      "speech.unresolved": 1
+    },
+    "polarity": {
+      "POSITIVE": 2047,
+      "NEGATIVE": 417,
+      "UNKNOWN": 60
+    },
+    "temporalRelation": {
+      "ATEMPORAL": 789,
+      "CURRENT": 1429,
+      "PAST": 18,
+      "FUTURE": 252,
+      "BEFORE": 6,
+      "AFTER": 9,
+      "DURING": 6,
+      "RECURRENT": 6,
+      "AT_REFERENCE": 6,
+      "UNKNOWN": 3
+    },
+    "claimKind": {
+      "DIRECT": 2402,
+      "REPORT": 29,
+      "BELIEF": 18,
+      "HYPOTHESIS": 72,
+      "UNKNOWN": 3
+    }
+  },
+  "families": {
+    "like": {
+      "en": 82,
+      "es": 82,
+      "it": 82
+    },
+    "future_goal": {
+      "en": 83,
+      "es": 83,
+      "it": 83
+    },
+    "hypothesis": {
+      "en": 20,
+      "es": 20,
+      "it": 20
+    },
+    "name": {
+      "en": 91,
+      "es": 91,
+      "it": 91
+    },
+    "age": {
+      "en": 146,
+      "es": 146,
+      "it": 146
+    },
+    "residence": {
+      "en": 89,
+      "es": 89,
+      "it": 89
+    },
+    "dislike": {
+      "en": 74,
+      "es": 74,
+      "it": 74
+    },
+    "work": {
+      "en": 16,
+      "es": 16,
+      "it": 16
+    },
+    "question": {
+      "en": 17,
+      "es": 17,
+      "it": 17
+    },
+    "adult_consent": {
+      "en": 2,
+      "es": 2,
+      "it": 2
+    },
+    "recent_work.role": {
+      "en": 1,
+      "es": 1,
+      "it": 1
+    },
+    "recent_residence.place": {
+      "en": 4,
+      "es": 4,
+      "it": 4
+    },
+    "recent_presence.reported": {
+      "en": 4,
+      "es": 4,
+      "it": 4
+    },
+    "attribute_is_v2_train": {
+      "en": 4,
+      "es": 4,
+      "it": 4
+    },
+    "consent_grant_v2_train_generalization": {
+      "en": 4,
+      "es": 4,
+      "it": 4
+    },
+    "consent_refuse_v2_train_generalization": {
+      "en": 4,
+      "es": 4,
+      "it": 4
+    },
+    "dialogue_correct_v2_train_generalization": {
+      "en": 3,
+      "es": 3,
+      "it": 3
+    },
+    "dialogue_request_v2_train_generalization": {
+      "en": 3,
+      "es": 3,
+      "it": 3
+    },
+    "explicit_future_goal_v2_train_generalization": {
+      "en": 6,
+      "es": 6,
+      "it": 6
+    },
+    "known_third_party_v2_train_generalization": {
+      "en": 3,
+      "es": 3,
+      "it": 3
+    },
+    "negative_preference_v2_train_generalization": {
+      "en": 12,
+      "es": 12,
+      "it": 12
+    },
+    "past_residence_v2_train": {
+      "en": 1,
+      "es": 1,
+      "it": 1
+    },
+    "v22a_adult_it_desire": {
+      "it": 12
+    },
+    "v22a_adult_it_request": {
+      "it": 8
+    },
+    "v22a_adult_it_consent": {
+      "it": 11
+    },
+    "v22a_adult_it_refusal_boundary": {
+      "it": 4
+    },
+    "v22a_adult_it_withdrawal": {
+      "it": 1
+    },
+    "v22a_adult_it_english_term": {
+      "code-switch": 11
+    },
+    "v22a_cross_lingual_contrast": {
+      "it": 12,
+      "es": 12,
+      "en": 12
+    },
+    "v22a_cross_lingual_extra_it": {
+      "it": 1
+    },
+    "v22a_en_core": {
+      "en": 57
+    },
+    "v22a_es_core": {
+      "es": 56
+    },
+    "v22a_it_core": {
+      "it": 78
+    },
+    "command": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "request": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "metalinguistic_correction": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "belief_wrapper": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "direct_control": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "desire_current_action_future": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "desire_future": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "temporal_PAST": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "temporal_FUTURE": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "temporal_BEFORE": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "temporal_AFTER": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "temporal_DURING": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "temporal_RECURRENT": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "temporal_AT_REFERENCE": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "role_binding": {
+      "it": 4,
+      "en": 4,
+      "es": 4
+    },
+    "source_viewpoint": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "owner_subject_permission": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "adult_desire": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "adult_grant": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "adult_refusal": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "adult_withdrawal": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "adult_request": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "adult_description": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "adult_slang": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "profanity_preference": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "borrowed_lexicon": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "adult_code_switch": {
+      "code-switch": 3
+    },
+    "abbreviation_colloquial": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "double_negation": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "cue_free_negative": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "grammatical_reflexive": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "ambiguous_binding": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "resolved_binding_control": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "command_stop": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "command_privacy": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "request_privacy": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "request_help": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "belief_appearance": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "belief_residence": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "direct_appearance": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "report_postposed_source": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "report_preposed_source": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "report_equal_roles": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "attraction": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "explicit_desire": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "negative_desire": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "grant": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "affirmative_refusal": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "withdrawal": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "negative_consent": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "explicit_description": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "metalinguistic_positive": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "double_negation_desire": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "uncertain_desire": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "unknown_evidential_kind": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "unknown_time": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "unknown_act_transcript": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "multiple_temporal": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "cross_claim_anchor": {
+      "it": 2,
+      "en": 2,
+      "es": 2
+    },
+    "cs_description": {
+      "code-switch": 2
+    },
+    "cs_request": {
+      "code-switch": 2
+    },
+    "cs_command": {
+      "code-switch": 2
+    },
+    "cs_negative_preference": {
+      "code-switch": 2
+    },
+    "cs_grant": {
+      "code-switch": 2
+    },
+    "cs_refusal": {
+      "code-switch": 2
+    },
+    "cs_withdrawal": {
+      "code-switch": 2
+    },
+    "multiword_subject_multiple_object": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "multiple_subject_evidence": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "antecedent_unique-first": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "antecedent_unique-last": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    },
+    "antecedent_ambiguous": {
+      "it": 1,
+      "en": 1,
+      "es": 1
+    }
+  },
+  "fieldStatuses": {
+    "boundary": {
+      "RESOLVED": 2524
+    },
+    "claimKind": {
+      "RESOLVED": 2521,
+      "UNKNOWN": 3
+    },
+    "dialogueAct": {
+      "RESOLVED": 2521,
+      "UNKNOWN": 3
+    },
+    "entityMentionIds": {
+      "RESOLVED": 2524
+    },
+    "negationCueSpans": {
+      "RESOLVED": 2524
+    },
+    "objectSpans": {
+      "RESOLVED": 2524
+    },
+    "ownerReferent": {
+      "RESOLVED": 2518,
+      "AMBIGUOUS": 6
+    },
+    "perspectiveReferent": {
+      "RESOLVED": 2524
+    },
+    "polarity": {
+      "RESOLVED": 2464,
+      "UNKNOWN": 60
+    },
+    "predicate": {
+      "RESOLVED": 2524
+    },
+    "sourceReferent": {
+      "RESOLVED": 2521,
+      "UNKNOWN": 3
+    },
+    "subjectReferent": {
+      "RESOLVED": 2518,
+      "AMBIGUOUS": 6
+    },
+    "subjectSpans": {
+      "RESOLVED": 2524
+    },
+    "targetReferent": {
+      "NOT_APPLICABLE": 2334,
+      "RESOLVED": 188,
+      "AMBIGUOUS": 2
+    },
+    "temporalEvidence": {
+      "RESOLVED": 2524
+    },
+    "temporalRelation": {
+      "RESOLVED": 2521,
+      "UNKNOWN": 3
+    }
+  },
+  "spanSupport": {
+    "subject": {
+      "positiveClaims": 779,
+      "groups": 783,
+      "multipleGroups": 4,
+      "multiwordGroups": 6
+    },
+    "object": {
+      "positiveClaims": 2466,
+      "groups": 2469,
+      "multipleGroups": 3,
+      "multiwordGroups": 1122
+    },
+    "negation": {
+      "positiveClaims": 299,
+      "groups": 311,
+      "multipleGroups": 12,
+      "multiwordGroups": 0
+    },
+    "temporal": {
+      "positiveClaims": 282,
+      "groups": 288,
+      "multipleGroups": 6,
+      "multiwordGroups": 133
+    },
+    "entity": {
+      "positiveClaims": 1230,
+      "groups": 1391,
+      "multipleGroups": 137,
+      "multiwordGroups": 450
+    }
+  },
+  "roleEqualities": {
+    "ownerReferent=subjectReferent": 2482,
+    "sourceReferent=perspectiveReferent": 2503,
+    "perspective=speaker": 2495,
+    "ownerReferent!=subjectReferent": 42,
+    "perspective!=speaker": 29,
+    "sourceReferent!=perspectiveReferent": 21
+  },
+  "rolePositions": {
+    "ownerReferent": {
+      "0": 2185,
+      "2": 277,
+      "3": 6,
+      "4": 30,
+      "1": 20,
+      "UNKNOWN": 6
+    },
+    "perspectiveReferent": {
+      "0": 2495,
+      "2": 11,
+      "5": 6,
+      "3": 6,
+      "4": 6
+    },
+    "sourceReferent": {
+      "0": 2492,
+      "2": 11,
+      "4": 12,
+      "3": 6,
+      "UNKNOWN": 3
+    },
+    "subjectReferent": {
+      "0": 2143,
+      "2": 277,
+      "3": 6,
+      "4": 30,
+      "1": 62,
+      "UNKNOWN": 6
+    },
+    "targetReferent": {
+      "NONE": 2334,
+      "1": 105,
+      "0": 38,
+      "UNKNOWN": 2,
+      "2": 33,
+      "3": 12
+    }
+  },
+  "anchors": {
+    "None": 792,
+    "speech-time": 1705,
+    "temporal:t0": 18,
+    "context-reference": 6,
+    "claim:c0": 3
+  },
+  "zeroClaimRows": [
+    "cp42-it-zero_claim_boundary-0111",
+    "cp42-en-zero_claim_boundary-0112",
+    "cp42-es-zero_claim_boundary-0113",
+    "cp42-it-malformed_no_proposition-0114",
+    "cp42-en-malformed_no_proposition-0115",
+    "cp42-es-malformed_no_proposition-0116",
+    "cp43-it-zero_claim-0128",
+    "cp43-en-zero_claim-0129",
+    "cp43-es-zero_claim-0130"
+  ]
+}

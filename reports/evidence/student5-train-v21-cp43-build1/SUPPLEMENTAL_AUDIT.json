@@ -1,0 +1,29 @@
+{
+  "superseded": true,
+  "effectiveVerdict": "FAIL",
+  "originalAutomatedVerdict": "BLOCKED",
+  "newIssue": {
+    "id": "N05",
+    "severity": "HIGH",
+    "count": 4,
+    "affectedRows": [
+      "cp43-code-switch-cs_description-0099",
+      "cp43-code-switch-cs_description-0100",
+      "cp43-code-switch-cs_command-0103",
+      "cp43-code-switch-cs_command-0104"
+    ],
+    "affectedHeads": [
+      "temporalEvidence"
+    ],
+    "evidence": [
+      "oggi",
+      "hoy",
+      "adesso",
+      "ahora"
+    ],
+    "risk": "Explicit time evidence omitted from four newly authored claims.",
+    "resolution": "Superseded by CP43 repair revision 2; repair four exact temporal spans, preserve every other semantic field."
+  },
+  "candidateBytesModified": false,
+  "scope": "Additional semantic audit before publication; preserve the complete first candidate and original audit instead of overwriting a locked candidate."
+}

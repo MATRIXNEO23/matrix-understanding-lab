@@ -1,0 +1,293 @@
+{
+  "checks": {
+    "L01_exact_second_not": true,
+    "D01_explicit_future_preserved": true,
+    "D01_38_present_desires_current": true,
+    "L02_source_composites_quarantined": true,
+    "L03_directive_permission_roles": true,
+    "C01_identical_context_consistent": true,
+    "D05_positive_correction_no_proposition_cue": true,
+    "D06_zero_claim_three_languages": true,
+    "D07_equal_and_divergent_roles": true,
+    "G06_multiple_subject_object_temporal": true,
+    "cross_claim_anchor_present": true,
+    "code_switch_beyond_desire": true,
+    "exact_redundancy_eliminated": true
+  },
+  "D01RowAdjudications": [
+    {
+      "sourceId": "cp42-en-desire_future-0022",
+      "candidateId": "cp42-en-desire_future-0022",
+      "claimId": "c0",
+      "text": "Tomorrow I will want to rest.",
+      "relation": "FUTURE"
+    },
+    {
+      "sourceId": "mx-train-en-00015",
+      "candidateId": "mx-train-en-00015",
+      "claimId": "c0",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00060",
+      "candidateId": "mx-train-en-00060",
+      "claimId": "c0",
+      "text": "in future I want to reach San Vendemiano",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00105",
+      "candidateId": "mx-train-en-00105",
+      "claimId": "c0",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00150",
+      "candidateId": "mx-train-en-00150",
+      "claimId": "c0",
+      "text": "in future I want to reach La Spezia",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00195",
+      "candidateId": "mx-train-en-00015",
+      "claimId": "c0",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00240",
+      "candidateId": "mx-train-en-00060",
+      "claimId": "c0",
+      "text": "in future I want to reach San Vendemiano",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00285",
+      "candidateId": "mx-train-en-00105",
+      "claimId": "c0",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00330",
+      "candidateId": "mx-train-en-00150",
+      "claimId": "c0",
+      "text": "in future I want to reach La Spezia",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00375",
+      "candidateId": "mx-train-en-00015",
+      "claimId": "c0",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00420",
+      "candidateId": "mx-train-en-00060",
+      "claimId": "c0",
+      "text": "in future I want to reach San Vendemiano",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00465",
+      "candidateId": "mx-train-en-00105",
+      "claimId": "c0",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00510",
+      "candidateId": "mx-train-en-00150",
+      "claimId": "c0",
+      "text": "in future I want to reach La Spezia",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00555",
+      "candidateId": "mx-train-en-00015",
+      "claimId": "c0",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00600",
+      "candidateId": "mx-train-en-00060",
+      "claimId": "c0",
+      "text": "in future I want to reach San Vendemiano",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00645",
+      "candidateId": "mx-train-en-00105",
+      "claimId": "c0",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-00690",
+      "candidateId": "mx-train-en-00150",
+      "claimId": "c0",
+      "text": "in future I want to reach La Spezia",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0001",
+      "candidateId": "mx-train-en-multi-0001",
+      "claimId": "c0",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0014",
+      "candidateId": "mx-train-en-multi-0014",
+      "claimId": "c1",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0031",
+      "candidateId": "mx-train-en-multi-0031",
+      "claimId": "c0",
+      "text": "in future I want to reach La Spezia",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0045",
+      "candidateId": "mx-train-en-multi-0045",
+      "claimId": "c2",
+      "text": "in future I want to reach La Spezia",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0049",
+      "candidateId": "mx-train-en-multi-0049",
+      "claimId": "c0",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0062",
+      "candidateId": "mx-train-en-multi-0062",
+      "claimId": "c1",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0075",
+      "candidateId": "mx-train-en-multi-0075",
+      "claimId": "c2",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0079",
+      "candidateId": "mx-train-en-multi-0079",
+      "claimId": "c0",
+      "text": "in future I want to reach San Vendemiano",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0097",
+      "candidateId": "mx-train-en-multi-0001",
+      "claimId": "c0",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0110",
+      "candidateId": "mx-train-en-multi-0110",
+      "claimId": "c1",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0127",
+      "candidateId": "mx-train-en-multi-0127",
+      "claimId": "c0",
+      "text": "in future I want to reach La Spezia",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0128",
+      "candidateId": "mx-train-en-multi-0128",
+      "claimId": "c1",
+      "text": "in future I want to reach San Vendemiano",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0145",
+      "candidateId": "mx-train-en-multi-0145",
+      "claimId": "c0",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0158",
+      "candidateId": "mx-train-en-multi-0062",
+      "claimId": "c1",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0176",
+      "candidateId": "mx-train-en-multi-0176",
+      "claimId": "c1",
+      "text": "in future I want to reach La Spezia",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0193",
+      "candidateId": "mx-train-en-multi-0001",
+      "claimId": "c0",
+      "text": "in future I want to reach New York",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0206",
+      "candidateId": "mx-train-en-multi-0014",
+      "claimId": "c1",
+      "text": "in future I want to reach Rome",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-train-en-multi-0224",
+      "candidateId": "mx-train-en-multi-0128",
+      "claimId": "c1",
+      "text": "in future I want to reach San Vendemiano",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-v2-train-en-generalization-explicit_future_goal-000",
+      "candidateId": "mx-v2-train-en-generalization-explicit_future_goal-000",
+      "claimId": "c0",
+      "text": "in due course I want to reach Brighton",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-v2-train-en-generalization-explicit_future_goal-004",
+      "candidateId": "mx-v2-train-en-generalization-explicit_future_goal-004",
+      "claimId": "c0",
+      "text": "within the year I want to see Norwich",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-v2-train-es-generalization-explicit_future_goal-004",
+      "candidateId": "mx-v2-train-es-generalization-explicit_future_goal-004",
+      "claimId": "c0",
+      "text": "antes de fin de año quiero ver Sevilla",
+      "relation": "CURRENT"
+    },
+    {
+      "sourceId": "mx-v2-train-it-generalization-explicit_future_goal-004",
+      "candidateId": "mx-v2-train-it-generalization-explicit_future_goal-004",
+      "claimId": "c0",
+      "text": "entro l'anno voglio vedere Siena",
+      "relation": "CURRENT"
+    }
+  ],
+  "scope": "Deterministic checks of explicit reviewed gold, not keyword-only classification or measured model generalization."
+}

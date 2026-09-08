@@ -1,0 +1,4662 @@
+{
+  "sourceHead": "270a0729c20ede548fe373f488029241fcbb35a3",
+  "rows": {
+    "cp42-en-desire_future-0022": {
+      "text": "Tomorrow I will want to rest.",
+      "reasons": [
+        "Explicit will want scopes wanting itself to tomorrow: preserve FUTURE (D01)."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "mx-train-en-00015": {
+      "text": "in future I want to reach New York",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00060": {
+      "text": "in future I want to reach San Vendemiano",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00105": {
+      "text": "in future I want to reach Rome",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00150": {
+      "text": "in future I want to reach La Spezia",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00195": {
+      "text": "in future I want to reach New York",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00240": {
+      "text": "in future I want to reach San Vendemiano",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00285": {
+      "text": "in future I want to reach Rome",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00330": {
+      "text": "in future I want to reach La Spezia",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00375": {
+      "text": "in future I want to reach New York",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00420": {
+      "text": "in future I want to reach San Vendemiano",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00465": {
+      "text": "in future I want to reach Rome",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00510": {
+      "text": "in future I want to reach La Spezia",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00555": {
+      "text": "in future I want to reach New York",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00600": {
+      "text": "in future I want to reach San Vendemiano",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00645": {
+      "text": "in future I want to reach Rome",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-00690": {
+      "text": "in future I want to reach La Spezia",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0001": {
+      "text": "in future I want to reach New York; moreover I introduce myself as Albert",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0014": {
+      "text": "I do not like rain. Additionally in future I want to reach Rome",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            1,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0031": {
+      "text": "in future I want to reach La Spezia; then I introduce myself as Helen",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0045": {
+      "text": "I have a preference for jazz; moreover I do not like blue; moreover in future I want to reach La Spezia",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            2,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0049": {
+      "text": "in future I want to reach Rome; moreover I introduce myself as David",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0062": {
+      "text": "I do not like jazz. Additionally in future I want to reach New York",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            1,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0075": {
+      "text": "I have a preference for blue; then I do not like rain; then in future I want to reach Rome",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            2,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0079": {
+      "text": "in future I want to reach San Vendemiano; then I introduce myself as Clara",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0097": {
+      "text": "in future I want to reach New York; moreover I introduce myself as Albert",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0110": {
+      "text": "I do not like rain. Additionally in future I want to reach Rome. Additionally I introduce myself as David",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            1,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0127": {
+      "text": "in future I want to reach La Spezia; then my name is Clara",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0128": {
+      "text": "I do not like crowded venues and in future I want to reach San Vendemiano",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            1,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0145": {
+      "text": "in future I want to reach Rome; moreover I introduce myself as David; moreover my current age amounts to 75",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0158": {
+      "text": "I do not like jazz. Additionally in future I want to reach New York",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            1,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0176": {
+      "text": "I do not like blue and in future I want to reach La Spezia",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            1,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0193": {
+      "text": "in future I want to reach New York; moreover I introduce myself as Albert",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0206": {
+      "text": "I do not like rain. Additionally in future I want to reach Rome",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            1,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-multi-0224": {
+      "text": "I do not like crowded venues and in future I want to reach San Vendemiano",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            1,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-explicit_future_goal-000": {
+      "text": "in due course I want to reach Brighton",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-explicit_future_goal-004": {
+      "text": "within the year I want to see Norwich",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-es-generalization-explicit_future_goal-004": {
+      "text": "antes de fin de año quiero ver Sevilla",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-it-generalization-explicit_future_goal-004": {
+      "text": "entro l'anno voglio vedere Siena",
+      "reasons": [
+        "Reviewed complete claim: present want/voglio/quiero expresses current desire; future adverb dates desired visit/reach/see action, not future onset of wanting. Preserve temporal evidence."
+      ],
+      "issues": [
+        "D01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "temporalRelation",
+            "relation"
+          ],
+          "value": "CURRENT"
+        }
+      ],
+      "quarantine": false
+    },
+    "cp42-en-double_negation-0103": {
+      "text": "It is not true that I do not like jazz.",
+      "reasons": [
+        "Second not occupies [25,28), computed against exact locked text; persisted [24,27) recommendation is incorrect. Composed positive polarity retained."
+      ],
+      "issues": [
+        "L01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "negationCueSpans"
+          ],
+          "value": [
+            [
+              6,
+              9
+            ],
+            [
+              25,
+              28
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "cp42-en-adult_hesitation-0088": {
+      "text": "I want to have sex with you, or not; I am unsure.",
+      "reasons": [
+        "Quarantine composite desire/disjunction plus separate epistemic statement: a safe unique flat proposition decomposition is not established. Preserve original entire row; replace coverage using separately authored single-proposition uncertainty contrasts."
+      ],
+      "issues": [
+        "L02"
+      ],
+      "updates": [],
+      "quarantine": true
+    },
+    "cp42-es-adult_hesitation-0089": {
+      "text": "Quiero tener sexo contigo o no, no sé.",
+      "reasons": [
+        "Quarantine composite desire/disjunction plus separate epistemic statement: a safe unique flat proposition decomposition is not established. Preserve original entire row; replace coverage using separately authored single-proposition uncertainty contrasts."
+      ],
+      "issues": [
+        "L02"
+      ],
+      "updates": [],
+      "quarantine": true
+    },
+    "cp42-it-adult_hesitation-0087": {
+      "text": "Voglio fare sesso con te oppure no, non so.",
+      "reasons": [
+        "Quarantine composite desire/disjunction plus separate epistemic statement: a safe unique flat proposition decomposition is not established. Preserve original entire row; replace coverage using separately authored single-proposition uncertainty contrasts."
+      ],
+      "issues": [
+        "L02"
+      ],
+      "updates": [],
+      "quarantine": true
+    },
+    "cp42-en-adult_request-0079": {
+      "text": "Would you have sex with me, please?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid.",
+        "Overt you is the grammatical action subject; restore subject evidence without changing pointer."
+      ],
+      "issues": [
+        "G06",
+        "L03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "subjectSpans"
+          ],
+          "value": [
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "cp42-en-command-0001": {
+      "text": "Come home now.",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-en-grammatical_reflexive-0109": {
+      "text": "Could you wash yourself?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid.",
+        "Overt you is the grammatical action subject; restore subject evidence without changing pointer."
+      ],
+      "issues": [
+        "G06",
+        "L03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "subjectSpans"
+          ],
+          "value": [
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "cp42-en-owner_subject_permission-0064": {
+      "text": "You have my consent to kiss me.",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-en-request-0004": {
+      "text": "Could you come home, please?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid.",
+        "Overt you is the grammatical action subject; restore subject evidence without changing pointer."
+      ],
+      "issues": [
+        "G06",
+        "L03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "subjectSpans"
+          ],
+          "value": [
+            [
+              6,
+              9
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "cp42-es-adult_request-0080": {
+      "text": "¿Te apetece tener sexo conmigo?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-es-command-0002": {
+      "text": "Ven a casa ahora.",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-es-grammatical_reflexive-0110": {
+      "text": "¿Puedes lavarte las manos?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-es-owner_subject_permission-0065": {
+      "text": "Tú tienes mi consentimiento para besarme.",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-es-request-0005": {
+      "text": "¿Puedes venir a casa, por favor?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-it-adult_request-0078": {
+      "text": "Ti va di fare sesso con me?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-it-command-0000": {
+      "text": "Vieni a casa subito.",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-it-grammatical_reflexive-0108": {
+      "text": "Puoi lavarti le mani?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-it-owner_subject_permission-0063": {
+      "text": "Tu hai il mio consenso a baciarmi.",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "cp42-it-request-0003": {
+      "text": "Per favore, puoi venire a casa?",
+      "reasons": [
+        "Adjudicated under Contract V3 3.2/5.2 and D07: directive/request goal or expressed consent belongs to speaker; action/permission subject is addressee. Equality is not imposed. Existing roles valid."
+      ],
+      "issues": [
+        "L03"
+      ],
+      "updates": [],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-015": {
+      "text": "Puoi abbracciarti con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire.",
+        "Colloquial con me plus reflexive may express self-action with companion or reciprocal joint action; both self and speaker targets plausible. No unique primary. Alternative rank is deterministic tie ordering, not calibrated likelihood."
+      ],
+      "issues": [
+        "C01",
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "targetReferent"
+          ],
+          "value": "UNKNOWN"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "fieldStatusByField",
+            "targetReferent"
+          ],
+          "value": "AMBIGUOUS"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "alternativesByField"
+          ],
+          "value": {
+            "targetReferent": [
+              {
+                "value": "ctx:observer",
+                "rank": 1
+              },
+              {
+                "value": "ctx:speaker",
+                "rank": 2
+              }
+            ]
+          }
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "interpretationStatus"
+          ],
+          "value": "AMBIGUOUS"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-019": {
+      "text": "Puoi fare qualcosa di intimo con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire."
+      ],
+      "issues": [
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-020": {
+      "text": "Puoi provare qualcosa di più spinto con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire."
+      ],
+      "issues": [
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-021": {
+      "text": "Puoi fare petting con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire."
+      ],
+      "issues": [
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-022": {
+      "text": "Puoi fare dirty talk con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire."
+      ],
+      "issues": [
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-023": {
+      "text": "Puoi toccare il tuo corpo con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire.",
+        "Toccare il tuo corpo explicitly targets addressee body, not speaker companion."
+      ],
+      "issues": [
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "targetReferent"
+          ],
+          "value": "ctx:observer"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-025": {
+      "text": "Puoi baciarti con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire.",
+        "Colloquial con me plus reflexive may express self-action with companion or reciprocal joint action; both self and speaker targets plausible. No unique primary. Alternative rank is deterministic tie ordering, not calibrated likelihood."
+      ],
+      "issues": [
+        "C01",
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "targetReferent"
+          ],
+          "value": "UNKNOWN"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "fieldStatusByField",
+            "targetReferent"
+          ],
+          "value": "AMBIGUOUS"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "alternativesByField"
+          ],
+          "value": {
+            "targetReferent": [
+              {
+                "value": "ctx:observer",
+                "rank": 1
+              },
+              {
+                "value": "ctx:speaker",
+                "rank": 2
+              }
+            ]
+          }
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "interpretationStatus"
+          ],
+          "value": "AMBIGUOUS"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-026": {
+      "text": "Puoi toccarti con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire.",
+        "Toccarti is explicit self-touch; con me is companion, not reflexive target. Preserve target addressee."
+      ],
+      "issues": [
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-027": {
+      "text": "Puoi abbracciarti con me?",
+      "reasons": [
+        "Indirect request for action: requester owns requested goal; addressee performs action. Match canonical new request convention, not an assertion of addressee desire.",
+        "Colloquial con me plus reflexive may express self-action with companion or reciprocal joint action; both self and speaker targets plausible. No unique primary. Alternative rank is deterministic tie ordering, not calibrated likelihood."
+      ],
+      "issues": [
+        "C01",
+        "L03",
+        "L04"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "targetReferent"
+          ],
+          "value": "UNKNOWN"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "fieldStatusByField",
+            "targetReferent"
+          ],
+          "value": "AMBIGUOUS"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "alternativesByField"
+          ],
+          "value": {
+            "targetReferent": [
+              {
+                "value": "ctx:observer",
+                "rank": 1
+              },
+              {
+                "value": "ctx:speaker",
+                "rank": 2
+              }
+            ]
+          }
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "interpretationStatus"
+          ],
+          "value": "AMBIGUOUS"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0000": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0001": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0002": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0003": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0004": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0005": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0006": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0007": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0008": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0009": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0010": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0011": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0012": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0013": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0014": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0015": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0016": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0017": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0018": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0019": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0020": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0021": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0022": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0023": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0024": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0025": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0026": {
+      "text": "I consent to being kissed",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              25
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-en-adult-0027": {
+      "text": "I do not consent to being touched",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              20,
+              33
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0000": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0001": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0002": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0003": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0004": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0005": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0006": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0007": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0008": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0009": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0010": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0011": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0012": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0013": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0014": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0015": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0016": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0017": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0018": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0019": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0020": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0021": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0022": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0023": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0024": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0025": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0026": {
+      "text": "consiento que me besen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              10,
+              22
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-es-adult-0027": {
+      "text": "no consiento que me toquen",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              26
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0000": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0001": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0002": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0003": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0004": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0005": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0006": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0007": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0008": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0009": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0010": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0011": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0012": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0013": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0014": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0015": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0016": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0017": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0018": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0019": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0020": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0021": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0022": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0023": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0024": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0025": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0026": {
+      "text": "acconsento a essere baciato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              13,
+              27
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-train-it-adult-0027": {
+      "text": "non acconsento a essere toccato",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              31
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-consent_grant-000": {
+      "text": "I am comfortable receiving a hug",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              32
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-consent_grant-001": {
+      "text": "I agree to this physical contact",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              11,
+              32
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-consent_grant-002": {
+      "text": "you may hold my hand",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence.",
+        "Overt permission-holder/action subject is addressee; consent owner speaker and touched target speaker. Apply same role semantics as CP42 permission control."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              8,
+              20
+            ]
+          ]
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "subjectReferent"
+          ],
+          "value": "ctx:observer"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "targetReferent"
+          ],
+          "value": "ctx:speaker"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "subjectSpans"
+          ],
+          "value": [
+            [
+              0,
+              3
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-consent_grant-003": {
+      "text": "this gesture has my approval",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              0,
+              12
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-consent_refuse-004": {
+      "text": "I do not want to be hugged now",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence.",
+        "Literal present negative desire (004) or positive preference to keep distance (007); no automatic consent/refusal classification from intimate domain."
+      ],
+      "issues": [
+        "C03",
+        "G02",
+        "G05"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              17,
+              26
+            ]
+          ]
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "NEGATIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-consent_refuse-005": {
+      "text": "I refuse any contact at this moment",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence.",
+        "Affirmative refusal is consent.refuse with positive proposition polarity; refusal meaning is encoded by predicate, not an invented negation cue."
+      ],
+      "issues": [
+        "C03",
+        "G02",
+        "L01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              9,
+              20
+            ]
+          ]
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "POSITIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-consent_refuse-006": {
+      "text": "you do not have permission to touch me",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence.",
+        "Overt permission-holder/action subject is addressee; consent owner speaker and touched target speaker. Apply same role semantics as CP42 permission control."
+      ],
+      "issues": [
+        "C03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              30,
+              38
+            ]
+          ]
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "subjectReferent"
+          ],
+          "value": "ctx:observer"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "targetReferent"
+          ],
+          "value": "ctx:speaker"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "subjectSpans"
+          ],
+          "value": [
+            [
+              0,
+              3
+            ]
+          ]
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-en-generalization-consent_refuse-007": {
+      "text": "I would prefer you to keep your distance",
+      "reasons": [
+        "Full observation used as object obscures actual complement; reviewed exact text provides bounded action/value evidence.",
+        "Literal present negative desire (004) or positive preference to keep distance (007); no automatic consent/refusal classification from intimate domain."
+      ],
+      "issues": [
+        "C03",
+        "G02",
+        "G05"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "objectSpans"
+          ],
+          "value": [
+            [
+              22,
+              40
+            ]
+          ]
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "POSITIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-es-generalization-consent_refuse-004": {
+      "text": "no quiero que me abracen ahora",
+      "reasons": [
+        "Literal present negative desire (004) or positive preference to keep distance (007); no automatic consent/refusal classification from intimate domain."
+      ],
+      "issues": [
+        "G02",
+        "G05"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "NEGATIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-es-generalization-consent_refuse-007": {
+      "text": "prefiero que mantengas la distancia",
+      "reasons": [
+        "Literal present negative desire (004) or positive preference to keep distance (007); no automatic consent/refusal classification from intimate domain."
+      ],
+      "issues": [
+        "G02",
+        "G05"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "POSITIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-es-generalization-consent_refuse-005": {
+      "text": "rechazo cualquier contacto en este momento",
+      "reasons": [
+        "Affirmative refusal is consent.refuse with positive proposition polarity; refusal meaning is encoded by predicate, not an invented negation cue."
+      ],
+      "issues": [
+        "G02",
+        "L01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "POSITIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-it-generalization-consent_refuse-004": {
+      "text": "non voglio essere abbracciato adesso",
+      "reasons": [
+        "Literal present negative desire (004) or positive preference to keep distance (007); no automatic consent/refusal classification from intimate domain."
+      ],
+      "issues": [
+        "G02",
+        "G05"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "NEGATIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-it-generalization-consent_refuse-007": {
+      "text": "preferisco che tu mantenga le distanze",
+      "reasons": [
+        "Literal present negative desire (004) or positive preference to keep distance (007); no automatic consent/refusal classification from intimate domain."
+      ],
+      "issues": [
+        "G02",
+        "G05"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "POSITIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v2-train-it-generalization-consent_refuse-005": {
+      "text": "rifiuto qualunque contatto in questo momento",
+      "reasons": [
+        "Affirmative refusal is consent.refuse with positive proposition polarity; refusal meaning is encoded by predicate, not an invented negation cue."
+      ],
+      "issues": [
+        "G02",
+        "L01"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "POSITIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-041": {
+      "text": "Non voglio baciarti",
+      "reasons": [
+        "Reviewed explicit desire/preference statement; do not equate wanting/not wanting with an independently expressed consent act."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "NEGATIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-043": {
+      "text": "Non mi va",
+      "reasons": [
+        "Reviewed explicit desire/preference statement; do not equate wanting/not wanting with an independently expressed consent act."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "NEGATIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-046": {
+      "text": "Non voglio continuare",
+      "reasons": [
+        "Reviewed explicit desire/preference statement; do not equate wanting/not wanting with an independently expressed consent act."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "NEGATIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-047": {
+      "text": "Preferisco fermarmi",
+      "reasons": [
+        "Reviewed explicit desire/preference statement; do not equate wanting/not wanting with an independently expressed consent act."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "POSITIVE"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-030": {
+      "text": "Sì, mi va spogliarmi con te",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-031": {
+      "text": "Sì, mi va stare nudo con te",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-032": {
+      "text": "Sì, mi va fare qualcosa di intimo",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-033": {
+      "text": "Sì, mi va provare qualcosa di più spinto",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-034": {
+      "text": "Sì, mi va fare petting",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-035": {
+      "text": "Sì, mi va fare dirty talk",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-036": {
+      "text": "Sì, mi va toccare il tuo corpo",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-037": {
+      "text": "Sì, mi va dormire nudo con te",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-038": {
+      "text": "Sì, mi va baciarti",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-039": {
+      "text": "Sì, mi va toccarti",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-adult-it-040": {
+      "text": "Sì, mi va abbracciarti",
+      "reasons": [
+        "Sì mi va expresses positive willingness/desire; supplied context contains no prior permission request. Preserve understandable adult content as positive goal, not automatic consent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-cross-021": {
+      "text": "No, non voglio",
+      "reasons": [
+        "Explicit wanting/willingness (positive or negative), with no supplied consent request: preserve desire as goal.object."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-cross-022": {
+      "text": "No, no quiero",
+      "reasons": [
+        "Explicit wanting/willingness (positive or negative), with no supplied consent request: preserve desire as goal.object."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-cross-023": {
+      "text": "No, I do not want to",
+      "reasons": [
+        "Explicit wanting/willingness (positive or negative), with no supplied consent request: preserve desire as goal.object."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-cross-024": {
+      "text": "Sì, mi va",
+      "reasons": [
+        "Explicit wanting/willingness (positive or negative), with no supplied consent request: preserve desire as goal.object."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-cross-025": {
+      "text": "Sí, me apetece",
+      "reasons": [
+        "Explicit wanting/willingness (positive or negative), with no supplied consent request: preserve desire as goal.object."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-cross-026": {
+      "text": "Yes, I want to",
+      "reasons": [
+        "Explicit wanting/willingness (positive or negative), with no supplied consent request: preserve desire as goal.object."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        }
+      ],
+      "quarantine": false
+    },
+    "mx-v22a-en-core-067": {
+      "text": "Tonight I can see Luna",
+      "reasons": [
+        "Can see/talk expresses ability or availability, not consent. Frozen V3 lacks a dedicated modality predicate and no unique ontology mapping is established; quarantine only these rows, not ordinary vocabulary."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [],
+      "quarantine": true
+    },
+    "mx-v22a-en-core-068": {
+      "text": "Tonight I can talk to Giulia",
+      "reasons": [
+        "Can see/talk expresses ability or availability, not consent. Frozen V3 lacks a dedicated modality predicate and no unique ontology mapping is established; quarantine only these rows, not ordinary vocabulary."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [],
+      "quarantine": true
+    },
+    "mx-v22a-adult-it-042": {
+      "text": "Non adesso",
+      "reasons": [
+        "Elliptical refusal/readiness needs missing preceding proposition or domain-state mapping; context supplies identities only. Quarantine instead of inventing an intimate consent referent or intent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [],
+      "quarantine": true
+    },
+    "mx-v22a-adult-it-045": {
+      "text": "Basta così",
+      "reasons": [
+        "Elliptical refusal/readiness needs missing preceding proposition or domain-state mapping; context supplies identities only. Quarantine instead of inventing an intimate consent referent or intent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [],
+      "quarantine": true
+    },
+    "mx-v22a-adult-it-048": {
+      "text": "Non mi sento pronto",
+      "reasons": [
+        "Elliptical refusal/readiness needs missing preceding proposition or domain-state mapping; context supplies identities only. Quarantine instead of inventing an intimate consent referent or intent."
+      ],
+      "issues": [
+        "G02"
+      ],
+      "updates": [],
+      "quarantine": true
+    },
+    "mx-v22a-adult-it-044": {
+      "text": "Fermati",
+      "reasons": [
+        "Fermati is explicit command to stop, positive requested goal. The text alone does not establish prior consent to withdraw."
+      ],
+      "issues": [
+        "G02",
+        "L03"
+      ],
+      "updates": [
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "predicate"
+          ],
+          "value": "goal.object"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "dialogueAct"
+          ],
+          "value": "COMMAND"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "subjectReferent"
+          ],
+          "value": "ctx:observer"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "ownerReferent"
+          ],
+          "value": "ctx:speaker"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "targetReferent"
+          ],
+          "value": "NONE"
+        },
+        {
+          "path": [
+            "claims",
+            0,
+            "labels",
+            "polarity"
+          ],
+          "value": "POSITIVE"
+        }
+      ],
+      "quarantine": false
+    }
+  }
+}

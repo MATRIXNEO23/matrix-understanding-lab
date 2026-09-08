@@ -1,0 +1,62 @@
+{
+  "id": "student5-matrix-nlu-v3-train-v2.1",
+  "version": "CP43_REPAIR_1_AUDIT_LOCKED",
+  "startingHead": "270a0729c20ede548fe373f488029241fcbb35a3",
+  "sourceId": "student5-matrix-nlu-v3-train-v2",
+  "sourcePath": "data/student5_v3_train_v2",
+  "sourceCompressedSha256": "b6acf41e6634c2f89e6b8251fb5f816ec60fb0ca1cd6c90dfcbed46c2c12584c",
+  "sourceFiles": {
+    "BUILD_LOCK.json": "18ca6b62129543bdc40388a5556cdb2cc4a4f40280ae79e2a856a2990da30786",
+    "provenance-and-mapping.jsonl.gz": "376e3226a0ce608b425b9caa3d6f7969ba78fadfb3fcf2d36fceeb35b17a59c6",
+    "quarantine.jsonl.gz": "d05fb7f86f6b4bc5bfde6a04997002079a6d9c87adb9a497fed8cf3c6f5afab3",
+    "construction-review.json": "c82cbfdfba7aa1eeb40e0f5e3c1de904d56dcc1fe62049f5a3503ea33b2e6322",
+    "manifest.json": "5d0c3d0aec96b6925ce6e4d30dfb6db29928211eadf90e73fd7003308fdf5168",
+    "train.jsonl.gz": "b6acf41e6634c2f89e6b8251fb5f816ec60fb0ca1cd6c90dfcbed46c2c12584c"
+  },
+  "baseTrainV1OrderedSha256": "1118a900026f48cfcc290c3f9dc52a1a019a6a1f4761661f326c33770523140e",
+  "observations": 1831,
+  "claims": 2524,
+  "dispositions": {
+    "PRESERVED": 1625,
+    "CORRECTED": 75,
+    "DEACTIVATED_EXACT_REDUNDANT": 1559,
+    "QUARANTINED": 8,
+    "NEWLY_AUTHORED": 131
+  },
+  "languages": {
+    "en": 582,
+    "es": 581,
+    "it": 640,
+    "code-switch": 28
+  },
+  "trainPayload": {
+    "path": "train.jsonl.gz",
+    "rows": 1831,
+    "uncompressedBytes": 7919003,
+    "compressedBytes": 291777,
+    "orderedSha256": "a091f58f97fa0ca5cf405cb46a8305ef151d094736c00a2f82308eccdae6ca20",
+    "compressedSha256": "2cc751c9138e6ab2c97b972c136c7147adef0d3426d12eed6ca1a231635b6552"
+  },
+  "inputs": {
+    "data/student5_v3_train_v2/BUILD_LOCK.json": "18ca6b62129543bdc40388a5556cdb2cc4a4f40280ae79e2a856a2990da30786",
+    "data/student5_v3_train_v2/provenance-and-mapping.jsonl.gz": "376e3226a0ce608b425b9caa3d6f7969ba78fadfb3fcf2d36fceeb35b17a59c6",
+    "data/student5_v3_train_v2/quarantine.jsonl.gz": "d05fb7f86f6b4bc5bfde6a04997002079a6d9c87adb9a497fed8cf3c6f5afab3",
+    "data/student5_v3_train_v2/construction-review.json": "c82cbfdfba7aa1eeb40e0f5e3c1de904d56dcc1fe62049f5a3503ea33b2e6322",
+    "data/student5_v3_train_v2/manifest.json": "5d0c3d0aec96b6925ce6e4d30dfb6db29928211eadf90e73fd7003308fdf5168",
+    "data/student5_v3_train_v2/train.jsonl.gz": "b6acf41e6634c2f89e6b8251fb5f816ec60fb0ca1cd6c90dfcbed46c2c12584c",
+    "tools/student5_cp43/repairs.json": "89eb3681491b52ca80c43d470797c482ad06b38c6d9f3255296109180294254c",
+    "tools/student5_cp43/authored.py": "9d7acbf22dcfebd0b3948523584274586cd56ade839c57c63167c506201bdfe5",
+    "tools/student5_cp43/build.py": "5d98110181eb3b099c94cba493e92e3774bb37b143bd7ca35cc2c769bdc459f2",
+    "matrix_nlu/contract_v3.py": "e524946ae9092fdbc1344be106acc065f506c97c0550ad506ba99ee7e0dde371",
+    "matrix_nlu/referent_candidates.py": "a8cbabf3eff816e8eb1e4079ff8ffccb8a7de640bc1d890b5c2d4d4d6f97ec29",
+    "reports/evidence/student5-train-v2-audit-cp42/audit.json": "e771118f4bd45ca7230e4de6e62766ecc1537ba2c891c9a953d8f656dee2d604"
+  },
+  "method": "Read immutable CP42; apply exact reviewed row specifications; representation status normalization; full-semantic exact redundancy reduction with aliases; explicitly authored targeted additions. No source v1 rebuilding.",
+  "knownStatusEncoding": "KNOWN means RESOLVED in frozen Contract V3; NONE=NOT_APPLICABLE, UNKNOWN unresolved, AMBIGUOUS primary UNKNOWN plus genuine ranked alternatives.",
+  "trainingExecuted": false,
+  "fineTuningExecuted": false,
+  "quantizationExecuted": false,
+  "onnxExecuted": false,
+  "devUsedForTraining": false,
+  "frozenDataRead": false
+}

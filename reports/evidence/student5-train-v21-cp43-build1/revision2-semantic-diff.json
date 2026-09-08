@@ -1,0 +1,82 @@
+{
+  "sameRowIds": 1831,
+  "semanticRowsUnchanged": 1827,
+  "changedRows": [
+    {
+      "rowId": "cp43-code-switch-cs_description-0099",
+      "text": "Sono proprio exhausted oggi.",
+      "changes": [
+        {
+          "path": "/claims/0/temporalEvidence",
+          "before": [],
+          "after": [
+            {
+              "span": [
+                23,
+                27
+              ],
+              "temporalId": "t0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rowId": "cp43-code-switch-cs_description-0100",
+      "text": "Estoy bastante exhausted hoy.",
+      "changes": [
+        {
+          "path": "/claims/0/temporalEvidence",
+          "before": [],
+          "after": [
+            {
+              "span": [
+                25,
+                28
+              ],
+              "temporalId": "t0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rowId": "cp43-code-switch-cs_command-0103",
+      "text": "Fai il check-in adesso.",
+      "changes": [
+        {
+          "path": "/claims/0/temporalEvidence",
+          "before": [],
+          "after": [
+            {
+              "span": [
+                16,
+                22
+              ],
+              "temporalId": "t0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rowId": "cp43-code-switch-cs_command-0104",
+      "text": "Haz el check-in ahora.",
+      "changes": [
+        {
+          "path": "/claims/0/temporalEvidence",
+          "before": [],
+          "after": [
+            {
+              "span": [
+                16,
+                21
+              ],
+              "temporalId": "t0"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
