@@ -1,0 +1,157 @@
+{
+  "head": "a07f10ea57e61ef8c3e0ecd923721bb73be2a3ec",
+  "remoteReadback": "PASS",
+  "files": [
+    {
+      "path": "STUDENT5_MODULE_INDEX.md",
+      "bytes": 20130,
+      "sha256": "420b20f1b8c7be5bb0fccce4edb8ce92ed5957adbf1258bb6e7373c6a27845c8",
+      "gitBlobSha": "4cf06ed31e1d7cb309154c57926c074a62a646f0",
+      "matchesLocal": true
+    },
+    {
+      "path": "docs/WORK_CONTINUITY_STUDENT_5.md",
+      "bytes": 71336,
+      "sha256": "fd5fa10ba2b05ddce5be4f5ee5da2a66218ed71115cdca31b132aa66446f9f2a",
+      "gitBlobSha": "53b99a764d7b40d8578a12f7c93b267e7dd3f125",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/STUDENT_5_FP32_SELECTION_CP48.md",
+      "bytes": 6493,
+      "sha256": "effc412e8f0b56510f60e992eb54517e848ee63c3b5e0a1168a1ff78970511fe",
+      "gitBlobSha": "dc8b074b7e34548d0f80189d587f35aacfef345d",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/SHA256SUMS",
+      "bytes": 2036,
+      "sha256": "10ce8dd093a4659aee69d248848810d853e3eafcc5c8c7d0caba07ac378af87e",
+      "gitBlobSha": "01b1deb281ef686ad2e793b368b8168e71922d92",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/actions-runs-inventory.json.gz",
+      "bytes": 10698,
+      "sha256": "a38764e51716975ede64165bc781920712e0fb2d19afe67e51929e3f86705123",
+      "gitBlobSha": "839c0bd1d4e905af1181102b4527f1ee462078ff",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/archive-access-results.json",
+      "bytes": 546,
+      "sha256": "0a0779a15cfd0aea469a38d6bee6779596456bb910eef8fd877aa89cd57aa027",
+      "gitBlobSha": "36fbc52962d36a6c5540536788acd0e0c53e40ed",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/artifacts-inventory.json.gz",
+      "bytes": 53289,
+      "sha256": "61e8c1367f806c8d1c6d78325ffc9a49b21280b3235e77d11cf1b2c04411a0d3",
+      "gitBlobSha": "7343f5c558b12e7a977e80b7a9d3bfffd79b2ff0",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/caches-inventory.json.gz",
+      "bytes": 29362,
+      "sha256": "e8c4ae1697745fc9f317cdfdfa382d83b7e9581b8276aab89b84a7358f895959",
+      "gitBlobSha": "3f8b2749cd72fa285b87665c7f76b089babd8ffe",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/candidate-set-register.json",
+      "bytes": 5161,
+      "sha256": "b03de3e7c2e27dcdc639bff5ec068dcf09e3cba5eaca9f759825f91ddea34134",
+      "gitBlobSha": "b88043c5aff0fd6b7fe8e039ed7fa9123c56fdf0",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/checkpoint-comparison.csv",
+      "bytes": 3038,
+      "sha256": "8c8a0d2e4d748530aa7f0c36fdcdbffcf6afd062e9e1317a48a805bfddce086c",
+      "gitBlobSha": "e22a70f76ca232124fa7dd0f3cdf2f7223f9f9d2",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/checkpoint-comparison.json",
+      "bytes": 12782,
+      "sha256": "3c2d4c0dcbb002f0fcbee8169697043b3cf550d3e6fbbb26c50376a37c5ae66c",
+      "gitBlobSha": "7e1bed9d54d20fe824ea7478d177ae4b6b86dc15",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/commits-inventory.json.gz",
+      "bytes": 16530,
+      "sha256": "258855e66d655e3dd7a465ce88b274fe822a19d7ad0b1d7640f9d0a15613b84d",
+      "gitBlobSha": "96d5d2b71c9ae6a38adeb2247a0fb97e3226b0f5",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/repository-metadata.json.gz",
+      "bytes": 55197,
+      "sha256": "22a5f32acf95d8b9ed9637282a0b974169922be1346b3490d13b987d39201ae3",
+      "gitBlobSha": "68af513355767e3624104ea445ed583c80a384f4",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/result.json",
+      "bytes": 3422,
+      "sha256": "c108966ae30b524f825147f1904774e29ff7bb3a7ffe9818647447743a08b9ed",
+      "gitBlobSha": "65d85c164a8482ff813f01b4187b61919ec3c366",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/search-scope.json",
+      "bytes": 3417,
+      "sha256": "4737a3a91345a8c2493dfabf2f4b53ea3b8840812957c14c1a8660753f81f949",
+      "gitBlobSha": "f2b55ec1ec1886ecf443f2d33f9b7cb1376b885d",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/source-document-register.json.gz",
+      "bytes": 30103,
+      "sha256": "cf523dca52eace718ddd4c7214ece0a7143ae88366be252156b3eaa076b53a9a",
+      "gitBlobSha": "aef7fa61edd64315425db91e6c766c8a97fc0a0a",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/tags-inventory.json.gz",
+      "bytes": 879,
+      "sha256": "70f0794688b383917301d8027586a8bd72c641bd3da337460a9850f6436a49dc",
+      "gitBlobSha": "3768869081cd34c192d8ccc81ec6b547bfdc63b1",
+      "matchesLocal": true
+    },
+    {
+      "path": "reports/evidence/student5-fp32-selection-cp48/workflows-inventory.json.gz",
+      "bytes": 1085,
+      "sha256": "67f1fe9f2ac4210301d9384596271d59afdb434731efed55741e5d7766cc62e6",
+      "gitBlobSha": "c916b219481f218e747db6839119629fe8a5452d",
+      "matchesLocal": true
+    }
+  ],
+  "modifiedExistingPaths": [
+    "STUDENT5_MODULE_INDEX.md",
+    "docs/WORK_CONTINUITY_STUDENT_5.md"
+  ],
+  "addedPaths": [
+    "reports/STUDENT_5_FP32_SELECTION_CP48.md",
+    "reports/evidence/student5-fp32-selection-cp48/SHA256SUMS",
+    "reports/evidence/student5-fp32-selection-cp48/actions-runs-inventory.json.gz",
+    "reports/evidence/student5-fp32-selection-cp48/archive-access-results.json",
+    "reports/evidence/student5-fp32-selection-cp48/artifacts-inventory.json.gz",
+    "reports/evidence/student5-fp32-selection-cp48/caches-inventory.json.gz",
+    "reports/evidence/student5-fp32-selection-cp48/candidate-set-register.json",
+    "reports/evidence/student5-fp32-selection-cp48/checkpoint-comparison.csv",
+    "reports/evidence/student5-fp32-selection-cp48/checkpoint-comparison.json",
+    "reports/evidence/student5-fp32-selection-cp48/commits-inventory.json.gz",
+    "reports/evidence/student5-fp32-selection-cp48/repository-metadata.json.gz",
+    "reports/evidence/student5-fp32-selection-cp48/result.json",
+    "reports/evidence/student5-fp32-selection-cp48/search-scope.json",
+    "reports/evidence/student5-fp32-selection-cp48/source-document-register.json.gz",
+    "reports/evidence/student5-fp32-selection-cp48/tags-inventory.json.gz",
+    "reports/evidence/student5-fp32-selection-cp48/workflows-inventory.json.gz"
+  ],
+  "removedPaths": [],
+  "allOtherRepositoryBlobsUnchanged": true,
+  "datasetBuilderModelCodeUntouched": true
+}
