@@ -1,0 +1,70 @@
+{
+  "dataCommit": "66b41e3c766706f108035335069f426af9e34cfc",
+  "startingHead": "6389e82c255c50964ce2df370a4682ba7206248b",
+  "remoteReadback": "PASS",
+  "files": [
+    {
+      "bytes": 59007,
+      "gitBlobSha": "ebe96d65c76185d8323eb2b7b070ae5dbd531e20",
+      "path": "docs/WORK_CONTINUITY_STUDENT_5.md",
+      "sha256": "f9c5bfcf7f970911c32f828984a069a33bbb054befcd2e67ad1cebfe45d7e056"
+    },
+    {
+      "bytes": 6649,
+      "gitBlobSha": "bfedcefd74fcc029871835fb6686bd1dd88f3db2",
+      "path": "reports/STUDENT_5_FP32_CP44_HANDOFF.md",
+      "sha256": "2204d46c31be102520f3711385d22be74ec8e503fadd8e91fa041f635a545b14"
+    },
+    {
+      "bytes": 6716,
+      "gitBlobSha": "6ca51dd3b8e17d49115aec48b2d14ccc81478c8b",
+      "path": "reports/evidence/student5-fp32-cp44/preflight.json",
+      "sha256": "5abf2881b701e8e2ed2d0249efcc44111d623bbecc6e07c0564493485f5928a3"
+    },
+    {
+      "bytes": 345899,
+      "gitBlobSha": "ebb8f7134ba7b069fb442c8eb15e6be30ef7282f",
+      "path": "reports/evidence/student5-fp32-cp44/prepared-targets.jsonl.gz",
+      "sha256": "1c31639c65a958e5490378df4956c3d6f036def003eb93336704fb6ca97cda45"
+    },
+    {
+      "bytes": 27328,
+      "gitBlobSha": "60927f2a70c9a0f39255e5f32749f9e9070fc2d4",
+      "path": "reports/evidence/student5-fp32-cp44/selection-input.json",
+      "sha256": "247ab14e0827e9d67b05f5c9dccc2835df4df4c8fdbd40e89f2690ad0c0bdda7"
+    },
+    {
+      "bytes": 3451,
+      "gitBlobSha": "44990578f8f11c987da3a94f233a370668c0a913",
+      "path": "reports/evidence/student5-fp32-cp44/source-verification.json",
+      "sha256": "e65d46d6b5764e4cfa33d08c578c1a873c2ca8dcf0bd127228db4acaf217988b"
+    },
+    {
+      "bytes": 7147,
+      "gitBlobSha": "5ea6cdb1884fa049885f5c6036b3172ca756bce0",
+      "path": "tools/student5_fp32/preflight.py",
+      "sha256": "35261491112662d0868100bd8208a04878bdd120b61370bfd8773f83da120ea9"
+    },
+    {
+      "bytes": 799,
+      "gitBlobSha": "c4fcdd7899d26f46401716e82b59fa155626fad3",
+      "path": "reports/evidence/student5-fp32-cp44/SHA256SUMS",
+      "sha256": "abd19a34bc6987eda71bebdd5a564bb5a4ad8516dc1d68b0341cd2a61af4dc58"
+    }
+  ],
+  "verification": "8 files fetched at exact commit; decoded bytes verified by length, SHA-256 and Git blob identity.",
+  "changedExistingPaths": [
+    "docs/WORK_CONTINUITY_STUDENT_5.md"
+  ],
+  "allOtherExistingBlobsUnchanged": true,
+  "workflowRuns": 0,
+  "trainingExecuted": false,
+  "trainDatasetModified": false,
+  "student4Modified": false,
+  "quantizationExecuted": false,
+  "onnxExecuted": false,
+  "androidIntegrationExecuted": false,
+  "frozenUsedForTraining": false,
+  "nextWorkStarted": false,
+  "scope": "Preparation artifacts and dependency evidence only, no trained model. Receipt published in a subsequent metadata-only commit; final SHA/readback supplied in handoff."
+}
